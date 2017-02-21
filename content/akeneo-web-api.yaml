@@ -1,0 +1,1503 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: Akeneo PIM API
+  version: "1.0.0"
+# the domain of the service
+host: demo.akeneo.com
+# array of all schemes that your API supports
+schemes:
+  - http
+produces:
+  - application/json
+paths:
+  /products:
+    get:
+      summary: Get list of products
+      operationId: "products_get_list"
+      tags:
+        - Products
+      description: |
+        The Product endpoint returns information about the PIM products.
+      parameters:
+        - name: search
+          in: query
+          description: Query products
+          required: false
+          type: string
+        - name: channel
+          in: query
+          type: string
+          description: Filter products to return only attributes scopable
+          required: false
+        - name: locales
+          in: query
+          type: string
+          description: Filter products to return only attributes localizable
+          required: false
+        - name: attributes
+          in: query
+          type: string
+          description: Filter products to return only some attributes
+          required: false
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/limit'
+      responses:
+        200:
+          description: Return products paginated
+          schema:
+            title: Products
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/ProductList'
+          examples: {
+            _links: {
+              self: {
+                href: "https://demo.akeneo.com/api/rest/v1/products?page=3&limit=3"
+              },
+              first: {
+                href: "https://demo.akeneo.com/api/rest/v1/products?page=1&limit=3"
+              },
+              last: {
+                href: "https://demo.akeneo.com/api/rest/v1/products?page=8&limit=3"
+              },
+              previous: {
+                href: "https://demo.akeneo.com/api/rest/v1/products?page=2&limit=3"
+              },
+              next: {
+                href: "https://demo.akeneo.com/api/rest/v1/products?page=4&limit=3"
+              }
+            },
+            current_page: 3,
+            pages_count: 8,
+            items_count: 22,
+            _embedded: {
+              _items: [
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/product/top"
+                    }
+                  },
+                  "identifier": "top",
+                  "family": "tshirt",
+                  "groups": [],
+                  "variant_group": null,
+                  "categories": ["summer_collection"],
+                  "enabled": true,
+                  "values": {
+                    "name": [
+                      {
+                        "data": "Top",
+                        "locale": "en_US",
+                        "scope": null,
+                      },
+                      {
+                        "data": "Débardeur",
+                        "locale": "fr_FR",
+                        "scope": null,
+                      }
+                    ],
+                    "description": [
+                      {
+                        "data": "Summer top",
+                        "locale": "en_US",
+                        "scope": "ecommerce"
+                      },
+                      {
+                        "data": "Top",
+                        "locale": "en_US",
+                        "scope": "tablet"
+                      },
+                      {
+                        "data": "Débardeur pour l'été",
+                        "locale": "fr_FR",
+                        "scope": "ecommerce"
+                      },
+                      {
+                        "data": "Débardeur",
+                        "locale": "fr_FR",
+                        "scope": "tablet"
+                      }
+                    ], 
+                    "price": [
+                      {
+                        "locale": null,
+                        "scope": null,
+                        "data": [
+                          {
+                            "amount": "15.5", "currency": "EUR"
+                          },
+                          {
+                            "amount": "15", "currency": "USD"
+                          }
+                        ]
+                      }
+                    ],
+                    "color": [
+                      {
+                        "locale": null,
+                        "scope": null,
+                         "data": "black"
+                      }
+                    ],
+                    "size": [
+                      {
+                        "locale": null,
+                        "scope": null,
+                        "data": "m"
+                      }
+                    ]
+                  },
+                  "created": "2016-06-23T18:24:44+02:00",
+                  "updated": "2016-06-25T17:56:12+02:00",
+                  "associations": {
+                    "PACK": {
+                      "products": ["sunglasse"],
+                      "groups": []
+                    },
+                    "X_SELL": {
+                      "products": [],
+                      "groups": []
+                    }
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/product/cap"
+                    }
+                  },
+                  "identifier": "cap",
+                  "family": "caps",
+                  "groups": [],
+                  "variant_group": null,
+                  "categories": ["summer_collection"],
+                  "enabled": true,
+                  "values": {
+                    "name": [
+                      {
+                        "data": "Cap",
+                        "locale": "en_US",
+                        "scope": null,
+                      },
+                      {
+                        "data": "Casquette",
+                        "locale": "fr_FR",
+                        "scope": null,
+                      }
+                    ],
+                    "description": [
+                      {
+                        "data": "Cap unisex",
+                        "locale": "en_US",
+                        "scope": "ecommerce"
+                      },
+                      {
+                        "data": "Cap unisex",
+                        "locale": "en_US",
+                        "scope": "tablet"
+                      },
+                      {
+                        "data": "Casquette unisexe",
+                        "locale": "fr_FR",
+                        "scope": "ecommerce"
+                      },
+                      {
+                        "data": "Casquette unisexe",
+                        "locale": "fr_FR",
+                        "scope": "tablet"
+                      }
+                    ], 
+                    "price": [
+                      {
+                        "locale": null,
+                        "scope": null,
+                        "data": [
+                          {
+                            "amount": "20", "currency": "EUR"
+                          },
+                          {
+                            "amount": "20", "currency": "USD"
+                          }
+                        ]
+                      }
+                    ],
+                    "color": [
+                      {
+                        "locale": null,
+                        "scope": null,
+                         "data": "black"
+                      }
+                    ]
+                  },
+                  "created": "2016-06-23T18:24:44+02:00",
+                  "updated": "2016-06-25T17:56:12+02:00",
+                  "associations": {
+                    "PACK": {
+                      "products": [],
+                      "groups": []
+                    },
+                    "X_SELL": {
+                      "products": [],
+                      "groups": []
+                    }
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/product/sweat"
+                    }
+                  },
+                  "identifier": "sweat",
+                  "family": null,
+                  "groups": [],
+                  "variant_group": null,
+                  "categories": ["winter_collection"],
+                  "enabled": true,
+                  "values": {
+                  },
+                  "created": "2016-06-23T11:24:44+02:00",
+                  "updated": "2016-06-23T11:24:44+02:00",
+                  "associations": {
+                    "PACK": {
+                      "products": [],
+                      "groups": []
+                    },
+                    "X_SELL": {
+                      "products": [],
+                      "groups": []
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        422:
+          $ref: "#/responses/422Error"
+    post:
+      summary: Create a new product
+      operationId: "products_post"
+      tags:
+        - Products
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/Product"
+      responses:
+        201:
+          $ref: "#/responses/NoContent"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        422:
+          $ref: "#/responses/422Error"
+  /products/{code}:
+    get:
+      summary: Get a product
+      operationId: "products_get"
+      tags:
+        - Products
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          examples: {
+            "identifier": "top",
+            "family": "tshirt",
+            "groups": [],
+            "variant_group": null,
+            "categories": ["summer_collection"],
+            "enabled": true,
+            "values": {
+              "name": [
+                {
+                  "data": "Top",
+                  "locale": "en_US",
+                  "scope": null,
+                },
+                {
+                  "data": "Débardeur",
+                  "locale": "fr_FR",
+                  "scope": null,
+                }
+              ],
+              "description": [
+                {
+                  "data": "Summer top",
+                  "locale": "en_US",
+                  "scope": "ecommerce"
+                },
+                {
+                  "data": "Top",
+                  "locale": "en_US",
+                  "scope": "tablet"
+                },
+                {
+                  "data": "Débardeur pour l'été",
+                  "locale": "fr_FR",
+                  "scope": "ecommerce"
+                },
+                {
+                  "data": "Débardeur",
+                  "locale": "fr_FR",
+                  "scope": "tablet"
+                }
+              ], 
+              "price": [
+                {
+                  "locale": null,
+                  "scope": null,
+                  "data": [
+                    {
+                      "amount": "15.5", "currency": "EUR"
+                    },
+                    {
+                      "amount": "15", "currency": "USD"
+                    }
+                  ]
+                }
+              ],
+              "color": [
+                {
+                  "locale": null,
+                  "scope": null,
+                   "data": "black"
+                }
+              ],
+              "size": [
+                {
+                  "locale": null,
+                  "scope": null,
+                  "data": "m"
+                }
+              ]
+            },
+            "created": "2016-06-23T18:24:44+02:00",
+            "updated": "2016-06-25T17:56:12+02:00",
+            "associations": {
+              "PACK": {
+                "products": ["sunglasse"],
+                "groups": []
+              },
+              "X_SELL": {
+                "products": [],
+                "groups": []
+              }
+            }
+          }
+          description: Content of a product
+          schema:
+            $ref: '#/definitions/Product'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+    patch:
+      summary: Update/create a product
+      operationId: "products_patch"
+      tags:
+        - Products
+      parameters:
+        - $ref: '#/parameters/code'
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Product"
+      responses:
+        200:
+          $ref: "#/responses/NoContent"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        422:
+          $ref: "#/responses/422Error"
+    delete:
+      summary: Delete a product
+      operationId: "products_delete"
+      tags:
+        - Products
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          description: Product has been successfully deleted
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+  
+  /categories:
+    get:
+      summary: Get list of categories
+      operationId: "categories_get_list"
+      description: The Category endpoint returns information about the PIM categories
+      tags:
+        - Categories
+      parameters:
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/limit'
+      responses:
+        200:
+          description: Return categories paginated
+          schema:
+            title: Categories
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/CategoryList'
+          examples: {
+            _links: {
+              self: {
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=2&limit=2"
+              },
+              first: {
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=2"
+              },
+              last: {
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=5&limit=2"
+              },
+              previous: {
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=2"
+              },
+              next: {
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=3&limit=2"
+              }
+            },
+            current_page: 2,
+            pages_count: 5,
+            items_count: 9,
+            _embedded: {
+              _items: [
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/categories/winter_collection"
+                    }
+                  },
+                  "code": "winter_collection",
+                  "parent": null,
+                  "labels": {
+                    "en_US": "Winter collection",
+                    "fr_FR": "Collection hiver"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/categories/summer_collection"
+                    }
+                  },
+                  "code": "summer_collection",
+                  "parent": null,
+                  "labels": {
+                    "en_US": "Summer collection",
+                    "fr_FR": "Collection été"
+                  }
+                }
+              ]
+            }
+          }
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+    post:
+      summary: Create a new category
+      operationId: "categories_post"
+      tags:
+        - Categories
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/Category"
+      responses:
+        201:
+          $ref: "#/responses/NoContent"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        422:
+          $ref: "#/responses/422Error"
+  /categories/{code}:
+    get:
+      summary: Get a category
+      operationId: "categories_get"
+      tags:
+        - Categories
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          examples: {
+            "code": "winter_collection",
+            "parent": null,
+            "labels": {
+              "en_US": "Winter collection",
+              "fr_FR": "Collection hiver"
+            }
+          }
+          description: Content of a category
+          schema:
+            $ref: '#/definitions/Category'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+    patch:
+      summary: Update/create a category
+      operationId: "categories_patch"
+      tags:
+        - Categories
+      parameters:
+        - $ref: '#/parameters/code'
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Category"
+      responses:
+        204:
+          $ref: "#/responses/NoContent"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        422:
+          $ref: "#/responses/422Error"
+  
+  /families:
+    get:
+      summary: Get list of families
+      operationId: "families_get_list"
+      description: The Family endpoint returns information about the PIM families
+      tags:
+        - Families
+      parameters:
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/limit'
+      responses:
+        200:
+          description: Return families paginated
+          schema:
+            title: Families
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/FamilyList'
+          examples: {
+            _links: {
+              self: {
+                href: "https://demo.akeneo.com/api/rest/v1/families?page=2&limit=2"
+              },
+              first: {
+                href: "https://demo.akeneo.com/api/rest/v1/families?page=1&limit=2"
+              },
+              last: {
+                href: "https://demo.akeneo.com/api/rest/v1/families?page=5&limit=2"
+              },
+              previous: {
+                href: "https://demo.akeneo.com/api/rest/v1/families?page=1&limit=2"
+              },
+              next: {
+                href: "https://demo.akeneo.com/api/rest/v1/families?page=3&limit=2"
+              }
+            },
+            current_page: 3,
+            pages_count: 8,
+            items_count: 15,
+            _embedded: {
+              _items: [
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/families/tshirt"
+                    }
+                  },
+                  "code": "tshirt",
+                  "attributes": ["sku", "name", "description", "price", "size", "color"],
+                  "attribute_as_label": "name",
+                  "attribute_requirements": {
+                    "ecommerce": ["sku", "name", "description", "price", "size", "color"],
+                    "tablet": ["sku", "name", "description", "price"]
+                  },
+                  "labels": {
+                    "en_US": "Tshirt",
+                    "fr_FR": "Tshirt"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/families/caps"
+                    }
+                  },
+                  "code": "caps",
+                  "attributes": ["sku", "name", "description", "price", "color"],
+                  "attribute_as_label": "name",
+                  "attribute_requirements": {
+                    "ecommerce": ["sku", "name", "description", "price", "color"],
+                    "tablet": ["sku", "name", "description", "price"]
+                  },
+                  "labels": {
+                    "en_US": "Caps",
+                    "fr_FR": "Casquettes"
+                  }
+                }
+              ]
+            }
+          }
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+    post:
+      summary: Create a new family
+      operationId: "families_post"
+      tags:
+        - Families
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/Family"
+      responses:
+        201:
+          $ref: "#/responses/NoContent"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        422:
+          $ref: "#/responses/422Error"
+  /families/{code}:
+    get:
+      summary: Get a family
+      operationId: "families_get"
+      tags:
+        - Families
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          examples: {
+           "code": "caps",
+            "attributes": ["sku", "name", "description", "price", "color"],
+            "attribute_as_label": "name",
+            "attribute_requirements": {
+              "ecommerce": ["sku", "name", "description", "price", "color"],
+              "tablet": ["sku", "name", "description", "price"]
+            },
+            "labels": {
+              "en_US": "Caps",
+              "fr_FR": "Casquettes"
+            }
+          }
+          description: Content of a family
+          schema:
+            $ref: '#/definitions/Family'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+    patch:
+      summary: Update/create a family
+      operationId: "families_patch"
+      tags:
+        - Families
+      parameters:
+        - $ref: '#/parameters/code'
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Family"
+      responses:
+        204:
+          $ref: "#/responses/NoContent"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        422:
+          $ref: "#/responses/422Error"
+  
+  /attributes:
+    get:
+      summary: Get list of attributes
+      operationId: "attributes_get_list"
+      description: The Attribute endpoint returns information about the PIM attributes
+      tags:
+        - Attributes
+      parameters:
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/limit'
+      responses:
+        200:
+          description: Return attributes paginated
+          schema:
+            title: Attributes
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/AttributeList'
+          examples: {
+            _links: {
+              self: {
+                href: "https://demo.akeneo.com/api/rest/v1/attributes?page=3&limit=2"
+              },
+              first: {
+                href: "https://demo.akeneo.com/api/rest/v1/attributes?page=1&limit=2"
+              },
+              last: {
+                href: "https://demo.akeneo.com/api/rest/v1/attributes?page=8&limit=2"
+              },
+              previous: {
+                href: "https://demo.akeneo.com/api/rest/v1/attributes?page=2&limit=2"
+              },
+              next: {
+                href: "https://demo.akeneo.com/api/rest/v1/attributes?page=4&limit=2"
+              }
+            },
+            current_page: 3,
+            pages_count: 8,
+            items_count: 15,
+            _embedded: {
+              _items: [
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/attributes/sku"
+                    }
+                  },
+                  "code": "sku",
+                  "type": "pim_catalog_identifier",
+                  "group": "other",
+                  "unique": true,
+                  "useable_as_grid_filter": true,
+                  "allowed_extensions": [],
+                  "metric_family": null,
+                  "default_metric_unit": null,
+                  "reference_data_name": null,
+                  "available_locales": [],
+                  "max_characters": null,
+                  "validation_rule": null,
+                  "validation_regexp": null,
+                  "wysiwyg_enabled": false,
+                  "number_min": null,
+                  "number_max": null,
+                  "decimals_allowed": false,
+                  "negative_allowed": false,
+                  "date_min": null,
+                  "date_max": null,
+                  "max_file_size": null,
+                  "minimum_input_length": null,
+                  "sort_order": 1,
+                  "localizable": false,
+                  "scopable": false,
+                  "labels": {
+                    "en_US": "Identifier",
+                    "fr_FR": "Identifiant"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/attributes/sale_date"
+                    }
+                  },
+                  "code": "release_date",
+                  "type": "pim_catalog_date",
+                  "group": "marketing",
+                  "unique": false,
+                  "useable_as_grid_filter": true,
+                  "allowed_extensions": [],
+                  "metric_family": null,
+                  "default_metric_unit": null,
+                  "reference_data_name": null,
+                  "available_locales": [],
+                  "max_characters": null,
+                  "validation_rule": null,
+                  "validation_regexp": null,
+                  "wysiwyg_enabled": false,
+                  "number_min": null,
+                  "number_max": null,
+                  "decimals_allowed": false,
+                  "negative_allowed": false,
+                  "date_min": "2017-06-28T08:00:00",
+                  "date_max": "2017-08-08T22:00:00",
+                  "max_file_size": null,
+                  "minimum_input_length": null,
+                  "sort_order": 1,
+                  "localizable": false,
+                  "scopable": false,
+                  "labels": {
+                    "en_US": "Sale date",
+                    "fr_FR": "Date des soldes"
+                  }
+                }
+              ]
+            }
+          }
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+    post:
+      summary: Create a new attribute
+      operationId: "attributes_post"
+      tags:
+        - Attributes
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/Attribute"
+      responses:
+        201:
+          $ref: "#/responses/NoContent"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        422:
+          $ref: "#/responses/422Error"
+  /attributes/{code}:
+    get:
+      summary: Get an attribute
+      operationId: "attributes_get"
+      tags:
+        - Attributes
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          examples: {
+            "code": "release_date",
+            "type": "pim_catalog_date",
+            "group": "marketing",
+            "unique": false,
+            "useable_as_grid_filter": true,
+            "allowed_extensions": [],
+            "metric_family": null,
+            "default_metric_unit": null,
+            "reference_data_name": null,
+            "available_locales": [],
+            "max_characters": null,
+            "validation_rule": null,
+            "validation_regexp": null,
+            "wysiwyg_enabled": false,
+            "number_min": null,
+            "number_max": null,
+            "decimals_allowed": false,
+            "negative_allowed": false,
+            "date_min": "2017-06-28T08:00:00",
+            "date_max": "2017-08-08T22:00:00",
+            "max_file_size": null,
+            "minimum_input_length": null,
+            "sort_order": 1,
+            "localizable": false,
+            "scopable": false,
+            "labels": {
+              "en_US": "Sale date",
+              "fr_FR": "Date des soldes"
+            }
+          }
+          description: Content of an attribute
+          schema:
+            $ref: '#/definitions/Attribute'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+    patch:
+      summary: Update/create an attribute
+      operationId: "attributes_patch"
+      tags:
+        - Attributes
+      parameters:
+        - $ref: '#/parameters/code'
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Attribute"
+      responses:
+        204:
+          $ref: "#/responses/NoContent"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        422:
+          $ref: "#/responses/422Error"
+          
+  /attributes/{attribute_code}/options:
+    get:
+      summary: Get list of attribute options
+      operationId: "attribute_options_get_list"
+      description: The Attribute Option endpoint returns information about the PIM attribute options
+      tags:
+        - Attributes
+      parameters:
+        - $ref: '#/parameters/attribute_code'
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/limit'
+      responses:
+        200:
+          description: Return attribute options paginated
+          schema:
+            title: Attribute Options
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/AttributeOptionList'
+          examples: {
+            _links: {
+              self: {
+                href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=3&limit=3"
+              },
+              first: {
+                href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=1&limit=3"
+              },
+              last: {
+                href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=8&limit=3"
+              },
+              previous: {
+                href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=2&limit=3"
+              },
+              next: {
+                href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=4&limit=3"
+              }
+            },
+            current_page: 3,
+            pages_count: 8,
+            items_count: 22,
+            _embedded: {
+              _items: [
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/attributes/color/options/red"
+                    }
+                  },
+                  "code": "red",
+                  "attribute": "a_simple_select",
+                  "sort_order": 1,
+                  "labels": {
+                    "en_US": "Red",
+                    "fr_FR": "Rouge"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/attributes/color/options/black"
+                    }
+                  },
+                  "code": "black",
+                  "attribute": "a_simple_select",
+                  "sort_order": 2,
+                  "labels": {
+                    "en_US": "Black",
+                    "fr_FR": "Noir"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/attributes/color/options/purple"
+                    }
+                  },
+                  "code": "purple",
+                  "attribute": "a_simple_select",
+                  "sort_order": 3,
+                  "labels": {
+                    "en_US": "Purple",
+                    "fr_FR": "Violet"
+                  }
+                }
+              ]
+            }
+          }
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+    post:
+      summary: Create a new attribute option
+      operationId: "attribute_options_post"
+      tags:
+        - Attributes
+      parameters:
+        - $ref: '#/parameters/attribute_code'
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/AttributeOption"
+      responses:
+        201:
+          $ref: "#/responses/NoContent"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        422:
+          $ref: "#/responses/422Error"
+  /attributes/{attribute_code}/option/{code}:
+    get:
+      summary: Get an attribute option
+      operationId: "attribute_options_get"
+      tags:
+        - Attributes
+      parameters:
+        - $ref: '#/parameters/attribute_code'
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          examples: {
+            "code": "black",
+            "attribute": "a_simple_select",
+            "sort_order": 2,
+            "labels": {
+              "en_US": "Black",
+              "fr_FR": "Noir"
+            }
+          }
+          description: Content of an attribute option
+          schema:
+            $ref: '#/definitions/AttributeOption'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+    patch:
+      summary: Update/create an attribute option
+      operationId: "attribute_options_patch"
+      tags:
+        - Attributes
+      parameters:
+        - $ref: '#/parameters/attribute_code'
+        - $ref: '#/parameters/code'
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/AttributeOption"
+      responses:
+        204:
+          $ref: "#/responses/NoContent"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        422:
+          $ref: "#/responses/422Error"
+  
+  
+definitions:
+  Product:
+    type: object
+    properties:
+      identifier:
+        type: string
+        description: Identifier of product
+      enabled:
+        type: boolean
+        description: Status of product
+      family:
+        type: string
+        description: Code of product's family
+      categories:
+        type: array
+        description: Codes of product's categories
+        items:
+          type: string
+      groups:
+        type: array
+        description: Codes of product's groups
+        items:
+          type: string
+      variant_group:
+        type: string
+        description: Codes of product's variant group
+      values:
+        type: array
+        description: Product values
+        items: {}
+      associations:
+        type: object
+        description: Several associations related to groups and/or other products
+        items: {}
+      created:
+        type: string
+        description: Date of creation
+        format: dateTime
+      updated:
+        type: string
+        description: Date of the last update
+        format: dateTime
+  ProductList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/Product'
+  Category:
+    properties:
+      code:
+        type: string
+        description: Code of category
+      parent:
+        type: string
+        description: Code of the parent category
+      labels:
+        type: object
+        description: Labels of the category
+  CategoryList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/Category'
+  Family:
+    type: object
+    properties:
+      code:
+        type: string
+        description: Code of family
+      attributes:
+        type: array
+        description: Codes of all attributes in family
+        items:
+          type: string
+      attribute_as_label:
+        type: string
+        description: Code of attribute used as label
+      attribute_requirements:
+        type: array
+        description: Codes of requirements attributes in family
+        items:
+          type: array
+          description: Code of requirements attributes by channel
+          items:
+            type: string
+      labels:
+        type: object
+        description: Labels of the family
+        items:
+          type: string
+  FamilyList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/Family'
+  Attribute:
+    type: object
+    properties:
+      code:
+        type: string
+        description: Code of attribute
+      labels:
+        type: object
+        description: Labels of the attribute
+      type:
+        type: string
+        description: Type of attribute
+      group:
+        type: string
+        description: Group
+      unique:
+        type: boolean
+        description: Attribute should be unique ?
+      useable_as_grid_filter:
+        type: boolean
+        description: Can you use this attribute inside the grid ?
+      allowed_extensions:
+        type: array
+        description: Extensions allowed when attribute is a file or an image
+        items:
+          type: string
+      metric_family:
+        type: string
+        description: Metric family
+      default_metric_unit:
+        type: string
+        description: Default metric unit
+      reference_data_name:
+        type: string
+        description: Name of the reference data
+      available_locales:
+        type: array
+        description: Available locales when attribute has local specific
+        items:
+          type: string
+      max_characters:
+        type: integer
+        description: Max characters allowed
+      validation_rule:
+        type: string
+        description: Validation rule on attribute
+      validation_regexp:
+        type: string
+        description: Regexp validation on attribute
+      wysiwyg_enabled:
+        type: boolean
+        description: Enabled the WYSIWYG for text attribute ?
+      number_min:
+        type: string
+        description: Number min
+      number_max:
+        type: string
+        description: Number max
+      decimals_allowed:
+        type: boolean
+        description: Decimals are allowed ?
+      negative_allowed:
+        type: boolean
+        description: Negative is allowed ?
+      date_min:
+        type: string
+        description: Date min
+      date_max:
+        type: string
+        description: Date max
+      max_file_size:
+        type: string
+        description: Max file size on file attribute
+      minimum_input_length:
+        type: integer
+        description: Minimum input length
+      sort_order:
+        type: integer
+        description: Order of attribute 
+      localizable:
+          type: boolean
+          description: Attribute is localizable ?
+      scopable:
+          type: boolean
+          description: Attribute is scopable ?
+  AttributeList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/Attribute'
+  AttributeOption:
+    type: object
+    properties:
+      code: 
+        type: string
+        description: Code of option
+      attribute: 
+        type: string
+        description: Code of attribute related to the attribute option
+      sort_order: 
+        type: integer
+        description: Order of attribute option
+      labels:
+        type: object
+        description: Labels of the attribute option
+  AttributeOptionList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/AttributeOption'
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+  Pagination:
+    type: object
+    properties:
+      _links:
+        type: object
+        properties:
+          self:
+            type: object
+            properties:
+              href:
+                type: string
+          first:
+            type: object
+            properties:
+              href:
+                type: string
+          last:
+            type: object
+            properties:
+              href:
+                type: string
+          previous:
+            type: object
+            properties:
+              href:
+                type: string
+          next:
+            type: object
+            properties:
+              href:
+                type: string
+      current_page:
+        type: integer
+      pages_count:
+        type: integer
+      items_count:
+        type: integer
+  ItemList:
+    type: object
+    properties:
+      _links:
+        type: object
+        properties:
+          self: 
+            type: object
+            properties:
+              href:
+                type: string
+        
+responses:
+  NoContent:
+    description: No content to return
+    headers:
+      Location: 
+        description: URI of the resource
+        type: string
+  400Error:
+    description: Bad request
+    schema:
+      $ref: "#/definitions/Error"
+  401Error:
+    description: Authentication required
+    schema:
+      $ref: "#/definitions/Error"
+  403Error:
+    description: Access forbidden
+    schema:
+      $ref: "#/definitions/Error"
+  404Error:
+    description: Resource not found
+    schema:
+      $ref: "#/definitions/Error"
+  422Error:
+    description: Unprocessable entity
+    schema:
+      $ref: "#/definitions/Error"
+
+parameters:
+  page:
+    name: page
+    in: query
+    description: Sets the position of the first result to retrieve
+    required: false
+    type: integer
+  limit:
+    name: limit
+    in: query
+    description: Sets the maximum number of results to retrieve
+    required: false
+    type: integer
+    minimum: 1
+    maximum: 100
+  code:
+    name: code
+    in: path
+    description: Code of the resource
+    required: true
+    type: string
+  attribute_code:
+    name: attribute_code
+    in: path
+    description: Code of the attribute
+    required: true
+    type: string

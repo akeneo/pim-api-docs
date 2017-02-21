@@ -1,0 +1,47 @@
+.alert{
+  background-color: lighten(@text-color, 50%);
+  border: none;
+  color: @text-color;
+  font-size: @font-size-base;
+  position: relative;
+  margin-top: @spacing-base / 2;
+  padding-left: 20px;
+  padding-top: 20px;
+  p{
+    margin-bottom: 13.5px;
+  }
+  &:after{
+    content: '?';
+    text-align: center;
+    background-color: @gray;
+    color: white;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -12px;
+    top: calc(50% - 10px);
+    line-height: 21px;
+  }
+  &.alert-warning{
+    border-left: 4px solid @brand-warning;
+    &:after{
+      content: '!';
+      background-color: @brand-warning;
+    }
+  }
+  &.alert-info{
+    border-left: 4px solid @brand-info;
+    &:after{
+      content: 'i';
+      background-color: @brand-info;
+    }
+  }
+  &.alert-danger{
+    border-left: 4px solid @brand-danger;
+    &:after{
+      content: 'x';
+      background-color: @brand-danger;
+      line-height: 16px;
+    }
+  }
+}

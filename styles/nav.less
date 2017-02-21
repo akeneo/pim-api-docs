@@ -1,0 +1,92 @@
+// Main navbar
+.navbar-default .navbar-nav {
+  > a, > a:hover, a:focus{
+    &:after{
+      content: '';
+      border-bottom: 2px solid @navbar-default-color;
+      width: 30px;
+      bottom: 15px;
+      border-bottom: 2px solid #fff;
+      position: absolute;
+      right: 40%; 
+    }
+  }
+  p.navbar-text{
+    margin-top: 24.5px;
+    margin-bottom: 20.5px;
+  }
+}
+.navbar-default .navbar-nav > .active {
+  > a, > a:hover, a:focus{
+    color: @navbar-default-color;
+    background-color: initial;
+    &:after{
+      content: '';
+      border-bottom: 2px solid @navbar-default-color;
+      width: 30px;
+      bottom: 15px;
+      border-bottom: 2px solid #fff;
+      position: absolute;
+      right: 40%; 
+    }
+  }
+
+  &:after{
+    content: '';
+    border-bottom: 2px solid @navbar-default-color;
+    width: 30px;
+    bottom: 15px;
+    border-bottom: 2px solid #fff;
+    position: absolute;
+    right: 40%; 
+  }
+}
+
+// Table of content
+ul.nav.nav-stacked{
+  padding: 80px 20px 0 0;
+  li{
+    a {
+      padding: 3px 10px;
+    } 
+    &.main-nav{
+      > a {
+        color: @headings-color;
+        font-size: @font-size-large;
+      }
+      .sub-nav{
+        display: none;
+        border-bottom: 1px @gray-lighter solid;
+        > a {
+          font-size: @font-size-small;
+          color: @text-color;
+        }
+        &.active{
+          background-color: @gray-lighter;
+        }
+      }   
+      &.active .sub-nav {
+        display: block;
+        &:last-of-type{
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+}
+
+// Tabs
+.nav.nav-tabs.nav-tabs-responses{
+  > li a, > li a.active{
+    padding: 5px @spacing-base/3;
+    color: @text-color;
+  }
+}
+.nav.nav-tabs.nav-tabs-sneak-peek{
+  > li a {
+    color: @text-color;
+    svg{
+      width: 40px;
+    }
+  }
+}

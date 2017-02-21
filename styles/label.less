@@ -1,0 +1,19 @@
+.label-akeneo {
+  .label-variant(@brand-akeneo);
+}
+
+.label.label-verb{
+  text-transform: uppercase;
+  &.label-patch{
+    .label-akeneo();
+  }
+  &.label-post{
+    .label-info();
+  }
+  &.label-get{
+    .label-success();
+  }
+  &.label-delete{
+    .label-danger();
+  }
+}

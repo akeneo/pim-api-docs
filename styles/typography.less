@@ -1,0 +1,41 @@
+h1{
+  font-weight: bold;
+  margin-top: @spacing-base * 1.25;
+}
+
+h2{
+  margin-top: @spacing-base;
+  margin-bottom: @spacing-base / 3;
+  &.picto{
+    position: relative;
+    svg{
+      right: @spacing-base;
+      top: -@spacing-base * 0.60;
+      position: absolute;
+      display: inline-block;
+      width: 170px;
+      height: 170px;
+    }
+  }
+  + .panel{
+    margin-top: @spacing-base / 2;
+  }
+}
+
+h3{
+  &.picto{
+    svg{
+      display: inline-block;
+      width: @font-size-h3 * 2;
+      height: @font-size-h3 * 2;
+    }
+  }
+}
+
+h4{
+  color: @gray-light;
+}
+
+h5{
+  font-weight: bold;
+}

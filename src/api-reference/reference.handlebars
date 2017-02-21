@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Complete API Reference</title>
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+  <script src='js/jquery.min.js' type='text/javascript'></script>
+  <script src='js/bootstrap.min.js' type='text/javascript'></script>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="icon" type="image/png" href="img/akene36.png">
+</head>
+<body data-spy="scroll" data-target="#navbar">
+	<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><img alt="Akeneo" src="img/akene.png" width="50"></a>
+        <p class="navbar-text">Akeneo Web API</p>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/getting-started.html">Getting started</a></li>
+          <li><a href="/documentation.html">Documentation</a></li>
+          <li class="active"><a href="/api-reference-index.html">API reference</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div id="navbar" class="col-sm-3 hidden-xs">
+        <nav role="tablist" data-spy="affix" data-offset-top="80">
+          <ul class="nav nav-stacked">
+          	{{#each ressources as |operations ressource|}}
+            	<li class="main-nav"><a href="#{{{ressource}}}">{{{ressource}}}</a>
+	          		<ul class="nav">
+								{{#each operations as |operation operationId|}}
+		            	<li class="sub-nav"><a href="#{{{operationId}}}"><i class="fa fa-square fa-{{{verb}}}"></i> {{{summary}}}</a></li>
+		            {{/each}}
+		            </ul>
+	            </li>
+	          {{/each}}
+          </ul>
+        </nav>
+      </div>
+      <div class="col-xs-12 col-sm-9">
+        <h1>API reference</h1>
+        <em>Complete reference on how to handle Akeneo PIM resources</em>
+        {{#each ressources as |operations ressource|}} 
+        	<a class="anchor" id="{{{ressource}}}"></a>
+        	<h2 class="picto">{{{ressource}}}
+        		<svg viewBox="0 0 100 100">
+					  	<use xlink:href="img/icons.svg#icon_{{{ressource}}}"></use>
+						</svg>
+					</h2>
+        	{{#each operations as |operation operationId|}}
+		        <div class="panel panel-default">
+		          <div class="panel-body">
+		            <div class="row">
+		              <div class="col-xs-12">
+        						<a class="anchor" id="{{{operationId}}}"></a>
+		              	<h3>{{{summary}}}</h3>
+		              	<p>{{{description}}}</p>
+		                <h4>REQUEST</h4>
+		                <p><span class="label label-verb label-{{{verb}}}">{{{verb}}}</span><span class="text-api-url">{{{path}}}</span></p>
+		                <div class="row">
+		                  <div class="col-md-6"> 
+		                    <h5>Path parameters</h5>
+		                    {{#with groupedParameters}}
+		                    	{{#each path}}
+		                    		<p><code>{{{name}}}</code><em> ({{{type}}})</em> &bull; {{{description}}}</p>
+		                    	{{else}}
+		                    		<p>Ø</p>
+		                    	{{/each}}
+		                    {{/with}}
+		                  </div>
+		                  <div class="col-md-6">
+		                    <h5>Query parameters</h5>
+		                    {{#with groupedParameters}}
+		                    	{{#each query}}
+		                    		<p><code>{{{name}}}</code><em> ({{{type}}})</em> &bull; {{{description}}}</p>
+		                    	{{else}}
+		                    		<p>Ø</p>
+		                    	{{/each}}
+		                    {{/with}}
+		                  </div>
+		                </div>
+		                <div class="row">
+		                  <div class="col-xs-12">
+		                    <h5>Headers</h5>
+		                    {{#with groupedParameters}}
+			                    {{#each body}}
+			                    	<p><code>Content-type</code><i class="fa fa-asterisk fa-danger"></i> &bull; Equal to 'application/json'</p>
+		                    	{{else}}
+			                    	<p><code>Accept</code> &bull; Equal to 'application/json'</p>
+			                    {{/each}}
+		                    {{/with}}
+		                    <h5>Body</h5>
+		                    {{#with groupedParameters}}
+		                    	{{#each body}}
+		                    		{{#with schema}}
+		                    			<p>Follow the standard format of the entity</p>
+		                    			<div class="row">
+		                    				<div class="col-md-6">
+		                    					<div class="def">
+			                    					<p>{{{name}}} {</p>
+			                    					{{#each properties}}
+			                    					<p class="def-key"><code>{{{@key}}}</code>{{#if required}}<i class="fa fa-asterisk fa-danger"></i>{{/if}} <em>({{{type}}}{{#if items}}{{#with items}}[{{{type}}}]{{/with}}{{/if}}{{#if properties}}{{#each properties}}{ {{{@key}}}: {{{type}}} }{{/each}}{{/if}})</em> &bull; {{{description}}}</p>
+			                    					{{/each}}
+			                    					<p>}</p>
+		                    					</div>
+																</div>
+		                    				<div class="col-md-6">
+		                    					<p>Example</p>
+		                    					<pre class="hljs"><code>{
+		                    					{{#each properties}}
+  <span class="hljs-attr">"{{{@key}}}"</span>: {{#with example}}{{#if sample}}<span class="hljs-{{{type}}}">{{{sample}}}</span>{{/if}}{{#if items_sample}}<span>[</span><span class="hljs-{{{items_type}}}">{{{items_sample}}}, </span><span class="hljs-{{{items_type}}}">{{{items_sample}}}, </span><span class="hljs-{{{items_type}}}">{{{items_sample}}}</span><span>]</span>{{/if}}{{/with}}
+  {{/each}}
+}
+</code></pre>
+		                    					
+																</div>
+		                    			</div>
+		                    		{{/with}}
+		                    	{{else}}
+		                    		<p>Ø</p>
+		                    	{{/each}}
+		                    {{/with}}
+		                  </div>
+		                </div>
+		                <hr>
+		                <h4>RESPONSES</h4>
+		                <ul class="nav nav-tabs nav-tabs-responses">
+		                	{{#each responses}}
+		                  <li role="presentation" {{#if @first}}class="active"{{/if}}>
+		                  	<a href="#{{{id}}}" data-toggle="tab"><i class="fa {{#if error}}fa-times-circle fa-danger{{/if}}{{#if success}}fa-check-circle fa-success{{/if}}"></i> {{{@key}}}</a>
+		                  </li>
+		                  {{/each}}
+		                </ul>
+		                <div class="panel panel-default">
+		                  <div class="panel-body">
+		                    <div class="row tab-content">
+		                			{{#each responses}}
+		                      <div role="tabpanel" class="col-xs-12 tab-pane {{#if @first}}active{{/if}}" id="{{id}}">
+		                      	<p><strong>{{{description}}}</strong></p>
+		                      	{{#if headers}}
+		                      		<h5>Headers</h5>
+		                      		{{#each headers}}
+			                      		<p><strong>{{{@key}}}</strong> {{{description}}}</p>
+		                      		{{/each}}
+		                      	{{/if}}
+		                        <h5>Body <small>Format <span class="label label-default">application/json</span></small></h5>
+		                    		{{#if success}}
+		                    			{{#with schema}}
+		                    			<p>Follow the standard format of the entity</p>
+		                    			{{/with}}
+		                    			<div class="row">
+		                    				<div class="col-xs-12">
+		                    				{{#with schema}}
+		                    					<div class="def">
+			                    					<p>{{{name}}} {</p>
+			                    					{{#each properties}}
+			                    					<p class="def-key"><code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}{{#with items}}[{{{type}}}]{{/with}}{{/if}}{{#if properties}}{{#each properties}}{ {{{@key}}}: {{{type}}} }{{/each}}{{/if}})</em> &bull; {{{description}}}</p>
+			                    					{{/each}}
+			                    					{{#each allOf}}
+				                    					{{#each properties}}
+				                    					<p class="def-key"><code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}{{#with items}}[{{{type}}}]{{/with}}{{/if}})</em> 
+				                    					{{#if properties}}:     { <br>
+				                    						{{#each properties}}
+				                    							&nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}})</em>
+									                    			{{#if properties}}:     { <br>
+									                    				{{#each properties}}
+									                    					&nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}})</em> &bull; {{#unless @last}} <br> {{/unless}}
+									                    				{{/each}}<br>&nbsp; &nbsp; }
+									                    			{{else}}
+									                    				&bull; {{{description}}}</p>
+									                    			{{/if}}
+									                    			{{#unless @last}} <br> {{/unless}}
+				                    						{{/each}}<br>  }
+				                    					{{else}}
+				                    				  	&bull; {{{description}}}</p>
+				                    					{{/if}}
+				                    					{{#if items}}
+				                    						YO
+				                    					{{/if}}
+				                    					{{/each}}
+			                    					{{/each}}
+			                    					<p>}</p>
+		                    					</div>
+		                    				{{else}}
+		                    					<p>Ø</p>
+		                    				{{/with}}
+																</div>
+																{{#if example}}
+		                    				<div class="col-xs-12">
+		                    					<p>Example</p>
+		                    					<div>{{{example}}}</div>
+																</div>
+																{{/if}}
+		                    			</div>
+		                    		{{else}}
+		                    		{{#with schema}}
+		                    		<div class="row">
+		                    			<div class="col-xs-12">
+		                    				<pre class="hljs"><code>{
+		                    					{{#each properties}}
+  <span class="hljs-attr">"{{{@key}}}"</span>: {{#with example}}{{#if sample}}<span class="hljs-{{{type}}}">{{{sample}}}</span>{{/if}}{{#if items_sample}}<span>[</span><span class="hljs-{{{items_type}}}">{{{items_sample}}}, </span><span class="hljs-{{{items_type}}}">{{{items_sample}}}, </span><span class="hljs-{{{items_type}}}">{{{items_sample}}}</span><span>]</span>{{/if}}{{/with}}
+  {{/each}}
+}
+</code></pre>
+		                    					
+																</div>
+		                    			</div>
+		                    		{{else}}
+		                    		<p>Ø</p>
+		                    		{{/with}}
+		                    		{{/if}}
+		                      </div>
+		                      {{/each}}
+		                    </div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="panel-footer">
+		          	<div class="row">
+		          		<div class="col-xs-12">
+		                <h4>CURL EXAMPLE</h4>
+		                <div class="row">
+		                  <div class="col-md-6">
+		                    <h5>Request</h5>
+											</div>
+		                  <div class="col-md-6">
+		                    <h5>Response</h5>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	        {{/each}}   
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

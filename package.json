@@ -1,0 +1,27 @@
+{
+  "name": "pim-api-docs",
+  "dependencies": {
+    "jquery": "3.1.1",
+    "font-awesome": "4.7.0",
+    "bootstrap": "3.3.7"
+  },
+  "devDependencies": {
+    "del": "2.2.2",
+    "gulp": "3.9.1",
+    "gulp-concat": "2.6.1",
+    "gulp-handlebars-html": "0.0.2",
+    "gulp-json-transform": "0.4.2",
+    "gulp-less": "3.3.0",
+    "gulp-markdown-it-adapter": "0.1.1",
+    "gulp-rename": "1.2.2",
+    "gulp-swagger": "1.0.1",
+    "gulp-webserver": "0.9.1",
+    "handlebars": "4.0.6",
+    "highlightjs": "9.8.0",
+    "lodash": "4.17.4",
+    "markdown-it": "8.2.2",
+    "markdown-it-container": "2.0.0",
+    "markdown-it-toc-and-anchor": "4.1.1",
+    "merge-stream": "^1.0.1"
+  }
+}

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Doc</title>
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src='js/bootstrap.min.js' type='text/javascript'></script>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="icon" type="image/png" href="img/akene36.png">
+</head>
+<body data-spy="scroll" data-target="#navbar">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><img alt="Akeneo" src="img/akene.png" width="50"></a>
+        <p class="navbar-text">Akeneo Web API</p>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/getting-started.html">Getting started</a></li>
+          <li><a href="/documentation.html">Documentation</a></li>
+          <li><a href="/api-reference-index.html">API reference</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-lg-8">
+          <img class="img-responsive center-block" alt="Akeneo" src="img/akene.png">
+          <h1 class="text-center">Build amazing tools on top of your favorite PIM</h1>
+        </div>
+        <div class="col-xs-6 col-lg-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Wanna get started?</h2>
+              <p>Tell me who you are and I will tell you where to begin...</p>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="panel panel-default panel-landing-page panel-clickable">
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-xs-9">
+                          <p>I'm a developer!</p>
+                          <p>And I want to make my first request</p>
+                        </div>
+                        <div class="col-xs-3">
+                          <svg viewBox="0 0 100 100">
+                            <use xlink:href="img/icons.svg#developer"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default panel-landing-page panel-clickable">
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-xs-9">
+                          <p>I'm a PIM administrator!</p>
+                          <p>And I want to manage the access to the API</p>
+                        </div>
+                        <div class="col-xs-3">
+                          <svg viewBox="0 0 100 100">
+                            <use xlink:href="img/icons.svg#lock"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-offset-1 col-xs-10">
+        <div class="row">
+          <div class="col-xs-3">
+            <a href="/api-reference-index.html#Products" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                  <use xlink:href="img/icons.svg#icon_Products"></use>
+                </svg>
+                <p class="text-center">Products</p>
+              </a>
+          </div>
+          <div class="col-xs-offset-1 col-xs-2">
+            <a href="/api-reference-index.html#Categories" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                  <use xlink:href="img/icons.svg#icon_Categories"></use>
+              </svg>
+              <p class="text-center">Categories</p>
+            </a>
+          </div>
+          <div class="col-xs-offset-1 col-xs-2">
+            <a href="/api-reference-index.html#Families" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                <use xlink:href="img/icons.svg#icon_Families"></use>
+              </svg>
+              <p class="text-center">Families</p>
+            </a>
+          </div>
+          <div class="col-xs-offset-1 col-xs-2">
+            <a href="/api-reference-index.html#Attributes" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                <use xlink:href="img/icons.svg#icon_Attributes"></use>
+              </svg>
+              <p class="text-center">Attributes</p>
+            </a>
+          </div>
+          <div class="col-xs-offset-1 col-xs-2">
+            <a href="/api-reference-index.html#Files" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                <use xlink:href="img/icons.svg#icon_Files"></use>
+              </svg>
+              <p class="text-center">Files</p>
+            </a>
+          </div>
+          <div class="col-xs-offset-1 col-xs-2">
+            <a href="/api-reference-index.html#Channels" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                <use xlink:href="img/icons.svg#icon_Channels"></use>
+              </svg>
+              <p class="text-center">Channels</p>
+            </a>
+          </div>
+          <div class="col-xs-offset-1 col-xs-2">
+            <a href="/api-reference-index.html#Locales" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                <use xlink:href="img/icons.svg#icon_Locales"></use>
+              </svg>
+              <p class="text-center">Locales</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-xs-offset-1 col-xs-11">
+        <h2>Here are the available resources. Let's play!</h2>
+      </div>
+      <div class="col-xs-offset-2 col-xs-8">
+        <div class="row">
+          <div class="col-xs-6 col-md-offset-1 col-md-4">
+            <a href="/api-reference.html#Products" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                  <use xlink:href="img/icons.svg#icon_Products"></use>
+                </svg>
+                <p class="text-center">Products</p>
+              </a>
+          </div>
+          <div class="col-xs-3 col-md-2">
+            <a href="/api-reference.html#Categories" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                  <use xlink:href="img/icons.svg#icon_Categories"></use>
+              </svg>
+              <p class="text-center">Categories</p>
+            </a>
+          </div>
+          <div class="col-xs-3 col-md-2">
+            <a href="/api-reference.html#Families" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                <use xlink:href="img/icons.svg#icon_Families"></use>
+              </svg>
+              <p class="text-center">Families</p>
+            </a>
+          </div>
+          <div class="col-xs-3 col-md-2">
+            <a href="/api-reference.html#Attributes" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                <use xlink:href="img/icons.svg#icon_Attributes"></use>
+              </svg>
+              <p class="text-center">Attributes</p>
+            </a>
+          </div>
+          <div class="col-xs-3 col-md-2">
+            <a href="/api-reference.html#Files" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                <use xlink:href="img/icons.svg#icon_Files"></use>
+              </svg>
+              <p class="text-center">Files</p>
+            </a>
+          </div>
+          <div class="col-xs-offset-3 col-xs-3 col-md-offset-0 col-md-2">
+            <a href="/api-reference.html#Channels" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                <use xlink:href="img/icons.svg#icon_Channels"></use>
+              </svg>
+              <p class="text-center">Channels</p>
+            </a>
+          </div>
+          <div class="col-xs-3 col-md-2">
+            <a href="/api-reference.html#Locales" class="link-resource">
+              <svg viewBox="0 0 100 100">
+                <use xlink:href="img/icons.svg#icon_Locales"></use>
+              </svg>
+              <p class="text-center">Locales</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col-xs-offset-1 col-xs-10">
+        <h2>Sneak peek into the API</h2>
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="nav nav-tabs nav-tabs-sneak-peek">
+              <li role="presentation" class="active">
+                <a href="#get_a_product" data-toggle="tab">
+                  <svg viewBox="0 0 100 100">
+                    <use xlink:href="img/icons.svg#icon_Products"></use>
+                  </svg> Get a single product
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#list_categories" data-toggle="tab">
+                  <svg viewBox="0 0 100 100">
+                    <use xlink:href="img/icons.svg#icon_Categories"></use>
+                  </svg> Update a category
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#update_a_family" data-toggle="tab">
+                  <svg viewBox="0 0 100 100">
+                    <use xlink:href="img/icons.svg#icon_Families"></use>
+                  </svg> List families
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#get_a_product" data-toggle="tab">
+                  <svg viewBox="0 0 100 100">
+                    <use xlink:href="img/icons.svg#icon_Attributes"></use>
+                  </svg>Create an attribute
+                </a>
+              </li>
+            </ul>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="get_a_product">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <h3>Get a single product</h3>
+                      </div>
+                      <div class="col-xs-6">
+                        <h4>REQUEST</h4>
+                        <pre class="hljs"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">api/rest/v1/products/my_product</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: demo.akeneo.com
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+</code></pre>
+                    </div>
+                    <div class="col-xs-6">
+                      <h4>RESPONSE</h4>
+                      <pre class="hljs"><code><span class="hljs-attribute">200 OK
+
+{
+  "identifier"</span>: "myproduct",
+  "<span class="hljs-attribute">family"</span>: null,
+  "<span class="hljs-attribute">groups"</span>: ["group_code_1", "group_code_3"],
+  "<span class="hljs-attribute">variant_group"</span>: null,
+  "<span class="hljs-attribute">categories"</span>: ["category_code_1"],
+  "<span class="hljs-attribute">values"</span>: {
+    "<span class="hljs-attribute">attribute_code_1":[
+      {
+        "locale"</span>: null,
+        "<span class="hljs-attribute">scope"</span>: null
+        "<span class="hljs-attribute">data"</span>: 10
+      }
+    ]
+  },
+  "<span class="hljs-attribute">associations"</span>: {
+    "<span class="hljs-attribute">pack"</span>: {
+      "<span class="hljs-attribute">groups"</span>: []
+      "<span class="hljs-attribute">products"</span>: ["product_identifier_1","product_identifier_2"]
+     },
+     "<span class="hljs-attribute">x_sell"</span>: {
+       "<span class="hljs-attribute">groups"</span>: [],
+       "<span class="hljs-attribute">products"</span>: []
+     }
+  }
+}
+</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="update_a_family">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <h3>Update a family</h3>
+                      </div>
+                      <div class="col-xs-6">
+                        <h4>REQUEST</h4>
+                        <pre class="hljs"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">api/rest/v1/families/myfamily</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: demo.akeneo.com
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+
+{
+  "<span class="hljs-attribute">code":"myfamily",
+  "labels":{
+       "en_US":"Family 1",
+       "de_DE":"Familie 1",
+       "fr_FR":"Famille 1"
+   },
+  "attributes":["attribute1", "attribute2", "attribute3"],
+  "attribute_as_label":"attribute1",
+  "attribute_requirements":{
+    "channel1":["attribute1", "attribute3"]
+  }
+}
+</span></code>
+                    </div>
+                    <div class="col-xs-6">
+                      <h4>RESPONSE</h4>
+                      <pre class="hljs"><code><span class="hljs-attribute">204 No Content</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="panel panel-default panel-landing-page panel-clickable">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-9">
+                    <p>Need inspiration?</p>
+                    <p>Here are some bright ideas provided by our community</p>
+                  </div>
+                  <div class="col-xs-3">
+                    <svg viewBox="0 0 100 100">
+                      <use xlink:href="img/icons.svg#bulb"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="panel panel-default panel-landing-page panel-clickable">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-9">
+                    <p>Join us on the marketplace</p>
+                    <p>Have a look to what our beloved community already built around Akeneo</p>
+                  </div>
+                  <div class="col-xs-3">
+                    <svg viewBox="0 0 100 100">
+                      <use xlink:href="img/icons.svg#store"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Want more?</h2>
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="panel panel-default panel-landing-page panel-clickable">
+                  <div class="panel-body">
+                    <p>Security</p>
+                    <p>From authentication to authorization, all you need to know about security</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="panel panel-default panel-landing-page panel-clickable">
+                  <div class="panel-body">
+                    <p>Handling pagination</p>
+                    <p>How it works and all you need to request large database of products</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="panel panel-default panel-landing-page panel-clickable">
+                  <div class="panel-body">
+                    <p>Classical response errors</p>
+                    <p>You just got a 401 and do not know what to do with. Here is your solution!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="panel panel-default panel-landing-page panel-clickable">
+                  <div class="panel-body">
+                    <p>Update data</p>
+                    <p>Merging data can be a little bit tricky. Here is the guide to serene updates in your data.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

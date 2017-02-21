@@ -1,0 +1,23 @@
+.affix{
+  top: 0px;
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -@spacing-base * 1.25;
+  visibility: hidden;
+}
+
+h1, h2, h3, h4{
+  &:hover .markdownIt-Anchor{
+    color: @brand-primary;
+  }
+  .markdownIt-Anchor{
+    float: left;
+    padding-right: 4px;
+    margin-left: -20px;
+    line-height: 1;
+    color: white;
+  }
+}

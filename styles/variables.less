@@ -1,0 +1,100 @@
+@import "../node_modules/bootstrap/less/bootstrap.less";
+
+@grid-gutter-width:         20px;
+// Small screen / tablet
+@container-tablet:             (765px + @grid-gutter-width);
+//** For `@screen-sm-min` and up.
+@container-sm:                 @container-tablet;
+
+// Medium screen / desktop
+@container-desktop:            (985px + @grid-gutter-width);
+//** For `@screen-md-min` and up.
+@container-md:                 @container-desktop;
+
+// Large screen / wide desktop
+@container-large-desktop:      (1190px + @grid-gutter-width);
+//** For `@screen-lg-min` and up.
+@container-lg:                 @container-large-desktop;
+
+
+@font-family-sans-serif:  Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+@text-color:            #677688;
+
+@brand-primary:					#11324D;
+@brand-success:         #67B373;
+@brand-info:            #4992C7;
+@brand-warning:         #F9B53F;
+@brand-danger:          #D4604F;
+@brand-akeneo: 					#9452BA;
+@brand-print-yellow: 		#FFCC00;
+@gray: 									#67768A;
+@gray-light:						#A1A9B7;
+@gray-lighter:					#F1F4F9;
+
+@link-color:            @brand-akeneo;
+@link-hover-color:      darken(@link-color, 10%);
+@link-hover-decoration: underline;
+
+@font-size-base:          15px;
+@font-size-large:         ceil((@font-size-base * 1.25)); 
+@font-size-small:         ceil((@font-size-base * 0.85)); 
+
+@font-size-h1:            32px; 
+@font-size-h2:            28px; 
+@font-size-h3:            22px; 
+@font-size-h4:            18px; 
+@font-size-h5:            16px;
+@font-size-h6:            ceil((@font-size-base * 0.85));
+@headings-color:          #11324D;
+
+
+@line-height-base:        1.8;
+
+@spacing-base: 70px;
+
+
+@border-radius-base:        0;
+
+@navbar-height:                    @spacing-base;
+@navbar-default-color:             #fff;
+@navbar-default-bg:                #11324D;
+@navbar-border-radius:             0px;
+@navbar-default-link-color:                #fff;
+@navbar-default-link-hover-color:          #fdfdfd;
+
+@panel-footer-bg:			@gray-lighter;
+
+
+body{
+	padding-top: @spacing-base;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+#includedContent img{
+	padding: 40px 0;
+}
+
+button:focus {
+	outline: 0;
+}
+
+.container{
+  margin-bottom: @spacing-base;
+}
+
+
+@import "code.less";
+@import "nav.less";
+@import "label.less";
+@import "alert.less";
+@import "list.less";
+@import "fa.less";
+@import "anchor.less";
+@import "panel.less";
+@import "jumbotron.less";
+@import "typography.less";
+@import "link.less";
+
+
+
