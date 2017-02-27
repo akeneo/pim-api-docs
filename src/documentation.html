@@ -55,8 +55,13 @@
         ToC += "</ul>";
 
         $("#navbar-nav").prepend(ToC);
+
+        setTimeout(function () {
+          var hash = window.location.hash;
+          window.location.hash = "";
+          window.location.hash = hash;
+        });
       });
-      
     });
   </script>
 </head>
