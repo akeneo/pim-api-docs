@@ -26,7 +26,13 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/getting-started.html">Getting started</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Getting started <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/getting-started.html">Make my first request</a></li>
+                <li><a href="/getting-started-admin.html">Manage the access to the API</a></li>
+              </ul>
+            </li>
           <li><a href="/documentation.html">Documentation</a></li>
           <li><a href="/api-reference-index.html">API reference</a></li>
         </ul>
@@ -47,36 +53,40 @@
               <p>Tell me who you are and I will tell you where to begin...</p>
               <div class="row">
                 <div class="col-xs-12">
-                  <div class="panel panel-default panel-landing-page panel-clickable">
-                    <div class="panel-body">
-                      <div class="row">
-                        <div class="col-xs-9">
-                          <p>I'm a developer!</p>
-                          <p>And I want to make my first request</p>
-                        </div>
-                        <div class="col-xs-3">
-                          <svg viewBox="0 0 100 100">
-                            <use xlink:href="img/icons.svg#developer"></use>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel panel-default panel-landing-page panel-clickable">
-                    <div class="panel-body">
-                      <div class="row">
-                        <div class="col-xs-9">
-                          <p>I'm a PIM administrator!</p>
-                          <p>And I want to manage the access to the API</p>
-                        </div>
-                        <div class="col-xs-3">
-                          <svg viewBox="0 0 100 100">
-                            <use xlink:href="img/icons.svg#lock"></use>
-                          </svg>
+                  <a href="/getting-started.html">
+                    <div class="panel panel-default panel-landing-page panel-clickable">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-xs-9">
+                            <p>I'm a developer!</p>
+                            <p>And I want to make my first request</p>
+                          </div>
+                          <div class="col-xs-3">
+                            <svg viewBox="0 0 100 100">
+                              <use xlink:href="img/icons.svg#developer"></use>
+                            </svg>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </a>
+                  <a href="/getting-started-admin.html">
+                    <div class="panel panel-default panel-landing-page panel-clickable">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-xs-9">
+                            <p>I'm a PIM administrator!</p>
+                            <p>And I want to manage the access to the API</p>
+                          </div>
+                          <div class="col-xs-3">
+                            <svg viewBox="0 0 100 100">
+                              <use xlink:href="img/icons.svg#lock"></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
