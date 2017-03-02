@@ -273,13 +273,13 @@ gulp.task('launch-webserver', ['create-dist'], function() {
 gulp.task('deploy', function() {
   
   // Dirs and Files to sync
-  rsyncPaths = ['./dist' ];
+  rsyncPaths = ['./dist/*' ];
   
   // Default options for rsync
   rsyncConf = {
     progress: true,
     incremental: true,
-    relative: true,
+    relative: false,
     emptyDirectories: true,
     recursive: true,
     clean: true,
@@ -289,11 +289,11 @@ gulp.task('deploy', function() {
   if (argv.staging) {
     rsyncConf.hostname = 'api-staging.akeneo.com'; // hostname
     rsyncConf.username = 'akeneo'; // ssh username
-    rsyncConf.destination = '/var/wwww/html'; // path where uploaded files go
+    rsyncConf.destination = '/var/www/html'; // path where uploaded files go
   } else if (argv.production) {
-    rsyncConf.hostname = 'api.akeneo.com'; // hostname
+    rsyncConf.hostname = 'api'; // hostname
     rsyncConf.username = 'akeneo'; // ssh username
-    rsyncConf.destination = '/var/wwww/html'; // path where uploaded files go
+    rsyncConf.destination = '/var/www/html'; // path where uploaded files go
   } else {
     throwError('deploy', gutil.colors.red('Missing or invalid target'));
   }
