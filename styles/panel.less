@@ -73,3 +73,29 @@ ul + .panel{
   margin-top: 0;
   border-top: none;
 }
+
+.panel-variant(@color) {
+  border: 1px solid @panel-default-border;
+  border-bottom: 10px solid @color;
+  &:after{
+    content: attr(data-text);
+    margin: -@spacing-base/4 @spacing-base/3 10px @spacing-base/3;
+    color: @color;
+    display: block;
+  }
+}
+.panel-primary {
+  .panel-variant(@brand-primary);
+}
+.panel-success {
+  .panel-variant(@brand-success);
+}
+.panel-info {
+  .panel-variant(@brand-info);
+}
+.panel-warning {
+  .panel-variant(@brand-warning);
+}
+.panel-danger {
+  .panel-variant(@brand-danger);
+}

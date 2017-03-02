@@ -16,32 +16,54 @@
 
         var newLine, el, title, link;
 
-        var firstChild;
+        var firstChild, firstGrandChild;
         var previousHasAchild = false;
-        $("h1, h2").each(function() {
+        var previousHasAGrandchild = false;
+        $("h1, h2, h3").each(function() {
           var newLine = '';
           el = $(this);
           title = el.text().match(/^#(.*$)/)[1];
           link = "#" + el.attr("title-id");
           if(el.prop("tagName") === "H1"){
             firstChild = true;
+            firstGrandChild = true;
             if(previousHasAchild){
               newLine = "</ul></li>";
               previousHasAchild =false;
             }
+            if(previousHasAGrandchild){
+              newLine = "</ul></li></ul></li>";
+              previousHasAGrandchild =false;
+            }
             newLine = newLine +
-            "<li class='main-nav'>" +
+            "<li>" +
               "<a href='" + link + "'>" +
                 title +
               "</a>";
-          } else {
+          } else if(el.prop("tagName") === "H2"){
+            firstGrandChild = true;
+            if(previousHasAGrandchild){
+              newLine = "</ul></li>";
+              previousHasAGrandchild =false;
+            }
             previousHasAchild = true;
             if(firstChild){
               newLine = "<ul class='nav'>";
               firstChild = false;
             }
             newLine = newLine +
-            "<li class='sub-nav'>" +
+            "<li>" +
+              "<a href='" + link + "'>" +
+                title +
+              "</a>";
+          }else {
+            previousHasAGrandchild = true;
+            if(firstGrandChild){
+              newLine = "<ul class='nav'>";
+              firstGrandChild = false;
+            }
+            newLine = newLine +
+            "<li>" +
               "<a href='" + link + "'>" +
                 title +
               "</a>" +
@@ -56,7 +78,7 @@
 
         $("#navbar-nav").prepend(ToC);
 
-        setTimeout(function () {
+        $('img').on('load', function() {
           var hash = window.location.hash;
           window.location.hash = "";
           window.location.hash = hash;

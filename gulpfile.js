@@ -190,22 +190,22 @@ gulp.task('markdownize', ['clean-dist'],function (){
         var link = tokens[idx].info.trim().match(/^panel-link\s+.*\((.*)\)$/);
         if (tokens[idx].nesting === 1) {
           // opening tag
-          return '<div class="panel panel-default panel-link">'+
-            '<div class="panel-body">' +
-            '<div class="row"><div class="col-md-8"><h4>'+ md.utils.escapeHtml(text[1]) + '</h4></div>'+
-            '<div class="col-md-4">'+
-            '<a class="btn btn-warning pull-right" href="'+ md.utils.escapeHtml(link[1])+'">'+ md.utils.escapeHtml(linkTitle[1])+ '</a></div></div>\n'+
-            '<div class="row"><div class="col-md-8">';
+          return '<div class="row" style="margin-top: 80px;"><div class="col-sm-offset-3 col-sm-6">' + 
+            '<div class="panel panel-default panel-landing-page panel-clickable">'+
+              '<a href="' + md.utils.escapeHtml(link[1]) + '">' + 
+                '<div class="panel-body">' +
+                  '<p>'+ md.utils.escapeHtml(text[1]) + '</p>'+
+                  '<p>'+ md.utils.escapeHtml(linkTitle[1]) + '</p>';
         } else {
           // closing tag
-          return '</div></div></div></div>\n';
+          return '</div></a></div></div></div>\n';
         }
       }
     })
     .use(require('markdown-it-container'), 'danger', {
       validate: function(params) {
         return params.trim().match(/^danger(.*)$/);
-          },
+      },
       render: function (tokens, idx) {
         return (tokens[idx].nesting === 1) ? '<div class="alert alert-danger">' : '</div>\n';
       }
@@ -213,7 +213,7 @@ gulp.task('markdownize', ['clean-dist'],function (){
     .use(require('markdown-it-container'), 'warning', {
       validate: function(params) {
         return params.trim().match(/^warning(.*)$/);
-          },
+      },
       render: function (tokens, idx) {
         return (tokens[idx].nesting === 1) ? '<div class="alert alert-warning">' : '</div>\n';
       }
@@ -221,21 +221,57 @@ gulp.task('markdownize', ['clean-dist'],function (){
     .use(require('markdown-it-container'), 'info', {
       validate: function(params) {
         return params.trim().match(/^info(.*)$/);
-          },
+      },
       render: function (tokens, idx) {
         return (tokens[idx].nesting === 1) ? '<div class="alert alert-info">' : '</div>\n';
+      }
+    })
+    .use(require('markdown-it-container'), 'dodont', {
+      validate: function(params) {
+        return params.trim().match(/^dodont(.*)$/);
+      },
+      render: function (tokens, idx) {
+        return (tokens[idx].nesting === 1) ? '<div class="row">' : 
+            '</div>\n';
+      }
+    })
+    .use(require('markdown-it-container'), 'dont', {
+      validate: function(params) {
+        return params.trim().match(/^dont(.*)$/);
+      },
+      render: function (tokens, idx) {
+        var text = tokens[idx].info.trim().match(/^dont\s+(.*).*$/);
+        return (tokens[idx].nesting === 1) ? 
+          '<div class="col-xs-6">'+
+            '<div class="panel panel-danger" data-text="' +  md.utils.escapeHtml(text[1]) + '">'+
+              '<div class="panel-body">' : 
+            '<strong>DON\'T</strong></div>\n</div>\n</div>\n';
+      }
+    })
+    .use(require('markdown-it-container'), 'do', {
+      validate: function(params) {
+        return params.trim().match(/^do(.*)$/);
+      },
+      render: function (tokens, idx) {
+        var text = tokens[idx].info.trim().match(/^do\s+(.*).*$/);
+        return (tokens[idx].nesting === 1) ? 
+          '<div class="col-xs-6">'+
+            '<div class="panel panel-success" data-text="' +  md.utils.escapeHtml(text[1]) + '">'+
+              '<div class="panel-body">' : 
+            '<strong>DO</strong></div>\n</div>\n</div>\n';
       }
     });
         
 
     return gulp.src([
+        'content/introduction.md',
         'content/overview.md',
-        'content/basics.md',
         'content/security.md',
-        'content/format.md',
+        'content/resources.md',
         'content/responses.md',
         'content/pagination.md',
-        'content/update.md'
+        'content/update.md',
+        'content/filter.md'
       ])
       .pipe(concat('content.md'))
       .pipe(gulpMarkdownIt(md))

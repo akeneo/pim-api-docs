@@ -44,29 +44,36 @@ ul.nav.nav-stacked{
   li{
     a {
       padding: 3px 10px;
-    } 
-    &.main-nav{
+    }
+    > a {
+      color: @headings-color;
+      font-size: @font-size-large;
+    }
+    &.active > a{
+      background-color: @gray-lighter;
+    }
+    > ul li{
+      display: none;
+      border-bottom: 1px @gray-lighter solid;
       > a {
-        color: @headings-color;
-        font-size: @font-size-large;
+        font-size: @font-size-small;
+        color: @text-color;
       }
-      .sub-nav{
-        display: none;
-        border-bottom: 1px @gray-lighter solid;
-        > a {
-          font-size: @font-size-small;
-          color: @text-color;
-        }
-        &.active{
-          background-color: @gray-lighter;
-        }
-      }   
-      &.active .sub-nav {
-        display: block;
-        &:last-of-type{
-          margin-bottom: 40px;
-        }
+      &.active >a{
+        background-color: @gray-lighter;
       }
+    }
+    > ul > li > ul > li{
+      margin-left: 10px;
+      > a {
+        font-size: @font-size-small * 0.9;
+      }
+    }   
+    &.active > ul > li {
+      display: block;
+    }
+    > ul > li.active  > ul > li {
+      display: block;
     }
   }
 }
