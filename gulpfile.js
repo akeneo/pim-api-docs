@@ -15,6 +15,11 @@ var webserver = require('gulp-webserver');
 var _ = require('lodash');
 var del = require('del');
 var merge = require('merge-stream');
+var gutil = require('gulp-util');
+var argv  = require('minimist')(process.argv);
+var rsync = require('gulp-rsync');
+var prompt = require('gulp-prompt');
+var gulpif = require('gulp-if');
  
 // Transform less into css file that is put into dist directory
 gulp.task('less', ['clean-dist'], function () {
@@ -264,6 +269,54 @@ gulp.task('launch-webserver', ['create-dist'], function() {
       open: true
     }));
 });
+
+gulp.task('deploy', function() {
+  
+  // Dirs and Files to sync
+  rsyncPaths = ['./dist' ];
+  
+  // Default options for rsync
+  rsyncConf = {
+    progress: true,
+    incremental: true,
+    relative: true,
+    emptyDirectories: true,
+    recursive: true,
+    clean: true,
+    exclude: [],
+  };
+  
+  if (argv.staging) {
+    rsyncConf.hostname = 'api-staging.akeneo.com'; // hostname
+    rsyncConf.username = 'akeneo'; // ssh username
+    rsyncConf.destination = '/var/wwww/html'; // path where uploaded files go
+  } else if (argv.production) {
+    rsyncConf.hostname = 'api.akeneo.com'; // hostname
+    rsyncConf.username = 'akeneo'; // ssh username
+    rsyncConf.destination = '/var/wwww/html'; // path where uploaded files go
+  } else {
+    throwError('deploy', gutil.colors.red('Missing or invalid target'));
+  }
+  
+  return gulp.src(rsyncPaths)
+  .pipe(gulpif(
+      argv.production, 
+      prompt.confirm({
+        message: 'Heads Up! Are you SURE you want to push to PRODUCTION?',
+        default: false
+      })
+  ))
+  .pipe(rsync(rsyncConf));
+
+});
+
+
+function throwError(taskName, msg) {
+  throw new gutil.PluginError({
+      plugin: taskName,
+      message: msg
+    });
+}
 
 // Build the documentation is dist directory
 gulp.task('create-dist', [
