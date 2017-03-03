@@ -287,7 +287,7 @@ gulp.task('deploy', function() {
   };
   
   if (argv.staging) {
-    rsyncConf.hostname = 'api-staging.akeneo.com'; // hostname
+    rsyncConf.hostname = 'api-staging'; // hostname
     rsyncConf.username = 'akeneo'; // ssh username
     rsyncConf.destination = '/var/www/html'; // path where uploaded files go
   } else if (argv.production) {
