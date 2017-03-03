@@ -86,39 +86,51 @@ gulp.task('hbs', ['clean-dist'], function () {
             return parameter.in;
           });
           _.map(groupedParameters.body, function(parameter){
-            _.map(parameter.schema.properties, function(property){
-              var generatedExample = undefined;
-              if(property.type === 'string'){
-                generatedExample = {type:'string', sample: '"string"'};
+            var readOnlyProperties = [];
+            _.map(parameter.schema.properties, function(property, propertyName){
+              property.default = (property.default === 0) ? '0' :
+                (property.default === null) ? 'null' :
+                (property.default === true) ? 'true' :
+                (property.default === false) ? 'false' :
+                (property.default && _.isEmpty(property.default)) ? '[]' : property.default;
+              property['x-immutable'] = (verb === 'patch') ? property['x-immutable'] : false;
+              if(verb === 'post' && property['x-read-only']){
+                readOnlyProperties.push(propertyName);
               }
-              if(property.type === 'boolean'){
-                generatedExample = {type:'literal', sample: 'true'};
-              }
-              if(property.type === 'integer'){
-                generatedExample = {type:'number', sample: '10'};
-              }
-              if(property.type === 'array' && property.items.type){
-                generatedExample = {type:'array'};
-                if(property.items.type){
-                  _.extend(generatedExample, {items_type:'string', items_sample:'"string"'});
-                }
-              }
-              return _.extend(property, {example: generatedExample});
             });
+            _.forEach(parameter.schema.required, function(requiredProperty){
+              if(verb !== 'patch'){
+                parameter.schema.properties[requiredProperty].required = true;
+              } else {
+                parameter.schema.properties[requiredProperty].patchRequired = true;
+              }
+            });
+            _.forEach(readOnlyProperties, function(propToDelete){
+              delete parameter.schema.properties[propToDelete];
+            });
+            if(parameter.schema && parameter.schema.example){
+              _.forEach(readOnlyProperties, function(propToDelete){
+                delete parameter.schema.example[propToDelete];
+              });
+              var highlightjsExample = highlightJs.highlight('json', JSON.stringify(parameter.schema.example, null, 2), true);
+              parameter.schema.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
+            }
             return parameter;
           });
+
           _.map(operation.responses, function(response, code){
             var status = code.match(/^2.*$/) ? 'success' : 'error';
             response[status] = true;
             response.id = operationId + '_' + code;
-            if(response.examples){
-              var highlightjsExample = highlightJs.highlight('json', JSON.stringify(response.examples, null, 2), true);
-              response.example = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
+            var example = response.examples || ((response.schema) ? response.schema.example : undefined);
+            if(example){
+              var highlightjsExample = highlightJs.highlight('json', JSON.stringify(example, null, 2), true);
+              response.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
             }
             return response;
           });
-          var extendedOperation = _.extend(operation, {verb: verb, path: pathUri, groupedParameters:groupedParameters});
-          data.ressources[operation.tags[0]][operationId] = extendedOperation;
+
+          data.ressources[operation.tags[0]][operationId] = _.extend(operation, {verb: verb, path: pathUri, groupedParameters:groupedParameters});
         });
       });
       return gulp.src('src/api-reference/reference.handlebars')
@@ -252,6 +264,7 @@ gulp.task('watch', ['create-dist'], function() {
   gulp.watch('src/*.html', ['create-dist']);
   gulp.watch('src/api-reference/*.handlebars',['create-dist']);
   gulp.watch('content/img/*', ['create-dist']);
+  gulp.watch('content/*.yaml', ['create-dist']);
 });
 
 // Launch a server with dist directory exposed on it
