@@ -1,5 +1,6 @@
 .panel{
   // margin-top: @spacing-base / 2;
+  color: @text-color;
   margin-bottom:  @spacing-base / 2;
   &.panel-link{
     margin-top: @spacing-base;
@@ -27,6 +28,17 @@
     .panel-heading{
       background-color: #fff;
       color: @text-color;
+    }
+  }
+  &.panel-picto{
+    position: relative;
+    svg{
+      right: @spacing-base;
+      top: -@spacing-base * 0.60;
+      position: absolute;
+      display: inline-block;
+      width: 100px;
+      height: 100px;
     }
   }
   .panel-heading {

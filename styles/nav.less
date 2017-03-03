@@ -1,21 +1,17 @@
 // Main navbar
 .navbar-default .navbar-nav {
-  > a, > a:hover, a:focus{
-    &:after{
-      content: '';
-      border-bottom: 2px solid @navbar-default-color;
-      width: 30px;
-      bottom: 15px;
-      border-bottom: 2px solid #fff;
-      position: absolute;
-      right: 40%; 
-    }
-  }
   p.navbar-text{
     margin-top: 24.5px;
     margin-bottom: 20.5px;
   }
+  > .open > a,
+  > .open > a:hover,
+  > .open > a:focus{
+    color: @navbar-default-color;
+    background-color: initial;
+  }
 }
+
 .navbar-default .navbar-nav > .active {
   > a, > a:hover, a:focus{
     color: @navbar-default-color;
