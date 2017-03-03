@@ -10,11 +10,15 @@
     "gulp": "3.9.1",
     "gulp-concat": "2.6.1",
     "gulp-handlebars-html": "0.0.2",
+    "gulp-if": "2.0.2",
     "gulp-json-transform": "0.4.2",
     "gulp-less": "3.3.0",
     "gulp-markdown-it-adapter": "0.1.1",
+    "gulp-prompt": "0.2.0",
     "gulp-rename": "1.2.2",
+    "gulp-rsync": "0.0.7",
     "gulp-swagger": "1.0.1",
+    "gulp-util": "3.0.8",
     "gulp-webserver": "0.9.1",
     "handlebars": "4.0.6",
     "highlightjs": "9.8.0",
@@ -22,6 +26,7 @@
     "markdown-it": "8.2.2",
     "markdown-it-container": "2.0.0",
     "markdown-it-toc-and-anchor": "4.1.1",
-    "merge-stream": "^1.0.1"
+    "merge-stream": "1.0.1",
+    "minimist": "1.2.0"
   }
 }
