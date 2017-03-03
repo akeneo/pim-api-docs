@@ -1,7 +1,13 @@
-button:focus {
-  outline: 0;
-}
-
 .btn-akeneo {
   .button-variant(#fff; @brand-akeneo; @btn-default-border);
+}
+
+button:focus,
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: none;
 }

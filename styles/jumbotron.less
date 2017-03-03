@@ -2,6 +2,7 @@
   background-color: @brand-primary;
   h1{
     color: white;
+
   }
   h2{
     margin-top: 0px;
@@ -18,7 +19,20 @@
       font-size: @font-size-large;
     }
   }
-  .panel{
-    margin-top: 0;
+  .panel-jumbotron{
+    @media (max-width: @screen-lg-min) {
+      margin: @spacing-base;
+    }
+    @media (min-width: @screen-lg-min) {
+      margin: 0 @spacing-base/6 0 0;
+    }
+    @media (min-width: @screen-xlg-min) {
+      margin: @spacing-base/2 @spacing-base @spacing-base/2 @spacing-base/4;
+    }
+    @media (max-width: @screen-lg-min) {
+      .panel{
+        margin-bottom: 0;
+      }
+    }
   }
 }
