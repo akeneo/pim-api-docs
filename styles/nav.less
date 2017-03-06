@@ -1,40 +1,64 @@
 // Main navbar
-.navbar-default .navbar-nav {
-  p.navbar-text{
-    margin-top: 24.5px;
-    margin-bottom: 20.5px;
-  }
-  > .open > a,
-  > .open > a:hover,
-  > .open > a:focus{
-    color: @navbar-default-color;
-    background-color: initial;
-  }
-}
+.navbar-default{
+  .navbar-nav {
+    p.navbar-text{
+      margin-top: 24.5px;
+      margin-bottom: 20.5px;
+    }
+    > .open > a,
+    > .open > a:hover,
+    > .open > a:focus{
+      color: @navbar-default-color;
+      background-color: initial;
+    }
 
-.navbar-default .navbar-nav > .active {
-  > a, > a:hover, a:focus{
-    color: @navbar-default-color;
-    background-color: initial;
-    &:after{
-      content: '';
-      border-bottom: 2px solid @navbar-default-color;
-      width: 30px;
-      bottom: 15px;
-      border-bottom: 2px solid #fff;
-      position: absolute;
-      right: 40%; 
+    > .active {
+      > a, > a:hover, a:focus{
+        color: @navbar-default-color;
+        background-color: initial;
+        &:after{
+          content: '';
+          border-bottom: 2px solid @navbar-default-color;
+          width: 30px;
+          bottom: 15px;
+          border-bottom: 2px solid #fff;
+          position: absolute;
+          right: 40%; 
+        }
+      }
+
+      &:after{
+        content: '';
+        border-bottom: 2px solid @navbar-default-color;
+        width: 30px;
+        bottom: 15px;
+        border-bottom: 2px solid #fff;
+        position: absolute;
+        right: 40%; 
+      }
     }
   }
 
-  &:after{
-    content: '';
-    border-bottom: 2px solid @navbar-default-color;
-    width: 30px;
-    bottom: 15px;
-    border-bottom: 2px solid #fff;
-    position: absolute;
-    right: 40%; 
+  .navbar-form .form-group{
+    input{
+      @media (min-width: @screen-md-min) {
+        width: 250px;
+      }
+      @media (min-width: @screen-lg-min) {
+        width: 350px;
+      }
+      padding-right: 35px;
+    }
+    position: relative;
+    &:after{
+      content: '\f002';
+      font-family: 'FontAwesome';
+      position: absolute;
+      right: 5px;
+      text-align: right;
+      padding-right: 10px;
+      top: 0;
+    }
   }
 }
 
