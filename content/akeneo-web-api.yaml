@@ -398,24 +398,24 @@ paths:
           examples: {
             _links: {
               self: {
-                href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=5"
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=2&limit=5"
               },
               first: {
                 href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=5"
               },
               last: {
-                href: "https://demo.akeneo.com/api/rest/v1/categories?page=2&limit=5"
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=3&limit=5"
               },
               previous: {
                 href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=5"
               },
               next: {
-                href: "https://demo.akeneo.com/api/rest/v1/categories?page=2&limit=5"
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=3&limit=5"
               }
             },
-            current_page: 1,
+            current_page: 2,
             pages_count: 5,
-            items_count: 10,
+            items_count: 11,
             _embedded: {
               _items: [
                 {
@@ -596,7 +596,7 @@ paths:
                 href: "https://demo.akeneo.com/api/rest/v1/families?page=1&limit=2"
               },
               last: {
-                href: "https://demo.akeneo.com/api/rest/v1/families?page=5&limit=2"
+                href: "https://demo.akeneo.com/api/rest/v1/families?page=8&limit=2"
               },
               previous: {
                 href: "https://demo.akeneo.com/api/rest/v1/families?page=1&limit=2"
@@ -605,7 +605,7 @@ paths:
                 href: "https://demo.akeneo.com/api/rest/v1/families?page=3&limit=2"
               }
             },
-            current_page: 3,
+            current_page: 2,
             pages_count: 8,
             items_count: 15,
             _embedded: {
@@ -1111,7 +1111,7 @@ paths:
           examples: {
             _links: {
               self: {
-                href: "https://demo.akeneo.com/api/rest/v1/locales?page=1&limit=4"
+                href: "https://demo.akeneo.com/api/rest/v1/locales?page=2&limit=4"
               },
               first: {
                 href: "https://demo.akeneo.com/api/rest/v1/locales?page=1&limit=4"
@@ -1126,7 +1126,7 @@ paths:
                 href: "https://demo.akeneo.com/api/rest/v1/locales?page=2&limit=4"
               }
             },
-            current_page: 1,
+            current_page: 2,
             pages_count: 30,
             items_count: 120,
             _embedded: {
@@ -1372,7 +1372,6 @@ definitions:
         type: string
         description: Date of the last update
         format: dateTime
-        x-immutable: true
         x-read-only: true
     example: {
       "identifier": "top",
@@ -1590,10 +1589,12 @@ definitions:
           type: boolean
           description: Wether the attribute is localizable, i.e. can have one value by locale 
           default: false
+          x-immutable: true
       scopable:
           type: boolean
           description: Wether the attribute is scopable, i.e. can have one value by channel 
           default : false
+          x-immutable: true
       available_locales:
         type: array
         description: To make the attribute locale specfic, specify here for which locales it is specific
@@ -1655,13 +1656,15 @@ definitions:
       date_min:
         type: string
         description: Minimum date allowed when the attribute type is `pim_catalog_date`
+        x-validation-rules: The datetime format follows the ISO-8601 norm
         x-warning: Only for `pim_catalog_date` attribute type
-        format: dateTime
+        format: date-time
       date_max:
         type: string
         description: Maximum date allowed when the attribute type is `pim_catalog_date`
+        x-validation-rules: The datetime format follows the ISO-8601 norm
         x-warning: Only for `pim_catalog_date` attribute type
-        format: dateTime
+        format: date-time
       allowed_extensions:
         type: array
         description: Extensions allowed when the attribute type is `pim_catalog_file` or `pim_catalog_image`
