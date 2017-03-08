@@ -1,5 +1,3 @@
-# this is an example of the Uber API
-# as a demonstration of an API spec in YAML
 swagger: '2.0'
 info:
   title: Akeneo PIM API
@@ -322,90 +320,6 @@ paths:
         - $ref: '#/parameters/code'
       responses:
         200:
-          examples: {
-            "identifier": "top",
-            "family": "tshirt",
-            "groups": [],
-            "variant_group": null,
-            "categories": ["summer_collection"],
-            "enabled": true,
-            "values": {
-              "name": [
-                {
-                  "data": "Top",
-                  "locale": "en_US",
-                  "scope": null,
-                },
-                {
-                  "data": "Débardeur",
-                  "locale": "fr_FR",
-                  "scope": null,
-                }
-              ],
-              "description": [
-                {
-                  "data": "Summer top",
-                  "locale": "en_US",
-                  "scope": "ecommerce"
-                },
-                {
-                  "data": "Top",
-                  "locale": "en_US",
-                  "scope": "tablet"
-                },
-                {
-                  "data": "Débardeur pour l'été",
-                  "locale": "fr_FR",
-                  "scope": "ecommerce"
-                },
-                {
-                  "data": "Débardeur",
-                  "locale": "fr_FR",
-                  "scope": "tablet"
-                }
-              ], 
-              "price": [
-                {
-                  "locale": null,
-                  "scope": null,
-                  "data": [
-                    {
-                      "amount": "15.5", "currency": "EUR"
-                    },
-                    {
-                      "amount": "15", "currency": "USD"
-                    }
-                  ]
-                }
-              ],
-              "color": [
-                {
-                  "locale": null,
-                  "scope": null,
-                   "data": "black"
-                }
-              ],
-              "size": [
-                {
-                  "locale": null,
-                  "scope": null,
-                  "data": "m"
-                }
-              ]
-            },
-            "created": "2016-06-23T18:24:44+02:00",
-            "updated": "2016-06-25T17:56:12+02:00",
-            "associations": {
-              "PACK": {
-                "products": ["sunglasse"],
-                "groups": []
-              },
-              "X_SELL": {
-                "products": [],
-                "groups": []
-              }
-            }
-          }
           description: Content of a product
           schema:
             $ref: '#/definitions/Product'
@@ -484,24 +398,24 @@ paths:
           examples: {
             _links: {
               self: {
-                href: "https://demo.akeneo.com/api/rest/v1/categories?page=2&limit=2"
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=2&limit=5"
               },
               first: {
-                href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=2"
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=5"
               },
               last: {
-                href: "https://demo.akeneo.com/api/rest/v1/categories?page=5&limit=2"
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=3&limit=5"
               },
               previous: {
-                href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=2"
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=5"
               },
               next: {
-                href: "https://demo.akeneo.com/api/rest/v1/categories?page=3&limit=2"
+                href: "https://demo.akeneo.com/api/rest/v1/categories?page=3&limit=5"
               }
             },
             current_page: 2,
             pages_count: 5,
-            items_count: 9,
+            items_count: 11,
             _embedded: {
               _items: [
                 {
@@ -514,7 +428,50 @@ paths:
                   "parent": null,
                   "labels": {
                     "en_US": "Winter collection",
-                    "fr_FR": "Collection hiver"
+                    "fr_FR": "Collection hiver",
+                    "de_DE": "Winter-Kollektion"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/categories/woman"
+                    }
+                  },
+                  "code": "woman",
+                  "parent": "winter_collection",
+                  "labels": {
+                    "en_US": "Woman",
+                    "fr_FR": "Femme",
+                    "de_DE": "Damen"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/categories/man"
+                    }
+                  },
+                  "code": "man",
+                  "parent": "winter_collection",
+                  "labels": {
+                    "en_US": "Man",
+                    "fr_FR": "Homme",
+                    "de_DE": "Herren"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/categories/kids"
+                    }
+                  },
+                  "code": "kids",
+                  "parent": "winter_collection",
+                  "labels": {
+                    "en_US": "Kids",
+                    "fr_FR": "Enfant",
+                    "de_DE": "Kinder"
                   }
                 },
                 {
@@ -527,7 +484,8 @@ paths:
                   "parent": null,
                   "labels": {
                     "en_US": "Summer collection",
-                    "fr_FR": "Collection été"
+                    "fr_FR": "Collection été",
+                    "de_DE": "Sommer-Kollektion"
                   }
                 }
               ]
@@ -568,14 +526,6 @@ paths:
         - $ref: '#/parameters/code'
       responses:
         200:
-          examples: {
-            "code": "winter_collection",
-            "parent": null,
-            "labels": {
-              "en_US": "Winter collection",
-              "fr_FR": "Collection hiver"
-            }
-          }
           description: Content of a category
           schema:
             $ref: '#/definitions/Category'
@@ -646,7 +596,7 @@ paths:
                 href: "https://demo.akeneo.com/api/rest/v1/families?page=1&limit=2"
               },
               last: {
-                href: "https://demo.akeneo.com/api/rest/v1/families?page=5&limit=2"
+                href: "https://demo.akeneo.com/api/rest/v1/families?page=8&limit=2"
               },
               previous: {
                 href: "https://demo.akeneo.com/api/rest/v1/families?page=1&limit=2"
@@ -655,7 +605,7 @@ paths:
                 href: "https://demo.akeneo.com/api/rest/v1/families?page=3&limit=2"
               }
             },
-            current_page: 3,
+            current_page: 2,
             pages_count: 8,
             items_count: 15,
             _embedded: {
@@ -734,20 +684,8 @@ paths:
         - $ref: '#/parameters/code'
       responses:
         200:
-          examples: {
-           "code": "caps",
-            "attributes": ["sku", "name", "description", "price", "color"],
-            "attribute_as_label": "name",
-            "attribute_requirements": {
-              "ecommerce": ["sku", "name", "description", "price", "color"],
-              "tablet": ["sku", "name", "description", "price"]
-            },
-            "labels": {
-              "en_US": "Caps",
-              "fr_FR": "Casquettes"
-            }
-          }
-          description: Content of a family
+          description: OK
+          x-details: Content of the family in JSON format
           schema:
             $ref: '#/definitions/Family'
         401:
@@ -941,37 +879,6 @@ paths:
         - $ref: '#/parameters/code'
       responses:
         200:
-          examples: {
-            "code": "release_date",
-            "type": "pim_catalog_date",
-            "group": "marketing",
-            "unique": false,
-            "useable_as_grid_filter": true,
-            "allowed_extensions": [],
-            "metric_family": null,
-            "default_metric_unit": null,
-            "reference_data_name": null,
-            "available_locales": [],
-            "max_characters": null,
-            "validation_rule": null,
-            "validation_regexp": null,
-            "wysiwyg_enabled": false,
-            "number_min": null,
-            "number_max": null,
-            "decimals_allowed": false,
-            "negative_allowed": false,
-            "date_min": "2017-06-28T08:00:00",
-            "date_max": "2017-08-08T22:00:00",
-            "max_file_size": null,
-            "minimum_input_length": null,
-            "sort_order": 1,
-            "localizable": false,
-            "scopable": false,
-            "labels": {
-              "en_US": "Sale date",
-              "fr_FR": "Date des soldes"
-            }
-          }
           description: Content of an attribute
           schema:
             $ref: '#/definitions/Attribute'
@@ -1013,7 +920,7 @@ paths:
       operationId: "attribute_options_get_list"
       description: The Attribute Option endpoint returns information about the PIM attribute options
       tags:
-        - Attributes
+        - Attribute options
       parameters:
         - $ref: '#/parameters/attribute_code'
         - $ref: '#/parameters/page'
@@ -1110,7 +1017,7 @@ paths:
       summary: Create a new attribute option
       operationId: "attribute_options_post"
       tags:
-        - Attributes
+        - Attribute options
       parameters:
         - $ref: '#/parameters/attribute_code'
         - name: body
@@ -1128,26 +1035,17 @@ paths:
           $ref: "#/responses/403Error"
         422:
           $ref: "#/responses/422Error"
-  /attributes/{attribute_code}/option/{code}:
+  /attributes/{attribute_code}/options/{code}:
     get:
       summary: Get an attribute option
       operationId: "attribute_options_get"
       tags:
-        - Attributes
+        - Attribute options
       parameters:
         - $ref: '#/parameters/attribute_code'
         - $ref: '#/parameters/code'
       responses:
         200:
-          examples: {
-            "code": "black",
-            "attribute": "a_simple_select",
-            "sort_order": 2,
-            "labels": {
-              "en_US": "Black",
-              "fr_FR": "Noir"
-            }
-          }
           description: Content of an attribute option
           schema:
             $ref: '#/definitions/AttributeOption'
@@ -1161,7 +1059,7 @@ paths:
       summary: Update/create an attribute option
       operationId: "attribute_options_patch"
       tags:
-        - Attributes
+        - Attribute options
       parameters:
         - $ref: '#/parameters/attribute_code'
         - $ref: '#/parameters/code'
@@ -1184,65 +1082,416 @@ paths:
         422:
           $ref: "#/responses/422Error"
   
+  /locales:
+    get:
+      summary: Get a list of locales
+      operationId: "locales_get_list"
+      description: The Family endpoint returns information about the PIM families
+      tags:
+        - Locales
+      parameters:
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/limit'
+      responses:
+        200:
+          description: Return locales paginated
+          schema:
+            title: Locales
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/LocaleList'
+          examples: {
+            _links: {
+              self: {
+                href: "https://demo.akeneo.com/api/rest/v1/locales?page=2&limit=4"
+              },
+              first: {
+                href: "https://demo.akeneo.com/api/rest/v1/locales?page=1&limit=4"
+              },
+              last: {
+                href: "https://demo.akeneo.com/api/rest/v1/locales?page=120&limit=4"
+              },
+              previous: {
+                href: "https://demo.akeneo.com/api/rest/v1/locales?page=1&limit=4"
+              },
+              next: {
+                href: "https://demo.akeneo.com/api/rest/v1/locales?page=2&limit=4"
+              }
+            },
+            current_page: 2,
+            pages_count: 30,
+            items_count: 120,
+            _embedded: {
+              _items: [
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/locales/en_US"
+                    }
+                  },
+                  "code": "en_US",
+                  "enabled": true
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/locales/fr_FR"
+                    }
+                  },
+                  "code": "fr_FR",
+                  "enabled": true
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/locales/de_DE"
+                    }
+                  },
+                  "code": "de_DE",
+                  "enabled": true
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/locales/af_ZA"
+                    }
+                  },
+                  "code": "af_ZA",
+                  "enabled": false
+                }
+              ]
+            }
+          }
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+  /channels:
+    get:
+      summary: Get a list of channels
+      operationId: "channels"
+      description: The Family endpoint returns information about the PIM families
+      tags:
+        - Channels
+      parameters:
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/limit'
+      responses:
+        200:
+          description: Return channels paginated
+          schema:
+            title: Channels
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/ChannelList'
+          examples: {
+            _links: {
+              self: {
+                href: "https://demo.akeneo.com/api/rest/v1/channels?page=1&limit=3"
+              },
+              first: {
+                href: "https://demo.akeneo.com/api/rest/v1/channels?page=1&limit=3"
+              },
+              last: {
+                href: "https://demo.akeneo.com/api/rest/v1/channels?page=1&limit=3"
+              }
+            },
+            current_page: 1,
+            pages_count: 1,
+            items_count: 3,
+            _embedded: {
+              _items: [
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/channels/ecommerce"
+                    }
+                  },
+                  "code": "ecommerce",
+                  "currencies":["USD", "EUR"],
+                  "locales":["en_US", "fr_FR", "de_DE"],
+                  "category_tree":"master",
+                  "conversion_units":{
+                    "a_metric":"KILOWATT",
+                    "a_metric_negative":"CELSIUS",
+                    "a_metric_to_not_convert":null
+                  },
+                  "labels":{
+                    "en_US":"Ecommerce",
+                    "fr_FR":"E-commerce",
+                    "de_DE":"E-commerce"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/channels/mobile"
+                    }
+                  },
+                  "code": "mobile",
+                  "currencies":["USD", "EUR"],
+                  "locales":["en_US", "fr_FR", "de_DE"],
+                  "category_tree":"master",
+                  "conversion_units":{
+                    "a_metric":"KILOWATT",
+                    "a_metric_negative":"CELSIUS",
+                    "a_metric_to_not_convert":null
+                  },
+                  "labels":{
+                    "en_US":"Mobile",
+                    "fr_FR":"Mobile",
+                    "de_DE":"Mobile"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/channels/print"
+                    }
+                  },
+                  "code": "print",
+                  "currencies":["USD", "EUR"],
+                  "locales":["en_US", "fr_FR", "de_DE"],
+                  "category_tree":"master",
+                  "conversion_units":{
+                    "a_metric":"KILOWATT",
+                    "a_metric_negative":"CELSIUS",
+                    "a_metric_to_not_convert":null
+                  },
+                  "labels":{
+                    "en_US":"Print",
+                    "fr_FR":"Print",
+                    "de_DE":"Print"
+                  }
+                }
+              ]
+            }
+          }
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+    
   
 definitions:
   Product:
     type: object
+    required: ["identifier"]
     properties:
       identifier:
         type: string
-        description: Identifier of product
+        description: Product identifier, i.e. the value of the only `pim_catalog_identifier` attribute
       enabled:
         type: boolean
-        description: Status of product
+        description: Whether the product is enable
+        default: true
       family:
         type: string
-        description: Code of product's family
+        description: Family code from which the product inherits its attributes and attributes requirements
+        x-validation-rules: It is equal to an existing family code
+        default: "null"
       categories:
         type: array
-        description: Codes of product's categories
+        description: Codes of the categories in which the product is classified
+        x-validation-rules: Each string of the array is equal to an existing category code
         items:
           type: string
+        default: []
       groups:
         type: array
-        description: Codes of product's groups
+        description: Codes of the groups to which the product belong
+        x-validation-rules: Each string of the array is equal to an existing group code
         items:
           type: string
+        default: []
       variant_group:
         type: string
-        description: Codes of product's variant group
+        description: Code of the variant group in which the product is
+        x-validation-rules: It is equal to an existing variant group code
+        default: "null"
       values:
-        type: array
-        description: Product values
-        items: {}
+        type: object
+        description: "Product attributes values, see <a href='documentation.html'>Product values</a> section for more details"
+        x-validation-rules: Validation rules detailed in Product values section
+        properties:
+          attributeCode:
+            type: array
+            items:
+              type: object
+              properties:
+                scope:
+                  type: string
+                  description: Channel code of the product value
+                locale:
+                  type: string
+                  description: Locale code of the product value
+                data:
+                  type: object
+                  description: Product value
       associations:
         type: object
-        description: Several associations related to groups and/or other products
-        items: {}
+        description: Several associations related to groups and/or other products, grouped by association types
+        x-validation-rules: "&bull; The `associationTypeCode` is the code of an existing association type. &#10;&bull; Each string in the array of the property `groups` is the code of an existing group. &#10;&bull; Each string in the array of the property `products` is the identifier of an existing product. &#10;&bull; Identifiers used in the array of the property `products` cannot be equal to the product identifier." 
+        properties: 
+          associationTypeCode: 
+            type: object
+            properties:
+              groups:
+                type: array
+                description: Array of groups codes with which the product is in relation
+                items:
+                  type: string
+              products:
+                type: array
+                description: Array of product identifiers with which the product is in relation
+                items:
+                  type: string
       created:
         type: string
         description: Date of creation
         format: dateTime
+        x-immutable: true
+        x-read-only: true
       updated:
         type: string
         description: Date of the last update
         format: dateTime
+        x-read-only: true
+    example: {
+      "identifier": "top",
+      "enabled": true,
+      "family": "tshirt",
+      "categories": ["summer_collection"],
+      "groups": [],
+      "variant_group": null,
+      "values": {
+        "name": [
+          {
+            "data": "Top",
+            "locale": "en_US",
+            "scope": null,
+          },
+          {
+            "data": "Débardeur",
+            "locale": "fr_FR",
+            "scope": null,
+          }
+        ],
+        "description": [
+          {
+            "data": "Summer top",
+            "locale": "en_US",
+            "scope": "ecommerce"
+          },
+          {
+            "data": "Top",
+            "locale": "en_US",
+            "scope": "tablet"
+          },
+          {
+            "data": "Débardeur pour l'été",
+            "locale": "fr_FR",
+            "scope": "ecommerce"
+          },
+          {
+            "data": "Débardeur",
+            "locale": "fr_FR",
+            "scope": "tablet"
+          }
+        ], 
+        "price": [
+          {
+            "locale": null,
+            "scope": null,
+            "data": [
+              {
+                "amount": "15.5", "currency": "EUR"
+              },
+              {
+                "amount": "15", "currency": "USD"
+              }
+            ]
+          }
+        ],
+        "color": [
+          {
+            "locale": null,
+            "scope": null,
+            "data": "black"
+          }
+        ],
+        "size": [
+          {
+            "locale": null,
+            "scope": null,
+            "data": "m"
+          }
+        ]
+      },
+      "created": "2016-06-23T18:24:44+02:00",
+      "updated": "2016-06-25T17:56:12+02:00",
+      "associations": {
+        "PACK": {
+          "products": ["sunglass"],
+           "groups": []
+        },
+        "X_SELL": {
+          "products": [],
+          "groups": []
+        }
+      }
+    }
   ProductList:
     type: object
     allOf:
       - $ref:  '#/definitions/ItemList'
       - $ref: '#/definitions/Product'
   Category:
+    type: object
+    required: ["code"]
     properties:
       code:
         type: string
-        description: Code of category
+        description: Category code
+        x-immutable: true
       parent:
         type: string
-        description: Code of the parent category
+        description: Category code of the parent's category
+        x-validation-rules: "&bull; It is either equal to `null` or to an existing category code. &#10;&bull; If equal to an existing category code, it cannot reference itself."
+        default: "null"
       labels:
         type: object
-        description: Labels of the category
+        description: Category labels for each locale 
+        x-validation-rules: The `localeCode` is the code of an existing and activated locale
+        default: {}
+        properties:
+          localeCode:
+            type: string
+            description: Category label for the locale `localeCode`
+    example: {
+      "code": "winter_collection",
+      "parent": null,
+      "labels": {
+        "en_US": "Winter collection",
+        "fr_FR": "Collection hiver"
+      }
+    }
   CategoryList:
     type: object
     allOf:
@@ -1250,31 +1499,55 @@ definitions:
       - $ref: '#/definitions/Category'
   Family:
     type: object
+    required: ["code", "attribute_as_label"]
     properties:
       code:
         type: string
-        description: Code of family
-      attributes:
-        type: array
-        description: Codes of all attributes in family
-        items:
-          type: string
+        description: Family code
+        x-immutable: true
       attribute_as_label:
         type: string
-        description: Code of attribute used as label
-      attribute_requirements:
+        description: Attribute code used as label
+        x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes`"
+      attributes:
         type: array
-        description: Codes of requirements attributes in family
-        items:
-          type: array
-          description: Code of requirements attributes by channel
-          items:
-            type: string
-      labels:
-        type: object
-        description: Labels of the family
+        description: Attributes codes that compose the family
+        x-validation-rules: Each string of the array is an existing attribute code
         items:
           type: string
+        default: []
+      attribute_requirements:
+        type: object
+        description: Attributes codes of the family that are required for the completeness calculation for each channel
+        x-validation-rules: "&bull; Each string of these arrays are existing attributes codes &#10;&bull; These attribute codes are in the array of the property `attributes` &#10;&bull; The `channelCode` is the code of an existing and activated channel"
+        properties:
+          channelCode:
+            type: array
+            items:
+              type: string
+              description: Attributes codes of the family that are required for the completeness calculation for the channel `channelCode`
+      labels:
+        type: object
+        description: Family labels for each locale 
+        x-validation-rules: The `localeCode` is the code of an existing and activated locale
+        default: {}
+        properties:
+          localeCode:
+            type: string
+            description: Family label for the locale `localeCode`
+    example: {
+      "code": "caps",
+      "attributes": ["sku", "name", "description", "price", "color"],
+      "attribute_as_label": "name",
+      "attribute_requirements": {
+        "ecommerce": ["sku", "name", "description", "price", "color"],
+        "tablet": ["sku", "name", "description", "price"]
+      },
+      "labels": {
+        "en_US": "Caps",
+        "fr_FR": "Casquettes"
+      }
+    }
   FamilyList:
     type: object
     allOf:
@@ -1282,89 +1555,157 @@ definitions:
       - $ref: '#/definitions/Family'
   Attribute:
     type: object
+    required: ["code", "type", "group"]
     properties:
       code:
         type: string
-        description: Code of attribute
-      labels:
-        type: object
-        description: Labels of the attribute
+        description: Attribute code
+        x-immutable: true
       type:
         type: string
-        description: Type of attribute
+        description: Attribute type
+        x-validation-rules: The type is one of the following value 
+        enum: ['pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price', 'pim_catalog_boolean']
+        x-immutable: true
+      labels:
+        type: object
+        description: Attribute labels for each locale
+        x-validation-rules: The `localeCode` is the code of an existing and activated locale
+        default: {}
+        properties:
+          localeCode:
+            type: string
+            description: Attribute label for the locale `localeCode`
       group:
         type: string
-        description: Group
-      unique:
-        type: boolean
-        description: Attribute should be unique ?
-      useable_as_grid_filter:
-        type: boolean
-        description: Can you use this attribute inside the grid ?
-      allowed_extensions:
-        type: array
-        description: Extensions allowed when attribute is a file or an image
-        items:
-          type: string
-      metric_family:
-        type: string
-        description: Metric family
-      default_metric_unit:
-        type: string
-        description: Default metric unit
-      reference_data_name:
-        type: string
-        description: Name of the reference data
-      available_locales:
-        type: array
-        description: Available locales when attribute has local specific
-        items:
-          type: string
-      max_characters:
-        type: integer
-        description: Max characters allowed
-      validation_rule:
-        type: string
-        description: Validation rule on attribute
-      validation_regexp:
-        type: string
-        description: Regexp validation on attribute
-      wysiwyg_enabled:
-        type: boolean
-        description: Enabled the WYSIWYG for text attribute ?
-      number_min:
-        type: string
-        description: Number min
-      number_max:
-        type: string
-        description: Number max
-      decimals_allowed:
-        type: boolean
-        description: Decimals are allowed ?
-      negative_allowed:
-        type: boolean
-        description: Negative is allowed ?
-      date_min:
-        type: string
-        description: Date min
-      date_max:
-        type: string
-        description: Date max
-      max_file_size:
-        type: string
-        description: Max file size on file attribute
-      minimum_input_length:
-        type: integer
-        description: Minimum input length
+        description: Attribute group
+        x-validation-rules: It is the code of an existing group
       sort_order:
         type: integer
-        description: Order of attribute 
+        description: Order of the attribute in its group
+        x-validation-rules: It is a positive integer
+        default: 0
       localizable:
           type: boolean
-          description: Attribute is localizable ?
+          description: Wether the attribute is localizable, i.e. can have one value by locale 
+          default: false
+          x-immutable: true
       scopable:
           type: boolean
-          description: Attribute is scopable ?
+          description: Wether the attribute is scopable, i.e. can have one value by channel 
+          default : false
+          x-immutable: true
+      available_locales:
+        type: array
+        description: To make the attribute locale specfic, specify here for which locales it is specific
+        x-validation-rules: Each string of the array is an existing and activated locale
+        items:
+          type: string
+      unique:
+        type: boolean
+        description: Wether two values for the attribute cannot be the same
+        x-immutable: true
+      useable_as_grid_filter:
+        type: boolean
+        description: Wether the attribute can be used as a filter for the product grid in the PIM user interface
+      max_characters:
+        type: integer
+        description: Number maximum of characters allowed for the value of the attribute when the attribute type is `pim_catalog_text`, `pim_catalog_textarea` or `pim_catalog_identifier`
+        x-warning: Only for `pim_catalog_text`, `pim_catalog_textarea` or `pim_catalog_identifier` attribute types
+      validation_rule:
+        type: string
+        description: Validation rule type used to validate any attribute value when the attribute type is `pim_catalog_text` or `pim_catalog_identifier`
+        x-validation-rules: Equal to `regexp` when the attribute type is equal to `pim_catalog_identifier`
+        x-warning: Only for `pim_catalog_text` or `pim_catalog_identifier` attribute types
+      validation_regexp:
+        type: string
+        description: Regexp expression used to validate any attribute value when the attribute type is `pim_catalog_text` or `pim_catalog_identifier`
+        x-validation-rules: Required when the property `validation_rule` is equal to `regexp`
+        x-warning: Only for `pim_catalog_text` or `pim_catalog_identifier` attribute types
+      wysiwyg_enabled:
+        type: boolean
+        description: Wether the WYSIWYG interface is shown when the attribute type is `pim_catalog_textarea`
+        x-warning: Only for `pim_catalog_textarea` attribute type
+      number_min:
+        type: string
+        description: Minimum integer value allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
+        x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
+      number_max:
+        type: string
+        description: Minimum integer value allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
+        x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
+      decimals_allowed:
+        type: boolean
+        description: Wether decimals are allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
+        x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
+      negative_allowed:
+        type: boolean
+        description: Wether negative values are allowed when the attribute type is `pim_catalog_metric` or `pim_catalog_number`
+        x-warning: Only for `pim_catalog_metric` or `pim_catalog_number` attribute types
+      metric_family:
+        type: string
+        description: Metric family when the attribute type is `pim_catalog_metric`
+        x-immutable: true
+        x-validation-rules: Required for `pim_catalog_metric` attribute type
+        x-warning: Only for `pim_catalog_metric` attribute type
+      default_metric_unit:
+        type: string
+        description: Default metric unit when the attribute type is `pim_catalog_metric`
+        x-validation-rules: Required for `pim_catalog_metric` attribute type
+        x-warning: Only for `pim_catalog_metric` attribute type
+      date_min:
+        type: string
+        description: Minimum date allowed when the attribute type is `pim_catalog_date`
+        x-validation-rules: The datetime format follows the ISO-8601 norm
+        x-warning: Only for `pim_catalog_date` attribute type
+        format: date-time
+      date_max:
+        type: string
+        description: Maximum date allowed when the attribute type is `pim_catalog_date`
+        x-validation-rules: The datetime format follows the ISO-8601 norm
+        x-warning: Only for `pim_catalog_date` attribute type
+        format: date-time
+      allowed_extensions:
+        type: array
+        description: Extensions allowed when the attribute type is `pim_catalog_file` or `pim_catalog_image`
+        x-warning: Only for `pim_catalog_file` or `pim_catalog_image` attribute types
+        items:
+          type: string
+      max_file_size:
+        type: string
+        description: Max file size when the attribute type is `pim_catalog_file` or `pim_catalog_image`
+        x-warning: Only for `pim_catalog_file` or `pim_catalog_image` attribute types
+    example: {
+      "code": "release_date",
+      "type": "pim_catalog_date",
+      "group": "marketing",
+      "unique": false,
+      "useable_as_grid_filter": true,
+      "allowed_extensions": [],
+      "metric_family": null,
+      "default_metric_unit": null,
+      "reference_data_name": null,
+      "available_locales": [],
+      "max_characters": null,
+      "validation_rule": null,
+      "validation_regexp": null,
+      "wysiwyg_enabled": false,
+      "number_min": null,
+      "number_max": null,
+      "decimals_allowed": false,
+      "negative_allowed": false,
+      "date_min": "2017-06-28T08:00:00",
+      "date_max": "2017-08-08T22:00:00",
+      "max_file_size": null,
+      "minimum_input_length": null,
+      "sort_order": 1,
+      "localizable": false,
+      "scopable": false,
+      "labels": {
+        "en_US": "Sale date",
+        "fr_FR": "Date des soldes"
+      }
+    }
   AttributeList:
     type: object
     allOf:
@@ -1384,19 +1725,102 @@ definitions:
         description: Order of attribute option
       labels:
         type: object
-        description: Labels of the attribute option
+        description: Attribute option labels for each locale 
+        x-validation-rules: The `localeCode` is the code of an existing and activated locale
+        default: {}
+        properties:
+          localeCode:
+            type: string
+            description: Attribute option label for the locale `localeCode`
+    example: {
+      "code": "black",
+      "attribute": "a_simple_select",
+      "sort_order": 2,
+      "labels": {
+        "en_US": "Black",
+        "fr_FR": "Noir"
+      }
+    }
   AttributeOptionList:
     type: object
     allOf:
       - $ref:  '#/definitions/ItemList'
       - $ref: '#/definitions/AttributeOption'
+  Locale:
+    type: object
+    required: ["code"]
+    properties:
+      code:
+        type: string
+        description: Locale code
+        x-immutable: true
+      enabled:
+        type: boolean
+        description: Wether the locale is enabled
+        default: false
+    example: {
+      "code": "en_US",
+      "enable": true
+    }
+  LocaleList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/Locale'
+  Channel:
+    type: object
+    required: ["code"]
+    properties:
+      code:
+        type: string
+        description: Channel code
+        x-immutable: true
+      locales:
+        type: array
+        description: Code of the locales activated for the channel
+        items:
+          type: string
+      currencies:
+        type: array
+        description: Code of the currencies activated for the channel
+        items:
+          type: string
+      category_tree:
+        type: string
+        description: Code of the category tree linked to the channel
+      conversion_units:
+        type: object
+        properties:
+          attributeCode:
+            type: string
+            description: Conversion unit code used to convert the values of the attribute `attributeCode` when exporting through the channel
+      labels:
+        type: object
+        description: Channel labels for each locale 
+        x-validation-rules: The `localeCode` is the code of an existing and activated locale
+        default: {}
+        properties:
+          localeCode:
+            type: string
+            description: Channel label for the locale `localeCode`
+    example: {
+      "code": "en_US",
+      "enable": true
+    }
+  ChannelList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/Channel'
   Error:
     type: object
     properties:
       code:
         type: integer
+        description: HTTP status code
       message:
         type: string
+        description: Message explaining the error
   Pagination:
     type: object
     properties:
@@ -1408,32 +1832,40 @@ definitions:
             properties:
               href:
                 type: string
+                description: URI of the current page of resources
           first:
             type: object
             properties:
               href:
                 type: string
+                description: URI of the first page of resources
           last:
             type: object
             properties:
               href:
                 type: string
+                description: URI of the last page of resources
           previous:
             type: object
             properties:
               href:
                 type: string
+                description: URI of the previous page of resources
           next:
             type: object
             properties:
               href:
                 type: string
+                description: URI of the next page of resources
       current_page:
         type: integer
+        description: Current page number
       pages_count:
         type: integer
+        description: Total number of pages
       items_count:
         type: integer
+        description: Total number of resources
   ItemList:
     type: object
     properties:
@@ -1445,32 +1877,47 @@ definitions:
             properties:
               href:
                 type: string
+                description: URI of the resource
         
 responses:
   NoContent:
     description: No content to return
+    x-details: Means that the update was a success
     headers:
       Location: 
         description: URI of the resource
         type: string
   400Error:
     description: Bad request
+    x-details: Can be caused by the content of the body that is not a correct JSON
     schema:
       $ref: "#/definitions/Error"
+    examples: {
+      "code":400,
+      "message":"Invalid json message received"
+    }
   401Error:
     description: Authentication required
+    x-details: Can be caused by a missing token or an expired token
     schema:
       $ref: "#/definitions/Error"
   403Error:
     description: Access forbidden
+    x-details: The user used to get the token for authentication purpose does not have the permission to execute this request
     schema:
       $ref: "#/definitions/Error"
+    examples: {
+      "code":403,
+      "message":"Access forbidden. You are not allowed to list categories."
+    }
   404Error:
     description: Resource not found
+    x-details: The resource code given in the URI that does not correspond to any existing PIM resources
     schema:
       $ref: "#/definitions/Error"
   422Error:
     description: Unprocessable entity
+    x-details: The validation of the entity given in the body of the request was a failure
     schema:
       $ref: "#/definitions/Error"
 
@@ -1478,17 +1925,19 @@ parameters:
   page:
     name: page
     in: query
-    description: Sets the position of the first result to retrieve
+    description: Number of the page to retrieve
     required: false
     type: integer
+    default: 1
   limit:
     name: limit
     in: query
-    description: Sets the maximum number of results to retrieve
+    description: Number of results of the page to retrieve
     required: false
     type: integer
     minimum: 1
     maximum: 100
+    default: 10
   code:
     name: code
     in: path

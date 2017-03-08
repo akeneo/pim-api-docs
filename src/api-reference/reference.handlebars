@@ -11,6 +11,11 @@
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="icon" type="image/png" href="img/akene36.png">
+  <script type="text/javascript"> 
+    $(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
 </head>
 <body data-spy="scroll" data-target="#navbar">
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -68,6 +73,7 @@
 					  	<use xlink:href="img/icons.svg#icon_{{{ressource}}}"></use>
 						</svg>
 					</h2>
+          <div id="{{{ressource}}}-detail"></div>
         	{{#each operations as |operation operationId|}}
 		        <div class="panel panel-default">
 		          <div class="panel-body">
@@ -81,66 +87,68 @@
 		                <div class="row">
 		                  <div class="col-md-6"> 
 		                    <h5>Path parameters</h5>
-		                    {{#with groupedParameters}}
-		                    	{{#each path}}
-		                    		<p><code>{{{name}}}</code><em> ({{{type}}})</em> &bull; {{{description}}}</p>
-		                    	{{else}}
-		                    		<p>Ø</p>
-		                    	{{/each}}
-		                    {{/with}}
+		                    {{#each groupedParameters.path}}
+		                    	<p><code>{{{name}}}</code> <a href="#" data-placement="top" data-toggle="tooltip" title="Required parameters"><i class="fa fa-asterisk fa-danger"></i></a><em> ({{{type}}})</em> &bull; {{{description}}}</p>
+		                    {{else}}
+		                    	<p>Ø</p>
+		                    {{/each}}
 		                  </div>
 		                  <div class="col-md-6">
 		                    <h5>Query parameters</h5>
-		                    {{#with groupedParameters}}
-		                    	{{#each query}}
-		                    		<p><code>{{{name}}}</code><em> ({{{type}}})</em> &bull; {{{description}}}</p>
-		                    	{{else}}
-		                    		<p>Ø</p>
-		                    	{{/each}}
-		                    {{/with}}
+		                    {{#each groupedParameters.query}}
+		                    	<p>
+                            <code>{{{name}}}</code>
+                            <em> ({{{type}}}
+                            {{~#if default}}, </em><strong>{{{default}}}</strong><em> by default{{~/if~}}
+                            )</em>
+                            {{#if minimum}}<a href="#" data-placement="top" data-toggle="tooltip" title="Value between {{minimum}} and {{maximum}}"><i class="fa fa-check fa-success"></i></a>{{/if}}
+                            &bull; {{{description}}}
+                          </p>
+		                    {{else}}
+		                  		<p>Ø</p>
+		                  	{{/each}}
 		                  </div>
 		                </div>
 		                <div class="row">
 		                  <div class="col-xs-12">
 		                    <h5>Headers</h5>
-		                    {{#with groupedParameters}}
-			                    {{#each body}}
-			                    	<p><code>Content-type</code><i class="fa fa-asterisk fa-danger"></i> &bull; Equal to 'application/json'</p>
-		                    	{{else}}
-			                    	<p><code>Accept</code> &bull; Equal to 'application/json'</p>
-			                    {{/each}}
-		                    {{/with}}
+                        {{#each groupedParameters.body}}
+			                    <p><code>Content-type</code> <a href="#" data-placement="top" data-toggle="tooltip" title="Required header"><i class="fa fa-asterisk fa-danger"></i></a> &bull; Equal to 'application/json', no other value allowed</p>
+		                    {{else}}
+			                   	<p><code>Accept</code> &bull; Equal to 'application/json', no other value allowed</p>
+			                  {{/each}}
 		                    <h5>Body</h5>
-		                    {{#with groupedParameters}}
-		                    	{{#each body}}
-		                    		{{#with schema}}
-		                    			<p>Follow the standard format of the entity</p>
-		                    			<div class="row">
-		                    				<div class="col-md-6">
-		                    					<div class="def">
-			                    					<p>{{{name}}} {</p>
-			                    					{{#each properties}}
-			                    					<p class="def-key"><code>{{{@key}}}</code>{{#if required}}<i class="fa fa-asterisk fa-danger"></i>{{/if}} <em>({{{type}}}{{#if items}}{{#with items}}[{{{type}}}]{{/with}}{{/if}}{{#if properties}}{{#each properties}}{ {{{@key}}}: {{{type}}} }{{/each}}{{/if}})</em> &bull; {{{description}}}</p>
-			                    					{{/each}}
-			                    					<p>}</p>
-		                    					</div>
-																</div>
-		                    				<div class="col-md-6">
-		                    					<p>Example</p>
-		                    					<pre class="hljs"><code>{
-		                    					{{#each properties}}
-  <span class="hljs-attr">"{{{@key}}}"</span>: {{#with example}}{{#if sample}}<span class="hljs-{{{type}}}">{{{sample}}}</span>{{/if}}{{#if items_sample}}<span>[</span><span class="hljs-{{{items_type}}}">{{{items_sample}}}, </span><span class="hljs-{{{items_type}}}">{{{items_sample}}}, </span><span class="hljs-{{{items_type}}}">{{{items_sample}}}</span><span>]</span>{{/if}}{{/with}}
-  {{/each}}
-}
-</code></pre>
-		                    					
-																</div>
+		                    {{#each groupedParameters.body}}
+		                    	<div class="row">
+		                    		<div class="col-md-8">
+                              <p>Follow the standard format of the entity</p>
+		                  				<div class="def">
+                                <p>{{{schema.name}}} {</p>
+			                  				{{#each schema.properties}}
+			                  					<p class="def-key">
+                                    <code>{{{@key}}}</code>
+                                    <em>({{{type}}}{{#with items}}[{{{type}}}]{{/with}}{{#each properties}}{{#if @first}}&#123;{{/if}}{{{@key}}}: {{{type}}}{{#each properties}}{{#if @first}}&#123;{{/if}}{{{@key}}}: {{{type}}}{{#with items}}[{{{type}}}]{{/with}}{{#if @last}}&#125;{{else}}, {{/if}}{{/each}}{{#with items}}[{{{type}}}{{#each properties}}{{#if @first}}&#123;{{/if}}{{{@key}}}: {{{type}}}{{#with items}}[{{{type}}}]{{/with}}{{#if @last}}&#125;{{else}}, {{/if}}{{/each}}]{{/with}}{{#if @last}}&#125;{{else}}, {{/if}}{{/each}}
+                                    {{~#if default}}, </em><strong>{{{default}}}</strong><em> by default{{~/if~}})</em>
+                                    {{#if required}}<a href="#" data-placement="top" data-toggle="tooltip" title="Required property"><i class="fa fa-asterisk fa-danger"></i></a>{{/if}}
+                                    {{#if patchRequired}}<a href="#" data-placement="top" data-toggle="tooltip" title="Required property only in creation mode"><i class="fa fa-asterisk fa-danger"></i></a>{{/if}}
+                                    {{#if x-read-only}}<a href="#" data-placement="top" data-toggle="tooltip" title="Read only property, not present in creation mode"><i class="fa fa-eye fa-akeneo"></i></a>{{/if}}
+                                    {{#if x-immutable}}<a href="#" data-placement="top" data-toggle="tooltip" title="Immutable property"><i class="fa fa-lock fa-akeneo"></i></a>{{/if}}
+                                    {{#if x-validation-rules}}<a href="#" data-placement="top" data-toggle="tooltip" title="{{{x-validation-rules}}}{{#each enum}} `{{this}}`{{#unless @last}},{{/unless}}{{/each}}"><i class="fa fa-check fa-success"></i></a>{{/if}}
+                                    {{#if x-warning}}<a href="#" data-placement="top" data-toggle="tooltip" title="{{{x-warning}}}"><i class="fa fa-warning fa-warning-color"></i></a>{{/if}}
+                                    &bull; {{{description}}}
+                                  </p>
+			                    			{{/each}}
+			                    			<p>}</p>
 		                    			</div>
-		                    		{{/with}}
-		                    	{{else}}
-		                    		<p>Ø</p>
-		                    	{{/each}}
-		                    {{/with}}
+														</div>
+		                    		<div class="col-md-4">
+		                    			<p>Example</p>
+		                  				{{{schema.hljsExample}}}
+														</div>
+		                			</div>
+		                  	{{else}}
+		                  		<p>Ø</p>
+		                  	{{/each}}
 		                  </div>
 		                </div>
 		                <hr>
@@ -157,7 +165,8 @@
 		                    <div class="row tab-content">
 		                			{{#each responses}}
 		                      <div role="tabpanel" class="col-xs-12 tab-pane {{#if @first}}active{{/if}}" id="{{id}}">
-		                      	<p><strong>{{{description}}}</strong></p>
+                            <p><strong>{{{description}}}</strong></p>
+		                      	<p>{{{x-details}}}</p>
 		                      	{{#if headers}}
 		                      		<h5>Headers</h5>
 		                      		{{#each headers}}
@@ -166,38 +175,126 @@
 		                      	{{/if}}
 		                        <h5>Body <small>Format <span class="label label-default">application/json</span></small></h5>
 		                    		{{#if success}}
-		                    			{{#with schema}}
+		                    			{{#if schema}}
 		                    			<p>Follow the standard format of the entity</p>
-		                    			{{/with}}
+		                    			{{/if}}
+                            {{/if}}
 		                    			<div class="row">
 		                    				<div class="col-xs-12">
 		                    				{{#with schema}}
 		                    					<div class="def">
 			                    					<p>{{{name}}} {</p>
-			                    					{{#each properties}}
-			                    					<p class="def-key"><code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}{{#with items}}[{{{type}}}]{{/with}}{{/if}}{{#if properties}}{{#each properties}}{ {{{@key}}}: {{{type}}} }{{/each}}{{/if}})</em> &bull; {{{description}}}</p>
-			                    					{{/each}}
+			                    					
+                                      {{#each properties}}
+                                      <p class="def-key"><code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em> 
+                                      {{#if properties}}:     { <br>
+                                        {{#each properties}}
+                                          &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em>
+                                            {{#if properties}}:     { <br>
+                                              {{#each properties}}
+                                                &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                              {{/each}}<br>&nbsp; &nbsp; } <br>
+                                            {{else}}
+                                              {{#with items}}
+                                                {{#if allOf}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; { <br>
+                                                  {{#each allOf}} 
+                                                    {{#each properties}}
+                                                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}})</em> 
+                                                      {{#if properties}}:     { <br>
+                                                        {{#each properties}}
+                                                          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}})</em>
+                                                          {{#if properties}}:     { <br>
+                                                            {{#each properties}}
+                                                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}})</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                            {{/each}}<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+                                                          {{else}}
+                                                          &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                          {{/if}}
+                                                        {{/each}}<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } <br>
+                                                      {{else}}
+                                                      &bull; {{{description}}} <br>
+                                                      {{/if}}
+                                                    {{/each}}
+                                                  {{/each}}
+                                                  &nbsp; &nbsp; &nbsp; &nbsp; } <br>
+                                                  &nbsp; &nbsp; ]
+                                                {{/if}}
+                                                {{#if properties}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; { <br>
+                                                  {{#each properties}}
+                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em> 
+                                                    &bull; {{{description}}} <br>
+                                                  {{/each}}
+                                                  &nbsp; &nbsp; &nbsp; &nbsp; } <br>
+                                                  &nbsp; &nbsp; ] <br>
+                                                {{else}}
+                                                  &bull; {{{description}}}<br>
+                                                {{/if}}
+                                              {{else}}
+                                              &bull; {{{description}}}</br>
+                                              {{/with}}
+                                            {{/if}}
+                                            {{#unless @last}} <br> {{/unless}}
+                                        {{/each}}&nbsp; }
+                                      {{else}}
+                                        &bull; {{{description}}}</p>
+                                      {{/if}}
+                                      {{/each}}
 			                    					{{#each allOf}}
 				                    					{{#each properties}}
-				                    					<p class="def-key"><code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}{{#with items}}[{{{type}}}]{{/with}}{{/if}})</em> 
-				                    					{{#if properties}}:     { <br>
-				                    						{{#each properties}}
-				                    							&nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}})</em>
-									                    			{{#if properties}}:     { <br>
-									                    				{{#each properties}}
-									                    					&nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}})</em> &bull; {{#unless @last}} <br> {{/unless}}
-									                    				{{/each}}<br>&nbsp; &nbsp; }
-									                    			{{else}}
-									                    				&bull; {{{description}}}</p>
-									                    			{{/if}}
-									                    			{{#unless @last}} <br> {{/unless}}
-				                    						{{/each}}<br>  }
-				                    					{{else}}
-				                    				  	&bull; {{{description}}}</p>
-				                    					{{/if}}
-				                    					{{#if items}}
-				                    						YO
-				                    					{{/if}}
+				                    					<p class="def-key"><code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em> 
+  				                    					{{#if properties}}:     { <br>
+  				                    						{{#each properties}}
+  				                    							&nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}})</em>
+  									                    			{{#if properties}}:     { <br>
+  									                    				{{#each properties}}
+  									                    					&nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}})</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+  									                    				{{/each}}<br>&nbsp; &nbsp; }
+  									                    			{{else}}
+                                                {{#with items}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; { <br>
+                                                  {{#each allOf}} 
+                                                    {{#each properties}}
+                                                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em> 
+                                                      {{#if properties}}:     { <br>
+                                                        {{#each properties}}
+                                                          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em>
+                                                          {{#if properties}}:     { <br>
+                                                            {{#each properties}}
+                                                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                            {{/each}}<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+                                                          {{else}}
+                                                            {{#with items}}
+                                                              {{#if properties}}
+                                                                : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { <br>
+                                                                {{#each properties}}
+                                                                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                {{/each}}<br>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+                                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]
+                                                              {{else}}
+                                                                &bull; {{{description}}}
+                                                              {{/if}}
+                                                            {{else}}
+                                                              &bull; {{{description}}}
+                                                            {{/with}}
+                                                          {{/if}}
+                                                        {{/each}}<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } <br>
+                                                      {{else}}
+                                                      &bull; {{{description}}} <br>
+                                                      {{/if}}
+                                                    {{/each}}
+                                                  {{/each}}
+                                                {{else}}
+  									                    				&bull; {{{description}}}</p>
+                                                {{/with}}
+                                                {{#with items}}
+                                                &nbsp; &nbsp; &nbsp; &nbsp; } <br>
+                                                &nbsp; &nbsp; ]
+                                                {{/with}}
+  									                    			{{/if}}
+  									                    			{{#unless @last}} <br> {{/unless}}
+  				                    						{{/each}}<br>  }
+  				                    					{{else}}
+  				                    				  	&bull; {{{description}}}</p>
+  				                    					{{/if}}
 				                    					{{/each}}
 			                    					{{/each}}
 			                    					<p>}</p>
@@ -206,30 +303,13 @@
 		                    					<p>Ø</p>
 		                    				{{/with}}
 																</div>
-																{{#if example}}
+																{{#if hljsExample}}
 		                    				<div class="col-xs-12">
 		                    					<p>Example</p>
-		                    					<div>{{{example}}}</div>
+		                    					<div>{{{hljsExample}}}</div>
 																</div>
 																{{/if}}
 		                    			</div>
-		                    		{{else}}
-		                    		{{#with schema}}
-		                    		<div class="row">
-		                    			<div class="col-xs-12">
-		                    				<pre class="hljs"><code>{
-		                    					{{#each properties}}
-  <span class="hljs-attr">"{{{@key}}}"</span>: {{#with example}}{{#if sample}}<span class="hljs-{{{type}}}">{{{sample}}}</span>{{/if}}{{#if items_sample}}<span>[</span><span class="hljs-{{{items_type}}}">{{{items_sample}}}, </span><span class="hljs-{{{items_type}}}">{{{items_sample}}}, </span><span class="hljs-{{{items_type}}}">{{{items_sample}}}</span><span>]</span>{{/if}}{{/with}}
-  {{/each}}
-}
-</code></pre>
-		                    					
-																</div>
-		                    			</div>
-		                    		{{else}}
-		                    		<p>Ø</p>
-		                    		{{/with}}
-		                    		{{/if}}
 		                      </div>
 		                      {{/each}}
 		                    </div>
@@ -245,6 +325,7 @@
 		                <div class="row">
 		                  <div class="col-md-6">
 		                    <h5>Request</h5>
+                        {{{curlRequestExample}}}
 											</div>
 		                  <div class="col-md-6">
 		                    <h5>Response</h5>
