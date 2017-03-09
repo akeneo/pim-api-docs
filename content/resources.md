@@ -38,7 +38,7 @@ Below is the JSON standard format representing this set of locales.
 :::
 
 ## Channel
-An channel refers to a place where your product information will be visible: for example, a website, a print catalog, a mobile application...
+An channel refers to a place where your product information will be visible: for example, a website, a print catalog or a mobile application.
 Actually, a channel defines a selection of products and information to export.
 
 :::info
@@ -49,7 +49,7 @@ In the Akeneo UI, you can find them in the `Settings`/`Channels` menu.
 
 ![Channels in the Akeneo UI](img/channels_ui.png)
 
-Below is the JSON standard format representing this set of channels when you request through the API.
+Below is the JSON standard format representing this set of channels when requested through the API.
 
 ```json
 {
@@ -162,15 +162,15 @@ Below is the JSON standard format representing a set of categories.
 
 ## Attribute
 
-An attribute is a product’s characteristic. Each product is composed of a variety of attributes.
+An attribute is a characteristic of a product. Each product is composed of a variety of attributes.
 
-Depending on your Akeneo Edition version, you can have up to 13 attribute types: text and text area, simple or multiselect, boolean (yes/no), date, image, price, number, metric, assets (digital resources like a video, picture, pdf file...).
+Depending on your Akeneo Edition version, you can have up to 13 attribute types: text and text area, simple or multiselect, boolean (yes/no), date, image, price, number, metric, assets (digital resources like a video, picture, PDF file...).
 
-An attribute can be localisable. It means that it can have different values for each locale. This allows you to manage a product’s translations according to the activated PIM locales. For instance, a localisable attribute will enable you to have one article name for each locale activated in your PIM. It is mostly used for text or (simple or multi) select attributes.
+An attribute can be localizable. It means that it can have different values for each locale. This allows you to manage translations of your products according to the activated PIM locales. For instance, a localizable attribute will enable you to have one article name for each locale activated in your PIM. It is mostly used for text or (simple or multi) select attributes.
 
 Some attributes can be shown only for specific locales. We will call them locale specific. For instance, a cold resistance attribute only for Russia, a Canadian tax only for Canada.
 
-Finally, an attribute can be scopable. An attribute is scopable if its values differ for each channel. for instance, you might have one short description for your e-commerce website, maybe one even shorter for your mobile app but a long one for your print catalog.
+Finally, an attribute can be scopable. An attribute is scopable if its values differ for each channel. For instance, you might have one short description for your e-commerce website, maybe one even shorter for your mobile app but a long one for your print catalog.
 
 :::warning
 An attribute cannot be both localizable and locale specific at the same time.
@@ -261,11 +261,11 @@ Below is the JSON standard format representing theses attribute options.
 :::
 
 ## Media file
-A media file can be an image (a photo, an illustration...), a video (product’s demonstration, an animation...), an audio file (music, podcast...), other multimedia (pdf file...) or office documents (.xlsx, .docx, .csv...).
+A media file can be an image (a photo, an illustration, etc.), a video (demonstration of a product, an animation, etc.), an audio file (music, podcast, etc.), other multimedia (PDF file) or office documents (.xlsx, .docx, .csv, etc.). It can also be any exotic format you could use.
 
-It is used as the attribute value of a product, ie a product value.
+It is used as the attribute value of a product, i.e. a product value.
 
-In the Akeneo UI, you can find media files in the product form when they are associated to an media attribute.
+In the Akeneo UI, you can find media files in the product form when they are associated to a media attribute.
 
 Below is the JSON standard format representing a media file.
 
@@ -289,7 +289,7 @@ Below is the JSON standard format representing a media file.
 
 ## Family
 
-A family is a set of attributes that are shared by products belonging to this family. In other words, a family can be considered as a template for products. A product family can use all the attributes available in the PIM. Several families of products can use the same attributes. 
+A family is a set of attributes that are shared by products belonging to this family. In other words, a family can be considered as a template for products. A product family can use all of the attributes available in the PIM. Several families of products can use the same attributes. 
 
 When a product is associated to a family, the product automatically inherits from all attributes defined at the family level. 
 
@@ -298,7 +298,7 @@ The family helps managing the product’s completeness as you can say at the fam
 ::: info
 A product can belong to only one family.
 
-But a product does not have to belong to a family. In this case, it has no default attributes.
+Nevertheless, a product does not have to belong to a family. In this case, it has no default attributes.
 :::
 
 In the Akeneo UI, you can find the families in the `Settings`/`Families` menu. Below is an example of a family in the UI.
@@ -497,15 +497,15 @@ A product value follows this format:
 ```
 In this formula:
  - `ATTRIBUTE_CODE` is the code of an attribute of the product,
- - `LOCALE_CODE` is the code of a locale when the attribute is localisable,
+ - `LOCALE_CODE` is the code of a locale when the attribute is localizable,
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable,
- - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localisable) and this channel (if the attribute is scopable). Its type and format depends on the attribute type.
+ - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depends on the attribute type.
 
 #### Examples
 
-**Product values of a localisable attribute**
+**Product values of a localizable attribute**
 
-The `short_description` attribute is neither scopable nor localisable, so it can hold several data values, up to one for each locale.
+The `short_description` attribute is scopable but not localizable, so it can hold several data values, up to one for each locale.
 ```json
 {
   "short_description": [
@@ -528,7 +528,7 @@ Note that the `scope` property is set to `null` in this case.
 
 **Product values of a scopable attribute**
 
-The `release_date` attribute is neither scopable nor localisable, so it can hold several data values, up to one for each channel.
+The `release_date` attribute is neither scopable nor localizable, so it can hold several data values, up to one for each channel.
 ```json
 {
   "release_date": [
@@ -549,9 +549,9 @@ The `release_date` attribute is neither scopable nor localisable, so it can hold
 Note that the `locale` property is set to `null` in this case.
 :::
 
-**Product values of a localisable and scopable attribute**
+**Product values of a localizable and scopable attribute**
 
-The `description` attribute is both scopable and localisable, so it can hold several data values, up to one for each couple of channels and locales.
+The `description` attribute is both scopable and localizable, so it can hold several data values, up to one for each couple of channels and locales.
 ```js
 {
   "description": [
@@ -589,9 +589,9 @@ The `description` attribute is both scopable and localisable, so it can hold sev
 }
 ```
 
-**Product value of a non localisable, non scopable attribute**
+**Product value of a non localizable, non scopable attribute**
 
-The `main_color` attribute is neither scopable nor localisable, so it can hold only one data value.
+The `main_color` attribute is neither scopable nor localizable, so it can hold only one data value.
 ```json
 {
   "main_color": [

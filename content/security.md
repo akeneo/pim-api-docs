@@ -49,7 +49,7 @@ Client ids are not enough to access the API, it's the role of tokens. See [Getti
 To revoke a client id use the following command:
 
 ```bash
-php app/console pim:oauth-server:revoke-client your-client-id
+php app/console pim:oauth-server:revoke-client the-client-id
 ```
 
 #### Example

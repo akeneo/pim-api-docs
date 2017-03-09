@@ -81,7 +81,7 @@ curl https://demo.akeneo.com/api/rest/v1/categories \
 :::info
 You are experiencing this kind of error and the examples given here did not help you?
 
-Have a look to the [authentication](/documentation.html#authentication) documentation. This might save your day! 
+Take a look at the [authentication](/documentation.html#authentication) documentation. This might save your day! 
 :::
 
 ### 403 error
@@ -100,7 +100,7 @@ HTTP/1.1 403 Forbidden
 :::info
 You are experiencing this kind of error and you do not know how to solve it?
 
-Have a look to the [authorization](/documentation.html#authorization) documentation. This might save your day! 
+Take a look to the [authorization](/documentation.html#authorization) documentation. This might save your day! 
 :::
 
 ### 404 error

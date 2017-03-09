@@ -1,9 +1,9 @@
 # Filters
 
-When requesting list of resources via the API, you can filter the resources to get only the one you want.
+When requesting a list of resources via the API, you can apply filters to get only the ones you want.
 
 ## Filter on product properties
-To filter products on one of its property, you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
+To filter products by one of its properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
 /api/rest/v1/products?search={PRODUCT_PROPERTY:[{"operator":OPERATOR,"value":VALUE}]}
@@ -15,19 +15,19 @@ In the above url :
  - `VALUE` is a value whose type corresponds to the allowed type detailed below.
 
 #### Examples
-To get only enabled products, you can use the following URL.
+To only retrieve enabled products, you can use the following URL.
 
 ```
 /api/rest/v1/products?search={"enabled":[{"operator":"=","value":true}]}
 ```
 
-Of course, you can combine as many filters as you want. The example below will get you the enabled products that are 70% complete.
+Of course, you can combine as many filters as you want. The example below will get you the enabled products being 70% complete.
 
 ```
 /api/rest/v1/products?search={"enabled":[{"operator":"=","value":true}], "completeness":[{"operator":">","value":70}]}
 ```
 
-You can even combine several filters on the same product properties. The example below will get you the products created on the 4th and the 5th of July 2016.
+You can even combine several filters on the same product properties. The example below will get you the products created both the 4th and the 5th of July 2016.
 
 ```
 /api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04"},{"operator":"=","value":"2016-07-05"}]}
@@ -35,8 +35,8 @@ You can even combine several filters on the same product properties. The example
 
 ### On categories
 
-To filter products on categories, use the product property `categories.code`.
-Here are the allowed operators to filter on this property as well as the corresponding type of value expected in the `search` query parameter.
+To filter products on their categories, use the property `categories.code`.
+Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
@@ -57,8 +57,8 @@ To get the products of the `winter_collection` category, you can use the followi
 
 ### On status
 
-To filter products on categories, use the product property `enabled`.
-Here are the allowed operators to filter on this property as well as the corresponding type of value expected in the `search` query parameter.
+To filter products on their status, use the `enabled` property.
+Here are the allowed operators you can use to filter on the status as well as the corresponding type of value expected in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
@@ -74,8 +74,8 @@ To get the disabled products, you can use the following URL.
 
 ### On completeness
 
-To filter products on their completeness, use the product property `completeness`. You will also need to provide a `scope` value in the JSON formula to specify on which channel you want to filter with the completeness.
-Here are the allowed operators to filter on this property as well as the corresponding type of value expected in the `search` query parameter.
+To filter products on their completeness, use the `completeness` product property. You will also need to provide a `scope` value to specify on which channel you want to filter with the completeness.
+Here are the allowed operators you can use to filter by completeness as well as the corresponding type of value expected in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
@@ -101,8 +101,8 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 
 ### On group or family
 
-To filter products on groups or families, use respectively the product property `group` or `family`.
-Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
+To filter products on groups or families, use respectively the product property `group` and `family`.
+Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
@@ -126,7 +126,7 @@ To get the products that are not in the `clothing` family, you can use the follo
 
 ### On creation or update date
 
-To filter products on creation or update date, use respectively the product property `created` or `updated`.
+To filter products on creation or update date, use respectively the product property `created` and `updated`.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
@@ -138,8 +138,7 @@ Here are the allowed operators to filter on these properties as well as the corr
 | `BETWEEN` | array[dateTime (ISO-8601),dateTime (ISO-8601)] | Only returns products that were respectively updated or created between the two given dates |
 | `NOT BETWEEN` | array[dateTime (ISO-8601),dateTime (ISO-8601)] | Only returns products that were respectively not updated or not created between the two given dates |
 | `SINCE LAST N DAYS` | integer | Only returns products that have respectively been updated or created since the last n days, n being the given value |
-| `SINCE LAST JOB` | no value | Only returns products that have respectively been updated or created since the last job |
-
+|
 #### Examples
 To get the products that were created on the 4th of July 2016, you can use the following URL.
 
@@ -147,7 +146,7 @@ To get the products that were created on the 4th of July 2016, you can use the f
 /api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04"}]}
 ```
 
-To get the products that were updated in the last 4 days, you can use the following URL.
+To get the products that were updated during the last 4 days, you can use the following URL.
 
 ```
 /api/rest/v1/products?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
@@ -164,29 +163,29 @@ In the above url :
  - `ATTRIBUTE_CODE` can be any existing attribute code,
  - `OPERATOR` is an allowed operator for the attribute type of the `ATTRIBUTE_CODE` attribute,
  - `VALUE` is a value whose type corresponds to the attribute type of the `ATTRIBUTE_CODE` attribute,
- - `LOCALE_CODE` is an existing locale code that should be only given when the `ATTRIBUTE_CODE` attribute is localisable
+ - `LOCALE_CODE` is an existing locale code that should be only given when the `ATTRIBUTE_CODE` attribute is localizable
  - `CHANNEL_CODE` is an existing channel code that should be only given when the `ATTRIBUTE_CODE` attribute is scopable.
 
 #### Examples
-To get products that are red, red being an option of the simple select `color` attribute and this attribute being neither localisable nor scopable, you can use the following URL.
+To get products that are red, red being an option of the simple select `color` attribute and this attribute being neither localizable nor scopable, you can use the following URL.
 
 ```
 /api/rest/v1/products?search={"color":[{"operator":"IN","value":"red"}]}
 ```
 
-To get products that have a description that begins with `Amazing` on the `en_US` locale, the `description` attribute being localisable but not scopable, you can use the following URL.
-
+To get products having a description begining with `Amazing` on the `en_US` locale, the `description` attribute being localizable but not scopable, you can use the following URL.
+sho
 ```
 /api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}]}
 ```
 
-To get products that have a release date due after the 4th of July 2016 for the `ecommerce` channel, the `release_date` attribute being scopable but not localisable, you can use the following URL.
+To get products that have a release date due after the 4th of July 2016 for the `ecommerce` channel, the `release_date` attribute being scopable but not localizable, you can use the following URL.
 
 ```
 /api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04","scope":"ecommerce"}]}
 ```
 
-To get products that have a name that contains with `shirt` on the `en_US` locale for the `mobile` channel, the `name` attribute being both localisable and scopable, you can use the following URL.
+To get products that have a name that contains with `shirt` on the `en_US` locale for the `mobile` channel, the `name` attribute being both localizable and scopable, you can use the following URL.
 
 ```
 /api/rest/v1/products?search={"name":[{"operator":"CONTAINS","value":"shirt","locale":"en_US","scope":"mobile"}]}
@@ -204,7 +203,7 @@ You can even combine several filters on the same attribute. The example below wi
 /api/rest/v1/products?search={"description":[{"operator":"NOT EMPTY","locale":"en_US"},{"operator":"EMPTY","locale":"fr_FR"}]}
 ```
 
-### `Search_locale` query parameter
+### `search_locale` query parameter
 If you need to filter on several attributes on the same locale, you can use the `search_locale` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing locale code.
 
 #### Example
@@ -216,7 +215,7 @@ If you need to filter on several attributes on the same locale, you can use the 
 /api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing"}],"short_description":[{"operator":"CONTAINS","value":"shoes"}]}&search_locale=en_US
 ```
 
-### `Search_scope` query parameter
+### `search_scope` query parameter
 If you need to filter on several attributes on the same channel, you can use the `search_scope` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing channel code.
 
 #### Example
@@ -229,7 +228,7 @@ If you need to filter on several attributes on the same channel, you can use the
 ```
 
 ### Available operators
-As seen previously, the attribute type determines which set of operators is available to make these filters.
+As seen previously, the attribute type determines which set of operators is available to use these filters.
 
 **The `pim_catalog_identifier`, `pim_catalog_text` and `pim_catalog_textarea` attribute types**
 
@@ -264,7 +263,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | Allowed operators | Allowed value type |
 | ---------- | ---------- |
 | <, =, !=, > | dateTime (ISO-8601) |
-| BETWEEN, NOT BETWEEN | [dateTime (ISO-8601),dateTime (ISO-8601)] |
+| BETWEEN, NOT BETWEEN | [dateTime (ISO-8601), dateTime (ISO-8601)] |
 | EMPTY, NOT EMPTY | no value |
 
 **The `pim_catalog_file` and `pim_catalog_image` attribute types**
@@ -278,7 +277,7 @@ As seen previously, the attribute type determines which set of operators is avai
 Thanks to the above sections, you are able to filter your products to only get those you want. In this section, you will see that you also can filter the product values to only receive those you want. 
 
 ### Via attributes
-If you want to receive for each product only product values about precise attributes, you can specify it thanks to the `attributes` query parameter.
+If you want to receive for each product only product values about specific attributes, you can specify it thanks to the `attributes` query parameter.
 
 #### Example
 To get products with only product values regarding the `description` attribute, you can use the following URL.
@@ -292,7 +291,7 @@ You can filter product values on several attributes at the same time.
 ```
 
 ### Via locale
-If you want to receive for each product only product values on precise locales, you can specify it thanks to the `locales` query parameter.
+If you want to receive for each product only product values on specific locales, you can specify it thanks to the `locales` query parameter.
 
 #### Example
 To get products with only product values regarding the `en_US` locale, you can use the following URL.
@@ -306,7 +305,7 @@ You can filter product values on several locales at the same time.
 ```
 
 ### Via channel
-If you want to receive for each product only product values about a precise channel, you can specify it thanks to the `scope` query parameter.
+If you want to receive for each product only product values about a specific channel, you can specify it thanks to the `scope` query parameter.
 
 #### Example
 To get products with only product values regarding the `e_commerce` scope, you can use the following URL.
@@ -320,7 +319,7 @@ Note that you cannot filter product values on several channels.
 
 ## Filter locales
 
-When requesting locales, you can filter to get the enabled ones.
+When requesting locales, you can use a filter to get the enabled ones.
 
 #### Example
 ```

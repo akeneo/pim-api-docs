@@ -27,17 +27,17 @@ paths:
         - name: channel
           in: query
           type: string
-          description: Filter products to return only attributes scopable
+          description: Filter products to only return scopable attributes
           required: false
         - name: locales
           in: query
           type: string
-          description: Filter products to return only attributes localizable
+          description: Filter products to only return localizable attributes
           required: false
         - name: attributes
           in: query
           type: string
-          description: Filter products to return only some attributes
+          description: Filter products to only return some attributes
           required: false
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
@@ -1587,12 +1587,12 @@ definitions:
         default: 0
       localizable:
           type: boolean
-          description: Wether the attribute is localizable, i.e. can have one value by locale 
+          description: Whether the attribute is localizable, i.e. can have one value by locale 
           default: false
           x-immutable: true
       scopable:
           type: boolean
-          description: Wether the attribute is scopable, i.e. can have one value by channel 
+          description: Whether the attribute is scopable, i.e. can have one value by channel 
           default : false
           x-immutable: true
       available_locales:
@@ -1603,11 +1603,11 @@ definitions:
           type: string
       unique:
         type: boolean
-        description: Wether two values for the attribute cannot be the same
+        description: Whether two values for the attribute cannot be the same
         x-immutable: true
       useable_as_grid_filter:
         type: boolean
-        description: Wether the attribute can be used as a filter for the product grid in the PIM user interface
+        description: Whether the attribute can be used as a filter for the product grid in the PIM user interface
       max_characters:
         type: integer
         description: Number maximum of characters allowed for the value of the attribute when the attribute type is `pim_catalog_text`, `pim_catalog_textarea` or `pim_catalog_identifier`
@@ -1624,7 +1624,7 @@ definitions:
         x-warning: Only for `pim_catalog_text` or `pim_catalog_identifier` attribute types
       wysiwyg_enabled:
         type: boolean
-        description: Wether the WYSIWYG interface is shown when the attribute type is `pim_catalog_textarea`
+        description: Whether the WYSIWYG interface is shown when the attribute type is `pim_catalog_textarea`
         x-warning: Only for `pim_catalog_textarea` attribute type
       number_min:
         type: string
@@ -1636,11 +1636,11 @@ definitions:
         x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
       decimals_allowed:
         type: boolean
-        description: Wether decimals are allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
+        description: Whether decimals are allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
         x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
       negative_allowed:
         type: boolean
-        description: Wether negative values are allowed when the attribute type is `pim_catalog_metric` or `pim_catalog_number`
+        description: Whether negative values are allowed when the attribute type is `pim_catalog_metric` or `pim_catalog_number`
         x-warning: Only for `pim_catalog_metric` or `pim_catalog_number` attribute types
       metric_family:
         type: string
@@ -1756,7 +1756,7 @@ definitions:
         x-immutable: true
       enabled:
         type: boolean
-        description: Wether the locale is enabled
+        description: Whether the locale is enabled
         default: false
     example: {
       "code": "en_US",
@@ -1777,12 +1777,12 @@ definitions:
         x-immutable: true
       locales:
         type: array
-        description: Code of the locales activated for the channel
+        description: Codes of activated locales for the channel
         items:
           type: string
       currencies:
         type: array
-        description: Code of the currencies activated for the channel
+        description: Codes of activated currencies for the channel
         items:
           type: string
       category_tree:
@@ -1793,7 +1793,7 @@ definitions:
         properties:
           attributeCode:
             type: string
-            description: Conversion unit code used to convert the values of the attribute `attributeCode` when exporting through the channel
+            description: Conversion unit code used to convert the values of the attribute `attributeCode` when exporting via the channel
       labels:
         type: object
         description: Channel labels for each locale 
@@ -1882,28 +1882,28 @@ definitions:
 responses:
   NoContent:
     description: No content to return
-    x-details: Means that the update was a success
+    x-details: Means that the update was successful
     headers:
       Location: 
         description: URI of the resource
         type: string
   400Error:
     description: Bad request
-    x-details: Can be caused by the content of the body that is not a correct JSON
+    x-details: Can be caused by a malformed JSON request
     schema:
       $ref: "#/definitions/Error"
     examples: {
       "code":400,
-      "message":"Invalid json message received"
+      "message":"Invalid JSON message received"
     }
   401Error:
     description: Authentication required
-    x-details: Can be caused by a missing token or an expired token
+    x-details: Can be caused by a missing or expired token
     schema:
       $ref: "#/definitions/Error"
   403Error:
     description: Access forbidden
-    x-details: The user used to get the token for authentication purpose does not have the permission to execute this request
+    x-details: The user does not have the permission to execute this request
     schema:
       $ref: "#/definitions/Error"
     examples: {
@@ -1912,12 +1912,12 @@ responses:
     }
   404Error:
     description: Resource not found
-    x-details: The resource code given in the URI that does not correspond to any existing PIM resources
+    x-details: The resource code given in the URI does not correspond to any existing PIM resource
     schema:
       $ref: "#/definitions/Error"
   422Error:
     description: Unprocessable entity
-    x-details: The validation of the entity given in the body of the request was a failure
+    x-details: The validation of the entity given in the body of the request failed
     schema:
       $ref: "#/definitions/Error"
 
@@ -1932,7 +1932,7 @@ parameters:
   limit:
     name: limit
     in: query
-    description: Number of results of the page to retrieve
+    description: Number of results by page
     required: false
     type: integer
     minimum: 1
