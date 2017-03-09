@@ -142,7 +142,7 @@ HTTP/1.1 415 Unsupported Media Type
 }
 ```
 
-Fogetting to give the `Content-type` header when posting or patching data, also results in a `415 Unsupported Media Type` response.
+Forgetting to give the `Content-type` header when posting or patching data, also results in a `415 Unsupported Media Type` response.
 
 #### Example
 ```http

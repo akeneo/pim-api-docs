@@ -34,7 +34,7 @@ _Well, if you do not know what a CRM is, here is a little bit of [information](h
 
 ### Stable API = Long-lasting tools
 
-Today, when you write a tool/connector, you have to dig deeply into the PIM code. So you ended writing code that is really tied to our code. At the end, this means painful migrations, especially when things have changed in our base code.
+Today, when you write a tool/connector, you have to dig deeply into the PIM code. So you ended writing code that is really tied to our code. At the end, this means painful migrations, especially when things have changed in our codebase.
 
 But we really want you to keep writing amazing tools, we had to do something to help you.
 
@@ -57,9 +57,10 @@ Be innovative! Offer value to our common end-users! They will love it.
 
 With the introduction of this new Web API in the 1.7 release, we decided to remove the old one which was not compatible. This means you won't be able to use it anymore.
 
-But don't worry, if you were using it, we've got you covered. Here is a guide explaining you the main differences between the two APIs. We really hope it will ease your migration process.
+But don't worry, if you were using it, we've got you covered. In the following section, you will find a guide explaining you the main differences between the two APIs. We really hope it will ease your migration process.
 
 ### Authentication
+
 In the previous API, the authentication was done with [WSSE](https://en.wikipedia.org/wiki/WS-Security). This changes with the new API. We now use classical [`OAuth2`](https://oauth.net/2/).
 
 As a result, you will no longer be able to generate an API key in your user form, this key being now useless. The new authentication is now based on client ids and secret.
@@ -68,6 +69,7 @@ As a result, you will no longer be able to generate an API key in your user form
 :::
 
 ### Response format
+
 The old API was able to get you a product in a given format which was the following.
 
 ```json

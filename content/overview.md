@@ -164,7 +164,7 @@ You do not need to be authenticated to access this route.
 
 ## Introducing the API reference
 
-_You want to dig deeper into the API and know every inch of the API?_
+_You want to dig deeper and know every inch of the API?_
 
 We have crafted a complete reference of our API. So feel free to browse it.
 

@@ -28,7 +28,7 @@ HTTP/1.1 422 Unprocessable entity
 
 To request pages, you can use either the classical method or the search after method. For more details, see below.
 
-## Via classical method
+## Page type
 
 To use the classical method, you set the `pagination_type` query parameter to `page`. You will then need to set the `page` query parameter to a page number, the page being the one you want to request.
 
@@ -94,7 +94,7 @@ curl -X GET /api/rest/v1/categories
 When trying to request a quite high page number, you will notice that this method spend more and more time to respond. That is why we introduce another way to request paginated resources, see the search after method below.
 :::
 
-## Via search-after method
+## Search-after type
 To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. Then, you need to set the `search_after` query parameter to the code or the identifier of an entity. The entities you will get, will be the ones situated after the entity you gave, the entities being sorted on the code or the identifier.
 
 By default, if the `search_after` query parameter is not specified, it will return the first page of entities.
