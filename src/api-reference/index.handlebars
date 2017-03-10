@@ -52,14 +52,14 @@
       <div class="col-md-offset-2 col-md-8">
         <h1>API reference cheat sheet</h1>
         <em>All our available endpoints. Just for you.</em>
-        {{#each ressources as |operations ressource|}} 
-        	<a class="anchor" id="{{{ressource}}}"></a>
+        {{#each ressources as |resource ressourceId|}} 
+        	<a class="anchor" id="{{{ressourceName}}}"></a>
         	<h3 class="picto">
-        	<svg viewBox="0 0 100 100">
-					  <use xlink:href="img/icons.svg#icon_{{{ressource}}}"></use>
-					</svg> {{{ressource}}}</h3>
+        	<svg viewBox="0 0 256 256">
+					  <use xlink:href="img/icons.svg#icon--{{{ressourceId}}}"></use>
+					</svg> {{{ressourceName}}}</h3>
 					<div class="list-group">
-        	{{#each operations as |operation operationId|}}
+        	{{#each resource.operations as |operation operationId|}}
 					<a class="list-group-item" href="api-reference.html#{{{operationId}}}">
 						<p class="list-group-item-heading">{{{summary}}}</p>
 						<p class="list-group-item-text"><span class="label label-verb label-{{{verb}}}">{{{verb}}}</span><span class="text-api-url">{{{path}}}</span></p>

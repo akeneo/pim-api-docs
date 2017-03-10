@@ -81,7 +81,7 @@ curl https://demo.akeneo.com/api/rest/v1/categories \
 :::info
 You are experiencing this kind of error and the examples given here did not help you?
 
-Take a look at the [authentication](/documentation.html#authentication) documentation. This might save your day! 
+Take a look at the [authentication](/documentation.html#authentication-2) documentation. This might save your day! 
 :::
 
 ### 403 error
