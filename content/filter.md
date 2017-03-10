@@ -174,7 +174,7 @@ To get products that are red, red being an option of the simple select `color` a
 ```
 
 To get products having a description begining with `Amazing` on the `en_US` locale, the `description` attribute being localizable but not scopable, you can use the following URL.
-sho
+
 ```
 /api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}]}
 ```

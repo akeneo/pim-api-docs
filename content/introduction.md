@@ -65,7 +65,7 @@ In the previous API, the authentication was made with [WSSE](https://en.wikipedi
 
 As a result, you will no longer be able to generate an API key in your user settings, this key being now useless. The new authentication is now based on client ids and secret.
 
-:::panel-link Everything about the new authentication [take a look in here!](/documentation.html#authentication)
+:::panel-link Everything about the new authentication [Take a look in here!](/documentation.html#authentication)
 :::
 
 ### Response format

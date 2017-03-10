@@ -505,7 +505,7 @@ In this formula:
 
 **Product values of a localizable attribute**
 
-The `short_description` attribute is scopable but not localizable, so it can hold several data values, up to one for each locale.
+The `short_description` attribute is localizable but not scopable, so it can hold several data values, up to one for each locale.
 ```json
 {
   "short_description": [
@@ -528,7 +528,7 @@ Note that the `scope` property is set to `null` in this case.
 
 **Product values of a scopable attribute**
 
-The `release_date` attribute is neither scopable nor localizable, so it can hold several data values, up to one for each channel.
+The `release_date` attribute is scopable but not localizable, so it can hold several data values, up to one for each channel.
 ```json
 {
   "release_date": [
