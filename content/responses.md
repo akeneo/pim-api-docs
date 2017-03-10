@@ -111,8 +111,21 @@ Trying to access to a non-existing resource results in a `404 Not Found` respons
 HTTP/1.1 404 Not Found
 
 {
-  "code": 404, 
+    "code": 404, 
     "message": "Category 'master' does not exist."
+}
+```
+
+### 405 error
+Trying to use a method on a route for which it is not implemented results in a `405 Method Not Allowed` response.
+
+#### Example
+```http
+HTTP/1.1 405 Method Not Allowed
+
+{
+    "code": 405, 
+    "message": "No route found for 'POST /api/rest/v1/products/myproduct': Method Not Allowed (Allow: GET, PATCH, DELETE)"
 }
 ```
 
