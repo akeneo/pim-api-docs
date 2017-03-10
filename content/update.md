@@ -313,7 +313,7 @@ You want to remove the product `boots-4846` from the category `boots`. Here is h
 
 ## Patch product values
 
-The PATCH behaviour described above is quite intuitive. However, applying a PATCH containing product values on a product is a bit different.
+The PATCH behavior described above is quite intuitive. However, applying a PATCH containing product values on a product is a bit different.
 
 ::: info
 In the examples below only products values are represented, but usually products also include other information as specified in the standard format.

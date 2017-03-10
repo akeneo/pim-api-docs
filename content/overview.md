@@ -11,7 +11,7 @@ https://demo.akeneo.com/api/rest/v1
 
 `https://demo.akeneo.com` is the host of the PIM you are trying to request via the API.
 
-`v1` means that you want to use the first (and only) version of the API. All URI have to explicitly request this version. If you try to request another version of the API, you will receive a beautiful 404 error since there is only one version of the API for now.
+`v1` means that you want to use the first (and only) version of the API. All URIs have to explicitly request this version. If you try to request another version of the API, you will receive a beautiful 404 error since there is only one version of the API for now.
 
 ## Available HTTP Verbs
 
@@ -33,7 +33,7 @@ This means that data extracted thanks to the API will be in JSON format. And if 
 For each entity, we have defined a standard format that is completely detailed in the [Resources](documentation.html#resources) section.
 
 ### Format headers
-When creating and updating data trough the API, you will need to explicitly tell the API that you are providing JSON content by using a `Content-type` header set to `application/json`.
+When creating and updating data via the API, you will need to explicitly tell the API that you are providing JSON content by using a `Content-type` header set to `application/json`.
 
 #### Example
 ``` bash
@@ -47,7 +47,7 @@ curl -X PATCH /api/rest/v1/categories/mycategory \
 ```
 
 ::: warning
-This header is mandatory. If you forget it, you will receive a 415 with this error message.
+This header is mandatory. If you forget it, you will get a 415 error with this message.
 ```http
 HTTP/1.1 415 Unsupported media type
 
@@ -56,7 +56,7 @@ HTTP/1.1 415 Unsupported media type
   "message":"The ‘Content-type’ header is missing. ‘application/json’ has to specified as value."
 }
 ```
-If it is set to any other value, you will also receive a 415 with this error message.
+If it is set to any other value, you will also get a 415 error with this message.
 ```http
 HTTP/1.1 415 Unsupported Media Type
 
@@ -89,7 +89,7 @@ HTTP/1.1 406 Not Acceptable
 
 ## Scope of the API
 
-Below are the entities covered by the API so far:
+Below are the entities you can manipulate via the API so far:
  - [Product](documentation.html#product),
  - [Category](documentation.html#category),
  - [Family](documentation.html#family),
@@ -99,7 +99,7 @@ Below are the entities covered by the API so far:
  - [Channel](documentation.html#channel),
  - [Locale](documentation.html#locale).
 
-For a detailed presentation as well as the format of each of these resources, have a look to the [Resources](/documentation.html#resources).
+For a detailed presentation as well as the format of each of these resources, take a look to the [Resources](/documentation.html#resources).
 
 Also, you will find the complete reference of the endpoints available for each of these resources in the [reference API](/api-reference-index.html). You can also get the list of these endpoints by request, see [List of available endpoints](/documentation.html#list-of-available-endpoints).
 
@@ -168,10 +168,7 @@ _You want to dig deeper and know every inch of the API?_
 
 We have crafted a complete reference of our API. So feel free to browse it.
 
-There, you will find for each available endpoint, a description of what it does, what are the parameters expected in the request and what are the different responses you will be able to get, being successes or errors.
+There, you will find for each available endpoint, a description of what it does, what are the expected parameters in the request and what are the different responses you will be able to get, being successes or errors.
 
-::: panel-link I wanna have a look at the API reference! [Let's go!](api-reference.html)
+::: panel-link I wanna take a look at the API reference! [Let's go!](api-reference.html)
 :::
-
-
-

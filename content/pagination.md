@@ -15,7 +15,7 @@ This will set the number of entities by page to 25 instead of 10.
 
 ::: danger
 You cannot request more than 100 resources at the same time.
-An error with code 422 will be thrown if the limit is bigger than 100.
+An error with code 422 will be sent back if the limit is higher than 100.
 ```http
 HTTP/1.1 422 Unprocessable entity
 
@@ -41,7 +41,7 @@ curl -X GET /api/rest/v1/categories?pagination_type=page&page=2&limit=20
 This will return the second page of entities, the entities being paginated by 20.
 
 #### Response
-The response will respect this structure, even if there is no item to return.
+The response will have this structure, even if there are no items to return.
 
 ```http
 HTTP/1.1 200 OK
@@ -76,7 +76,7 @@ HTTP/1.1 200 OK
 ```
 
 :::info
-Previous and next properties will not be included if you request, respectively, the first or the last page.
+`previous` and `next` properties will not be included if you are requesting, respectively, the first or the last page.
 :::
 
 :::info
@@ -91,7 +91,7 @@ curl -X GET /api/rest/v1/categories
 :::
 
 :::warning
-When trying to request a quite high page number, you will notice that this method spend more and more time to respond. That is why we introduce another way to request paginated resources, see the search after method below.
+When trying to request a quite high page number, you will notice that this method spend more and more time to respond. That is why we introduced another way to request paginated resources, see the search after method below.
 :::
 
 ## Search-after type
@@ -108,7 +108,7 @@ curl -X GET /api/rest/v1/categories?pagination_type=search_after&search_after=sp
 This will return the 20 categories situated after the category with code `spring_collection`.
 
 #### Response
-The response will respect this structure, even if there is no item to return.
+The response will respect this structure, even if there are no items to return.
 
 ```http
 HTTP/1.1 200 OK

@@ -1,10 +1,10 @@
 # Introduction
 
-_You are asking yourself a ton of questions about the Akeneo API. Here are the answers. Go get them!_
+_You are probably asking yourself a ton of questions about the Akeneo API. Here are the answers. Go get them!_
 
 ## What is a PIM?
 
-> Never heard of Julia? Let me help you. Here is her story.
+> Never heard of Julia? Let me tell you her story
 
 Julia is working at Zaro, a very famous clothes retailer. She is a __marketer__, which means that she is responsible for all the products the brand is selling. Her everyday job is to ensure that anytime there are mentions of a Zaro product, the information about it is complete and clear. And there are mentions of Zaro products everywhere! On their ecommerce site, on their catalog, on their mobile application and even in their points of sale.
 
@@ -12,7 +12,7 @@ So that's a lot of __work__!
 
 To make it a little bit more difficult, products information come from a great number of sources such as:
  - the ERP,
- - the media server on which the pictures of products are stored,
+ - the media server on which the pictures of the products are stored,
  - the suppliers who know the precise characteristics of each product,
  - ...
 
@@ -20,33 +20,33 @@ It is almost __impossible__ for Julia to deal with all these sources.
 
 So, to prevent Julia from going nuts, her company has invested in a very useful tool, a __PIM__. This type of software helps companies to centralize and harmonize all the technical and marketing information of their catalogs and products. That's exactly what __Julia needs__!
 
-As summed up in the diagram below, a PIM allows Julia to gather all her product information in one single place, enrich it and spread it to several channels like a e-commerce website, a printed catalog... 
+As summed up in the diagram below, a PIM allows Julia to gather all the product information in one single place, to enrich it and to spread it to several channels like an e-commerce website or a printed catalog... 
 ![PIM schema](img/PIM.png)
 
 **In a nutshell, the PIM is for product information what CRM is for customer information!**
 
 _Well, if you do not know what a CRM is, here is a little bit of [information](https://en.wikipedia.org/wiki/Customer_relationship_management). ;)_
 
-::: panel-link Want more details about the Akeneo PIM solution? [Check our site!](http://www.akeneo.com)
+::: panel-link Want more details about the Akeneo PIM solution? [Check our website!](http://www.akeneo.com)
 :::
 
 ## Why did we create an API?
 
 ### Stable API = Long-lasting tools
 
-Today, when you write a tool/connector, you have to dig deeply into the PIM code. So you ended writing code that is really tied to our code. At the end, this means painful migrations, especially when things have changed in our codebase.
+Today, when you write a tool/connector, you have to dig deeply into the PIM code. So you ended up writing code that is really tied to ours. It can lead to painful migrations, especially when things have changed in our codebase.
 
 But we really want you to keep writing amazing tools, we had to do something to help you.
 
-And the answer is the API!
+And here comes the API!
 
-Thanks to the API, you will be able to build long lasting tools. We guarantee that this brand new API will be stable in time and that we will not integrate major BC breaks between version.
+Thanks to the API, you will be able to build long lasting tools. We guarantee that this brand new API will be stable in time and that we will not integrate BC breaks between versions.
 
 In the end, we hope that these amazing tools you are going to build on top of our API, will be easier to implement, easier to integrate, easier to maintain and above all, that you will not suffer from painful migrations again.
 
 ### More languages = more innovation
 
-With the API, you will also be able to write tool in another language than Php. So take your favorite technology and do not hesitate, write your tools with it.
+With the API, you will also be able to write tool in another language than PHP. So take your favorite technology and do not hesitate, write your tools with it.
 
 As the API is a standard REST API, you can use the language you want to implement connectors or even external applications based on the PIM data.
 
@@ -57,15 +57,15 @@ Be innovative! Offer value to our common end-users! They will love it.
 
 With the introduction of this new Web API in the 1.7 release, we decided to remove the old one which was not compatible. This means you won't be able to use it anymore.
 
-But don't worry, if you were using it, we've got you covered. In the following section, you will find a guide explaining you the main differences between the two APIs. We really hope it will ease your migration process.
+But don't worry, if you were using it, we've got you covered. In the following section, you will find a guide explaining you the main differences between the two APIs. We really hope it will facilitate your migration process.
 
 ### Authentication
 
-In the previous API, the authentication was done with [WSSE](https://en.wikipedia.org/wiki/WS-Security). This changes with the new API. We now use classical [`OAuth2`](https://oauth.net/2/).
+In the previous API, the authentication was made with [WSSE](https://en.wikipedia.org/wiki/WS-Security). This changes with the new API. We now use classical [`OAuth2`](https://oauth.net/2/).
 
-As a result, you will no longer be able to generate an API key in your user form, this key being now useless. The new authentication is now based on client ids and secret.
+As a result, you will no longer be able to generate an API key in your user settings, this key being now useless. The new authentication is now based on client ids and secret.
 
-:::panel-link Everything about the new authentication [Have a look in here!](/documentation.html#authentication)
+:::panel-link Everything about the new authentication [Take a look in here!](/documentation.html#authentication)
 :::
 
 ### Response format
@@ -162,5 +162,5 @@ We played the 7 differences game for you and guess what! There are only 4! Here 
  - the `resource` property does not exist anymore,
  - there are two new properties: `created` and `updated` that gives you respectively the date of the creation of the product and the date of its last update.
 
-:::panel-link Product standard format in details [You want to get more information about the new standard format regarding the product, don't hesitate to have a look to the dedicated documentation!](/documentation.html#product)
+:::panel-link Product standard format in details [You want to get more information about the new standard format regarding the product, don't hesitate to take a look to the dedicated documentation!](/documentation.html#product)
 :::
