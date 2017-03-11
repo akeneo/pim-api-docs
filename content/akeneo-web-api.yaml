@@ -322,7 +322,7 @@ paths:
       tags:
         - Products
       description: This endpoint allows you to update and/or create several products at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON format standard 
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
       parameters:
         - name: body
           in: body
@@ -338,7 +338,7 @@ paths:
       responses:
         200:
           description: OK
-          x-details: Returns a plain text response whose lines are JSON containing the status of each update
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
           schema:
             $ref: "#/definitions/ErrorByLine"
           examples:
@@ -581,7 +581,7 @@ paths:
       tags:
         - Categories
       description: This endpoint allows you to update several categories at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON format standard 
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
       parameters:
         - name: body
           in: body
@@ -597,7 +597,7 @@ paths:
       responses:
         200:
           description: OK
-          x-details: Returns a plain text response whose lines are JSON containing the status of each update
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
           schema:
             $ref: "#/definitions/ErrorByLine"
           examples:
@@ -791,7 +791,7 @@ paths:
       tags:
         - Families
       description: This endpoint allows you to update and/or create several families at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON format standard 
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
       parameters:
         - name: body
           in: body
@@ -807,7 +807,7 @@ paths:
       responses:
         200:
           description: OK
-          x-details: Returns a plain text response whose lines are JSON containing the status of each update
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
           schema:
             $ref: "#/definitions/ErrorByLine"
           examples:
@@ -1037,7 +1037,7 @@ paths:
       tags:
         - Attributes
       description: This endpoint allows you to update and/or create several attributes at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON format standard 
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
       parameters:
         - name: body
           in: body
@@ -1053,7 +1053,7 @@ paths:
       responses:
         200:
           description: OK
-          x-details: Returns a plain text response whose lines are JSON containing the status of each update
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
           schema:
             $ref: "#/definitions/ErrorByLine"
           examples:
@@ -1255,7 +1255,7 @@ paths:
       tags:
         - Attribute options
       description: This endpoint allows you to update and/or create several attribute options at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON format standard 
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
       parameters:
         - $ref: '#/parameters/attribute_code'
         - name: body
@@ -1272,7 +1272,7 @@ paths:
       responses:
         200:
           description: OK
-          x-details: Returns a plain text response whose lines are JSON containing the status of each update
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
           schema:
             $ref: "#/definitions/ErrorByLine"
           examples:
