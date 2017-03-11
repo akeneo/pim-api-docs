@@ -26,18 +26,22 @@ HTTP/1.1 422 Unprocessable entity
 ```
 :::
 
-To request pages of all entities except products, you can only use the classical method, see [Page type pagination](/documentation.html#page-type) below.
+To request paginated entities, you can use the [offset method](/documentation.html#offset-method).
 
-To request pages of products, you can use either the classical method or the search after method. For more details, see below.
+Products can also be paginated with another method, the [search after method](/documentation.html#search-after-method).
 
-## Page type
+## Offset method
 
 This is the default pagination type, available for all resources.
-It's the standard way to paginate resources (with an offset on query).
+It's the most common way to paginate resources (with an offset on query).
 
 When you want to use the classical method on products, you can set the `pagination_type` query parameter to `page` but this is not mandatory since this is the default pagination.
 
-You can then set the `page` query parameter to a page number, the page being the one you want to request. By default, if you do not set this query parameter, you will get the first page.
+The `page` query parameter indicates the page number, the page being the one requested. By default, this query parameter is equal to 1.
+
+:::danger
+The `page` query parameter should never be set manually. If you want to navigate through the pages, use the links provided in `_links` property of the response of your first request. Take a look at the example below to see these links. 
+:::
 
 ### Example
 #### Request
@@ -103,17 +107,21 @@ When trying to request a quite high page number, you will notice that this metho
 
 ## Search-after type
 :::warning
-This pagination method is only usable on products.
+This pagination method is only available for products.
 :::
 
 To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. The entities you will get will then be sorted by product primary key to speed up performance.
 
-Additionally, you can set the `search_after` query parameter to a product identifier. You will then get the entities situated after the one you gave in the query parameter. By default, if the `search_after` query parameter is not specified, it will return the first page of entities.
+Additionally, there is a `search_after` query parameter that is used as a cursor.
+
+:::danger
+The `search_after` query parameter should never be set manually. If you want to navigate through the pages, use the links provided in `_links` property of the response of your first request. Take a look at the example below to see these links.
+:::
 
 ### Example
 #### Request
 ``` bash
-curl -X GET /api/rest/v1/products?pagination_type=search_after&search_after=mug&limit=20
+curl -X GET /api/rest/v1/products?pagination_type=search_after&search_after=qaXbcde&limit=20
 ```
 
 This will return the 20 products situated after the product with identifier `mug`.
@@ -127,13 +135,13 @@ HTTP/1.1 200 OK
 {
   "_links": {
     "self": {
-      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_after=mug&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_after=qaXbcde&limit=20"
     },
     "first": {
       "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&limit=20"
     },
     "next": {
-      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_type=tshir&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_type=qaXbcdedsfeF&limit=20"
     }
   },
   "pages_count": 3,

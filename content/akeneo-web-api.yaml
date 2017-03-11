@@ -2388,17 +2388,17 @@ parameters:
   page:
     name: page
     in: query
-    description: Number of the page to retrieve when using the `page` pagination method type, see <a href="/documentation.html#pagination">Pagination</a> section
+    description: Number of the page to retrieve when using the `page` pagination method type. <strong>Should never be set manually</strong>, see <a href="/documentation.html#pagination">Pagination</a> section
     required: false
     type: integer
     default: 1
   search_after:
     name: search_after
     in: query
-    description: Resource code after which the retrieval will be done when using the `search_after` pagination method type, see <a href="/documentation.html#pagination">Pagination</a> section
+    description: Cursor when using the `search_after` pagination method type. <strong>Should never be set manually</strong>, see <a href="/documentation.html#pagination">Pagination</a> section
     required: false
     type: string
-    default: "code of the first entity"
+    default: "cursor to the first page"
   limit:
     name: limit
     in: query
