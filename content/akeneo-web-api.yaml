@@ -2206,7 +2206,7 @@ definitions:
         "fr_FR"
       ],
       "category_tree": "master",
-      "conversion_units": [],
+      "conversion_units": {},
       "labels": {
         "en_US": "Ecommerce",
         "de_DE": "Ecommerce",
