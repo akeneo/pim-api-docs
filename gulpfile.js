@@ -56,11 +56,12 @@ gulp.task('hbs', ['clean-dist'], function () {
       _.forEach(data.paths, function(path, pathUri){
         var escapedPathUri = pathUri.replace(/\//g, '_').replace(/{/g, '_').replace(/}/g, '_');
         _.forEach(path, function(operation,verb){
-          if(!data.ressources[operation.tags[0]]){
-            data.ressources[operation.tags[0]] = {};
+          var escapeTag = operation.tags[0].replace(/\s/g, '');
+          if(!data.ressources[escapeTag]){
+            data.ressources[escapeTag] = {ressourceName: operation.tags[0], operations: {}};
           }
           var extendedOperation = _.extend(operation, {verb: verb, path: pathUri});
-          data.ressources[operation.tags[0]][verb+escapedPathUri] = extendedOperation;
+          data.ressources[escapeTag].operations[verb+escapedPathUri] = extendedOperation;
         });
       });
       return gulp.src('src/api-reference/index.handlebars')
@@ -84,8 +85,9 @@ gulp.task('hbs', ['clean-dist'], function () {
         var escapedPathUri = pathUri.replace(/\//g, '_').replace(/{/g, '_').replace(/}/g, '_');
         _.forEach(path, function(operation,verb){
           var operationId = verb + escapedPathUri;
-          if(!data.ressources[operation.tags[0]]){
-            data.ressources[operation.tags[0]] = {};
+          var escapeTag = operation.tags[0].replace(/\s/g, '');
+          if(!data.ressources[escapeTag]){
+            data.ressources[escapeTag] = {ressourceName: operation.tags[0], operations: {}};
           }
           var groupedParameters =_.groupBy(operation.parameters, function(parameter){
             return parameter.in;
@@ -117,7 +119,11 @@ gulp.task('hbs', ['clean-dist'], function () {
               _.forEach(readOnlyProperties, function(propToDelete){
                 delete parameter.schema.example[propToDelete];
               });
-              var highlightjsExample = highlightJs.highlight('json', JSON.stringify(parameter.schema.example, null, 2), true);
+              var highlightjsExample = parameter.schema['x-examples'] ? 
+                highlightJs.highlight('bash', parameter.schema['x-examples']['x-example-1'] + '\n'
+                                           + parameter.schema['x-examples']['x-example-2'] + '\n'
+                                            + parameter.schema['x-examples']['x-example-3'], true) :
+                highlightJs.highlight('json', JSON.stringify(parameter.schema.example, null, 2), true);
               parameter.schema.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
             }
             return parameter;
@@ -129,13 +135,14 @@ gulp.task('hbs', ['clean-dist'], function () {
             response.id = operationId + '_' + code;
             var example = response.examples || ((response.schema) ? response.schema.example : undefined);
             if(example){
-              var highlightjsExample = highlightJs.highlight('json', JSON.stringify(example, null, 2), true);
+              var highlightjsExample = example['x-example-1'] ? 
+                highlightJs.highlight('bash', example['x-example-1'] + '\n' + example['x-example-2']+ '\n' + example['x-example-3'], true) : 
+                highlightJs.highlight('json', JSON.stringify(example, null, 2), true);
               response.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
             }
             return response;
           });
-
-          data.ressources[operation.tags[0]][operationId] = _.extend(operation, {verb: verb, path: pathUri, groupedParameters:groupedParameters});
+          data.ressources[escapeTag].operations[operationId] = _.extend(operation, {verb: verb, path: pathUri, groupedParameters:groupedParameters});
         });
       });
       return gulp.src('src/api-reference/reference.handlebars')

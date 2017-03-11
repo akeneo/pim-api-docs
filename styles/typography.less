@@ -10,7 +10,7 @@ h2{
     position: relative;
     svg{
       right: @spacing-base;
-      top: -@spacing-base * 0.60;
+      top: -@spacing-base * 0.70;
       position: absolute;
       display: inline-block;
       width: 170px;
@@ -24,10 +24,16 @@ h2{
 
 h3{
   &.picto{
+  margin-top: @spacing-base;
+  position: relative;
     svg{
+      right: @spacing-base;
+      top: -@spacing-base * 0.30;
+      position: absolute;
       display: inline-block;
-      width: @font-size-h3 * 2;
-      height: @font-size-h3 * 2;
+      width: @font-size-h3 * 4;
+      height: @font-size-h3 * 4;
+      z-index: 1
     }
   }
 }

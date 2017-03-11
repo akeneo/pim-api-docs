@@ -16,30 +16,31 @@ paths:
       operationId: "products_get_list"
       tags:
         - Products
-      description: |
-        The Product endpoint returns information about the PIM products.
+      description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered.
       parameters:
         - name: search
           in: query
-          description: Query products
+          description: Filter products, for more details see the <a href="/documentation.html#filters">Filters</a> section
           required: false
           type: string
         - name: channel
           in: query
           type: string
-          description: Filter products to only return scopable attributes
+          description: Filter product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation.html#filter-product-values">Filter on product values</a> section
           required: false
         - name: locales
           in: query
           type: string
-          description: Filter products to only return localizable attributes
+          description: Filter product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation.html#filter-product-values">Filter on product values</a> section
           required: false
         - name: attributes
           in: query
           type: string
-          description: Filter products to only return some attributes
+          description: Filter product values to only return those concerning the given attributes, for more details see the <a href="/documentation.html#filter-product-values">Filter on product values</a> section
           required: false
+        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
+        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -287,6 +288,8 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
         422:
           $ref: "#/responses/422Error"
     post:
@@ -294,6 +297,7 @@ paths:
       operationId: "products_post"
       tags:
         - Products
+      description: This endpoint allows you to create a new product.
       parameters:
         - name: body
           in: body
@@ -301,32 +305,76 @@ paths:
             $ref: "#/definitions/Product"
       responses:
         201:
-          $ref: "#/responses/NoContent"
+          $ref: "#/responses/Created"
         400:
           $ref: "#/responses/400Error"
         401:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        415:
+          $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
+    patch:
+      summary: Update several products
+      operationId: "several_products_patch"
+      tags:
+        - Products
+      description: This endpoint allows you to update several products at once.
+      x-body-by-line: Contains several lines, each line is a product in JSON format standard 
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/Product"
+            x-examples:
+              x-example-1:
+                '{"identifier":"cap","values":{"description":[{"scope":"ecommerce","locale":"en_US","data":"My amazing cap"}]}}'
+              x-example-2:
+                '{"identifier":"mug","group":["promotion"]}'
+              x-example-3:
+                '{"identifier":"tshirt","family":"clothes"}'
+      responses:
+        200:
+          description: OK
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update
+          schema:
+            $ref: "#/definitions/ErrorByLine"
+          examples:
+            x-example-1:
+              '{"line":1,"identifier":"cap","code":204}'
+            x-example-2:
+              '{"line":2,"identifier":"mug","code":422,"message":"Property "group" does not exist. Check the standard format documentation."}'
+            x-example-3:
+              '{"line":3,"identifier":"tshirt","code":201}'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        413:
+          $ref: "#/responses/413Error"
   /products/{code}:
     get:
       summary: Get a product
       operationId: "products_get"
       tags:
         - Products
+      description: This endpoint allows you to get the information about a precise product.
       parameters:
         - $ref: '#/parameters/code'
       responses:
         200:
-          description: Content of a product
+          description: OK
+          x-details: Returns the content of the product in JSON standard format
           schema:
             $ref: '#/definitions/Product'
         401:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
         404:
           $ref: "#/responses/404Error"
     patch:
@@ -334,6 +382,7 @@ paths:
       operationId: "products_patch"
       tags:
         - Products
+      description: This endpoint allows you to update a precise product. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that this endpoint also allows the creation of a new product when the identifier given as query parameter does not exist yet.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -342,7 +391,7 @@ paths:
           schema:
             $ref: "#/definitions/Product"
       responses:
-        200:
+        204:
           $ref: "#/responses/NoContent"
         401:
           $ref: "#/responses/401Error"
@@ -350,6 +399,8 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
+        415:
+          $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
     delete:
@@ -357,6 +408,7 @@ paths:
       operationId: "products_delete"
       tags:
         - Products
+      description: This endpoint allows you to delete a precise product.
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -373,11 +425,13 @@ paths:
     get:
       summary: Get list of categories
       operationId: "categories_get_list"
-      description: The Category endpoint returns information about the PIM categories
+      description: This endpoint allows you to get a list of categories. Categories are paginated and sorted `root/left`.
       tags:
         - Categories
       parameters:
+        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
+        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -495,9 +549,12 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
     post:
       summary: Create a new category
       operationId: "categories_post"
+      description: This endpoint allows you to create a new category.
       tags:
         - Categories
       parameters:
@@ -507,26 +564,30 @@ paths:
             $ref: "#/definitions/Category"
       responses:
         201:
-          $ref: "#/responses/NoContent"
+          $ref: "#/responses/Created"
         400:
           $ref: "#/responses/400Error"
         401:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        415:
+          $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
   /categories/{code}:
     get:
       summary: Get a category
       operationId: "categories_get"
+      description: This endpoint allows you to get the information about a precise category.
       tags:
         - Categories
       parameters:
         - $ref: '#/parameters/code'
       responses:
         200:
-          description: Content of a category
+          description: OK
+          x-details: Returns the content of the category in JSON standard format
           schema:
             $ref: '#/definitions/Category'
         401:
@@ -535,11 +596,14 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
     patch:
       summary: Update/create a category
       operationId: "categories_patch"
       tags:
         - Categories
+      description: This endpoint allows you to update a precise category. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that this endpoint also allows the creation of a new category when the code given as query parameter does not exist yet.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -558,6 +622,8 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
+        415:
+          $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
   
@@ -565,11 +631,13 @@ paths:
     get:
       summary: Get list of families
       operationId: "families_get_list"
-      description: The Family endpoint returns information about the PIM families
+      description: This endpoint allows you to get a list of families. Families are paginated.
       tags:
         - Families
       parameters:
+        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
+        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -653,9 +721,12 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
     post:
       summary: Create a new family
       operationId: "families_post"
+      description: This endpoint allows you to create a new family.
       tags:
         - Families
       parameters:
@@ -665,19 +736,22 @@ paths:
             $ref: "#/definitions/Family"
       responses:
         201:
-          $ref: "#/responses/NoContent"
+          $ref: "#/responses/Created"
         400:
           $ref: "#/responses/400Error"
         401:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        415:
+          $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
   /families/{code}:
     get:
       summary: Get a family
       operationId: "families_get"
+      description: This endpoint allows you to get the information about a precise family.
       tags:
         - Families
       parameters:
@@ -685,7 +759,7 @@ paths:
       responses:
         200:
           description: OK
-          x-details: Content of the family in JSON format
+          x-details: Returns the content of the family in JSON standard format
           schema:
             $ref: '#/definitions/Family'
         401:
@@ -694,11 +768,14 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
     patch:
       summary: Update/create a family
       operationId: "families_patch"
       tags:
         - Families
+      description: This endpoint allows you to update a precise family. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that this endpoint also allows the creation of a new family when the code given as query parameter does not exist yet.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -717,6 +794,8 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
+        415:
+          $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
   
@@ -724,11 +803,13 @@ paths:
     get:
       summary: Get list of attributes
       operationId: "attributes_get_list"
-      description: The Attribute endpoint returns information about the PIM attributes
+      description: This endpoint allows you to get a list of attributes. Attributes are paginated.
       tags:
         - Attributes
       parameters:
+        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
+        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -848,9 +929,12 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
     post:
       summary: Create a new attribute
       operationId: "attributes_post"
+      description: This endpoint allows you to create a new attribute.
       tags:
         - Attributes
       parameters:
@@ -860,26 +944,30 @@ paths:
             $ref: "#/definitions/Attribute"
       responses:
         201:
-          $ref: "#/responses/NoContent"
+          $ref: "#/responses/Created"
         400:
           $ref: "#/responses/400Error"
         401:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        415:
+          $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
   /attributes/{code}:
     get:
       summary: Get an attribute
       operationId: "attributes_get"
+      description: This endpoint allows you to get the information about a precise attribute.
       tags:
         - Attributes
       parameters:
         - $ref: '#/parameters/code'
       responses:
         200:
-          description: Content of an attribute
+          description: OK
+          x-details: Returns the content of the attribute in JSON standard format
           schema:
             $ref: '#/definitions/Attribute'
         401:
@@ -888,11 +976,14 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
     patch:
       summary: Update/create an attribute
       operationId: "attributes_patch"
       tags:
         - Attributes
+      description: This endpoint allows you to update a precise attribute. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that this endpoint also allows the creation of a new attribute when the code given as query parameter does not exist yet.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -911,6 +1002,8 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
+        415:
+          $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
           
@@ -918,12 +1011,14 @@ paths:
     get:
       summary: Get list of attribute options
       operationId: "attribute_options_get_list"
-      description: The Attribute Option endpoint returns information about the PIM attribute options
+      description: This endpoint allows you to get a list of attribute options. Attribute options are paginated.
       tags:
         - Attribute options
       parameters:
         - $ref: '#/parameters/attribute_code'
+        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
+        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -1013,9 +1108,12 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
     post:
       summary: Create a new attribute option
       operationId: "attribute_options_post"
+      description: This endpoint allows you to create a new attribute option.
       tags:
         - Attribute options
       parameters:
@@ -1026,19 +1124,22 @@ paths:
             $ref: "#/definitions/AttributeOption"
       responses:
         201:
-          $ref: "#/responses/NoContent"
+          $ref: "#/responses/Created"
         400:
           $ref: "#/responses/400Error"
         401:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        415:
+          $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
   /attributes/{attribute_code}/options/{code}:
     get:
       summary: Get an attribute option
       operationId: "attribute_options_get"
+      description: This endpoint allows you to get the information about a precise attribute option.
       tags:
         - Attribute options
       parameters:
@@ -1046,7 +1147,8 @@ paths:
         - $ref: '#/parameters/code'
       responses:
         200:
-          description: Content of an attribute option
+          description: OK
+          x-details: Returns the content of the attribute option in JSON standard format
           schema:
             $ref: '#/definitions/AttributeOption'
         401:
@@ -1055,11 +1157,14 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
     patch:
       summary: Update/create an attribute option
       operationId: "attribute_options_patch"
       tags:
         - Attribute options
+      description: This endpoint allows you to update a precise attribute option. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that this endpoint also allows the creation of a new attribute option when the code given as query parameter does not exist yet.
       parameters:
         - $ref: '#/parameters/attribute_code'
         - $ref: '#/parameters/code'
@@ -1079,18 +1184,218 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
+        415:
+          $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
   
+  /media-files:
+    get:
+      summary: Get a list of media files
+      tags:
+        - Media files
+      parameters:
+        - $ref: '#/parameters/pagination_type'
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/search_after'
+        - $ref: '#/parameters/limit'
+      responses:
+        200:
+          description: Return media files paginated
+          schema:
+            title: MediaFiles
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/MediaFileList'
+          examples: {
+            _links: {
+              self: {
+                href: "https://demo.akeneo.com/api/rest/v1/media-files?page=2&limit=4"
+              },
+              first: {
+                href: "https://demo.akeneo.com/api/rest/v1/media-files?page=1&limit=4"
+              },
+              last: {
+                href: "https://demo.akeneo.com/api/rest/v1/media-files?page=120&limit=4"
+              },
+              previous: {
+                href: "https://demo.akeneo.com/api/rest/v1/media-files?page=1&limit=4"
+              },
+              next: {
+                href: "https://demo.akeneo.com/api/rest/v1/media-files?page=2&limit=4"
+              }
+            },
+            current_page: 2,
+            pages_count: 30,
+            items_count: 120,
+            _embedded: {
+              _items: [
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/media-files/7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg"
+                    },
+                    "download": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/media-files/7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg/download"
+                    }
+                  },
+                  "code": "7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg",
+                  "original_filename": "10806799-1356.jpg",
+                  "mime_type": "image/jpeg",
+                  "size": 16070,
+                  "extension": "jpg"
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/media-files/d/0/3/2/d032a92d994df3ef67ee6746b7b7a795c2964e7c_10734346_1480.jpg"
+                    },
+                    "download": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/media-files/d/0/3/2/d032a92d994df3ef67ee6746b7b7a795c2964e7c_10734346_1480.jpg/download"
+                    }
+                  },
+                  "code": "d/0/3/2/d032a92d994df3ef67ee6746b7b7a795c2964e7c_10734346_1480.jpg",
+                  "original_filename": "10734346-1480.jpg",
+                  "mime_type": "image/jpeg",
+                  "size": 16454,
+                  "extension": "jpg"
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/media-files/5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_12431976_8797.jpg"
+                    },
+                    "download": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/media-files/5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_12431976_8797.jpg/download"
+                    }
+                  },
+                  "code": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_12431976_8797.jpg",
+                  "original_filename": "12431976-8797.jpg",
+                  "mime_type": "image/jpeg",
+                  "size": 19725,
+                  "extension": "jpg"
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/media-files/0/c/b/0/0cb0c0e115dedba676f8d1ad8343e6207ab54c7b_107406_9841.jpg"
+                    },
+                    "download": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/media-files/0/c/b/0/0cb0c0e115dedba676f8d1ad8343e6207ab54c7b_107406_9841.jpg/download"
+                    }
+                  },
+                  "code": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343e6207ab54c7b_107406_9841.jpg",
+                  "original_filename": "107406-9841.jpg",
+                  "mime_type": "image/jpeg",
+                  "size": 17639,
+                  "extension": "jpg"
+                }
+              ]
+            }
+          }
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error" 
+    post:
+      summary: Create a new media file
+      operationId: "attribute_options_post"
+      description: This endpoint allows you to create a new media file and to associate it to the product value of a given product.
+      tags:
+        - Media files
+      parameters:
+        - name: content-type
+          in: header
+          type: string
+          x-value: multipart/form-data
+          required: true
+        - name: body
+          in: body
+          schema:
+            properties:
+              product:
+                type: string
+                description: The product to which the media file will be associated. It is a JSON string that follows this formula '{"identifier":"product_identifier", "attribute":"attribute_code", "scope":"channel_code","locale":"locale_code"}'
+              file:
+                type: string
+                description: The binaries of the file
+                format: binary
+      responses:
+        201:
+          $ref: "#/responses/Created"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        415:
+          $ref: "#/responses/415Error"
+        422:
+          $ref: "#/responses/422Error"
+  /media-files/{code}:
+    get:
+      summary: Get a media file
+      operationId: "media_files_get"
+      description: This endpoint allows you to get the information about a precise media file.
+      tags:
+        - Media files
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          description: OK
+          x-details: Returns the content of the media file in JSON standard format
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
+  /media-files/{code}/download:
+    get:
+      summary: Download a media file
+      operationId: "media_files_download"
+      description: This endpoint allows you to download a precise media file.
+      x-content-type: Mime-type of the media file
+      tags:
+        - Media files
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          description: OK
+          x-details: Returns the binary of the media file
+          x-content-type: Mime-type of the media file
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
   /locales:
     get:
       summary: Get a list of locales
       operationId: "locales_get_list"
-      description: The Family endpoint returns information about the PIM families
+      description: This endpoint allows you to get a list of locales. Locales are paginated.
       tags:
         - Locales
       parameters:
+        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
+        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -1174,15 +1479,42 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"        
+  /locales/{code}:
+    get:
+      summary: Get a locale
+      operationId: "locales_get"
+      description: This endpoint allows you to get the information about a precise locale.
+      tags:
+        - Locales
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          description: OK
+          x-details: Returns the content of the locale in JSON standard format
+          schema:
+            $ref: '#/definitions/Locale'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
   /channels:
     get:
       summary: Get a list of channels
       operationId: "channels"
-      description: The Family endpoint returns information about the PIM families
+      description: This endpoint allows you to get a list of channels. Channels are paginated.
       tags:
         - Channels
       parameters:
+        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
+        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -1287,6 +1619,31 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
+  /channels/{code}:
+    get:
+      summary: Get a channel
+      operationId: "channels_get"
+      description: This endpoint allows you to get the information about a precise channel.
+      tags:
+        - Channels
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          description: OK
+          x-details: Returns the content of the channel in JSON standard format
+          schema:
+            $ref: '#/definitions/Channel'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
     
   
 definitions:
@@ -1327,7 +1684,7 @@ definitions:
         default: "null"
       values:
         type: object
-        description: "Product attributes values, see <a href='documentation.html'>Product values</a> section for more details"
+        description: "Product attributes values, see <a href='documentation.html#product-values'>Product values</a> section for more details"
         x-validation-rules: Validation rules detailed in Product values section
         properties:
           attributeCode:
@@ -1564,7 +1921,7 @@ definitions:
       type:
         type: string
         description: Attribute type
-        x-validation-rules: The type is one of the following value 
+        x-validation-rules: The type is one of the following values 
         enum: ['pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price', 'pim_catalog_boolean']
         x-immutable: true
       labels:
@@ -1746,6 +2103,40 @@ definitions:
     allOf:
       - $ref:  '#/definitions/ItemList'
       - $ref: '#/definitions/AttributeOption'
+  MediaFile:
+    type: object
+    properties:
+      code:
+        type: string
+        description: Media file code
+        x-immutable: true
+      original_filename:
+        type: string
+        description: Original filename of the media file
+      mime_type:
+        type: string
+        description: Mime type of the media file
+        x-read-only: true
+      size:
+        type: integer
+        description: Size of the media file
+        x-read-only: true
+      extension:
+        type: string
+        description: Extension of the media file
+        x-read-only: true
+    example: {
+      "code": "7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg",
+      "original_filename": "10806799-1356.jpg",
+      "mime_type": "image/jpeg",
+      "size": 16070,
+      "extension": "jpg"
+    }
+  MediaFileList:
+    type: object
+    allOf:
+      - $ref: '#/definitions/ItemList'
+      - $ref: '#/definitions/MediaFile'
   Locale:
     type: object
     required: ["code"]
@@ -1765,7 +2156,7 @@ definitions:
   LocaleList:
     type: object
     allOf:
-      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/ItemList'
       - $ref: '#/definitions/Locale'
   Channel:
     type: object
@@ -1804,8 +2195,23 @@ definitions:
             type: string
             description: Channel label for the locale `localeCode`
     example: {
-      "code": "en_US",
-      "enable": true
+      "code": "ecommerce",
+      "currencies": [
+        "USD",
+        "EUR"
+      ],
+      "locales": [
+        "de_DE",
+        "en_US",
+        "fr_FR"
+      ],
+      "category_tree": "master",
+      "conversion_units": {},
+      "labels": {
+        "en_US": "Ecommerce",
+        "de_DE": "Ecommerce",
+        "fr_FR": "Ecommerce"
+      }
     }
   ChannelList:
     type: object
@@ -1818,6 +2224,21 @@ definitions:
       code:
         type: integer
         description: HTTP status code
+      message:
+        type: string
+        description: Message explaining the error
+  ErrorByLine:
+    type: object
+    properties:
+      line:
+        type: integer
+        description: Line number
+      identifier:
+        type: string
+        description: Product identifier
+      code:
+        type: integer
+        description: HTTP status code, see <a href="/documentation.html#client-errors">Client errors</a> to understand the meaning of each code
       message:
         type: string
         description: Message explaining the error
@@ -1880,6 +2301,9 @@ definitions:
                 description: URI of the resource
         
 responses:
+  Created:
+    description: Created
+    x-details: Means that the creation was successful
   NoContent:
     description: No content to return
     x-details: Means that the update was successful
@@ -1901,6 +2325,10 @@ responses:
     x-details: Can be caused by a missing or expired token
     schema:
       $ref: "#/definitions/Error"
+    examples: {
+      "code": 401,
+      "message": "Authentication is required"
+    }
   403Error:
     description: Access forbidden
     x-details: The user does not have the permission to execute this request
@@ -1915,24 +2343,80 @@ responses:
     x-details: The resource code given in the URI does not correspond to any existing PIM resource
     schema:
       $ref: "#/definitions/Error"
+    examples: {
+      "code": 404,
+      "message": "Resource `my_resource_code` does not exist."
+    }
+  406Error:
+    description: Not Acceptable
+    x-details: The `Accept` header is not `application/json` but it should
+    schema:
+      $ref: "#/definitions/Error"
+    examples:  {
+      "code": 406, 
+      "message": "‘xxx’ in ‘Accept‘ header is not valid. Only ‘application/json‘ is allowed."
+    }
+  413Error:
+    description: Request Entity Too Large
+    x-details: There are too many resources to process (max 100) or the line of JSON is too long (max 1 000 000 characters)
+    schema:
+      $ref: "#/definitions/Error"
+    examples: {
+      "code": 413,
+      "message": "Too many resources to process, 100 is the maximum allowed."
+    }
+  415Error:
+    description: Unsupported Media type
+    x-details: The `Content-type` header is not `application/json` but it should
+    schema:
+      $ref: "#/definitions/Error"
+    examples: {
+      "code": 415,
+      "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘application/json’ is allowed."
+    }
   422Error:
     description: Unprocessable entity
     x-details: The validation of the entity given in the body of the request failed
     schema:
       $ref: "#/definitions/Error"
+    examples: {
+      "code": 422,
+      "message": "Property \"labels\" expects an array as data, \"NULL\" given. Check the API reference documentation.",
+      "_links": {
+        "documentation": {
+          "href": "http://api.akeneo.com/api-reference.html"
+        }
+      }
+    }
 
 parameters:
+  pagination_type:
+    name: pagination_type
+    in: query
+    description: Pagination method type, see <a href="/documentation.html#pagination">Pagination</a> section
+    required: false
+    type: string
+    default: "page"
+    x-validation-rules: One of the following values 
+    enum: ["page", "search_after"]
   page:
     name: page
     in: query
-    description: Number of the page to retrieve
+    description: Number of the page to retrieve when using the `page` pagination method type, see <a href="/documentation.html#pagination">Pagination</a> section
     required: false
     type: integer
     default: 1
+  search_after:
+    name: search_after
+    in: query
+    description: Resource code after which the retrieval will be done when using the `search_after` pagination method type, see <a href="/documentation.html#pagination">Pagination</a> section
+    required: false
+    type: string
+    default: "code of the first entity"
   limit:
     name: limit
     in: query
-    description: Number of results by page
+    description: Number of results by page, see <a href="/documentation.html#pagination">Pagination</a> section
     required: false
     type: integer
     minimum: 1
