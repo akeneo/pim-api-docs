@@ -429,9 +429,7 @@ paths:
       tags:
         - Categories
       parameters:
-        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
-        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -631,13 +629,11 @@ paths:
     get:
       summary: Get list of families
       operationId: "families_get_list"
-      description: This endpoint allows you to get a list of families. Families are paginated.
+      description: This endpoint allows you to get a list of families. Families are paginated and sorted by code.
       tags:
         - Families
       parameters:
-        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
-        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -803,13 +799,11 @@ paths:
     get:
       summary: Get list of attributes
       operationId: "attributes_get_list"
-      description: This endpoint allows you to get a list of attributes. Attributes are paginated.
+      description: This endpoint allows you to get a list of attributes. Attributes are paginated and sorted by code.
       tags:
         - Attributes
       parameters:
-        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
-        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -1011,14 +1005,12 @@ paths:
     get:
       summary: Get list of attribute options
       operationId: "attribute_options_get_list"
-      description: This endpoint allows you to get a list of attribute options. Attribute options are paginated.
+      description: This endpoint allows you to get a list of attribute options. Attribute options are paginated and sorted by code.
       tags:
         - Attribute options
       parameters:
         - $ref: '#/parameters/attribute_code'
-        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
-        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -1195,9 +1187,7 @@ paths:
       tags:
         - Media files
       parameters:
-        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
-        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -1389,13 +1379,11 @@ paths:
     get:
       summary: Get a list of locales
       operationId: "locales_get_list"
-      description: This endpoint allows you to get a list of locales. Locales are paginated.
+      description: This endpoint allows you to get a list of locales. Locales are paginated and sorted by code.
       tags:
         - Locales
       parameters:
-        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
-        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:
@@ -1508,13 +1496,11 @@ paths:
     get:
       summary: Get a list of channels
       operationId: "channels"
-      description: This endpoint allows you to get a list of channels. Channels are paginated.
+      description: This endpoint allows you to get a list of channels. Channels are paginated and sorted by code.
       tags:
         - Channels
       parameters:
-        - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
-        - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
       responses:
         200:

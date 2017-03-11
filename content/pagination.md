@@ -26,11 +26,15 @@ HTTP/1.1 422 Unprocessable entity
 ```
 :::
 
-To request pages, you can use either the classical method or the search after method. For more details, see below.
+To request pages of all entities exapect products, you can only use the classical method, see [Page type pagination](/documentation.html#page-type) below.
+
+To request pages of products, you can use either the classical method or the search after method. For more details, see below.
 
 ## Page type
 
-To use the classical method, you set the `pagination_type` query parameter to `page`. You will then need to set the `page` query parameter to a page number, the page being the one you want to request.
+This is the classical pagination. You cas use it on all resources. When you want to use the classical method on products, you set the `pagination_type` query parameter to `page`.
+
+You will then need to set the `page` query parameter to a page number, the page being the one you want to request.
 
 ### Example
 #### Request
@@ -80,32 +84,36 @@ HTTP/1.1 200 OK
 :::
 
 :::info
-This is the default method used for pagination. So, in fact, you do not need to specify the `pagination_type` query parameter.
+This is the default method used for pagination on the products. So, in fact, you do not need to specify the `pagination_type` query parameter when requesting on products.
 ``` bash
 // This request
-curl -X GET /api/rest/v1/categories?pagination_type=page
+curl -X GET /api/rest/v1/products?pagination_type=page
 
 // is equal to this request
-curl -X GET /api/rest/v1/categories
+curl -X GET /api/rest/v1/products
 ```
 :::
 
 :::warning
-When trying to request a quite high page number, you will notice that this method spend more and more time to respond. That is why we introduced another way to request paginated resources, see the search after method below.
+When trying to request a quite high page number, you will notice that this method spend more and more time to respond. This method can also be responsible for giving you duplicates. That is why we introduced another way to request paginated resources, see the search after method below. It is only avalailable on products right now.
 :::
 
 ## Search-after type
-To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. Then, you need to set the `search_after` query parameter to the code or the identifier of an entity. The entities you will get, will be the ones situated after the entity you gave, the entities being sorted on the code or the identifier.
+:::warning
+This pagination method is only usable on products.
+:::
+
+To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. Then, you need to set the `search_after` query parameter to the identifier of an entity. The entities you will get, will be the ones situated after the entity you gave, the entities being sorted on the identifier.
 
 By default, if the `search_after` query parameter is not specified, it will return the first page of entities.
 
 ### Example
 #### Request
 ``` bash
-curl -X GET /api/rest/v1/categories?pagination_type=search_after&search_after=spring_collection&limit=20
+curl -X GET /api/rest/v1/products?pagination_type=search_after&search_after=mug&limit=20
 ```
 
-This will return the 20 categories situated after the category with code `spring_collection`.
+This will return the 20 products situated after the product with identifier `mug`.
 
 #### Response
 The response will respect this structure, even if there are no items to return.
@@ -116,13 +124,13 @@ HTTP/1.1 200 OK
 {
   "_links": {
     "self": {
-      "href": "https://demo.akeneo.com/api/rest/v1/categories?pagination_type=search_after&search_after=spring_collection&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_after=mug&limit=20"
     },
     "first": {
-      "href": "https://demo.akeneo.com/api/rest/v1/categories?pagination_type=search_after&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&limit=20"
     },
     "next": {
-      "href": "https://demo.akeneo.com/api/rest/v1/categories?pagination_type=search_after&search_type=winter_collection_2017&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_type=tshir&limit=20"
     }
   },
   "pages_count": 3,
