@@ -26,15 +26,18 @@ HTTP/1.1 422 Unprocessable entity
 ```
 :::
 
-To request pages of all entities exapect products, you can only use the classical method, see [Page type pagination](/documentation.html#page-type) below.
+To request pages of all entities except products, you can only use the classical method, see [Page type pagination](/documentation.html#page-type) below.
 
 To request pages of products, you can use either the classical method or the search after method. For more details, see below.
 
 ## Page type
 
-This is the classical pagination. You cas use it on all resources. When you want to use the classical method on products, you set the `pagination_type` query parameter to `page`.
+This is the default pagination type, available for all resources.
+It's the standard way to paginate resources (with an offset on query).
 
-You will then need to set the `page` query parameter to a page number, the page being the one you want to request.
+When you want to use the classical method on products, you can set the `pagination_type` query parameter to `page` but this is not mandatory since this is the default pagination.
+
+You can then set the `page` query parameter to a page number, the page being the one you want to request. By default, if you do not set this query parameter, you will get the first page.
 
 ### Example
 #### Request
@@ -103,9 +106,9 @@ When trying to request a quite high page number, you will notice that this metho
 This pagination method is only usable on products.
 :::
 
-To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. Then, you need to set the `search_after` query parameter to the identifier of an entity. The entities you will get, will be the ones situated after the entity you gave, the entities being sorted on the identifier.
+To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. The entities you will get will then be sorted by product primary key to speed up performance.
 
-By default, if the `search_after` query parameter is not specified, it will return the first page of entities.
+Additionally, you can set the `search_after` query parameter to a product identifier. You will then get the entities situated after the one you gave in the query parameter. By default, if the `search_after` query parameter is not specified, it will return the first page of entities.
 
 ### Example
 #### Request
