@@ -360,7 +360,7 @@ paths:
       operationId: "products_get"
       tags:
         - Products
-      description: This endpoint allows you to get the information about a precise product.
+      description: This endpoint allows you to get the information about a given product.
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -382,7 +382,7 @@ paths:
       operationId: "products_patch"
       tags:
         - Products
-      description: This endpoint allows you to update a precise product. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that this endpoint also allows the creation of a new product when the identifier given as query parameter does not exist yet.
+      description: This endpoint allows you to update a given product. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -408,7 +408,7 @@ paths:
       operationId: "products_delete"
       tags:
         - Products
-      description: This endpoint allows you to delete a precise product.
+      description: This endpoint allows you to delete a given product.
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -425,7 +425,7 @@ paths:
     get:
       summary: Get list of categories
       operationId: "categories_get_list"
-      description: This endpoint allows you to get a list of categories. Categories are paginated and sorted `root/left`.
+      description: This endpoint allows you to get a list of categories. Categories are paginated and sorted by `root/left`.
       tags:
         - Categories
       parameters:
@@ -579,7 +579,7 @@ paths:
     get:
       summary: Get a category
       operationId: "categories_get"
-      description: This endpoint allows you to get the information about a precise category.
+      description: This endpoint allows you to get the information about a given category.
       tags:
         - Categories
       parameters:
@@ -603,7 +603,7 @@ paths:
       operationId: "categories_patch"
       tags:
         - Categories
-      description: This endpoint allows you to update a precise category. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that this endpoint also allows the creation of a new category when the code given as query parameter does not exist yet.
+      description: This endpoint allows you to update a given category. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that if no category exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -751,7 +751,7 @@ paths:
     get:
       summary: Get a family
       operationId: "families_get"
-      description: This endpoint allows you to get the information about a precise family.
+      description: This endpoint allows you to get the information about a given family.
       tags:
         - Families
       parameters:
@@ -775,7 +775,7 @@ paths:
       operationId: "families_patch"
       tags:
         - Families
-      description: This endpoint allows you to update a precise family. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that this endpoint also allows the creation of a new family when the code given as query parameter does not exist yet.
+      description: This endpoint allows you to update a given family. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that if no family exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -959,7 +959,7 @@ paths:
     get:
       summary: Get an attribute
       operationId: "attributes_get"
-      description: This endpoint allows you to get the information about a precise attribute.
+      description: This endpoint allows you to get the information about a given attribute.
       tags:
         - Attributes
       parameters:
@@ -983,7 +983,7 @@ paths:
       operationId: "attributes_patch"
       tags:
         - Attributes
-      description: This endpoint allows you to update a precise attribute. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that this endpoint also allows the creation of a new attribute when the code given as query parameter does not exist yet.
+      description: This endpoint allows you to update a given attribute. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that if no attribute exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -1139,7 +1139,7 @@ paths:
     get:
       summary: Get an attribute option
       operationId: "attribute_options_get"
-      description: This endpoint allows you to get the information about a precise attribute option.
+      description: This endpoint allows you to get the information about a given attribute option.
       tags:
         - Attribute options
       parameters:
@@ -1164,7 +1164,7 @@ paths:
       operationId: "attribute_options_patch"
       tags:
         - Attribute options
-      description: This endpoint allows you to update a precise attribute option. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that this endpoint also allows the creation of a new attribute option when the code given as query parameter does not exist yet.
+      description: This endpoint allows you to update a given attribute option. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that if no attribute option exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/attribute_code'
         - $ref: '#/parameters/code'
@@ -1347,7 +1347,7 @@ paths:
     get:
       summary: Get a media file
       operationId: "media_files_get"
-      description: This endpoint allows you to get the information about a precise media file.
+      description: This endpoint allows you to get the information about a given media file.
       tags:
         - Media files
       parameters:
@@ -1368,7 +1368,7 @@ paths:
     get:
       summary: Download a media file
       operationId: "media_files_download"
-      description: This endpoint allows you to download a precise media file.
+      description: This endpoint allows you to download a given media file.
       x-content-type: Mime-type of the media file
       tags:
         - Media files
@@ -1485,7 +1485,7 @@ paths:
     get:
       summary: Get a locale
       operationId: "locales_get"
-      description: This endpoint allows you to get the information about a precise locale.
+      description: This endpoint allows you to get the information about a given locale.
       tags:
         - Locales
       parameters:
@@ -1625,7 +1625,7 @@ paths:
     get:
       summary: Get a channel
       operationId: "channels_get"
-      description: This endpoint allows you to get the information about a precise channel.
+      description: This endpoint allows you to get the information about a given channel.
       tags:
         - Channels
       parameters:
