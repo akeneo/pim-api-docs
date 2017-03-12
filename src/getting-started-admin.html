@@ -122,9 +122,9 @@
                     <div class="col-xs-12">
                       <p>Having a user with a role giving access to the Web API is not enough to make requests via the Web API. Peter will ask you for OAuth client id and secret so as he can be authenticated.</p>
                       <p>Client is and secret are generated with the following command line.</p>
-                      <pre class="hljs"><code>php bin/console pim:oauth-server:create-client \
-    --grant-type=<span class="hljs-string">"password"</span> \
-    --grant-type=<span class="hljs-string">"refresh_token"</span></code></pre>
+                      <pre class="hljs"><code>php app/console pim:oauth-server:create-client \
+    --grant_type=<span class="hljs-string">"password"</span> \
+    --grant_type=<span class="hljs-string">"refresh_token"</span></code></pre>
                       <p>You will get something like:</p>
                       <pre class="hljs"><code>A new client has been added:
 client_id: 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s
