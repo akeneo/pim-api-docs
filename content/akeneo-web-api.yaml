@@ -354,6 +354,8 @@ paths:
           $ref: "#/responses/403Error"
         413:
           $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
   /products/{code}:
     get:
       summary: Get a product
@@ -613,6 +615,8 @@ paths:
           $ref: "#/responses/403Error"
         413:
           $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
   /categories/{code}:
     get:
       summary: Get a category
@@ -823,6 +827,8 @@ paths:
           $ref: "#/responses/403Error"
         413:
           $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
   /families/{code}:
     get:
       summary: Get a family
@@ -1069,6 +1075,8 @@ paths:
           $ref: "#/responses/403Error"
         413:
           $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
   /attributes/{code}:
     get:
       summary: Get an attribute
@@ -1288,6 +1296,8 @@ paths:
           $ref: "#/responses/403Error"
         413:
           $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
   /attributes/{attribute_code}/options/{code}:
     get:
       summary: Get an attribute option
@@ -2526,6 +2536,15 @@ responses:
     examples: {
       "code": 415,
       "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘application/json’ is allowed."
+    }
+  415ErrorStream:
+    description: Unsupported Media type
+    x-details: The `Content-type` header is not `application/vnd.akeneo.collection+json` but it should
+    schema:
+      $ref: "#/definitions/Error"
+    examples: {
+      "code": 415,
+      "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘application/vnd.akeneo.collection+json’ is allowed."
     }
   422Error:
     description: Unprocessable entity
