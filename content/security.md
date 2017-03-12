@@ -16,8 +16,8 @@ To create a new pair of client id / secret, use the following command:
 
 ```bash
 php app/console pim:oauth-server:create-client \
-    --grant-type="password" \
-    --grant-type="refresh_token"
+    --grant_type="password" \
+    --grant_type="refresh_token"
 ```
 
 You will get something like:
