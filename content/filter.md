@@ -208,11 +208,11 @@ If you need to filter on several attributes on the same locale, you can use the 
 
 #### Example
 ```
-/api/rest/v1/products?search={"description":[{"operator":"STARTS+WITH","value":"Amazing","locale":"en_US"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US"}]}
+/api/rest/v1/products?search={"description":[{"operator":"STARTS+WITH","value":"Amazing","locale":"en_US","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US","scope":"ecommerce"}]}
 
 <==>
 
-/api/rest/v1/products?search={"description":[{"operator":"STARTS+WITH","value":"Amazing"}],"short_description":[{"operator":"CONTAINS","value":"shoes"}]}&search_locale=en_US
+/api/rest/v1/products?search={"description":[{"operator":"STARTS+WITH","value":"Amazing","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","scope":"ecommerce"}]}&search_locale=en_US
 ```
 
 ### `search_scope` query parameter
@@ -220,11 +220,11 @@ If you need to filter on several attributes on the same channel, you can use the
 
 #### Example
 ```
-/api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04","scope":"ecommerce"}],"due_date":[{"operator":"<","value":"2016-08-14","scope":"ecommerce"}]}
+/api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US","scope":"ecommerce"}]}
 
 <==>
 
-/api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04"}],"due_date":[{"operator":"<","value":"2016-08-14"}]}&search_scope=ecommerce
+/api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US"}]}&search_scope=ecommerce
 ```
 
 ### Available operators
