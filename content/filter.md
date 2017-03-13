@@ -167,16 +167,16 @@ In the above url :
  - `CHANNEL_CODE` is an existing channel code that should be only given when the `ATTRIBUTE_CODE` attribute is scopable.
 
 #### Examples
-To get products that are red, red being an option of the simple select `color` attribute and this attribute being neither localizable nor scopable, you can use the following URL.
+To get products that are purple, purple being an option of the simple select `main_color` attribute and this attribute being neither localizable nor scopable, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"color":[{"operator":"IN","value":"red"}]}
+/api/rest/v1/products?search={"main_color":[{"operator":"IN","value":["purple"]}]}
 ```
 
-To get products having a description begining with `Amazing` on the `en_US` locale, the `description` attribute being localizable but not scopable, you can use the following URL.
+To get products having a description begining with `Amazing` on the `en_US` locale, the `short_description` attribute being localizable but not scopable, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"description":[{"operator":"STARTS+WITH","value":"Amazing","locale":"en_US"}]}
+/api/rest/v1/products?search={"short_description":[{"operator":"STARTS+WITH","value":"Amazing","locale":"en_US"}]}
 ```
 
 To get products that have a release date due after the 4th of July 2016 for the `ecommerce` channel, the `release_date` attribute being scopable but not localizable, you can use the following URL.
@@ -191,16 +191,16 @@ To get products that have a name that contains with `shirt` on the `en_US` local
 /api/rest/v1/products?search={"name":[{"operator":"CONTAINS","value":"shirt","locale":"en_US","scope":"mobile"}]}
 ```
 
-Of course, you can combine as many filters as you want. The example below will get you the products with description starting with `Amazing` on the `en_US` locale and of red color.
+Of course, you can combine as many filters as you want. The example below will get you the products with description starting with `Amazing` on the `en_US` locale for the `ecommerce` channel, and of purple color.
 
 ```
-/api/rest/v1/products?search={"description":[{"operator":"STARTS+WITH","value":"Amazing","locale":"en_US"}],"color":[{"operator":"=","value":"red"}]}
+/api/rest/v1/products?search={"description":[{"operator":"STARTS+WITH","value":"Amazing","locale":"en_US","scope":"ecommerce"}],"main_color":[{"operator":"IN","value":["purple"]}]}
 ```
 
-You can even combine several filters on the same attribute. The example below will get you the products with not empty description on the `en_US` locale and empty description on the `fr_FR` locale.
+You can even combine several filters on the same attribute. The example below will get you the products with not empty description on the `en_US` locale and empty description on the `fr_FR` locale for the `ecommerce` channel.
 
 ```
-/api/rest/v1/products?search={"description":[{"operator":"NOT+EMPTY","locale":"en_US"},{"operator":"EMPTY","locale":"fr_FR"}]}
+/api/rest/v1/products?search={"description":[{"operator":"NOT+EMPTY","locale":"en_US","scope":"ecommerce"},{"operator":"EMPTY","locale":"fr_FR","scope":"ecommerce"}]}
 ```
 
 ### `search_locale` query parameter
