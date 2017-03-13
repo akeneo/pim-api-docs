@@ -89,7 +89,7 @@ If the value is not an object, it will replace the old value.
 **Original resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "categories": ["shoes", "boots"]
 }
 ```
@@ -104,7 +104,7 @@ If the value is not an object, it will replace the old value.
 **Resulting resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "categories": ["boots"]
 }
 ```
@@ -265,7 +265,7 @@ You want to place the product `boots-4846` in the new category `winter_collectio
 **Original resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "categories": ["shoes", "boots"]
 }
 ```
@@ -280,7 +280,7 @@ You want to place the product `boots-4846` in the new category `winter_collectio
 **Resulting resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "categories": ["shoes", "boots", "winter_collection"]
 }
 ```
@@ -291,7 +291,7 @@ You want to remove the product `boots-4846` from the category `boots`. Here is h
 **Original resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "categories": ["shoes", "boots"]
 }
 ```
@@ -306,7 +306,7 @@ You want to remove the product `boots-4846` from the category `boots`. Here is h
 **Resulting resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "categories": ["shoes"]
 }
 ```
@@ -327,7 +327,7 @@ You want to add the `description` of the product `boots-4846` for the `en_US` lo
 **Original resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "values": {
     "name": [
       {
@@ -358,7 +358,7 @@ You want to add the `description` of the product `boots-4846` for the `en_US` lo
 **Resulting resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "values": {
     "name": [
       {
@@ -386,7 +386,7 @@ You want to add the `name` of the product `boots-4846` for the `en_US` locale.
 **Original resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "values": {
     "name": [
       {
@@ -424,7 +424,7 @@ You want to add the `name` of the product `boots-4846` for the `en_US` locale.
 **Resulting resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "values": {
     "name": [
       {
@@ -450,7 +450,7 @@ You want to add the `name` of the product `boots-4846` for the `fr_FR` locale bu
 **Original resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "values": {
     "name": [
       {
@@ -493,7 +493,7 @@ You want to add the `name` of the product `boots-4846` for the `fr_FR` locale bu
 **Resulting resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "values": {
     "name": [
       {
@@ -524,7 +524,7 @@ You want to erase the `name` of the product `boots-4846` for the `en_US` locale.
 **Original resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "values": {
     "name": [
       {
@@ -562,7 +562,7 @@ You want to erase the `name` of the product `boots-4846` for the `en_US` locale.
 **Resulting resource**
 ```json
 {
-  "identifer": "boots-4846",
+  "identifier": "boots-4846",
   "values": {
     "name": [
       {
