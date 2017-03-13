@@ -2357,10 +2357,10 @@ definitions:
         description: Line number
       identifier:
         type: string
-        description: Resource identifier when the resource is a product
+        description: Resource identifier, only filled when the resource is a product
       code:
         type: string
-        description: Resource code when the resource is a category, a family or an attribute
+        description: Resource code, onyl filled when the resource is a category, a family or an attribute
       status_code:
         type: integer
         description: HTTP status code, see <a href="/documentation.html#client-errors">Client errors</a> to understand the meaning of each code
