@@ -343,11 +343,11 @@ paths:
             $ref: "#/definitions/ErrorByLine"
           examples:
             x-example-1:
-              '{"line":1,"identifier":"cap","code":204}'
+              '{"line":1,"identifier":"cap","status_code":204}'
             x-example-2:
-              '{"line":2,"identifier":"mug","code":422,"message":"Property "group" does not exist."}'
+              '{"line":2,"identifier":"mug","status_code":422,"message":"Property "group" does not exist."}'
             x-example-3:
-              '{"line":3,"identifier":"tshirt","code":201}'
+              '{"line":3,"identifier":"tshirt","status_code":201}'
         401:
           $ref: "#/responses/401Error"
         403:
@@ -604,11 +604,11 @@ paths:
             $ref: "#/definitions/ErrorByLine"
           examples:
             x-example-1:
-              '{"line":1,"identifier":"spring_collection","code":201}'
+              '{"line":1,"code":"spring_collection","status_code":201}'
             x-example-2:
-              '{"line":2,"identifier":"woman","code":422,"message":"Category "spring_collectionn" does not exist."}'
+              '{"line":2,"code":"woman","status_code":422,"message":"Category "spring_collectionn" does not exist."}'
             x-example-3:
-              '{"line":3,"identifier":"man","code":204}'
+              '{"line":3,"code":"man","status_code":204}'
         401:
           $ref: "#/responses/401Error"
         403:
@@ -816,11 +816,11 @@ paths:
             $ref: "#/definitions/ErrorByLine"
           examples:
             x-example-1:
-              '{"line":1,"identifier":"tshirt","code":201}'
+              '{"line":1,"code":"tshirt","status_code":201}'
             x-example-2:
-              '{"line":2,"identifier":"cap","code":422,"message":"Attribute "descripion" does not exist."}'
+              '{"line":2,"code":"cap","status_code":422,"message":"Attribute "descripion" does not exist."}'
             x-example-3:
-              '{"line":3,"identifier":"mug","code":204}'
+              '{"line":3,"code":"mug","status_code":204}'
         401:
           $ref: "#/responses/401Error"
         403:
@@ -1064,11 +1064,11 @@ paths:
             $ref: "#/definitions/ErrorByLine"
           examples:
             x-example-1:
-              '{"line":1,"identifier":"description","code":201}'
+              '{"line":1,"code":"description","status_code":201}'
             x-example-2:
-              '{"line":2,"identifier":"short_description","code":422,"message":"Group "marketig" does not exist."}'
+              '{"line":2,"code":"short_description","status_code":422,"message":"Group "marketig" does not exist."}'
             x-example-3:
-              '{"line":3,"identifier":"release_date","code":204}'
+              '{"line":3,"code":"release_date","status_code":204}'
         401:
           $ref: "#/responses/401Error"
         403:
@@ -1257,47 +1257,6 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
-    patch:
-      summary: Update/create attribute options
-      operationId: "several_attributes_patch"
-      tags:
-        - Attribute options
-      description: This endpoint allows you to update and/or create several attribute options at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
-      parameters:
-        - $ref: '#/parameters/attribute_code'
-        - name: body
-          in: body
-          schema:
-            $ref: "#/definitions/AttributeOption"
-            x-examples:
-              x-example-1:
-                '{"code":"red","labels":{"en_US":"Red"}}'
-              x-example-2:
-                '{"code":"black","labels":{"en_US":"Black"}}'
-              x-example-3:
-                '{"code":"pink","labels":{"fr_FR":"Rose"}}'
-      responses:
-        200:
-          description: OK
-          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
-          schema:
-            $ref: "#/definitions/ErrorByLine"
-          examples:
-            x-example-1:
-              '{"line":1,"identifier":"red","code":204}'
-            x-example-2:
-              '{"line":2,"identifier":"black","code":204}'
-            x-example-3:
-              '{"line":3,"identifier":"pink","code":201}'
-        401:
-          $ref: "#/responses/401Error"
-        403:
-          $ref: "#/responses/403Error"
-        413:
-          $ref: "#/responses/413Error"
-        415:
-          $ref: "#/responses/415ErrorStream"
   /attributes/{attribute_code}/options/{code}:
     get:
       summary: Get an attribute option
@@ -2398,8 +2357,11 @@ definitions:
         description: Line number
       identifier:
         type: string
-        description: Resource identifier or code
+        description: Resource identifier when the resource is a product
       code:
+        type: string
+        description: Resource code when the resource is a category, a family or an attribute
+      status_code:
         type: integer
         description: HTTP status code, see <a href="/documentation.html#client-errors">Client errors</a> to understand the meaning of each code
       message:
