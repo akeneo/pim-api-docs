@@ -35,7 +35,7 @@ You can even combine several filters on the same product properties. The example
 
 ### On categories
 
-To filter products on their categories, use the property `categories.code`.
+To filter products on their categories, use the property `categories`.
 Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
@@ -51,7 +51,7 @@ Here are the allowed operators you can use to filter on the category code as wel
 To get the products of the `winter_collection` category, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"category.code":[{"operator":"IN","value":"winter_collection"}]}
+/api/rest/v1/products?search={"categories":[{"operator":"IN","value":["winter_collection"]}]}
 ```
 
 
