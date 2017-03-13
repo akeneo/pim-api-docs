@@ -21,7 +21,7 @@ It is almost __impossible__ for Julia to deal with all these sources.
 So, to prevent Julia from going nuts, her company has invested in a very useful tool, a __PIM__. This type of software helps companies to centralize and harmonize all the technical and marketing information of their catalogs and products. That's exactly what __Julia needs__!
 
 As summed up in the diagram below, a PIM allows Julia to gather all the product information in one single place, to enrich it and to spread it to several channels like an e-commerce website or a printed catalog... 
-![PIM schema](img/PIM.png)
+![PIM schema](img/pim.png)
 
 **In a nutshell, the PIM is for product information what CRM is for customer information!**
 
@@ -32,9 +32,13 @@ _Well, if you do not know what a CRM is, here is a little bit of [information](h
 
 ## Why did we create an API?
 
+When you install a PIM for a client, you usually have to write tools or even connectors. These connectors are here to connect the PIM with all the data sources it needs. They are also developed to spread products information to systems such as e-commerce website or marketplaces.
+
+The API is here to help you develop theses tools and connectors.
+
 ### Stable API = Long-lasting tools
 
-Today, when you write a tool/connector, you have to dig deeply into the PIM code. So you ended up writing code that is really tied to ours. It can lead to painful migrations, especially when things have changed in our codebase.
+Today, when you write a tool/connector, you have to dig deeply into the PIM code. So you ended up writing code that is really tied to ours. It can lead to painful migrations, especially when things have [changed in our codebase](https://github.com/akeneo/pim-community-dev/blob/master/CHANGELOG-1.7.md).
 
 But we really want you to keep writing amazing tools, we had to do something to help you.
 

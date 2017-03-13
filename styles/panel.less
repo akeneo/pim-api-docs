@@ -11,6 +11,7 @@
       margin-bottom: 0px;
       &:first-of-type{
         font-size: @font-size-large;
+        color: @brand-primary;
       }
     }
   }
@@ -22,6 +23,31 @@
     cursor: pointer;
     &:hover{
       background-color: @gray-lighter;
+    }
+    a{
+      color: inherit;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+  &.panel-disabled{
+    background-color: @gray-lighter;
+    border: none;
+    color: @gray-light;
+    p:first-of-type{
+      color: @gray-light;
+    }
+    &:before{
+      content: 'COMING SOON';
+      position: absolute;
+      bottom: 30%;
+      left: 35%;
+      color: @brand-primary;
+      font-size: @font-size-h3;
+      font-weight: bold;
+      .rotate(-10deg);
+      z-index: 1;
     }
   }
   &.panel-default{
