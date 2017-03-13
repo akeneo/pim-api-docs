@@ -24,7 +24,7 @@ To only retrieve enabled products, you can use the following URL.
 Of course, you can combine as many filters as you want. The example below will get you the enabled products being 70% complete.
 
 ```
-/api/rest/v1/products?search={"enabled":[{"operator":"=","value":true}], "completeness":[{"operator":">","value":70}]}
+/api/rest/v1/products?search={"enabled":[{"operator":"=","value":true}],"completeness":[{"operator":">","value":70,"scope":"ecommerce"}]}
 ```
 
 You can even combine several filters on the same product properties. The example below will get you the products created both the 4th and the 5th of July 2016.
