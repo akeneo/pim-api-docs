@@ -96,7 +96,7 @@ To get the products that are 100% complete for the `ecommerce` channel, you can 
 To get the products that are 100% complete on both the `en_US` and `fr_FR` locales for the `ecommerce` channel, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"completeness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
+/api/rest/v1/products?search={"completeness":[{"operator":"GREATER+OR+EQUALS+THAN+ON+ALL+LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
 ```
 
 ### On group or family
