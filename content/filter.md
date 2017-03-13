@@ -40,11 +40,11 @@ Here are the allowed operators you can use to filter on the category code as wel
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
-| `IN` | an existing category code | Only returns the products that are in the given category |
-| `NOT IN` | an existing category code | Only returns the products that are not in the given category |
-| `IN OR UNCLASSIFIED` |  an existing category code | Only returns the products that are in the given category or that are not classified in any category |
-| `IN CHILDREN` | an existing category code | Only returns the products that are in the children of the given category |
-| `NOT IN CHILDREN` | an existing category code | Only returns the products that are not in the children of the given category |
+| `IN` | an array of existing category codes | Only returns the products that are in the given categories |
+| `NOT IN` | an array of existing category codes | Only returns the products that are not in the given categories |
+| `IN OR UNCLASSIFIED` |  an array of existing category codes | Only returns the products that are in the given categories or that are not classified in any categories |
+| `IN CHILDREN` | an array of existing category codes | Only returns the products that are in the children of the given categories |
+| `NOT IN CHILDREN` | an array of existing category codes | Only returns the products that are not in the children of the given categories |
 | `UNCLASSIFIED` | no value | Only returns the products that are not classified into any category |
 
 #### Example
@@ -101,27 +101,27 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 
 ### On group or family
 
-To filter products on groups or families, use respectively the product property `group` and `family`.
+To filter products on groups or families, use respectively the product property `groups` and `family`.
 Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
-| `IN` | an existing group or family | Only returns products that are respectively in the given family or group |
-| `NOT IN`  | an existing group or family | Only returns products that are respectively not in the given family or group |
-| `EMPTY` | no value | Only returns products that have respectively no group or no family |
+| `IN` | an array of existing group or family | Only returns products that are respectively in the given families or groups |
+| `NOT IN`  | an array of existing group or family | Only returns products that are respectively not in the given families or groups |
+| `EMPTY` | no value | Only returns products that have respectively no groups or no family |
 | `NOT EMPTY` | no value | Only returns products that have respectively a group or a family |
 
 #### Examples
 To get the products that are in the `promotion` group, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"group":[{"operator":"IN","value":"promotion"}]}
+/api/rest/v1/products?search={"groups":[{"operator":"IN","value":["promotion"]}]}
 ```
 
-To get the products that are not in the `clothing` family, you can use the following URL.
+To get the products that are not in the `camcorders` and `digital_cameras` family, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"family":[{"operator":"NOT+IN","value":"clothing"}]}
+/api/rest/v1/products?search={"family":[{"operator":"NOT+IN","value":["camcorders","digital_cameras"]}]}
 ```
 
 ### On creation or update date
