@@ -124,7 +124,7 @@ The `search_after` query parameter should never be set manually. If you want to 
 curl -X GET /api/rest/v1/products?pagination_type=search_after&search_after=qaXbcde&limit=20
 ```
 
-This will return the 20 products situated after the product with identifier `mug`.
+This request returns the 20 products situated after the `qaXbcde` cursor.
 
 #### Response
 The response will respect this structure, even if there are no items to return.
