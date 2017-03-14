@@ -33,8 +33,6 @@ gulp.task('less', ['clean-dist'], function () {
 
 // Copy html, css, js and image files into dist directory
 gulp.task('copy', ['clean-dist'], function(){
-  var html = gulp.src('src/*.html')
-    .pipe(gulp.dest('dist/'));
   var fa = gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
     .pipe(gulp.dest('dist/css/'));
   var font = gulp.src('node_modules/font-awesome/fonts/*')
@@ -47,7 +45,7 @@ gulp.task('copy', ['clean-dist'], function(){
   var img = gulp.src('content/img/*')
     .pipe(gulp.dest('dist/img/'));
 
-  return merge(html, fa, font, lib, img); 
+  return merge(fa, font, lib, img);
 });
 
 gulp.task('landings', function() {
@@ -55,7 +53,7 @@ gulp.task('landings', function() {
     .pipe(foreach(function(stream, file){
       return gulp.src(file.path)
         .pipe(gulpHandlebars({}, {
-          //partialsDirectory: ['./src/partials']
+          partialsDirectory: ['./src/partials']
         }))
         .pipe(rename(path.basename(file.path).replace(/\.handlebars$/, '.html')))
         .pipe(gulp.dest('dist'));
@@ -322,7 +320,7 @@ gulp.task('clean-dist', function () {
 gulp.task('watch', ['create-dist'], function() {
   gulp.watch('content/*.md', ['create-dist']);
   gulp.watch('styles/*.less', ['create-dist']);
-  gulp.watch('src/*.html', ['create-dist']);
+  gulp.watch('src/*.handlebars', ['create-dist']);
   gulp.watch('src/api-reference/*.handlebars',['create-dist']);
   gulp.watch('content/img/*', ['create-dist']);
   gulp.watch('content/*.yaml', ['create-dist']);
