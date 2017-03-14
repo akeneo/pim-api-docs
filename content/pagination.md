@@ -65,9 +65,6 @@ HTTP/1.1 200 OK
     "first": {
       "href": "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=20"
     },
-    "last": {
-      "href": "https://demo.akeneo.com/api/rest/v1/categories?page=3&limit=20"
-    },
     "previous": {
       "href": "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=20"
     },
@@ -76,8 +73,6 @@ HTTP/1.1 200 OK
     }
   },
   "current_page": 2,
-  "pages_count": 3,
-  "items_count": 48,
   "_embedded": {
     "items": [
       ...
@@ -144,8 +139,6 @@ HTTP/1.1 200 OK
       "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_type=qaXbcdedsfeF&limit=20"
     }
   },
-  "pages_count": 3,
-  "items_count": 48,
   "_embedded": {
     "items": [
       ...

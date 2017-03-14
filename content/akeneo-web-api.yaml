@@ -23,7 +23,7 @@ paths:
           description: Filter products, for more details see the <a href="/documentation.html#filters">Filters</a> section
           required: false
           type: string
-        - name: channel
+        - name: scope
           in: query
           type: string
           description: Filter product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation.html#filter-product-values">Filter on product values</a> section
@@ -42,6 +42,7 @@ paths:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/search_after'
         - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
       responses:
         200:
           description: Return products paginated
@@ -66,9 +67,6 @@ paths:
               first: {
                 href: "https://demo.akeneo.com/api/rest/v1/products?page=1&limit=3"
               },
-              last: {
-                href: "https://demo.akeneo.com/api/rest/v1/products?page=8&limit=3"
-              },
               previous: {
                 href: "https://demo.akeneo.com/api/rest/v1/products?page=2&limit=3"
               },
@@ -77,8 +75,6 @@ paths:
               }
             },
             current_page: 3,
-            pages_count: 8,
-            items_count: 22,
             _embedded: {
               _items: [
                 {
@@ -127,7 +123,7 @@ paths:
                         "locale": "fr_FR",
                         "scope": "tablet"
                       }
-                    ], 
+                    ],
                     "price": [
                       {
                         "locale": null,
@@ -164,10 +160,6 @@ paths:
                       "products": ["sunglasse"],
                       "groups": []
                     },
-                    "X_SELL": {
-                      "products": [],
-                      "groups": []
-                    }
                   }
                 },
                 {
@@ -216,7 +208,7 @@ paths:
                         "locale": "fr_FR",
                         "scope": "tablet"
                       }
-                    ], 
+                    ],
                     "price": [
                       {
                         "locale": null,
@@ -243,11 +235,7 @@ paths:
                   "updated": "2016-06-25T17:56:12+02:00",
                   "associations": {
                     "PACK": {
-                      "products": [],
-                      "groups": []
-                    },
-                    "X_SELL": {
-                      "products": [],
+                      "products": ['sunglasse'],
                       "groups": []
                     }
                   }
@@ -268,16 +256,7 @@ paths:
                   },
                   "created": "2016-06-23T11:24:44+02:00",
                   "updated": "2016-06-23T11:24:44+02:00",
-                  "associations": {
-                    "PACK": {
-                      "products": [],
-                      "groups": []
-                    },
-                    "X_SELL": {
-                      "products": [],
-                      "groups": []
-                    }
-                  }
+                  "associations": {}
                 }
               ]
             }
@@ -322,7 +301,7 @@ paths:
       tags:
         - Products
       description: This endpoint allows you to update and/or create several products at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format
       parameters:
         - name: body
           in: body
@@ -422,7 +401,7 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
-  
+
   /categories:
     get:
       summary: Get list of categories
@@ -433,6 +412,7 @@ paths:
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
       responses:
         200:
           description: Return categories paginated
@@ -457,9 +437,6 @@ paths:
               first: {
                 href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=5"
               },
-              last: {
-                href: "https://demo.akeneo.com/api/rest/v1/categories?page=3&limit=5"
-              },
               previous: {
                 href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=5"
               },
@@ -468,8 +445,6 @@ paths:
               }
             },
             current_page: 2,
-            pages_count: 5,
-            items_count: 11,
             _embedded: {
               _items: [
                 {
@@ -581,7 +556,7 @@ paths:
       tags:
         - Categories
       description: This endpoint allows you to update several categories at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format
       parameters:
         - name: body
           in: body
@@ -666,7 +641,7 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
-  
+
   /families:
     get:
       summary: Get list of families
@@ -677,6 +652,7 @@ paths:
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
       responses:
         200:
           description: Return families paginated
@@ -701,9 +677,6 @@ paths:
               first: {
                 href: "https://demo.akeneo.com/api/rest/v1/families?page=1&limit=2"
               },
-              last: {
-                href: "https://demo.akeneo.com/api/rest/v1/families?page=8&limit=2"
-              },
               previous: {
                 href: "https://demo.akeneo.com/api/rest/v1/families?page=1&limit=2"
               },
@@ -712,8 +685,6 @@ paths:
               }
             },
             current_page: 2,
-            pages_count: 8,
-            items_count: 15,
             _embedded: {
               _items: [
                 {
@@ -791,7 +762,7 @@ paths:
       tags:
         - Families
       description: This endpoint allows you to update and/or create several families at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format
       parameters:
         - name: body
           in: body
@@ -876,7 +847,7 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
-  
+
   /attributes:
     get:
       summary: Get list of attributes
@@ -887,6 +858,7 @@ paths:
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
       responses:
         200:
           description: Return attributes paginated
@@ -911,9 +883,6 @@ paths:
               first: {
                 href: "https://demo.akeneo.com/api/rest/v1/attributes?page=1&limit=2"
               },
-              last: {
-                href: "https://demo.akeneo.com/api/rest/v1/attributes?page=8&limit=2"
-              },
               previous: {
                 href: "https://demo.akeneo.com/api/rest/v1/attributes?page=2&limit=2"
               },
@@ -922,8 +891,6 @@ paths:
               }
             },
             current_page: 3,
-            pages_count: 8,
-            items_count: 15,
             _embedded: {
               _items: [
                 {
@@ -1030,14 +997,14 @@ paths:
         415:
           $ref: "#/responses/415Error"
         422:
-          $ref: "#/responses/422Error"     
+          $ref: "#/responses/422Error"
     patch:
       summary: Update/create several attributes
       operationId: "several_attributes_patch"
       tags:
         - Attributes
       description: This endpoint allows you to update and/or create several attributes at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format
       parameters:
         - name: body
           in: body
@@ -1122,7 +1089,7 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
-          
+
   /attributes/{attribute_code}/options:
     get:
       summary: Get list of attribute options
@@ -1134,6 +1101,7 @@ paths:
         - $ref: '#/parameters/attribute_code'
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
       responses:
         200:
           description: Return attribute options paginated
@@ -1158,9 +1126,6 @@ paths:
               first: {
                 href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=1&limit=3"
               },
-              last: {
-                href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=8&limit=3"
-              },
               previous: {
                 href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=2&limit=3"
               },
@@ -1169,8 +1134,6 @@ paths:
               }
             },
             current_page: 3,
-            pages_count: 8,
-            items_count: 22,
             _embedded: {
               _items: [
                 {
@@ -1302,7 +1265,7 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
-  
+
   /media-files:
     get:
       summary: Get a list of media files
@@ -1311,6 +1274,7 @@ paths:
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
       responses:
         200:
           description: Return media files paginated
@@ -1335,9 +1299,6 @@ paths:
               first: {
                 href: "https://demo.akeneo.com/api/rest/v1/media-files?page=1&limit=4"
               },
-              last: {
-                href: "https://demo.akeneo.com/api/rest/v1/media-files?page=120&limit=4"
-              },
               previous: {
                 href: "https://demo.akeneo.com/api/rest/v1/media-files?page=1&limit=4"
               },
@@ -1346,8 +1307,6 @@ paths:
               }
             },
             current_page: 2,
-            pages_count: 30,
-            items_count: 120,
             _embedded: {
               _items: [
                 {
@@ -1418,10 +1377,10 @@ paths:
         403:
           $ref: "#/responses/403Error"
         406:
-          $ref: "#/responses/406Error" 
+          $ref: "#/responses/406Error"
     post:
       summary: Create a new media file
-      operationId: "attribute_options_post"
+      operationId: "media_file_post"
       description: This endpoint allows you to create a new media file and to associate it to the product value of a given product.
       tags:
         - Media files
@@ -1507,6 +1466,7 @@ paths:
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
       responses:
         200:
           description: Return locales paginated
@@ -1531,9 +1491,6 @@ paths:
               first: {
                 href: "https://demo.akeneo.com/api/rest/v1/locales?page=1&limit=4"
               },
-              last: {
-                href: "https://demo.akeneo.com/api/rest/v1/locales?page=120&limit=4"
-              },
               previous: {
                 href: "https://demo.akeneo.com/api/rest/v1/locales?page=1&limit=4"
               },
@@ -1542,8 +1499,6 @@ paths:
               }
             },
             current_page: 2,
-            pages_count: 30,
-            items_count: 120,
             _embedded: {
               _items: [
                 {
@@ -1590,7 +1545,7 @@ paths:
         403:
           $ref: "#/responses/403Error"
         406:
-          $ref: "#/responses/406Error"        
+          $ref: "#/responses/406Error"
   /locales/{code}:
     get:
       summary: Get a locale
@@ -1624,6 +1579,7 @@ paths:
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
       responses:
         200:
           description: Return channels paginated
@@ -1647,14 +1603,9 @@ paths:
               },
               first: {
                 href: "https://demo.akeneo.com/api/rest/v1/channels?page=1&limit=3"
-              },
-              last: {
-                href: "https://demo.akeneo.com/api/rest/v1/channels?page=1&limit=3"
               }
             },
             current_page: 1,
-            pages_count: 1,
-            items_count: 3,
             _embedded: {
               _items: [
                 {
@@ -1709,11 +1660,7 @@ paths:
                   "currencies":["USD", "EUR"],
                   "locales":["en_US", "fr_FR", "de_DE"],
                   "category_tree":"master",
-                  "conversion_units":{
-                    "a_metric":"KILOWATT",
-                    "a_metric_negative":"CELSIUS",
-                    "a_metric_to_not_convert":null
-                  },
+                  "conversion_units":{},
                   "labels":{
                     "en_US":"Print",
                     "fr_FR":"Print",
@@ -1752,8 +1699,8 @@ paths:
           $ref: "#/responses/404Error"
         406:
           $ref: "#/responses/406Error"
-    
-  
+
+
 definitions:
   Product:
     type: object
@@ -1812,9 +1759,9 @@ definitions:
       associations:
         type: object
         description: Several associations related to groups and/or other products, grouped by association types
-        x-validation-rules: "&bull; The `associationTypeCode` is the code of an existing association type. &#10;&bull; Each string in the array of the property `groups` is the code of an existing group. &#10;&bull; Each string in the array of the property `products` is the identifier of an existing product. &#10;&bull; Identifiers used in the array of the property `products` cannot be equal to the product identifier." 
-        properties: 
-          associationTypeCode: 
+        x-validation-rules: "&bull; The `associationTypeCode` is the code of an existing association type. &#10;&bull; Each string in the array of the property `groups` is the code of an existing group. &#10;&bull; Each string in the array of the property `products` is the identifier of an existing product. &#10;&bull; Identifiers used in the array of the property `products` cannot be equal to the product identifier."
+        properties:
+          associationTypeCode:
             type: object
             properties:
               groups:
@@ -1879,7 +1826,7 @@ definitions:
             "locale": "fr_FR",
             "scope": "tablet"
           }
-        ], 
+        ],
         "price": [
           {
             "locale": null,
@@ -1915,10 +1862,6 @@ definitions:
         "PACK": {
           "products": ["sunglass"],
            "groups": []
-        },
-        "X_SELL": {
-          "products": [],
-          "groups": []
         }
       }
     }
@@ -1942,7 +1885,7 @@ definitions:
         default: "null"
       labels:
         type: object
-        description: Category labels for each locale 
+        description: Category labels for each locale
         x-validation-rules: The `localeCode` is the code of an existing and activated locale
         default: {}
         properties:
@@ -1993,7 +1936,7 @@ definitions:
               description: Attributes codes of the family that are required for the completeness calculation for the channel `channelCode`
       labels:
         type: object
-        description: Family labels for each locale 
+        description: Family labels for each locale
         x-validation-rules: The `localeCode` is the code of an existing and activated locale
         default: {}
         properties:
@@ -2029,7 +1972,7 @@ definitions:
       type:
         type: string
         description: Attribute type
-        x-validation-rules: The type is one of the following values 
+        x-validation-rules: The type is one of the following values
         enum: ['pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price', 'pim_catalog_boolean']
         x-immutable: true
       labels:
@@ -2052,12 +1995,12 @@ definitions:
         default: 0
       localizable:
           type: boolean
-          description: Whether the attribute is localizable, i.e. can have one value by locale 
+          description: Whether the attribute is localizable, i.e. can have one value by locale
           default: false
           x-immutable: true
       scopable:
           type: boolean
-          description: Whether the attribute is scopable, i.e. can have one value by channel 
+          description: Whether the attribute is scopable, i.e. can have one value by channel
           default : false
           x-immutable: true
       available_locales:
@@ -2179,18 +2122,18 @@ definitions:
   AttributeOption:
     type: object
     properties:
-      code: 
+      code:
         type: string
         description: Code of option
-      attribute: 
+      attribute:
         type: string
         description: Code of attribute related to the attribute option
-      sort_order: 
+      sort_order:
         type: integer
         description: Order of attribute option
       labels:
         type: object
-        description: Attribute option labels for each locale 
+        description: Attribute option labels for each locale
         x-validation-rules: The `localeCode` is the code of an existing and activated locale
         default: {}
         properties:
@@ -2295,7 +2238,7 @@ definitions:
             description: Conversion unit code used to convert the values of the attribute `attributeCode` when exporting via the channel
       labels:
         type: object
-        description: Channel labels for each locale 
+        description: Channel labels for each locale
         x-validation-rules: The `localeCode` is the code of an existing and activated locale
         default: {}
         properties:
@@ -2371,12 +2314,6 @@ definitions:
               href:
                 type: string
                 description: URI of the first page of resources
-          last:
-            type: object
-            properties:
-              href:
-                type: string
-                description: URI of the last page of resources
           previous:
             type: object
             properties:
@@ -2392,25 +2329,19 @@ definitions:
       current_page:
         type: integer
         description: Current page number
-      pages_count:
-        type: integer
-        description: Total number of pages
-      items_count:
-        type: integer
-        description: Total number of resources
   ItemList:
     type: object
     properties:
       _links:
         type: object
         properties:
-          self: 
+          self:
             type: object
             properties:
               href:
                 type: string
                 description: URI of the resource
-        
+
 responses:
   Created:
     description: Created
@@ -2419,7 +2350,7 @@ responses:
     description: No content to return
     x-details: Means that the update was successful
     headers:
-      Location: 
+      Location:
         description: URI of the resource
         type: string
   400Error:
@@ -2464,7 +2395,7 @@ responses:
     schema:
       $ref: "#/definitions/Error"
     examples:  {
-      "code": 406, 
+      "code": 406,
       "message": "‘xxx’ in ‘Accept‘ header is not valid. Only ‘application/json‘ is allowed."
     }
   413Error:
@@ -2517,7 +2448,7 @@ parameters:
     required: false
     type: string
     default: "page"
-    x-validation-rules: One of the following values 
+    x-validation-rules: One of the following values
     enum: ["page", "search_after"]
   page:
     name: page
@@ -2554,3 +2485,10 @@ parameters:
     description: Code of the attribute
     required: true
     type: string
+  with_count:
+    name: with_count
+    in: query
+    description: Return the count of products in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way
+    default: false
+    type: boolean
+    required: false
