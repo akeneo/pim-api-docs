@@ -1,7 +1,7 @@
 # Akeneo Web API documentation
-This repository holds the sources for the documentation of the web API that will be released in 1.7.
+This repository holds the sources for the documentation of the web API that was released in 1.7.
 
-**It's work in progress.**
+The API documentation can be found here: [api.akeneo.com](http://api.akeneo.com).
 
 ## Installation for dev/preview purposes
 
