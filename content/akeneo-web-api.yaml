@@ -317,12 +317,12 @@ paths:
         422:
           $ref: "#/responses/422Error"
     patch:
-      summary: Update several products
+      summary: Update/create several products
       operationId: "several_products_patch"
       tags:
         - Products
-      description: This endpoint allows you to update several products at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON format standard 
+      description: This endpoint allows you to update and/or create several products at once.
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
       parameters:
         - name: body
           in: body
@@ -338,22 +338,24 @@ paths:
       responses:
         200:
           description: OK
-          x-details: Returns a plain text response whose lines are JSON containing the status of each update
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
           schema:
             $ref: "#/definitions/ErrorByLine"
           examples:
             x-example-1:
-              '{"line":1,"identifier":"cap","code":204}'
+              '{"line":1,"identifier":"cap","status_code":204}'
             x-example-2:
-              '{"line":2,"identifier":"mug","code":422,"message":"Property "group" does not exist. Check the standard format documentation."}'
+              '{"line":2,"identifier":"mug","status_code":422,"message":"Property "group" does not exist."}'
             x-example-3:
-              '{"line":3,"identifier":"tshirt","code":201}'
+              '{"line":3,"identifier":"tshirt","status_code":201}'
         401:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
         413:
           $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
   /products/{code}:
     get:
       summary: Get a product
@@ -573,6 +575,46 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
+    patch:
+      summary: Update/create several categories
+      operationId: "several_categories_patch"
+      tags:
+        - Categories
+      description: This endpoint allows you to update several categories at once.
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/Category"
+            x-examples:
+              x-example-1:
+                '{"code":"spring_collection","parent":null}'
+              x-example-2:
+                '{"code":"woman","parent":"spring_collectionn"}'
+              x-example-3:
+                '{"code":"man","parent":"spring_collection"}'
+      responses:
+        200:
+          description: OK
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+          schema:
+            $ref: "#/definitions/ErrorByLine"
+          examples:
+            x-example-1:
+              '{"line":1,"code":"spring_collection","status_code":201}'
+            x-example-2:
+              '{"line":2,"code":"woman","status_code":422,"message":"Category "spring_collectionn" does not exist."}'
+            x-example-3:
+              '{"line":3,"code":"man","status_code":204}'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        413:
+          $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
   /categories/{code}:
     get:
       summary: Get a category
@@ -743,6 +785,46 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
+    patch:
+      summary: Update/create several families
+      operationId: "several_families_patch"
+      tags:
+        - Families
+      description: This endpoint allows you to update and/or create several families at once.
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/Family"
+            x-examples:
+              x-example-1:
+                '{"code":"tshirt","attributes":["description","size"]}'
+              x-example-2:
+                '{"code":"cap","attribute_as_label":"descripion"}'
+              x-example-3:
+                '{"code":"mug","attributes":["description","short_description"]}'
+      responses:
+        200:
+          description: OK
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+          schema:
+            $ref: "#/definitions/ErrorByLine"
+          examples:
+            x-example-1:
+              '{"line":1,"code":"tshirt","status_code":201}'
+            x-example-2:
+              '{"line":2,"code":"cap","status_code":422,"message":"Attribute "descripion" does not exist."}'
+            x-example-3:
+              '{"line":3,"code":"mug","status_code":204}'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        413:
+          $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
   /families/{code}:
     get:
       summary: Get a family
@@ -883,7 +965,7 @@ paths:
                 {
                   "_links": {
                     "self": {
-                      "href": "https://demo.akeneo.com/api/rest/v1/attributes/sale_date"
+                      "href": "https://demo.akeneo.com/api/rest/v1/attributes/release_date"
                     }
                   },
                   "code": "release_date",
@@ -948,7 +1030,47 @@ paths:
         415:
           $ref: "#/responses/415Error"
         422:
-          $ref: "#/responses/422Error"
+          $ref: "#/responses/422Error"     
+    patch:
+      summary: Update/create several attributes
+      operationId: "several_attributes_patch"
+      tags:
+        - Attributes
+      description: This endpoint allows you to update and/or create several attributes at once.
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format 
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/Attribute"
+            x-examples:
+              x-example-1:
+                '{"code":"description","useable_as_grid_filter":true}'
+              x-example-2:
+                '{"code":"short_description","group":"marketig"}'
+              x-example-3:
+                '{"code":"release_date","date_min":"2017-06-28T08:00:00"}'
+      responses:
+        200:
+          description: OK
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+          schema:
+            $ref: "#/definitions/ErrorByLine"
+          examples:
+            x-example-1:
+              '{"line":1,"code":"description","status_code":201}'
+            x-example-2:
+              '{"line":2,"code":"short_description","status_code":422,"message":"Group "marketig" does not exist."}'
+            x-example-3:
+              '{"line":3,"code":"release_date","status_code":204}'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        413:
+          $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
   /attributes/{code}:
     get:
       summary: Get an attribute
@@ -2221,8 +2343,11 @@ definitions:
         description: Line number
       identifier:
         type: string
-        description: Product identifier
+        description: Resource identifier, only filled when the resource is a product
       code:
+        type: string
+        description: Resource code, only filled when the resource is a category, a family or an attribute
+      status_code:
         type: integer
         description: HTTP status code, see <a href="/documentation.html#client-errors">Client errors</a> to understand the meaning of each code
       message:
@@ -2359,6 +2484,15 @@ responses:
     examples: {
       "code": 415,
       "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘application/json’ is allowed."
+    }
+  415ErrorStream:
+    description: Unsupported Media type
+    x-details: The `Content-type` header is not `application/vnd.akeneo.collection+json` but it should
+    schema:
+      $ref: "#/definitions/Error"
+    examples: {
+      "code": 415,
+      "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘application/vnd.akeneo.collection+json’ is allowed."
     }
   422Error:
     description: Unprocessable entity
