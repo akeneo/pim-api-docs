@@ -64,16 +64,16 @@
               <h2>Wanna get started?</h2>
               <p>Tell me who you are and I will tell you where to begin...</p>
               <div class="row">
-                <div class="col-xs-6 col-sm-6 col-lg-12">
+                <div class="col-xs-12 col-sm-6 col-lg-12">
                   <div class="panel panel-default panel-landing-page panel-clickable">
                     <a href="/getting-started.html">
                       <div class="panel-body">
                         <div class="row">
-                          <div class="col-xs-9">
+                          <div class="col-xs-8 col-sm-9">
                             <p>I'm a developer!</p>
                             <p>And I want to make my first request</p>
                           </div>
-                          <div class="col-xs-3">
+                          <div class="col-xs-4 col-sm-3">
                             <svg viewBox="0 0 256 256">
                               <use xlink:href="img/icons.svg#icon--developer"></use>
                             </svg>
@@ -83,16 +83,16 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-xs-6 col-sm-6 col-lg-12">
+                <div class="col-xs-12 col-sm-6 col-lg-12">
                   <div class="panel panel-default panel-landing-page panel-clickable">
                     <a href="/getting-started-admin.html">
                       <div class="panel-body">
                         <div class="row">
-                          <div class="col-xs-9">
+                          <div class="col-xs-8 col-sm-9">
                             <p>I'm a PIM administrator!</p>
                             <p>And I want to manage the access to the API</p>
                           </div>
-                          <div class="col-xs-3">
+                          <div class="col-xs-4 col-sm-3">
                             <svg viewBox="0 0 256 256">
                               <use xlink:href="img/icons.svg#icon--lock"></use>
                             </svg>
@@ -131,13 +131,13 @@
                 <div class="tab-content">
                   <div role="tabpanel" class="tab-pane active" id="get-a-product">
                     <div class="row">
-                      <div class="col-xs-7">
+                      <div class="col-xs-12 col-sm-7">
                         <h4>REQUEST</h4>
                         <pre class="hljs"><code>curl http://demo.akeneo.com/api/rest/v1/products/18383104 \
     -H <span class="hljs-string">"Authorization: Bearer NWQzYjM4N2FkNzMyNzE1ZTYzOGVjYjljYWZhZDE3MzE5NDNlYjdkOTgzZmY3ZGI0MzJkYWNkYjFiYjQ0Mjc3ZQ"</span>
 </code></pre>
                     </div>
-                    <div class="col-xs-5">
+                    <div class="col-xs-12 col-sm-5">
                       <div id="get-a-product-btn">
                         <h4>NO RESPONSE YET</h4>
                         <button class="btn btn-info" onclick="displayResponse('get-a-product')">Go get one!</button>
@@ -221,12 +221,12 @@
                   </div>
                   <div role="tabpanel" class="tab-pane" id="list-categories">
                     <div class="row">
-                      <div class="col-xs-7">
+                      <div class="col-xs-12 col-sm-7">
                         <h4>REQUEST</h4>
                         <pre class="hljs"><code>curl http://demo.akeneo.com/api/rest/v1/categories \
     -H <span class="hljs-string">"Authorization: Bearer NWQzYjM4N2FkNzMyNzE1ZTYzOGVjYjljYWZhZDE3MzE5NDNlYjdkOTgzZmY3ZGI0MzJkYWNkYjFiYjQ0Mjc3ZQ"</span></code></pre>
                     </div>
-                    <div class="col-xs-5">
+                    <div class="col-xs-12 col-sm-5">
                       <div id="list-categories-btn">
                         <h4>NO RESPONSE YET</h4>
                         <button class="btn btn-info" onclick="displayResponse('list-categories')">Go get one!</button>
@@ -403,7 +403,7 @@
                   </div>
                   <div role="tabpanel" class="tab-pane" id="update-a-family">
                     <div class="row">
-                      <div class="col-xs-7">
+                      <div class="col-xs-12 col-sm-7">
                         <h4>REQUEST</h4>
                         <pre class="hljs"><code>curl -X PATCH http://demo.akeneo.com/api/rest/v1/families/camcorders \
     -H <span class="hljs-string">"Authorization: Bearer NWQzYjM4N2FkNzMyNzE1ZTYzOGVjYjljYWZhZDE3MzE5NDNlYjdkOTgzZmY3ZGI0MzJkYWNkYjFiYjQ0Mjc3ZQ"</span> \
@@ -414,7 +414,7 @@
       } 
     }'</span></code></pre>
                     </div>
-                    <div class="col-xs-5">
+                    <div class="col-xs-12 col-sm-5">
                       <div id="update-a-family-btn">
                         <h4>NO RESPONSE YET</h4>
                         <button class="btn btn-info" onclick="displayResponse('update-a-family')">Go get one!</button>
@@ -481,17 +481,17 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12 col-md-6">
+          <div class="col-xs-12 col-sm-6">
             <h2>Need inspiration?</h2>
             <div class="panel panel-default panel-landing-page panel-clickable">
               <a href="https://marketplace.akeneo.com/">
                 <div class="panel-body">
                   <div class="row">
-                    <div class="col-xs-9">
+                    <div class="col-xs-8 col-sm-9">
                       <p>Join us on the marketplace</p>
                       <p>Take a look to what our beloved community already built around Akeneo</p>
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col-xs-4 col-sm-3">
                       <svg viewBox="0 0 256 256">
                         <use xlink:href="img/icons.svg#icon--marketplace"></use>
                       </svg>
@@ -501,16 +501,16 @@
               </a>
             </div>
           </div>
-          <div class="col-sm-12 col-md-6">
+          <div class="col-xs-12 col-sm-6">
             <h2>Our API roadmap</h2>
             <div class="panel panel-default panel-landing-page panel-disabled">
               <div class="panel-body">
                 <div class="row">
-                  <div class="col-xs-9">
+                  <div class="col-xs-8 col-sm-9">
                     <p>Where are we heading?</p>
                     <p>Here you will find our roadmap for the next version of the API #transparency</p>
                   </div>
-                  <div class="col-xs-3">
+                  <div class="col-xs-4 col-sm-3">
                     <svg viewBox="0 0 256 256">
                       <use xlink:href="img/icons.svg#icon--bulb"></use>
                     </svg>
