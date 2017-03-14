@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
 var rename = require('gulp-rename');
+var foreach = require('gulp-foreach');
 var hbs = require('handlebars');
 var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var jsonTransform = require('gulp-json-transform');
@@ -47,6 +48,18 @@ gulp.task('copy', ['clean-dist'], function(){
     .pipe(gulp.dest('dist/img/'));
 
   return merge(html, fa, font, lib, img); 
+});
+
+gulp.task('landings', function() {
+  return gulp.src('src/*.handlebars')
+    .pipe(foreach(function(stream, file){
+      return gulp.src(file.path)
+        .pipe(gulpHandlebars({}, {
+          //partialsDirectory: ['./src/partials']
+        }))
+        .pipe(rename(path.basename(file.path).replace(/\.handlebars$/, '.html')))
+        .pipe(gulp.dest('dist'));
+    }))
 });
 
 gulp.task('hbs', ['clean-dist'], function () {
@@ -153,7 +166,6 @@ gulp.task('hbs', ['clean-dist'], function () {
           .pipe(gulp.dest('dist'));
     }));
 });
-
 
 // Transform content written in markdown into html and put it into dist directory
 gulp.task('markdownize', ['clean-dist'],function (){
@@ -304,7 +316,6 @@ gulp.task('clean-dist', function () {
   return del(['dist/*']);
 });
 
-
 // Watch if mardown, less, html or image files have changed
 // so as to relaunch the build into dist directory
 // Should be used for dev purpose
@@ -329,7 +340,6 @@ gulp.task('launch-webserver', ['create-dist'], function() {
 });
 
 gulp.task('deploy', function() {
-  
   // Dirs and Files to sync
   rsyncPaths = ['./dist/*' ];
   
@@ -368,7 +378,6 @@ gulp.task('deploy', function() {
 
 });
 
-
 function throwError(taskName, msg) {
   throw new gutil.PluginError({
       plugin: taskName,
@@ -381,6 +390,7 @@ gulp.task('create-dist', [
   'less',
   'copy',
   'hbs',
+  'landings',
   'markdownize'
 ]);
 
