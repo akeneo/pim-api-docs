@@ -308,16 +308,14 @@ You can filter product values on several locales at the same time.
 If you want to receive for each product only product values about a specific channel, you can specify it thanks to the `scope` query parameter.
 
 #### Example
-To get products with only product values regarding the `ecommerce` scope, you can use the following URL.
+To get products with only product values regarding the `e_commerce` scope, you can use the following URL.
 ```
-/api/rest/v1/products?scope=ecommerce
-```
-
-You can filter product values on several channels at the same time.
-```
-/api/rest/v1/products?scope=ecommerce,print
+/api/rest/v1/products?scope=e_commerce
 ```
 
+:::warning
+Note that you cannot filter product values on several channels.
+:::
 
 ## Filter locales
 
