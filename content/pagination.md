@@ -26,11 +26,22 @@ HTTP/1.1 422 Unprocessable entity
 ```
 :::
 
-To request pages, you can use either the classical method or the search after method. For more details, see below.
+To request paginated entities, you can use the [offset method](/documentation.html#offset-method).
 
-## Page type
+Products can also be paginated with another method, the [search after method](/documentation.html#search-after-method).
 
-To use the classical method, you set the `pagination_type` query parameter to `page`. You will then need to set the `page` query parameter to a page number, the page being the one you want to request.
+## Offset method
+
+This is the default pagination type, available for all resources.
+It's the most common way to paginate resources (with an offset on query).
+
+When you want to use the classical method on products, you can set the `pagination_type` query parameter to `page` but this is not mandatory since this is the default pagination.
+
+The `page` query parameter indicates the page number, the page being the one requested. By default, this query parameter is equal to 1.
+
+:::danger
+The `page` query parameter should never be set manually. If you want to navigate through the pages, use the links provided in `_links` property of the response of your first request. Take a look at the example below to see these links. 
+:::
 
 ### Example
 #### Request
@@ -80,32 +91,40 @@ HTTP/1.1 200 OK
 :::
 
 :::info
-This is the default method used for pagination. So, in fact, you do not need to specify the `pagination_type` query parameter.
+This is the default method used for pagination on the products. So, in fact, you do not need to specify the `pagination_type` query parameter when requesting on products.
 ``` bash
 // This request
-curl -X GET /api/rest/v1/categories?pagination_type=page
+curl -X GET /api/rest/v1/products?pagination_type=page
 
 // is equal to this request
-curl -X GET /api/rest/v1/categories
+curl -X GET /api/rest/v1/products
 ```
 :::
 
 :::warning
-When trying to request a quite high page number, you will notice that this method spend more and more time to respond. That is why we introduced another way to request paginated resources, see the search after method below.
+When trying to request a quite high page number, you will notice that this method spend more and more time to respond. This method can also be responsible for giving you duplicates. That is why we introduced another way to request paginated resources, see the search after method below. It is only avalailable on products right now.
 :::
 
 ## Search-after type
-To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. Then, you need to set the `search_after` query parameter to the code or the identifier of an entity. The entities you will get, will be the ones situated after the entity you gave, the entities being sorted on the code or the identifier.
+:::warning
+This pagination method is only available for products.
+:::
 
-By default, if the `search_after` query parameter is not specified, it will return the first page of entities.
+To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. The entities you will get will then be sorted by product primary key to speed up performance.
+
+Additionally, there is a `search_after` query parameter that is used as a cursor.
+
+:::danger
+The `search_after` query parameter should never be set manually. If you want to navigate through the pages, use the links provided in `_links` property of the response of your first request. Take a look at the example below to see these links.
+:::
 
 ### Example
 #### Request
 ``` bash
-curl -X GET /api/rest/v1/categories?pagination_type=search_after&search_after=spring_collection&limit=20
+curl -X GET /api/rest/v1/products?pagination_type=search_after&search_after=qaXbcde&limit=20
 ```
 
-This will return the 20 categories situated after the category with code `spring_collection`.
+This request returns the 20 products situated after the `qaXbcde` cursor.
 
 #### Response
 The response will respect this structure, even if there are no items to return.
@@ -116,13 +135,13 @@ HTTP/1.1 200 OK
 {
   "_links": {
     "self": {
-      "href": "https://demo.akeneo.com/api/rest/v1/categories?pagination_type=search_after&search_after=spring_collection&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_after=qaXbcde&limit=20"
     },
     "first": {
-      "href": "https://demo.akeneo.com/api/rest/v1/categories?pagination_type=search_after&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&limit=20"
     },
     "next": {
-      "href": "https://demo.akeneo.com/api/rest/v1/categories?pagination_type=search_after&search_type=winter_collection_2017&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_type=qaXbcdedsfeF&limit=20"
     }
   },
   "pages_count": 3,
