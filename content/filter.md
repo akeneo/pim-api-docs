@@ -24,7 +24,7 @@ To only retrieve enabled products, you can use the following URL.
 Of course, you can combine as many filters as you want. The example below will get you the enabled products being 70% complete.
 
 ```
-/api/rest/v1/products?search={"enabled":[{"operator":"=","value":true}], "completeness":[{"operator":">","value":70}]}
+/api/rest/v1/products?search={"enabled":[{"operator":"=","value":true}],"completeness":[{"operator":">","value":70,"scope":"ecommerce"}]}
 ```
 
 You can even combine several filters on the same product properties. The example below will get you the products created both the 4th and the 5th of July 2016.
@@ -35,23 +35,23 @@ You can even combine several filters on the same product properties. The example
 
 ### On categories
 
-To filter products on their categories, use the property `categories.code`.
+To filter products on their categories, use the property `categories`.
 Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
-| `IN` | an existing category code | Only returns the products that are in the given category |
-| `NOT IN` | an existing category code | Only returns the products that are not in the given category |
-| `IN OR UNCLASSIFIED` |  an existing category code | Only returns the products that are in the given category or that are not classified in any category |
-| `IN CHILDREN` | an existing category code | Only returns the products that are in the children of the given category |
-| `NOT IN CHILDREN` | an existing category code | Only returns the products that are not in the children of the given category |
+| `IN` | an array of existing category codes | Only returns the products that are in the given categories |
+| `NOT IN` | an array of existing category codes | Only returns the products that are not in the given categories |
+| `IN OR UNCLASSIFIED` |  an array of existing category codes | Only returns the products that are in the given categories or that are not classified in any categories |
+| `IN CHILDREN` | an array of existing category codes | Only returns the products that are in the children of the given categories |
+| `NOT IN CHILDREN` | an array of existing category codes | Only returns the products that are not in the children of the given categories |
 | `UNCLASSIFIED` | no value | Only returns the products that are not classified into any category |
 
 #### Example
 To get the products of the `winter_collection` category, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"category.code":[{"operator":"IN","value":"winter_collection"}]}
+/api/rest/v1/products?search={"categories":[{"operator":"IN","value":["winter_collection"]}]}
 ```
 
 
@@ -101,27 +101,27 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 
 ### On group or family
 
-To filter products on groups or families, use respectively the product property `group` and `family`.
+To filter products on groups or families, use respectively the product property `groups` and `family`.
 Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
-| `IN` | an existing group or family | Only returns products that are respectively in the given family or group |
-| `NOT IN`  | an existing group or family | Only returns products that are respectively not in the given family or group |
-| `EMPTY` | no value | Only returns products that have respectively no group or no family |
+| `IN` | an array of existing group or family | Only returns products that are respectively in the given families or groups |
+| `NOT IN`  | an array of existing group or family | Only returns products that are respectively not in the given families or groups |
+| `EMPTY` | no value | Only returns products that have respectively no groups or no family |
 | `NOT EMPTY` | no value | Only returns products that have respectively a group or a family |
 
 #### Examples
 To get the products that are in the `promotion` group, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"group":[{"operator":"IN","value":"promotion"}]}
+/api/rest/v1/products?search={"groups":[{"operator":"IN","value":["promotion"]}]}
 ```
 
-To get the products that are not in the `clothing` family, you can use the following URL.
+To get the products that are not in the `camcorders` and `digital_cameras` family, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"family":[{"operator":"NOT IN","value":"clothing"}]}
+/api/rest/v1/products?search={"family":[{"operator":"NOT IN","value":["camcorders","digital_cameras"]}]}
 ```
 
 ### On creation or update date
@@ -167,16 +167,16 @@ In the above url :
  - `CHANNEL_CODE` is an existing channel code that should be only given when the `ATTRIBUTE_CODE` attribute is scopable.
 
 #### Examples
-To get products that are red, red being an option of the simple select `color` attribute and this attribute being neither localizable nor scopable, you can use the following URL.
+To get products that are purple, purple being an option of the simple select `main_color` attribute and this attribute being neither localizable nor scopable, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"color":[{"operator":"IN","value":"red"}]}
+/api/rest/v1/products?search={"main_color":[{"operator":"IN","value":["purple"]}]}
 ```
 
-To get products having a description begining with `Amazing` on the `en_US` locale, the `description` attribute being localizable but not scopable, you can use the following URL.
+To get products having a description begining with `Amazing` on the `en_US` locale, the `short_description` attribute being localizable but not scopable, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}]}
+/api/rest/v1/products?search={"short_description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}]}
 ```
 
 To get products that have a release date due after the 4th of July 2016 for the `ecommerce` channel, the `release_date` attribute being scopable but not localizable, you can use the following URL.
@@ -191,16 +191,16 @@ To get products that have a name that contains with `shirt` on the `en_US` local
 /api/rest/v1/products?search={"name":[{"operator":"CONTAINS","value":"shirt","locale":"en_US","scope":"mobile"}]}
 ```
 
-Of course, you can combine as many filters as you want. The example below will get you the products with description starting with `Amazing` on the `en_US` locale and of red color.
+Of course, you can combine as many filters as you want. The example below will get you the products with description starting with `Amazing` on the `en_US` locale for the `ecommerce` channel, and of purple color.
 
 ```
-/api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}],"color":[{"operator":"=","value":"red"}]}
+/api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US","scope":"ecommerce"}],"main_color":[{"operator":"IN","value":["purple"]}]}
 ```
 
-You can even combine several filters on the same attribute. The example below will get you the products with not empty description on the `en_US` locale and empty description on the `fr_FR` locale.
+You can even combine several filters on the same attribute. The example below will get you the products with not empty description on the `en_US` locale and empty description on the `fr_FR` locale for the `ecommerce` channel.
 
 ```
-/api/rest/v1/products?search={"description":[{"operator":"NOT EMPTY","locale":"en_US"},{"operator":"EMPTY","locale":"fr_FR"}]}
+/api/rest/v1/products?search={"description":[{"operator":"NOT EMPTY","locale":"en_US","scope":"ecommerce"},{"operator":"EMPTY","locale":"fr_FR","scope":"ecommerce"}]}
 ```
 
 ### `search_locale` query parameter
@@ -208,11 +208,11 @@ If you need to filter on several attributes on the same locale, you can use the 
 
 #### Example
 ```
-/api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US"}]}
+/api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US","scope":"ecommerce"}]}
 
 <==>
 
-/api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing"}],"short_description":[{"operator":"CONTAINS","value":"shoes"}]}&search_locale=en_US
+/api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","scope":"ecommerce"}]}&search_locale=en_US
 ```
 
 ### `search_scope` query parameter
@@ -220,11 +220,11 @@ If you need to filter on several attributes on the same channel, you can use the
 
 #### Example
 ```
-/api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04","scope":"ecommerce"}],"due_date":[{"operator":"<","value":"2016-08-14","scope":"ecommerce"}]}
+/api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US","scope":"ecommerce"}]}
 
 <==>
 
-/api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04"}],"due_date":[{"operator":"<","value":"2016-08-14"}]}&search_scope=ecommerce
+/api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US"}]}&search_scope=ecommerce
 ```
 
 ### Available operators
@@ -308,9 +308,9 @@ You can filter product values on several locales at the same time.
 If you want to receive for each product only product values about a specific channel, you can specify it thanks to the `scope` query parameter.
 
 #### Example
-To get products with only product values regarding the `e_commerce` scope, you can use the following URL.
+To get products with only product values regarding the `ecommerce` scope, you can use the following URL.
 ```
-/api/rest/v1/products?scope=e_commerce
+/api/rest/v1/products?scope=ecommerce
 ```
 
 :::warning

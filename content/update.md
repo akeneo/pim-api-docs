@@ -223,7 +223,7 @@ You want to move the `boot` category from the category `master` to the category 
 }
 ```
 
-### Modifiy a category label
+### Modify a category label
 For the locale `fr_FR`, you want to change the label of the category `boots` from `Bottes` to `Bottines`. Here is how you can achieve it.
 
 **Original resource**
