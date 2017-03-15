@@ -22,6 +22,7 @@ var rsync = require('gulp-rsync');
 var prompt = require('gulp-prompt');
 var gulpif = require('gulp-if');
 var fs = require('fs');
+var insert = require('gulp-insert');
 
 // Transform less into css file that is put into dist directory
 gulp.task('less', ['clean-dist'], function () {
@@ -178,12 +179,12 @@ gulp.task('markdownize', ['clean-dist'],function (){
     };
     var optionsToc = {
       toc: true,
-      tocFirstLevel: 1,
+      tocFirstLevel: 2,
       tocLastLevel: 3,
       anchorLink: true,
       anchorLinkSpace: false,
       anchorLinkBefore: true,
-      tocClassName: 'table-of-contents'
+      tocClassName: 'nav'
     };
 
     var md = new MarkdownIt('default', optionsMd);
@@ -261,6 +262,52 @@ gulp.task('markdownize', ['clean-dist'],function (){
       });
 
   md.use(mdToc, optionsToc)
+    .use(require('markdown-it-container'), 'toc', {
+      validate: function(params) {
+        return params.trim().match(/^toc$/);
+      },
+      render: function (tokens, idx) {
+        return (tokens[idx].nesting === 1) ? '<div id="navbar" class="col-sm-3 hidden-xs">' +
+        '<nav role="tablist" id="navbar-nav" data-spy="affix" data-offset-top="80" class="affix-top"><ul class="nav nav-stacked">' :
+          "</ul></nav></div>\n";
+      }
+    })
+    .use(require('markdown-it-container'), 'preToc', {
+      validate: function(params) {
+        return params.trim().match(/^preToc .*/);
+      },
+      render: function (tokens, idx) {
+        var text = tokens[idx].info.trim().match(/^preToc (.*)$/);
+        return (tokens[idx].nesting === 1) ? '<li class="active"><a href="#">' + text[1] + '</a>': '';
+      }
+    })
+    .use(require('markdown-it-container'), 'postToc', {
+      validate: function(params) {
+        return params.trim().match(/^postToc$/);
+      },
+      render: function (tokens, idx) {
+        return (tokens[idx].nesting === 1) ? '</li>' : '';
+      }
+    })
+    .use(require('markdown-it-container'), 'mainContent', {
+      validate: function(params) {
+        return params.trim().match(/^mainContent$/);
+      },
+      render: function (tokens, idx) {
+        return (tokens[idx].nesting === 1) ? '<div class="col-xs-12 col-sm-9">' : '</div>';
+      }
+    })
+    .use(require('markdown-it-container'), 'tocLink', {
+      validate: function(params) {
+        return params.trim().match(/^tocLink\s+(.*)$/);
+      },
+      render: function (tokens, idx) {
+        var linkTitle = tokens[idx].info.trim().match(/^tocLink.*\[(.*)\]\(.*\)$/);
+        var link = tokens[idx].info.trim().match(/^tocLink.*\((.*)\)$/);
+        return (tokens[idx].nesting === 1) ? '<li><a href="' + md.utils.escapeHtml(link[1]) + '">' + linkTitle[1] + '</a></li>' : '';
+      }
+    })
+
     .use(require('markdown-it-container'), 'panel-link', {
       validate: function(params) {
         return params.trim().match(/^panel-link\s+(.*)$/);
@@ -284,9 +331,22 @@ gulp.task('markdownize', ['clean-dist'],function (){
       }
     });
 
+  var pages = {
+    'introduction.md': 'Introduction',
+    'overview.md': 'Overview',
+    'security.md': 'Security',
+    'resources.md': 'Resources',
+    'responses.md': 'Responses',
+    'pagination.md': 'Pagination',
+    'update.md': 'Updates',
+    'filter.md': 'Filters',
+  };
+
   return gulp.src('content/*.md')
       .pipe(foreach(function(stream, file){
         return gulp.src('content/*.md')
+          .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+          .pipe(insert.prepend(getTocMarkdown(pages, path.basename(file.path)) + "\n"))
           .pipe(gulpMarkdownIt(md))
           .pipe(gulp.dest('tmp/'))
           .on('end', function () {
@@ -297,7 +357,7 @@ gulp.task('markdownize', ['clean-dist'],function (){
                 partialsDirectory: ['./src/partials']
               }))
               .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
-              .pipe(gulp.dest('./dist/content'));
+              .pipe(gulp.dest('./dist/documentation'));
           })
       }));
   }
@@ -380,6 +440,16 @@ gulp.task('deploy', function() {
   .pipe(rsync(rsyncConf));
 
 });
+
+function getTocMarkdown(pages, currentPage) {
+  return "\n\n:::: toc\n\n" + Object.keys(pages).map(function (page) {
+    if (page === currentPage) {
+      return '::: preToc ' + pages[page] + "\n:::\n@[toc]\n:::postToc\n:::";
+    } else {
+      return '::: tocLink [' + pages[page]+ '](/documentation/' + page.replace(/\.md$/, '.html') + ")\n:::";
+    }
+  }).join("\n") + "\n\n::::\n\n";
+}
 
 function throwError(taskName, msg) {
   throw new gutil.PluginError({
