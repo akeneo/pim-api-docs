@@ -157,7 +157,7 @@ paths:
                   "updated": "2016-06-25T17:56:12+02:00",
                   "associations": {
                     "PACK": {
-                      "products": ["sunglasse"],
+                      "products": ["sunglasses"],
                       "groups": []
                     },
                   }
@@ -235,7 +235,7 @@ paths:
                   "updated": "2016-06-25T17:56:12+02:00",
                   "associations": {
                     "PACK": {
-                      "products": ['sunglasse'],
+                      "products": ['sunglasses'],
                       "groups": []
                     }
                   }
