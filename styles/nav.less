@@ -117,3 +117,9 @@ ul.nav.nav-stacked{
     }
   }
 }
+
+// Fix issue of markdown-it-toc-and-anchor
+// @see https://github.com/medfreeman/markdown-it-toc-and-anchor/issues/25
+.nav p:empty {
+  display: none;
+}
