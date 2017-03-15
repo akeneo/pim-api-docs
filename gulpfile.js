@@ -21,7 +21,8 @@ var argv  = require('minimist')(process.argv);
 var rsync = require('gulp-rsync');
 var prompt = require('gulp-prompt');
 var gulpif = require('gulp-if');
- 
+var fs = require('fs');
+
 // Transform less into css file that is put into dist directory
 gulp.task('less', ['clean-dist'], function () {
    return gulp.src('./styles/variables.less')
@@ -167,36 +168,97 @@ gulp.task('hbs', ['clean-dist'], function () {
 
 // Transform content written in markdown into html and put it into dist directory
 gulp.task('markdownize', ['clean-dist'],function (){
-  var optionsMd = {
-    html: false,
-    xhtmlOut: true,
-    typographer: false,
-    linkify: false,
-    breaks: false,
-    highlight: highlight
-  };
-  var optionsToc = {
-    toc: false,
-    tocFirstLevel: 2,
-    tocLastLevel: 3,
-    anchorLink: true,
-    anchorLinkSpace: false,
-    anchorLinkBefore: true,
-    tocClassName: 'table-of-contents'
-  };
+    var optionsMd = {
+      html: false,
+      xhtmlOut: true,
+      typographer: false,
+      linkify: false,
+      breaks: false,
+      highlight: highlight
+    };
+    var optionsToc = {
+      toc: true,
+      tocFirstLevel: 1,
+      tocLastLevel: 3,
+      anchorLink: true,
+      anchorLinkSpace: false,
+      anchorLinkBefore: true,
+      tocClassName: 'table-of-contents'
+    };
 
-  var md = new MarkdownIt('default', optionsMd);
-  function imageTokenOverride(tokens, idx, options, env, self) {
-    return '<img class="img-responsive" alt="'+ tokens[idx].content +'" src="'+ tokens[idx].attrs[0][1] + '"/>';
-  }
-  md.renderer.rules['image'] = imageTokenOverride;
-  md.renderer.rules.table_open = function(tokens, idx) {
-    return '<table class="table">';
-  };
-  md.renderer.rules.heading_open = function(tokens, idx) {
-    return '<a class="anchor" id="' + tokens[idx].attrs[0][1] + '"></a>'+
-      '<'+tokens[idx].tag+' title-id="' + tokens[idx].attrs[0][1] + '">';
-  };
+    var md = new MarkdownIt('default', optionsMd);
+
+    function imageTokenOverride(tokens, idx, options, env, self) {
+      return '<img class="img-responsive" alt="'+ tokens[idx].content +'" src="'+ tokens[idx].attrs[0][1] + '"/>';
+    }
+    md.renderer.rules['image'] = imageTokenOverride;
+    md.renderer.rules.table_open = function(tokens, idx) {
+      return '<table class="table">';
+    };
+    md.renderer.rules.heading_open = function(tokens, idx) {
+      return '<a class="anchor" id="' + tokens[idx].attrs[0][1] + '"></a>'+
+        '<'+tokens[idx].tag+' title-id="' + tokens[idx].attrs[0][1] + '">';
+    };
+
+    md.use(require('markdown-it-container'), 'danger', {
+        validate: function(params) {
+          return params.trim().match(/^danger(.*)$/);
+        },
+        render: function (tokens, idx) {
+          return (tokens[idx].nesting === 1) ? '<div class="alert alert-danger">' : '</div>\n';
+        }
+      })
+      .use(require('markdown-it-container'), 'warning', {
+        validate: function(params) {
+          return params.trim().match(/^warning(.*)$/);
+        },
+        render: function (tokens, idx) {
+          return (tokens[idx].nesting === 1) ? '<div class="alert alert-warning">' : '</div>\n';
+        }
+      })
+      .use(require('markdown-it-container'), 'info', {
+        validate: function(params) {
+          return params.trim().match(/^info(.*)$/);
+        },
+        render: function (tokens, idx) {
+          return (tokens[idx].nesting === 1) ? '<div class="alert alert-info">' : '</div>\n';
+        }
+      })
+      .use(require('markdown-it-container'), 'dodont', {
+        validate: function(params) {
+          return params.trim().match(/^dodont(.*)$/);
+        },
+        render: function (tokens, idx) {
+          return (tokens[idx].nesting === 1) ? '<div class="row">' :
+            '</div>\n';
+        }
+      })
+      .use(require('markdown-it-container'), 'dont', {
+        validate: function(params) {
+          return params.trim().match(/^dont(.*)$/);
+        },
+        render: function (tokens, idx) {
+          var text = tokens[idx].info.trim().match(/^dont\s+(.*).*$/);
+          return (tokens[idx].nesting === 1) ?
+          '<div class="col-xs-6">'+
+          '<div class="panel panel-danger" data-text="' +  md.utils.escapeHtml(text[1]) + '">'+
+          '<div class="panel-body">' :
+            '<strong>DON\'T</strong></div>\n</div>\n</div>\n';
+        }
+      })
+      .use(require('markdown-it-container'), 'do', {
+        validate: function(params) {
+          return params.trim().match(/^do(.*)$/);
+        },
+        render: function (tokens, idx) {
+          var text = tokens[idx].info.trim().match(/^do\s+(.*).*$/);
+          return (tokens[idx].nesting === 1) ?
+          '<div class="col-xs-6">'+
+          '<div class="panel panel-success" data-text="' +  md.utils.escapeHtml(text[1]) + '">'+
+          '<div class="panel-body">' :
+            '<strong>DO</strong></div>\n</div>\n</div>\n';
+        }
+      });
 
   md.use(mdToc, optionsToc)
     .use(require('markdown-it-container'), 'panel-link', {
@@ -209,92 +271,35 @@ gulp.task('markdownize', ['clean-dist'],function (){
         var link = tokens[idx].info.trim().match(/^panel-link\s+.*\((.*)\)$/);
         if (tokens[idx].nesting === 1) {
           // opening tag
-          return '<div class="row" style="margin-top: 80px;"><div class="col-sm-offset-3 col-sm-6">' + 
+          return '<div class="row" style="margin-top: 80px;"><div class="col-sm-offset-3 col-sm-6">' +
             '<div class="panel panel-default panel-landing-page panel-clickable">'+
-              '<a href="' + md.utils.escapeHtml(link[1]) + '">' + 
-                '<div class="panel-body">' +
-                  '<p>'+ md.utils.escapeHtml(text[1]) + '</p>'+
-                  '<p>'+ md.utils.escapeHtml(linkTitle[1]) + '</p>';
+            '<a href="' + md.utils.escapeHtml(link[1]) + '">' +
+            '<div class="panel-body">' +
+            '<p>'+ md.utils.escapeHtml(text[1]) + '</p>'+
+            '<p>'+ md.utils.escapeHtml(linkTitle[1]) + '</p>';
         } else {
           // closing tag
           return '</div></a></div></div></div>\n';
         }
       }
-    })
-    .use(require('markdown-it-container'), 'danger', {
-      validate: function(params) {
-        return params.trim().match(/^danger(.*)$/);
-      },
-      render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div class="alert alert-danger">' : '</div>\n';
-      }
-    })
-    .use(require('markdown-it-container'), 'warning', {
-      validate: function(params) {
-        return params.trim().match(/^warning(.*)$/);
-      },
-      render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div class="alert alert-warning">' : '</div>\n';
-      }
-    })
-    .use(require('markdown-it-container'), 'info', {
-      validate: function(params) {
-        return params.trim().match(/^info(.*)$/);
-      },
-      render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div class="alert alert-info">' : '</div>\n';
-      }
-    })
-    .use(require('markdown-it-container'), 'dodont', {
-      validate: function(params) {
-        return params.trim().match(/^dodont(.*)$/);
-      },
-      render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div class="row">' : 
-            '</div>\n';
-      }
-    })
-    .use(require('markdown-it-container'), 'dont', {
-      validate: function(params) {
-        return params.trim().match(/^dont(.*)$/);
-      },
-      render: function (tokens, idx) {
-        var text = tokens[idx].info.trim().match(/^dont\s+(.*).*$/);
-        return (tokens[idx].nesting === 1) ? 
-          '<div class="col-xs-6">'+
-            '<div class="panel panel-danger" data-text="' +  md.utils.escapeHtml(text[1]) + '">'+
-              '<div class="panel-body">' : 
-            '<strong>DON\'T</strong></div>\n</div>\n</div>\n';
-      }
-    })
-    .use(require('markdown-it-container'), 'do', {
-      validate: function(params) {
-        return params.trim().match(/^do(.*)$/);
-      },
-      render: function (tokens, idx) {
-        var text = tokens[idx].info.trim().match(/^do\s+(.*).*$/);
-        return (tokens[idx].nesting === 1) ? 
-          '<div class="col-xs-6">'+
-            '<div class="panel panel-success" data-text="' +  md.utils.escapeHtml(text[1]) + '">'+
-              '<div class="panel-body">' : 
-            '<strong>DO</strong></div>\n</div>\n</div>\n';
-      }
     });
-        
 
-    return gulp.src([
-        'content/introduction.md',
-        'content/overview.md',
-        'content/security.md',
-        'content/resources.md',
-        'content/responses.md',
-        'content/pagination.md',
-        'content/update.md',
-        'content/filter.md'
-      ])
-      .pipe(concat('content.md'))
-      .pipe(gulpMarkdownIt(md))
-      .pipe(gulp.dest('./dist/content'));
+  return gulp.src('content/*.md')
+      .pipe(foreach(function(stream, file){
+        return gulp.src('content/*.md')
+          .pipe(gulpMarkdownIt(md))
+          .pipe(gulp.dest('tmp/'))
+          .on('end', function () {
+            return gulp.src('src/documentation.handlebars')
+              .pipe(gulpHandlebars({
+                mainContent: fs.readFileSync('tmp/' + path.basename(file.path).replace(/\.md/, '.html'))
+              }, {
+                partialsDirectory: ['./src/partials']
+              }))
+              .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+              .pipe(gulp.dest('./dist/content'));
+          })
+      }));
   }
 );
 
