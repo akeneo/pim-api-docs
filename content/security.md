@@ -41,7 +41,7 @@ expires, then will be unable to refresh it.
 :::
 
 :::warning
-Client ids are not enough to access the API, it's the role of tokens. See [Getting a token](documentation/security.html#get-a-token) section for more details.
+Client ids are not enough to access the API, it's the role of tokens. See [Getting a token](/documentation/security.html#get-a-token) section for more details.
 :::
 
 ### Revoke an OAuth client

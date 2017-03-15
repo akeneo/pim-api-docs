@@ -30,7 +30,7 @@ In the first version of the API, we use 4 HTTP verbs. They are the following.
 
 This means that data extracted thanks to the API will be in JSON format. And if you need to create or update data using the API, you will also need to use the JSON format.
 
-For each entity, we have defined a standard format that is completely detailed in the [Resources](documentation/resources.html) section.
+For each entity, we have defined a standard format that is completely detailed in the [Resources](/documentation/resources.html) section.
 
 ### Format headers
 When creating and updating data via the API, you will need to explicitly tell the API that you are providing JSON content by using a `Content-type` header set to `application/json`.
@@ -90,14 +90,14 @@ HTTP/1.1 406 Not Acceptable
 ## Scope of the API
 
 Below are the entities you can manipulate via the API so far:
- - [Product](documentation/resources.html#product),
- - [Category](documentation/resources.html#category),
- - [Family](documentation/resources.html#family),
- - [Attribute](documentation/resources.html#attribute),
- - [Attribute option](documentation/resources.html#attribute-option),
- - [Media file](documentation/resources.html#media-file),
- - [Channel](documentation/resources.html#channel),
- - [Locale](documentation/resources.html#locale).
+ - [Product](/documentation/resources.html#product),
+ - [Category](/documentation/resources.html#category),
+ - [Family](/documentation/resources.html#family),
+ - [Attribute](/documentation/resources.html#attribute),
+ - [Attribute option](/documentation/resources.html#attribute-option),
+ - [Media file](/documentation/resources.html#media-file),
+ - [Channel](/documentation/resources.html#channel),
+ - [Locale](/documentation/resources.html#locale).
 
 For a detailed presentation as well as the format of each of these resources, take a look to the [Resources](/documentation/resources.html).
 

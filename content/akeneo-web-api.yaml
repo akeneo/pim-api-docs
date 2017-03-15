@@ -1739,7 +1739,7 @@ definitions:
         default: "null"
       values:
         type: object
-        description: "Product attributes values, see <a href='documentation/resources.html#product-values'>Product values</a> section for more details"
+        description: "Product attributes values, see <a href='/documentation/resources.html#product-values'>Product values</a> section for more details"
         x-validation-rules: Validation rules detailed in Product values section
         properties:
           attributeCode:
