@@ -14,6 +14,14 @@ var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var fs = require('fs');
 var rename = require('gulp-rename');
 
+hbs.registerHelper('ifvalue', function (conditional, options) {
+    if (options.hash.value === conditional) {
+        return options.fn(this)
+    } else {
+        return options.inverse(this);
+    }
+});
+
 function getTocMarkdown(pages, currentPage) {
     return "\n\n:::: toc\n\n" + Object.keys(pages).map(function (page) {
             if (page === currentPage) {

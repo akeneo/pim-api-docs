@@ -30,15 +30,15 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
+                <li class="dropdown{{#ifvalue active value="getting-started"}} active{{/ifvalue}}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Getting started <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/getting-started.html">Make my first request</a></li>
                         <li><a href="/getting-started-admin.html">Manage the access to the API</a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="/documentation/introduction.html">Documentation</a></li>
-                <li><a href="/api-reference-index.html">API reference</a></li>
+                <li class="{{#ifvalue active value="documentation"}}active{{/ifvalue}}"><a href="/documentation/introduction.html">Documentation</a></li>
+                <li class="{{#ifvalue active value="api-reference"}}active{{/ifvalue}}"><a href="/api-reference-index.html">API reference</a></li>
             </ul>
             <form class="navbar-form navbar-right">
                 <div class="form-group">
