@@ -4,7 +4,7 @@
 var gulp = require('gulp');
 var MarkdownIt = require('markdown-it');
 var mdToc = require('markdown-it-toc-and-anchor').default;
-var foreach = require('gulp-foreach');
+var flatmap = require('gulp-flatmap');
 var insert = require('gulp-insert');
 var path = require('path');
 var gulpMarkdownIt = require('gulp-markdown-it-adapter');
@@ -219,7 +219,7 @@ gulp.task('documentation', ['clean-dist'],function (){
       };
 
       return gulp.src('content/*.md')
-        .pipe(foreach(function(stream, file){
+        .pipe(flatmap(function(stream, file){
             return gulp.src('content/*.md')
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
               .pipe(insert.prepend(getTocMarkdown(pages, path.basename(file.path)) + "\n"))

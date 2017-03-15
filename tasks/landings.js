@@ -5,12 +5,12 @@ var gulp = require('gulp');
 var hbs = require('handlebars');
 var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var rename = require('gulp-rename');
-var foreach = require('gulp-foreach');
+var flatmap = require('gulp-flatmap');
 var path = require('path');
 
 gulp.task('landings', function() {
     return gulp.src('src/*.handlebars')
-        .pipe(foreach(function(stream, file){
+        .pipe(flatmap(function(stream, file){
             return gulp.src(file.path)
                 .pipe(gulpHandlebars({}, {
                     partialsDirectory: ['./src/partials']
