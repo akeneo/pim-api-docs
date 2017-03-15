@@ -4,7 +4,7 @@
 var gulp = require('gulp');
 var merge = require('merge-stream');
 
-gulp.task('copy', ['clean-dist'], function(){
+gulp.task('copy-assets', ['clean-dist'], function(){
     var fa = gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
         .pipe(gulp.dest('dist/css/'));
     var font = gulp.src('node_modules/font-awesome/fonts/*')

@@ -1,5 +1,5 @@
 /**
- * Transform content written in markdown into html and put it into dist directory
+ * Transform Markdown documentation to HTML
  */
 var gulp = require('gulp');
 var MarkdownIt = require('markdown-it');
@@ -35,8 +35,7 @@ function highlight(str, lang) {
     return '<pre class="hljs"><code>' + str + '</code></pre>';
 }
 
-
-gulp.task('markdownize', ['clean-dist'],function (){
+gulp.task('documentation', ['clean-dist'],function (){
         var optionsMd = {
             html: false,
             xhtmlOut: true,
@@ -204,9 +203,9 @@ gulp.task('markdownize', ['clean-dist'],function (){
             'overview.md': 'Overview',
             'security.md': 'Security',
             'resources.md': 'Resources',
-            'responses.md': 'Responses',
+            'responses.md': 'Response codes',
             'pagination.md': 'Pagination',
-            'update.md': 'Updates',
+            'update.md': 'Update behavior',
             'filter.md': 'Filters',
         };
 

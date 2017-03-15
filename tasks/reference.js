@@ -1,7 +1,10 @@
 /**
  * Compile API Reference and Reference with handlebars
  *
- * TODO Change Name to "reference" or something like this
+ * This script will:
+ * - load the api YAML
+ * - transform it to JSON
+ * - Create HTML from Handlebars
  */
 var gulp = require('gulp');
 var swagger = require('gulp-swagger');
@@ -12,7 +15,7 @@ var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var rename = require('gulp-rename');
 var highlightJs = require('highlightjs');
 
-gulp.task('hbs', ['clean-dist'], function () {
+gulp.task('reference', ['clean-dist'], function () {
     gulp.src('./content/akeneo-web-api.yaml')
         .pipe(swagger('akeneo-web-api.json'))
         .pipe(jsonTransform(function(data, file) {
