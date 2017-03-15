@@ -41,7 +41,7 @@ expires, then will be unable to refresh it.
 :::
 
 :::warning
-Client ids are not enough to access the API, it's the role of tokens. See [Getting a token](documentation.html#get-a-token) section for more details.
+Client ids are not enough to access the API, it's the role of tokens. See [Getting a token](documentation/security.html#get-a-token) section for more details.
 :::
 
 ### Revoke an OAuth client
@@ -152,7 +152,7 @@ curl https://demo.akeneo.com/api/rest/v1/categories \
 
 :::info
 There are only 2 routes that do not require authentication:
- - the root of the API, that lists all the available endpoints. See [this section](/documentation.html#list-of-available-endpoints) for more info.
+ - the root of the API, that lists all the available endpoints. See [this section](/documentation/overview.html#list-of-available-endpoints) for more info.
  - and of course, the root to get tokens. Pretty logic, isn't it!
 :::
 

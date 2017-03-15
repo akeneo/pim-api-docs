@@ -5,85 +5,8 @@
         <nav role='tablist' id="navbar-nav" data-spy='affix' data-offset-top='80'></nav>
       </div>
       <div class="col-xs-12 col-sm-9">
-        <div id="includedContent"></div>
+        {{{mainContent}}}
       </div>
     </div>
   </div>
-  <script type="text/javascript">
-      $(function(){
-          $("#includedContent").load("content/content.html", function() {
-              var ToC = "<ul class='nav nav-stacked'>";
-
-              var newLine, el, title, link;
-
-              var firstChild, firstGrandChild;
-              var previousHasAchild = false;
-              var previousHasAGrandchild = false;
-              $("h1, h2, h3").each(function() {
-                  var newLine = '';
-                  el = $(this);
-                  title = el.text().match(/^#(.*$)/)[1];
-                  link = "#" + el.attr("title-id");
-                  if(el.prop("tagName") === "H1"){
-                      firstChild = true;
-                      firstGrandChild = true;
-                      if(previousHasAchild){
-                          newLine = "</ul></li>";
-                          previousHasAchild =false;
-                      }
-                      if(previousHasAGrandchild){
-                          newLine = "</ul></li></ul></li>";
-                          previousHasAGrandchild =false;
-                      }
-                      newLine = newLine +
-                              "<li>" +
-                              "<a href='" + link + "'>" +
-                              title +
-                              "</a>";
-                  } else if(el.prop("tagName") === "H2"){
-                      firstGrandChild = true;
-                      if(previousHasAGrandchild){
-                          newLine = "</ul></li>";
-                          previousHasAGrandchild =false;
-                      }
-                      previousHasAchild = true;
-                      if(firstChild){
-                          newLine = "<ul class='nav'>";
-                          firstChild = false;
-                      }
-                      newLine = newLine +
-                              "<li>" +
-                              "<a href='" + link + "'>" +
-                              title +
-                              "</a>";
-                  }else {
-                      previousHasAGrandchild = true;
-                      if(firstGrandChild){
-                          newLine = "<ul class='nav'>";
-                          firstGrandChild = false;
-                      }
-                      newLine = newLine +
-                              "<li>" +
-                              "<a href='" + link + "'>" +
-                              title +
-                              "</a>" +
-                              "</li>";
-                  }
-
-                  ToC += newLine;
-
-              });
-
-              ToC += "</ul>";
-
-              $("#navbar-nav").prepend(ToC);
-
-              $('img').on('load', function() {
-                  var hash = window.location.hash;
-                  window.location.hash = "";
-                  window.location.hash = hash;
-              });
-          });
-      });
-  </script>
 {{/layout}}

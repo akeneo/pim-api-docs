@@ -607,5 +607,5 @@ The `main_color` attribute is neither scopable nor localizable, so it can hold o
 Note that the `locale` and `scope` properties are all set to `null` in this case.
 :::
 
-::: panel-link Want to update product values? [Here you go!](/documentation.html#patch-product-values)
+::: panel-link Want to update product values? [Here you go!](/documentation/update.html#patch-product-values)
 :::

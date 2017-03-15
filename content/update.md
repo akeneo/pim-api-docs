@@ -318,7 +318,7 @@ The PATCH behavior described above is quite intuitive. However, applying a PATCH
 ::: info
 In the examples below only products values are represented, but usually products also include other information as specified in the standard format.
 :::
-::: panel-link Don't know what a product value is? [Check the product value section](/documentation.html#product-values)
+::: panel-link Don't know what a product value is? [Check the product value section](/documentation/resources.html#product-values)
 :::
 
 ### Add a product value
