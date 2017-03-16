@@ -224,9 +224,6 @@ gulp.task('documentation', ['clean-dist'],function (){
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
               .pipe(insert.prepend(getTocMarkdown(pages, path.basename(file.path)) + "\n"))
               .pipe(gulpMarkdownIt(md))
-              .pipe(replace(/(<nav)([\s\S]+)<ul>([\s\S]+)(<\/nav>)/gm, '$1$2<ul class="nav">$3$4'))
-              .pipe(replace(/(<nav)([\s\S]+)<ul>([\s\S]+)(<\/nav>)/gm, '$1$2<ul class="nav">$3$4'))
-              .pipe(replace(/(<nav)([\s\S]+)<ul>([\s\S]+)(<\/nav>)/gm, '$1$2<ul class="nav">$3$4'))
               .pipe(gulp.dest('tmp/'))
               .on('end', function () {
                   return gulp.src('src/documentation.handlebars')
