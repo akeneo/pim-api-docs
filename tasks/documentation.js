@@ -44,7 +44,7 @@ function highlight(str, lang) {
     return '<pre class="hljs"><code>' + str + '</code></pre>';
 }
 
-gulp.task('documentation', ['clean-dist'],function (){
+gulp.task('documentation', ['clean-dist'], function () {
       var optionsMd = {
           html: false,
           xhtmlOut: true,

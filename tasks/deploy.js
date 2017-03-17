@@ -7,8 +7,21 @@ var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
 var rsync = require('gulp-rsync');
 var prompt = require('gulp-prompt');
+var fs = require('fs');
 
-gulp.task('deploy', function() {
+function isFileSync(aPath) {
+    try {
+        return fs.statSync(aPath).isFile();
+    } catch (e) {
+        if (e.code === 'ENOENT') {
+            return false;
+        } else {
+            throw e;
+        }
+    }
+}
+
+gulp.task('deploy', ['create-dist'], function() {
     // Dirs and Files to sync
     rsyncPaths = ['./dist/*' ];
 
@@ -23,20 +36,30 @@ gulp.task('deploy', function() {
         exclude: [],
     };
 
+    if (!isFileSync('./config.json')) {
+        throw new gutil.PluginError({
+            plugin: 'deploy',
+            message: gutil.colors.red('Missing config.json. Please fill it like config.json.dist')
+        });
+    }
+    var config = require('../config.json');
+
     if (argv.staging) {
-        rsyncConf.hostname = 'api-staging'; // hostname
-        rsyncConf.username = 'akeneo'; // ssh username
-        rsyncConf.destination = '/var/www/html'; // path where uploaded files go
+        rsyncConf.hostname = config.staging.hostname;
+        rsyncConf.username = config.staging.username;
+        rsyncConf.destination = config.staging.destination;
     } else if (argv.production) {
-        rsyncConf.hostname = 'api'; // hostname
-        rsyncConf.username = 'akeneo'; // ssh username
-        rsyncConf.destination = '/var/www/html'; // path where uploaded files go
+        rsyncConf.hostname = config.production.hostname;
+        rsyncConf.username = config.production.username;
+        rsyncConf.destination = config.production.destination;
     } else {
         throw new gutil.PluginError({
             plugin: 'deploy',
-            message: gutil.colors.red('Missing or invalid target')
+            message: gutil.colors.red('Missing or invalid target, please use --staging or --production parameter')
         });
     }
+
+    console.log(rsyncConf);
 
     return gulp.src(rsyncPaths)
         .pipe(gulpif(
