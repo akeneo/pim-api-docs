@@ -20,23 +20,23 @@ paths:
       parameters:
         - name: search
           in: query
-          description: Filter products, for more details see the <a href="/documentation.html#filters">Filters</a> section
+          description: Filter products, for more details see the <a href="/documentation/filter.html">Filters</a> section
           required: false
           type: string
         - name: scope
           in: query
           type: string
-          description: Filter product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation.html#filter-product-values">Filter on product values</a> section
+          description: Filter product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
           required: false
         - name: locales
           in: query
           type: string
-          description: Filter product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation.html#filter-product-values">Filter on product values</a> section
+          description: Filter product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
           required: false
         - name: attributes
           in: query
           type: string
-          description: Filter product values to only return those concerning the given attributes, for more details see the <a href="/documentation.html#filter-product-values">Filter on product values</a> section
+          description: Filter product values to only return those concerning the given attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
           required: false
         - $ref: '#/parameters/pagination_type'
         - $ref: '#/parameters/page'
@@ -157,7 +157,7 @@ paths:
                   "updated": "2016-06-25T17:56:12+02:00",
                   "associations": {
                     "PACK": {
-                      "products": ["sunglasse"],
+                      "products": ["sunglasses"],
                       "groups": []
                     },
                   }
@@ -235,7 +235,7 @@ paths:
                   "updated": "2016-06-25T17:56:12+02:00",
                   "associations": {
                     "PACK": {
-                      "products": ['sunglasse'],
+                      "products": ['sunglasses'],
                       "groups": []
                     }
                   }
@@ -363,7 +363,7 @@ paths:
       operationId: "products_patch"
       tags:
         - Products
-      description: This endpoint allows you to update a given product. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it.
+      description: This endpoint allows you to update a given product. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -618,7 +618,7 @@ paths:
       operationId: "categories_patch"
       tags:
         - Categories
-      description: This endpoint allows you to update a given category. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that if no category exists for the given code, it creates it.
+      description: This endpoint allows you to update a given category. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no category exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -824,7 +824,7 @@ paths:
       operationId: "families_patch"
       tags:
         - Families
-      description: This endpoint allows you to update a given family. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that if no family exists for the given code, it creates it.
+      description: This endpoint allows you to update a given family. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no family exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -1066,7 +1066,7 @@ paths:
       operationId: "attributes_patch"
       tags:
         - Attributes
-      description: This endpoint allows you to update a given attribute. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that if no attribute exists for the given code, it creates it.
+      description: This endpoint allows you to update a given attribute. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -1241,7 +1241,7 @@ paths:
       operationId: "attribute_options_patch"
       tags:
         - Attribute options
-      description: This endpoint allows you to update a given attribute option. Know more about <a href="/documentation.html#update-behavior">Update behavior</a>. Note that if no attribute option exists for the given code, it creates it.
+      description: This endpoint allows you to update a given attribute option. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute option exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/attribute_code'
         - $ref: '#/parameters/code'
@@ -1739,7 +1739,7 @@ definitions:
         default: "null"
       values:
         type: object
-        description: "Product attributes values, see <a href='documentation.html#product-values'>Product values</a> section for more details"
+        description: "Product attributes values, see <a href='/documentation/resources.html#product-values'>Product values</a> section for more details"
         x-validation-rules: Validation rules detailed in Product values section
         properties:
           attributeCode:
@@ -2292,7 +2292,7 @@ definitions:
         description: Resource code, only filled when the resource is a category, a family or an attribute
       status_code:
         type: integer
-        description: HTTP status code, see <a href="/documentation.html#client-errors">Client errors</a> to understand the meaning of each code
+        description: HTTP status code, see <a href="/documentation/responses.html#client-errors">Client errors</a> to understand the meaning of each code
       message:
         type: string
         description: Message explaining the error
@@ -2444,7 +2444,7 @@ parameters:
   pagination_type:
     name: pagination_type
     in: query
-    description: Pagination method type, see <a href="/documentation.html#pagination">Pagination</a> section
+    description: Pagination method type, see <a href="/documentation/pagination.html">Pagination</a> section
     required: false
     type: string
     default: "page"
@@ -2453,21 +2453,21 @@ parameters:
   page:
     name: page
     in: query
-    description: Number of the page to retrieve when using the `page` pagination method type. <strong>Should never be set manually</strong>, see <a href="/documentation.html#pagination">Pagination</a> section
+    description: Number of the page to retrieve when using the `page` pagination method type. <strong>Should never be set manually</strong>, see <a href="/documentation/pagination.html#pagination">Pagination</a> section
     required: false
     type: integer
     default: 1
   search_after:
     name: search_after
     in: query
-    description: Cursor when using the `search_after` pagination method type. <strong>Should never be set manually</strong>, see <a href="/documentation.html#pagination">Pagination</a> section
+    description: Cursor when using the `search_after` pagination method type. <strong>Should never be set manually</strong>, see <a href="/documentation/pagination.html">Pagination</a> section
     required: false
     type: string
     default: "cursor to the first page"
   limit:
     name: limit
     in: query
-    description: Number of results by page, see <a href="/documentation.html#pagination">Pagination</a> section
+    description: Number of results by page, see <a href="/documentation/pagination.html">Pagination</a> section
     required: false
     type: integer
     minimum: 1

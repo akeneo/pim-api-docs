@@ -117,3 +117,29 @@ ul.nav.nav-stacked{
     }
   }
 }
+
+// Fix issue of markdown-it-toc-and-anchor
+// @see https://github.com/medfreeman/markdown-it-toc-and-anchor/issues/25
+.nav p:empty {
+  display: none;
+}
+
+// Fix TOC
+ul.nav ul {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+
+  li a {
+    display: block;
+
+    &:hover {
+      text-decoration: none;
+      background-color: @gray-lighter;
+    }
+  }
+}
+
+ul.nav.nav-stacked {
+  min-width: 285px;
+}

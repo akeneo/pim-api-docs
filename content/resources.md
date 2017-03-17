@@ -11,7 +11,7 @@ You can have one or more locales activated in your PIM.
 
 In the Akeneo UI, you can find the locales in the `Settings`/`Locales` menu.
 
-![Locales in the Akeneo UI](img/locales_ui.png)
+![Locales in the Akeneo UI](/img/locales_ui.png)
 
 Below is the JSON standard format representing this set of locales.
 
@@ -47,7 +47,7 @@ A channel is also known as a «scope» in the Akeneo PIM.
 
 In the Akeneo UI, you can find them in the `Settings`/`Channels` menu.
 
-![Channels in the Akeneo UI](img/channels_ui.png)
+![Channels in the Akeneo UI](/img/channels_ui.png)
 
 Below is the JSON standard format representing this set of channels when requested through the API.
 
@@ -128,7 +128,7 @@ A product can be classified in one or n categories.
 
 In the Akeneo UI, you can find the categories in the `Enrich`/`Categories` menu.
 
-![Categories in the Akeneo UI](img/categories_ui.png)
+![Categories in the Akeneo UI](/img/categories_ui.png)
 
 Below is the JSON standard format representing a set of categories.
 
@@ -178,7 +178,7 @@ An attribute cannot be both localizable and locale specific at the same time.
 
 In the Akeneo UI, you can find the attributes in the `Settings`/`Attributes` menu. Below is an example of one attribute in the UI.
 
-![Attributes in the Akeneo UI](img/attributes_ui.png)
+![Attributes in the Akeneo UI](/img/attributes_ui.png)
 
 Below is the JSON standard format representing this attribute.
 
@@ -228,7 +228,7 @@ Only attribute of type simple select, multiselect, reference data simple select 
 
 In the Akeneo UI, you can find the attribute options in the `Settings`/`Attributes` menu, then select a simple or multiselect attribute and go to the `Values` tab in the attribute form. Below is an example of the attribute options of the attribute `camera_brand` in the UI.
 
-![Attribute options in the Akeneo UI](img/attribute_options_ui.png)
+![Attribute options in the Akeneo UI](/img/attribute_options_ui.png)
 
 Below is the JSON standard format representing theses attribute options.
 
@@ -303,7 +303,7 @@ Nevertheless, a product does not have to belong to a family. In this case, it ha
 
 In the Akeneo UI, you can find the families in the `Settings`/`Families` menu. Below is an example of a family in the UI.
 
-![Families in the Akeneo UI](img/families_ui.png)
+![Families in the Akeneo UI](/img/families_ui.png)
 
 Below is the JSON standard format representing this family.
 
@@ -372,7 +372,7 @@ In other words, this really is the heart entity of the PIM.
 
 In the Akeneo UI, you can find the products in the `Enrich`/`Products` menu. Below is an example of a product in the UI.
 
-![Product in the Akeneo UI](img/products_ui.png)
+![Product in the Akeneo UI](/img/products_ui.png)
 
 Below is the JSON standard format representing a product.
 
@@ -607,5 +607,5 @@ The `main_color` attribute is neither scopable nor localizable, so it can hold o
 Note that the `locale` and `scope` properties are all set to `null` in this case.
 :::
 
-::: panel-link Want to update product values? [Here you go!](/documentation.html#patch-product-values)
+::: panel-link Want to update product values? [Here you go!](/documentation/update.html#patch-product-values)
 :::

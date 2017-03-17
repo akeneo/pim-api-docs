@@ -41,7 +41,7 @@ expires, then will be unable to refresh it.
 :::
 
 :::warning
-Client ids are not enough to access the API, it's the role of tokens. See [Getting a token](documentation.html#get-a-token) section for more details.
+Client ids are not enough to access the API, it's the role of tokens. See [Getting a token](/documentation/security.html#get-a-token) section for more details.
 :::
 
 ### Revoke an OAuth client
@@ -152,7 +152,7 @@ curl https://demo.akeneo.com/api/rest/v1/categories \
 
 :::info
 There are only 2 routes that do not require authentication:
- - the root of the API, that lists all the available endpoints. See [this section](/documentation.html#list-of-available-endpoints) for more info.
+ - the root of the API, that lists all the available endpoints. See [this section](/documentation/overview.html#list-of-available-endpoints) for more info.
  - and of course, the root to get tokens. Pretty logic, isn't it!
 :::
 
@@ -202,7 +202,7 @@ The response is the same as when asking for the initial token except that it con
 Like when using the PIM through the UI, ACLs are here to define what a user can and cannot do.
 In the role form, a `Web API permissions` tab includes several ACLs specially crafted for the API.
 
-![Web API permission tab screenshot](img/activate_api_access.png)
+![Web API permission tab screenshot](/img/activate_api_access.png)
 
 ### Overall access
 

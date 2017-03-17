@@ -1,62 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>API Docs</title>
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <link rel="icon" type="image/png" href="img/akene36.png">
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css">
-  <script>
-    function displayResponse(responseId) {
-      document.getElementById(responseId + "-response").style.display = "block";
-      document.getElementById(responseId + "-btn").style.display = "none";
-    }
-  </script>
-</head>
-<body data-spy="scroll" data-target="#navbar">
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/"><img alt="Akeneo" src="img/akene.png" width="50"></a>
-        <p class="navbar-text">Akeneo Web API  &nbsp;<span class="label label-version">v1</span></p>
-      </div>
-
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Getting started <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="/getting-started.html">Make my first request</a></li>
-              <li><a href="/getting-started-admin.html">Manage the access to the API</a></li>
-            </ul>
-          </li>
-          <li><a href="/documentation.html">Documentation</a></li>
-          <li><a href="/api-reference-index.html">API reference</a></li>
-        </ul>
-        <form class="navbar-form navbar-right">
-          <div class="form-group">
-            <input id="algolia-search" class="form-control" placeholder="Search whole doc">
-          </div>
-        </form>
-      </div>
-    </div>
-  </nav>
+{{#> layout title="Api Docs"}}
   <div class="jumbotron">
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12 col-lg-8">
-          <img class="img-responsive center-block" alt="Build amazing tools on top of your favorite PIM" src="img/build_amazing_tools.png">
+          <img class="img-responsive center-block" alt="Build amazing tools on top of your favorite PIM" src="/img/build_amazing_tools.png">
         </div>
         <div class="col-sm-12 col-lg-4">
           <div class="panel panel-default panel-jumbotron">
@@ -75,7 +22,7 @@
                           </div>
                           <div class="col-xs-4 col-sm-3">
                             <svg viewBox="0 0 256 256">
-                              <use xlink:href="img/icons.svg#icon--developer"></use>
+                              <use xlink:href="/img/icons.svg#icon--developer"></use>
                             </svg>
                           </div>
                         </div>
@@ -94,7 +41,7 @@
                           </div>
                           <div class="col-xs-4 col-sm-3">
                             <svg viewBox="0 0 256 256">
-                              <use xlink:href="img/icons.svg#icon--lock"></use>
+                              <use xlink:href="/img/icons.svg#icon--lock"></use>
                             </svg>
                           </div>
                         </div>
@@ -197,24 +144,7 @@
   },
   <span class="hljs-attr">"created"</span>:<span class="hljs-string">"2017-03-07T14:50:16+01:00"</span>,
   <span class="hljs-attr">"updated"</span>:<span class="hljs-string">"2017-03-07T14:53:58+01:00"</span>,
-  <span class="hljs-attr">"associations"</span>:{
-    <span class="hljs-attr">"PACK"</span>:{
-      <span class="hljs-attr">"groups"</span>:[],
-      <span class="hljs-attr">"products"</span>:[]
-    },
-    <span class="hljs-attr">"SUBSTITUTION"</span>:{
-      <span class="hljs-attr">"groups"</span>:[],
-      <span class="hljs-attr">"products"</span>:[]
-    },
-    <span class="hljs-attr">"UPSELL"</span>:{
-      <span class="hljs-attr">"groups"</span>:[],
-      <span class="hljs-attr">"products"</span>:[]
-    },
-    <span class="hljs-attr">"X_SELL"</span>:{
-      <span class="hljs-attr">"groups"</span>:[],
-      <span class="hljs-attr">"products"</span>:[]
-    }}
-  }</code></pre>
+  <span class="hljs-attr">"associations"</span>:{}</code></pre>
                         </div>
                       </div>
                     </div>
@@ -438,43 +368,43 @@
           <div class="col-xs-12 access-ressources">
             <a href="/api-reference-index.html#Products" class="link-resource">
               <svg viewBox="0 0 256 256">
-                  <use xlink:href="img/icons.svg#icon--Products"></use>
+                  <use xlink:href="/img/icons.svg#icon--Products"></use>
                 </svg>
                 <p class="text-center">Product</p>
               </a>
             <a href="/api-reference-index.html#Categories" class="link-resource">
               <svg viewBox="0 0 256 256">
-                  <use xlink:href="img/icons.svg#icon--Categories"></use>
+                  <use xlink:href="/img/icons.svg#icon--Categories"></use>
               </svg>
               <p class="text-center">Category</p>
             </a>
             <a href="/api-reference-index.html#Families" class="link-resource">
               <svg viewBox="0 0 256 256">
-                <use xlink:href="img/icons.svg#icon--Families"></use>
+                <use xlink:href="/img/icons.svg#icon--Families"></use>
               </svg>
               <p class="text-center">Family</p>
             </a>
             <a href="/api-reference-index.html#Attributes" class="link-resource">
               <svg viewBox="0 0 256 256">
-                <use xlink:href="img/icons.svg#icon--Attributes"></use>
+                <use xlink:href="/img/icons.svg#icon--Attributes"></use>
               </svg>
             <p class="text-center">Attribute</p>
             </a>
             <a href="/api-reference-index.html#Mediafiles" class="link-resource">
               <svg viewBox="0 0 256 256">
-                <use xlink:href="img/icons.svg#icon--Mediafiles"></use>
+                <use xlink:href="/img/icons.svg#icon--Mediafiles"></use>
               </svg>
             <p class="text-center">Media file</p>
             </a>
             <a href="/api-reference-index.html#Channels" class="link-resource">
               <svg viewBox="0 0 256 256">
-                <use xlink:href="img/icons.svg#icon--Channels"></use>
+                <use xlink:href="/img/icons.svg#icon--Channels"></use>
               </svg>
             <p class="text-center">Channel</p>
             </a>
             <a href="/api-reference-index.html#Locales" class="link-resource">
               <svg viewBox="0 0 256 256">
-                <use xlink:href="img/icons.svg#icon--Locales"></use>
+                <use xlink:href="/img/icons.svg#icon--Locales"></use>
               </svg>
             <p class="text-center">Locale</p>
             </a>
@@ -493,7 +423,7 @@
                     </div>
                     <div class="col-xs-4 col-sm-3">
                       <svg viewBox="0 0 256 256">
-                        <use xlink:href="img/icons.svg#icon--marketplace"></use>
+                        <use xlink:href="/img/icons.svg#icon--marketplace"></use>
                       </svg>
                     </div>
                   </div>
@@ -512,7 +442,7 @@
                   </div>
                   <div class="col-xs-4 col-sm-3">
                     <svg viewBox="0 0 256 256">
-                      <use xlink:href="img/icons.svg#icon--bulb"></use>
+                      <use xlink:href="/img/icons.svg#icon--bulb"></use>
                     </svg>
                   </div>
                 </div>
@@ -526,7 +456,7 @@
             <div class="row">
               <div class="col-xs-12 col-sm-6 col-lg-3">
                 <div class="panel panel-default panel-landing-page panel-clickable">
-                  <a href="/documentation.html#security">
+                  <a href="/documentation/security.html">
                     <div class="panel-body">
                       <p>Security</p>
                       <p>From authentication to authorization, all you need to know about security</p>
@@ -536,7 +466,7 @@
               </div>
               <div class="col-xs-12 col-sm-6 col-lg-3">
                 <div class="panel panel-default panel-landing-page panel-clickable">
-                  <a href="/documentation.html#pagination">
+                  <a href="/documentation/pagination.html">
                     <div class="panel-body">
                       <p>Handling pagination</p>
                       <p>How it works and all you need to request large database of products</p>
@@ -546,7 +476,7 @@
               </div>
               <div class="col-xs-12 col-sm-6 col-lg-3">
                 <div class="panel panel-default panel-landing-page panel-clickable">
-                  <a href="/documentation.html#client-errors">
+                  <a href="/documentation/responses.html#client-errors">
                     <div class="panel-body">
                       <p>Error responses</p>
                       <p>You just got a 401 and do not know what to do. Here is your solution!</p>
@@ -556,7 +486,7 @@
               </div>
               <div class="col-xs-12 col-sm-6 col-lg-3">
                 <div class="panel panel-default panel-landing-page panel-clickable">
-                  <a href="/documentation.html#from-the-old-api-to-the-new-one">
+                  <a href="/documentation/introduction.html#from-the-old-api-to-the-new-one">
                     <div class="panel-body">
                       <p>From old to new</p>
                       <p>You were using the old API. Here is a mini-guide to help you migrate your code</p>
@@ -566,7 +496,7 @@
               </div>
               <div class="col-xs-12 col-sm-6 col-lg-6">
                 <div class="panel panel-default panel-landing-page panel-clickable">
-                  <a href="/documentation.html#update-behavior">
+                  <a href="/documentation/update.html#update-behavior">
                     <div class="panel-body">
                       <p>Update data</p>
                       <p>Merging data can be a little bit tricky. Here is the guide to serene updates.</p>
@@ -576,7 +506,7 @@
               </div>
               <div class="col-xs-12 col-sm-6 col-lg-6">
                 <div class="panel panel-default panel-landing-page panel-clickable">
-                  <a href="/documentation.html#filters">
+                  <a href="/documentation/filter.html#filters">
                     <div class="panel-body">
                       <p>Filter products</p>
                       <p>You want to be able to retrieve only the products you need. Filters are here to help.</p>
@@ -629,22 +559,10 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
-  <script type="text/javascript"> docsearch({
-  apiKey: '2d54ec0583367835496f9b24eb99de62',
-  indexName: 'akeneo-api',
-  inputSelector: '#algolia-search',
-  debug: false // Set debug to true if you want to inspect the dropdown
-  });
+  <script type="text/javascript">
+      function displayResponse(responseId) {
+          document.getElementById(responseId + "-response").style.display = "block";
+          document.getElementById(responseId + "-btn").style.display = "none";
+      }
   </script>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-35417741-5', 'auto');
-    ga('send', 'pageview');
-  </script>
-</body>
-</html>
+{{/layout}}

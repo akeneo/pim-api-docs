@@ -26,9 +26,9 @@ HTTP/1.1 422 Unprocessable entity
 ```
 :::
 
-To request paginated entities, you can use the [offset method](/documentation.html#offset-method).
+To request paginated entities, you can use the [offset method](/documentation/pagination.html#offset-method).
 
-Products can also be paginated with another method, the [search after method](/documentation.html#search-after-method).
+Products can also be paginated with another method, the [search after method](/documentation/pagination.html#search-after-method).
 
 ## Offset method
 
