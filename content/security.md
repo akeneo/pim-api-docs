@@ -28,6 +28,25 @@ client_id: 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s
 secret: 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s
 ```
 
+:::info
+You can give a label to your pair of client id / secret when you create them. This can very useful to remember yourself to which applications you give this pair of credentials.
+
+**Example**
+```bash
+php app/console pim:oauth-server:create-client \
+    --label="Magento_connector" \
+    --grant_type="password" \
+    --grant_type="refresh_token"
+```
+The response you will receive will have this format
+```bash
+A new client has been added.
+client_id: 4_5e6kfzmath8gowk0s000kkgc0o44cwgwsockwk0ccss4sw0w
+secret: 2nwha9mzk2w4so0cgokwocswoc48s0sg44wgg40kkokgg4w0go
+label: Magento_connector
+```
+:::
+
 These keys must be transmitted by the administrator to any third-party application wanting to use the API.
 
 Client ids allow two things:
@@ -46,7 +65,7 @@ Client ids are not enough to access the API, it's the role of tokens. See [Getti
 
 ### Revoke an OAuth client
 
-To revoke a client id use the following command:
+To revoke a client id, use the following command:
 
 ```bash
 php app/console pim:oauth-server:revoke-client the-client-id
@@ -55,6 +74,14 @@ php app/console pim:oauth-server:revoke-client the-client-id
 #### Example
 ```bash
 php app/console pim:oauth-server:revoke-client 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s
+```
+We ask for a confirmation when you revoke a client.
+```bash
+This operation is irreversible. Are you sure you want to revoke this client? (Y/n)
+```
+If you type Y, the client is then revoke and you will receive this message.
+```bash
+Client with public id 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s and secret 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s has been revoked.
 ```
 
 :::warning
@@ -71,13 +98,15 @@ php app/console pim:oauth-server:list-clients
 
 You will get this answer.
 ```bash
-+----------------------------------------------------+----------------------------------------------------+
-| Client id                                          | Secret                                             |
-+====================================================+====================================================+
-| 3e2iqilq2ygwk0ccgogkcwco8oosckkkk4gkoc0k4s8s044wss | 44ectenmudus8g88w4wkws84044ckw0k4w4kg0sokoss84oko8 |
-| 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s | 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s |
-+----------------------------------------------------+----------------------------------------------------+
++----------------------------------------------------+----------------------------------------------------+-------------------+
+| Client id                                          | Secret                                             |  Label            |
++====================================================+====================================================+===================+
+| 3e2iqilq2ygwk0ccgogkcwco8oosckkkk4gkoc0k4s8s044wss | 44ectenmudus8g88w4wkws84044ckw0k4w4kg0sokoss84oko8 |                   |
+| 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s | 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s |                   |
+| 4_5e6kfzmath8gowk0s000kkgc0o44cwgwsockwk0ccss4sw0w | 2nwha9mzk2w4so0cgokwocswoc48s0sg44wgg40kkokgg4w0go | Magento_connector |
++----------------------------------------------------+----------------------------------------------------+-------------------+
 ```
+As you can see, if you created your pair of client id / secret with a label, it will appear here.
 
 ### Get a token
 
@@ -85,7 +114,7 @@ A client id has been created and provided to the client application. The last in
 
 First, you will have to encode in base64 the secret id and the secret given by the administrator with a `:` in between.
 
-```bash
+```
 client_id:secret
 3e2iqilq2ygwk0ccgogkcwco8oosckkkk4gkoc0k4s8s044wss:44ectenmudus8g88w4wkws84044ckw0k4w4kg0sokoss84oko8
 
