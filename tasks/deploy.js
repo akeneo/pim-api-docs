@@ -9,6 +9,8 @@ var rsync = require('gulp-rsync');
 var prompt = require('gulp-prompt');
 var fs = require('fs');
 
+const environments = ['staging', 'production'];
+
 function isFileSync(aPath) {
     try {
         return fs.statSync(aPath).isFile();
@@ -44,22 +46,20 @@ gulp.task('deploy', ['create-dist'], function() {
     }
     var config = require('../config.json');
 
-    if (argv.staging) {
-        rsyncConf.hostname = config.staging.hostname;
-        rsyncConf.username = config.staging.username;
-        rsyncConf.destination = config.staging.destination;
-    } else if (argv.production) {
-        rsyncConf.hostname = config.production.hostname;
-        rsyncConf.username = config.production.username;
-        rsyncConf.destination = config.production.destination;
-    } else {
+    if (!argv.env || (environments.indexOf(argv.env) < 0)) {
         throw new gutil.PluginError({
             plugin: 'deploy',
-            message: gutil.colors.red('Missing or invalid target, please use --staging or --production parameter')
+            message: gutil.colors.red('Missing or invalid target, please use ' +
+                environments
+                    .map(function (env) { return '--env=' + env; })
+                    .join(' or ')
+            )
         });
     }
 
-    console.log(rsyncConf);
+    Object.keys(config[argv.env]).forEach(function (key) {
+        rsyncConf[key] = config[argv.env][key];
+    });
 
     return gulp.src(rsyncPaths)
         .pipe(gulpif(
@@ -70,5 +70,4 @@ gulp.task('deploy', ['create-dist'], function() {
             })
         ))
         .pipe(rsync(rsyncConf));
-
 });
