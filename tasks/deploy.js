@@ -17,9 +17,9 @@ function isFileSync(aPath) {
     } catch (e) {
         if (e.code === 'ENOENT') {
             return false;
-        } else {
-            throw e;
         }
+
+        throw e;
     }
 }
 
