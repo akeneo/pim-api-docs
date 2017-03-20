@@ -46,7 +46,7 @@ function highlight(str, lang) {
 
 gulp.task('documentation', ['clean-dist'],function (){
       var optionsMd = {
-          html: false,
+          html: true,
           xhtmlOut: true,
           typographer: false,
           linkify: false,

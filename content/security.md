@@ -220,9 +220,9 @@ You can tune more finely this permission by restricting or allowing the access t
 | List attribute options | GET on `/attributes/{attribute_code}/options` and on `/attributes/{attribute_code}/options/{attribute_option_code}` |
 | List channels | GET on `/channels` |
 | List locales | GET on `/locales` |
-| Create and update categories | POST and PATCH on `/categories/{category_code}` |
-| Create and update families | POST and PATCH on `/families/{family_code}` |
-| Create and update attributes | POST and PATCH on `/attributes/{attribute_code}` |
+| Create and update categories | POST and PATCH on `/categories/{category_code}` <br/> PATCH on `/categories` |
+| Create and update families | POST and PATCH on `/families/{family_code}` <br/> PATCH on `/families` |
+| Create and update attributes | POST and PATCH on `/attributes/{attribute_code}` <br/> PATCH on `/attributes`|
 | Create and update attribute options | POST and PATCH on `/attributes/{attribute_code}/options/{attribute_option_code}` |
 
 :::warning
