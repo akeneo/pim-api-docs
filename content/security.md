@@ -29,7 +29,7 @@ secret: 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s
 ```
 
 :::info
-You can give a label to your pair of client id / secret when you create them. This can very useful to remember yourself to which applications you give this pair of credentials.
+You can give a label to your pair of client id / secret when you create them. This can be very useful to remember which application you give this pair of credentials to.
 
 **Example**
 ```bash
