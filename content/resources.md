@@ -497,9 +497,29 @@ A product value follows this format:
 ```
 In this formula:
  - `ATTRIBUTE_CODE` is the code of an attribute of the product,
- - `LOCALE_CODE` is the code of a locale when the attribute is localizable,
- - `CHANNEL_CODE` is the code of a channel when the attribute is scopable,
- - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depends on the attribute type.
+ - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise,
+ - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise,
+ - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type as you can see in the table below.
+
+| Attribute type / Format| Example |
+| ----------------- | -------------- |
+| **pim_catalog_identifier** <br> _string_ | `"12348716"` |
+| **pim_catalog_text** <br> _string_ | `"Tshirt long sleeves"` |
+| **pim_catalog_textarea** <br> _string_ | `"Tshirt long sleeves\nWinter special, 100% whool"` |
+| **pim_catalog_file** <br> _string_ | `"f/2/e/6/f2e6674e076ad6fafa12012e8fd026acdc70f814_myFile.pdf"` |
+| **pim_catalog_image** <br> _string_ | `"f/4/d/1/f4d12ffbdbe628ba8e0b932c27f425130cc23535_myImage.jpg"` |
+| **pim_catalog_date** <br> _string, ISO-8601 format_ | `"2012-03-13T00:00:00+01:00"` |
+| **pim_catalog_simpleselect** <br> _string_ | `"xs"` |
+| **pim_catalog_reference_data_simpleselect** <br> _string_ | `"bouroullec"` |
+| **pim_catalog_multiselect** <br> _Array[string]_ | `["leather", "cotton"]` |
+| **pim_catalog_reference_data_multiselect** <br> _Array[string]_ | `["red", "black", "grey"]` |
+| **pim_catalog_number** when `decimals_allowed` attribute property is set to `true` <br> _string_ | `"89.897"` |
+| **pim_catalog_number** when `decimals_allowed` attribute property is set to `false` <br> _integer_ | `42` |
+| **pim_catalog_boolean** <br> _boolean_ | `true` |
+| **pim_catalog_metric** when `decimals_allowed` attribute property is set to `true` <br> _Object{"amount": string, "unit": string}_ | `{"amount":"-12.78","unit":"KILOWATT"}` |
+| **pim_catalog_metric** when `decimals_allowed` attribute property is set to `false` <br> _Object{"amount": integer, "unit": string}_ | `{"amount":13,"unit":"KILOWATT"}` |
+| **pim_catalog_price** when `decimals_allowed` attribute property is set to `true` <br> _Array[Object{"amount": string, "currency": string}]_ | `[{"amount":"45.00","currency":"USD"}, {"amount":"56.53","currency":"EUR"}]` |
+| **pim_catalog_price** when `decimals_allowed` attribute property is set to `false` <br> _Array[Object{"amount": integer, "currency": string}]_ | `[{"amount":45,"currency":"USD"}, {"amount":56,"currency":"EUR"}]` |
 
 #### Examples
 
