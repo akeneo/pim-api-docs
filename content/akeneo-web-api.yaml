@@ -1427,6 +1427,8 @@ paths:
         200:
           description: OK
           x-details: Returns the content of the media file in JSON standard format
+          schema:
+            $ref: '#/definitions/MediaFile'
         401:
           $ref: "#/responses/401Error"
         403:
@@ -2176,17 +2178,33 @@ definitions:
         type: string
         description: Extension of the media file
         x-read-only: true
+      _links:
+        type: object
+        description: Link to download the media file binaries
+        x-read-only: true
+        properties:
+          download:
+            type: object
+            properties:
+              href:
+                type: string
+                description: Link to download the media file binaries
     example: {
       "code": "7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg",
       "original_filename": "10806799-1356.jpg",
       "mime_type": "image/jpeg",
       "size": 16070,
-      "extension": "jpg"
+      "extension": "jpg",
+      "_links": {
+        "download": {
+          "href": "https://demo.akeneo.com/api/rest/v1/media-files/7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg/download"
+        }
+      }
     }
   MediaFileList:
     type: object
     allOf:
-      - $ref: '#/definitions/ItemList'
+      - $ref: '#/definitions/MediaFileItemList'
       - $ref: '#/definitions/MediaFile'
   Locale:
     type: object
@@ -2341,6 +2359,24 @@ definitions:
               href:
                 type: string
                 description: URI of the resource
+  MediaFileItemList:
+    type: object
+    properties:
+      _links:
+        type: object
+        properties:
+          self:
+            type: object
+            properties:
+              href:
+                type: string
+                description: URI to get the metadata of the media file
+          download:
+            type: object
+            properties:
+              href:
+                type: string
+                description: URI to download the binaries of the media file
 
 responses:
   Created:
