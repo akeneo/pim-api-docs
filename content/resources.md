@@ -499,7 +499,7 @@ In this formula:
  - `ATTRIBUTE_CODE` is the code of an attribute of the product,
  - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise,
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise,
- - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depends on the attribute type as you can see in the table below.
+ - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type as you can see in the table below.
 
 | Attribute type / Format| Example |
 | ----------------- | -------------- |
