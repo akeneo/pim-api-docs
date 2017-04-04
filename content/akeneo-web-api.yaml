@@ -1916,7 +1916,7 @@ definitions:
       attribute_as_label:
         type: string
         description: Attribute code used as label
-        x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes`"
+        x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes` &#10;&bull; The type of this attribute is either `pim_catalog_identifier` or `pim_catalog_text`"
       attributes:
         type: array
         description: Attributes codes that compose the family
