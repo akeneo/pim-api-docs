@@ -325,6 +325,7 @@ Below is the JSON standard format representing this family.
     "weight"
   ],
   "attribute_as_label": "name",
+  "attribute_as_image": "picture",
   "attribute_requirements": {
     "ecommerce": [
       "description",

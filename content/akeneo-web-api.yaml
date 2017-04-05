@@ -694,8 +694,9 @@ paths:
                     }
                   },
                   "code": "tshirt",
-                  "attributes": ["sku", "name", "description", "price", "size", "color"],
+                  "attributes": ["sku", "name", "description", "price", "size", "color", "picture"],
                   "attribute_as_label": "name",
+                  "attribute_as_image": "picture",
                   "attribute_requirements": {
                     "ecommerce": ["sku", "name", "description", "price", "size", "color"],
                     "tablet": ["sku", "name", "description", "price"]
@@ -712,8 +713,9 @@ paths:
                     }
                   },
                   "code": "caps",
-                  "attributes": ["sku", "name", "description", "price", "color"],
+                  "attributes": ["sku", "name", "description", "price", "color", "picture"],
                   "attribute_as_label": "name",
+                  "attribute_as_image": "picture",
                   "attribute_requirements": {
                     "ecommerce": ["sku", "name", "description", "price", "color"],
                     "tablet": ["sku", "name", "description", "price"]
@@ -1919,6 +1921,10 @@ definitions:
         type: string
         description: Attribute code used as label
         x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes` &#10;&bull; The type of this attribute is either `pim_catalog_identifier` or `pim_catalog_text`"
+      attribute_as_image:
+        type: string
+        description: Attribute code used as image (can be null)
+        x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes` &#10;&bull; The type of this attribute is `pim_catalog_image`"
       attributes:
         type: array
         description: Attributes codes that compose the family
@@ -1947,8 +1953,9 @@ definitions:
             description: Family label for the locale `localeCode`
     example: {
       "code": "caps",
-      "attributes": ["sku", "name", "description", "price", "color"],
+      "attributes": ["sku", "name", "description", "price", "color", "picture"],
       "attribute_as_label": "name",
+      "attribute_as_image": "picture",
       "attribute_requirements": {
         "ecommerce": ["sku", "name", "description", "price", "color"],
         "tablet": ["sku", "name", "description", "price"]
