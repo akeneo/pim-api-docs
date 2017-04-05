@@ -1923,8 +1923,9 @@ definitions:
         x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes` &#10;&bull; The type of this attribute is either `pim_catalog_identifier` or `pim_catalog_text`"
       attribute_as_image:
         type: string
-        description: Attribute code used as image (can be null)
+        description: Attribute code used as the main picture in the user interface
         x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes` &#10;&bull; The type of this attribute is `pim_catalog_image`"
+        default: "null"
       attributes:
         type: array
         description: Attributes codes that compose the family
