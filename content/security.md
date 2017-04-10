@@ -17,7 +17,8 @@ To create a new pair of client id / secret, use the following command:
 ```bash
 php app/console pim:oauth-server:create-client \
     --grant_type="password" \
-    --grant_type="refresh_token"
+    --grant_type="refresh_token" \
+    --env=prod
 ```
 
 You will get something like:
@@ -36,7 +37,8 @@ You can give a label to your pair of client id / secret when you create them. Th
 php app/console pim:oauth-server:create-client \
     --label="Magento_connector" \
     --grant_type="password" \
-    --grant_type="refresh_token"
+    --grant_type="refresh_token" \
+    --env=prod
 ```
 The response you will receive will have this format
 ```bash
@@ -68,12 +70,12 @@ Client ids are not enough to access the API, it's the role of tokens. See [Getti
 To revoke a client id, use the following command:
 
 ```bash
-php app/console pim:oauth-server:revoke-client the-client-id
+php app/console pim:oauth-server:revoke-client the-client-id --env=prod
 ```
 
 #### Example
 ```bash
-php app/console pim:oauth-server:revoke-client 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s
+php app/console pim:oauth-server:revoke-client 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s --env=prod
 ```
 We ask for a confirmation when you revoke a client.
 ```bash
@@ -93,7 +95,7 @@ Client ids can be revoked at any moment by the administrator. In this case, all 
 To get the list of all existing client ids use the following command:
 
 ```shell
-php app/console pim:oauth-server:list-clients
+php app/console pim:oauth-server:list-clients --env=prod
 ```
 
 You will get this answer.
