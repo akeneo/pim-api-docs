@@ -50,6 +50,20 @@
       z-index: 1;
     }
   }
+  &.panel-new{
+    border: 2px solid @brand-info;
+    &:before{
+      content: 'NEW';
+      position: absolute;
+      bottom: 25%;
+      right: 5%;
+      color: @brand-info;
+      font-size: @font-size-h3;
+      font-weight: bold;
+      .rotate(-10deg);
+      z-index: 1;
+    }
+  }
   &.panel-default{
     .panel-heading{
       background-color: #fff;
