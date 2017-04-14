@@ -170,5 +170,5 @@ We have crafted a complete reference of our API. So feel free to browse it.
 
 There, you will find for each available endpoint, a description of what it does, what are the expected parameters in the request and what are the different responses you will be able to get, being successes or errors.
 
-::: panel-link I wanna take a look at the API reference! [Let's go!](api-reference.html)
+::: panel-link I wanna take a look at the API reference! [Let's go!](/api-reference.html)
 :::

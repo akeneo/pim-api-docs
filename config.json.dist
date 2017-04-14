@@ -1,0 +1,12 @@
+{
+  "staging": {
+    "hostname": "staging-hostname",
+    "username": "staging-username",
+    "destination": "/path/to/staging/"
+  },
+  "production": {
+    "hostname": "production-hostname",
+    "username": "production-username",
+    "destination": "/path/to/production/"
+  }
+}

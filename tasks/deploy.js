@@ -7,8 +7,23 @@ var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
 var rsync = require('gulp-rsync');
 var prompt = require('gulp-prompt');
+var fs = require('fs');
 
-gulp.task('deploy', function() {
+const environments = ['staging', 'production'];
+
+function isFileSync(aPath) {
+    try {
+        return fs.statSync(aPath).isFile();
+    } catch (e) {
+        if (e.code === 'ENOENT') {
+            return false;
+        }
+
+        throw e;
+    }
+}
+
+gulp.task('deploy', ['create-dist'], function() {
     // Dirs and Files to sync
     rsyncPaths = ['./dist/*' ];
 
@@ -23,20 +38,28 @@ gulp.task('deploy', function() {
         exclude: [],
     };
 
-    if (argv.staging) {
-        rsyncConf.hostname = 'api-staging'; // hostname
-        rsyncConf.username = 'akeneo'; // ssh username
-        rsyncConf.destination = '/var/www/html'; // path where uploaded files go
-    } else if (argv.production) {
-        rsyncConf.hostname = 'api'; // hostname
-        rsyncConf.username = 'akeneo'; // ssh username
-        rsyncConf.destination = '/var/www/html'; // path where uploaded files go
-    } else {
+    if (!isFileSync('./config.json')) {
         throw new gutil.PluginError({
             plugin: 'deploy',
-            message: gutil.colors.red('Missing or invalid target')
+            message: gutil.colors.red('Missing config.json. Please fill it like config.json.dist')
         });
     }
+    var config = require('../config.json');
+
+    if (!argv.env || (environments.indexOf(argv.env) < 0)) {
+        throw new gutil.PluginError({
+            plugin: 'deploy',
+            message: gutil.colors.red('Missing or invalid target, please use ' +
+                environments
+                    .map(function (env) { return '--env=' + env; })
+                    .join(' or ')
+            )
+        });
+    }
+
+    Object.keys(config[argv.env]).forEach(function (key) {
+        rsyncConf[key] = config[argv.env][key];
+    });
 
     return gulp.src(rsyncPaths)
         .pipe(gulpif(
@@ -47,5 +70,4 @@ gulp.task('deploy', function() {
             })
         ))
         .pipe(rsync(rsyncConf));
-
 });
