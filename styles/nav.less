@@ -65,6 +65,10 @@
 // Table of content
 ul.nav.nav-stacked{
   padding: 80px 20px 0 0;
+  width: 285px;
+  @media (max-width: @screen-md-max) {
+    width: 200px;
+  }
   li{
     a {
       padding: 3px 10px;
@@ -138,8 +142,4 @@ ul.nav ul {
       background-color: @gray-lighter;
     }
   }
-}
-
-ul.nav.nav-stacked {
-  min-width: 285px;
 }
