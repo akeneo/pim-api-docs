@@ -51,13 +51,20 @@
     }
   }
   &.panel-new{
-    border: 2px solid @brand-info;
+    background-color: @brand-primary;
+    color: rgba(255, 255, 255, 0.75);
+    p:first-of-type{
+      color: white;
+    }
+    &:hover{
+      background-color: lighten(@brand-primary, 5%);
+    }
     &:before{
       content: 'NEW';
       position: absolute;
       bottom: 25%;
       right: 5%;
-      color: @brand-info;
+      color: white;
       font-size: @font-size-h3;
       font-weight: bold;
       .rotate(-10deg);
