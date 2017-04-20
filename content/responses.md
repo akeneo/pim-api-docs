@@ -225,7 +225,7 @@ Location: https://demo.akeneo.com/api/rest/v1/categories/winter
 ```
 
 ### 204 success
-Updating a resource results in a `204 No Content` response.
+Updating or deleting a resource results in a `204 No Content` response.
 
 #### Example
 ```http
