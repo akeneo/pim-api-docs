@@ -393,8 +393,9 @@ paths:
       parameters:
         - $ref: '#/parameters/code'
       responses:
-        200:
-          description: Product has been successfully deleted
+        204:
+          description: No content to return
+          x-details: Means that the deletion was successful
         401:
           $ref: "#/responses/401Error"
         403:
