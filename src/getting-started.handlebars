@@ -58,7 +58,10 @@
                       <p>So now you have your client id and secret, you are ready to get a token.</p>
                       <p>Concatenate your client id and secret with a <code>:</code> in between. For example, with the client id and secret given as example in step 1, this will give:</p>
                       <pre class="hljs"><code>3e2iqilq2ygwk0ccgogkcwco8oosckkkk4gkoc0k4s8s044wss<span class="hljs-string">:</span>44ectenmudus8g88w4wkws84044ckw0k4w4kg0sokoss84oko8</code></pre>
-                      <p>Then encode this string in base 64. They are utilities functions in every languages to do so and even sites, like this <a href="https://www.base64encode.org/">one</a> for example. You will get:</p>
+                      <p>Then encode this string in base 64. There are utilities functions in every languages to do so and even websites, like this <a href="https://www.base64encode.org/">one</a>.</p>
+                      <p>You can also use the terminal to get the base64 encoded string:</p>
+                      <pre class="hljs"><code>echo 3e2iqilq2ygwk0ccgogkcwco8oosckkkk4gkoc0k4s8s044wss:44ectenmudus8g88w4wkws84044ckw0k4w4kg0sokoss84oko8 | base64</code></pre>
+                      <p>You will get:</p>
                       <pre class="hljs"><code>M2UyaXFpbHEyeWd3azBjY2dvZ2tjd2NvOG9vc2Nra2trNGdrb2MwazRzOHMwNDR3c3M6NDRlY3Rlbm11ZHVzOGc4OHc0d2t3czg0MDQ0Y2t3MGs0dzRrZzBzb2tvc3M4NG9rbzg=</code></pre>
                       <p>Then ask for a token by posting a request on the authentication URI specially crafted for this purpose: <code>where-your-PIM-is-hosted/api/oauth/v1/token</code>. Set the base64 encoded string as the <code>Authorization</code> header. The body of the request should be a JSON containing your username and password. Make sure that this username/password corresponds to your PIM user account on the PIM instance you want to make requests via the API.
                       Below is an example of the request.</p>
