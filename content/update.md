@@ -378,6 +378,10 @@ You want to add the `description` of the product `boots-4846` for the `en_US` lo
 }
 ```
 
+::: info 
+Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#product-values)
+:::
+
 ### Modify a product value
 
 #### First example
@@ -518,6 +522,10 @@ You want to add the `name` of the product `boots-4846` for the `fr_FR` locale bu
 }
 ```
 
+::: info 
+Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#product-values)
+:::
+
 ### Erase a product value
 You want to erase the `name` of the product `boots-4846` for the `en_US` locale.
 
@@ -582,3 +590,7 @@ You want to erase the `name` of the product `boots-4846` for the `en_US` locale.
 }
 ```
 
+
+::: info 
+Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#product-values)
+:::
