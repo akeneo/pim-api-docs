@@ -1267,6 +1267,128 @@ paths:
         422:
           $ref: "#/responses/422Error"
 
+  /attribute-groups:
+    get:
+      summary: Get list of attribute groups
+      operationId: "attribute_groups_get_list"
+      description: This endpoint allows you to get a list of attribute groups. Attribute groups are paginated and sorted by code.
+      tags:
+        - Attribute groups
+      parameters:
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
+      responses:
+        200:
+          description: Return attribute groups paginated
+          schema:
+            title: Attribute groups
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/AttributeGroupList'
+          examples: {
+            _links: {
+              self: {
+                href: "https://demo.akeneo.com/api/rest/v1/attribute-groups?page=3&limit=2"
+              },
+              first: {
+                href: "https://demo.akeneo.com/api/rest/v1/attribute-groups?page=1&limit=2"
+              },
+              previous: {
+                href: "https://demo.akeneo.com/api/rest/v1/attribute-groups?page=2&limit=2"
+              },
+              next: {
+                href: "https://demo.akeneo.com/api/rest/v1/attribute-groups?page=4&limit=2"
+              }
+            },
+            current_page: 3,
+            _embedded: {
+              _items: [
+                {
+                  "_links":{
+                     "self":{
+                        "href": "https://demo.akeneo.com/api/rest/v1/attribute-groups/marketing"
+                     }
+                  },
+                  "code":"marketing",
+                  "sort_order":4,
+                  "attributes":[
+                     "sku",
+                     "name",
+                     "description",
+                     "response_time",
+                     "release_date",
+                     "price"
+                  ],
+                  "labels":{
+                     "en_US":"Marketing",
+                     "fr_FR":"Marketing"
+                  }
+                },
+                {
+                  "_links":{
+                     "self":{
+                        "href":"https://demo.akeneo.com/api/rest/v1/attribute-groups/technical"
+                     }
+                  },
+                  "code":"technical",
+                  "sort_order":5,
+                  "attributes":[
+                     "weight",
+                     "maximum_scan_size",
+                     "color_scanning",
+                     "power_requirements",
+                     "maximum_print_size",
+                     "sensor_type",
+                     "total_megapixels",
+                     "optical_zoom",
+                     "camera_type"
+                  ],
+                  "labels":{
+                     "en_US":"Technical",
+                     "fr_FR":"Technique"
+                  }
+                }
+              ]
+            }
+          }
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
+  /attribute-groups/{code}:
+    get:
+      summary: Get an attribute group
+      operationId: "attribute_groups_get"
+      description: This endpoint allows you to get the information about a given attribute group.
+      tags:
+        - Attribute groups
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          description: OK
+          x-details: Returns the content of the attribute group in JSON standard format
+          schema:
+            $ref: '#/definitions/AttributeGroup'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
   /media-files:
     get:
       summary: Get a list of media files
@@ -2157,6 +2279,56 @@ definitions:
     allOf:
       - $ref:  '#/definitions/ItemList'
       - $ref: '#/definitions/AttributeOption'
+  AttributeGroup:
+    type: object
+    required: ["code"]
+    properties:
+      code:
+        type: string
+        description: Attribute group code
+        x-immutable: true
+      sort_order:
+        type: integer
+        description: Attribute group order among other attribute groups
+        x-validation-rules: It is a positive integer
+        default: 0
+      attributes:
+        type: array
+        description: Attribute codes that compose the attribute group
+        x-validation-rules: Each string of the array is an existing attribute code, an attribute can only be in one attribute group
+        items:
+          type: string
+        default: []
+      labels:
+        type: object
+        description: Attribute group labels for each locale
+        x-validation-rules: The `localeCode` is the code of an existing and activated locale
+        default: {}
+        properties:
+          localeCode:
+            type: string
+            description: Attribute group label for the locale `localeCode`
+    example: {
+      "code":"marketing",
+      "sort_order":4,
+      "attributes":[
+         "sku",
+         "name",
+         "description",
+         "response_time",
+         "release_date",
+         "price"
+      ],
+      "labels":{
+         "en_US":"Marketing",
+         "fr_FR":"Marketing"
+      }
+    }
+  AttributeGroupList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/AttributeGroup'
   MediaFile:
     type: object
     properties:
