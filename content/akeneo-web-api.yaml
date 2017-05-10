@@ -35,7 +35,7 @@ paths:
                 type: object
                 description: All the availables endpoints
           examples: {
-            "host": "http://test-dev-feature-9.akeneo.com",
+            "host": "https://demo.akeneo.com",
             "authentication": {
               "fos_oauth_server_token": {
                 "route": "/api/oauth/v1/token",
@@ -265,14 +265,14 @@ paths:
       operationId: "post_autentication_token"
       tags: 
         - Authentication
-      description: This endpoint allows you to an authentication token. No need to be authenticated to use this endpoint.
+      description: This endpoint allows you to get an authentication token. No need to be authenticated to use this endpoint.
       x-no-token: true
       parameters:
         - name: Authorization
           in: header
           type: string
           required: true
-          description: Equal to 'Basic xx', where 'xx' is the base 64 encoding of the client id an secret. Find out how to generate them in the <a href="/documentation/security.html#create-an-oauth-client">Create an OAuth client</a> section.
+          description: Equal to 'Basic xx', where 'xx' is the base 64 encoding of the client id and secret. Find out how to generate them in the <a href="/documentation/security.html#create-an-oauth-client">Create an OAuth client</a> section.
         - name: body
           in: body
           schema:
@@ -286,14 +286,13 @@ paths:
                 description: Your PIM password
               grant_type:
                 type: string
-                description: Always equals to "password"
+                description: Always equal to "password"
             example:
               {
                 "username" : "admin",
                 "password": "admin",
                 "grant_type": "password"
               }
-
       responses:
         200:
           description: Return an authentication token
@@ -303,16 +302,16 @@ paths:
             properties:
               access_token:
                 type: string
-                description: Authentication token that should be given in every request to the API
+                description: Authentication token that should be given in every authenticated request to the API
               expires_in:
                 type: integer
-                description: Validity of the token given in milliseconds. 3600ms by default
+                description: Validity of the token given in seconds, 3600s = 1h by default
               token_type:
                 type: string
-                description: Token type, always equals to "bearer"
+                description: Token type, always equal to "bearer"
               scope:
                 type: string
-                description: Unused, always equals to "null"
+                description: Unused, always equal to "null"
               refresh_token:
                 type: string
                 description: Use this token when your access token has expired. See <a href="/documentation/security.html#refresh-an-expired-token">Refresh an expired token</a> section for more details.
