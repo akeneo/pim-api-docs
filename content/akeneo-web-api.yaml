@@ -10,7 +10,326 @@ schemes:
 produces:
   - application/json
 paths:
-  /products:
+  /api/rest/v1:
+    get:
+      summary: Get list of all endpoints
+      operationId: "endpoints"
+      tags: 
+        - Overview
+      description: This endpoint allows you to get the list of all the available endpoints. No need to be authenticated to use this endpoint.
+      x-no-token: true
+      responses:
+        200:
+          description: Return the list of all available endpoints
+          x-no-entity: true
+          schema:
+            type: object
+            properties:
+              host:
+                type: string
+                description: Host name
+              authentication:
+                type: object
+                description: Endpoint to get the authentication token
+              routes:
+                type: object
+                description: All the availables endpoints
+          examples: {
+            "host": "http://test-dev-feature-9.akeneo.com",
+            "authentication": {
+              "fos_oauth_server_token": {
+                "route": "/api/oauth/v1/token",
+                "methods": [
+                  "POST"
+                ]
+              }
+            },
+            "routes": {
+              "pim_api_category_list": {
+                "route": "/api/rest/v1/categories",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_category_get": {
+                "route": "/api/rest/v1/categories/{code}",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_category_create": {
+                "route": "/api/rest/v1/categories",
+                "methods": [
+                  "POST"
+                ]
+              },
+              "pim_api_category_partial_update": {
+                "route": "/api/rest/v1/categories/{code}",
+                "methods": [
+                  "PATCH"
+                ]
+              },
+              "pim_api_category_partial_update_list": {
+                "route": "/api/rest/v1/categories",
+                "methods": [
+                  "PATCH"
+                ]
+              },
+              "pim_api_family_list": {
+                "route": "/api/rest/v1/families",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_family_get": {
+                "route": "/api/rest/v1/families/{code}",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_family_create": {
+                "route": "/api/rest/v1/families",
+                "methods": [
+                  "POST"
+                ]
+              },
+              "pim_api_family_partial_update": {
+                "route": "/api/rest/v1/families/{code}",
+                "methods": [
+                  "PATCH"
+                ]
+              },
+              "pim_api_family_partial_update_list": {
+                "route": "/api/rest/v1/families",
+                "methods": [
+                  "PATCH"
+                ]
+              },
+              "pim_api_attribute_list": {
+                "route": "/api/rest/v1/attributes",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_attribute_create": {
+                "route": "/api/rest/v1/attributes",
+                "methods": [
+                  "POST"
+                ]
+              },
+              "pim_api_attribute_partial_update": {
+                "route": "/api/rest/v1/attributes/{code}",
+                "methods": [
+                  "PATCH"
+                ]
+              },
+              "pim_api_attribute_get": {
+                "route": "/api/rest/v1/attributes/{code}",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_attribute_partial_update_list": {
+                "route": "/api/rest/v1/attributes",
+                "methods": [
+                  "PATCH"
+                ]
+              },
+              "pim_api_attribute_option_list": {
+                "route": "/api/rest/v1/attributes/{attributeCode}/options",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_attribute_option_create": {
+                "route": "/api/rest/v1/attributes/{attributeCode}/options",
+                "methods": [
+                  "POST"
+                ]
+              },
+              "pim_api_attribute_option_partial_update": {
+                "route": "/api/rest/v1/attributes/{attributeCode}/options/{optionCode}",
+                "methods": [
+                  "PATCH"
+                ]
+              },
+              "pim_api_attribute_option_get": {
+                "route": "/api/rest/v1/attributes/{attributeCode}/options/{code}",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_attribute_group_list": {
+                "route": "/api/rest/v1/attribute-groups",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_attribute_group_get": {
+                "route": "/api/rest/v1/attribute-groups/{code}",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_channel_list": {
+                "route": "/api/rest/v1/channels",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_channel_get": {
+                "route": "/api/rest/v1/channels/{code}",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_locale_list": {
+                "route": "/api/rest/v1/locales",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_locale_get": {
+                "route": "/api/rest/v1/locales/{code}",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_product_list": {
+                "route": "/api/rest/v1/products",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_product_get": {
+                "route": "/api/rest/v1/products/{code}",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_product_create": {
+                "route": "/api/rest/v1/products",
+                "methods": [
+                  "POST"
+                ]
+              },
+              "pim_api_product_partial_update": {
+                "route": "/api/rest/v1/products/{code}",
+                "methods": [
+                  "PATCH"
+                ]
+              },
+              "pim_api_product_partial_update_list": {
+                "route": "/api/rest/v1/products",
+                "methods": [
+                  "PATCH"
+                ]
+              },
+              "pim_api_product_delete": {
+                "route": "/api/rest/v1/products/{code}",
+                "methods": [
+                  "DELETE"
+                ]
+              },
+              "pim_api_media_file_list": {
+                "route": "/api/rest/v1/media-files",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_media_file_download": {
+                "route": "/api/rest/v1/media-files/{code}/download",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_media_file_get": {
+                "route": "/api/rest/v1/media-files/{code}",
+                "methods": [
+                  "GET"
+                ]
+              },
+              "pim_api_media_file_create": {
+                "route": "/api/rest/v1/media-files",
+                "methods": [
+                  "POST"
+                ]
+              }
+            }
+          }
+        406:
+          $ref: "#/responses/406Error"
+  /api/oauth/v1/token:
+    post:
+      summary: Get authentication token
+      operationId: "post_autentication_token"
+      tags: 
+        - Authentication
+      description: This endpoint allows you to an authentication token. No need to be authenticated to use this endpoint.
+      x-no-token: true
+      parameters:
+        - name: Authorization
+          in: header
+          type: string
+          required: true
+          description: Equal to 'Basic xx', where 'xx' is the base 64 encoding of the client id an secret. Find out how to generate them in the <a href="/documentation/security.html#create-an-oauth-client">Create an OAuth client</a> section.
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+                description: Your PIM username
+              password:
+                type: string
+                description: Your PIM password
+              grant_type:
+                type: string
+                description: Always equals to "password"
+            example:
+              {
+                "username" : "admin",
+                "password": "admin",
+                "grant_type": "password"
+              }
+
+      responses:
+        200:
+          description: Return an authentication token
+          x-no-entity: true
+          schema:
+            type: object
+            properties:
+              access_token:
+                type: string
+                description: Authentication token that should be given in every request to the API
+              expires_in:
+                type: integer
+                description: Validity of the token given in milliseconds. 3600ms by default
+              token_type:
+                type: string
+                description: Token type, always equals to "bearer"
+              scope:
+                type: string
+                description: Unused, always equals to "null"
+              refresh_token:
+                type: string
+                description: Use this token when your access token has expired. See <a href="/documentation/security.html#refresh-an-expired-token">Refresh an expired token</a> section for more details.
+          examples: {
+            "access_token": "ZTZmYjU4ZmQxZWNmMzk1M2NlYzA5NmFhNmIzVjExMzE4NmJmODBkZGIyYTliYmQyNjk2ZDQwZThmNjdiZDQzOQ",
+            "expires_in": 3600,
+            "token_type": "bearer",
+            "scope": null,
+            "refresh_token": "M2FlODI0OTE3ODMyNjViMzRiOWE5ODMyNWViMThkNDU5YzJjNjFiZjNkZWFjMzIyYjc4YTgzZWY1MjE5ZTY5Mw"
+          }
+        400:
+          $ref: "#/responses/400Error"
+        415:
+          $ref: "#/responses/415Error"
+        422:
+          $ref: "#/responses/422Error"
+  /api/rest/v1/products:
     get:
       summary: Get list of products
       operationId: "products_get_list"
@@ -318,6 +637,7 @@ paths:
         200:
           description: OK
           x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+          x-no-entity: true
           schema:
             $ref: "#/definitions/ErrorByLine"
           examples:
@@ -335,7 +655,7 @@ paths:
           $ref: "#/responses/413Error"
         415:
           $ref: "#/responses/415ErrorStream"
-  /products/{code}:
+  /api/rest/v1/products/{code}:
     get:
       summary: Get a product
       operationId: "products_get"
@@ -403,7 +723,7 @@ paths:
         404:
           $ref: "#/responses/404Error"
 
-  /categories:
+  /api/rest/v1/categories:
     get:
       summary: Get list of categories
       operationId: "categories_get_list"
@@ -574,6 +894,7 @@ paths:
         200:
           description: OK
           x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+          x-no-entity: true
           schema:
             $ref: "#/definitions/ErrorByLine"
           examples:
@@ -591,7 +912,7 @@ paths:
           $ref: "#/responses/413Error"
         415:
           $ref: "#/responses/415ErrorStream"
-  /categories/{code}:
+  /api/rest/v1/categories/{code}:
     get:
       summary: Get a category
       operationId: "categories_get"
@@ -643,7 +964,7 @@ paths:
         422:
           $ref: "#/responses/422Error"
 
-  /families:
+  /api/rest/v1/families:
     get:
       summary: Get list of families
       operationId: "families_get_list"
@@ -780,6 +1101,7 @@ paths:
         200:
           description: OK
           x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+          x-no-entity: true
           schema:
             $ref: "#/definitions/ErrorByLine"
           examples:
@@ -797,7 +1119,7 @@ paths:
           $ref: "#/responses/413Error"
         415:
           $ref: "#/responses/415ErrorStream"
-  /families/{code}:
+  /api/rest/v1/families/{code}:
     get:
       summary: Get a family
       operationId: "families_get"
@@ -849,7 +1171,7 @@ paths:
         422:
           $ref: "#/responses/422Error"
 
-  /attributes:
+  /api/rest/v1/attributes:
     get:
       summary: Get list of attributes
       operationId: "attributes_get_list"
@@ -1022,6 +1344,7 @@ paths:
         200:
           description: OK
           x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+          x-no-entity: true
           schema:
             $ref: "#/definitions/ErrorByLine"
           examples:
@@ -1039,7 +1362,7 @@ paths:
           $ref: "#/responses/413Error"
         415:
           $ref: "#/responses/415ErrorStream"
-  /attributes/{code}:
+  /api/rest/v1/attributes/{code}:
     get:
       summary: Get an attribute
       operationId: "attributes_get"
@@ -1091,7 +1414,7 @@ paths:
         422:
           $ref: "#/responses/422Error"
 
-  /attributes/{attribute_code}/options:
+  /api/rest/v1/attributes/{attribute_code}/options:
     get:
       summary: Get list of attribute options
       operationId: "attribute_options_get_list"
@@ -1213,7 +1536,7 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
-  /attributes/{attribute_code}/options/{code}:
+  /api/rest/v1/attributes/{attribute_code}/options/{code}:
     get:
       summary: Get an attribute option
       operationId: "attribute_options_get"
@@ -1267,7 +1590,7 @@ paths:
         422:
           $ref: "#/responses/422Error"
 
-  /media-files:
+  /api/rest/v1/media-files:
     get:
       summary: Get a list of media files
       tags:
@@ -1386,13 +1709,14 @@ paths:
       tags:
         - Media files
       parameters:
-        - name: content-type
+        - name: Content-type
           in: header
           type: string
-          x-value: multipart/form-data
+          description: Equal to 'multipart/form-data', no other value allowed
           required: true
         - name: body
           in: body
+          x-form-data: true
           schema:
             properties:
               product:
@@ -1415,7 +1739,7 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
-  /media-files/{code}:
+  /api/rest/v1/media-files/{code}:
     get:
       summary: Get a media file
       operationId: "media_files_get"
@@ -1438,7 +1762,7 @@ paths:
           $ref: "#/responses/404Error"
         406:
           $ref: "#/responses/406Error"
-  /media-files/{code}/download:
+  /api/rest/v1/media-files/{code}/download:
     get:
       summary: Download a media file
       operationId: "media_files_download"
@@ -1459,7 +1783,7 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
-  /locales:
+  /api/rest/v1/locales:
     get:
       summary: Get a list of locales
       operationId: "locales_get_list"
@@ -1549,7 +1873,7 @@ paths:
           $ref: "#/responses/403Error"
         406:
           $ref: "#/responses/406Error"
-  /locales/{code}:
+  /api/rest/v1/locales/{code}:
     get:
       summary: Get a locale
       operationId: "locales_get"
@@ -1572,7 +1896,7 @@ paths:
           $ref: "#/responses/404Error"
         406:
           $ref: "#/responses/406Error"
-  /channels:
+  /api/rest/v1/channels:
     get:
       summary: Get a list of channels
       operationId: "channels"
@@ -1679,7 +2003,7 @@ paths:
           $ref: "#/responses/403Error"
         406:
           $ref: "#/responses/406Error"
-  /channels/{code}:
+  /api/rest/v1/channels/{code}:
     get:
       summary: Get a channel
       operationId: "channels_get"
@@ -1702,7 +2026,6 @@ paths:
           $ref: "#/responses/404Error"
         406:
           $ref: "#/responses/406Error"
-
 
 definitions:
   Product:
