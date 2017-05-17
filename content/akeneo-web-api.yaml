@@ -1366,6 +1366,30 @@ paths:
           $ref: "#/responses/403Error"
         406:
           $ref: "#/responses/406Error"
+    post:
+      summary: Create a new attribute group
+      operationId: "attribute_groups_post"
+      description: This endpoint allows you to create a new attribute group.
+      tags:
+        - Attribute groups
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/AttributeGroup"
+      responses:
+        201:
+          $ref: "#/responses/Created"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        415:
+          $ref: "#/responses/415Error"
+        422:
+          $ref: "#/responses/422Error"
   /attribute-groups/{code}:
     get:
       summary: Get an attribute group
