@@ -140,10 +140,10 @@ Here are the allowed operators to filter on these properties as well as the corr
 | `SINCE LAST N DAYS` | integer | Only returns products that have respectively been updated or created since the last n days, n being the given value |
 |
 #### Examples
-To get the products that were created on the 4th of July 2016, you can use the following URL.
+To get the products that were created on the 4th of July 2016 at 10am, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04"}]}
+/api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04 10:00:00"}]}
 ```
 
 To get the products that were updated during the last 4 days, you can use the following URL.
