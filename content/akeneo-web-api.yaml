@@ -1390,6 +1390,47 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
+    patch:
+      summary: Update/create several attribute groups
+      operationId: "several_attribute_groups_patch"
+      tags:
+        - Attribute groups
+      description: This endpoint allows you to update and/or create several attribute groups at once.
+      x-body-by-line: Contains several lines, each line is a product in JSON standard format
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/AttributeGroup"
+            x-examples:
+              x-example-1:
+                '{"code":"technical","labels":{"en_US": "Technical", "fr_FR": "Technique"}}'
+              x-example-2:
+                '{"code":"marketing","type":"bar"}'
+              x-example-3:
+                '{"code":"design","sort_order":7}'
+      responses:
+        200:
+          description: OK
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+          schema:
+            $ref: "#/definitions/ErrorByLine"
+          examples:
+            x-example-1:
+              '{"line":1,"code":"technical","status_code":201}'
+            x-example-2:
+              '{"line":2,"code":"marketing","status_code":422,"message":"Property \"type\" does not exist. Check the standard format documentation.","_links":{"documentation":{"href":"http:\/\/api.akeneo.com\/api-reference.html#patch_attribute_groups__code_"}'
+            x-example-3:
+              '{"line":3,"code":"design","status_code":204}'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        413:
+          $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
+
   /attribute-groups/{code}:
     get:
       summary: Get an attribute group
