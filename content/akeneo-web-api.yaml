@@ -2222,6 +2222,31 @@ paths:
           $ref: "#/responses/403Error"
         406:
           $ref: "#/responses/406Error"
+    post:
+      summary: Create a new channel
+      operationId: "channels_post"
+      description: This endpoint allows you to create a new channel.
+      tags:
+        - Channels
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/Channel"
+      responses:
+        201:
+          $ref: "#/responses/Created"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        415:
+          $ref: "#/responses/415Error"
+        422:
+          $ref: "#/responses/422Error"
+
   /api/rest/v1/channels/{code}:
     get:
       summary: Get a channel
@@ -2921,7 +2946,7 @@ definitions:
       - $ref: '#/definitions/Locale'
   Channel:
     type: object
-    required: ["code"]
+    required: ["code", "category_tree", "locales", "currencies"]
     properties:
       code:
         type: string
@@ -2930,18 +2955,23 @@ definitions:
       locales:
         type: array
         description: Codes of activated locales for the channel
+        x-validation-rules: "&bull; Each string of the array is an existing locale code &#10;&bull; At least one locale in the array"
         items:
           type: string
       currencies:
         type: array
         description: Codes of activated currencies for the channel
+        x-validation-rules: "&bull; Each string of the array is an existing currency code &#10;&bull; At least one currency in the array"
         items:
           type: string
       category_tree:
         type: string
         description: Code of the category tree linked to the channel
+        x-validation-rules: It is the code of an existing category code that is a tree (a category without parent)
       conversion_units:
         type: object
+        description: Units to which the given metric attributes should be converted when exporting products
+        x-validation-rules: "&bull; The `attributeCode` is the code of an existing attribute whose type is `pim_catalog_metric` &#10;&bull; The strings are existing unit codes."
         properties:
           attributeCode:
             type: string
@@ -2967,7 +2997,9 @@ definitions:
         "fr_FR"
       ],
       "category_tree": "master",
-      "conversion_units": {},
+      "conversion_units": {
+        "weight": "KILOGRAM"
+      },
       "labels": {
         "en_US": "Ecommerce",
         "de_DE": "Ecommerce",
