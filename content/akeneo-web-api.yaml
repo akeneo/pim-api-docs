@@ -380,8 +380,6 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
-        404:
-          $ref: "#/responses/404Error"
         415:
           $ref: "#/responses/415Error"
         422:
@@ -640,8 +638,6 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
-        404:
-          $ref: "#/responses/404Error"
         415:
           $ref: "#/responses/415Error"
         422:
@@ -848,8 +844,6 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
-        404:
-          $ref: "#/responses/404Error"
         415:
           $ref: "#/responses/415Error"
         422:
@@ -1092,8 +1086,6 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
-        404:
-          $ref: "#/responses/404Error"
         415:
           $ref: "#/responses/415Error"
         422:
@@ -1270,8 +1262,6 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
-        404:
-          $ref: "#/responses/404Error"
         415:
           $ref: "#/responses/415Error"
         422:
