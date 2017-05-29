@@ -216,7 +216,7 @@ HTTP/1.1 200 OK
 ```
 
 ### 201 success
-Creating a resource results in a `201 Created` response. In the `Location` header, you will find the route to access the newly created entity.
+Creating a resource results in a `201 Created` response. In the `Location` header, you will find the route to access the newly created resource.
 
 #### Example
 ```http
@@ -225,9 +225,10 @@ Location: https://demo.akeneo.com/api/rest/v1/categories/winter
 ```
 
 ### 204 success
-Updating or deleting a resource results in a `204 No Content` response.
+Updating or deleting a resource results in a `204 No Content` response. In the `Location` header, you will find the route to access the updated resource.
 
 #### Example
 ```http
 HTTP/1.1 204 No Content
+Location: https://demo.akeneo.com/api/rest/v1/categories/summer
 ```

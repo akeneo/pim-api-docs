@@ -372,14 +372,14 @@ paths:
           schema:
             $ref: "#/definitions/Product"
       responses:
+        201:
+          $ref: "#/responses/Created"
         204:
           $ref: "#/responses/NoContent"
         401:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
-        404:
-          $ref: "#/responses/404Error"
         415:
           $ref: "#/responses/415Error"
         422:
@@ -628,6 +628,8 @@ paths:
           schema:
             $ref: "#/definitions/Category"
       responses:
+        201:
+          $ref: "#/responses/Created"
         204:
           $ref: "#/responses/NoContent"
         400:
@@ -636,8 +638,6 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
-        404:
-          $ref: "#/responses/404Error"
         415:
           $ref: "#/responses/415Error"
         422:
@@ -834,6 +834,8 @@ paths:
           schema:
             $ref: "#/definitions/Family"
       responses:
+        201:
+          $ref: "#/responses/Created"
         204:
           $ref: "#/responses/NoContent"
         400:
@@ -842,8 +844,6 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
-        404:
-          $ref: "#/responses/404Error"
         415:
           $ref: "#/responses/415Error"
         422:
@@ -1076,6 +1076,8 @@ paths:
           schema:
             $ref: "#/definitions/Attribute"
       responses:
+        201:
+          $ref: "#/responses/Created"
         204:
           $ref: "#/responses/NoContent"
         400:
@@ -1084,8 +1086,6 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
-        404:
-          $ref: "#/responses/404Error"
         415:
           $ref: "#/responses/415Error"
         422:
@@ -1252,6 +1252,8 @@ paths:
           schema:
             $ref: "#/definitions/AttributeOption"
       responses:
+        201:
+          $ref: "#/responses/Created"
         204:
           $ref: "#/responses/NoContent"
         400:
@@ -1260,8 +1262,6 @@ paths:
           $ref: "#/responses/401Error"
         403:
           $ref: "#/responses/403Error"
-        404:
-          $ref: "#/responses/404Error"
         415:
           $ref: "#/responses/415Error"
         422:
@@ -1382,7 +1382,7 @@ paths:
     post:
       summary: Create a new media file
       operationId: "media_file_post"
-      description: This endpoint allows you to create a new media file and to associate it to the product value of a given product.
+      description: This endpoint allows you to create a new media file and associate it to the product value of a given product.
       tags:
         - Media files
       parameters:
@@ -1412,7 +1412,7 @@ paths:
         403:
           $ref: "#/responses/403Error"
         415:
-          $ref: "#/responses/415Error"
+          $ref: "#/responses/415ErrorMultipart"
         422:
           $ref: "#/responses/422Error"
   /media-files/{code}:
@@ -2383,12 +2383,16 @@ responses:
   Created:
     description: Created
     x-details: Means that the creation was successful
+    headers:
+      Location:
+        description: URI of the created resource
+        type: string
   NoContent:
     description: No content to return
     x-details: Means that the update was successful
     headers:
       Location:
-        description: URI of the resource
+        description: URI of the updated resource
         type: string
   400Error:
     description: Bad request
@@ -2446,7 +2450,7 @@ responses:
     }
   415Error:
     description: Unsupported Media type
-    x-details: The `Content-type` header is not `application/json` but it should
+    x-details: The `Content-type` header has to be `application/json`
     schema:
       $ref: "#/definitions/Error"
     examples: {
@@ -2455,12 +2459,21 @@ responses:
     }
   415ErrorStream:
     description: Unsupported Media type
-    x-details: The `Content-type` header is not `application/vnd.akeneo.collection+json` but it should
+    x-details: The `Content-type` header has to be `application/vnd.akeneo.collection+json`
     schema:
       $ref: "#/definitions/Error"
     examples: {
       "code": 415,
       "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘application/vnd.akeneo.collection+json’ is allowed."
+    }
+  415ErrorMultipart:
+    description: Unsupported Media type
+    x-details: The `Content-type` header has to be `multipart/form-data`
+    schema:
+      $ref: "#/definitions/Error"
+    examples: {
+      "code": 415,
+      "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘multipart/form-data’ is allowed."
     }
   422Error:
     description: Unprocessable entity
