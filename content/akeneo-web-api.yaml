@@ -372,6 +372,8 @@ paths:
           schema:
             $ref: "#/definitions/Product"
       responses:
+        201:
+          $ref: "#/responses/Created"
         204:
           $ref: "#/responses/NoContent"
         401:
@@ -628,6 +630,8 @@ paths:
           schema:
             $ref: "#/definitions/Category"
       responses:
+        201:
+          $ref: "#/responses/Created"
         204:
           $ref: "#/responses/NoContent"
         400:
@@ -834,6 +838,8 @@ paths:
           schema:
             $ref: "#/definitions/Family"
       responses:
+        201:
+          $ref: "#/responses/Created"
         204:
           $ref: "#/responses/NoContent"
         400:
@@ -1076,6 +1082,8 @@ paths:
           schema:
             $ref: "#/definitions/Attribute"
       responses:
+        201:
+          $ref: "#/responses/Created"
         204:
           $ref: "#/responses/NoContent"
         400:
@@ -1252,6 +1260,8 @@ paths:
           schema:
             $ref: "#/definitions/AttributeOption"
       responses:
+        201:
+          $ref: "#/responses/Created"
         204:
           $ref: "#/responses/NoContent"
         400:
