@@ -1392,7 +1392,7 @@ paths:
     post:
       summary: Create a new media file
       operationId: "media_file_post"
-      description: This endpoint allows you to create a new media file and to associate it to the product value of a given product.
+      description: This endpoint allows you to create a new media file and associate it to the product value of a given product.
       tags:
         - Media files
       parameters:
@@ -1422,7 +1422,7 @@ paths:
         403:
           $ref: "#/responses/403Error"
         415:
-          $ref: "#/responses/415Error"
+          $ref: "#/responses/415ErrorMultipart"
         422:
           $ref: "#/responses/422Error"
   /media-files/{code}:
@@ -2460,7 +2460,7 @@ responses:
     }
   415Error:
     description: Unsupported Media type
-    x-details: The `Content-type` header is not `application/json` but it should
+    x-details: The `Content-type` header has to be `application/json`
     schema:
       $ref: "#/definitions/Error"
     examples: {
@@ -2469,12 +2469,21 @@ responses:
     }
   415ErrorStream:
     description: Unsupported Media type
-    x-details: The `Content-type` header is not `application/vnd.akeneo.collection+json` but it should
+    x-details: The `Content-type` header has to be `application/vnd.akeneo.collection+json`
     schema:
       $ref: "#/definitions/Error"
     examples: {
       "code": 415,
       "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘application/vnd.akeneo.collection+json’ is allowed."
+    }
+  415ErrorMultipart:
+    description: Unsupported Media type
+    x-details: The `Content-type` header has to be `multipart/form-data`
+    schema:
+      $ref: "#/definitions/Error"
+    examples: {
+      "code": 415,
+      "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘multipart/form-data’ is allowed."
     }
   422Error:
     description: Unprocessable entity
