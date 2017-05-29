@@ -2393,12 +2393,16 @@ responses:
   Created:
     description: Created
     x-details: Means that the creation was successful
+    headers:
+      Location:
+        description: URI of the created resource
+        type: string
   NoContent:
     description: No content to return
     x-details: Means that the update was successful
     headers:
       Location:
-        description: URI of the resource
+        description: URI of the updated resource
         type: string
   400Error:
     description: Bad request
