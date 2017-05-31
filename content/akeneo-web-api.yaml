@@ -876,7 +876,7 @@ paths:
       tags:
         - Categories
       description: This endpoint allows you to update several categories at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON standard format
+      x-body-by-line: Contains several lines, each line is a category in JSON standard format
       parameters:
         - name: body
           in: body
@@ -1083,7 +1083,7 @@ paths:
       tags:
         - Families
       description: This endpoint allows you to update and/or create several families at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON standard format
+      x-body-by-line: Contains several lines, each line is a family in JSON standard format
       parameters:
         - name: body
           in: body
@@ -1326,7 +1326,7 @@ paths:
       tags:
         - Attributes
       description: This endpoint allows you to update and/or create several attributes at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON standard format
+      x-body-by-line: Contains several lines, each line is an attribute in JSON standard format
       parameters:
         - name: body
           in: body
@@ -1718,7 +1718,7 @@ paths:
       tags:
         - Attribute groups
       description: This endpoint allows you to update and/or create several attribute groups at once.
-      x-body-by-line: Contains several lines, each line is a product in JSON standard format
+      x-body-by-line: Contains several lines, each line is an attribute group in JSON standard format
       parameters:
         - name: body
           in: body
@@ -1752,7 +1752,6 @@ paths:
           $ref: "#/responses/413Error"
         415:
           $ref: "#/responses/415ErrorStream"
-
   /api/rest/v1/attribute-groups/{code}:
     get:
       summary: Get an attribute group
@@ -2246,7 +2245,46 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
-
+    patch:
+      summary: Update/create several channels
+      operationId: "several_channels_patch"
+      tags:
+        - Channels
+      description: This endpoint allows you to update and/or create several channels at once.
+      x-body-by-line: Contains several lines, each line is a channel in JSON standard format
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/Channel"
+            x-examples:
+              x-example-1:
+                '{"code":"ecommerce_fr", "category_tree": "master", "currencies": ["EUR"], "locales": ["fr_FR"], "labels":{"fr_FR": "Ecommerce Fr"}}'
+              x-example-2:
+                '{"code":"ecommerce_ch", "type":"bar"}'
+              x-example-3:
+                '{"code":"tablet", "labels":{"en_US": "Tablet", "fr_FR": "Tablette"}}'
+      responses:
+        200:
+          description: OK
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+          schema:
+            $ref: "#/definitions/ErrorByLine"
+          examples:
+            x-example-1:
+              '{"line":1,"code":"ecommerce_fr","status_code":201}'
+            x-example-2:
+              '{"line":2,"code":"ecommerce_ch","status_code":422,"message":"Property \"type\" does not exist. Check the standard format documentation.","_links":{"documentation":{"href":"http:\/\/api.akeneo.com\/api-reference.html#patch_channels__code_"}'
+            x-example-3:
+              '{"line":3,"code":"tablet","status_code":204}'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        413:
+          $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
   /api/rest/v1/channels/{code}:
     get:
       summary: Get a channel
@@ -2270,6 +2308,35 @@ paths:
           $ref: "#/responses/404Error"
         406:
           $ref: "#/responses/406Error"
+    patch:
+      summary: Update/create a channel
+      operationId: "channels_patch"
+      tags:
+        - Channels
+      description: This endpoint allows you to update a given channel. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no channel exists for the given code, it creates it.
+      parameters:
+        - $ref: '#/parameters/code'
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Channel"
+      responses:
+        201:
+          $ref: "#/responses/Created"
+        204:
+          $ref: "#/responses/NoContent"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        415:
+          $ref: "#/responses/415Error"
+        422:
+          $ref: "#/responses/422Error"
+
 
   /api/rest/v1/channels/currencies:
     get:
