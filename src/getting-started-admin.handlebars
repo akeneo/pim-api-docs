@@ -1,115 +1,117 @@
 {{#> layout title="Get started!" active="getting-started"}}
     <div class="container">
-      <div class="row">
-        <div class="col-md-offset-2 col-md-8 col-xs-offset-1 col-xs-11">
-          <h1>Want to manage the access to the web API?</h1>
-          <em>These simple steps will guide you and at the end, you will be able to grant access to the API to Peter, your favorite integrator!</em>
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="panel panel-picto panel-default panel-getting-started">
-                <svg viewBox="0 0 256 256">
-                  <use xlink:href="/img/icons.svg#icon--lock"></use>
-                </svg>
-                <div class="panel-body">
-                  <h3 class="picto">Prerequisites</h3>
-                  <h4><i class="fa fa-check-square"></i> An Akeneo PIM is already installed</h4>
-                  <p>This can seems pretty obvious. But yeah ! You will need a PIM already installed if you want to manage any access to this PIM.</p><br>
-                  <h4><i class="fa fa-check-square"></i> You are the administrator of the Akeneo PIM</h4>
-                  <p>You will need to have the rights to administrate the roles and users inside the PIM, so if you are the PIM administrator, it should be ok.</p><br>
-                  <h4><i class="fa fa-check-square"></i> Peter, your favorite connector developer, is declared as a user in Akeneo PIM</h4>
-                  <p>Peter wants to develop a new connector for your Akeneo PIM and this conector will be doing requests via the Web API.</p>
-                  <p>If not already done, create a new user named <code>Peter</code> in Akeneo PIM.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-1">
-              <p class="panel-number">1</p>
-            </div>
-            <div class="col-xs-11">
-              <div class="panel panel-default panel-getting-started">
-                <div class="panel-body">
-                  <h3 class="picto">Create a Web API dedicated role</h3>
-                  <div class="row">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8 col-xs-offset-1 col-xs-11">
+                <h1>Want to manage the access to the web API?</h1>
+                <em>These simple steps will guide you and at the end, you will be able to grant access to the API to Peter, your favorite integrator!</em>
+                <div class="row">
                     <div class="col-xs-12">
-                      <p>Log in as administrator in your PIM. In the <code>System</code> code menu, select the <code>User management</code> menu, then click on the <code>Role</code> entry. From here, you should be able to create a role, click on <code>Create role</code>.</p>
-                      <img class="img-responsive" src="/img/create_a_role.png">
-                      <p>Once in the role form, give a name to the role you are creating, <code>Whole API access</code> for instance.</p>
-                      <p>Then go to the <code>Web API Permissions</code> tab and activate the access to the Web API by clicking on <code>Overall Web API access</code>.</p>
-                      <img class="img-responsive" src="/img/activate_api_access.png">
-                      <p>To finish, save your role by clicking on the <code>Save</code> button.</p>
-                      <p>Great! You now have a role ready to access to the Web API. Let's go to the next step!</p>
+                        <div class="panel panel-picto panel-default panel-getting-started">
+                            <svg viewBox="0 0 256 256">
+                                <use xlink:href="/img/icons.svg#icon--lock"></use>
+                            </svg>
+                            <div class="panel-body">
+                                <h3 class="picto">Prerequisites</h3>
+                                <h4><i class="fa fa-check-square"></i> An Akeneo PIM is already installed</h4>
+                                <p>This can seems pretty obvious. But yeah ! You will need a PIM already installed if you want to manage any access to this PIM.</p><br>
+                                <h4><i class="fa fa-check-square"></i> You are the administrator of the Akeneo PIM</h4>
+                                <p>You will need to have the rights to administrate the roles and users inside the PIM, so if you are the PIM administrator, it should be ok.</p><br>
+                                <h4><i class="fa fa-check-square"></i> Peter, your favorite connector developer, is declared as a user in Akeneo PIM</h4>
+                                <p>Peter wants to develop a new connector for your Akeneo PIM and this conector will be doing requests via the Web API.</p>
+                                <p>If not already done, create a new user named <code>Peter</code> in Akeneo PIM.</p>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-1">
-              <p class="panel-number">2</p>
-            </div>
-            <div class="col-xs-11">
-              <div class="panel panel-default panel-getting-started">
-                <div class="panel-body">
-                  <h3 class="picto">Give to Peter the role that allows him to access to the Web API</h3>
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <p>So now you have your role dedicated to the access of the Web API, you can give this role to a set of users. In the form of this role, got to the <code>Users</code> tab, select the users for which you want to give the access. Below, for example, we give to our developer <code>Peter</code> the <code>Whole API access</code> role.</p>
-                      <img class="img-responsive" src="/img/peter_get_the_access.png"></img>
+                <div class="row">
+                    <div class="col-xs-1">
+                        <p class="panel-number">1</p>
                     </div>
-                  </div>
+                    <div class="col-xs-11">
+                        <div class="panel panel-default panel-getting-started">
+                            <div class="panel-body">
+                                <h3 class="picto">Create a Web API dedicated role</h3>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <p>Log in as administrator in your PIM. In the <code>System</code> code menu, select the <code>User management</code> menu, then click on the <code>Role</code> entry. From here, you should be able to create a role, click on <code>Create role</code>.</p>
+                                        <img class="img-responsive" src="/img/create_a_role.png">
+                                        <p>Once in the role form, give a name to the role you are creating, <code>Whole API access</code> for instance.</p>
+                                        <p>Then go to the <code>Web API Permissions</code> tab and activate the access to the Web API by clicking on <code>Overall Web API access</code>.</p>
+                                        <img class="img-responsive" src="/img/activate_api_access.png">
+                                        <p>To finish, save your role by clicking on the <code>Save</code> button.</p>
+                                        <p>Great! You now have a role ready to access to the Web API. Let's go to the next step!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-1">
-              <p class="panel-number">3</p>
-            </div>
-            <div class="col-xs-11">
-              <div class="panel panel-default panel-getting-started">
-                <div class="panel-body">
-                  <h3 class="picto">Generate OAuth client id and secret</h3>
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <p>Having a user with a role giving access to the Web API is not enough to make requests via the Web API. Peter will ask you for OAuth client id and secret so as he can be authenticated.</p>
-                      <p>Client is and secret are generated with the following command line.</p>
-                      <pre class="hljs"><code>php app/console pim:oauth-server:create-client \
+                <div class="row">
+                    <div class="col-xs-1">
+                        <p class="panel-number">2</p>
+                    </div>
+                    <div class="col-xs-11">
+                        <div class="panel panel-default panel-getting-started">
+                            <div class="panel-body">
+                                <h3 class="picto">Give to Peter the role that allows him to access to the Web API</h3>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <p>So now you have your role dedicated to the access of the Web API, you can give this role to a set of users. In the form of this role, got to the <code>Users</code> tab, select the users for which you want to give the access. Below, for example, we give to our developer <code>Peter</code> the <code>Whole API access</code> role.</p>
+                                        <img class="img-responsive" src="/img/peter_get_the_access.png"></img>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-1">
+                        <p class="panel-number">3</p>
+                    </div>
+                    <div class="col-xs-11">
+                        <div class="panel panel-default panel-getting-started">
+                            <div class="panel-body">
+                                <h3 class="picto">Generate OAuth client id and secret</h3>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <p>Having a user with a role giving access to the Web API is not enough to make requests via the Web API. Peter will ask you for OAuth client id and secret so as he can be authenticated.</p>
+                                        <p>Client is and secret are generated with the following command line.</p>
+                                        <pre class="hljs"><code>php app/console pim:oauth-server:create-client \
     --grant_type=<span class="hljs-string">"password"</span> \
     --grant_type=<span class="hljs-string">"refresh_token"</span> \
-    --env=prod</code></pre>
-                      <p>You will get something like:</p>
-                      <pre class="hljs"><code>A new client has been added:
+    --env=prod</code>
+                                        </pre>
+                                        <p>You will get something like:</p>
+                                        <pre class="hljs"><code>A new client has been added:
 client_id: 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s
-secret: 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s</code></pre>
-                      <p>Give by any mean of your choice these credentials to Peter. And that's it! Thanks to it, he will be able to finally access the API. Take a look to the <a href="getting-started.html">Developer Getting started</a> to know how.</p>
-                      <div class="alert alert-info">To revoke the access, you just have to run a single command line. To see how it's done, have a look at the <a href="/documentation/security.html">Security</a> section of the documention.</div>
+secret: 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s</code>
+                                        </pre>
+                                        <p>Give by any mean of your choice these credentials to Peter. And that's it! Thanks to it, he will be able to finally access the API. Take a look to the <a href="getting-started.html">Developer Getting started</a> to know how.</p>
+                                        <div class="alert alert-info">To revoke the access, you just have to run a single command line. To see how it's done, have a look at the <a href="/documentation/security.html">Security</a> section of the documention.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="lead text-center">That's it! Peter is now ready to build amazing tools for your Akeneo PIM!</p>
+                        <p class="text-center"><em>If you want to know more about managing the access to the web API, don't hesitate to</em></p>
+                        <div class="row">
+                            <div class="col-xs-offset-3 col-xs-6">
+                                <a class="btn btn-akeneo btn-block" href="/documentation/security.html#security">Browse our Security doc</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="row">
+        </div>
+        <div class="row">
             <div class="col-xs-12">
-              <p class="lead text-center">That's it! Peter is now ready to build amazing tools for your Akeneo PIM!</p>
-              <p class="text-center"><em>If you want to know more about managing the access to the web API, don't hesitate to</em></p>
-              <div class="row">
-                <div class="col-xs-offset-3 col-xs-6">
-                  <a class="btn btn-akeneo btn-block" href="/documentation/security.html#security">Browse our Security doc</a>
-                </div>
-              </div>
+                <hr>
+                <p class="text-muted text-right"><i class="fa fa-pencil"></i> Found a typo or a hole in the documentation and feel like contributing?<br><a href="https://github.com/akeneo/pim-api-docs">Join us on Github!</a></p>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <hr>
-          <p class="text-muted text-right"><i class="fa fa-pencil"></i> Found a typo or a hole in the documentation and feel like contributing?<br><a href="https://github.com/akeneo/pim-api-docs">Join us on Github!</a></p>
-        </div>
-      </div>
     </div>
 {{/layout}}
