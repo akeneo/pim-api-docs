@@ -66,40 +66,38 @@
 		                <div class="row">
 		                  <div class="col-xs-12">
 		                    <h5>Headers</h5>
+                          {{#unless x-no-token}}
                           <p><code>Authorization</code> <a href="#" data-placement="top" data-toggle="tooltip" title="Required header"><i class="fa fa-asterisk fa-danger"></i></a> <small>&bull; Equal to 'Bearer xxx', `xxx` being the authentication token, see <a href="/documentation/security.html#authentication-2">Authentication</a> section</small></p>
+                          {{/unless}}
                         
                           {{#if x-body-by-line}}
                           <p><code>Content-type</code> <a href="#" data-placement="top" data-toggle="tooltip" title="Required header"><i class="fa fa-asterisk fa-danger"></i></a> <small>&bull; Equal to 'application/vnd.akeneo.collection+json', no other value allowed</small></p>
                           {{else}}
-                            {{#if groupedParameters.header}}
-                            <p><code>Content-type</code> <a href="#" data-placement="top" data-toggle="tooltip" title="Required header"><i class="fa fa-asterisk fa-danger"></i></a> <small>&bull; Equal to 'multipart/form-data', no other value allowed</small></p>
-                            {{else}}
-                              {{#each groupedParameters.body}}
-      			                    <p><code>Content-type</code> <a href="#" data-placement="top" data-toggle="tooltip" title="Required header"><i class="fa fa-asterisk fa-danger"></i></a> <small>&bull; Equal to 'application/json', no other value allowed</small></p>
-      		                    {{else}}
-      			                   	{{#unless x-content-type}}<p><code>Accept</code> <small>&bull; Equal to 'application/json', no other value allowed</small></p>{{/unless}}
-      			                  {{/each}}
-                            {{/if}}
+                            {{#each groupedParameters.header}}
+                            <p><code>{{{name}}}</code> <a href="#" data-placement="top" data-toggle="tooltip" title="Required header"><i class="fa fa-asterisk fa-danger"></i></a> <small>&bull; {{{description}}}</small></p>
+                            {{/each}}
+                            {{#each groupedParameters.body}}
+                              {{#unless x-form-data}}
+                                <p><code>Content-type</code> <a href="#" data-placement="top" data-toggle="tooltip" title="Required header"><i class="fa fa-asterisk fa-danger"></i></a> <small>&bull; Equal to 'application/json', no other value allowed</small></p>
+                              {{/unless}}
+      		                  {{else}}
+                              {{#unless x-content-type}}<p><code>Accept</code> <small>&bull; Equal to 'application/json', no other value allowed</small></p>{{/unless}}
+                            {{/each}}
                           {{/if}}
 		                    <h5>Body</h5>
                         {{#if x-body-by-line}}
                           <p>{{x-body-by-line}}</p>
                         {{/if}}
-                        {{#if groupedParameters.header}}
-                            <div class="row">
-                              <div class="col-xs-12">
-                                <p>Given as form-data</p>
-                                {{#each groupedParameters.body}}
-                                  {{#each schema.properties}}
-                                  <p><code>{{@key}}</code> <a href="#" data-placement="top" data-toggle="tooltip" title="Required property"><i class="fa fa-asterisk fa-danger"></i></a> <em>({{{type}}}{{#if format}} / {{{format}}}{{/if}})</em> <small>&bull; {{description}}</small></p>
-
-                                  {{/each}}
-                                {{/each}}
-                              </div>
-                            </div>
-                        {{else}}
   		                    {{#each groupedParameters.body}}
   		                    	<div class="row">
+                              {{#if x-form-data}}
+                                <div class="col-xs-12">
+                                  <p>Given as form-data</p>
+                                    {{#each schema.properties}}
+                                    <p><code>{{@key}}</code> <a href="#" data-placement="top" data-toggle="tooltip" title="Required property"><i class="fa fa-asterisk fa-danger"></i></a> <em>({{{type}}}{{#if format}} / {{{format}}}{{/if}})</em> <small>&bull; {{description}}</small></p>
+                                    {{/each}}
+                                </div>
+                              {{else}}
   		                    		<div class="col-md-8">
                                 {{#unless ../x-body-by-line}}
                                 <p>Follow the standard format of the entity</p>
@@ -127,11 +125,11 @@
   		                    			<p>Example</p>
   		                  				  {{{schema.hljsExample}}}
   														</div>
+                              {{/if}}
   		                			</div>
   		                  	{{else}}
   		                  		<p>Ø</p>
   		                  	{{/each}}
-                        {{/if}}
 		                  </div>
 		                </div>
 		                <hr>
@@ -159,7 +157,7 @@
 		                        <h5>Body {{#if x-content-type}}<small>Format <span class="label label-default">{{x-content-type}}</span></small></h5>{{else}}<small>Format <span class="label label-default">application/json</span></small></h5>{{/if}}
 		                    		{{#if success}}
 		                    			{{#if schema}}
-                                {{#unless ../x-body-by-line}}
+                                {{#unless x-no-entity}}
 		                    			   <p>Follow the standard format of the entity</p>
                                 {{/unless}}
 		                    			{{/if}}
