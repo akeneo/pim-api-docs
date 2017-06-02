@@ -2012,7 +2012,6 @@ paths:
         422:
           $ref: "#/responses/422Error"
 
-
   /currencies:
     get:
       summary: Get a list of currencies
@@ -2239,6 +2238,138 @@ paths:
           x-details: Returns the content of the measure family in JSON standard format
           schema:
             $ref: '#/definitions/MeasureFamily'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
+
+  /association-types:
+    get:
+      summary: Get a list of association types
+      operationId: "association_types_get_list"
+      description: This endpoint allows you to get a list of association types. Association types are paginated and sorted by code.
+      tags:
+        - Association types
+      parameters:
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
+      responses:
+        200:
+          description: Return association types paginated
+          schema:
+            title: Association types
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/AssociationTypeList'
+          examples: {
+            _links: {
+              self: {
+                href: "https://demo.akeneo.com/api/rest/v1/association-types?page=1&limit=3"
+              },
+              first: {
+                href: "https://demo.akeneo.com/api/rest/v1/association-types?page=1&limit=3"
+              }
+            },
+            current_page: 1,
+            _embedded: {
+              _items: [
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/association-types/X_SELL"
+                    }
+                  },
+                  "code": "X_SELL",
+                  "labels": {
+                    "en_US":"Cross sell",
+                    "fr_FR":"Vente croisée"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/association-types/UPSELL"
+                    }
+                  },
+                  "code": "UPSELL",
+                  "labels": {
+                    "en_US":"Upsell",
+                    "fr_FR":"Vente incitative"
+                  }
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/association-types/SUBSTITUTION"
+                    }
+                  },
+                  "code": "SUBSTITUTION",
+                  "labels": {
+                    "en_US":"Substitution",
+                    "fr_FR":"Remplacement"
+                  }
+                }
+              ]
+            }
+          }
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
+    post:
+      summary: Create a new association type
+      operationId: "association_types_post"
+      description: This endpoint allows you to create a new association type.
+      tags:
+        - Association types
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/AssociationType"
+      responses:
+        201:
+          $ref: "#/responses/Created"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        415:
+          $ref: "#/responses/415Error"
+        422:
+          $ref: "#/responses/422Error"
+  /association-types/{code}:
+    get:
+      summary: Get an association type
+      operationId: "association_types_get"
+      description: This endpoint allows you to get the information about a given association type.
+      tags:
+        - Association types
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          description: OK
+          x-details: Returns the content of the association type in JSON standard format
+          schema:
+            $ref: '#/definitions/AssociationType'
         401:
           $ref: "#/responses/401Error"
         403:
@@ -2943,6 +3074,35 @@ definitions:
     allOf:
       - $ref:  '#/definitions/ItemList'
       - $ref: '#/definitions/Channel'
+  AssociationType:
+    type: object
+    required: ["code"]
+    properties:
+      code:
+        type: string
+        description: Association type code
+        x-immutable: true
+      labels:
+        type: object
+        description: Association type labels for each locale
+        x-validation-rules: The `localeCode` is the code of an existing and activated locale
+        default: {}
+        properties:
+          localeCode:
+            type: string
+            description: Association type label for the locale `localeCode`
+    example: {
+      "code": "UPSELL",
+      "labels": {
+        "en_US": "Upsell",
+        "fr_FR": "Vente incitative"
+      }
+    }
+  AssociationTypeList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/AssociationType'
   Currency:
     type: object
     required: ["code"]
