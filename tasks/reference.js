@@ -20,15 +20,15 @@ gulp.task('reference', ['clean-dist'], function () {
         .pipe(swagger('akeneo-web-api.json'))
         .pipe(jsonTransform(function(data, file) {
             var templateData = data;
-            data.ressources = {};
+            data.resources = {};
             _.forEach(data.paths, function(path, pathUri){
                 var escapedPathUri = pathUri.replace(/\//g, '_').replace(/{/g, '_').replace(/}/g, '_');
                 _.forEach(path, function(operation,verb){
                     var escapeTag = operation.tags[0].replace(/\s/g, '');
-                    if(!data.ressources[escapeTag]){
-                        data.ressources[escapeTag] = {ressourceName: operation.tags[0], operations: {}};
+                    if(!data.resources[escapeTag]){
+                        data.resources[escapeTag] = {resourceName: operation.tags[0], operations: {}};
                     }
-                    data.ressources[escapeTag].operations[verb+escapedPathUri] = _.extend(operation, {
+                    data.resources[escapeTag].operations[verb+escapedPathUri] = _.extend(operation, {
                         verb: verb,
                         path: pathUri
                     });
@@ -44,7 +44,7 @@ gulp.task('reference', ['clean-dist'], function () {
         .pipe(swagger('akeneo-web-api.json'))
         .pipe(jsonTransform(function(data, file) {
             var templateData = data;
-            data.ressources = {};
+            data.resources = {};
             _.map(data.definitions,function(definition){
                 _.forEach(definition.required, function(requiredProperty){
                     definition.properties[requiredProperty].required = true;
@@ -56,8 +56,8 @@ gulp.task('reference', ['clean-dist'], function () {
                 _.forEach(path, function(operation,verb){
                     var operationId = verb + escapedPathUri;
                     var escapeTag = operation.tags[0].replace(/\s/g, '');
-                    if(!data.ressources[escapeTag]){
-                        data.ressources[escapeTag] = {ressourceName: operation.tags[0], operations: {}};
+                    if(!data.resources[escapeTag]){
+                        data.resources[escapeTag] = {resourceName: operation.tags[0], operations: {}};
                     }
                     var groupedParameters =_.groupBy(operation.parameters, function(parameter){
                         return parameter.in;
@@ -112,7 +112,7 @@ gulp.task('reference', ['clean-dist'], function () {
                         }
                         return response;
                     });
-                    data.ressources[escapeTag].operations[operationId] = _.extend(operation, {verb: verb, path: pathUri, groupedParameters:groupedParameters});
+                    data.resources[escapeTag].operations[operationId] = _.extend(operation, {verb: verb, path: pathUri, groupedParameters:groupedParameters});
                 });
             });
             return gulp.src('src/api-reference/reference.handlebars')
