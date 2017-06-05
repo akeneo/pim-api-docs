@@ -1,5 +1,15 @@
 .jumbotron{
   background-color: @brand-primary;
+  + .jumbotron{
+    background-color: @gray-lighter;
+    margin-top: -@jumbotron-padding;
+    p{
+      margin-bottom: 0;
+    }
+    .container{
+      margin-bottom: 0px;
+    }
+  }
   h1{
     color: white;
 

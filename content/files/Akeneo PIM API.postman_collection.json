@@ -1,0 +1,971 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Akeneo PIM API",
+		"_postman_id": "610ae26f-e16a-5483-43f0-5415bf16deb6",
+		"description": "The Akeneo PIM API brought to you!\n\nFind out how this Postman collection works by visiting https://api.akeneo.com/getting-started-postman-collection.html",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Attribute",
+			"description": "",
+			"item": [
+				{
+					"name": "attribute",
+					"request": {
+						"url": "{{url}}/api/rest/v1/attributes/auto_exposure",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "attributes",
+					"request": {
+						"url": "{{url}}/api/rest/v1/attributes?limit=10&with_count=false",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "attribute",
+					"request": {
+						"url": "{{url}}/api/rest/v1/attributes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"new_attribute\",\n\t\"type\": \"pim_catalog_boolean\",\n\t\"group\": \"technical\",\n\t\"unique\": false,\n\t\"useable_as_grid_filter\": true,\n\t\"allowed_extensions\": [],\n\t\"metric_family\": null,\n\t\"default_metric_unit\": null,\n\t\"reference_data_name\": null,\n\t\"available_locales\": [],\n\t\"max_characters\": null,\n\t\"validation_rule\": null,\n\t\"validation_regexp\": null,\n\t\"wysiwyg_enabled\": null,\n\t\"number_min\": null,\n\t\"number_max\": null,\n\t\"decimals_allowed\": null,\n\t\"negative_allowed\": null,\n\t\"date_min\": null,\n\t\"date_max\": null,\n\t\"max_file_size\": null,\n\t\"minimum_input_length\": null,\n\t\"sort_order\": 39,\n\t\"localizable\": false,\n\t\"scopable\": false,\n\t\"labels\": {\n\t  \"de_DE\": \"new attribute label DE\",\n\t  \"en_US\": \"new attribute label US\",\n\t  \"fr_FR\": \"new attribute label FR\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "attribute",
+					"request": {
+						"url": "{{url}}/api/rest/v1/attributes/auto_exposure",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"auto_exposure\",\n\t\"type\": \"pim_catalog_boolean\",\n\t\"group\": \"technical\",\n\t\"unique\": false,\n\t\"useable_as_grid_filter\": true,\n\t\"allowed_extensions\": [],\n\t\"metric_family\": null,\n\t\"default_metric_unit\": null,\n\t\"reference_data_name\": null,\n\t\"available_locales\": [],\n\t\"max_characters\": null,\n\t\"validation_rule\": null,\n\t\"validation_regexp\": null,\n\t\"wysiwyg_enabled\": null,\n\t\"number_min\": null,\n\t\"number_max\": null,\n\t\"decimals_allowed\": null,\n\t\"negative_allowed\": null,\n\t\"date_min\": null,\n\t\"date_max\": null,\n\t\"max_file_size\": null,\n\t\"minimum_input_length\": null,\n\t\"sort_order\": 39,\n\t\"localizable\": false,\n\t\"scopable\": false,\n\t\"labels\": {\n\t  \"de_DE\": \"Auto exposure\",\n\t  \"en_US\": \"Auto exposure\",\n\t  \"fr_FR\": \"Auto exposure\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "attributes",
+					"request": {
+						"url": "{{url}}/api/rest/v1/attributes",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.akeneo.collection+json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\": \"new_attribute\", \"type\":\"pim_catalog_boolean\", \"group\":\"other\"}\n{\"code\": \"auto_exposure\", \"labels\":{\"en_US\":\"Auto exposure\"}}"
+						},
+						"description": "\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attribute option",
+			"description": "",
+			"item": [
+				{
+					"name": "attribute option",
+					"request": {
+						"url": "{{url}}/api/rest/v1/attributes/main_color/options/white",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "attribute options",
+					"request": {
+						"url": "{{url}}/api/rest/v1/attributes/main_color/options?page=1&limit=10&with_count=false",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This endpoint allows you to get a list of attribute options. Attribute options are paginated and sorted by code."
+					},
+					"response": []
+				},
+				{
+					"name": "attribute option",
+					"request": {
+						"url": "{{url}}/api/rest/v1/attributes/main_color/options",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\":\"yellow\",\n\t\"attribute\": \"main_color\",\n\t\"sort_order\": 10,\n\t\"labels\": {\n    \t\"de_DE\": \"Gelb\",\n    \t\"en_US\": \"Yellow\",\n    \t\"fr_FR\": \"Jaune\"\n\t}\n}\n"
+						},
+						"description": "This endpoint allows you to create a new attribute option."
+					},
+					"response": []
+				},
+				{
+					"name": "attribute option",
+					"request": {
+						"url": "{{url}}/api/rest/v1/attributes/main_color/options/white",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"white\",\n  \"attribute\": \"main_color\",\n  \"sort_order\": 1,\n  \"labels\": {\n    \"de_DE\": \"Weiß\",\n    \"en_US\": \"White\",\n    \"fr_FR\": \"Blanc\"\n  }\n}"
+						},
+						"description": "This endpoint allows you to update a given attribute option. Know more about <a href=\"/documentation/update.html#update-behavior\">Update behavior</a>. Note that if no attribute option exists for the given code, it creates it."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"description": "",
+			"item": [
+				{
+					"name": "category",
+					"request": {
+						"url": "{{url}}/api/rest/v1/categories/master",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "categories",
+					"request": {
+						"url": "{{url}}/api/rest/v1/categories?limit=10&with_count=false",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "category",
+					"request": {
+						"url": "{{url}}/api/rest/v1/categories",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\":\"new_category\",\n\t\"parent\":\"master\",\n\t\"labels\": {\n\t\t\"de_DE\":\"new category label DE\",\n\t\t\"en_US\":\"new category label US\",\n\t\t\"fr_FR\":\"new category label FR\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "category",
+					"request": {
+						"url": "{{url}}/api/rest/v1/categories/audio_video",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"audio_video\",\n\t\"parent\": \"master\",\n\t\"labels\": {\n\t  \"en_US\": \"new Audio and Video label\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "categories",
+					"request": {
+						"url": "{{url}}/api/rest/v1/categories",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.akeneo.collection+json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\": \"new_category\", \"parent\": \"master\"}\n{\"code\": \"new_category_tree\"}\n{\"code\": \"master\", \"labels\":{\"en_US\":\"Main catalog\"}}"
+						},
+						"description": "\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Channel",
+			"description": "",
+			"item": [
+				{
+					"name": "channel",
+					"request": {
+						"url": "{{url}}/api/rest/v1/channels/ecommerce",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "channels",
+					"request": {
+						"url": "{{url}}/api/rest/v1/channels?limit=10&with_count=false",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Family",
+			"description": "",
+			"item": [
+				{
+					"name": "family",
+					"request": {
+						"url": "{{url}}/api/rest/v1/families/camcorders",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "families",
+					"request": {
+						"url": "{{url}}/api/rest/v1/families?limit=10&with_count=false",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "family",
+					"request": {
+						"url": "{{url}}/api/rest/v1/families",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"new_family\",\n\t\"attributes\": [\n\t  \"container_material\",\n\t  \"description\",\n\t  \"main_color\",\n\t  \"name\",\n\t  \"picture\",\n\t  \"price\",\n\t  \"sku\"\n\t],\n\t\"attribute_as_label\": \"name\",\n\t\"attribute_requirements\": {\n\t  \"ecommerce\": [\n\t    \"container_material\",\n\t    \"description\",\n\t    \"main_color\",\n\t    \"name\",\n\t    \"price\",\n\t    \"sku\"\n\t  ],\n\t  \"mobile\": [\n\t    \"description\",\n\t    \"main_color\",\n\t    \"name\",\n\t    \"price\",\n\t    \"sku\"\n\t  ],\n\t  \"print\": [\n\t    \"description\",\n\t    \"name\",\n\t    \"price\",\n\t    \"sku\"\n\t  ]\n\t},\n\t\"labels\": {\n\t  \"de_DE\": \"new family label DE\",\n\t  \"en_US\": \"new family label US\",\n\t  \"fr_FR\": \"new family label FR\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "family",
+					"request": {
+						"url": "{{url}}/api/rest/v1/families/camcorders",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"camcorders\",\n  \"attribute_as_label\": \"sku\",\n  \"labels\": {\n    \"en_US\": \"new Camcorders label\"\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "families",
+					"request": {
+						"url": "{{url}}/api/rest/v1/families",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.akeneo.collection+json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\": \"new_family\", \"attribute_as_label\": \"name\", \"attributes\":[\"name\",\"picture\",\"price\",\"sku\"]}\n{\"code\": \"camcorders\", \"labels\":{\"de_DE\":\"\"}}"
+						},
+						"description": "\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locale",
+			"description": "",
+			"item": [
+				{
+					"name": "locale",
+					"request": {
+						"url": "{{url}}/api/rest/v1/locales/en_US",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "locales",
+					"request": {
+						"url": "{{url}}/api/rest/v1/locales?limit=10&with_count=false",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Media file",
+			"description": "",
+			"item": [
+				{
+					"name": "media",
+					"request": {
+						"url": "{{url}}/api/rest/v1/media-files/d/d/b/6/ddb6ad393f81503b6be7380785e3b32bbd28cd08_test.png",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "//Content-Type",
+								"value": "application/json",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product",
+									"value": "{\"identifier\":\"10699783\", \"attribute\":\"picture\", \"scope\": null,\"locale\":null}",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "file",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "medias",
+					"request": {
+						"url": "{{url}}/api/rest/v1/media-files",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product",
+									"value": "{\"identifier\":\"10699783\", \"attribute\":\"picture\", \"scope\": null,\"locale\":null}",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "file",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "media",
+					"request": {
+						"url": "{{url}}/api/rest/v1/media-files",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product",
+									"value": "{\"identifier\":\"AKNTS_BPS\", \"attribute\":\"picture\", \"scope\": null,\"locale\":null}",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "file",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "media download",
+					"request": {
+						"url": "{{url}}/api/rest/v1/media-files/d/d/b/6/ddb6ad393f81503b6be7380785e3b32bbd28cd08_test.png/download",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "//Content-Type",
+								"value": "application/json",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product",
+									"value": "{\"identifier\":\"10699783\", \"attribute\":\"picture\", \"scope\": null,\"locale\":null}",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "file",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"description": "",
+			"item": [
+				{
+					"name": "product",
+					"request": {
+						"url": "{{url}}/api/rest/v1/products/AKNTS_BPS",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "products",
+					"request": {
+						"url": "{{url}}/api/rest/v1/products?pagination_type=search_after&limit=10&with_count=false",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n    \t\"en_US\": \"Master catalog modified\",\n    \t\"de_DE\": \"Hauptkatalog\",\n    \t\"fr_FR\": \"Catalogue principal\"\n \t}\n }"
+						},
+						"description": "\n"
+					},
+					"response": []
+				},
+				{
+					"name": "product",
+					"request": {
+						"url": "{{url}}/api/rest/v1/products",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"identifier\": \"new_product\",\n  \"family\": \"tshirts\",\n  \"groups\": [],\n  \"variant_group\": null,\n  \"categories\": [\n    \"goodies\",\n    \"tshirts\"\n  ],\n  \"enabled\": true,\n  \"values\": {\n    \"clothing_size\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"s\"\n      }\n    ],\n    \"description\": [\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"mobile\",\n        \"data\": \"Akeneo T-Shirt 77777\"\n      },\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"print\",\n        \"data\": \"Akeneo T-Shirt with short sleeve\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"mobile\",\n        \"data\": \"T-Shirt Akeneo\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"print\",\n        \"data\": \"T-Shirt Akeneo manches courtes\"\n      }\n    ],\n    \"main_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"black\"\n      }\n    ],\n    \"name\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"Akeneo T-Shirt black and purple with short sleeve\"\n      }\n    ],\n    \"secondary_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"purple\"\n      }\n    ],\n    \"tshirt_materials\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"cotton\"\n      }\n    ],\n    \"tshirt_style\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          \"crewneck\",\n          \"short_sleeve\"\n        ]\n      }\n    ],\n    \"price\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          {\n            \"amount\": 10,\n            \"currency\": \"EUR\"\n          },\n          {\n            \"amount\": 14,\n            \"currency\": \"USD\"\n          }\n        ]\n      }\n    ],\n    \"picture\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"0/c/3/a/0c3a38381ffa4582a57aeedc45602f672584fa4d_test_ooo_iii.png\",\n        \"_links\": {\n          \"download\": {\n            \"href\": \"http://pcd.dev/api/rest/v1/media-files/0/c/3/a/0c3a38381ffa4582a57aeedc45602f672584fa4d_test_ooo_iii.png/download\"\n          }\n        }\n      }\n    ]\n  },\n  \"created\": \"2017-03-30T14:55:26+02:00\",\n  \"updated\": \"2017-05-04T23:56:09+02:00\",\n  \"associations\": {\n    \"SUBSTITUTION\": {\n      \"groups\": [],\n      \"products\": [\n        \"AKNTS_WPS\",\n        \"AKNTS_PBS\",\n        \"AKNTS_PWS\"\n      ]\n    }\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "product",
+					"request": {
+						"url": "{{url}}/api/rest/v1/products/AKNTS_BPS",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"identifier\": \"AKNTS_BPS\",\n  \"family\": \"tshirts\",\n  \"groups\": [],\n  \"variant_group\": \"akeneo_tshirt\",\n  \"categories\": [\n    \"goodies\",\n    \"tshirts\"\n  ],\n  \"enabled\": true,\n  \"values\": {\n    \"clothing_size\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"s\"\n      }\n    ],\n    \"description\": [\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"mobile\",\n        \"data\": \"Akeneo T-Shirt 77777\"\n      },\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"print\",\n        \"data\": \"Akeneo T-Shirt with short sleeve\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"mobile\",\n        \"data\": \"T-Shirt Akeneo\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"print\",\n        \"data\": \"T-Shirt Akeneo manches courtes\"\n      }\n    ],\n    \"main_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"black\"\n      }\n    ],\n    \"name\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"Akeneo T-Shirt black and purple with short sleeve\"\n      }\n    ],\n    \"secondary_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"purple\"\n      }\n    ],\n    \"tshirt_materials\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"cotton\"\n      }\n    ],\n    \"tshirt_style\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          \"crewneck\",\n          \"short_sleeve\"\n        ]\n      }\n    ],\n    \"price\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          {\n            \"amount\": 10,\n            \"currency\": \"EUR\"\n          },\n          {\n            \"amount\": 14,\n            \"currency\": \"USD\"\n          }\n        ]\n      }\n    ],\n    \"picture\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"0/c/3/a/0c3a38381ffa4582a57aeedc45602f672584fa4d_a_fake_image.png\"\n      }\n    ]\n  },\n  \"created\": \"2017-03-30T14:55:26+02:00\",\n  \"updated\": \"2017-05-04T23:56:09+02:00\",\n  \"associations\": {\n    \"SUBSTITUTION\": {\n      \"groups\": [],\n      \"products\": [\n        \"AKNTS_WPS\",\n        \"AKNTS_PBS\",\n        \"AKNTS_PWS\"\n      ]\n    }\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "products",
+					"request": {
+						"url": "{{url}}/api/rest/v1/products",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.akeneo.collection+json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"identifier\": \"new_product\"}\n{\"identifier\": \"AKNTS_BPM\", \"family\": \"tshirts\"}"
+						},
+						"description": "\n"
+					},
+					"response": []
+				},
+				{
+					"name": "product",
+					"request": {
+						"url": "{{url}}/api/rest/v1/products/AKNTS_BPXS",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentification by password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);",
+							"postman.setEnvironmentVariable(\"refreshToken\", jsonData.refresh_token);"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(",
+							"    \"base64ClientIdSecret\", ",
+							"    btoa(postman.getEnvironmentVariable(\"clientId\") + ':' + postman.getEnvironmentVariable(\"secret\"))",
+							");",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/api/oauth/v1/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {{base64ClientIdSecret}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"{{username}}\",\n    \"password\" : \"{{password}}\",\n    \"grant_type\": \"password\"\n }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Authentification by refresh token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);",
+							"postman.setEnvironmentVariable(\"refreshToken\", jsonData.refresh_token);"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(",
+							"    \"base64ClientIdSecret\", ",
+							"    btoa(postman.getEnvironmentVariable(\"clientId\") + ':' + postman.getEnvironmentVariable(\"secret\"))",
+							");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/api/oauth/v1/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {{base64ClientIdSecret}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh_token\" : \"{{refreshToken}}\",\n    \"grant_type\": \"refresh_token\"\n }"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

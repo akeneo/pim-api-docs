@@ -16,6 +16,8 @@ gulp.task('copy-assets', ['clean-dist'], function(){
         .pipe(gulp.dest('dist/js/'));
     var img = gulp.src('content/img/*')
         .pipe(gulp.dest('dist/img/'));
+    var files = gulp.src('content/files/*')
+        .pipe(gulp.dest('dist/files/'));
 
     return merge(fa, font, lib, img);
 });
