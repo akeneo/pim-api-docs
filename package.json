@@ -19,6 +19,7 @@
     "gulp-prompt": "0.2.0",
     "gulp-rename": "1.2.2",
     "gulp-replace": "0.5.4",
+    "gulp-remote-src": "0.4.2",
     "gulp-rsync": "0.0.7",
     "gulp-swagger": "1.0.1",
     "gulp-util": "3.0.8",
