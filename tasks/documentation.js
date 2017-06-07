@@ -15,14 +15,6 @@ var fs = require('fs');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 
-hbs.registerHelper('ifvalue', function (conditional, options) {
-    if (options.hash.value === conditional) {
-        return options.fn(this)
-    } else {
-        return options.inverse(this);
-    }
-});
-
 function getTocMarkdown(pages, currentPage) {
     return "\n\n:::: toc\n\n" + Object.keys(pages).map(function (page) {
           if (page === currentPage) {
@@ -228,6 +220,7 @@ gulp.task('documentation', ['clean-dist'], function () {
               .on('end', function () {
                   return gulp.src('src/documentation.handlebars')
                     .pipe(gulpHandlebars({
+                        active_documentation:  true,
                         mainContent: fs.readFileSync('tmp/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
