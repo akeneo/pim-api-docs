@@ -2112,6 +2112,142 @@ paths:
         406:
           $ref: "#/responses/406Error"
 
+  /api/rest/v1/measure-families:
+    get:
+      summary: Get list of measure familiy
+      operationId: "measure_families_get_list"
+      description: This endpoint allows you to get a list of measure families. Measure families are paginated and sorted by code.
+      tags:
+        - Measure Families
+      responses:
+        200:
+          description: Return measure families paginated
+          schema:
+            title: Measure Families
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/MeasureFamilyList'
+          examples: {
+            _links: {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/measure-families?page=1&limit=1"
+                },
+                "first": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/measure-families?page=1&limit=1"
+                }
+              },
+            "current_page": 1,
+            _embedded: {
+              "items": [
+                {
+                  "_links": {
+                      "self": {
+                        "href": "https://demo.akeneo.com/api/rest/v1/measure-families/Area"
+                      }
+                    },
+                    "code": "Area",
+                    "standard": "SQUARE_METER",
+                    "units": [
+                      {
+                        "code": "SQUARE_MILLIMETER",
+                        "convert": {
+                          "mul": "0.000001"
+                        },
+                        "symbol": "mm\u00b2"
+                      },
+                      {
+                        "code": "SQUARE_CENTIMETER",
+                        "convert": {
+                          "mul": "0.0001"
+                        },
+                        "symbol": "cm\u00b2"
+                      },
+                      {
+                        "code": "SQUARE_DECIMETER",
+                        "convert": {
+                          "mul": "0.01"
+                        },
+                        "symbol": "dm\u00b2"
+                      },
+                      {
+                        "code": "SQUARE_METER",
+                        "convert": {
+                          "mul": "1"
+                        },
+                        "symbol": "m\u00b2"
+                      },
+                      {
+                        "code": "CENTIARE",
+                        "convert": {
+                          "mul": "1"
+                        },
+                        "symbol": "ca"
+                      },
+                      {
+                        "code": "SQUARE_DEKAMETER",
+                        "convert": {
+                          "mul": "100"
+                        },
+                        "symbol": "dam\u00b2"
+                      },
+                      {
+                        "code": "ARE",
+                        "convert": {
+                          "mul": "100"
+                        },
+                        "symbol": "a"
+                      },
+                      {
+                        "code": "SQUARE_HECTOMETER",
+                        "convert": {
+                          "mul": "10000"
+                        },
+                        "symbol": "hm\u00b2"
+                      }
+                  ]
+                }
+              ]
+            }
+          }
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
+
+  /api/rest/v1/measure-families/{code}:
+    get:
+      summary: Get a measure family
+      operationId: "measure_families_get"
+      description: This endpoint allows you to get the information about a given measure family.
+      tags:
+        - Measure Families
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          description: OK
+          x-details: Returns the content of the measure family in JSON standard format
+          schema:
+            $ref: '#/definitions/MeasureFamily'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
+
 definitions:
   Product:
     type: object
@@ -2316,6 +2452,60 @@ definitions:
     allOf:
       - $ref:  '#/definitions/ItemList'
       - $ref: '#/definitions/Category'
+  MeasureFamily:
+    type: object
+    required: ["code"]
+    properties:
+      code:
+        type: string
+        description: Measure family code
+        x-immutable: true
+      standard:
+        type: string
+        description: Measure family standard
+        x-immutable: true
+        units:
+          type: array
+          description: Family units
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                description: Measure code
+                x-immutable: true
+              convert:
+                type: object
+                description: Mathematic operation to convert the unit into the standard unit
+              symbol:
+                type: string
+                description: Measure symbol
+                x-immutable: true
+    example: {
+      "code": "Area",
+      "standard": "SQUARE_METER",
+      "units": [
+        {
+          "code": "SQUARE_MILLIMETER",
+          "convert": {
+            "mul": 1.0e-6
+          },
+          "symbol": "mm\u00b2"
+        },
+        {
+          "code": "SQUARE_CENTIMETER",
+          "convert": {
+            "mul": 0.0001
+          },
+          "symbol": "cm\u00b2"
+        },
+      ]
+    }
+  MeasureFamilyList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/MeasureFamily'
   Family:
     type: object
     required: ["code", "attribute_as_label"]
