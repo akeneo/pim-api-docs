@@ -2434,7 +2434,7 @@ paths:
         406:
           $ref: "#/responses/406Error"
 
-  /api/rest/v1/measure-families:
+  /measure-families:
     get:
       summary: Get list of measure familiy
       operationId: "measure_families_get_list"
@@ -2546,7 +2546,7 @@ paths:
         406:
           $ref: "#/responses/406Error"
 
-  /api/rest/v1/measure-families/{code}:
+  /measure-families/{code}:
     get:
       summary: Get a measure family
       operationId: "measure_families_get"
@@ -2918,23 +2918,23 @@ definitions:
         type: string
         description: Measure family standard
         x-immutable: true
-        units:
-          type: array
-          description: Family units
-          items:
-            type: object
-            properties:
-              code:
-                type: string
-                description: Measure code
-                x-immutable: true
-              convert:
-                type: object
-                description: Mathematic operation to convert the unit into the standard unit
-              symbol:
-                type: string
-                description: Measure symbol
-                x-immutable: true
+      units:
+        type: array
+        description: Family units
+        items:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Measure code
+              x-immutable: true
+            convert:
+              type: object
+              description: Mathematic operation to convert the unit into the standard unit
+            symbol:
+              type: string
+              description: Measure symbol
+              x-immutable: true
     example: {
       "code": "Area",
       "standard": "SQUARE_METER",
