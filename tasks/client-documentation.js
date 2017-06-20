@@ -216,7 +216,14 @@ gulp.task('client-documentation', ['clean-dist'], function () {
 
     var pages = {
         'getting-started.md': 'Getting started',
-        'category.md': 'Categories',
+        'products.md': 'Products',
+        'categories.md': 'Categories',
+        'families.md': 'Families',
+        'attributes.md': 'Attributes',
+        'attribute-options.md': 'Attribute options',
+        'media-files.md': 'Media files',
+        'locales.md': 'Locales',
+        'channels.md': 'Channels'
     };
 
     /*
