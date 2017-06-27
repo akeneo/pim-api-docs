@@ -54,35 +54,10 @@ It's possible to get the total number of attributes with this method.
 ```php
 $client = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
-// set the limit of 50 attributes per page, and calculate the total number of attributes
 $firstPage = $client->getAttributeApi()->listPerPage(50, true);
-
-foreach ($firstPage->getItems() as $attribute) {
-    // do your stuff here
-    echo $attribute['code'];
-}
-
-// return the total number of attributes (not just the number of items in the page)
-$count = $firstPage->getCount();
-
-if ($firstPage->hasNextPage()) {
-    $secondPage = $firstPage->getNextPage();
-}
-
-if (null !== $secondPage && $secondPage->hasPreviousPage()) {
-    $firstPage = $secondPage->getPreviousPage();
-}
 ```
 
-::: warning
-There is a maximum limit allowed on server side for the parameter `limit`.
-:::
-
-::: warning
-Setting the parameter `with_count`  to `true`  can drastically decrease the performance. 
-It's recommended to let this parameter with the default value `false` if the total number of attributes is not needed in the response.
-:::
-
+You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
 ### With a cursor
 
@@ -92,16 +67,10 @@ With this method, it's not possible to get the previous page, or getting the tot
 ```php
 $client = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
-// get a cursor with a page size of 50
 $attributes = $client->getAttributeApi()->all(50);
-foreach ($attributes as $attribute) {
-    // do your stuff here
-    echo $attribute['code'];
-}
 ```
-:::warning
-There is a maximum limit allowed on server side for the parameter `pageSize`.
-:::
+
+You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 ## Create an attribute 
 
