@@ -216,6 +216,7 @@ gulp.task('client-documentation', ['clean-dist'], function () {
 
     var pages = {
         'getting-started.md': 'Getting started',
+        'list-resources.md': 'List resources',
         'products.md': 'Products',
         'categories.md': 'Categories',
         'families.md': 'Families',
