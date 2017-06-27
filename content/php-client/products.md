@@ -71,8 +71,8 @@ $searchFilters = $searchBuilder->getFilters();
 ### By getting pages
 
 This method allows to get products page per page, as a classical pagination. You can research products thanks to the search builder.
-It's possible to get the total number of researched products with this method.
 
+As for the other entities, it's possible to get the total number of researched products with this method.
 Also, it's possible to filter the value to return, thanks to the query parameters that are fully described [here](/api-reference.html#get_products).
 
 For example, in this example, we only return product values belonging to the channel "ecommerce" by adding the query parameter `'scope' => 'ecommerce'`. 
@@ -88,22 +88,6 @@ $searchFilters = $searchBuilder->getFilters();
 
 // set the limit of 50 products per page, calculate the total number of researched products, apply a research
 $firstPage = $client->getProductApi()->listPerPage(50, true, ['search' => $searchFilters, 'scope' => 'ecommerce']);
-
-foreach ($firstPage->getItems() as $product) {
-    // do your stuff here
-    echo $product['identifier'];
-}
-
-// return the total number of products (not just the number of items in the page)
-$count = $firstPage->getCount();
-
-if ($firstPage->hasNextPage()) {
-    $secondPage = $firstPage->getNextPage();
-}
-
-if (null !== $secondPage && $secondPage->hasPreviousPage()) {
-    $firstPage = $secondPage->getPreviousPage();
-}
 ```
 
 ::: warning
@@ -114,6 +98,8 @@ There is a maximum limit allowed on server side for the parameter `limit`.
 Setting the parameter `with_count`  to `true`  can drastically decrease the performance. 
 It's recommended to let this parameter with the default value `false` if the total number of products is not needed in the response.
 :::
+
+You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
 You can get more information about the available query parameters [here](/api-reference.html#get_products).
 
@@ -137,14 +123,12 @@ $searchFilters = $searchBuilder->getFilters();
 
 // get a cursor with a page size of 50, apply a research
 $products = $client->getProductApi()->all(50, ['search' => $searchFilters, 'scope' => 'ecommerce']);
-foreach ($products as $product) {
-    // do your stuff here
-    echo $product['identifier'];
-}
 ```
 :::warning
 There is a maximum limit allowed on server side for the parameter `pageSize`.
 :::
+
+You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 You can get more information about the available query parameters [here](/api-reference.html#get_products).
 
