@@ -14,6 +14,7 @@ var hbs = require('handlebars');
 var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var rename = require('gulp-rename');
 var highlightJs = require('highlightjs');
+var revReplace = require('gulp-rev-replace');
 
 gulp.task('reference', ['clean-dist'], function () {
     gulp.src('./content/akeneo-web-api.yaml')
@@ -37,6 +38,7 @@ gulp.task('reference', ['clean-dist'], function () {
             return gulp.src('src/api-reference/index.handlebars')
                 .pipe(gulpHandlebars(templateData, {}))
                 .pipe(rename('api-reference-index.html'))
+                .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                 .pipe(gulp.dest('dist'));
         }));
 
@@ -118,6 +120,7 @@ gulp.task('reference', ['clean-dist'], function () {
             return gulp.src('src/api-reference/reference.handlebars')
                 .pipe(gulpHandlebars(templateData, {}))
                 .pipe(rename('api-reference.html'))
+                .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                 .pipe(gulp.dest('dist'));
         }));
 });
