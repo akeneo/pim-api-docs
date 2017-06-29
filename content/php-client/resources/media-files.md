@@ -1,6 +1,6 @@
-# Media
+## Media
 
-## Get media file information
+### Get media file information
 
 ```php
 $client = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -23,7 +23,7 @@ $client = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://akeneo.com/')->b
 $product = $client->getProductMediaFileApi()->get('code/example');
 ```
 
-## Download media file 
+### Download media file 
 
 ```php
 $client = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -33,11 +33,11 @@ $product = $client->getProductMediaFileApi()->download('code/example');
 file_put_contents('/tmp/ziggy.jpg', $product->getContents());
 ```
 
-## Get a list of media file information 
+### Get a list of media file information 
 
 There are two ways of getting media files.
 
-### By getting pages
+#### By getting pages
 
 This method allows to get media files page per page, as a classical pagination.
 
@@ -49,7 +49,7 @@ $firstPage = $client->getProductMediaFileApi()->listPerPage(50, true);
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-### With a cursor
+#### With a cursor
 
 This method allows to iterate the media files. It will automatically get the next pages for you.
 With this method, it's not possible to get the previous page, or getting the total number of products.
@@ -63,7 +63,7 @@ $mediaFiles = $client->getProductMediaFileApi()->all(50);
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
-## Create a new media file 
+### Create a new media file 
 
 Create a new media file and associate it to a product.
 
