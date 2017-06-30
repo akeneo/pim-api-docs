@@ -14,6 +14,7 @@ var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var fs = require('fs');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
+var revReplace = require('gulp-rev-replace');
 
 hbs.registerHelper('ifvalue', function (conditional, options) {
     if (options.hash.value === conditional) {
@@ -233,6 +234,7 @@ gulp.task('documentation', ['clean-dist'], function () {
                         partialsDirectory: ['./src/partials']
                     }))
                     .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                     .pipe(gulp.dest('./dist/documentation'));
               })
         }));

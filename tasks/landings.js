@@ -7,6 +7,7 @@ var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var rename = require('gulp-rename');
 var flatmap = require('gulp-flatmap');
 var path = require('path');
+var revReplace = require('gulp-rev-replace');
 
 gulp.task('landings', function() {
     return gulp.src('src/*.handlebars')
@@ -16,6 +17,7 @@ gulp.task('landings', function() {
                     partialsDirectory: ['./src/partials']
                 }))
                 .pipe(rename(path.basename(file.path).replace(/\.handlebars$/, '.html')))
+                .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                 .pipe(gulp.dest('dist'));
         }))
 });
