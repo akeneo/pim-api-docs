@@ -215,6 +215,7 @@ gulp.task('client-documentation', ['clean-dist'], function () {
     });
 
     var pages = {
+        'introduction.md': 'Introduction',
         'getting-started.md': 'Getting started',
         'authentication.md': 'Authentication',
         'exception.md': 'Exception handling',
