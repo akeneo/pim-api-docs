@@ -11,7 +11,7 @@ You can authenticate to the client with your credentials client id/secret and yo
 
 require_once '/vendor/autoload.php';
 
-$clientBuilder = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://localhost/');
+$clientBuilder = new \Akeneo\Pim\AkeneoPimClientBuilder('http://localhost/');
 $client = $clientBuilder->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 ```
 
@@ -34,7 +34,7 @@ That's why you can create a client with the couple token/refresh token instead o
 
 require_once '/vendor/autoload.php';
 
-$clientBuilder = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://localhost/');
+$clientBuilder = new \Akeneo\Pim\AkeneoPimClientBuilder('http://localhost/');
 $client = $clientBuilder->buildAuthenticatedByToken('client_id', 'secret', 'token', 'refresh_token');
 ```
 
@@ -58,7 +58,7 @@ This is a very basic example to put token and refresh token into a file, in orde
 
 require_once '/vendor/autoload.php';
 
-$clientBuilder = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://localhost/');
+$clientBuilder = new \Akeneo\Pim\AkeneoPimClientBuilder('http://localhost/');
 if (!file_exists('/tmp/akeneo_token.tmp')) {
     $client = $clientBuilder->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 } else {

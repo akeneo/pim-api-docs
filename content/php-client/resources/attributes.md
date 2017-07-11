@@ -3,7 +3,7 @@
 ### Get an attribute 
 
 ```php
-$client = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -52,7 +52,7 @@ This method allows to get attributes page per page, as a classical pagination.
 It's possible to get the total number of attributes with this method.
 
 ```php
-$client = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $firstPage = $client->getAttributeApi()->listPerPage(50, true);
 ```
@@ -65,7 +65,7 @@ This method allows to iterate the attributes. It will automatically get the next
 With this method, it's not possible to get the previous page, or getting the total number of attributes.
 
 ```php
-$client = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $attributes = $client->getAttributeApi()->all(50);
 ```
@@ -77,7 +77,7 @@ You can get more information about this method [here](/php-client/list-resources
 If the attribute does not exist yet, this method creates it, otherwise it throws an exception.
 
 ```php
-$client = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAttributeApi()->create('release_date', [
     'type'                   => 'pim_catalog_date',
@@ -116,7 +116,7 @@ $client->getAttributeApi()->create('release_date', [
 If the attribute does not exist yet, this method creates it, otherwise it updates it.
 
 ```php
-$client = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAttributeApi()->upsert('release_date', [
     'type'                   => 'pim_catalog_date',
@@ -157,7 +157,7 @@ It has the same behavior as the `upsert` method for a single attribute, except t
 
 
 ```php
-$client = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAttributeApi()->upsertList([
     [

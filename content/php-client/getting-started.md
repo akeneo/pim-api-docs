@@ -40,7 +40,7 @@ If you don't have any client id/secret, let's take a look at [this page](/docume
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$clientBuilder = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://localhost/');
+$clientBuilder = new \Akeneo\Pim\AkeneoPimClientBuilder('http://localhost/');
 $client = $clientBuilder->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 ```
 
@@ -50,7 +50,7 @@ You can authenticate to the client with your token/refresh token as well.
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$clientBuilder = new \Akeneo\Pim\Client\AkeneoPimClientBuilder('http://localhost/');
+$clientBuilder = new \Akeneo\Pim\AkeneoPimClientBuilder('http://localhost/');
 $client = $clientBuilder->buildAuthenticatedByToken('client_id', 'secret', 'token', 'refresh_token');
 ```
 
