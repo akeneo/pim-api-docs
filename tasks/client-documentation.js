@@ -15,6 +15,7 @@ var fs = require('fs');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var remoteSrc = require('gulp-remote-src');
+var concat = require('gulp-concat');
 
 /**
  * Generate the table of content.
@@ -215,32 +216,27 @@ gulp.task('client-documentation', ['clean-dist'], function () {
     });
 
     var pages = {
+        'introduction.md': 'Introduction',
         'getting-started.md': 'Getting started',
+        'authentication.md': 'Authentication',
+        'exception.md': 'Exception handling',
+        'http-client.md': 'HTTP client abstraction',
         'list-resources.md': 'List resources',
-        'products.md': 'Products',
-        'categories.md': 'Categories',
-        'families.md': 'Families',
-        'attributes.md': 'Attributes',
-        'attribute-options.md': 'Attribute options',
-        'media-files.md': 'Media files',
-        'locales.md': 'Locales',
-        'channels.md': 'Channels'
+        'resources.md': 'Resources'
     };
 
     /*
-     * First, download the getting started from Github in temporary directory and rename as getting started.
+     * First, concat every resource file into the file resource.md
      * Then, transform the markdown into html and add some custom style.
      * Then, add this generated html into the documentation template.
      * Then, rename the file from "md" to "html".
      * Finally, move the file to dist directory.
      */
-    return remoteSrc(['README.md'], {
-            base: 'https://raw.githubusercontent.com/akeneo/php-api-client/master/'
-        })
-        .pipe(rename('getting-started.md'))
-        .pipe(gulp.dest('./tmp/php-client-github'))
+    return gulp.src(['content/php-client/resources.md', 'content/php-client/resources/*.md'])
+        .pipe(concat('resources.md'))
+        .pipe(gulp.dest('tmp/php-client/'))
         .on('end', function () {
-            return gulp.src(['content/php-client/*.md', 'tmp/php-client-github/*.md'])
+            return gulp.src(['content/php-client/*.md', 'tmp/php-client/resources.md'])
                 .pipe(flatmap(function(stream, file){
                     return gulp.src(file.path)
                         .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
