@@ -36,6 +36,7 @@ gulp.task('launch-webserver', ['create-dist'], function() {
 
 // Build the documentation is dist directory
 gulp.task('create-dist', [
+  'clean-dist',
   'less',
   'copy-assets',
   'reference',

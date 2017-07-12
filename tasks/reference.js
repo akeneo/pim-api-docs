@@ -16,7 +16,7 @@ var rename = require('gulp-rename');
 var highlightJs = require('highlightjs');
 var revReplace = require('gulp-rev-replace');
 
-gulp.task('reference', ['clean-dist'], function () {
+gulp.task('reference', ['clean-dist','less'], function () {
     gulp.src('./content/akeneo-web-api.yaml')
         .pipe(swagger('akeneo-web-api.json'))
         .pipe(jsonTransform(function(data, file) {

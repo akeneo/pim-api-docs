@@ -14,6 +14,7 @@ var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var fs = require('fs');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
+var revReplace = require('gulp-rev-replace');
 var concat = require('gulp-concat');
 
 /**
@@ -51,7 +52,7 @@ function highlight(str, lang) {
     return '<pre class="hljs"><code>' + str + '</code></pre>';
 }
 
-gulp.task('client-documentation', ['clean-dist'], function () {
+gulp.task('client-documentation', ['clean-dist','less'], function () {
     var optionsMd = {
         html: true,
         xhtmlOut: true,
@@ -251,6 +252,7 @@ gulp.task('client-documentation', ['clean-dist'], function () {
                                     partialsDirectory: ['./src/partials']
                                 }))
                                 .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                                .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                                 .pipe(gulp.dest('./dist/php-client'));
                         })
                 }));

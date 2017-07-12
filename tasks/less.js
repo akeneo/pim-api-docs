@@ -13,6 +13,6 @@ gulp.task('less', ['clean-dist'], function () {
         }))
         .pipe(rev())
         .pipe(gulp.dest('./dist/css'))
-        .pipe( rev.manifest() )
+        .pipe(rev.manifest())
         .pipe( gulp.dest('./tmp/rev'));
 });
