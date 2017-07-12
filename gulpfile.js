@@ -7,7 +7,7 @@ var tasks = requireDir('./tasks');
 
 // Clean dist directory
 gulp.task('clean-dist', function () {
-  return del(['dist/*']);
+  return del(['dist/*', 'tmp/*']);
 });
 
 // Watch if markdown, less, html or image files have changed
@@ -15,6 +15,7 @@ gulp.task('clean-dist', function () {
 // Should be used for dev purpose
 gulp.task('watch', ['create-dist'], function() {
   gulp.watch('content/*.md', ['create-dist']);
+  gulp.watch('content/php-client/*.md', ['create-dist']);
   gulp.watch('styles/*.less', ['create-dist']);
   gulp.watch('src/*.handlebars', ['create-dist']);
   gulp.watch('src/api-reference/*.handlebars',['create-dist']);
@@ -35,11 +36,13 @@ gulp.task('launch-webserver', ['create-dist'], function() {
 
 // Build the documentation is dist directory
 gulp.task('create-dist', [
+  'clean-dist',
   'less',
   'copy-assets',
   'reference',
   'landings',
-  'documentation'
+  'documentation',
+  'client-documentation'
 ]);
 
 // Main task that should be used for development purpose

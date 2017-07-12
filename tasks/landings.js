@@ -9,7 +9,7 @@ var flatmap = require('gulp-flatmap');
 var path = require('path');
 var revReplace = require('gulp-rev-replace');
 
-gulp.task('landings', function() {
+gulp.task('landings', ['clean-dist','less'], function() {
     return gulp.src('src/*.handlebars')
         .pipe(flatmap(function(stream, file){
             return gulp.src(file.path)
