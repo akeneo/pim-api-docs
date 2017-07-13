@@ -2410,7 +2410,7 @@ paths:
           $ref: "#/responses/403Error"
         406:
           $ref: "#/responses/406Error"
-  /currencies/{code}:
+  /api/rest/v1/currencies/{code}:
     get:
       summary: Get a currency
       operationId: "currencies_get"
@@ -2434,7 +2434,7 @@ paths:
         406:
           $ref: "#/responses/406Error"
 
-  /measure-families:
+  /api/rest/v1/measure-families:
     get:
       summary: Get list of measure familiy
       operationId: "measure_families_get_list"
@@ -2545,7 +2545,7 @@ paths:
           $ref: "#/responses/403Error"
         406:
           $ref: "#/responses/406Error"
-  /measure-families/{code}:
+  /api/rest/v1/measure-families/{code}:
     get:
       summary: Get a measure family
       operationId: "measure_families_get"
@@ -2569,7 +2569,7 @@ paths:
         406:
           $ref: "#/responses/406Error"
 
-  /association-types:
+  /api/rest/v1/association-types:
     get:
       summary: Get a list of association types
       operationId: "association_types_get_list"
@@ -2717,7 +2717,7 @@ paths:
           $ref: "#/responses/413Error"
         415:
           $ref: "#/responses/415ErrorStream"
-  /association-types/{code}:
+  /api/rest/v1/association-types/{code}:
     get:
       summary: Get an association type
       operationId: "association_types_get"
