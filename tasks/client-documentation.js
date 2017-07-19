@@ -247,6 +247,7 @@ gulp.task('client-documentation', ['clean-dist','less'], function () {
                             return gulp.src('src/documentation.handlebars')
                                 .pipe(gulpHandlebars({
                                     active_client_documentation: true,
+                                    title: 'PHP API client',
                                     mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
                                 }, {
                                     partialsDirectory: ['./src/partials']

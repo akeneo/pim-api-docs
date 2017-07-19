@@ -200,18 +200,18 @@ gulp.task('documentation', ['clean-dist','less'], function () {
             }
         });
 
-      var pages = {
-          'introduction.md': 'Introduction',
-          'overview.md': 'Overview',
-          'security.md': 'Security',
-          'resources.md': 'Resources',
-          'responses.md': 'Response codes',
-          'pagination.md': 'Pagination',
-          'update.md': 'Update behavior',
-          'filter.md': 'Filters',
-      };
+    var pages = {
+        'introduction.md': 'Introduction',
+        'overview.md': 'Overview',
+        'security.md': 'Security',
+        'resources.md': 'Resources',
+        'responses.md': 'Response codes',
+        'pagination.md': 'Pagination',
+        'update.md': 'Update behavior',
+        'filter.md': 'Filters'
+    };
 
-      return gulp.src('content/*.md')
+    return gulp.src('content/*.md')
         .pipe(flatmap(function(stream, file){
             return gulp.src('content/*.md')
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
@@ -222,6 +222,7 @@ gulp.task('documentation', ['clean-dist','less'], function () {
                   return gulp.src('src/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation:  true,
+                         title: 'API documentation',
                         mainContent: fs.readFileSync('tmp/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
