@@ -47,3 +47,68 @@ $attributeGroups = $client->getAttributeGroupApi()->all(50);
 ```
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
+
+### Create an attribute group
+
+If the attribute group does not exist yet, this method creates it, otherwise it throws an exception.
+
+```php
+$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+
+$client->getAttributeGroupApi()->create('media', [
+    'attribute' => ['side_view'],
+    'labels' => [
+        'en_US' => 'Media',
+        'fr_FR' => 'Médias',
+    ]
+]);
+```
+
+### Upsert an attribute group
+
+If the attribute group does not exist yet, this method creates it, otherwise it updates it.
+
+```php
+$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+
+$client->getAttributeGroupApi()->upsert('marketing', [
+    'attributes' => ['sku', 'name', 'description'],
+    'labels' => [
+        'en_US' => 'Marketing',
+        'fr_FR' => 'Marketing',
+    ]
+]);
+```
+
+### Upsert a list of attribute groups
+
+This method allows to create or update a list of attribute groups.
+It has the same behavior as the `upsert` method for a single attribute group, except that the code must be specified in the data of each attribute group.
+
+
+```php
+$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+
+$client->getAttributeGroupApi()->upsertList([
+    [
+        'code'   => 'marketing',
+        'attributes' => ['sku', 'name', 'description'],
+        'labels' => [
+            'en_US' => 'Marketing',
+            'fr_FR' => 'Marketing',
+        ]
+    ],
+    [
+        'code'   => 'media',
+        'attribute' => ['side_view'],
+            'labels' => [
+                'en_US' => 'Media',
+                'fr_FR' => 'Médias',
+            ]
+    ],
+]);
+```
+
+::: warning
+There is a limit on the maximum number of attribute groups that you can upsert in one time on server side. By default this limit is set to 100.
+:::
