@@ -279,7 +279,7 @@ foreach ($responseLines as $line) {
 ```
 
 ::: warning
-There is a limit on the maximum number of products that you can upsert in one time on server side.
+There is a limit on the maximum number of products that you can upsert in one time on server side. By default this limit is set to 100.
 :::
 
 You can get a complete description of the expected format and the returned format [here](/api-reference.html#get_products__code_).

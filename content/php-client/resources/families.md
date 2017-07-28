@@ -137,5 +137,5 @@ $client->getFamilyApi()->upsertList([
 ```
 
 ::: warning
-There is a limit on the maximum number of families that you can upsert in one time on server side.
+There is a limit on the maximum number of families that you can upsert in one time on server side. By default this limit is set to 100.
 :::
