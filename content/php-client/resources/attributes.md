@@ -26,8 +26,8 @@ $client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAut
  *     'number_max'             => null,
  *     'decimals_allowed'       => null,
  *     'negative_allowed'       => null,
- *     'date_min'               => "2017-06-28T08:00:00",
- *     'date_max'               => "2017-08-08T22:00:00",
+ *     'date_min'               => '2017-06-28T08:00:00',
+ *     'date_max'               => '2017-08-08T22:00:00',
  *     'max_file_size'          => null,
  *     'minimum_input_length'   => null,
  *     'sort_order'             => 1,
@@ -97,8 +97,8 @@ $client->getAttributeApi()->create('release_date', [
     'number_max'             => null,
     'decimals_allowed'       => null,
     'negative_allowed'       => null,
-    'date_min'               => "2017-06-28T08:00:00",
-    'date_max'               => "2017-08-08T22:00:00",
+    'date_min'               => '2017-06-28T08:00:00',
+    'date_max'               => '2017-08-08T22:00:00',
     'max_file_size'          => null,
     'minimum_input_length'   => null,
     'sort_order'             => 1,
@@ -136,8 +136,8 @@ $client->getAttributeApi()->upsert('release_date', [
     'number_max'             => null,
     'decimals_allowed'       => null,
     'negative_allowed'       => null,
-    'date_min'               => "2017-06-28T08:00:00",
-    'date_max'               => "2017-08-08T22:00:00",
+    'date_min'               => '2017-06-28T08:00:00',
+    'date_max'               => '2017-08-08T22:00:00',
     'max_file_size'          => null,
     'minimum_input_length'   => null,
     'sort_order'             => 1,
@@ -179,8 +179,8 @@ $client->getAttributeApi()->upsertList([
         'number_max'             => null,
         'decimals_allowed'       => null,
         'negative_allowed'       => null,
-        'date_min'               => "2017-06-28T08:00:00",
-        'date_max'               => "2017-08-08T22:00:00",
+        'date_min'               => '2017-06-28T08:00:00',
+        'date_max'               => '2017-08-08T22:00:00',
         'max_file_size'          => null,
         'minimum_input_length'   => null,
         'sort_order'             => 1,
@@ -203,5 +203,5 @@ $client->getAttributeApi()->upsertList([
 ```
 
 ::: warning
-There is a limit on the maximum number of attributes that you can upsert in one time on server side.
+There is a limit on the maximum number of attributes that you can upsert in one time on server side. By default this limit is set to 100.
 :::

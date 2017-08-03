@@ -72,5 +72,5 @@ foreach ($products as $product) {
 }
 ```
 :::warning
-There is a maximum limit allowed on server side for the parameter `pageSize`.
+There is a maximum limit allowed on server side for the parameter `pageSize`. By default this limit is set to 100.
 :::
