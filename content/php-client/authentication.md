@@ -64,7 +64,7 @@ if (!file_exists('/tmp/akeneo_token.tmp')) {
 } else {
     $credentials = file_get_contents('/tmp/akeneo_token.tmp');
     list($token, $refreshToken) = implode(':', $credentials);
-    $client = $clientBuilder->buildAuthenticatedByToken('client_id', 'secret', $token, $refresToken);
+    $client = $clientBuilder->buildAuthenticatedByToken('client_id', 'secret', $token, $refreshToken);
 }
 
 $category = $client->getCategoryApi()->get('master');
