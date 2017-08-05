@@ -69,5 +69,5 @@ if (!file_exists('/tmp/akeneo_token.tmp')) {
 
 $category = $client->getCategoryApi()->get('master');
 
-file_put_contents('/tmp/akeneo_token.tmp', $client->getToken() . ':' . $client->getRefreshToken);
+file_put_contents('/tmp/akeneo_token.tmp', $client->getToken() . ':' . $client->getRefreshToken());
 ```
