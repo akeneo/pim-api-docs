@@ -59,12 +59,12 @@ This is a very basic example to put token and refresh token into a file, in orde
 require_once '/vendor/autoload.php';
 
 $clientBuilder = new \Akeneo\Pim\AkeneoPimClientBuilder('http://localhost/');
-if (!file_exists('/tmp/akeneo_token.tmp')) {
+if (!file_exists('/tmp/akeneo_token.tmp')) 
     $client = $clientBuilder->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 } else {
     $credentials = file_get_contents('/tmp/akeneo_token.tmp');
     list($token, $refreshToken) = implode(':', $credentials);
-    $client = $clientBuilder->buildAuthenticatedByToken('client_id', 'secret', $token, $refresToken);
+    $client = $clientBuilder->buildAuthenticatedByToken('client_id', 'secret', $token, $refreshToken);
 }
 
 $category = $client->getCategoryApi()->get('master');
