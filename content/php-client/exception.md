@@ -121,7 +121,7 @@ try {
     $errors = $e->getResponseErrors();
     foreach ($e->getResponseErrors() as $error) {
         // do your stuff with the error
-        echo $error['code'];
+        echo $error['property'];
         echo $error['message'];
     }
 }
