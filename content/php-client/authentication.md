@@ -63,7 +63,7 @@ if (!file_exists('/tmp/akeneo_token.tmp')) {
     $client = $clientBuilder->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 } else {
     $credentials = file_get_contents('/tmp/akeneo_token.tmp');
-    list($token, $refreshToken) = implode(':', $credentials);
+    list($token, $refreshToken) = explode(':', $credentials);
     $client = $clientBuilder->buildAuthenticatedByToken('client_id', 'secret', $token, $refreshToken);
 }
 
