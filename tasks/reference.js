@@ -23,13 +23,12 @@ gulp.task('reference', ['clean-dist','less'], function () {
             var templateData = data;
             data.resources = {};
             _.forEach(data.paths, function(path, pathUri){
-                var escapedPathUri = pathUri.replace(/\//g, '_').replace(/{/g, '_').replace(/}/g, '_');
                 _.forEach(path, function(operation,verb){
                     var escapeTag = operation.tags[0].replace(/\s/g, '');
                     if(!data.resources[escapeTag]){
                         data.resources[escapeTag] = {resourceName: operation.tags[0], operations: {}};
                     }
-                    data.resources[escapeTag].operations[verb+escapedPathUri] = _.extend(operation, {
+                    data.resources[escapeTag].operations[operation.operationId] = _.extend(operation, {
                         verb: verb,
                         path: pathUri
                     });
@@ -54,9 +53,8 @@ gulp.task('reference', ['clean-dist','less'], function () {
                 return definition;
             });
             _.forEach(data.paths, function(path, pathUri){
-                var escapedPathUri = pathUri.replace(/\//g, '_').replace(/{/g, '_').replace(/}/g, '_');
                 _.forEach(path, function(operation,verb){
-                    var operationId = verb + escapedPathUri;
+                    var operationId = operation.operationId;
                     var escapeTag = operation.tags[0].replace(/\s/g, '');
                     if(!data.resources[escapeTag]){
                         data.resources[escapeTag] = {resourceName: operation.tags[0], operations: {}};

@@ -13,10 +13,10 @@ paths:
   /api/rest/v1:
     get:
       summary: Get list of all endpoints
-      operationId: "endpoints"
+      operationId: "get_endpoints"
+      description: This endpoint allows you to get the list of all the available endpoints. No need to be authenticated to use this endpoint.
       tags: 
         - Overview
-      description: This endpoint allows you to get the list of all the available endpoints. No need to be authenticated to use this endpoint.
       x-no-token: true
       responses:
         200:
@@ -262,10 +262,10 @@ paths:
   /api/oauth/v1/token:
     post:
       summary: Get authentication token
-      operationId: "post_autentication_token"
+      operationId: "post_token"
+      description: This endpoint allows you to get an authentication token. No need to be authenticated to use this endpoint.
       tags: 
         - Authentication
-      description: This endpoint allows you to get an authentication token. No need to be authenticated to use this endpoint.
       x-no-token: true
       parameters:
         - name: Authorization
@@ -331,10 +331,10 @@ paths:
   /api/rest/v1/products:
     get:
       summary: Get list of products
-      operationId: "products_get_list"
+      operationId: "get_products"
+      description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered.
       tags:
         - Products
-      description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered.
       parameters:
         - name: search
           in: query
@@ -591,7 +591,7 @@ paths:
           $ref: "#/responses/422Error"
     post:
       summary: Create a new product
-      operationId: "products_post"
+      operationId: "post_products"
       tags:
         - Products
       description: This endpoint allows you to create a new product.
@@ -615,10 +615,10 @@ paths:
           $ref: "#/responses/422Error"
     patch:
       summary: Update/create several products
-      operationId: "several_products_patch"
+      operationId: "patch_products"
+      description: This endpoint allows you to update and/or create several products at once.
       tags:
         - Products
-      description: This endpoint allows you to update and/or create several products at once.
       x-body-by-line: Contains several lines, each line is a product in JSON standard format
       parameters:
         - name: body
@@ -657,7 +657,7 @@ paths:
   /api/rest/v1/products/{code}:
     get:
       summary: Get a product
-      operationId: "products_get"
+      operationId: "get_products__code_"
       tags:
         - Products
       description: This endpoint allows you to get the information about a given product.
@@ -679,10 +679,10 @@ paths:
           $ref: "#/responses/404Error"
     patch:
       summary: Update/create a product
-      operationId: "products_patch"
+      operationId: "patch_products__code_"
+      description: This endpoint allows you to update a given product. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it.
       tags:
         - Products
-      description: This endpoint allows you to update a given product. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -705,10 +705,10 @@ paths:
           $ref: "#/responses/422Error"
     delete:
       summary: Delete a product
-      operationId: "products_delete"
+      operationId: "delete_products__code_"
+      description: This endpoint allows you to delete a given product.
       tags:
         - Products
-      description: This endpoint allows you to delete a given product.
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -725,7 +725,7 @@ paths:
   /api/rest/v1/categories:
     get:
       summary: Get list of categories
-      operationId: "categories_get_list"
+      operationId: "get_categories"
       description: This endpoint allows you to get a list of categories. Categories are paginated and sorted by `root/left`.
       tags:
         - Categories
@@ -848,7 +848,7 @@ paths:
           $ref: "#/responses/406Error"
     post:
       summary: Create a new category
-      operationId: "categories_post"
+      operationId: "post_categories"
       description: This endpoint allows you to create a new category.
       tags:
         - Categories
@@ -872,7 +872,7 @@ paths:
           $ref: "#/responses/422Error"
     patch:
       summary: Update/create several categories
-      operationId: "several_categories_patch"
+      operationId: "patch_categories"
       tags:
         - Categories
       description: This endpoint allows you to update several categories at once.
@@ -914,7 +914,7 @@ paths:
   /api/rest/v1/categories/{code}:
     get:
       summary: Get a category
-      operationId: "categories_get"
+      operationId: "get_categories__code_"
       description: This endpoint allows you to get the information about a given category.
       tags:
         - Categories
@@ -936,7 +936,7 @@ paths:
           $ref: "#/responses/406Error"
     patch:
       summary: Update/create a category
-      operationId: "categories_patch"
+      operationId: "patch_categories__code_"
       tags:
         - Categories
       description: This endpoint allows you to update a given category. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no category exists for the given code, it creates it.
@@ -966,7 +966,7 @@ paths:
   /api/rest/v1/families:
     get:
       summary: Get list of families
-      operationId: "families_get_list"
+      operationId: "get_families"
       description: This endpoint allows you to get a list of families. Families are paginated and sorted by code.
       tags:
         - Families
@@ -1055,7 +1055,7 @@ paths:
           $ref: "#/responses/406Error"
     post:
       summary: Create a new family
-      operationId: "families_post"
+      operationId: "post_families"
       description: This endpoint allows you to create a new family.
       tags:
         - Families
@@ -1079,7 +1079,7 @@ paths:
           $ref: "#/responses/422Error"
     patch:
       summary: Update/create several families
-      operationId: "several_families_patch"
+      operationId: "patch_families"
       tags:
         - Families
       description: This endpoint allows you to update and/or create several families at once.
@@ -1121,7 +1121,7 @@ paths:
   /api/rest/v1/families/{code}:
     get:
       summary: Get a family
-      operationId: "families_get"
+      operationId: "get_families__code_"
       description: This endpoint allows you to get the information about a given family.
       tags:
         - Families
@@ -1143,7 +1143,7 @@ paths:
           $ref: "#/responses/406Error"
     patch:
       summary: Update/create a family
-      operationId: "families_patch"
+      operationId: "patch_families__code_"
       tags:
         - Families
       description: This endpoint allows you to update a given family. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no family exists for the given code, it creates it.
@@ -1173,7 +1173,7 @@ paths:
   /api/rest/v1/attributes:
     get:
       summary: Get list of attributes
-      operationId: "attributes_get_list"
+      operationId: "get_attributes"
       description: This endpoint allows you to get a list of attributes. Attributes are paginated and sorted by code.
       tags:
         - Attributes
@@ -1298,7 +1298,7 @@ paths:
           $ref: "#/responses/406Error"
     post:
       summary: Create a new attribute
-      operationId: "attributes_post"
+      operationId: "post_attributes"
       description: This endpoint allows you to create a new attribute.
       tags:
         - Attributes
@@ -1322,7 +1322,7 @@ paths:
           $ref: "#/responses/422Error"
     patch:
       summary: Update/create several attributes
-      operationId: "several_attributes_patch"
+      operationId: "patch_attributes"
       tags:
         - Attributes
       description: This endpoint allows you to update and/or create several attributes at once.
@@ -1364,7 +1364,7 @@ paths:
   /api/rest/v1/attributes/{code}:
     get:
       summary: Get an attribute
-      operationId: "attributes_get"
+      operationId: "get_attributes__code_"
       description: This endpoint allows you to get the information about a given attribute.
       tags:
         - Attributes
@@ -1386,7 +1386,7 @@ paths:
           $ref: "#/responses/406Error"
     patch:
       summary: Update/create an attribute
-      operationId: "attributes_patch"
+      operationId: "patch_attributes__code_"
       tags:
         - Attributes
       description: This endpoint allows you to update a given attribute. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute exists for the given code, it creates it.
@@ -1416,7 +1416,7 @@ paths:
   /api/rest/v1/attributes/{attribute_code}/options:
     get:
       summary: Get list of attribute options
-      operationId: "attribute_options_get_list"
+      operationId: "get_attributes__attribute_code__options"
       description: This endpoint allows you to get a list of attribute options. Attribute options are paginated and sorted by code.
       tags:
         - Attribute options
@@ -1512,7 +1512,7 @@ paths:
           $ref: "#/responses/406Error"
     post:
       summary: Create a new attribute option
-      operationId: "attribute_options_post"
+      operationId: "post_attributes__attribute_code__options"
       description: This endpoint allows you to create a new attribute option.
       tags:
         - Attribute options
@@ -1538,7 +1538,7 @@ paths:
   /api/rest/v1/attributes/{attribute_code}/options/{code}:
     get:
       summary: Get an attribute option
-      operationId: "attribute_options_get"
+      operationId: "get_attributes__attribute_code__options__code_"
       description: This endpoint allows you to get the information about a given attribute option.
       tags:
         - Attribute options
@@ -1561,7 +1561,7 @@ paths:
           $ref: "#/responses/406Error"
     patch:
       summary: Update/create an attribute option
-      operationId: "attribute_options_patch"
+      operationId: "patch_attributes__attribute_code__options__code_"
       tags:
         - Attribute options
       description: This endpoint allows you to update a given attribute option. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute option exists for the given code, it creates it.
@@ -1592,6 +1592,8 @@ paths:
   /api/rest/v1/media-files:
     get:
       summary: Get a list of media files
+      operationId: "get_media_files"
+      description: This endpoint allows you to get a list of media files.
       tags:
         - Media files
       parameters:
@@ -1703,7 +1705,7 @@ paths:
           $ref: "#/responses/406Error"
     post:
       summary: Create a new media file
-      operationId: "media_file_post"
+      operationId: "post_media_files"
       description: This endpoint allows you to create a new media file and associate it to the product value of a given product.
       tags:
         - Media files
@@ -1741,7 +1743,7 @@ paths:
   /api/rest/v1/media-files/{code}:
     get:
       summary: Get a media file
-      operationId: "media_files_get"
+      operationId: "get_media_files__code_"
       description: This endpoint allows you to get the information about a given media file.
       tags:
         - Media files
@@ -1764,7 +1766,7 @@ paths:
   /api/rest/v1/media-files/{code}/download:
     get:
       summary: Download a media file
-      operationId: "media_files_download"
+      operationId: "get_media_files__code__download"
       description: This endpoint allows you to download a given media file.
       x-content-type: Mime-type of the media file
       tags:
@@ -1782,10 +1784,11 @@ paths:
           $ref: "#/responses/403Error"
         404:
           $ref: "#/responses/404Error"
+  
   /api/rest/v1/locales:
     get:
       summary: Get a list of locales
-      operationId: "locales_get_list"
+      operationId: "get_locales"
       description: This endpoint allows you to get a list of locales. Locales are paginated and sorted by code.
       tags:
         - Locales
@@ -1875,7 +1878,7 @@ paths:
   /api/rest/v1/locales/{code}:
     get:
       summary: Get a locale
-      operationId: "locales_get"
+      operationId: "get_locales__code_"
       description: This endpoint allows you to get the information about a given locale.
       tags:
         - Locales
@@ -1895,10 +1898,11 @@ paths:
           $ref: "#/responses/404Error"
         406:
           $ref: "#/responses/406Error"
+
   /api/rest/v1/channels:
     get:
       summary: Get a list of channels
-      operationId: "channels"
+      operationId: "get_channels"
       description: This endpoint allows you to get a list of channels. Channels are paginated and sorted by code.
       tags:
         - Channels
@@ -2005,7 +2009,7 @@ paths:
   /api/rest/v1/channels/{code}:
     get:
       summary: Get a channel
-      operationId: "channels_get"
+      operationId: "get_channels__code_"
       description: This endpoint allows you to get the information about a given channel.
       tags:
         - Channels
