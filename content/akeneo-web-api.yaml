@@ -742,6 +742,29 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
+  /api/rest/v1/products/{code}/draft:
+    get:
+      summary: Get a draft
+      operationId: "get_draft__code_"
+      tags:
+        - Products
+      description: This endpoint allows you to get the information about a given draft.
+      parameters:
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          description: OK
+          x-details: Returns the content of the draft in JSON standard format
+          schema:
+            $ref: '#/definitions/Product'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
+        404:
+          $ref: "#/responses/404Error"
 
   /api/rest/v1/categories:
     get:
