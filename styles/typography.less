@@ -1,47 +1,71 @@
-h1{
-  font-weight: bold;
-  margin-top: @spacing-base * 1.25;
+h1 {
+    font-weight: bold;
+    margin-top: @spacing-base * 1.25;
 }
 
-h2{
-  margin-top: @spacing-base;
-  margin-bottom: @spacing-base / 3;
-  &.picto{
-    position: relative;
-    svg{
-      right: @spacing-base;
-      top: -@spacing-base * 0.70;
-      position: absolute;
-      display: inline-block;
-      width: 120px;
-      height: 120px;
+h2 {
+    margin-top: @spacing-base;
+    margin-bottom: @spacing-base / 3;
+    &.picto {
+        position: relative;
+        svg {
+            right: @spacing-base;
+            top: -@spacing-base * 0.40;
+            position: absolute;
+            display: inline-block;
+            width: 120px;
+            height: 120px;
+        }
     }
-  }
-  + .panel{
-    margin-top: @spacing-base / 2;
-  }
-}
-
-h3{
-  &.picto{
-  margin-top: @spacing-base;
-  position: relative;
-    svg{
-      right: @spacing-base;
-      top: -@spacing-base * 0.30;
-      position: absolute;
-      display: inline-block;
-      width: @font-size-h3 * 4;
-      height: @font-size-h3 * 4;
-      z-index: 1
+    +.panel {
+        margin-top: @spacing-base / 2;
     }
-  }
 }
 
-h4{
-  color: @gray-light;
+h3 {
+    &.picto {
+        margin-top: @spacing-base;
+        position: relative;
+        svg {
+            right: @spacing-base;
+            top: -@spacing-base * 0.30;
+            position: absolute;
+            display: inline-block;
+            width: @font-size-h3 * 4;
+            height: @font-size-h3 * 4;
+            z-index: 1
+        }
+    }
 }
 
-h5{
-  font-weight: bold;
+h4 {
+    color: @gray-light;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+.text-primary {
+    color: @brand-primary;
+}
+
+.text-success {
+    color: @brand-success;
+}
+
+.text-info {
+    color: @brand-info;
+}
+
+.text-warning {
+    color: @brand-warning;
+}
+
+.text-danger {
+    color: @brand-danger;
+}
+
+.text-akeneo {
+    color: @brand-akeneo;
 }
