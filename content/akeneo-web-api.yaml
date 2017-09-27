@@ -17,6 +17,9 @@ paths:
       description: This endpoint allows you to get the list of all the available endpoints. No need to be authenticated to use this endpoint.
       tags:
         - Overview
+      x-versions:
+        - 1.7
+        - 2.0
       x-no-token: true
       responses:
         200:
@@ -266,6 +269,9 @@ paths:
       description: This endpoint allows you to get an authentication token. No need to be authenticated to use this endpoint.
       tags:
         - Authentication
+      x-versions:
+        - 1.7
+        - 2.0
       x-no-token: true
       parameters:
         - name: Authorization
@@ -332,9 +338,12 @@ paths:
     get:
       summary: Get list of products
       operationId: "get_products"
-      description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered.
       tags:
         - Products
+      x-versions:
+        - 1.7
+        - 2.0
+      description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered.
       parameters:
         - name: search
           in: query
@@ -594,6 +603,9 @@ paths:
       operationId: "post_products"
       tags:
         - Products
+      x-versions:
+        - 1.7
+        - 2.0
       description: This endpoint allows you to create a new product.
       parameters:
         - name: body
@@ -616,9 +628,12 @@ paths:
     patch:
       summary: Update/create several products
       operationId: "patch_products"
-      description: This endpoint allows you to update and/or create several products at once.
       tags:
         - Products
+      x-versions:
+        - 1.7
+        - 2.0
+      description: This endpoint allows you to update and/or create several products at once.
       x-body-by-line: Contains several lines, each line is a product in JSON standard format
       parameters:
         - name: body
@@ -660,6 +675,9 @@ paths:
       operationId: "get_products__code_"
       tags:
         - Products
+      x-versions:
+        - 1.7
+        - 2.0
       description: This endpoint allows you to get the information about a given product.
       parameters:
         - $ref: '#/parameters/code'
@@ -680,9 +698,12 @@ paths:
     patch:
       summary: Update/create a product
       operationId: "patch_products__code_"
-      description: This endpoint allows you to update a given product. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it.
       tags:
         - Products
+      x-versions:
+        - 1.7
+        - 2.0
+      description: This endpoint allows you to update a given product. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -706,9 +727,12 @@ paths:
     delete:
       summary: Delete a product
       operationId: "delete_products__code_"
-      description: This endpoint allows you to delete a given product.
       tags:
         - Products
+      x-versions:
+        - 1.7
+        - 2.0
+      description: This endpoint allows you to delete a given product.
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -728,6 +752,8 @@ paths:
       operationId: "post_proposal"
       tags:
         - Products
+      x-versions:
+        - 2.0
       description: This endpoint allows you to submit a draft for proposal.
       parameters:
         - $ref: '#/parameters/code'
@@ -748,6 +774,8 @@ paths:
       operationId: "get_draft__code_"
       tags:
         - Products
+      x-versions:
+        - 2.0
       description: This endpoint allows you to get the information about a given draft.
       parameters:
         - $ref: '#/parameters/code'
@@ -773,6 +801,8 @@ paths:
         description: This endpoint allows you to get a list of published products. Published products are paginated and they can be filtered.
         tags:
           - Published Products
+        x-versions:
+          - 2.0
         parameters:
           - name: search
             in: query
@@ -1033,6 +1063,8 @@ paths:
         operationId: "get_published_products__code_"
         tags:
           - Published Products
+        x-versions:
+          - 2.0
         description: This endpoint allows you to get the information about a given published product.
         parameters:
           - $ref: '#/parameters/code'
@@ -1058,6 +1090,9 @@ paths:
       description: This endpoint allows you to get a list of categories. Categories are paginated and sorted by `root/left`.
       tags:
         - Categories
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
@@ -1181,6 +1216,9 @@ paths:
       description: This endpoint allows you to create a new category.
       tags:
         - Categories
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - name: body
           in: body
@@ -1204,6 +1242,9 @@ paths:
       operationId: "patch_categories"
       tags:
         - Categories
+      x-versions:
+        - 1.7
+        - 2.0
       description: This endpoint allows you to update several categories at once.
       x-body-by-line: Contains several lines, each line is a category in JSON standard format
       parameters:
@@ -1247,6 +1288,9 @@ paths:
       description: This endpoint allows you to get the information about a given category.
       tags:
         - Categories
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -1268,6 +1312,9 @@ paths:
       operationId: "patch_categories__code_"
       tags:
         - Categories
+      x-versions:
+        - 1.7
+        - 2.0
       description: This endpoint allows you to update a given category. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no category exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'
@@ -1299,6 +1346,9 @@ paths:
       description: This endpoint allows you to get a list of families. Families are paginated and sorted by code.
       tags:
         - Families
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
@@ -1388,6 +1438,9 @@ paths:
       description: This endpoint allows you to create a new family.
       tags:
         - Families
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - name: body
           in: body
@@ -1411,6 +1464,9 @@ paths:
       operationId: "patch_families"
       tags:
         - Families
+      x-versions:
+        - 1.7
+        - 2.0
       description: This endpoint allows you to update and/or create several families at once.
       x-body-by-line: Contains several lines, each line is a family in JSON standard format
       parameters:
@@ -1454,6 +1510,9 @@ paths:
       description: This endpoint allows you to get the information about a given family.
       tags:
         - Families
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -1475,6 +1534,9 @@ paths:
       operationId: "patch_families__code_"
       tags:
         - Families
+      x-versions:
+        - 1.7
+        - 2.0
       description: This endpoint allows you to update a given family. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no family exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'
@@ -1506,6 +1568,9 @@ paths:
       description: This endpoint allows you to get a list of attributes. Attributes are paginated and sorted by code.
       tags:
         - Attributes
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
@@ -1631,6 +1696,9 @@ paths:
       description: This endpoint allows you to create a new attribute.
       tags:
         - Attributes
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - name: body
           in: body
@@ -1654,6 +1722,9 @@ paths:
       operationId: "patch_attributes"
       tags:
         - Attributes
+      x-versions:
+        - 1.7
+        - 2.0
       description: This endpoint allows you to update and/or create several attributes at once.
       x-body-by-line: Contains several lines, each line is an attribute in JSON standard format
       parameters:
@@ -1697,6 +1768,9 @@ paths:
       description: This endpoint allows you to get the information about a given attribute.
       tags:
         - Attributes
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -1718,6 +1792,9 @@ paths:
       operationId: "patch_attributes__code_"
       tags:
         - Attributes
+      x-versions:
+        - 1.7
+        - 2.0
       description: This endpoint allows you to update a given attribute. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'
@@ -1749,6 +1826,9 @@ paths:
       description: This endpoint allows you to get a list of attribute options. Attribute options are paginated and sorted by code.
       tags:
         - Attribute options
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/attribute_code'
         - $ref: '#/parameters/page'
@@ -1845,6 +1925,9 @@ paths:
       description: This endpoint allows you to create a new attribute option.
       tags:
         - Attribute options
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/attribute_code'
         - name: body
@@ -1871,6 +1954,9 @@ paths:
       description: This endpoint allows you to get the information about a given attribute option.
       tags:
         - Attribute options
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/attribute_code'
         - $ref: '#/parameters/code'
@@ -1893,6 +1979,9 @@ paths:
       operationId: "patch_attributes__attribute_code__options__code_"
       tags:
         - Attribute options
+      x-versions:
+        - 1.7
+        - 2.0
       description: This endpoint allows you to update a given attribute option. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute option exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/attribute_code'
@@ -1925,6 +2014,8 @@ paths:
       description: This endpoint allows you to get a list of attribute groups. Attribute groups are paginated and sorted by code.
       tags:
         - Attribute groups
+      x-versions:
+        - 2.0
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
@@ -2023,6 +2114,8 @@ paths:
       description: This endpoint allows you to create a new attribute group.
       tags:
         - Attribute groups
+      x-versions:
+        - 2.0
       parameters:
         - name: body
           in: body
@@ -2046,6 +2139,8 @@ paths:
       operationId: "several_attribute_groups_patch"
       tags:
         - Attribute groups
+      x-versions:
+        - 2.0
       description: This endpoint allows you to update and/or create several attribute groups at once.
       x-body-by-line: Contains several lines, each line is an attribute group in JSON standard format
       parameters:
@@ -2088,6 +2183,8 @@ paths:
       description: This endpoint allows you to get the information about a given attribute group.
       tags:
         - Attribute groups
+      x-versions:
+        - 2.0
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -2109,6 +2206,8 @@ paths:
       operationId: "attribute_groups_patch"
       tags:
         - Attribute groups
+      x-versions:
+        - 2.0
       description: This endpoint allows you to update a given attribute group. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute group exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'
@@ -2140,6 +2239,9 @@ paths:
       description: This endpoint allows you to get a list of media files.
       tags:
         - Media files
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
@@ -2253,6 +2355,9 @@ paths:
       description: This endpoint allows you to create a new media file and associate it to the product value of a given product.
       tags:
         - Media files
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - name: Content-type
           in: header
@@ -2291,6 +2396,9 @@ paths:
       description: This endpoint allows you to get the information about a given media file.
       tags:
         - Media files
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -2315,6 +2423,9 @@ paths:
       x-content-type: Mime-type of the media file
       tags:
         - Media files
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -2336,6 +2447,9 @@ paths:
       description: This endpoint allows you to get a list of locales. Locales are paginated and sorted by code.
       tags:
         - Locales
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
@@ -2426,6 +2540,9 @@ paths:
       description: This endpoint allows you to get the information about a given locale.
       tags:
         - Locales
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -2450,6 +2567,9 @@ paths:
       description: This endpoint allows you to get a list of channels. Channels are paginated and sorted by code.
       tags:
         - Channels
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
@@ -2556,6 +2676,8 @@ paths:
       description: This endpoint allows you to create a new channel.
       tags:
         - Channels
+      x-versions:
+        - 2.0
       parameters:
         - name: body
           in: body
@@ -2579,6 +2701,8 @@ paths:
       operationId: "several_channels_patch"
       tags:
         - Channels
+      x-versions:
+        - 2.0
       description: This endpoint allows you to update and/or create several channels at once.
       x-body-by-line: Contains several lines, each line is a channel in JSON standard format
       parameters:
@@ -2621,6 +2745,9 @@ paths:
       description: This endpoint allows you to get the information about a given channel.
       tags:
         - Channels
+      x-versions:
+        - 1.7
+        - 2.0
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -2642,6 +2769,8 @@ paths:
       operationId: "channels_patch"
       tags:
         - Channels
+      x-versions:
+        - 2.0
       description: This endpoint allows you to update a given channel. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no channel exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'
@@ -2673,6 +2802,8 @@ paths:
       description: This endpoint allows you to get a list of currencies. Currencies are paginated and sorted by code.
       tags:
         - Currencies
+      x-versions:
+        - 2.0
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
@@ -2748,6 +2879,8 @@ paths:
       description: This endpoint allows you to get the information about a given currency.
       tags:
         - Currencies
+      x-versions:
+        - 2.0
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -2772,6 +2905,8 @@ paths:
       description: This endpoint allows you to get a list of measure families. Measure families are paginated and sorted by code.
       tags:
         - Measure Families
+      x-versions:
+        - 2.0
       responses:
         200:
           description: Return measure families paginated
@@ -2883,6 +3018,8 @@ paths:
       description: This endpoint allows you to get the information about a given measure family.
       tags:
         - Measure Families
+      x-versions:
+        - 2.0
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -2907,6 +3044,8 @@ paths:
       description: This endpoint allows you to get a list of association types. Association types are paginated and sorted by code.
       tags:
         - Association types
+      x-versions:
+        - 2.0
       parameters:
         - $ref: '#/parameters/page'
         - $ref: '#/parameters/limit'
@@ -2990,6 +3129,8 @@ paths:
       description: This endpoint allows you to create a new association type.
       tags:
         - Association types
+      x-versions:
+        - 2.0
       parameters:
         - name: body
           in: body
@@ -3013,6 +3154,8 @@ paths:
       operationId: "several_association_types_patch"
       tags:
         - Association types
+      x-versions:
+        - 2.0
       description: This endpoint allows you to update and/or create several association types at once.
       x-body-by-line: Contains several lines, each line is an association type in JSON standard format
       parameters:
@@ -3055,6 +3198,8 @@ paths:
       description: This endpoint allows you to get the information about a given association type.
       tags:
         - Association types
+      x-versions:
+        - 2.0
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -3076,6 +3221,8 @@ paths:
       operationId: "association_types_patch"
       tags:
         - Association types
+      x-versions:
+        - 2.0
       description: This endpoint allows you to update a given association type. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no association type exists for the given code, it creates it.
       parameters:
         - $ref: '#/parameters/code'

@@ -1,9 +1,31 @@
 {{#> layout title="API reference" active_api_reference=true }}
     <div class="container">
         <div class="row">
+            <div class="col-xs-12">
+                <h1>API reference</h1>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <p><em>Complete reference on how to handle Akeneo PIM resources</em></p>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <div class="dropdown pull-right">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Your PIM version: <strong>{{{pimVersion}}}</strong>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="dropdown-title">Choose your PIM version</li>
+                        <li><a href="/api-reference-17.html">1.7</a></li>
+                        <li><a href="/api-reference.html">2.0</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div id="navbar" class="col-sm-3 hidden-xs">
                 <nav role="tablist" data-spy="affix" data-offset-top="80">
                     <ul class="nav nav-stacked">
+                        <p class="pre-nav">Browse all our endpoints</p>
                         {{#each resources as |resource resourceId|}}
                             <li class="main-nav"><a href="#{{{resourceId}}}">{{{resourceName}}}</a>
                                 <ul class="nav">
@@ -17,14 +39,10 @@
                 </nav>
             </div>
             <div class="col-xs-12 col-sm-9">
-                <h1>API reference</h1>
-                <em>Complete reference on how to handle Akeneo PIM resources</em>
                 {{#each resources as |resource resourceId|}}
                     <a class="anchor" id="{{{resourceId}}}"></a>
                     <h2 class="picto">{{{resourceName}}}
-                        <svg viewBox="0 0 256 256">
-                            <use xlink:href="img/icons.svg#icon--{{{resourceId}}}"></use>
-                        </svg>
+                        <img src="img/illustrations/illus--{{{resourceId}}}.svg"/>
                     </h2>
                     <div id="{{{resource}}}-detail"></div>
                     {{#each resource.operations as |operation operationId|}}
@@ -35,6 +53,13 @@
                                         <a class="anchor" id="{{{operationId}}}"></a>
                                         <h3>{{{summary}}}</h3>
                                         <p>{{{description}}}</p>
+                                        <p>
+                                            <em class="small text-info">Available in PIM versions:</em>
+                                            {{#each x-versions as |version versionId|}}
+                                                <span class="label label-version">{{{version}}}</span>
+                                            {{/each}}
+                                        </p>
+                                        <hr>
                                         <h4>REQUEST</h4>
                                         <p>
                                             <span class="label label-verb label-{{{verb}}}">{{{verb}}}</span>
@@ -444,8 +469,8 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
     </script>
 {{/layout}}
