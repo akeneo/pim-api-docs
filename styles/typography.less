@@ -4,17 +4,18 @@ h1 {
 }
 
 h2 {
-    margin-top: @spacing-base;
+    margin-top: @spacing-base * 0.75;
     margin-bottom: @spacing-base / 3;
     &.picto {
         position: relative;
-        svg {
+        svg,
+        img {
             right: @spacing-base;
             top: -@spacing-base * 0.40;
             position: absolute;
             display: inline-block;
             width: 120px;
-            height: 120px;
+            z-index: 1
         }
     }
     +.panel {
@@ -23,16 +24,19 @@ h2 {
 }
 
 h3 {
+    margin-top: @spacing-base * 0.75;
+    text-transform: uppercase;
+    color: lighten(@headings-color, 10%);
     &.picto {
         margin-top: @spacing-base;
         position: relative;
-        svg {
+        svg,
+        img {
             right: @spacing-base;
-            top: -@spacing-base * 0.30;
+            top: -54px;
             position: absolute;
             display: inline-block;
-            width: @font-size-h3 * 4;
-            height: @font-size-h3 * 4;
+            width: 100px;
             z-index: 1
         }
     }
@@ -43,7 +47,11 @@ h4 {
 }
 
 h5 {
-    font-weight: bold;
+    font-weight: normal;
+}
+
+hr {
+    margin: @spacing-base / 2 0;
 }
 
 .text-primary {

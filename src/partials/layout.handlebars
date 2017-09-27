@@ -24,8 +24,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img alt="Akeneo" src="/img/akene.png" width="50"></a>
-            <p class="navbar-text">Akeneo Web API  &nbsp;<span class="label label-version">v1</span></p>
+            <a class="navbar-brand" href="/">
+                <img height="18" src="/img/akeneo.svg"></img>
+            </a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -33,16 +34,24 @@
                 <li class="dropdown{{#if active_getting_started}} active{{/if}}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Getting started <span class="caret"></span></a>
                     <ul class="dropdown-menu">
+                        <li class="dropdown-title">Getting started</li>
+                        <li><a href="/getting-started-postman-collection.html">Play around with Postman</a></li>
                         <li><a href="/getting-started.html">Make my first request</a></li>
-                        <li><a href="/getting-started-admin.html">Manage the access to the API</a></li>
+                        <li><a href="/getting-started-admin.html">Manage my API connections</a></li>
                     </ul>
                 </li>
-                <li class="{{#if active_documentation}}active{{/if}}"><a href="/documentation/introduction.html">Documentation</a></li>
+                <li class="dropdown{{#if active_documentation}} active{{/if}}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-title">Documentation</li>
+                        <li><a href="/documentation/introduction.html">REST API</a></li>
+                        <li><a href="/php-client/introduction.html">PHP client</a></li>
+                    </ul>
+                </li>
                 <li class="{{#if active_api_reference}}active{{/if}}"><a href="/api-reference-index.html">API reference</a></li>
-                <li class="{{#if active_client_documentation}}active{{/if}} rotated-label"><a href="/php-client/introduction.html">PHP client <span class="label label-info label-beta">BETA</span> </a></li>
             </ul>
             <form class="navbar-form navbar-right">
-                <div class="form-group">
+                <div class="form-group form-search">
                     <input id="algolia-search" class="form-control" placeholder="Search whole doc">
                 </div>
             </form>
@@ -71,6 +80,18 @@
 
     ga('create', 'UA-35417741-5', 'auto');
     ga('send', 'pageview');
+</script>
+<script>
+    $(function(){
+        var navbar = $('.navbar');
+        $(window).scroll(function(){
+            if($(window).scrollTop() <= 40){
+                navbar.removeClass('scroll');
+            } else {
+              navbar.addClass('scroll');
+            }
+        });
+    });
 </script>
 </body>
 </html>

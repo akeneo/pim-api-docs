@@ -14,7 +14,7 @@ gulp.task('copy-assets', ['clean-dist'], function(){
             'node_modules/handlebars/handlebars.min.js',
             'node_modules/bootstrap/dist/js/bootstrap.min.js'])
         .pipe(gulp.dest('dist/js/'));
-    var img = gulp.src('content/img/*')
+    var img = gulp.src('content/img/**')
         .pipe(gulp.dest('dist/img/'));
     var files = gulp.src('content/files/*')
         .pipe(gulp.dest('dist/files/'));
