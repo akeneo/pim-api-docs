@@ -343,7 +343,7 @@ paths:
       x-versions:
         - 1.7
         - 2.0
-      description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered.
+      description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered. If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the set of products you request.
       parameters:
         - name: search
           in: query
@@ -606,7 +606,7 @@ paths:
       x-versions:
         - 1.7
         - 2.0
-      description: This endpoint allows you to create a new product.
+      description: This endpoint allows you to create a new product. If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the product you try to create.
       parameters:
         - name: body
           in: body
@@ -633,7 +633,7 @@ paths:
       x-versions:
         - 1.7
         - 2.0
-      description: This endpoint allows you to update and/or create several products at once.
+      description: This endpoint allows you to update and/or create several products at once. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it. If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the products you try to update. It may result in the creation of drafts if you only have edit rights through the product's categories.
       x-body-by-line: Contains several lines, each line is a product in JSON standard format
       parameters:
         - name: body
@@ -678,7 +678,7 @@ paths:
       x-versions:
         - 1.7
         - 2.0
-      description: This endpoint allows you to get the information about a given product.
+      description: This endpoint allows you to get the information about a given product. If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the product you request.
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -703,7 +703,7 @@ paths:
       x-versions:
         - 1.7
         - 2.0
-      description: This endpoint allows you to update a given product. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it.
+      description: This endpoint allows you to update a given product. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it. If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the product you try to update. It may result in the creation of a draft if you only have edit rights through the product's categories.
       parameters:
         - $ref: '#/parameters/code'
         - name: body
@@ -732,7 +732,7 @@ paths:
       x-versions:
         - 1.7
         - 2.0
-      description: This endpoint allows you to delete a given product.
+      description: This endpoint allows you to delete a given product. If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the product you try to delete.
       parameters:
         - $ref: '#/parameters/code'
       responses:
@@ -754,6 +754,7 @@ paths:
         - Products
       x-versions:
         - 2.0
+      x-ee: true
       description: This endpoint allows you to submit a draft for proposal.
       parameters:
         - $ref: '#/parameters/code'
@@ -776,6 +777,7 @@ paths:
         - Products
       x-versions:
         - 2.0
+      x-ee: true
       description: This endpoint allows you to get the information about a given draft.
       parameters:
         - $ref: '#/parameters/code'
@@ -803,6 +805,7 @@ paths:
           - Published Products
         x-versions:
           - 2.0
+        x-ee: true
         parameters:
           - name: search
             in: query
@@ -1065,6 +1068,7 @@ paths:
           - Published Products
         x-versions:
           - 2.0
+        x-ee: true
         description: This endpoint allows you to get the information about a given published product.
         parameters:
           - $ref: '#/parameters/code'

@@ -62,6 +62,9 @@
                                             {{#each x-versions as |version versionId|}}
                                                 <span class="label label-version">{{{version}}}</span>
                                             {{/each}}
+                                            {{#if x-ee}}
+                                                <span class="label label-ee">EE only</span>
+                                            {{/if}}
                                         </p>
                                     </div>
                                 </div>

@@ -30,7 +30,12 @@
                             <li class="main-nav"><a href="#{{{resourceId}}}">{{{resourceName}}}</a>
                                 <ul class="nav">
                                     {{#each resource.operations as |operation operationId|}}
-                                        <li class="sub-nav"><a href="#{{{operationId}}}"><i class="fa fa-square fa-{{{verb}}}"></i> {{{summary}}}</a></li>
+                                        <li class="sub-nav">
+                                            <a href="#{{{operationId}}}"><i class="fa fa-square fa-{{{verb}}}"></i> {{{summary}}}
+                                                {{#if x-ee}}
+                                                    &nbsp;<span class="label label-ee">EE</span>
+                                                {{/if}}
+                                            </a></li>
                                     {{/each}}
                                 </ul>
                             </li>
@@ -51,7 +56,12 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <a class="anchor" id="{{{operationId}}}"></a>
-                                        <h3>{{{summary}}}</h3>
+                                        <h3>
+                                            {{{summary}}}
+                                            {{#if x-ee}}
+                                                &nbsp;<span class="label label-ee">EE only</span>
+                                            {{/if}}
+                                        </h3>
                                         <p>{{{description}}}</p>
                                         <p>
                                             <em class="small text-info">Available in PIM versions:</em>
