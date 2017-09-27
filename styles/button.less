@@ -1,5 +1,15 @@
+button.btn,
+a.btn {
+    border-radius: 100px;
+    border: none;
+    padding: 5px 16px;
+    text-transform: uppercase;
+}
+
 .btn-akeneo {
-  .button-variant(#fff; @brand-akeneo; @btn-default-border);
+    .button-variant(#fff;
+    @brand-akeneo;
+    @btn-default-border);
 }
 
 button:focus,
@@ -9,5 +19,77 @@ button:focus,
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: none;
+    outline: none;
+}
+
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open>.dropdown-toggle.btn-default:hover,
+.open>.dropdown-toggle.btn-default,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open>.dropdown-toggle.btn-default:focus,
+.btn-default:active.focus,
+.btn-default.active.focus,
+.open>.dropdown-toggle.btn-default.focus {
+    background: none;
+    border: none;
+    color: @brand-info;
+    .box-shadow(none);
+}
+
+.dropdown {
+    position: relative;
+    button.btn {
+        color: @brand-info;
+        text-transform: none;
+        border: none;
+        background: none;
+        font-size: @font-size-base;
+        font-weight: 300;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .dropdown-menu {
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.1s ease-out;
+        animation-iteration-count: 1;
+        top: -7px;
+        left: -90px;
+        box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.15);
+        border: none;
+        border-radius: 0;
+    }
+    &.open {
+        >a {
+            background-color: inherit;
+            color: inherit;
+        }
+        .dropdown-menu {
+            background-color: white;
+            opacity: 1;
+            animation: fadeIn 0.1s ease-in;
+            li.dropdown-title {
+                text-transform: uppercase;
+                color: @brand-primary;
+                margin: 3px 20px;
+                border-bottom: 1px @brand-primary solid;
+                font-size: 14px;
+            }
+            li a {
+                color: @brand-primary;
+            }
+        }
+    }
+}
+
+.caret {
+    display: inline-block;
+    width: 12px;
+    height: 6px;
+    background: url('../img/icons/icon--down.svg') no-repeat 0 center;
+    background-size: 12px;
+    margin-left: 3px;
+    border: none;
 }

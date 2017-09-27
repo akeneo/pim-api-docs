@@ -1,49 +1,58 @@
-.jumbotron{
-  background-color: @brand-primary;
-  + .jumbotron{
+.jumbotron {
     background-color: @gray-lighter;
-    margin-top: -@jumbotron-padding;
-    p{
-      margin-bottom: 0;
+    h1.emphasis {
+        color: #11324D;
+        font-size: @font-size-base*2;
+        font-weight: normal;
+        font-family: Comfortaa, sans-serif;
+        +p {
+            font-size: 19px;
+            font-weight: 300;
+        }
     }
-    .container{
-      margin-bottom: 0px;
+    +.jumbotron {
+        background-color: @gray-lighter;
+        margin-top: -@jumbotron-padding;
+        p {
+            margin-bottom: 0;
+        }
+        .container {
+            margin-bottom: 0px;
+        }
     }
-  }
-  h1{
-    color: white;
-
-  }
-  h2{
-    margin-top: 0px;
-  }
-  p{
-    font-size: @font-size-base;
-    font-weight: normal;
-  }
-  .btn  p{
-    margin-left: 10px;
-    &.lead{
-      margin-bottom: 0;
-      margin-top: 20px;
-      font-size: @font-size-large;
+    h1 {
+        color: white;
     }
-  }
-  .panel-jumbotron{
-    margin: @spacing-base/6;
-    @media (min-width: @screen-sm-min) {
-      margin: @spacing-base;
+    h2 {
+        margin-top: 0px;
     }
-    @media (min-width: @screen-lg-min) {
-      margin: 0 @spacing-base/6 0 0;
+    p {
+        font-size: @font-size-base;
+        font-weight: 300;
     }
-    @media (min-width: @screen-xlg-min) {
-      margin: @spacing-base/2 @spacing-base @spacing-base/2 @spacing-base/4;
+    .btn p {
+        margin-left: 10px;
+        &.lead {
+            margin-bottom: 0;
+            margin-top: 20px;
+            font-size: @font-size-large;
+        }
     }
-    @media (max-width: @screen-lg-min) {
-      .panel{
-        margin-bottom: 0;
-      }
+    .panel-jumbotron {
+        margin: @spacing-base/6;
+        @media (min-width: @screen-sm-min) {
+            margin: @spacing-base;
+        }
+        @media (min-width: @screen-lg-min) {
+            margin: 0 @spacing-base/6 0 0;
+        }
+        @media (min-width: @screen-xlg-min) {
+            margin: @spacing-base/2 @spacing-base @spacing-base/2 @spacing-base/4;
+        }
+        @media (max-width: @screen-lg-min) {
+            .panel {
+                margin-bottom: 0;
+            }
+        }
     }
-  }
 }

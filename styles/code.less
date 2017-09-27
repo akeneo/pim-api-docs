@@ -1,43 +1,45 @@
-.text-api-url{
-  margin-left: 10px;
-  font-family: 'PT mono';
+.text-api-url {
+    margin-left: 10px;
+    font-family: 'PT mono';
+    font-size: 13px;
 }
 
-.def{
-  background-color: lighten(@gray-lighter, 2%);
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  p{
-    margin: 0;
-    font-size: @font-size-small;
-    &.def-key{
-      margin-left: 12px;
+.def {
+    background-color: lighten(@gray-lighter, 2%);
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    p {
+        margin: 0;
+        font-size: @font-size-small;
+        &.def-key {
+            margin-left: 12px;
+        }
     }
-  }
 }
 
-code{
-	color: @brand-akeneo;
+code {
+    color: @brand-info;
+    background-color: lighten(@brand-info, 42%);
 }
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 1.5em;
-  margin-bottom: @spacing-base/2;
-  background: @headings-color;
-  font-size: 12px;
-  max-height: 350px;
+    display: block;
+    overflow-x: auto;
+    padding: 1.5em;
+    margin-bottom: @spacing-base/2;
+    background: @headings-color;
+    font-size: 12px;
+    max-height: 350px;
 }
 
 .hljs-function .hljs-keyword {
-  color: #9452BA;
+    color: #9452BA;
 }
 
 .hljs,
 .hljs-subst {
-  color: @gray-lighter;
-  font-size: @font-size-small*0.85;
+    color: @gray-lighter;
+    font-size: @font-size-small*0.85;
 }
 
 .hljs-string,
@@ -51,13 +53,13 @@ code{
 .hljs-template-tag,
 .hljs-template-variable,
 .hljs-regexp {
-  color: #c678dd;
+    color: #c678dd;
 }
 
 .hljs-comment,
-.hljs-quote{
-  color: #6272a4;
-  font-style: italic;
+.hljs-quote {
+    color: #6272a4;
+    font-style: italic;
 }
 
 .hljs-selector-tag,
@@ -70,15 +72,16 @@ code{
 .hljs-strong,
 .hljs-number,
 .hljs-keyword {
-  color: @brand-print-yellow;
-  font-weight: bold;
+    color: @brand-print-yellow;
+    font-weight: bold;
 }
 
 .hljs-emphasis {
-  font-style: italic;
+    font-style: italic;
 }
-.hljs-link{
-  text-decoration:underline
+
+.hljs-link {
+    text-decoration: underline
 }
 
 .hljs-attr,
@@ -88,6 +91,6 @@ code{
 .hljs-type,
 .hljs-selector-class,
 .hljs-selector-attr,
-.hljs-selector-pseudo{
-  color: @gray-lighter;
+.hljs-selector-pseudo {
+    color: @gray-lighter;
 }
