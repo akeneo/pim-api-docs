@@ -160,6 +160,34 @@ Below is the JSON standard format representing a set of categories.
 ::: panel-link Want more details about the category resource? [Check its endpoints here!](/api-reference.html#Categories)
 :::
 
+## Association type (2.0 only)
+
+In the PIM, a product can be associated to another. You can create an association type to specify what is the nature of this association.
+
+Below is the JSON standard format representing these association types.
+
+```json
+{
+  "code":"upsell",
+  "labels":{
+     "en_US":"Upsell",
+     "fr_FR":"Vente incitative"
+  }
+}
+```
+```json
+{
+  "code":"cross-sell",
+  "labels":{
+     "en_US":"Cross sell",
+     "fr_FR":"Vente croisée"
+  }
+}
+```
+
+::: panel-link Want more details about the association type resource? [Check its endpoints here!](/api-reference.html#Associationtypes)
+:::
+
 ## Attribute
 
 An attribute is a characteristic of a product. Each product is composed of a variety of attributes.
@@ -230,7 +258,7 @@ In the Akeneo UI, you can find the attribute options in the `Settings`/`Attribut
 
 ![Attribute options in the Akeneo UI](/img/attribute_options_ui.png)
 
-Below is the JSON standard format representing theses attribute options.
+Below is the JSON standard format representing these attribute options.
 
 ```json
 {
@@ -257,7 +285,80 @@ Below is the JSON standard format representing theses attribute options.
 }
 ```
 
-::: panel-link Want more details about the attribute option resource? [Check its endpoints here!](/api-reference.html#Attribute options)
+::: panel-link Want more details about the attribute option resource? [Check its endpoints here!](/api-reference.html#Attributeoptions)
+:::
+
+## Attribute group (2.0 only)
+
+To facilitate the work of Julia inside the PIM, we gather attributes into groups. These groups are called `Attribute groups`.
+
+Below is the JSON standard format representing these attribute groups.
+
+```json
+{
+  "code":"technical",
+  "sort_order":0,
+  "attributes": ["weight","width","height"],
+  "labels":{
+     "en_US":"Technical",
+     "fr_FR":"Informations techniques"
+  }
+}
+```
+```json
+{
+  "code":"marketing",
+  "sort_order":1,
+  "attributes": ["marketing_name","description"],
+  "labels":{
+     "en_US":"Marketing",
+     "fr_FR":"Marketing"
+  }
+}
+```
+
+::: panel-link Want more details about the attribute group resource? [Check its endpoints here!](/api-reference.html#Attributegroups)
+:::
+
+## Currency (2.0 only)
+If you want to store price information inside your PIM, you will need currencies.
+
+Below is the JSON standard format representing a currency.
+
+```json
+{
+  "code":"EUR",
+  "enabled":true
+}
+```
+
+::: panel-link Want more details about the currency resource? [Check its endpoints here!](/api-reference.html#Currencies)
+:::
+
+## Measure family (2.0 only)
+If you want to store metrics regarding your product such as weight, height or power inside your PIM, you will need measure families.
+
+Below is the JSON standard format representing a measure family.
+
+```json
+{
+   "code":"AREA",
+   "standard":"SQUARE_METER",
+   "units":[
+     {
+       "code":  "ACRE",
+       "convert": {"mul": 4046.856422},
+       "symbol": "A",
+     },{
+        "code":  "ARE",
+        "convert": {"mul":  100},
+        "symbol": "a"
+      },...
+   ]
+}
+```
+
+::: panel-link Want more details about the measure family resource? [Check its endpoints here!](/api-reference.html#MeasureFamilies)
 :::
 
 ## Media file
@@ -284,7 +385,7 @@ Below is the JSON standard format representing a media file.
 }
 ```
 
-::: panel-link Want more details about the media file resource? [Check its endpoints here!](/api-reference.html#Media_files)
+::: panel-link Want more details about the media file resource? [Check its endpoints here!](/api-reference.html#Mediafiles)
 :::
 
 ## Family
@@ -381,7 +482,7 @@ Below is the JSON standard format representing a product.
   "identifier": "AKNMUG_BP",
   "family": "mugs",
   "groups": [],
-  "variant_group": "akeneo_mug",
+  "parent": "akeneo_mug",
   "categories": [
     "goodies"
   ],

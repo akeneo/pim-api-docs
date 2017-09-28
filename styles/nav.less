@@ -1,145 +1,191 @@
 // Main navbar
-.navbar-default{
-  .navbar-nav {
-    p.navbar-text{
-      margin-top: 24.5px;
-      margin-bottom: 20.5px;
+nav {
+    &.scroll {
+        .box-shadow(0 5px 25px 0 @gray-light);
     }
-    > .open > a,
-    > .open > a:hover,
-    > .open > a:focus{
-      color: @navbar-default-color;
-      background-color: initial;
-    }
-
-    > .active {
-      > a, > a:hover, a:focus{
-        color: @navbar-default-color;
-        background-color: initial;
-        &:after{
-          content: '';
-          border-bottom: 2px solid @navbar-default-color;
-          width: 30px;
-          bottom: 15px;
-          border-bottom: 2px solid #fff;
-          position: absolute;
-          right: 40%; 
+    &.navbar-default {
+        .navbar-header {
+            float: left;
         }
-      }
+        .navbar-brand {
+            padding: 21px 30px;
+        }
+        .navbar-nav {
+            margin-top: 0;
+            margin-bottom: 0;
+            &.navbar-right {
+                float: right;
+                &:last-child {
+                    margin-right: -15px;
+                }
+            }
+            li.active>a,
+            li.active>a:hover {
+                background-color: inherit;
+                color: @brand-primary;
+                &:after {
+                    content: '';
+                    border-bottom: 2px solid @navbar-default-link-hover-color;
+                    width: 15px;
+                    bottom: 15px;
+                    position: absolute;
+                    right: calc(50% - 7px);
+                }
+            }
+            a {
+                font-weight: bold;
+                &:hover:after {
+                    content: '';
+                    border-bottom: 2px solid @navbar-default-link-hover-color;
+                    width: 15px;
+                    bottom: 15px;
+                    position: absolute;
+                    right: calc(50% - 7px);
+                }
+            }
+            >a,
+            >li>a {
+                padding-top: 16.5px;
+                padding-bottom: 16.5px;
+            }
+            >li {
+                float: left;
+            }
+            li.dropdown {
+                .dropdown-menu {
+                    top: 10px;
+                }
+                a:hover:after {
+                    content: none;
+                    border: none;
+                }
+                &.open>a {
+                    background-color: inherit;
+                }
+            }
+        }
+    }
 
-      &:after{
-        content: '';
-        border-bottom: 2px solid @navbar-default-color;
-        width: 30px;
-        bottom: 15px;
-        border-bottom: 2px solid #fff;
-        position: absolute;
-        right: 40%; 
-      }
+    .navbar-form {
+        margin: 12px 0 13px 0;
+        padding: 0 30px;
+        .form-group {
+            input {
+                @media (min-width: @screen-md-min) {
+                    width: 350px;
+                }
+                @media (min-width: @screen-lg-min) {
+                    width: 450px;
+                }
+                height: 35px;
+            }
+        }
     }
-  }
-
-  .navbar-form .form-group{
-    input{
-      @media (min-width: @screen-md-min) {
-        width: 250px;
-      }
-      @media (min-width: @screen-lg-min) {
-        width: 350px;
-      }
-      padding-right: 35px;
-    }
-    position: relative;
-    &:after{
-      content: '\f002';
-      font-family: 'FontAwesome';
-      position: absolute;
-      right: 5px;
-      text-align: right;
-      padding-right: 10px;
-      top: 0;
-    }
-  }
 }
 
 // Table of content
-ul.nav.nav-stacked{
-  padding: 80px 20px 0 0;
-  width: 285px;
-  @media (max-width: @screen-md-max) {
-    width: 200px;
-  }
-  li{
-    a {
-      padding: 3px 10px;
+ul.nav.nav-stacked {
+    padding: 30px 20px 0 0;
+    width: 285px;
+    p.pre-nav {
+        color: @gray-light;
+        padding-left: 10px;
     }
-    > a {
-      color: @headings-color;
-      font-size: @font-size-large;
+    @media (max-width: @screen-md-max) {
+        width: 200px;
     }
-    &.active > a{
-      background-color: @gray-lighter;
+    li {
+        font-weight: normal;
+        a {
+            padding: 7px 7px;
+        }
+        >a {
+            color: @gray;
+            line-height: @line-height-base * 0.7;
+        }
+        &.active>a {
+            background-color: @gray-lighter;
+            border-radius: @border-radius-base;
+        }
+        >ul li {
+            display: none;
+            >a {
+                font-size: @font-size-small;
+                color: @text-color;
+                margin-left: 15px;
+                font-weight: 200;
+                border-bottom: 1px @gray-lighter solid;
+            }
+            &:last-child>a {
+                border: none;
+            }
+            &.active>a {
+                background-color: @gray-lighter;
+            }
+        }
+        >ul>li>ul>li {
+            margin-left: 10px;
+            >a {
+                font-size: @font-size-small * 0.9;
+            }
+        }
+        &.active>ul>li {
+            display: block;
+        }
+        >ul>li.active>ul>li {
+            display: block;
+        }
     }
-    > ul li{
-      display: none;
-      border-bottom: 1px @gray-lighter solid;
-      > a {
-        font-size: @font-size-small;
-        color: @text-color;
-      }
-      &.active >a{
-        background-color: @gray-lighter;
-      }
-    }
-    > ul > li > ul > li{
-      margin-left: 10px;
-      > a {
-        font-size: @font-size-small * 0.9;
-      }
-    }   
-    &.active > ul > li {
-      display: block;
-    }
-    > ul > li.active  > ul > li {
-      display: block;
-    }
-  }
 }
 
 // Tabs
-.nav.nav-tabs.nav-tabs-responses{
-  > li a, > li a.active{
-    padding: 5px @spacing-base/3;
-    color: @text-color;
-  }
-}
-.nav.nav-tabs.nav-tabs-sneak-peek{
-  > li a{
-    color: @text-color;
-    svg{
-      width: 20px;
+.nav.nav-tabs.nav-tabs-responses {
+    >li a,
+    >li a.active {
+        padding: 5px @spacing-base/3;
+        color: @text-color;
     }
-  }
+}
+
+.nav.nav-tabs.nav-tabs-sneak-peek {
+    >li a {
+        color: @text-color;
+        svg {
+            width: 20px;
+        }
+    }
 }
 
 // Fix issue of markdown-it-toc-and-anchor
 // @see https://github.com/medfreeman/markdown-it-toc-and-anchor/issues/25
 .nav p:empty {
-  display: none;
+    display: none;
 }
 
 // Fix TOC
 ul.nav ul {
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
 
-  li a {
-    display: block;
+    li a {
+        display: block;
 
-    &:hover {
-      text-decoration: none;
-      background-color: @gray-lighter;
+        &:hover {
+            text-decoration: none;
+            background-color: @gray-lighter;
+        }
     }
-  }
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

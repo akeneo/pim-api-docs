@@ -89,7 +89,7 @@ HTTP/1.1 406 Not Acceptable
 
 ## Scope of the API
 
-Below are the entities you can manipulate via the API so far:
+Below are the entities you can manipulate via the API in 1.7 and 2.0:
  - [Product](/documentation/resources.html#product),
  - [Category](/documentation/resources.html#category),
  - [Family](/documentation/resources.html#family),
@@ -99,13 +99,15 @@ Below are the entities you can manipulate via the API so far:
  - [Channel](/documentation/resources.html#channel),
  - [Locale](/documentation/resources.html#locale).
 
+Also, in 2.0, the API has been enriched with these new entities:
+ - [Attribute group](/documentation/resources.html#attribute-group-20-only),
+ - [Association type](/documentation/resources.html#association-type-20-only),
+ - [Currency](/documentation/resources.html#currency-20-only),
+ - [Measure family](/documentation/resources.html#measure-family-20-only).
+
 For a detailed presentation as well as the format of each of these resources, take a look to the [Resources](/documentation/resources.html).
 
 Also, you will find the complete reference of the endpoints available for each of these resources in the [reference API](/api-reference-index.html). You can also get the list of these endpoints by request, see [List of available endpoints](/documentation/overview.html#list-of-available-endpoints).
-
-:::warning
-As these APIs are mainly designed to be used by connectors, Enterprise Edition permissions are not managed for now, the same way there are not enforced in the connectors themselves.
-:::
 
 ## List of available endpoints
 

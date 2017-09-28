@@ -137,7 +137,7 @@ gulp.task('documentation', ['clean-dist','less'], function () {
             },
             render: function (tokens, idx) {
                 return (tokens[idx].nesting === 1) ? '<div id="navbar" class="col-sm-3 hidden-xs">' +
-                '<nav role="tablist" id="navbar-nav" data-spy="affix" data-offset-top="80" class="affix-top"><ul class="nav nav-stacked">' :
+                '<nav role="tablist" id="navbar-nav" data-spy="affix" data-offset-top="80" class="affix-top"><ul class="nav nav-stacked"><p class="pre-nav">Summary</p>' :
                   "</ul></nav></div>\n";
             }
         })
@@ -188,11 +188,11 @@ gulp.task('documentation', ['clean-dist','less'], function () {
                 if (tokens[idx].nesting === 1) {
                     // opening tag
                     return '<div class="row" style="margin-top: 80px;"><div class="col-sm-offset-3 col-sm-6">' +
-                      '<div class="panel panel-default panel-landing-page panel-clickable">'+
+                      '<div class="panel panel-default panel-btn">'+
                       '<a href="' + md.utils.escapeHtml(link[1]) + '">' +
                       '<div class="panel-body">' +
-                      '<p>'+ md.utils.escapeHtml(text[1]) + '</p>'+
-                      '<p>'+ md.utils.escapeHtml(linkTitle[1]) + '</p>';
+                      '<div class="panel-btn-big">'+ md.utils.escapeHtml(text[1]) + '</div>'+
+                      '<p class="text-center">'+ md.utils.escapeHtml(linkTitle[1]) + '</p>';
                 } else {
                     // closing tag
                     return '</div></a></div></div></div>\n';
@@ -222,7 +222,7 @@ gulp.task('documentation', ['clean-dist','less'], function () {
                   return gulp.src('src/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation:  true,
-                         title: 'API documentation',
+                        title: 'REST API documentation',
                         mainContent: fs.readFileSync('tmp/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']

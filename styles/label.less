@@ -1,33 +1,39 @@
 .label-akeneo {
-  .label-variant(@brand-akeneo);
+    .label-variant(@brand-akeneo);
 }
+
 .label-version {
-  .label-variant(white);
-  color: @brand-primary;
+    .label-variant(white);
+    border: 1px solid @gray-light2;
+    color: @gray;
 }
 
-.rotated-label{
-  padding-right: 25px;
-  .label-beta {
-    position: absolute;
-    right: -10px;
-    top: 10px;
-    .rotate(15deg);
-  }
+.label-ee {
+    .label-variant(@brand-primary);
 }
 
-.label.label-verb{
-  text-transform: uppercase;
-  &.label-patch{
-    .label-akeneo();
-  }
-  &.label-post{
-    .label-info();
-  }
-  &.label-get{
-    .label-success();
-  }
-  &.label-delete{
-    .label-danger();
-  }
+.rotated-label {
+    padding-right: 25px;
+    .label-beta {
+        position: absolute;
+        right: -10px;
+        top: 10px;
+        .rotate(15deg);
+    }
+}
+
+.label.label-verb {
+    text-transform: uppercase;
+    &.label-patch {
+        .label-akeneo();
+    }
+    &.label-post {
+        .label-info();
+    }
+    &.label-get {
+        .label-success();
+    }
+    &.label-delete {
+        .label-danger();
+    }
 }

@@ -58,7 +58,7 @@ $client->getCategoryApi()->create('winter_collection', [
     'parent' => 'master',
     'labels' => [
         'en_US' => 'Winter collection',
-        'fr_FR' => "Collection hiver",
+        'fr_FR' => 'Collection hiver',
     ]
 ]);
 ```
@@ -74,7 +74,7 @@ $client->getCategoryApi()->upsert('winter_collection', [
     'parent' => 'master',
     'labels' => [
         'en_US' => 'Winter collection',
-        'fr_FR' => "Collection hiver",
+        'fr_FR' => 'Collection hiver',
     ]
 ]);
 ```
@@ -94,7 +94,7 @@ $client->getCategoryApi()->upsertList([
         'parent' => 'master',
         'labels' => [
             'en_US' => 'Winter collection',
-            'fr_FR' => "Collection hiver",
+            'fr_FR' => 'Collection hiver',
         ]
     ],
     [
@@ -109,5 +109,5 @@ $client->getCategoryApi()->upsertList([
 ```
 
 ::: warning
-There is a limit on the maximum number of categories that you can upsert in one time on server side.
+There is a limit on the maximum number of categories that you can upsert in one time on server side. By default this limit is set to 100.
 :::

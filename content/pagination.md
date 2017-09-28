@@ -102,7 +102,7 @@ When trying to request a quite high page number, you will notice that this metho
 
 ## Search-after type
 :::warning
-This pagination method is only available for products.
+This pagination method is only available for products and published products.
 :::
 
 To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. The entities you will get will then be sorted by product primary key to speed up performance.

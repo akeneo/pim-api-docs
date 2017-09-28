@@ -2,6 +2,10 @@
 
 When requesting a list of resources via the API, you can apply filters to get only the ones you want.
 
+::: info
+Note that all the filters available on the products are also available on the published products.
+:::
+
 ## Filter on product properties
 To filter products by one of its properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
 
