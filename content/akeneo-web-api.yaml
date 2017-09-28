@@ -413,7 +413,7 @@ paths:
                   "identifier": "top",
                   "family": "tshirt",
                   "groups": [],
-                  "variant_group": null,
+                  "parent": null,
                   "categories": ["summer_collection"],
                   "enabled": true,
                   "values": {
@@ -498,7 +498,7 @@ paths:
                   "identifier": "cap",
                   "family": "caps",
                   "groups": [],
-                  "variant_group": null,
+                  "parent": null,
                   "categories": ["summer_collection"],
                   "enabled": true,
                   "values": {
@@ -576,7 +576,7 @@ paths:
                   "identifier": "sweat",
                   "family": null,
                   "groups": [],
-                  "variant_group": null,
+                  "parent": null,
                   "categories": ["winter_collection"],
                   "enabled": true,
                   "values": {
@@ -748,19 +748,19 @@ paths:
 
   /api/rest/v1/products/{code}/proposal:
     post:
-      summary: Submit a draft for proposal
+      summary: Submit a draft for approval
       operationId: "post_proposal"
       tags:
         - Products
       x-versions:
         - 2.0
       x-ee: true
-      description: This endpoint allows you to submit a draft for proposal.
+      description: This endpoint allows you to submit a draft for approval.
       parameters:
         - $ref: '#/parameters/code'
       responses:
         201:
-          $ref: "#/responses/Created"
+          $ref: "#/responses/Submitted"
         401:
           $ref: "#/responses/401Error"
         403:
@@ -847,7 +847,7 @@ paths:
                         _items:
                           type: array
                           items:
-                            $ref: '#/definitions/ProductList'
+                            $ref: '#/definitions/PublishedProductList'
             examples: {
               _links: {
                 self: {
@@ -875,7 +875,6 @@ paths:
                     "identifier": "top",
                     "family": "tshirt",
                     "groups": [],
-                    "variant_group": null,
                     "categories": ["summer_collection"],
                     "enabled": true,
                     "values": {
@@ -960,7 +959,6 @@ paths:
                     "identifier": "cap",
                     "family": "caps",
                     "groups": [],
-                    "variant_group": null,
                     "categories": ["summer_collection"],
                     "enabled": true,
                     "values": {
@@ -1038,7 +1036,6 @@ paths:
                     "identifier": "sweat",
                     "family": null,
                     "groups": [],
-                    "variant_group": null,
                     "categories": ["winter_collection"],
                     "enabled": true,
                     "values": {
@@ -1077,7 +1074,7 @@ paths:
             description: OK
             x-details: Returns the content of the published product in JSON standard format
             schema:
-              $ref: '#/definitions/Product'
+              $ref: '#/definitions/PublishedProduct'
           401:
             $ref: "#/responses/401Error"
           403:
@@ -3282,10 +3279,10 @@ definitions:
         items:
           type: string
         default: []
-      variant_group:
+      parent:
         type: string
-        description: Code of the variant group in which the product is
-        x-validation-rules: It is equal to an existing variant group code
+        description: Code of the parent product model when the product is a variant
+        x-validation-rules: It is equal to an existing product model code
         default: "null"
       values:
         type: object
@@ -3341,7 +3338,7 @@ definitions:
       "family": "tshirt",
       "categories": ["summer_collection"],
       "groups": [],
-      "variant_group": null,
+      "parent": null,
       "values": {
         "name": [
           {
@@ -3420,6 +3417,168 @@ definitions:
     allOf:
       - $ref:  '#/definitions/ItemList'
       - $ref: '#/definitions/Product'
+  PublishedProduct:
+    type: object
+    required: ["identifier"]
+    properties:
+      identifier:
+        type: string
+        description: Published product identifier, i.e. the value of the only `pim_catalog_identifier` attribute
+      enabled:
+        type: boolean
+        description: Whether the published product is enable
+        default: true
+      family:
+        type: string
+        description: Family code from which the published product inherits its attributes and attributes requirements
+        x-validation-rules: It is equal to an existing family code
+        default: "null"
+      categories:
+        type: array
+        description: Codes of the categories in which the published product is classified
+        x-validation-rules: Each string of the array is equal to an existing category code
+        items:
+          type: string
+        default: []
+      groups:
+        type: array
+        description: Codes of the groups to which the published product belong
+        x-validation-rules: Each string of the array is equal to an existing group code
+        items:
+          type: string
+        default: []
+      values:
+        type: object
+        description: "Published product attributes values, see <a href='/documentation/resources.html#product-values'>Product values</a> section for more details"
+        x-validation-rules: Validation rules detailed in Product values section
+        properties:
+          attributeCode:
+            type: array
+            items:
+              type: object
+              properties:
+                scope:
+                  type: string
+                  description: Channel code of the product value
+                locale:
+                  type: string
+                  description: Locale code of the product value
+                data:
+                  type: object
+                  description: Product value
+      associations:
+        type: object
+        description: Several associations related to groups and/or other published products, grouped by association types
+        x-validation-rules: "&bull; The `associationTypeCode` is the code of an existing association type. &#10;&bull; Each string in the array of the property `groups` is the code of an existing group. &#10;&bull; Each string in the array of the property `products` is the identifier of an existing product. &#10;&bull; Identifiers used in the array of the property `products` cannot be equal to the published product identifier."
+        properties:
+          associationTypeCode:
+            type: object
+            properties:
+              groups:
+                type: array
+                description: Array of groups codes with which the published product is in relation
+                items:
+                  type: string
+              products:
+                type: array
+                description: Array of published product identifiers with which the published product is in relation
+                items:
+                  type: string
+      created:
+        type: string
+        description: Date of creation
+        format: dateTime
+        x-immutable: true
+        x-read-only: true
+      updated:
+        type: string
+        description: Date of the last update
+        format: dateTime
+        x-read-only: true
+    example: {
+      "identifier": "top",
+      "enabled": true,
+      "family": "tshirt",
+      "categories": ["summer_collection"],
+      "groups": [],
+      "values": {
+        "name": [
+          {
+            "data": "Top",
+            "locale": "en_US",
+            "scope": null,
+          },
+          {
+            "data": "Débardeur",
+            "locale": "fr_FR",
+            "scope": null,
+          }
+        ],
+        "description": [
+          {
+            "data": "Summer top",
+            "locale": "en_US",
+            "scope": "ecommerce"
+          },
+          {
+            "data": "Top",
+            "locale": "en_US",
+            "scope": "tablet"
+          },
+          {
+            "data": "Débardeur pour l'été",
+            "locale": "fr_FR",
+            "scope": "ecommerce"
+          },
+          {
+            "data": "Débardeur",
+            "locale": "fr_FR",
+            "scope": "tablet"
+          }
+        ],
+        "price": [
+          {
+            "locale": null,
+            "scope": null,
+            "data": [
+              {
+                "amount": "15.5", "currency": "EUR"
+              },
+              {
+                "amount": "15", "currency": "USD"
+              }
+            ]
+          }
+        ],
+        "color": [
+          {
+            "locale": null,
+            "scope": null,
+            "data": "black"
+          }
+        ],
+        "size": [
+          {
+            "locale": null,
+            "scope": null,
+            "data": "m"
+          }
+        ]
+      },
+      "created": "2016-06-23T18:24:44+02:00",
+      "updated": "2016-06-25T17:56:12+02:00",
+      "associations": {
+        "PACK": {
+          "products": ["sunglass"],
+           "groups": []
+        }
+      }
+    }
+  PublishedProductList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/PublishedProduct'
   Category:
     type: object
     required: ["code"]
@@ -4090,6 +4249,13 @@ responses:
   Created:
     description: Created
     x-details: Means that the creation was successful
+    headers:
+      Location:
+        description: URI of the created resource
+        type: string
+  Submitted:
+    description: Submitted
+    x-details: Means that the draft submission was successful
     headers:
       Location:
         description: URI of the created resource
