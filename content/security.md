@@ -5,20 +5,40 @@ We use [`OAuth2`](https://oauth.net/2/) to authenticate users in the API and
 
 ## Authentication
 
-### Create an OAuth client
+### Create an API connection
 
 The first operation to do is to authorize third-party applications to use the API. For that, you need to create a client id.
 A client id identifies a client application.
 
-To increase security, the OAuth protocol specifies that a client id comes with a secret. They are always generated, used and revoked together.
+To increase security, the OAuth protocol specifies that a client id comes with a secret. They are always generated, used and revoked together. This set of credentials is called `API connection` inside the PIM.
 
-To create a new pair of client id / secret, use the following command:
+There are two ways to create these credentials.
 
+#### With the PIM UI (2.0 only)
+
+Log in in your favorite PIM and click on the `System` menu. Then select the `API connections` entry. Here, you should find a `Create` button. When you click on it, the interface asks you for a label. Give a name that will represents what is going to do the connector or tool that will be using this access to the API.
+
+When you confirm, the PIM automatically generates a client id and secret, that you will find in the API connections grid. You can then use the credentials to authenticate your calls made with the API.
+
+#### With a command line
+
+To create a new pair of client id / secret, use the following command directly on the PIM server.
+
+**With the 2.0 version**
+```bash
+php bin/console pim:oauth-server:create-client "Magento connector" \
+    --grant_type="password" \
+    --grant_type="refresh_token" \
+    --env=prod
+```
+
+**With the 1.7 version**
 ```bash
 php app/console pim:oauth-server:create-client \
     --grant_type="password" \
     --grant_type="refresh_token" \
-    --env=prod
+    --env=prod \
+    --label="Magento connector"
 ```
 
 You will get something like:
@@ -27,26 +47,11 @@ You will get something like:
 A new client has been added:
 client_id: 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s
 secret: 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s
+label: Magento connector
 ```
 
 :::info
-You can give a label to your pair of client id / secret when you create them. This can be very useful to remember which application you give this pair of credentials to.
-
-**Example**
-```bash
-php app/console pim:oauth-server:create-client \
-    --label="Magento_connector" \
-    --grant_type="password" \
-    --grant_type="refresh_token" \
-    --env=prod
-```
-The response you will receive will have this format
-```bash
-A new client has been added.
-client_id: 4_5e6kfzmath8gowk0s000kkgc0o44cwgwsockwk0ccss4sw0w
-secret: 2nwha9mzk2w4so0cgokwocswoc48s0sg44wgg40kkokgg4w0go
-label: Magento_connector
-```
+You have to give a label to your pair of client id / secret when you create them. This is useful to remember which application you give this pair of credentials to.
 :::
 
 These keys must be transmitted by the administrator to any third-party application wanting to use the API.
@@ -65,18 +70,28 @@ expires, then will be unable to refresh it.
 Client ids are not enough to access the API, it's the role of tokens. See [Getting a token](/documentation/security.html#get-a-token) section for more details.
 :::
 
-### Revoke an OAuth client
+### Revoke an API connection
 
-To revoke a client id, use the following command:
+API connections can be revoked at any moment by the administrator. In this case, all tokens created with the revoked client id of the API connection will be invalidated and the application using this connection will be unable to ask for a new one.
 
+#### With the PIM UI (2.0 only)
+
+You can revoke an API connection, in the `API connections` entry you will find in the `System` menu.
+
+#### With a command line
+
+Alternatively, you can also use the following command on the PIM server.
+
+**With the 2.0 version**
+```bash
+php bin/console pim:oauth-server:revoke-client the-client-id --env=prod
+```
+
+**With the 1.7 version**
 ```bash
 php app/console pim:oauth-server:revoke-client the-client-id --env=prod
 ```
 
-#### Example
-```bash
-php app/console pim:oauth-server:revoke-client 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s --env=prod
-```
 We ask for a confirmation when you revoke a client.
 ```bash
 This operation is irreversible. Are you sure you want to revoke this client? (Y/n)
@@ -86,14 +101,22 @@ If you type Y, the client is then revoke and you will receive this message.
 Client with public id 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s and secret 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s has been revoked.
 ```
 
-:::warning
-Client ids can be revoked at any moment by the administrator. In this case, all tokens created with the revoked client id will be invalidated and the application using this client id will be unable to ask for a new one.
-:::
+### List all API connections
 
-### List all OAuth clients
+#### With the PIM UI (2.0 only)
 
-To get the list of all existing client ids use the following command:
+Just click on the `API connections` entry you will find in the `System` menu to see the full list of API connections that have been created.
 
+#### With a command line
+
+To get the list of all existing API connections use the following command:
+
+**With the 2.0 version**
+```shell
+php bin/console pim:oauth-server:list-clients --env=prod
+```
+
+**With the 1.7 version**
 ```shell
 php app/console pim:oauth-server:list-clients --env=prod
 ```
@@ -103,16 +126,15 @@ You will get this answer.
 +----------------------------------------------------+----------------------------------------------------+-------------------+
 | Client id                                          | Secret                                             |  Label            |
 +====================================================+====================================================+===================+
-| 3e2iqilq2ygwk0ccgogkcwco8oosckkkk4gkoc0k4s8s044wss | 44ectenmudus8g88w4wkws84044ckw0k4w4kg0sokoss84oko8 |                   |
-| 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s | 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s |                   |
-| 4_5e6kfzmath8gowk0s000kkgc0o44cwgwsockwk0ccss4sw0w | 2nwha9mzk2w4so0cgokwocswoc48s0sg44wgg40kkokgg4w0go | Magento_connector |
+| 3e2iqilq2ygwk0ccgogkcwco8oosckkkk4gkoc0k4s8s044wss | 44ectenmudus8g88w4wkws84044ckw0k4w4kg0sokoss84oko8 | ERP connector |
+| 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s | 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s | Print catalog connector |
+| 4_5e6kfzmath8gowk0s000kkgc0o44cwgwsockwk0ccss4sw0w | 2nwha9mzk2w4so0cgokwocswoc48s0sg44wgg40kkokgg4w0go | Magento connector |
 +----------------------------------------------------+----------------------------------------------------+-------------------+
 ```
-As you can see, if you created your pair of client id / secret with a label, it will appear here.
 
 ### Get a token
 
-A client id has been created and provided to the client application. The last information needed to use the API is the token.
+An API connection was created and its client id and secret were provided to the client application. The last information needed to use the API is the token.
 
 First, you will have to encode in base64 the secret id and the secret given by the administrator with a `:` in between.
 
@@ -249,17 +271,23 @@ You can tune more finely this permission by restricting or allowing the access t
 | List families | GET on `/families` and on `/families/{family_code}`|
 | List attributes | GET on `/attributes` and on `/attributes/{attribute_code}` |
 | List attribute options | GET on `/attributes/{attribute_code}/options` and on `/attributes/{attribute_code}/options/{attribute_option_code}` |
-| List channels | GET on `/channels` |
-| List locales | GET on `/locales` |
+| List attribute group *(2.0 only)* | GET on `/attribute-groups` and on `/attributes-groups/{attribute_groups_code}` |
+| List association types *(2.0 only)* | GET on `/association-types` and on `/association-types/{association_type_code}` |
+| List channels | GET on `/channels` and on `/channels/{channel_code}` |
+| List locales | GET on `/locales` and on `/locales/{locale_code}` |
+| List currencies *(2.0 only)*  | GET on `/currencies` and on `/currencies/{currency_code}` |
 | Create and update categories | POST and PATCH on `/categories/{category_code}` <br/> PATCH on `/categories` |
 | Create and update families | POST and PATCH on `/families/{family_code}` <br/> PATCH on `/families` |
 | Create and update attributes | POST and PATCH on `/attributes/{attribute_code}` <br/> PATCH on `/attributes`|
-| Create and update attribute options | POST and PATCH on `/attributes/{attribute_code}/options/{attribute_option_code}` |
+| Create and update attribute options | POST and PATCH on `/attributes/{attribute_code}/options/{attribute_option_code}` <br/> PATCH on `/attributes/{attribute_code}/options` |
+| Create and update attribute groups *(2.0 only)* | POST and PATCH on `/attribute-groups/{attribute_group_code}` <br/> PATCH on `/attribute-groups` |
+| Create and update association types *(2.0 only)* | POST and PATCH on `/association-types/{association_type_code}` <br/> PATCH on `/association-types` |
+| Create and update channels *(2.0 only)* | POST and PATCH on `/channels/{channel_code}` <br/> PATCH on `/channels` |
 
 :::warning
 As accessing the API grants higher privileges than when using the UI, we strongly recommend creating one or more dedicated users with specific roles for the web API.
 :::
 
 :::info
-Note that if a role has `Overall Web API` access, then it means that the users depending on that role will be able to make requests on products. There is no way to only restrict the access on products for now. 
+Note that if a role has `Overall Web API` access, then it means that all the users depending on that role will be able to make requests on products. There is no way to only restrict the access on products, except if you are using a 2.0 Entreprise Edition. In this case, the EE permissions based on user groups are applied on the API.
 :::
