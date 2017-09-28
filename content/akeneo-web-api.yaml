@@ -802,7 +802,7 @@ paths:
         operationId: "get_published_products"
         description: This endpoint allows you to get a list of published products. Published products are paginated and they can be filtered.
         tags:
-          - Published Products
+          - Published products
         x-versions:
           - 2.0
         x-ee: true
@@ -1062,7 +1062,7 @@ paths:
         summary: Get a published product
         operationId: "get_published_products__code_"
         tags:
-          - Published Products
+          - Published products
         x-versions:
           - 2.0
         x-ee: true
@@ -2907,7 +2907,7 @@ paths:
       operationId: "measure_families_get_list"
       description: This endpoint allows you to get a list of measure families. Measure families are paginated and sorted by code.
       tags:
-        - Measure Families
+        - Measure families
       x-versions:
         - 2.0
       responses:
@@ -3020,7 +3020,7 @@ paths:
       operationId: "measure_families_get"
       description: This endpoint allows you to get the information about a given measure family.
       tags:
-        - Measure Families
+        - Measure families
       x-versions:
         - 2.0
       parameters:
