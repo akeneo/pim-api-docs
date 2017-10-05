@@ -362,7 +362,7 @@
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
 						},
-						"description": "Assuming that the given code is the code of an existing association type"
+						"description": "Assuming that the given code is the code of an existing attribute group"
 					},
 					"response": []
 				},
@@ -873,6 +873,52 @@
 			]
 		},
 		{
+			"name": "Family variant (2.x only)",
+			"description": "",
+			"item": [
+				{
+					"name": "family variant",
+					"request": {
+						"url": "{{url}}/api/rest/v1/families/clothing/variants/clothing_colorsize",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Assuming that the given codes are respectively the code of an existing family and an existing family variant"
+					},
+					"response": []
+				},
+				{
+					"name": "family variants",
+					"request": {
+						"url": "{{url}}/api/rest/v1/families/clothing/variants",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Locale",
 			"description": "",
 			"item": [
@@ -1081,7 +1127,7 @@
 				{
 					"name": "product",
 					"request": {
-						"url": "{{url}}/api/rest/v1/products/AKNTS_BPS",
+						"url": "{{url}}/api/rest/v1/products/AKNSTK",
 						"method": "GET",
 						"header": [
 							{
@@ -1147,7 +1193,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"identifier\": \"new_product\",\n  \"family\": \"tshirts\",\n  \"groups\": [],\n  \"variant_group\": null,\n  \"categories\": [\n    \"tvs_projectors\"\n  ],\n  \"enabled\": true,\n  \"values\": {\n    \"clothing_size\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"s\"\n      }\n    ],\n    \"description\": [\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"mobile\",\n        \"data\": \"Akeneo T-Shirt 77777\"\n      },\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"print\",\n        \"data\": \"Akeneo T-Shirt with short sleeve\"\n      }\n    ],\n    \"main_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"black\"\n      }\n    ],\n    \"name\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"Akeneo T-Shirt black and purple with short sleeve\"\n      }\n    ],\n    \"secondary_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"purple\"\n      }\n    ],\n    \"tshirt_materials\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"cotton\"\n      }\n    ],\n    \"tshirt_style\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          \"crewneck\",\n          \"short_sleeve\"\n        ]\n      }\n    ],\n    \"price\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          {\n            \"amount\": 10,\n            \"currency\": \"EUR\"\n          },\n          {\n            \"amount\": 14,\n            \"currency\": \"USD\"\n          }\n        ]\n      }\n    ]\n  },\n  \"created\": \"2017-03-30T14:55:26+02:00\",\n  \"updated\": \"2017-05-04T23:56:09+02:00\",\n  \"associations\": {\n    \"SUBSTITUTION\": {\n      \"groups\": [],\n      \"products\": [\n        \"AKNTS_WPS\",\n        \"AKNTS_PBS\",\n        \"AKNTS_PWS\"\n      ]\n    }\n  }\n}"
+							"raw": "{\n  \"identifier\": \"new_product\",\n  \"family\": \"tshirts\",\n  \"groups\": [],\n  \"parent\": null,\n  \"categories\": [\n    \"tvs_projectors\"\n  ],\n  \"enabled\": true,\n  \"values\": {\n    \"clothing_size\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"s\"\n      }\n    ],\n    \"description\": [\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"mobile\",\n        \"data\": \"Akeneo T-Shirt 77777\"\n      },\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"print\",\n        \"data\": \"Akeneo T-Shirt with short sleeve\"\n      }\n    ],\n    \"main_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"black\"\n      }\n    ],\n    \"name\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"Akeneo T-Shirt black and purple with short sleeve\"\n      }\n    ],\n    \"secondary_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"purple\"\n      }\n    ],\n    \"tshirt_materials\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"cotton\"\n      }\n    ],\n    \"tshirt_style\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          \"crewneck\",\n          \"short_sleeve\"\n        ]\n      }\n    ],\n    \"price\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          {\n            \"amount\": 10,\n            \"currency\": \"EUR\"\n          },\n          {\n            \"amount\": 14,\n            \"currency\": \"USD\"\n          }\n        ]\n      }\n    ]\n  },\n  \"created\": \"2017-03-30T14:55:26+02:00\",\n  \"updated\": \"2017-05-04T23:56:09+02:00\",\n  \"associations\": {\n    \"SUBSTITUTION\": {\n      \"groups\": [],\n      \"products\": [\n        \"AKNSTK\"\n      ]\n    }\n  }\n}"
 						},
 						"description": "Assuming that there is no \"new_product\" already existing"
 					},
@@ -1156,7 +1202,7 @@
 				{
 					"name": "product",
 					"request": {
-						"url": "{{url}}/api/rest/v1/products/AKNTS_BPS",
+						"url": "{{url}}/api/rest/v1/products/AKNSTK",
 						"method": "PATCH",
 						"header": [
 							{
@@ -1172,7 +1218,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"identifier\": \"AKNTS_BPS\",\n  \"family\": \"tshirts\",\n  \"groups\": [],\n  \"variant_group\": \"akeneo_tshirt\",\n  \"categories\": [\n    \"goodies\",\n    \"tshirts\"\n  ],\n  \"enabled\": true,\n  \"values\": {\n    \"clothing_size\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"s\"\n      }\n    ],\n    \"description\": [\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"mobile\",\n        \"data\": \"Akeneo T-Shirt 77777\"\n      },\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"print\",\n        \"data\": \"Akeneo T-Shirt with short sleeve\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"mobile\",\n        \"data\": \"T-Shirt Akeneo\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"print\",\n        \"data\": \"T-Shirt Akeneo manches courtes\"\n      }\n    ],\n    \"main_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"black\"\n      }\n    ],\n    \"name\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"Akeneo T-Shirt black and purple with short sleeve\"\n      }\n    ],\n    \"secondary_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"purple\"\n      }\n    ],\n    \"tshirt_materials\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"cotton\"\n      }\n    ],\n    \"tshirt_style\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          \"crewneck\",\n          \"short_sleeve\"\n        ]\n      }\n    ],\n    \"price\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          {\n            \"amount\": 10,\n            \"currency\": \"EUR\"\n          },\n          {\n            \"amount\": 14,\n            \"currency\": \"USD\"\n          }\n        ]\n      }\n    ],\n    \"picture\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"0/c/3/a/0c3a38381ffa4582a57aeedc45602f672584fa4d_a_fake_image.png\"\n      }\n    ]\n  },\n  \"created\": \"2017-03-30T14:55:26+02:00\",\n  \"updated\": \"2017-05-04T23:56:09+02:00\",\n  \"associations\": {\n    \"SUBSTITUTION\": {\n      \"groups\": [],\n      \"products\": [\n        \"AKNTS_WPS\",\n        \"AKNTS_PBS\",\n        \"AKNTS_PWS\"\n      ]\n    }\n  }\n}"
+							"raw": "{\n  \"identifier\": \"AKNSTK\",\n  \"family\": \"tshirts\",\n  \"groups\": [],\n  \"parent\": null,\n  \"categories\": [\n    \"goodies\",\n    \"tshirts\"\n  ],\n  \"enabled\": true,\n  \"values\": {\n    \"clothing_size\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"s\"\n      }\n    ],\n    \"description\": [\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"mobile\",\n        \"data\": \"Akeneo T-Shirt 77777\"\n      },\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"print\",\n        \"data\": \"Akeneo T-Shirt with short sleeve\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"mobile\",\n        \"data\": \"T-Shirt Akeneo\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"print\",\n        \"data\": \"T-Shirt Akeneo manches courtes\"\n      }\n    ],\n    \"main_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"black\"\n      }\n    ],\n    \"name\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"Akeneo T-Shirt black and purple with short sleeve\"\n      }\n    ],\n    \"secondary_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"purple\"\n      }\n    ],\n    \"tshirt_materials\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"cotton\"\n      }\n    ],\n    \"tshirt_style\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          \"crewneck\",\n          \"short_sleeve\"\n        ]\n      }\n    ],\n    \"price\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          {\n            \"amount\": 10,\n            \"currency\": \"EUR\"\n          },\n          {\n            \"amount\": 14,\n            \"currency\": \"USD\"\n          }\n        ]\n      }\n    ]\n  },\n  \"created\": \"2017-03-30T14:55:26+02:00\",\n  \"updated\": \"2017-05-04T23:56:09+02:00\",\n  \"associations\": {\n    \"SUBSTITUTION\": {\n      \"groups\": [],\n      \"products\": []\n    }\n  }\n}"
 						},
 						"description": ""
 					},
@@ -1197,7 +1243,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"identifier\": \"new_product\"}\n{\"identifier\": \"AKNTS_BPM\", \"family\": \"tshirts\"}"
+							"raw": "{\"identifier\": \"new_product\"}\n{\"identifier\": \"AKNSTK\", \"family\": \"tshirts\"}"
 						},
 						"description": "\n"
 					},
@@ -1270,6 +1316,32 @@
 							"raw": "{}"
 						},
 						"description": "Assuming that there is already a draft for the given product. The draft was created by the same user using this request.\nThe user has only an edition permission through categories on the given product."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product model (2.x only)",
+			"description": "",
+			"item": [
+				{
+					"name": "product model",
+					"request": {
+						"url": "{{url}}/api/rest/v1/product-models/amor",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Assuming that the given code is the code of an existing product model"
 					},
 					"response": []
 				}
