@@ -49,214 +49,20 @@ paths:
             },
             "routes": {
               "pim_api_category_list": {
-                "route": "/api/rest/v1/categories",
-                "methods": [
-                  "GET"
-                ]
+                  "route": "/api/rest/v1/categories",
+                  "methods": ["GET"]
               },
               "pim_api_category_get": {
-                "route": "/api/rest/v1/categories/{code}",
-                "methods": [
-                  "GET"
-                ]
+                  "route": "/api/rest/v1/categories/{code}",
+                  "methods": ["GET"]
               },
               "pim_api_category_create": {
-                "route": "/api/rest/v1/categories",
-                "methods": [
-                  "POST"
-                ]
+                  "route": "/api/rest/v1/categories",
+                  "methods": ["POST"]
               },
               "pim_api_category_partial_update": {
-                "route": "/api/rest/v1/categories/{code}",
-                "methods": [
-                  "PATCH"
-                ]
-              },
-              "pim_api_category_partial_update_list": {
-                "route": "/api/rest/v1/categories",
-                "methods": [
-                  "PATCH"
-                ]
-              },
-              "pim_api_family_list": {
-                "route": "/api/rest/v1/families",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_family_get": {
-                "route": "/api/rest/v1/families/{code}",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_family_create": {
-                "route": "/api/rest/v1/families",
-                "methods": [
-                  "POST"
-                ]
-              },
-              "pim_api_family_partial_update": {
-                "route": "/api/rest/v1/families/{code}",
-                "methods": [
-                  "PATCH"
-                ]
-              },
-              "pim_api_family_partial_update_list": {
-                "route": "/api/rest/v1/families",
-                "methods": [
-                  "PATCH"
-                ]
-              },
-              "pim_api_attribute_list": {
-                "route": "/api/rest/v1/attributes",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_attribute_create": {
-                "route": "/api/rest/v1/attributes",
-                "methods": [
-                  "POST"
-                ]
-              },
-              "pim_api_attribute_partial_update": {
-                "route": "/api/rest/v1/attributes/{code}",
-                "methods": [
-                  "PATCH"
-                ]
-              },
-              "pim_api_attribute_get": {
-                "route": "/api/rest/v1/attributes/{code}",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_attribute_partial_update_list": {
-                "route": "/api/rest/v1/attributes",
-                "methods": [
-                  "PATCH"
-                ]
-              },
-              "pim_api_attribute_option_list": {
-                "route": "/api/rest/v1/attributes/{attributeCode}/options",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_attribute_option_create": {
-                "route": "/api/rest/v1/attributes/{attributeCode}/options",
-                "methods": [
-                  "POST"
-                ]
-              },
-              "pim_api_attribute_option_partial_update": {
-                "route": "/api/rest/v1/attributes/{attributeCode}/options/{optionCode}",
-                "methods": [
-                  "PATCH"
-                ]
-              },
-              "pim_api_attribute_option_get": {
-                "route": "/api/rest/v1/attributes/{attributeCode}/options/{code}",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_attribute_group_list": {
-                "route": "/api/rest/v1/attribute-groups",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_attribute_group_get": {
-                "route": "/api/rest/v1/attribute-groups/{code}",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_channel_list": {
-                "route": "/api/rest/v1/channels",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_channel_get": {
-                "route": "/api/rest/v1/channels/{code}",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_locale_list": {
-                "route": "/api/rest/v1/locales",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_locale_get": {
-                "route": "/api/rest/v1/locales/{code}",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_product_list": {
-                "route": "/api/rest/v1/products",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_product_get": {
-                "route": "/api/rest/v1/products/{code}",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_product_create": {
-                "route": "/api/rest/v1/products",
-                "methods": [
-                  "POST"
-                ]
-              },
-              "pim_api_product_partial_update": {
-                "route": "/api/rest/v1/products/{code}",
-                "methods": [
-                  "PATCH"
-                ]
-              },
-              "pim_api_product_partial_update_list": {
-                "route": "/api/rest/v1/products",
-                "methods": [
-                  "PATCH"
-                ]
-              },
-              "pim_api_product_delete": {
-                "route": "/api/rest/v1/products/{code}",
-                "methods": [
-                  "DELETE"
-                ]
-              },
-              "pim_api_media_file_list": {
-                "route": "/api/rest/v1/media-files",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_media_file_download": {
-                "route": "/api/rest/v1/media-files/{code}/download",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_media_file_get": {
-                "route": "/api/rest/v1/media-files/{code}",
-                "methods": [
-                  "GET"
-                ]
-              },
-              "pim_api_media_file_create": {
-                "route": "/api/rest/v1/media-files",
-                "methods": [
-                  "POST"
-                ]
+                  "route": "/api/rest/v1/categories/{code}",
+                  "methods": ["PATCH"]
               }
             }
           }
@@ -1587,6 +1393,88 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
+
+  /api/rest/v1/families/{family_code}/variants:
+    get:
+      summary: Get list of family variants
+      operationId: "get_families__family_code__variants"
+      description: This endpoint allows you to get a list of family variants. Family variants are paginated and sorted by code.
+      tags:
+        - Families
+      x-versions:
+        - 2.0
+      parameters:
+        - $ref: '#/parameters/family_code'
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
+      responses:
+        200:
+          description: Return family variants paginated
+          schema:
+            title: Family Variants
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/FamilyVariantList'
+          examples: {
+            "code": "shoesVariant",
+            "labels":{
+              "en_US": "Shoes variant",
+              "fr_FR": "Variante de chaussures"
+            },
+            "variant_attribute_sets": [
+              {
+                "level": 1,
+                "attributes": ["color", "material"],
+                "axes": ["color"]
+              },
+              {
+                  "level": 2,
+                  "attributes": ["sku", "size"],
+                  "axes": ["size"]
+              }
+            ]
+          }
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        406:
+          $ref: "#/responses/406Error"
+  /api/rest/v1/families/{family_code}/variants/{code}:
+    get:
+      summary: Get a family variant
+      operationId: "get_families__family_code__variants__code__"
+      description: This endpoint allows you to get the information about a given family variant.
+      tags:
+        - Families
+      x-versions:
+        - 2.0
+      parameters:
+        - $ref: '#/parameters/family_code'
+        - $ref: '#/parameters/code'
+      responses:
+        200:
+          description: OK
+          x-details: Returns the content of the family variant in JSON standard format
+          schema:
+            $ref: '#/definitions/FamilyVariant'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        404:
+          $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
 
   /api/rest/v1/attributes:
     get:
@@ -3861,6 +3749,71 @@ definitions:
     allOf:
       - $ref:  '#/definitions/ItemList'
       - $ref: '#/definitions/Family'
+  FamilyVariant:
+    type: object
+    required: ["code"]
+    properties:
+      code:
+        type: string
+        description: Family variant code
+        x-immutable: true
+      variant_attribute_sets:
+        type: array
+        description: Attributes distribution according to the enrichment level
+        items:
+          type: object
+          required: ["level", "axes"]
+          description: Enrichment level
+          properties:
+            level:
+              type: integer
+              description: Enrichment level 
+              x-immutable: true
+            attributes:
+              type: array
+              description: Each string of the array is an attribute code bind to this enrichment level
+              items:
+                type: string
+              default: []
+            axes:
+              type: array
+              description: Each string of the array is an attribute code that will be used as variant axis
+              items:
+                type: string
+              default: []
+      labels:
+        type: object
+        description: Family variant labels for each locale
+        x-validation-rules: The `localeCode` is the code of an existing and activated locale
+        default: {}
+        properties:
+          localeCode:
+            type: string
+            description: Family variant label for the locale `localeCode`
+    example: {
+      "code": "shoesVariant",
+      "labels":{
+        "en_US": "Shoes variant",
+        "fr_FR": "Variante de chaussures"
+      },
+      "variant_attribute_sets": [
+        {
+          "level": 1,
+          "attributes": ["color", "material"],
+          "axes": ["color"]
+        },
+        {
+            "level": 2,
+            "attributes": ["sku", "size"],
+            "axes": ["size"]
+        }
+      ]
+    }
+  FamilyVariantList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/FamilyVariant'
   Attribute:
     type: object
     required: ["code", "type", "group"]
@@ -4543,6 +4496,12 @@ parameters:
     name: attribute_code
     in: path
     description: Code of the attribute
+    required: true
+    type: string
+  family_code:
+    name: family_code
+    in: path
+    description: Code of the family
     required: true
     type: string
   with_count:
