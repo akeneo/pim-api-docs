@@ -358,7 +358,7 @@ Below is the JSON standard format representing a measure family.
 }
 ```
 
-::: panel-link Want more details about the measure family resource? [Check its endpoints here!](/api-reference.html#MeasureFamilies)
+::: panel-link Want more details about the measure family resource? [Check its endpoints here!](/api-reference.html#Measurefamilies)
 :::
 
 ## Media file
@@ -464,6 +464,55 @@ Below is the JSON standard format representing this family.
 ::: panel-link Want more details about the family resource? [Check its endpoints here!](/api-reference.html#Families)
 :::
 
+## Family variant (2.0 only)
+
+The family variant is the entity used to modelize the products with variants.
+
+From a single place, in a family variant, you will define all the structure for products with variants. You will define the number of variant levels, the variant axes and the distribution of attributes between common attributes or specific attributes for a variant.
+
+Below is the JSON standard format representing this family variant.
+
+```json
+{
+  "code": "clothing_color_size",
+  "labels": {
+    "de_DE": "Kleidung nach Farbe und Größe",
+    "en_US": "Clothing by color and size",
+    "fr_FR": "Vêtements par couleur et taille"
+  },
+  "variant_attribute_sets": [
+    {
+      "level": 1,
+      "axes": [
+        "color"
+      ],
+      "attributes": [
+        "variation_name",
+        "variation_image",
+        "composition",
+        "color",
+        "material"
+      ]
+    },
+    {
+      "level": 2,
+      "axes": [
+        "size"
+      ],
+      "attributes": [
+        "sku",
+        "weight",
+        "size",
+        "ean"
+     ]
+    }
+  ]
+}
+```
+
+::: panel-link Want more details about the family variant resource? [Check its endpoints here!](/api-reference.html#get_families__family_code__variants)
+:::
+
 ## Product
 
 The product is the central entity of the PIM. This is the entity that holds all the information concerning products.
@@ -480,96 +529,74 @@ Below is the JSON standard format representing a product.
 
 ```json
 {
-  "identifier": "AKNMUG_BP",
-  "family": "mugs",
-  "groups": [],
-  "parent": "akeneo_mug",
+  "identifier": "1111111195",
+  "family": "clothing",
+  "parent": "jack_brown",
   "categories": [
-    "goodies"
+    "tshirts"
   ],
   "enabled": true,
   "values": {
-    "description": [
-      {
-        "locale": "de_DE",
-        "scope": "mobile",
-        "data": "Akeneo Mug"
-      },
-      {
-        "locale": "de_DE",
-        "scope": "print",
-        "data": "Akeneo Mug"
-      },
-      {
-        "locale": "en_US",
-        "scope": "mobile",
-        "data": "Akeneo Mug"
-      },
-      {
-        "locale": "en_US",
-        "scope": "print",
-        "data": "Akeneo Mug"
-      },
-      {
-        "locale": "fr_FR",
-        "scope": "mobile",
-        "data": "Mug Akeneo"
-      },
-      {
-        "locale": "fr_FR",
-        "scope": "print",
-        "data": "Mug Akeneo"
-      }
-    ],
-    "main_color": [
+    "ean": [
       {
         "locale": null,
         "scope": null,
-        "data": "black"
+        "data": "1234567890207"
+      }
+    ],
+    "size": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "s"
+      }
+    ],
+    "weight": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": {
+          "amount": "800.0000",
+          "unit": "GRAM"
+        }
+      }
+    ],
+    "color": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "brown"
       }
     ],
     "name": [
       {
         "locale": null,
         "scope": null,
-        "data": "Akeneo Mug"
+        "data": "jack"
       }
     ],
-    "secondary_color": [
+    "erp_name": [
       {
-        "locale": null,
+        "locale": "en_US",
         "scope": null,
-        "data": "purple"
+        "data": "Jack"
       }
     ],
-    "price": [
+    "collection": [
       {
         "locale": null,
         "scope": null,
         "data": [
-          {
-            "amount": "5.00",
-            "currency": "EUR"
-          },
-          {
-            "amount": "5.00",
-            "currency": "USD"
-          }
+          "summer_2017"
         ]
       }
     ]
   },
-  "created": "2017-03-03T16:58:44+01:00",
-  "updated": "2017-03-03T16:58:45+01:00",
-  "associations": {
-    "SUBSTITUTION": {
-      "groups": [],
-      "products": [
-        "AKNMUG_WP",
-        "AKNMUG_PB",
-        "AKNMUG_PW"
-      ]
-    }
+  "created": "2017-10-05T11:25:48+02:00",
+  "updated": "2017-10-05T11:25:48+02:00",
+  "associations": {},
+  "metadata": {
+    "workflow_status": "working_copy"
   }
 }
 ```
@@ -730,4 +757,52 @@ Note that the `locale` and `scope` properties are all set to `null` in this case
 :::
 
 ::: panel-link Want to update product values? [Here you go!](/documentation/update.html#patch-product-values)
+:::
+
+
+## Product model (2.0 only)
+
+The product model gathers similar products that differ in some aspects, and allows the enrichment of their common properties.
+
+It's like a product, but it's not a product! It can be categorized and it's composed of product values. For more information about what are the "product values", take a look to this dedicated piece of [documentation](/documentation/resources.html#product-values).
+
+Below is the JSON standard format representing a product model. Notice how much it's closed to the product standard format!
+
+```json
+{
+  "code": "jack",
+  "family_variant": "clothing_color_size",
+  "parent": null,
+  "categories": [],
+  "values": {
+    "name": [
+      {
+          "locale": null,
+          "scope": null,
+          "data": "jack"
+      }
+    ],
+    "erp_name": [
+      {
+        "locale": "en_US",
+        "scope": null,
+        "data": "Jack"
+      }
+    ],
+    "collection": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": [
+          "summer_2017"
+        ]
+      }
+    ]
+  },
+  "created": "2017-10-05T11:24:46+02:00",
+  "updated": "2017-10-05T11:24:46+02:00"
+}
+```
+
+::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodels)
 :::
