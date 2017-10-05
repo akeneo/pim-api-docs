@@ -2,6 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Official Akeneo PIM API",
+		"_postman_id": "1337",
 		"description": "The Akeneo API brought to you!\n\nFind out how this Postman collection works by visiting http://api.akeneo.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
