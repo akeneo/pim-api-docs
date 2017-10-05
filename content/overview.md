@@ -100,6 +100,8 @@ Below are the entities you can manipulate via the API in 1.7 and 2.0:
  - [Locale](/documentation/resources.html#locale).
 
 Also, in 2.0, the API has been enriched with these new entities:
+ - [Product model](/documentation/resources.html#product-model-20-only),
+ - [Family variant](/documentation/resources.html#family-variant-20-only),
  - [Attribute group](/documentation/resources.html#attribute-group-20-only),
  - [Association type](/documentation/resources.html#association-type-20-only),
  - [Currency](/documentation/resources.html#currency-20-only),
