@@ -97,12 +97,12 @@ curl -X GET /api/rest/v1/products
 :::
 
 :::warning
-When trying to request a quite high page number, you will notice that this method spend more and more time to respond. This method can also be responsible for giving you duplicates. That is why we introduced another way to request paginated resources, see the search after method below. It is only avalailable on products right now.
+When trying to request a quite high page number, you will notice that this method spend more and more time to respond. This method can also be responsible for giving you duplicates. That is why we introduced another way to request paginated resources, see the search after method below. It is only avalailable on products, product models and published products right now.
 :::
 
 ## Search-after type
 :::warning
-This pagination method is only available for products and published products.
+This pagination method is only available for products, product models and published products.
 :::
 
 To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. The entities you will get will then be sorted by product primary key to speed up performance.
