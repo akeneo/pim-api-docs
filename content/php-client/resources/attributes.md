@@ -34,8 +34,8 @@ $client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAut
  *     'localizable'            => false,
  *     'scopable'               => false,
  *     'labels'                 => [
- *         'en_US': 'Sale date',
- *         'fr_FR': 'Date des soldes'],
+ *         'en_US' => 'Sale date',
+ *         'fr_FR' => 'Date des soldes'],
  *     ]
  * ]
  */
