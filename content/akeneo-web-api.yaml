@@ -3332,8 +3332,8 @@ definitions:
       family:
         type: string
         description: Family code from which the product inherits its attributes and attributes requirements
-        x-validation-rules: It is equal to an existing family code
-        default: "null"
+        x-validation-rules: It is equal to an existing family code. In the case of variant product, the given family should be the same as the product model family.
+        default: "null only in the case of a non variant product"
       categories:
         type: array
         description: Codes of the categories in which the product is classified
@@ -3351,8 +3351,9 @@ definitions:
       parent:
         type: string
         description: Code of the parent product model when the product is a variant
-        x-validation-rules: It is equal to an existing product model code
+        x-validation-rules: It is equal to an existing product model code only if the product is variant otherwise it's equal to null
         default: "null"
+        x-immutable: true
       values:
         type: object
         description: "Product attributes values, see <a href='/documentation/resources.html#product-values'>Product values</a> section for more details"
