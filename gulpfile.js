@@ -16,6 +16,7 @@ gulp.task('clean-dist', function () {
 gulp.task('watch', ['create-dist'], function() {
   gulp.watch('content/*.md', ['create-dist']);
   gulp.watch('content/php-client/*.md', ['create-dist']);
+  gulp.watch('content/misc/*.md', ['create-dist']);
   gulp.watch('styles/*.less', ['create-dist']);
   gulp.watch('src/*.handlebars', ['create-dist']);
   gulp.watch('src/api-reference/*.handlebars',['create-dist']);
@@ -42,7 +43,8 @@ gulp.task('create-dist', [
   'reference',
   'landings',
   'documentation',
-  'client-documentation'
+  'client-documentation',
+  'misc-documentation'
 ]);
 
 // Main task that should be used for development purpose

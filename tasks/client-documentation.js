@@ -244,7 +244,7 @@ gulp.task('client-documentation', ['clean-dist','less'], function () {
                         .pipe(gulpMarkdownIt(md))
                         .pipe(gulp.dest('tmp/php-client'))
                         .on('end', function () {
-                            return gulp.src('src/documentation.handlebars')
+                            return gulp.src('src/partials/documentation.handlebars')
                                 .pipe(gulpHandlebars({
                                     active_documentation: true,
                                     title: 'PHP API client documentation',
