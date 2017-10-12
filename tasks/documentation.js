@@ -211,15 +211,15 @@ gulp.task('documentation', ['clean-dist','less'], function () {
         'filter.md': 'Filters'
     };
 
-    return gulp.src('content/*.md')
+    return gulp.src('content/rest-api/*.md')
         .pipe(flatmap(function(stream, file){
-            return gulp.src('content/*.md')
+            return gulp.src('content/rest-api/*.md')
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
               .pipe(insert.prepend(getTocMarkdown(pages, path.basename(file.path)) + "\n"))
               .pipe(gulpMarkdownIt(md))
               .pipe(gulp.dest('tmp/'))
               .on('end', function () {
-                  return gulp.src('src/documentation.handlebars')
+                  return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation:  true,
                         title: 'REST API documentation',
