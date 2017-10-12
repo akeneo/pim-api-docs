@@ -394,8 +394,6 @@ paths:
               ]
             }
           }
-        400:
-          $ref: "#/responses/400Error"
         401:
           $ref: "#/responses/401Error"
         403:
@@ -602,6 +600,163 @@ paths:
         404:
           $ref: "#/responses/404Error"
 
+  /api/rest/v1/product-models:
+    get:
+      summary: Get list of product models
+      operationId: "get_product_models"
+      tags:
+        - Product models
+      x-versions:
+        - 2.0
+      description: This endpoint allows you to get a list of product models. Product models are paginated.
+      parameters:
+        - $ref: '#/parameters/pagination_type'
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/search_after'
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/with_count'
+      responses:
+        200:
+          description: Return product models paginated
+          schema:
+            title: Product Models
+            type: object
+            allOf:
+              - $ref: '#/definitions/Pagination'
+              - properties:
+                  _embedded:
+                    type: object
+                    properties:
+                      _items:
+                        type: array
+                        items:
+                          $ref: '#/definitions/ProductModelList'
+          examples: {
+            "_links": {
+              "self": {
+                "href": "http://demo.akeneo.com/api/rest/v1/product-models?pagination_type=search_after&limit=3&search_after=qg%3D%3D"
+              },
+              "first": {
+                "href": "http://demo.akeneo.com/api/rest/v1/product-models?pagination_type=search_after&limit=3"
+              },
+              "next": {
+                "href": "http://demo.akeneo.com/api/rest/v1/product-models?pagination_type=search_after&limit=3&search_after=rw%3D%3D"
+              }
+            },
+            "_embedded": {
+              "items": [
+                {
+                  "_links": {
+                    "self": {
+                      "href": "http:\/\/demo.akeneo.com\/api\/rest\/v1\/product-models\/shoes"
+                    }
+                  },
+                  "code": "shoes",
+                  "family_variant": "familyVariantA1",
+                  "parent": null,
+                  "categories": ["clothing", "shoes"],
+                  "values": {
+                    "price": [
+                      {
+                        "locale": null,
+                        "scope": null,
+                        "data": [
+                          {
+                            "amount": "50.00",
+                            "currency": "EUR"
+                          }
+                        ]
+                      }
+                    ],
+                    "description": [
+                      {
+                        "locale": "en_US",
+                        "scope": "ecommerce",
+                        "data": "I like shoes!"
+                      }
+                    ]
+                  },
+                  "created": "2017-10-04T18:04:10+02:00",
+                  "updated": "2017-10-04T18:04:10+02:00"
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "http:\/\/demo.akeneo.com\/api\/rest\/v1\/product-models\/tshirt"
+                    }
+                  },
+                  "code": "tshirt",
+                  "family_variant": "familyVariantA1",
+                  "parent": null,
+                  "categories": ["clothing", "tshirt"],
+                  "values": {
+                    "price": [
+                      {
+                        "locale": null,
+                        "scope": null,
+                        "data": [
+                          {
+                            "amount": "50.00",
+                            "currency": "EUR"
+                          }
+                        ]
+                      }
+                    ],
+                    "description": [
+                      {
+                        "locale": "en_US",
+                        "scope": "ecommerce",
+                        "data": "I like tshirt!"
+                      }
+                    ]
+                  },
+                  "created": "2017-10-04T18:04:10+02:00",
+                  "updated": "2017-10-04T18:04:10+02:00"
+                },
+                {
+                  "_links": {
+                    "self": {
+                      "href": "http:\/\/demo.akeneo.com\/api\/rest\/v1\/product-models\/trousers"
+                    }
+                  },
+                  "code": "trousers",
+                  "family_variant": "familyVariantA1",
+                  "parent": null,
+                  "categories": ["clothing", "trousers"],
+                  "values": {
+                    "price": [
+                      {
+                        "locale": null,
+                        "scope": null,
+                        "data": [
+                          {
+                            "amount": "50.00",
+                            "currency": "EUR"
+                          }
+                        ]
+                      }
+                    ],
+                    "description": [
+                      {
+                        "locale": "en_US",
+                        "scope": "ecommerce",
+                        "data": "I like trousers!"
+                      }
+                    ]
+                  },
+                  "created": "2017-10-04T18:04:10+02:00",
+                  "updated": "2017-10-04T18:04:10+02:00"
+                }
+              ]
+            }
+          }
+        401:
+          $ref: "#/responses/401Error"
+        406:
+          $ref: "#/responses/406Error"
+        422:
+          $ref: "#/responses/422Error"
+
   /api/rest/v1/product-models/{code}:
     get:
       summary: Get a product model
@@ -621,10 +776,10 @@ paths:
             $ref: '#/definitions/ProductModel'
         401:
           $ref: "#/responses/401Error"
-        406:
-          $ref: "#/responses/406Error"
         404:
           $ref: "#/responses/404Error"
+        406:
+          $ref: "#/responses/406Error"
 
   /api/rest/v1/published-products:
       get:
@@ -3177,8 +3332,8 @@ definitions:
       family:
         type: string
         description: Family code from which the product inherits its attributes and attributes requirements
-        x-validation-rules: It is equal to an existing family code
-        default: "null"
+        x-validation-rules: It is equal to an existing family code. In the case of variant product, the given family should be the same as the product model family.
+        default: "null only in the case of a non variant product"
       categories:
         type: array
         description: Codes of the categories in which the product is classified
@@ -3196,8 +3351,9 @@ definitions:
       parent:
         type: string
         description: Code of the parent product model when the product is a variant
-        x-validation-rules: It is equal to an existing product model code
+        x-validation-rules: It is equal to an existing product model code only if the product is variant otherwise it's equal to null
         default: "null"
+        x-immutable: true
       values:
         type: object
         description: "Product attributes values, see <a href='/documentation/resources.html#product-values'>Product values</a> section for more details"
@@ -3331,6 +3487,11 @@ definitions:
     allOf:
       - $ref:  '#/definitions/ItemList'
       - $ref: '#/definitions/Product'
+  ProductModelList:
+    type: object
+    allOf:
+      - $ref:  '#/definitions/ItemList'
+      - $ref: '#/definitions/ProductModel'
   ProductModel:
     type: object
     required: ["code", "family_variant"]

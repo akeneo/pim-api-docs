@@ -1,10 +1,9 @@
 {
-	"variables": [],
 	"info": {
 		"name": "Official Akeneo PIM API",
 		"_postman_id": "1337",
 		"description": "The Akeneo API brought to you!\n\nFind out how this Postman collection works by visiting http://api.akeneo.com",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -14,18 +13,29 @@
 				{
 					"name": "association type (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/association-types/upsell",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/association-types/upsell",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"association-types",
+								"upsell"
+							]
 						},
 						"description": "Assuming that the given code is the code of an existing association type"
 					},
@@ -34,18 +44,28 @@
 				{
 					"name": "association types (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/association-types",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/association-types",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"association-types"
+							]
 						},
 						"description": ""
 					},
@@ -54,23 +74,32 @@
 				{
 					"name": "association type (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/association-types",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\": \"new_association_type\",\n  \"labels\": {\n    \"de_DE\": \"new association type label DE\",\n    \"en_US\": \"new association type label US\",\n    \"fr_FR\": \"new association type label FR\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/association-types",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"association-types"
+							]
 						},
 						"description": "Assuming that there is no \"new_association_type\" already existing"
 					},
@@ -79,23 +108,33 @@
 				{
 					"name": "association type (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/association-types/upsell",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\": \"UPSELL\",\n  \"labels\": {\n    \"en_US\": \"Upsell\",\n    \"fr_FR\": \"Vente incitative\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/association-types/upsell",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"association-types",
+								"upsell"
+							]
 						},
 						"description": ""
 					},
@@ -104,23 +143,32 @@
 				{
 					"name": "association types (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/association-types",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/vnd.akeneo.collection+json",
-								"description": ""
+								"value": "application/vnd.akeneo.collection+json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"code\": \"new_association_type\"}\n{\"code\": \"upsell\", \"labels\":{\"en_US\":\"new association type US label\"}}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/association-types",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"association-types"
+							]
 						},
 						"description": "\n"
 					},
@@ -135,18 +183,29 @@
 				{
 					"name": "attribute",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attributes/auto_exposure",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes/auto_exposure",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes",
+								"auto_exposure"
+							]
 						},
 						"description": "Assuming that the given code is the code of an existing attribute"
 					},
@@ -155,18 +214,28 @@
 				{
 					"name": "attributes",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attributes",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes"
+							]
 						},
 						"description": ""
 					},
@@ -175,23 +244,32 @@
 				{
 					"name": "attribute",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attributes",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\": \"new_attribute\",\n  \"type\": \"pim_catalog_boolean\",\n  \"group\": \"technical\",\n  \"unique\": false,\n  \"useable_as_grid_filter\": true,\n  \"allowed_extensions\": [],\n  \"metric_family\": null,\n  \"default_metric_unit\": null,\n  \"reference_data_name\": null,\n  \"available_locales\": [],\n  \"max_characters\": null,\n  \"validation_rule\": null,\n  \"validation_regexp\": null,\n  \"wysiwyg_enabled\": null,\n  \"number_min\": null,\n  \"number_max\": null,\n  \"decimals_allowed\": null,\n  \"negative_allowed\": null,\n  \"date_min\": null,\n  \"date_max\": null,\n  \"max_file_size\": null,\n  \"minimum_input_length\": null,\n  \"sort_order\": 39,\n  \"localizable\": false,\n  \"scopable\": false,\n  \"labels\": {\n    \"de_DE\": \"new attribute label DE\",\n    \"en_US\": \"new attribute label US\",\n    \"fr_FR\": \"new attribute label FR\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes"
+							]
 						},
 						"description": "Assuming that there is no \"new_attribute\" already existing"
 					},
@@ -200,23 +278,33 @@
 				{
 					"name": "attribute",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attributes/auto_exposure",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\": \"auto_exposure\",\n  \"type\": \"pim_catalog_boolean\",\n  \"group\": \"technical\",\n  \"unique\": false,\n  \"useable_as_grid_filter\": true,\n  \"allowed_extensions\": [],\n  \"metric_family\": null,\n  \"default_metric_unit\": null,\n  \"reference_data_name\": null,\n  \"available_locales\": [],\n  \"max_characters\": null,\n  \"validation_rule\": null,\n  \"validation_regexp\": null,\n  \"wysiwyg_enabled\": null,\n  \"number_min\": null,\n  \"number_max\": null,\n  \"decimals_allowed\": null,\n  \"negative_allowed\": null,\n  \"date_min\": null,\n  \"date_max\": null,\n  \"max_file_size\": null,\n  \"minimum_input_length\": null,\n  \"sort_order\": 39,\n  \"localizable\": false,\n  \"scopable\": false,\n  \"labels\": {\n    \"de_DE\": \"Auto exposure\",\n    \"en_US\": \"Auto exposure\",\n    \"fr_FR\": \"Auto exposure\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes/auto_exposure",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes",
+								"auto_exposure"
+							]
 						},
 						"description": ""
 					},
@@ -225,23 +313,32 @@
 				{
 					"name": "attributes",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attributes",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/vnd.akeneo.collection+json",
-								"description": ""
+								"value": "application/vnd.akeneo.collection+json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"code\": \"new_attribute\", \"type\":\"pim_catalog_boolean\", \"group\":\"other\"}\n{\"code\": \"auto_exposure\", \"labels\":{\"en_US\":\"Auto exposure\"}}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes"
+							]
 						},
 						"description": "\n"
 					},
@@ -256,18 +353,31 @@
 				{
 					"name": "attribute option",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attributes/main_color/options/white",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes/main_color/options/white",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes",
+								"main_color",
+								"options",
+								"white"
+							]
 						},
 						"description": "Assuming that the given codes are respectively the code of an existing attribute and an existing option of this attribute"
 					},
@@ -276,16 +386,28 @@
 				{
 					"name": "attribute options",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attributes/main_color/options",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes/main_color/options",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes",
+								"main_color",
+								"options"
+							]
+						},
 						"description": ""
 					},
 					"response": []
@@ -293,23 +415,34 @@
 				{
 					"name": "attribute option",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attributes/main_color/options",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\":\"yellow\",\n  \"attribute\": \"main_color\",\n  \"sort_order\": 10,\n  \"labels\": {\n      \"de_DE\": \"Gelb\",\n      \"en_US\": \"Yellow\",\n      \"fr_FR\": \"Jaune\"\n  }\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes/main_color/options",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes",
+								"main_color",
+								"options"
+							]
 						},
 						"description": "Assuming that there is no \"yellow\" option already existing for the given attribute"
 					},
@@ -318,23 +451,35 @@
 				{
 					"name": "attribute option",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attributes/main_color/options/white",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\": \"white\",\n  \"attribute\": \"main_color\",\n  \"sort_order\": 1,\n  \"labels\": {\n    \"de_DE\": \"Weiß\",\n    \"en_US\": \"White\",\n    \"fr_FR\": \"Blanc\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes/main_color/options/white",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes",
+								"main_color",
+								"options",
+								"white"
+							]
 						},
 						"description": "Assuming that the given code is the code of an existing attribute"
 					},
@@ -349,18 +494,29 @@
 				{
 					"name": "attribute group (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attribute-groups/technical",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attribute-groups/technical",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attribute-groups",
+								"technical"
+							]
 						},
 						"description": "Assuming that the given code is the code of an existing attribute group"
 					},
@@ -369,18 +525,28 @@
 				{
 					"name": "attribute groups (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attribute-groups",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attribute-groups",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attribute-groups"
+							]
 						},
 						"description": ""
 					},
@@ -389,23 +555,32 @@
 				{
 					"name": "attribute group (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attribute-groups",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\": \"new_attribute_group\",\n  \"sort_order\": 10,\n  \"attributes\": [\n\t\"main_color\",\n    \"secondary_color\"\n  ],\n  \"labels\": {\n    \"de_DE\": \"new attribute group label DE\",\n    \"en_US\": \"new attribute group label US\",\n    \"fr_FR\": \"new attribute group label FR\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attribute-groups",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attribute-groups"
+							]
 						},
 						"description": "Assuming that there is no \"new_attribute_group\" already existing"
 					},
@@ -414,23 +589,33 @@
 				{
 					"name": "attribute group (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attribute-groups/technical",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"technical\",\n    \"sort_order\": 2,\n    \"attributes\": [\n        \"weight\",\n        \"maximum_scan_size\",\n        \"color_scanning\",\n        \"power_requirements\",\n        \"maximum_print_size\",\n        \"sensor_type\",\n        \"total_megapixels\",\n        \"optical_zoom\",\n        \"image_stabilizer\",\n        \"camera_type\",\n        \"thd\",\n        \"snr\",\n        \"headphone_connectivity\",\n        \"maximum_video_resolution\",\n        \"maximum_frame_rate\",\n        \"multifunctional_functions\",\n        \"display_srgb\",\n        \"display_color\",\n        \"display_diagonal\",\n        \"viewing_area\",\n        \"camera_brand\",\n        \"camera_model_name\",\n        \"short_description\",\n        \"max_image_resolution\",\n        \"image_resolutions\",\n        \"supported_aspect_ratios\",\n        \"supported_image_format\",\n        \"lens_mount_interface\",\n        \"focus\",\n        \"focus_adjustement\",\n        \"auto_focus_modes\",\n        \"auto_focus_points\",\n        \"auto_focus_lock\",\n        \"auto_focus_assist_beam\",\n        \"iso_sensitivity\",\n        \"light_exposure_modes\",\n        \"light_exposure_corrections\",\n        \"light_metering\",\n        \"auto_exposure\",\n        \"iso_sensitivity_max\",\n        \"iso_sensitivity_min\"\n    ],\n    \"labels\": {\n        \"en_US\": \"Technical\",\n        \"fr_FR\": \"Technique\",\n        \"de_DE\": \"Technische\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attribute-groups/technical",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attribute-groups",
+								"technical"
+							]
 						},
 						"description": ""
 					},
@@ -439,23 +624,32 @@
 				{
 					"name": "attribute groups (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/attribute-groups",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/vnd.akeneo.collection+json",
-								"description": ""
+								"value": "application/vnd.akeneo.collection+json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"code\": \"new_attribute_group\"}\n{\"code\": \"technical\", \"labels\":{\"en_US\":\"new attribute group US label\"}}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attribute-groups",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attribute-groups"
+							]
 						},
 						"description": "\n"
 					},
@@ -470,18 +664,29 @@
 				{
 					"name": "category",
 					"request": {
-						"url": "{{url}}/api/rest/v1/categories/master",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/categories/master",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"categories",
+								"master"
+							]
 						},
 						"description": "Assuming that the given code is the code of an existing category"
 					},
@@ -490,18 +695,28 @@
 				{
 					"name": "categories",
 					"request": {
-						"url": "{{url}}/api/rest/v1/categories",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"categories"
+							]
 						},
 						"description": ""
 					},
@@ -510,23 +725,32 @@
 				{
 					"name": "category",
 					"request": {
-						"url": "{{url}}/api/rest/v1/categories",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\":\"new_category\",\n  \"parent\":\"master\",\n  \"labels\": {\n    \"de_DE\":\"new category label DE\",\n    \"en_US\":\"new category label US\",\n    \"fr_FR\":\"new category label FR\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"categories"
+							]
 						},
 						"description": "Assuming that there is no \"new_category\" already existing"
 					},
@@ -535,23 +759,33 @@
 				{
 					"name": "category",
 					"request": {
-						"url": "{{url}}/api/rest/v1/categories/audio_video",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\": \"audio_video\",\n  \"parent\": \"master\",\n  \"labels\": {\n    \"en_US\": \"new Audio and Video label\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/categories/audio_video",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"categories",
+								"audio_video"
+							]
 						},
 						"description": ""
 					},
@@ -560,23 +794,32 @@
 				{
 					"name": "categories",
 					"request": {
-						"url": "{{url}}/api/rest/v1/categories",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/vnd.akeneo.collection+json",
-								"description": ""
+								"value": "application/vnd.akeneo.collection+json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"code\": \"new_category\", \"parent\": \"master\"}\n{\"code\": \"new_category_tree\"}\n{\"code\": \"master\", \"labels\":{\"en_US\":\"Main catalog\"}}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"categories"
+							]
 						},
 						"description": "\n"
 					},
@@ -591,18 +834,29 @@
 				{
 					"name": "channel",
 					"request": {
-						"url": "{{url}}/api/rest/v1/channels/ecommerce",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/channels/ecommerce",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"channels",
+								"ecommerce"
+							]
 						},
 						"description": "Assuming that the given code is the code of an existing channel"
 					},
@@ -611,18 +865,28 @@
 				{
 					"name": "channels",
 					"request": {
-						"url": "{{url}}/api/rest/v1/channels",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/channels",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"channels"
+							]
 						},
 						"description": ""
 					},
@@ -631,23 +895,32 @@
 				{
 					"name": "channel (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/channels",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\": \"new_channel\",\n  \"currencies\": [\n    \"USD\",\n    \"EUR\"\n  ],\n  \"locales\": [\n    \"de_DE\",\n    \"en_US\",\n    \"fr_FR\"\n  ],\n  \"category_tree\": \"master\",\n  \"conversion_units\":{\n    \"weight\": \"GRAM\"\n  },\n  \"labels\": {\n    \"en_US\": \"new category label US\",\n    \"de_DE\": \"new category label DE\",\n    \"fr_FR\": \"new category label FR\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/channels",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"channels"
+							]
 						},
 						"description": "Assuming that there is no \"new_channel\" already existing"
 					},
@@ -656,23 +929,33 @@
 				{
 					"name": "channel (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/channels/my_new_channel_3",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\": \"my_new_channel_3\",\n  \"currencies\": [\n    \"USD\",\n    \"EUR\"\n  ],\n  \"yo\":\"\",\n  \"locales\": [\n    \"de_DE\",\n    \"en_US\",\n    \"fr_FR\"\n  ],\n  \"category_tree\": \"master\",\n  \"conversion_units\":{\n    \"weight\": \"GRAM\"\n  },\n  \"labels\": {\n    \"en_US\": \"new category label US\",\n    \"de_DE\": \"new category label DE\",\n    \"fr_FR\": \"new category label FR\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/channels/my_new_channel_3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"channels",
+								"my_new_channel_3"
+							]
 						},
 						"description": ""
 					},
@@ -681,23 +964,32 @@
 				{
 					"name": "channels (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/channels",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/vnd.akeneo.collection+json",
-								"description": ""
+								"value": "application/vnd.akeneo.collection+json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"code\": \"new_channel\",\"category_tree\":\"master\",\"locales\":[\"de_DE\"], \"currencies\":[\"EUR\",\"USD\"], \"labels\":{\"fr_FR\": \"Mon canal\"}, \"conversion_units\":{\"weight\":\"GRAM\"}}\n{\"code\": \"new_channel_2\",\"category_tree\":\"master\",\"locales\":[\"de_DE\", \"en_US\"], \"currencies\":[\"USD\"]}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/channels",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"channels"
+							]
 						},
 						"description": "\n"
 					},
@@ -712,18 +1004,29 @@
 				{
 					"name": "currency (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/currencies/USD",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/currencies/USD",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"currencies",
+								"USD"
+							]
 						},
 						"description": "Assuming that the given code is the code of an existing currency"
 					},
@@ -732,18 +1035,28 @@
 				{
 					"name": "currencies (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/currencies",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/currencies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"currencies"
+							]
 						},
 						"description": ""
 					},
@@ -758,18 +1071,29 @@
 				{
 					"name": "family",
 					"request": {
-						"url": "{{url}}/api/rest/v1/families/camcorders",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/families/camcorders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"families",
+								"camcorders"
+							]
 						},
 						"description": "Assuming that the given code is the code of an existing family"
 					},
@@ -778,18 +1102,28 @@
 				{
 					"name": "families",
 					"request": {
-						"url": "{{url}}/api/rest/v1/families",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/families",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"families"
+							]
 						},
 						"description": ""
 					},
@@ -798,23 +1132,32 @@
 				{
 					"name": "family",
 					"request": {
-						"url": "{{url}}/api/rest/v1/families",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\": \"new_family\",\n  \"attributes\": [\n    \"container_material\",\n    \"description\",\n    \"main_color\",\n    \"name\",\n    \"picture\",\n    \"price\",\n    \"sku\"\n  ],\n  \"attribute_as_label\": \"name\",\n  \"attribute_as_image\": \"picture\",\n  \"attribute_requirements\": {\n    \"ecommerce\": [\n      \"container_material\",\n      \"description\",\n      \"main_color\",\n      \"name\",\n      \"price\",\n      \"sku\"\n    ],\n    \"mobile\": [\n      \"description\",\n      \"main_color\",\n      \"name\",\n      \"price\",\n      \"sku\"\n    ],\n    \"print\": [\n      \"description\",\n      \"name\",\n      \"price\",\n      \"sku\"\n    ]\n  },\n  \"labels\": {\n    \"de_DE\": \"new family label DE\",\n    \"en_US\": \"new family label US\",\n    \"fr_FR\": \"new family label FR\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/families",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"families"
+							]
 						},
 						"description": "Assuming that there is no \"new_family\" already existing"
 					},
@@ -823,23 +1166,33 @@
 				{
 					"name": "family",
 					"request": {
-						"url": "{{url}}/api/rest/v1/families/camcorders",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"code\": \"camcorders\",\n  \"attribute_as_label\": \"sku\",\n  \"labels\": {\n    \"en_US\": \"new Camcorders label\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/families/camcorders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"families",
+								"camcorders"
+							]
 						},
 						"description": ""
 					},
@@ -848,23 +1201,32 @@
 				{
 					"name": "families",
 					"request": {
-						"url": "{{url}}/api/rest/v1/families",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/vnd.akeneo.collection+json",
-								"description": ""
+								"value": "application/vnd.akeneo.collection+json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"code\": \"new_family\", \"attribute_as_label\": \"name\", \"attributes\":[\"name\",\"picture\",\"price\",\"sku\"]}\n{\"code\": \"camcorders\", \"labels\":{\"de_DE\":\"\"}}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/families",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"families"
+							]
 						},
 						"description": "\n"
 					},
@@ -877,40 +1239,65 @@
 			"description": "",
 			"item": [
 				{
-					"name": "family variant",
+					"name": "family variant (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/families/clothing/variants/clothing_colorsize",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
 						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/families/clothing/variants/clothing_colorsize",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"families",
+								"clothing",
+								"variants",
+								"clothing_colorsize"
+							]
+						},
 						"description": "Assuming that the given codes are respectively the code of an existing family and an existing family variant"
 					},
 					"response": []
 				},
 				{
-					"name": "family variants",
+					"name": "family variants (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/families/clothing/variants",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/families/clothing/variants",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"families",
+								"clothing",
+								"variants"
+							]
 						},
 						"description": ""
 					},
@@ -925,18 +1312,29 @@
 				{
 					"name": "locale",
 					"request": {
-						"url": "{{url}}/api/rest/v1/locales/en_US",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/locales/en_US",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"locales",
+								"en_US"
+							]
 						},
 						"description": "Assuming that the given code is the code of an existing locale"
 					},
@@ -945,18 +1343,28 @@
 				{
 					"name": "locales",
 					"request": {
-						"url": "{{url}}/api/rest/v1/locales",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/locales",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"locales"
+							]
 						},
 						"description": ""
 					},
@@ -971,18 +1379,29 @@
 				{
 					"name": "measure family (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/measure-families/area",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/measure-families/area",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"measure-families",
+								"area"
+							]
 						},
 						"description": "Assuming that the given code is the code of an existing measure family"
 					},
@@ -991,18 +1410,28 @@
 				{
 					"name": "measure families (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/measure-families",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/measure-families",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"measure-families"
+							]
 						},
 						"description": ""
 					},
@@ -1017,18 +1446,15 @@
 				{
 					"name": "media",
 					"request": {
-						"url": "{{url}}/api/rest/v1/media-files/d/d/b/6/ddb6ad393f81503b6be7380785e3b32bbd28cd08_test.png",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
 								"value": "application/json",
-								"description": "",
 								"disabled": true
 							}
 						],
@@ -1047,6 +1473,23 @@
 								}
 							]
 						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/media-files/d/d/b/6/ddb6ad393f81503b6be7380785e3b32bbd28cd08_test.png",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"media-files",
+								"d",
+								"d",
+								"b",
+								"6",
+								"ddb6ad393f81503b6be7380785e3b32bbd28cd08_test.png"
+							]
+						},
 						"description": "Assuming that the given code is the code of an existing media file"
 					},
 					"response": []
@@ -1054,13 +1497,11 @@
 				{
 					"name": "medias",
 					"request": {
-						"url": "{{url}}/api/rest/v1/media-files",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
@@ -1078,6 +1519,18 @@
 								}
 							]
 						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/media-files",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"media-files"
+							]
+						},
 						"description": ""
 					},
 					"response": []
@@ -1085,18 +1538,15 @@
 				{
 					"name": "media",
 					"request": {
-						"url": "{{url}}/api/rest/v1/media-files",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "multipart/form-data",
-								"description": ""
+								"value": "multipart/form-data"
 							}
 						],
 						"body": {
@@ -1114,6 +1564,18 @@
 								}
 							]
 						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/media-files",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"media-files"
+							]
+						},
 						"description": "Assuming that the given identifier is the identifier of an existing product and that the given attribute code exists"
 					},
 					"response": []
@@ -1127,18 +1589,29 @@
 				{
 					"name": "product",
 					"request": {
-						"url": "{{url}}/api/rest/v1/products/AKNSTK",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/products/AKNSTK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"products",
+								"AKNSTK"
+							]
 						},
 						"description": "Assuming that the given identifier is the identifier of an existing product"
 					},
@@ -1147,28 +1620,36 @@
 				{
 					"name": "products",
 					"request": {
-						"url": "{{url}}/api/rest/v1/products",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Cookie",
-								"value": "",
-								"description": ""
+								"value": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"products"
+							]
 						},
 						"description": "\n"
 					},
@@ -1177,23 +1658,32 @@
 				{
 					"name": "product",
 					"request": {
-						"url": "{{url}}/api/rest/v1/products",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"identifier\": \"new_product\",\n  \"family\": \"tshirts\",\n  \"groups\": [],\n  \"parent\": null,\n  \"categories\": [\n    \"tvs_projectors\"\n  ],\n  \"enabled\": true,\n  \"values\": {\n    \"clothing_size\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"s\"\n      }\n    ],\n    \"description\": [\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"mobile\",\n        \"data\": \"Akeneo T-Shirt 77777\"\n      },\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"print\",\n        \"data\": \"Akeneo T-Shirt with short sleeve\"\n      }\n    ],\n    \"main_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"black\"\n      }\n    ],\n    \"name\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"Akeneo T-Shirt black and purple with short sleeve\"\n      }\n    ],\n    \"secondary_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"purple\"\n      }\n    ],\n    \"tshirt_materials\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"cotton\"\n      }\n    ],\n    \"tshirt_style\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          \"crewneck\",\n          \"short_sleeve\"\n        ]\n      }\n    ],\n    \"price\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          {\n            \"amount\": 10,\n            \"currency\": \"EUR\"\n          },\n          {\n            \"amount\": 14,\n            \"currency\": \"USD\"\n          }\n        ]\n      }\n    ]\n  },\n  \"created\": \"2017-03-30T14:55:26+02:00\",\n  \"updated\": \"2017-05-04T23:56:09+02:00\",\n  \"associations\": {\n    \"SUBSTITUTION\": {\n      \"groups\": [],\n      \"products\": [\n        \"AKNSTK\"\n      ]\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"products"
+							]
 						},
 						"description": "Assuming that there is no \"new_product\" already existing"
 					},
@@ -1202,23 +1692,33 @@
 				{
 					"name": "product",
 					"request": {
-						"url": "{{url}}/api/rest/v1/products/AKNSTK",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"identifier\": \"AKNSTK\",\n  \"family\": \"tshirts\",\n  \"groups\": [],\n  \"parent\": null,\n  \"categories\": [\n    \"goodies\",\n    \"tshirts\"\n  ],\n  \"enabled\": true,\n  \"values\": {\n    \"clothing_size\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"s\"\n      }\n    ],\n    \"description\": [\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"mobile\",\n        \"data\": \"Akeneo T-Shirt 77777\"\n      },\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"print\",\n        \"data\": \"Akeneo T-Shirt with short sleeve\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"mobile\",\n        \"data\": \"T-Shirt Akeneo\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"print\",\n        \"data\": \"T-Shirt Akeneo manches courtes\"\n      }\n    ],\n    \"main_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"black\"\n      }\n    ],\n    \"name\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"Akeneo T-Shirt black and purple with short sleeve\"\n      }\n    ],\n    \"secondary_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"purple\"\n      }\n    ],\n    \"tshirt_materials\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"cotton\"\n      }\n    ],\n    \"tshirt_style\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          \"crewneck\",\n          \"short_sleeve\"\n        ]\n      }\n    ],\n    \"price\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          {\n            \"amount\": 10,\n            \"currency\": \"EUR\"\n          },\n          {\n            \"amount\": 14,\n            \"currency\": \"USD\"\n          }\n        ]\n      }\n    ]\n  },\n  \"created\": \"2017-03-30T14:55:26+02:00\",\n  \"updated\": \"2017-05-04T23:56:09+02:00\",\n  \"associations\": {\n    \"SUBSTITUTION\": {\n      \"groups\": [],\n      \"products\": []\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/products/AKNSTK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"products",
+								"AKNSTK"
+							]
 						},
 						"description": ""
 					},
@@ -1227,23 +1727,32 @@
 				{
 					"name": "products",
 					"request": {
-						"url": "{{url}}/api/rest/v1/products",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/vnd.akeneo.collection+json",
-								"description": ""
+								"value": "application/vnd.akeneo.collection+json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"identifier\": \"new_product\"}\n{\"identifier\": \"AKNSTK\", \"family\": \"tshirts\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"products"
+							]
 						},
 						"description": "\n"
 					},
@@ -1252,23 +1761,33 @@
 				{
 					"name": "product",
 					"request": {
-						"url": "{{url}}/api/rest/v1/products/AKNTS_BPXS",
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/products/AKNTS_BPXS",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"products",
+								"AKNTS_BPXS"
+							]
 						},
 						"description": "Assuming that the given identifier is the identifier of an existing product"
 					},
@@ -1277,18 +1796,30 @@
 				{
 					"name": "draft (2.x and EE only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/products/AKNTS_BPS/draft",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/products/AKNTS_BPS/draft",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"products",
+								"AKNTS_BPS",
+								"draft"
+							]
 						},
 						"description": "Assuming that there is already a draft for the given product. The draft was created by the same user that using this request.\nThe user has only an edition permission through categories on the given product."
 					},
@@ -1297,23 +1828,34 @@
 				{
 					"name": "proposal (2.x and EE only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/products/AKNTS_BPS/proposal",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/products/AKNTS_BPS/proposal",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"products",
+								"AKNTS_BPS",
+								"proposal"
+							]
 						},
 						"description": "Assuming that there is already a draft for the given product. The draft was created by the same user using this request.\nThe user has only an edition permission through categories on the given product."
 					},
@@ -1326,22 +1868,67 @@
 			"description": "",
 			"item": [
 				{
-					"name": "product model",
+					"name": "product model (2.x only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/product-models/amor",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
 						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/product-models/amor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"product-models",
+								"amor"
+							]
+						},
 						"description": "Assuming that the given code is the code of an existing product model"
+					},
+					"response": []
+				},
+				{
+					"name": "product models (2.x only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/product-models",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"product-models"
+							]
+						},
+						"description": "\n"
 					},
 					"response": []
 				}
@@ -1354,23 +1941,33 @@
 				{
 					"name": "published product (2.x and EE only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/published-products/13527420",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/published-products/13527420",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"published-products",
+								"13527420"
+							]
 						},
 						"description": "Assuming that the given identifier is the identifier of an existing product that is currently published"
 					},
@@ -1379,23 +1976,32 @@
 				{
 					"name": "published products (2.x and EE only)",
 					"request": {
-						"url": "{{url}}/api/rest/v1/published-products",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/published-products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"published-products"
+							]
 						},
 						"description": "\n"
 					},
@@ -1432,23 +2038,32 @@
 				}
 			],
 			"request": {
-				"url": "{{url}}/api/oauth/v1/token",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic {{base64ClientIdSecret}}",
-						"description": ""
+						"value": "Basic {{base64ClientIdSecret}}"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"username\" : \"{{username}}\",\n    \"password\" : \"{{password}}\",\n    \"grant_type\": \"password\"\n }"
+				},
+				"url": {
+					"raw": "{{url}}/api/oauth/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"oauth",
+						"v1",
+						"token"
+					]
 				},
 				"description": ""
 			},
@@ -1482,23 +2097,32 @@
 				}
 			],
 			"request": {
-				"url": "{{url}}/api/oauth/v1/token",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic {{base64ClientIdSecret}}",
-						"description": ""
+						"value": "Basic {{base64ClientIdSecret}}"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/oauth/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"oauth",
+						"v1",
+						"token"
+					]
 				},
 				"description": ""
 			},
