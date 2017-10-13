@@ -1604,6 +1604,33 @@ paths:
           $ref: "#/responses/403Error"
         406:
           $ref: "#/responses/406Error"
+    post:
+      summary: Create a new family variant
+      operationId: "post_families__family_code__variants"
+      tags:
+        - Families
+      x-versions:
+        - 2.0
+      description: This endpoint allows you to create a family variant.
+      parameters:
+        - $ref: '#/parameters/family_code'
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/FamilyVariant"
+      responses:
+        201:
+          $ref: "#/responses/Created"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        415:
+          $ref: "#/responses/415Error"
+        422:
+          $ref: "#/responses/422Error"
   /api/rest/v1/families/{family_code}/variants/{code}:
     get:
       summary: Get a family variant
