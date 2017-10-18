@@ -756,6 +756,30 @@ paths:
           $ref: "#/responses/406Error"
         422:
           $ref: "#/responses/422Error"
+    post:
+      summary: Create a new product model
+      operationId: "post_product_models"
+      tags:
+        - Product models
+      x-versions:
+        - 2.0
+      description: This endpoint allows you to create a new product model.
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/ProductModel"
+      responses:
+        201:
+          $ref: "#/responses/Created"
+        400:
+          $ref: "#/responses/400Error"
+        401:
+          $ref: "#/responses/401Error"
+        415:
+          $ref: "#/responses/415Error"
+        422:
+          $ref: "#/responses/422Error"
 
   /api/rest/v1/product-models/{code}:
     get:
@@ -3533,7 +3557,7 @@ definitions:
       parent:
         type: string
         description: Code of the parent product model
-        x-validation-rules: It is equal to an existing product model code
+        x-validation-rules: "&bull; It is equal to an existing product model code&#10;&bull; This product model has the same family variant as the one given in the `family_variant field`"
         default: "null"
       categories:
         type: array
