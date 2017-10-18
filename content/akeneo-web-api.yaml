@@ -804,6 +804,32 @@ paths:
           $ref: "#/responses/404Error"
         406:
           $ref: "#/responses/406Error"
+    patch:
+      summary: Update/create a product model
+      operationId: "patch_product_models__code_"
+      tags:
+        - Product models
+      x-versions:
+        - 2.0
+      description: This endpoint allows you to update a given product model. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product model exists for the given code, it creates it.
+      parameters:
+        - $ref: '#/parameters/code'
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/ProductModel"
+      responses:
+        201:
+          $ref: "#/responses/Created"
+        204:
+          $ref: "#/responses/NoContent"
+        401:
+          $ref: "#/responses/401Error"
+        415:
+          $ref: "#/responses/415Error"
+        422:
+          $ref: "#/responses/422Error"
 
   /api/rest/v1/published-products:
       get:
@@ -3550,15 +3576,18 @@ definitions:
       code:
         type: string
         description: Product model code
+        x-immutable: true
       family_variant:
         type: string
         description: Family variant code from which the product model inherits its attributes and variant attributes
         x-validation-rules: It is equal to an existing family variant code
+        x-immutable: true
       parent:
         type: string
         description: Code of the parent product model
         x-validation-rules: "&bull; It is equal to an existing product model code&#10;&bull; This product model has the same family variant as the one given in the `family_variant field`"
         default: "null"
+        x-immutable: true
       categories:
         type: array
         description: Codes of the categories in which the product model is categorized
