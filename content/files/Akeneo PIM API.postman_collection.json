@@ -1302,6 +1302,42 @@
 						"description": ""
 					},
 					"response": []
+				},
+				{
+					"name": "family variant (2.x only)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"new_family_variant\",\n    \"labels\": {\n        \"de_DE\": \"new family variant label DE\",\n        \"en_US\": \"new family variant label US\",\n        \"fr_FR\": \"new family variant label FR\"\n    },\n    \"variant_attribute_sets\": [\n        {\n            \"level\": 1,\n            \"axes\": [\n            \t\"color\"\n            ],\n            \"attributes\": [\"composition\", \"material\", \"variant_name\", \"variant_image\"]\n        },\n        {\n            \"level\": 2,\n            \"axes\": [\n            \t\"size\"\n            ],\n            \"attributes\": [\"ean\", \"sku\", \"weight\"]\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/families/clothing/variants",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"families",
+								"clothing",
+								"variants"
+							]
+						},
+						"description": ""
+					},
+					"response": []
 				}
 			]
 		},
@@ -1929,6 +1965,75 @@
 							]
 						},
 						"description": "\n"
+					},
+					"response": []
+				},
+				{
+					"name": "product model (2.x only)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"new_product_model\",\n    \"family_variant\": \"clothing_colorsize\",\n    \"parent\": null,\n    \"categories\": [\n        \"master_men_blazers\",\n        \"supplier_zaro\"\n    ],\n    \"values\": {\n        \"name\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"A new product model\"\n            }\n        ],\n        \"price\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": [\n                    {\n                        \"amount\": \"999.00\",\n                        \"currency\": \"EUR\"\n                    },\n                    {\n                        \"amount\": null,\n                        \"currency\": \"USD\"\n                    }\n                ]\n            }\n        ],\n        \"erp_name\": [\n            {\n                \"locale\": \"en_US\",\n                \"scope\": null,\n                \"data\": \"Amor\"\n            }\n        ],\n        \"supplier\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"zaro\"\n            }\n        ],\n        \"collection\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": [\n                    \"summer_2016\"\n                ]\n            }\n        ],\n        \"description\": [\n            {\n                \"locale\": \"en_US\",\n                \"scope\": \"ecommerce\",\n                \"data\": \"Heritage jacket navy blue tweed suit with single breasted 2 button. 53% wool, 22% polyester, 18% acrylic, 5% nylon, 1% cotton, 1% viscose. Dry Cleaning uniquement.Le mannequin measuring 1m85 and wears UK size 40, size 50 FR\"\n            }\n        ],\n        \"wash_temperature\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"800\"\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/product-models",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"product-models"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "product model (2.x only)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"amor\",\n    \"family_variant\": \"clothing_colorsize\",\n    \"parent\": null,\n    \"categories\": [\n        \"master_men_blazers\",\n        \"supplier_zaro\"\n    ],\n    \"values\": {\n        \"name\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"Heritage jacket navy\"\n            }\n        ],\n        \"price\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": [\n                    {\n                        \"amount\": \"999.00\",\n                        \"currency\": \"EUR\"\n                    },\n                    {\n                        \"amount\": null,\n                        \"currency\": \"USD\"\n                    }\n                ]\n            }\n        ],\n        \"erp_name\": [\n            {\n                \"locale\": \"en_US\",\n                \"scope\": null,\n                \"data\": \"Amor\"\n            }\n        ],\n        \"supplier\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"zaro\"\n            }\n        ],\n        \"collection\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": [\n                    \"summer_2016\"\n                ]\n            }\n        ],\n        \"description\": [\n            {\n                \"locale\": \"en_US\",\n                \"scope\": \"ecommerce\",\n                \"data\": \"Heritage jacket navy blue tweed suit with single breasted 2 button. 53% wool, 22% polyester, 18% acrylic, 5% nylon, 1% cotton, 1% viscose. Dry Cleaning uniquement.Le mannequin measuring 1m85 and wears UK size 40, size 50 FR\"\n            }\n        ],\n        \"wash_temperature\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"800\"\n            }\n        ]\n    },\n    \"created\": \"2017-10-19T10:22:30+02:00\",\n    \"updated\": \"2017-10-19T10:22:30+02:00\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/product-models/amor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"product-models",
+								"amor"
+							]
+						},
+						"description": ""
 					},
 					"response": []
 				}
