@@ -780,6 +780,49 @@ paths:
           $ref: "#/responses/415Error"
         422:
           $ref: "#/responses/422Error"
+    patch:
+      summary: Update/create several product models
+      operationId: "patch_product_models"
+      tags:
+        - Product models
+      x-versions:
+        - 2.0
+      description: This endpoint allows you to update and/or create several product models at once. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product models exists for the given code, it creates it.
+      x-body-by-line: Contains several lines, each line is a product model in JSON standard format
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/ProductModel"
+            x-examples:
+              x-example-1:
+                '{"code": "sub_sweat_option_a", "parent": "sweat", "values": {"a_simple_select": [{"locale": null, "scope": null, "data": "optionA"}]}}'
+              x-example-2:
+                '{"code": "sub_sweat_option_b", "parent": "sweat", "values": {"a_simple_select": [{"locale": null, "scope": null, "data": "optionA"}]}}'
+              x-example-3:
+                '{"code":"tshirt", "parent": "root_tshirt", "family_variant":"clothesvariant","values":{"description":[{"scope":"ecommerce","locale":"en_US","data":"My amazing tshirt"}]}}'
+      responses:
+        200:
+          description: OK
+          x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+          x-no-entity: true
+          schema:
+            $ref: "#/definitions/ErrorByLine"
+          examples:
+            x-example-1:
+              '{"line":1,"code":"sub_sweat_option_a","status_code":204}'
+            x-example-2:
+              '{"line":2,"code":"sub_sweat_option_b","status_code":422,"message":"Validation failed.","errors":[{"property":"attribute","message":"Cannot set value \"Option A\" for the attribute axis \"a_simple_select\", as another sibling entity already has this value"}]}'
+            x-example-3:
+              '{"line":3,"code":"tshirt","status_code":201}'
+        401:
+          $ref: "#/responses/401Error"
+        403:
+          $ref: "#/responses/403Error"
+        413:
+          $ref: "#/responses/413Error"
+        415:
+          $ref: "#/responses/415ErrorStream"
 
   /api/rest/v1/product-models/{code}:
     get:
