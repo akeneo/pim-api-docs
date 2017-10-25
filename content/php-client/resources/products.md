@@ -253,7 +253,7 @@ $responseLines = $client->getProductApi()->upsertList([
                         ],
                         [
                             'amount' => '15',
-                            'currency => 'USD',
+                            'currency' => 'USD',
                         ],
                     ],
                     'locale' => null,
