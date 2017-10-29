@@ -208,7 +208,8 @@ gulp.task('documentation', ['clean-dist','less'], function () {
         'responses.md': 'Response codes',
         'pagination.md': 'Pagination',
         'update.md': 'Update behavior',
-        'filter.md': 'Filters'
+        'filter.md': 'Filters',
+        'troubleshooting.md': 'Troubleshooting guide'
     };
 
     return gulp.src('content/rest-api/*.md')
