@@ -1,0 +1,23 @@
+get:
+  summary: Download a media file
+  operationId: "get_media_files__code__download"
+  description: This endpoint allows you to download a given media file.
+  x-content-type: Mime-type of the media file
+  tags:
+    - Media files
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the binary of the media file
+      x-content-type: Mime-type of the media file
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"

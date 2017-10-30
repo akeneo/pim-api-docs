@@ -1,0 +1,59 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Family variant code
+    x-immutable: true
+  variant_attribute_sets:
+    type: array
+    description: Attributes distribution according to the enrichment level
+    items:
+      type: object
+      required: ["level", "axes"]
+      description: Enrichment level
+      properties:
+        level:
+          type: integer
+          description: Enrichment level
+          x-immutable: true
+        attributes:
+          type: array
+          description: Each string of the array is an attribute code bind to this enrichment level
+          items:
+            type: string
+          default: []
+        axes:
+          type: array
+          description: Each string of the array is an attribute code that will be used as variant axis
+          items:
+            type: string
+          default: []
+  labels:
+    type: object
+    description: Family variant labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Family variant label for the locale `localeCode`
+example: {
+  "code": "shoesVariant",
+  "labels":{
+    "en_US": "Shoes variant",
+    "fr_FR": "Variante de chaussures"
+  },
+  "variant_attribute_sets": [
+    {
+      "level": 1,
+      "attributes": ["color", "material"],
+      "axes": ["color"]
+    },
+    {
+        "level": 2,
+        "attributes": ["sku", "size"],
+        "axes": ["size"]
+    }
+  ]
+}

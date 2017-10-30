@@ -1,0 +1,260 @@
+get:
+  summary: Get list of published products
+  operationId: "get_published_products"
+  description: This endpoint allows you to get a list of published products. Published products are paginated and they can be filtered.
+  tags:
+    - Published products
+  x-versions:
+    - 2.0
+  x-ee: true
+  parameters:
+    - name: search
+      in: query
+      description: Filter published products, for more details see the <a href="/documentation/filter.html">Filters</a> section
+      required: false
+      type: string
+    - name: scope
+      in: query
+      type: string
+      description: Filter published product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on published product values</a> section
+      required: false
+    - name: locales
+      in: query
+      type: string
+      description: Filter published product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on published product values</a> section
+      required: false
+    - name: attributes
+      in: query
+      type: string
+      description: Filter published product values to only return those concerning the given attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
+      required: false
+    - $ref: '#/parameters/pagination_type'
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/search_after'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Return published products paginated
+      schema:
+        title: Products
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/PublishedProductList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/published-products?page=3&limit=3"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/published-products?page=1&limit=3"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/published-products?page=2&limit=3"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/published-products?page=4&limit=3"
+          }
+        },
+        current_page: 3,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/published-products/top"
+                }
+              },
+              "identifier": "top",
+              "family": "tshirt",
+              "groups": [],
+              "categories": ["summer_collection"],
+              "enabled": true,
+              "values": {
+                "name": [
+                  {
+                    "data": "Top",
+                    "locale": "en_US",
+                    "scope": null,
+                  },
+                  {
+                    "data": "Débardeur",
+                    "locale": "fr_FR",
+                    "scope": null,
+                  }
+                ],
+                "description": [
+                  {
+                    "data": "Summer top",
+                    "locale": "en_US",
+                    "scope": "ecommerce"
+                  },
+                  {
+                    "data": "Top",
+                    "locale": "en_US",
+                    "scope": "tablet"
+                  },
+                  {
+                    "data": "Débardeur pour l'été",
+                    "locale": "fr_FR",
+                    "scope": "ecommerce"
+                  },
+                  {
+                    "data": "Débardeur",
+                    "locale": "fr_FR",
+                    "scope": "tablet"
+                  }
+                ],
+                "price": [
+                  {
+                    "locale": null,
+                    "scope": null,
+                    "data": [
+                      {
+                        "amount": "15.5", "currency": "EUR"
+                      },
+                      {
+                        "amount": "15", "currency": "USD"
+                      }
+                    ]
+                  }
+                ],
+                "color": [
+                  {
+                    "locale": null,
+                    "scope": null,
+                     "data": "black"
+                  }
+                ],
+                "size": [
+                  {
+                    "locale": null,
+                    "scope": null,
+                    "data": "m"
+                  }
+                ]
+              },
+              "created": "2016-06-23T18:24:44+02:00",
+              "updated": "2016-06-25T17:56:12+02:00",
+              "associations": {
+                "PACK": {
+                  "products": ["sunglasses"],
+                  "groups": []
+                },
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/published-products/cap"
+                }
+              },
+              "identifier": "cap",
+              "family": "caps",
+              "groups": [],
+              "categories": ["summer_collection"],
+              "enabled": true,
+              "values": {
+                "name": [
+                  {
+                    "data": "Cap",
+                    "locale": "en_US",
+                    "scope": null,
+                  },
+                  {
+                    "data": "Casquette",
+                    "locale": "fr_FR",
+                    "scope": null,
+                  }
+                ],
+                "description": [
+                  {
+                    "data": "Cap unisex",
+                    "locale": "en_US",
+                    "scope": "ecommerce"
+                  },
+                  {
+                    "data": "Cap unisex",
+                    "locale": "en_US",
+                    "scope": "tablet"
+                  },
+                  {
+                    "data": "Casquette unisexe",
+                    "locale": "fr_FR",
+                    "scope": "ecommerce"
+                  },
+                  {
+                    "data": "Casquette unisexe",
+                    "locale": "fr_FR",
+                    "scope": "tablet"
+                  }
+                ],
+                "price": [
+                  {
+                    "locale": null,
+                    "scope": null,
+                    "data": [
+                      {
+                        "amount": "20", "currency": "EUR"
+                      },
+                      {
+                        "amount": "20", "currency": "USD"
+                      }
+                    ]
+                  }
+                ],
+                "color": [
+                  {
+                    "locale": null,
+                    "scope": null,
+                     "data": "black"
+                  }
+                ]
+              },
+              "created": "2016-06-23T18:24:44+02:00",
+              "updated": "2016-06-25T17:56:12+02:00",
+              "associations": {
+                "PACK": {
+                  "products": ['sunglasses'],
+                  "groups": []
+                }
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/published-products/sweat"
+                }
+              },
+              "identifier": "sweat",
+              "family": null,
+              "groups": [],
+              "categories": ["winter_collection"],
+              "enabled": true,
+              "values": {
+              },
+              "created": "2016-06-23T11:24:44+02:00",
+              "updated": "2016-06-23T11:24:44+02:00",
+              "associations": {}
+            }
+          ]
+        }
+      }
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+    422:
+      $ref: "#/responses/422Error"

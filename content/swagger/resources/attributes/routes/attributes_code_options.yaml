@@ -1,0 +1,127 @@
+get:
+  summary: Get list of attribute options
+  operationId: "get_attributes__attribute_code__options"
+  description: This endpoint allows you to get a list of attribute options. Attribute options are paginated and sorted by code.
+  tags:
+    - Attribute options
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/attribute_code'
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Return attribute options paginated
+      schema:
+        title: Attribute Options
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/AttributeOptionList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=3&limit=3"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=1&limit=3"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=2&limit=3"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/attributes/color/options?page=4&limit=3"
+          }
+        },
+        current_page: 3,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/attributes/color/options/red"
+                }
+              },
+              "code": "red",
+              "attribute": "a_simple_select",
+              "sort_order": 1,
+              "labels": {
+                "en_US": "Red",
+                "fr_FR": "Rouge"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/attributes/color/options/black"
+                }
+              },
+              "code": "black",
+              "attribute": "a_simple_select",
+              "sort_order": 2,
+              "labels": {
+                "en_US": "Black",
+                "fr_FR": "Noir"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/attributes/color/options/purple"
+                }
+              },
+              "code": "purple",
+              "attribute": "a_simple_select",
+              "sort_order": 3,
+              "labels": {
+                "en_US": "Purple",
+                "fr_FR": "Violet"
+              }
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+post:
+  summary: Create a new attribute option
+  operationId: "post_attributes__attribute_code__options"
+  description: This endpoint allows you to create a new attribute option.
+  tags:
+    - Attribute options
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/attribute_code'
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/AttributeOption"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"

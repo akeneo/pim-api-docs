@@ -1,0 +1,44 @@
+type: object
+properties:
+  code:
+    type: string
+    description: Media file code
+    x-immutable: true
+  original_filename:
+    type: string
+    description: Original filename of the media file
+  mime_type:
+    type: string
+    description: Mime type of the media file
+    x-read-only: true
+  size:
+    type: integer
+    description: Size of the media file
+    x-read-only: true
+  extension:
+    type: string
+    description: Extension of the media file
+    x-read-only: true
+  _links:
+    type: object
+    description: Link to download the media file binaries
+    x-read-only: true
+    properties:
+      download:
+        type: object
+        properties:
+          href:
+            type: string
+            description: Link to download the media file binaries
+example: {
+  "code": "7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg",
+  "original_filename": "10806799-1356.jpg",
+  "mime_type": "image/jpeg",
+  "size": 16070,
+  "extension": "jpg",
+  "_links": {
+    "download": {
+      "href": "https://demo.akeneo.com/api/rest/v1/media-files/7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg/download"
+    }
+  }
+}

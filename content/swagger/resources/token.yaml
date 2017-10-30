@@ -1,0 +1,71 @@
+post:
+  summary: Get authentication token
+  operationId: "post_token"
+  description: This endpoint allows you to get an authentication token. No need to be authenticated to use this endpoint.
+  tags:
+    - Authentication
+  x-versions:
+    - 1.7
+    - 2.0
+  x-no-token: true
+  parameters:
+    - name: Authorization
+      in: header
+      type: string
+      required: true
+      description: Equal to 'Basic xx', where 'xx' is the base 64 encoding of the client id and secret. Find out how to generate them in the <a href="/documentation/security.html#create-an-oauth-client">Create an OAuth client</a> section.
+    - name: body
+      in: body
+      schema:
+        type: object
+        properties:
+          username:
+            type: string
+            description: Your PIM username
+          password:
+            type: string
+            description: Your PIM password
+          grant_type:
+            type: string
+            description: Always equal to "password"
+        example:
+          {
+            "username" : "admin",
+            "password": "admin",
+            "grant_type": "password"
+          }
+  responses:
+    200:
+      description: Return an authentication token
+      x-no-entity: true
+      schema:
+        type: object
+        properties:
+          access_token:
+            type: string
+            description: Authentication token that should be given in every authenticated request to the API
+          expires_in:
+            type: integer
+            description: Validity of the token given in seconds, 3600s = 1h by default
+          token_type:
+            type: string
+            description: Token type, always equal to "bearer"
+          scope:
+            type: string
+            description: Unused, always equal to "null"
+          refresh_token:
+            type: string
+            description: Use this token when your access token has expired. See <a href="/documentation/security.html#refresh-an-expired-token">Refresh an expired token</a> section for more details.
+      examples: {
+        "access_token": "ZTZmYjU4ZmQxZWNmMzk1M2NlYzA5NmFhNmIzVjExMzE4NmJmODBkZGIyYTliYmQyNjk2ZDQwZThmNjdiZDQzOQ",
+        "expires_in": 3600,
+        "token_type": "bearer",
+        "scope": null,
+        "refresh_token": "M2FlODI0OTE3ODMyNjViMzRiOWE5ODMyNWViMThkNDU5YzJjNjFiZjNkZWFjMzIyYjc4YTgzZWY1MjE5ZTY5Mw"
+      }
+    400:
+      $ref: "#/responses/400Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"

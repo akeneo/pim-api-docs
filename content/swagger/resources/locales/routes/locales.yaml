@@ -1,0 +1,92 @@
+get:
+  summary: Get a list of locales
+  operationId: "get_locales"
+  description: This endpoint allows you to get a list of locales. Locales are paginated and sorted by code.
+  tags:
+    - Locales
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Return locales paginated
+      schema:
+        title: Locales
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/LocaleList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/locales?page=2&limit=4"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/locales?page=1&limit=4"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/locales?page=1&limit=4"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/locales?page=2&limit=4"
+          }
+        },
+        current_page: 2,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/locales/en_US"
+                }
+              },
+              "code": "en_US",
+              "enabled": true
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/locales/fr_FR"
+                }
+              },
+              "code": "fr_FR",
+              "enabled": true
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/locales/de_DE"
+                }
+              },
+              "code": "de_DE",
+              "enabled": true
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/locales/af_ZA"
+                }
+              },
+              "code": "af_ZA",
+              "enabled": false
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"

@@ -1,0 +1,210 @@
+Product:
+  $ref: ./resources/products/definitions/product.yaml
+ProductList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/Product'
+
+ProductModel:
+  $ref: ./resources/product_models/definitions/product_model.yaml
+ProductModelList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/ProductModel'
+
+PublishedProduct:
+  $ref: ./resources/published_products/definitions/published_product.yaml
+PublishedProductList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/PublishedProduct'
+
+Category:
+  $ref: ./resources/categories/definitions/category.yaml
+CategoryList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/Category'
+
+MeasureFamily:
+  $ref: ./resources/measure_families/definitions/measure_family.yaml
+MeasureFamilyList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/MeasureFamily'
+
+Family:
+  $ref: ./resources/families/definitions/family.yaml
+FamilyList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/Family'
+
+FamilyVariant:
+  $ref: ./resources/families/definitions/family_variant.yaml
+FamilyVariantList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/FamilyVariant'
+
+Attribute:
+  $ref: ./resources/attributes/definitions/attribute.yaml
+AttributeList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/Attribute'
+
+AttributeOption:
+  $ref: ./resources/attributes/definitions/attribute_option.yaml
+AttributeOptionList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/AttributeOption'
+
+AttributeGroup:
+  $ref: ./resources/attribute_groups/definitions/attribute_group.yaml
+AttributeGroupList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/AttributeGroup'
+
+MediaFile:
+  $ref: ./resources/media_files/definitions/media_file.yaml
+MediaFileList:
+  type: object
+  allOf:
+    - $ref: '#/definitions/MediaFileItemList'
+    - $ref: '#/definitions/MediaFile'
+
+Locale:
+  $ref: ./resources/locales/definitions/locale.yaml
+LocaleList:
+  type: object
+  allOf:
+    - $ref: '#/definitions/ItemList'
+    - $ref: '#/definitions/Locale'
+
+Channel:
+  $ref: ./resources/channels/definitions/channel.yaml
+ChannelList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/Channel'
+
+AssociationType:
+  $ref: ./resources/association_types/definitions/association_type.yaml
+AssociationTypeList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/AssociationType'
+
+Currency:
+  $ref: ./resources/currencies/definitions/currency.yaml
+CurrencyList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/Currency'
+
+Error:
+  type: object
+  properties:
+    code:
+      type: integer
+      description: HTTP status code
+    message:
+      type: string
+      description: Message explaining the error
+ErrorByLine:
+  type: object
+  properties:
+    line:
+      type: integer
+      description: Line number
+    identifier:
+      type: string
+      description: Resource identifier, only filled when the resource is a product
+    code:
+      type: string
+      description: Resource code, only filled when the resource is a category, a family or an attribute
+    status_code:
+      type: integer
+      description: HTTP status code, see <a href="/documentation/responses.html#client-errors">Client errors</a> to understand the meaning of each code
+    message:
+      type: string
+      description: Message explaining the error
+Pagination:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the current page of resources
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the first page of resources
+        previous:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the previous page of resources
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the next page of resources
+    current_page:
+      type: integer
+      description: Current page number
+ItemList:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the resource
+MediaFileItemList:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI to get the metadata of the media file
+        download:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI to download the binaries of the media file

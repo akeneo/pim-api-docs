@@ -1,0 +1,177 @@
+get:
+  summary: Get a list of channels
+  operationId: "get_channels"
+  description: This endpoint allows you to get a list of channels. Channels are paginated and sorted by code.
+  tags:
+    - Channels
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Return channels paginated
+      schema:
+        title: Channels
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/ChannelList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/channels?page=1&limit=3"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/channels?page=1&limit=3"
+          }
+        },
+        current_page: 1,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/channels/ecommerce"
+                }
+              },
+              "code": "ecommerce",
+              "currencies":["USD", "EUR"],
+              "locales":["en_US", "fr_FR", "de_DE"],
+              "category_tree":"master",
+              "conversion_units":{
+                "a_metric":"KILOWATT",
+                "a_metric_negative":"CELSIUS",
+                "a_metric_to_not_convert":null
+              },
+              "labels":{
+                "en_US":"Ecommerce",
+                "fr_FR":"E-commerce",
+                "de_DE":"E-commerce"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/channels/mobile"
+                }
+              },
+              "code": "mobile",
+              "currencies":["USD", "EUR"],
+              "locales":["en_US", "fr_FR", "de_DE"],
+              "category_tree":"master",
+              "conversion_units":{
+                "a_metric":"KILOWATT",
+                "a_metric_negative":"CELSIUS",
+                "a_metric_to_not_convert":null
+              },
+              "labels":{
+                "en_US":"Mobile",
+                "fr_FR":"Mobile",
+                "de_DE":"Mobile"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/channels/print"
+                }
+              },
+              "code": "print",
+              "currencies":["USD", "EUR"],
+              "locales":["en_US", "fr_FR", "de_DE"],
+              "category_tree":"master",
+              "conversion_units":{},
+              "labels":{
+                "en_US":"Print",
+                "fr_FR":"Print",
+                "de_DE":"Print"
+              }
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+post:
+  summary: Create a new channel
+  operationId: "channels_post"
+  description: This endpoint allows you to create a new channel.
+  tags:
+    - Channels
+  x-versions:
+    - 2.0
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Channel"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
+patch:
+  summary: Update/create several channels
+  operationId: "several_channels_patch"
+  tags:
+    - Channels
+  x-versions:
+    - 2.0
+  description: This endpoint allows you to update and/or create several channels at once.
+  x-body-by-line: Contains several lines, each line is a channel in JSON standard format
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Channel"
+        x-examples:
+          x-example-1:
+            '{"code":"ecommerce_fr", "category_tree": "master", "currencies": ["EUR"], "locales": ["fr_FR"], "labels":{"fr_FR": "Ecommerce Fr"}}'
+          x-example-2:
+            '{"code":"ecommerce_ch", "type":"bar"}'
+          x-example-3:
+            '{"code":"tablet", "labels":{"en_US": "Tablet", "fr_FR": "Tablette"}}'
+  responses:
+    200:
+      description: OK
+      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      schema:
+        $ref: "#/definitions/ErrorByLine"
+      examples:
+        x-example-1:
+          '{"line":1,"code":"ecommerce_fr","status_code":201}'
+        x-example-2:
+          '{"line":2,"code":"ecommerce_ch","status_code":422,"message":"Property \"type\" does not exist. Check the standard format documentation.","_links":{"documentation":{"href":"http:\/\/api.akeneo.com\/api-reference.html#patch_channels__code_"}'
+        x-example-3:
+          '{"line":3,"code":"tablet","status_code":204}'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"

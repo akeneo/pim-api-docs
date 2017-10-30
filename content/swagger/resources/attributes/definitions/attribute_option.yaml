@@ -1,0 +1,29 @@
+type: object
+properties:
+  code:
+    type: string
+    description: Code of option
+  attribute:
+    type: string
+    description: Code of attribute related to the attribute option
+  sort_order:
+    type: integer
+    description: Order of attribute option
+  labels:
+    type: object
+    description: Attribute option labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Attribute option label for the locale `localeCode`
+example: {
+  "code": "black",
+  "attribute": "a_simple_select",
+  "sort_order": 2,
+  "labels": {
+    "en_US": "Black",
+    "fr_FR": "Noir"
+  }
+}

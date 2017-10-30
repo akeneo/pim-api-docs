@@ -1,0 +1,58 @@
+get:
+  summary: Get an attribute option
+  operationId: "get_attributes__attribute_code__options__code_"
+  description: This endpoint allows you to get the information about a given attribute option.
+  tags:
+    - Attribute options
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/attribute_code'
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the attribute option in JSON standard format
+      schema:
+        $ref: '#/definitions/AttributeOption'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    406:
+      $ref: "#/responses/406Error"
+patch:
+  summary: Update/create an attribute option
+  operationId: "patch_attributes__attribute_code__options__code_"
+  tags:
+    - Attribute options
+  x-versions:
+    - 1.7
+    - 2.0
+  description: This endpoint allows you to update a given attribute option. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute option exists for the given code, it creates it.
+  parameters:
+    - $ref: '#/parameters/attribute_code'
+    - $ref: '#/parameters/code'
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: "#/definitions/AttributeOption"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    204:
+      $ref: "#/responses/NoContent"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"

@@ -1,0 +1,197 @@
+get:
+  summary: Get list of categories
+  operationId: "get_categories"
+  description: This endpoint allows you to get a list of categories. Categories are paginated and sorted by `root/left`.
+  tags:
+    - Categories
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Return categories paginated
+      schema:
+        title: Categories
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/CategoryList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/categories?page=2&limit=5"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=5"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/categories?page=1&limit=5"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/categories?page=3&limit=5"
+          }
+        },
+        current_page: 2,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/categories/winter_collection"
+                }
+              },
+              "code": "winter_collection",
+              "parent": null,
+              "labels": {
+                "en_US": "Winter collection",
+                "fr_FR": "Collection hiver",
+                "de_DE": "Winter-Kollektion"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/categories/woman"
+                }
+              },
+              "code": "woman",
+              "parent": "winter_collection",
+              "labels": {
+                "en_US": "Woman",
+                "fr_FR": "Femme",
+                "de_DE": "Damen"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/categories/man"
+                }
+              },
+              "code": "man",
+              "parent": "winter_collection",
+              "labels": {
+                "en_US": "Man",
+                "fr_FR": "Homme",
+                "de_DE": "Herren"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/categories/kids"
+                }
+              },
+              "code": "kids",
+              "parent": "winter_collection",
+              "labels": {
+                "en_US": "Kids",
+                "fr_FR": "Enfant",
+                "de_DE": "Kinder"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/categories/summer_collection"
+                }
+              },
+              "code": "summer_collection",
+              "parent": null,
+              "labels": {
+                "en_US": "Summer collection",
+                "fr_FR": "Collection été",
+                "de_DE": "Sommer-Kollektion"
+              }
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+post:
+  summary: Create a new category
+  operationId: "post_categories"
+  description: This endpoint allows you to create a new category.
+  tags:
+    - Categories
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Category"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
+patch:
+  summary: Update/create several categories
+  operationId: "patch_categories"
+  tags:
+    - Categories
+  x-versions:
+    - 1.7
+    - 2.0
+  description: This endpoint allows you to update several categories at once.
+  x-body-by-line: Contains several lines, each line is a category in JSON standard format
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Category"
+        x-examples:
+          x-example-1:
+            '{"code":"spring_collection","parent":null}'
+          x-example-2:
+            '{"code":"woman","parent":"spring_collectionn"}'
+          x-example-3:
+            '{"code":"man","parent":"spring_collection"}'
+  responses:
+    200:
+      description: OK
+      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      x-no-entity: true
+      schema:
+        $ref: "#/definitions/ErrorByLine"
+      examples:
+        x-example-1:
+          '{"line":1,"code":"spring_collection","status_code":201}'
+        x-example-2:
+          '{"line":2,"code":"woman","status_code":422,"message":"Category "spring_collectionn" does not exist."}'
+        x-example-3:
+          '{"line":3,"code":"man","status_code":204}'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"

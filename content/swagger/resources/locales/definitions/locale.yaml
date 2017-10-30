@@ -1,0 +1,15 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Locale code
+    x-immutable: true
+  enabled:
+    type: boolean
+    description: Whether the locale is enabled
+    default: false
+example: {
+  "code": "en_US",
+  "enable": true
+}

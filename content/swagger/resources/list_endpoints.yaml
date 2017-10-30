@@ -1,0 +1,57 @@
+get:
+  summary: Get list of all endpoints
+  operationId: "get_endpoints"
+  description: This endpoint allows you to get the list of all the available endpoints. No need to be authenticated to use this endpoint.
+  tags:
+    - Overview
+  x-versions:
+    - 1.7
+    - 2.0
+  x-no-token: true
+  responses:
+    200:
+      description: Return the list of all available endpoints
+      x-no-entity: true
+      schema:
+        type: object
+        properties:
+          host:
+            type: string
+            description: Host name
+          authentication:
+            type: object
+            description: Endpoint to get the authentication token
+          routes:
+            type: object
+            description: All the availables endpoints
+      examples: {
+        "host": "https://demo.akeneo.com",
+        "authentication": {
+          "fos_oauth_server_token": {
+            "route": "/api/oauth/v1/token",
+            "methods": [
+              "POST"
+            ]
+          }
+        },
+        "routes": {
+          "pim_api_category_list": {
+              "route": "/api/rest/v1/categories",
+              "methods": ["GET"]
+          },
+          "pim_api_category_get": {
+              "route": "/api/rest/v1/categories/{code}",
+              "methods": ["GET"]
+          },
+          "pim_api_category_create": {
+              "route": "/api/rest/v1/categories",
+              "methods": ["POST"]
+          },
+          "pim_api_category_partial_update": {
+              "route": "/api/rest/v1/categories/{code}",
+              "methods": ["PATCH"]
+          }
+        }
+      }
+    406:
+      $ref: "#/responses/406Error"

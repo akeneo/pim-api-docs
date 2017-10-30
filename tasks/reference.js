@@ -23,7 +23,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
     // When we construct the 1.7 files, we filter to not include the 2.0 only endpoints.
     _.forEach(versions, function(version) {
         var htmlReferenceIndexfileName = (version === '1.7') ? 'api-reference-index-17' : 'api-reference-index';
-        gulp.src('./content/akeneo-web-api.yaml')
+        gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
             .pipe(jsonTransform(function(data, file) {
                 var templateData = data;
@@ -53,7 +53,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
             }));
 
         var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' : 'api-reference';
-        gulp.src('./content/akeneo-web-api.yaml')
+        gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
             .pipe(jsonTransform(function(data, file) {
                 var templateData = data;

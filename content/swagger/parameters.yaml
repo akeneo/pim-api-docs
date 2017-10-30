@@ -1,0 +1,57 @@
+pagination_type:
+  name: pagination_type
+  in: query
+  description: Pagination method type, see <a href="/documentation/pagination.html">Pagination</a> section
+  required: false
+  type: string
+  default: "page"
+  x-validation-rules: One of the following values
+  enum: ["page", "search_after"]
+page:
+  name: page
+  in: query
+  description: Number of the page to retrieve when using the `page` pagination method type. <strong>Should never be set manually</strong>, see <a href="/documentation/pagination.html#pagination">Pagination</a> section
+  required: false
+  type: integer
+  default: 1
+search_after:
+  name: search_after
+  in: query
+  description: Cursor when using the `search_after` pagination method type. <strong>Should never be set manually</strong>, see <a href="/documentation/pagination.html">Pagination</a> section
+  required: false
+  type: string
+  default: "cursor to the first page"
+limit:
+  name: limit
+  in: query
+  description: Number of results by page, see <a href="/documentation/pagination.html">Pagination</a> section
+  required: false
+  type: integer
+  minimum: 1
+  maximum: 100
+  default: 10
+code:
+  name: code
+  in: path
+  description: Code of the resource
+  required: true
+  type: string
+attribute_code:
+  name: attribute_code
+  in: path
+  description: Code of the attribute
+  required: true
+  type: string
+family_code:
+  name: family_code
+  in: path
+  description: Code of the family
+  required: true
+  type: string
+with_count:
+  name: with_count
+  in: query
+  description: Return the count of products in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way
+  default: false
+  type: boolean
+  required: false

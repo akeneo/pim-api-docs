@@ -1,0 +1,152 @@
+type: object
+required: ["code", "type", "group"]
+properties:
+  code:
+    type: string
+    description: Attribute code
+    x-immutable: true
+  type:
+    type: string
+    description: Attribute type
+    x-validation-rules: The type is one of the following values
+    enum: ['pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price', 'pim_catalog_boolean']
+    x-immutable: true
+  labels:
+    type: object
+    description: Attribute labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Attribute label for the locale `localeCode`
+  group:
+    type: string
+    description: Attribute group
+    x-validation-rules: It is the code of an existing group
+  sort_order:
+    type: integer
+    description: Order of the attribute in its group
+    x-validation-rules: It is a positive integer
+    default: 0
+  localizable:
+      type: boolean
+      description: Whether the attribute is localizable, i.e. can have one value by locale
+      default: false
+      x-immutable: true
+  scopable:
+      type: boolean
+      description: Whether the attribute is scopable, i.e. can have one value by channel
+      default : false
+      x-immutable: true
+  available_locales:
+    type: array
+    description: To make the attribute locale specfic, specify here for which locales it is specific
+    x-validation-rules: Each string of the array is an existing and activated locale
+    items:
+      type: string
+  unique:
+    type: boolean
+    description: Whether two values for the attribute cannot be the same
+    x-immutable: true
+  useable_as_grid_filter:
+    type: boolean
+    description: Whether the attribute can be used as a filter for the product grid in the PIM user interface
+  max_characters:
+    type: integer
+    description: Number maximum of characters allowed for the value of the attribute when the attribute type is `pim_catalog_text`, `pim_catalog_textarea` or `pim_catalog_identifier`
+    x-warning: Only for `pim_catalog_text`, `pim_catalog_textarea` or `pim_catalog_identifier` attribute types
+  validation_rule:
+    type: string
+    description: Validation rule type used to validate any attribute value when the attribute type is `pim_catalog_text` or `pim_catalog_identifier`
+    x-validation-rules: Equal to `regexp` when the attribute type is equal to `pim_catalog_identifier`
+    x-warning: Only for `pim_catalog_text` or `pim_catalog_identifier` attribute types
+  validation_regexp:
+    type: string
+    description: Regexp expression used to validate any attribute value when the attribute type is `pim_catalog_text` or `pim_catalog_identifier`
+    x-validation-rules: Required when the property `validation_rule` is equal to `regexp`
+    x-warning: Only for `pim_catalog_text` or `pim_catalog_identifier` attribute types
+  wysiwyg_enabled:
+    type: boolean
+    description: Whether the WYSIWYG interface is shown when the attribute type is `pim_catalog_textarea`
+    x-warning: Only for `pim_catalog_textarea` attribute type
+  number_min:
+    type: string
+    description: Minimum integer value allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
+    x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
+  number_max:
+    type: string
+    description: Minimum integer value allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
+    x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
+  decimals_allowed:
+    type: boolean
+    description: Whether decimals are allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
+    x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
+  negative_allowed:
+    type: boolean
+    description: Whether negative values are allowed when the attribute type is `pim_catalog_metric` or `pim_catalog_number`
+    x-warning: Only for `pim_catalog_metric` or `pim_catalog_number` attribute types
+  metric_family:
+    type: string
+    description: Metric family when the attribute type is `pim_catalog_metric`
+    x-immutable: true
+    x-validation-rules: Required for `pim_catalog_metric` attribute type
+    x-warning: Only for `pim_catalog_metric` attribute type
+  default_metric_unit:
+    type: string
+    description: Default metric unit when the attribute type is `pim_catalog_metric`
+    x-validation-rules: Required for `pim_catalog_metric` attribute type
+    x-warning: Only for `pim_catalog_metric` attribute type
+  date_min:
+    type: string
+    description: Minimum date allowed when the attribute type is `pim_catalog_date`
+    x-validation-rules: The datetime format follows the ISO-8601 norm
+    x-warning: Only for `pim_catalog_date` attribute type
+    format: date-time
+  date_max:
+    type: string
+    description: Maximum date allowed when the attribute type is `pim_catalog_date`
+    x-validation-rules: The datetime format follows the ISO-8601 norm
+    x-warning: Only for `pim_catalog_date` attribute type
+    format: date-time
+  allowed_extensions:
+    type: array
+    description: Extensions allowed when the attribute type is `pim_catalog_file` or `pim_catalog_image`
+    x-warning: Only for `pim_catalog_file` or `pim_catalog_image` attribute types
+    items:
+      type: string
+  max_file_size:
+    type: string
+    description: Max file size when the attribute type is `pim_catalog_file` or `pim_catalog_image`
+    x-warning: Only for `pim_catalog_file` or `pim_catalog_image` attribute types
+example: {
+  "code": "release_date",
+  "type": "pim_catalog_date",
+  "group": "marketing",
+  "unique": false,
+  "useable_as_grid_filter": true,
+  "allowed_extensions": [],
+  "metric_family": null,
+  "default_metric_unit": null,
+  "reference_data_name": null,
+  "available_locales": [],
+  "max_characters": null,
+  "validation_rule": null,
+  "validation_regexp": null,
+  "wysiwyg_enabled": null,
+  "number_min": null,
+  "number_max": null,
+  "decimals_allowed": null,
+  "negative_allowed": null,
+  "date_min": "2017-06-28T08:00:00",
+  "date_max": "2017-08-08T22:00:00",
+  "max_file_size": null,
+  "minimum_input_length": null,
+  "sort_order": 1,
+  "localizable": false,
+  "scopable": false,
+  "labels": {
+    "en_US": "Sale date",
+    "fr_FR": "Date des soldes"
+  }
+}

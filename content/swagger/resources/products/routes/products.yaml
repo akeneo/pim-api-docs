@@ -1,0 +1,332 @@
+get:
+  summary: Get list of products
+  operationId: "get_products"
+  tags:
+    - Products
+  x-versions:
+    - 1.7
+    - 2.0
+  description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered. If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the set of products you request.
+  parameters:
+    - name: search
+      in: query
+      description: Filter products, for more details see the <a href="/documentation/filter.html">Filters</a> section
+      required: false
+      type: string
+    - name: scope
+      in: query
+      type: string
+      description: Filter product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
+      required: false
+    - name: locales
+      in: query
+      type: string
+      description: Filter product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
+      required: false
+    - name: attributes
+      in: query
+      type: string
+      description: Filter product values to only return those concerning the given attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
+      required: false
+    - $ref: '#/parameters/pagination_type'
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/search_after'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Return products paginated
+      schema:
+        title: Products
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/ProductList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/products?page=3&limit=3"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/products?page=1&limit=3"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/products?page=2&limit=3"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/products?page=4&limit=3"
+          }
+        },
+        current_page: 3,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/product/top"
+                }
+              },
+              "identifier": "top",
+              "family": "tshirt",
+              "groups": [],
+              "parent": null,
+              "categories": ["summer_collection"],
+              "enabled": true,
+              "values": {
+                "name": [
+                  {
+                    "data": "Top",
+                    "locale": "en_US",
+                    "scope": null,
+                  },
+                  {
+                    "data": "Débardeur",
+                    "locale": "fr_FR",
+                    "scope": null,
+                  }
+                ],
+                "description": [
+                  {
+                    "data": "Summer top",
+                    "locale": "en_US",
+                    "scope": "ecommerce"
+                  },
+                  {
+                    "data": "Top",
+                    "locale": "en_US",
+                    "scope": "tablet"
+                  },
+                  {
+                    "data": "Débardeur pour l'été",
+                    "locale": "fr_FR",
+                    "scope": "ecommerce"
+                  },
+                  {
+                    "data": "Débardeur",
+                    "locale": "fr_FR",
+                    "scope": "tablet"
+                  }
+                ],
+                "price": [
+                  {
+                    "locale": null,
+                    "scope": null,
+                    "data": [
+                      {
+                        "amount": "15.5", "currency": "EUR"
+                      },
+                      {
+                        "amount": "15", "currency": "USD"
+                      }
+                    ]
+                  }
+                ],
+                "color": [
+                  {
+                    "locale": null,
+                    "scope": null,
+                     "data": "black"
+                  }
+                ],
+                "size": [
+                  {
+                    "locale": null,
+                    "scope": null,
+                    "data": "m"
+                  }
+                ]
+              },
+              "created": "2016-06-23T18:24:44+02:00",
+              "updated": "2016-06-25T17:56:12+02:00",
+              "associations": {
+                "PACK": {
+                  "products": ["sunglasses"],
+                  "groups": []
+                },
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/product/cap"
+                }
+              },
+              "identifier": "cap",
+              "family": "caps",
+              "groups": [],
+              "parent": null,
+              "categories": ["summer_collection"],
+              "enabled": true,
+              "values": {
+                "name": [
+                  {
+                    "data": "Cap",
+                    "locale": "en_US",
+                    "scope": null,
+                  },
+                  {
+                    "data": "Casquette",
+                    "locale": "fr_FR",
+                    "scope": null,
+                  }
+                ],
+                "description": [
+                  {
+                    "data": "Cap unisex",
+                    "locale": "en_US",
+                    "scope": "ecommerce"
+                  },
+                  {
+                    "data": "Cap unisex",
+                    "locale": "en_US",
+                    "scope": "tablet"
+                  },
+                  {
+                    "data": "Casquette unisexe",
+                    "locale": "fr_FR",
+                    "scope": "ecommerce"
+                  },
+                  {
+                    "data": "Casquette unisexe",
+                    "locale": "fr_FR",
+                    "scope": "tablet"
+                  }
+                ],
+                "price": [
+                  {
+                    "locale": null,
+                    "scope": null,
+                    "data": [
+                      {
+                        "amount": "20", "currency": "EUR"
+                      },
+                      {
+                        "amount": "20", "currency": "USD"
+                      }
+                    ]
+                  }
+                ],
+                "color": [
+                  {
+                    "locale": null,
+                    "scope": null,
+                     "data": "black"
+                  }
+                ]
+              },
+              "created": "2016-06-23T18:24:44+02:00",
+              "updated": "2016-06-25T17:56:12+02:00",
+              "associations": {
+                "PACK": {
+                  "products": ['sunglasses'],
+                  "groups": []
+                }
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/product/sweat"
+                }
+              },
+              "identifier": "sweat",
+              "family": null,
+              "groups": [],
+              "parent": null,
+              "categories": ["winter_collection"],
+              "enabled": true,
+              "values": {
+              },
+              "created": "2016-06-23T11:24:44+02:00",
+              "updated": "2016-06-23T11:24:44+02:00",
+              "associations": {}
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+    422:
+      $ref: "#/responses/422Error"
+post:
+  summary: Create a new product
+  operationId: "post_products"
+  tags:
+    - Products
+  x-versions:
+    - 1.7
+    - 2.0
+  description: This endpoint allows you to create a new product. If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the product you try to create.
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Product"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
+patch:
+  summary: Update/create several products
+  operationId: "patch_products"
+  tags:
+    - Products
+  x-versions:
+    - 1.7
+    - 2.0
+  description: This endpoint allows you to update and/or create several products at once. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it. If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the products you try to update. It may result in the creation of drafts if you only have edit rights through the product's categories.
+  x-body-by-line: Contains several lines, each line is a product in JSON standard format
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Product"
+        x-examples:
+          x-example-1:
+            '{"identifier":"cap","values":{"description":[{"scope":"ecommerce","locale":"en_US","data":"My amazing cap"}]}}'
+          x-example-2:
+            '{"identifier":"mug","group":["promotion"]}'
+          x-example-3:
+            '{"identifier":"tshirt","family":"clothes"}'
+  responses:
+    200:
+      description: OK
+      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      x-no-entity: true
+      schema:
+        $ref: "#/definitions/ErrorByLine"
+      examples:
+        x-example-1:
+          '{"line":1,"identifier":"cap","status_code":204}'
+        x-example-2:
+          '{"line":2,"identifier":"mug","status_code":422,"message":"Property "group" does not exist."}'
+        x-example-3:
+          '{"line":3,"identifier":"tshirt","status_code":201}'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"

@@ -1,0 +1,165 @@
+get:
+  summary: Get list of families
+  operationId: "get_families"
+  description: This endpoint allows you to get a list of families. Families are paginated and sorted by code.
+  tags:
+    - Families
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Return families paginated
+      schema:
+        title: Families
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/FamilyList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/families?page=2&limit=2"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/families?page=1&limit=2"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/families?page=1&limit=2"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/families?page=3&limit=2"
+          }
+        },
+        current_page: 2,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/families/tshirt"
+                }
+              },
+              "code": "tshirt",
+              "attributes": ["sku", "name", "description", "price", "size", "color", "picture"],
+              "attribute_as_label": "name",
+              "attribute_as_image": "picture",
+              "attribute_requirements": {
+                "ecommerce": ["sku", "name", "description", "price", "size", "color"],
+                "tablet": ["sku", "name", "description", "price"]
+              },
+              "labels": {
+                "en_US": "Tshirt",
+                "fr_FR": "Tshirt"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/families/caps"
+                }
+              },
+              "code": "caps",
+              "attributes": ["sku", "name", "description", "price", "color", "picture"],
+              "attribute_as_label": "name",
+              "attribute_as_image": "picture",
+              "attribute_requirements": {
+                "ecommerce": ["sku", "name", "description", "price", "color"],
+                "tablet": ["sku", "name", "description", "price"]
+              },
+              "labels": {
+                "en_US": "Caps",
+                "fr_FR": "Casquettes"
+              }
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+post:
+  summary: Create a new family
+  operationId: "post_families"
+  description: This endpoint allows you to create a new family.
+  tags:
+    - Families
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Family"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
+patch:
+  summary: Update/create several families
+  operationId: "patch_families"
+  tags:
+    - Families
+  x-versions:
+    - 1.7
+    - 2.0
+  description: This endpoint allows you to update and/or create several families at once.
+  x-body-by-line: Contains several lines, each line is a family in JSON standard format
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Family"
+        x-examples:
+          x-example-1:
+            '{"code":"tshirt","attributes":["description","size"]}'
+          x-example-2:
+            '{"code":"cap","attribute_as_label":"descripion"}'
+          x-example-3:
+            '{"code":"mug","attributes":["description","short_description"]}'
+  responses:
+    200:
+      description: OK
+      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      x-no-entity: true
+      schema:
+        $ref: "#/definitions/ErrorByLine"
+      examples:
+        x-example-1:
+          '{"line":1,"code":"tshirt","status_code":201}'
+        x-example-2:
+          '{"line":2,"code":"cap","status_code":422,"message":"Attribute "descripion" does not exist."}'
+        x-example-3:
+          '{"line":3,"code":"mug","status_code":204}'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"

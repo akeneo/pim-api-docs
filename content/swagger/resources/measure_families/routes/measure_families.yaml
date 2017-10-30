@@ -1,0 +1,112 @@
+get:
+  summary: Get list of measure familiy
+  operationId: "measure_families_get_list"
+  description: This endpoint allows you to get a list of measure families. Measure families are paginated and sorted by code.
+  tags:
+    - Measure families
+  x-versions:
+    - 2.0
+  responses:
+    200:
+      description: Return measure families paginated
+      schema:
+        title: Measure Families
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/MeasureFamilyList'
+      examples: {
+        _links: {
+            "self": {
+              "href": "https://demo.akeneo.com/api/rest/v1/measure-families?page=1&limit=1"
+            },
+            "first": {
+              "href": "https://demo.akeneo.com/api/rest/v1/measure-families?page=1&limit=1"
+            }
+          },
+        "current_page": 1,
+        _embedded: {
+          "items": [
+            {
+              "_links": {
+                  "self": {
+                    "href": "https://demo.akeneo.com/api/rest/v1/measure-families/Area"
+                  }
+                },
+                "code": "Area",
+                "standard": "SQUARE_METER",
+                "units": [
+                  {
+                    "code": "SQUARE_MILLIMETER",
+                    "convert": {
+                      "mul": "0.000001"
+                    },
+                    "symbol": "mm\u00b2"
+                  },
+                  {
+                    "code": "SQUARE_CENTIMETER",
+                    "convert": {
+                      "mul": "0.0001"
+                    },
+                    "symbol": "cm\u00b2"
+                  },
+                  {
+                    "code": "SQUARE_DECIMETER",
+                    "convert": {
+                      "mul": "0.01"
+                    },
+                    "symbol": "dm\u00b2"
+                  },
+                  {
+                    "code": "SQUARE_METER",
+                    "convert": {
+                      "mul": "1"
+                    },
+                    "symbol": "m\u00b2"
+                  },
+                  {
+                    "code": "CENTIARE",
+                    "convert": {
+                      "mul": "1"
+                    },
+                    "symbol": "ca"
+                  },
+                  {
+                    "code": "SQUARE_DEKAMETER",
+                    "convert": {
+                      "mul": "100"
+                    },
+                    "symbol": "dam\u00b2"
+                  },
+                  {
+                    "code": "ARE",
+                    "convert": {
+                      "mul": "100"
+                    },
+                    "symbol": "a"
+                  },
+                  {
+                    "code": "SQUARE_HECTOMETER",
+                    "convert": {
+                      "mul": "10000"
+                    },
+                    "symbol": "hm\u00b2"
+                  }
+              ]
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"

@@ -1,0 +1,56 @@
+type: object
+required: ["code", "attribute_as_label"]
+properties:
+  code:
+    type: string
+    description: Family code
+    x-immutable: true
+  attribute_as_label:
+    type: string
+    description: Attribute code used as label
+    x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes` &#10;&bull; The type of this attribute is either `pim_catalog_identifier` or `pim_catalog_text`"
+  attribute_as_image:
+    type: string
+    description: Attribute code used as the main picture in the user interface
+    x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes` &#10;&bull; The type of this attribute is `pim_catalog_image`"
+    default: "null"
+  attributes:
+    type: array
+    description: Attributes codes that compose the family
+    x-validation-rules: Each string of the array is an existing attribute code
+    items:
+      type: string
+    default: []
+  attribute_requirements:
+    type: object
+    description: Attributes codes of the family that are required for the completeness calculation for each channel
+    x-validation-rules: "&bull; Each string of these arrays are existing attributes codes &#10;&bull; These attribute codes are in the array of the property `attributes` &#10;&bull; The `channelCode` is the code of an existing and activated channel"
+    properties:
+      channelCode:
+        type: array
+        items:
+          type: string
+          description: Attributes codes of the family that are required for the completeness calculation for the channel `channelCode`
+  labels:
+    type: object
+    description: Family labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Family label for the locale `localeCode`
+example: {
+  "code": "caps",
+  "attributes": ["sku", "name", "description", "price", "color", "picture"],
+  "attribute_as_label": "name",
+  "attribute_as_image": "picture",
+  "attribute_requirements": {
+    "ecommerce": ["sku", "name", "description", "price", "color"],
+    "tablet": ["sku", "name", "description", "price"]
+  },
+  "labels": {
+    "en_US": "Caps",
+    "fr_FR": "Casquettes"
+  }
+}

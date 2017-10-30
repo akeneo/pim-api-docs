@@ -1,0 +1,116 @@
+Created:
+  description: Created
+  x-details: Means that the creation was successful
+  headers:
+    Location:
+      description: URI of the created resource
+      type: string
+Submitted:
+  description: Submitted
+  x-details: Means that the draft submission was successful
+  headers:
+    Location:
+      description: URI of the created resource
+      type: string
+NoContent:
+  description: No content to return
+  x-details: Means that the update was successful
+  headers:
+    Location:
+      description: URI of the updated resource
+      type: string
+400Error:
+  description: Bad request
+  x-details: Can be caused by a malformed JSON request
+  schema:
+    $ref: "#/definitions/Error"
+  examples: {
+    "code":400,
+    "message":"Invalid JSON message received"
+  }
+401Error:
+  description: Authentication required
+  x-details: Can be caused by a missing or expired token
+  schema:
+    $ref: "#/definitions/Error"
+  examples: {
+    "code": 401,
+    "message": "Authentication is required"
+  }
+403Error:
+  description: Access forbidden
+  x-details: The user does not have the permission to execute this request
+  schema:
+    $ref: "#/definitions/Error"
+  examples: {
+    "code":403,
+    "message":"Access forbidden. You are not allowed to list categories."
+  }
+404Error:
+  description: Resource not found
+  x-details: The resource code given in the URI does not correspond to any existing PIM resource
+  schema:
+    $ref: "#/definitions/Error"
+  examples: {
+    "code": 404,
+    "message": "Resource `my_resource_code` does not exist."
+  }
+406Error:
+  description: Not Acceptable
+  x-details: The `Accept` header is not `application/json` but it should
+  schema:
+    $ref: "#/definitions/Error"
+  examples:  {
+    "code": 406,
+    "message": "‘xxx’ in ‘Accept‘ header is not valid. Only ‘application/json‘ is allowed."
+  }
+413Error:
+  description: Request Entity Too Large
+  x-details: There are too many resources to process (max 100) or the line of JSON is too long (max 1 000 000 characters)
+  schema:
+    $ref: "#/definitions/Error"
+  examples: {
+    "code": 413,
+    "message": "Too many resources to process, 100 is the maximum allowed."
+  }
+415Error:
+  description: Unsupported Media type
+  x-details: The `Content-type` header has to be `application/json`
+  schema:
+    $ref: "#/definitions/Error"
+  examples: {
+    "code": 415,
+    "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘application/json’ is allowed."
+  }
+415ErrorStream:
+  description: Unsupported Media type
+  x-details: The `Content-type` header has to be `application/vnd.akeneo.collection+json`
+  schema:
+    $ref: "#/definitions/Error"
+  examples: {
+    "code": 415,
+    "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘application/vnd.akeneo.collection+json’ is allowed."
+  }
+415ErrorMultipart:
+  description: Unsupported Media type
+  x-details: The `Content-type` header has to be `multipart/form-data`
+  schema:
+    $ref: "#/definitions/Error"
+  examples: {
+    "code": 415,
+    "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘multipart/form-data’ is allowed."
+  }
+422Error:
+  description: Unprocessable entity
+  x-details: The validation of the entity given in the body of the request failed
+  schema:
+    $ref: "#/definitions/Error"
+  examples: {
+    "code": 422,
+    "message": "Property \"labels\" expects an array as data, \"NULL\" given. Check the API reference documentation.",
+    "_links": {
+      "documentation": {
+        "href": "http://api.akeneo.com/api-reference.html"
+      }
+    }
+  }
