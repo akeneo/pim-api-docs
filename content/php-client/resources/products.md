@@ -249,11 +249,11 @@ $responseLines = $client->getProductApi()->upsertList([
                     'data' => [
                         [
                             'amount' => '15.5',
-                            'currency => 'EUR',
+                            'currency' => 'EUR',
                         ],
                         [
                             'amount' => '15',
-                            'currency => 'USD',
+                            'currency' => 'USD',
                         ],
                     ],
                     'locale' => null,
