@@ -98,3 +98,64 @@ There is a maximum limit allowed on server side for the parameter `pageSize`.
 :::
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
+
+### Upsert a family variant
+
+If the family variant does not exist yet, this method creates it, otherwise it updates it.
+
+```php
+$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+
+$client->getFamilyVariantApi()->upsert('boots', [
+    'code' => 'rain_boots_color_size',
+    'labels' => [
+        'de_DE' => 'Stiefel nach Farbe und Größe',
+        'en_US' => 'Updating label',
+        'fr_FR' => 'Mise à jour du label'
+    ]
+]);
+```
+
+### Upsert a list of family variants
+
+This method allows to create or update a list of family variants.
+It has the same behavior as the `upsert` method for a single family variant, except that the code must be specified in the data of each family variant.
+
+
+```php
+$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+
+$responseLines = $client->getFamilyVariantApi()->upsertList('boots', [
+    [
+        'code' => 'rain_boots_color_size',
+        'labels' => [
+            'de_DE' => 'Stiefel nach Farbe und Größe',
+            'en_US' => 'Updating label',
+            'fr_FR' => 'Mise à jour du label'
+        ]
+    ],
+    [
+        'code' => 'man_boots_color_size',
+        'labels' => [
+            'de_DE' => 'Stiefel nach Farbe und Größe',
+            'en_US' => 'Updating label',
+            'fr_FR' => 'Mise à jour du label'
+        ]
+    ]
+]);
+
+foreach ($responseLines as $line) {
+    echo $line['line'];
+    echo $line['identifier'];
+    echo $line['status_code'];
+    if (isset($line['message'])) {
+        echo $line['message'];
+    }
+}
+```
+
+::: warning
+There is a limit on the maximum number of family variants that you can upsert in one time on server side. By default this limit is set to 100.
+:::
+
+You can get a complete description of the expected format and the returned format [here](/api-reference.html#get_families__family_code__variants).
