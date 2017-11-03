@@ -159,6 +159,10 @@ curl -X POST http://your-host/api/oauth/v1/token \
     }'
 ```
 
+:::warning
+If you experience any error, please check the [troubleshooting guide](/documentation/troubleshooting.html#missing-client-id).
+:::
+
 #### Example
 
 **Request**
