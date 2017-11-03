@@ -1,0 +1,44 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Attribute group code
+    x-immutable: true
+  sort_order:
+    type: integer
+    description: Attribute group order among other attribute groups
+    x-validation-rules: It is a positive integer
+    default: 0
+  attributes:
+    type: array
+    description: Attribute codes that compose the attribute group
+    x-validation-rules: Each string of the array is an existing attribute code, an attribute can only be in one attribute group
+    items:
+      type: string
+    default: []
+  labels:
+    type: object
+    description: Attribute group labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Attribute group label for the locale `localeCode`
+example: {
+  "code":"marketing",
+  "sort_order":4,
+  "attributes":[
+     "sku",
+     "name",
+     "description",
+     "response_time",
+     "release_date",
+     "price"
+  ],
+  "labels":{
+     "en_US":"Marketing",
+     "fr_FR":"Marketing"
+  }
+}

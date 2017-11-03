@@ -1,0 +1,25 @@
+get:
+  summary: Get a locale
+  operationId: "get_locales__code_"
+  description: This endpoint allows you to get the information about a given locale.
+  tags:
+    - Locales
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the locale in JSON standard format
+      schema:
+        $ref: '#/definitions/Locale'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    406:
+      $ref: "#/responses/406Error"

@@ -1,0 +1,156 @@
+get:
+  summary: Get a list of media files
+  operationId: "get_media_files"
+  description: This endpoint allows you to get a list of media files.
+  tags:
+    - Media files
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Return media files paginated
+      schema:
+        title: MediaFiles
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/MediaFileList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/media-files?page=2&limit=4"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/media-files?page=1&limit=4"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/media-files?page=1&limit=4"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/media-files?page=2&limit=4"
+          }
+        },
+        current_page: 2,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/media-files/7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg"
+                },
+                "download": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/media-files/7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg/download"
+                }
+              },
+              "code": "7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg",
+              "original_filename": "10806799-1356.jpg",
+              "mime_type": "image/jpeg",
+              "size": 16070,
+              "extension": "jpg"
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/media-files/d/0/3/2/d032a92d994df3ef67ee6746b7b7a795c2964e7c_10734346_1480.jpg"
+                },
+                "download": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/media-files/d/0/3/2/d032a92d994df3ef67ee6746b7b7a795c2964e7c_10734346_1480.jpg/download"
+                }
+              },
+              "code": "d/0/3/2/d032a92d994df3ef67ee6746b7b7a795c2964e7c_10734346_1480.jpg",
+              "original_filename": "10734346-1480.jpg",
+              "mime_type": "image/jpeg",
+              "size": 16454,
+              "extension": "jpg"
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/media-files/5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_12431976_8797.jpg"
+                },
+                "download": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/media-files/5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_12431976_8797.jpg/download"
+                }
+              },
+              "code": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_12431976_8797.jpg",
+              "original_filename": "12431976-8797.jpg",
+              "mime_type": "image/jpeg",
+              "size": 19725,
+              "extension": "jpg"
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/media-files/0/c/b/0/0cb0c0e115dedba676f8d1ad8343e6207ab54c7b_107406_9841.jpg"
+                },
+                "download": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/media-files/0/c/b/0/0cb0c0e115dedba676f8d1ad8343e6207ab54c7b_107406_9841.jpg/download"
+                }
+              },
+              "code": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343e6207ab54c7b_107406_9841.jpg",
+              "original_filename": "107406-9841.jpg",
+              "mime_type": "image/jpeg",
+              "size": 17639,
+              "extension": "jpg"
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+post:
+  summary: Create a new media file
+  operationId: "post_media_files"
+  description: This endpoint allows you to create a new media file and associate it to the product value of a given product.
+  tags:
+    - Media files
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - name: Content-type
+      in: header
+      type: string
+      description: Equal to 'multipart/form-data', no other value allowed
+      required: true
+    - name: body
+      in: body
+      x-form-data: true
+      schema:
+        properties:
+          product:
+            type: string
+            description: The product to which the media file will be associated. It is a JSON string that follows this formula '{"identifier":"product_identifier", "attribute":"attribute_code", "scope":"channel_code","locale":"locale_code"}'
+          file:
+            type: string
+            description: The binaries of the file
+            format: binary
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415ErrorMultipart"
+    422:
+      $ref: "#/responses/422Error"

@@ -1,0 +1,24 @@
+get:
+  summary: Get a currency
+  operationId: "currencies_get"
+  description: This endpoint allows you to get the information about a given currency.
+  tags:
+    - Currencies
+  x-versions:
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the currency in JSON standard format
+      schema:
+        $ref: '#/definitions/Currency'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    406:
+      $ref: "#/responses/406Error"

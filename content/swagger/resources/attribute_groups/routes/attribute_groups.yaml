@@ -1,0 +1,168 @@
+get:
+  summary: Get list of attribute groups
+  operationId: "attribute_groups_get_list"
+  description: This endpoint allows you to get a list of attribute groups. Attribute groups are paginated and sorted by code.
+  tags:
+    - Attribute groups
+  x-versions:
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Return attribute groups paginated
+      schema:
+        title: Attribute groups
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/AttributeGroupList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/attribute-groups?page=3&limit=2"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/attribute-groups?page=1&limit=2"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/attribute-groups?page=2&limit=2"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/attribute-groups?page=4&limit=2"
+          }
+        },
+        current_page: 3,
+        _embedded: {
+          _items: [
+            {
+              "_links":{
+                 "self":{
+                    "href": "https://demo.akeneo.com/api/rest/v1/attribute-groups/marketing"
+                 }
+              },
+              "code":"marketing",
+              "sort_order":4,
+              "attributes":[
+                 "sku",
+                 "name",
+                 "description",
+                 "response_time",
+                 "release_date",
+                 "price"
+              ],
+              "labels":{
+                 "en_US":"Marketing",
+                 "fr_FR":"Marketing"
+              }
+            },
+            {
+              "_links":{
+                 "self":{
+                    "href":"https://demo.akeneo.com/api/rest/v1/attribute-groups/technical"
+                 }
+              },
+              "code":"technical",
+              "sort_order":5,
+              "attributes":[
+                 "weight",
+                 "maximum_scan_size",
+                 "color_scanning",
+                 "power_requirements",
+                 "maximum_print_size",
+                 "sensor_type",
+                 "total_megapixels",
+                 "optical_zoom",
+                 "camera_type"
+              ],
+              "labels":{
+                 "en_US":"Technical",
+                 "fr_FR":"Technique"
+              }
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+post:
+  summary: Create a new attribute group
+  operationId: "attribute_groups_post"
+  description: This endpoint allows you to create a new attribute group.
+  tags:
+    - Attribute groups
+  x-versions:
+    - 2.0
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/AttributeGroup"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
+patch:
+  summary: Update/create several attribute groups
+  operationId: "several_attribute_groups_patch"
+  tags:
+    - Attribute groups
+  x-versions:
+    - 2.0
+  description: This endpoint allows you to update and/or create several attribute groups at once.
+  x-body-by-line: Contains several lines, each line is an attribute group in JSON standard format
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/AttributeGroup"
+        x-examples:
+          x-example-1:
+            '{"code":"technical","labels":{"en_US": "Technical", "fr_FR": "Technique"}}'
+          x-example-2:
+            '{"code":"marketing","type":"bar"}'
+          x-example-3:
+            '{"code":"design","sort_order":7}'
+  responses:
+    200:
+      description: OK
+      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      schema:
+        $ref: "#/definitions/ErrorByLine"
+      examples:
+        x-example-1:
+          '{"line":1,"code":"technical","status_code":201}'
+        x-example-2:
+          '{"line":2,"code":"marketing","status_code":422,"message":"Property \"type\" does not exist. Check the standard format documentation.","_links":{"documentation":{"href":"http:\/\/api.akeneo.com\/api-reference.html#patch_attribute_groups__code_"}'
+        x-example-3:
+          '{"line":3,"code":"design","status_code":204}'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"

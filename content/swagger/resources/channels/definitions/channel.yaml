@@ -1,0 +1,61 @@
+type: object
+required: ["code", "category_tree", "locales", "currencies"]
+properties:
+  code:
+    type: string
+    description: Channel code
+    x-immutable: true
+  locales:
+    type: array
+    description: Codes of activated locales for the channel
+    x-validation-rules: "&bull; Each string of the array is an existing locale code &#10;&bull; At least one locale in the array"
+    items:
+      type: string
+  currencies:
+    type: array
+    description: Codes of activated currencies for the channel
+    x-validation-rules: "&bull; Each string of the array is an existing currency code &#10;&bull; At least one currency in the array"
+    items:
+      type: string
+  category_tree:
+    type: string
+    description: Code of the category tree linked to the channel
+    x-validation-rules: It is the code of an existing category code that is a tree (a category without parent)
+  conversion_units:
+    type: object
+    description: Units to which the given metric attributes should be converted when exporting products
+    x-validation-rules: "&bull; The `attributeCode` is the code of an existing attribute whose type is `pim_catalog_metric` &#10;&bull; The strings are existing unit codes."
+    properties:
+      attributeCode:
+        type: string
+        description: Conversion unit code used to convert the values of the attribute `attributeCode` when exporting via the channel
+  labels:
+    type: object
+    description: Channel labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Channel label for the locale `localeCode`
+example: {
+  "code": "ecommerce",
+  "currencies": [
+    "USD",
+    "EUR"
+  ],
+  "locales": [
+    "de_DE",
+    "en_US",
+    "fr_FR"
+  ],
+  "category_tree": "master",
+  "conversion_units": {
+    "weight": "KILOGRAM"
+  },
+  "labels": {
+    "en_US": "Ecommerce",
+    "de_DE": "Ecommerce",
+    "fr_FR": "Ecommerce"
+  }
+}

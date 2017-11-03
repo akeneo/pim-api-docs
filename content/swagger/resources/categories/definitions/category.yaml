@@ -1,0 +1,29 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Category code
+    x-immutable: true
+  parent:
+    type: string
+    description: Category code of the parent's category
+    x-validation-rules: "&bull; It is either equal to `null` or to an existing category code. &#10;&bull; If equal to an existing category code, it cannot reference itself."
+    default: "null"
+  labels:
+    type: object
+    description: Category labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Category label for the locale `localeCode`
+example: {
+  "code": "winter_collection",
+  "parent": null,
+  "labels": {
+    "en_US": "Winter collection",
+    "fr_FR": "Collection hiver"
+  }
+}

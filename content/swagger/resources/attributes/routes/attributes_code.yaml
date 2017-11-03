@@ -1,0 +1,56 @@
+get:
+  summary: Get an attribute
+  operationId: "get_attributes__code_"
+  description: This endpoint allows you to get the information about a given attribute.
+  tags:
+    - Attributes
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the attribute in JSON standard format
+      schema:
+        $ref: '#/definitions/Attribute'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    406:
+      $ref: "#/responses/406Error"
+patch:
+  summary: Update/create an attribute
+  operationId: "patch_attributes__code_"
+  tags:
+    - Attributes
+  x-versions:
+    - 1.7
+    - 2.0
+  description: This endpoint allows you to update a given attribute. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute exists for the given code, it creates it.
+  parameters:
+    - $ref: '#/parameters/code'
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: "#/definitions/Attribute"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    204:
+      $ref: "#/responses/NoContent"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"

@@ -1,0 +1,76 @@
+get:
+  summary: Get a list of currencies
+  operationId: "currencies_get_list"
+  description: This endpoint allows you to get a list of currencies. Currencies are paginated and sorted by code.
+  tags:
+    - Currencies
+  x-versions:
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Return currencies paginated
+      schema:
+        title: Currencies
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/CurrencyList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/currencies?page=1&limit=3"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/currencies?page=1&limit=3"
+          }
+        },
+        current_page: 1,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/currencies/ADP"
+                }
+              },
+              "code": "ADP",
+              "enabled": true
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/currencies/AED"
+                }
+              },
+              "code": "AED",
+              "enabled": true
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/currencies/AFA"
+                }
+              },
+              "code": "AFA",
+              "enabled": false
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"

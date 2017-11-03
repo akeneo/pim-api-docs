@@ -1,0 +1,48 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Measure family code
+    x-immutable: true
+  standard:
+    type: string
+    description: Measure family standard
+    x-immutable: true
+  units:
+    type: array
+    description: Family units
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Measure code
+          x-immutable: true
+        convert:
+          type: object
+          description: Mathematic operation to convert the unit into the standard unit
+        symbol:
+          type: string
+          description: Measure symbol
+          x-immutable: true
+example: {
+  "code": "Area",
+  "standard": "SQUARE_METER",
+  "units": [
+    {
+      "code": "SQUARE_MILLIMETER",
+      "convert": {
+        "mul": 1.0e-6
+      },
+      "symbol": "mm\u00b2"
+    },
+    {
+      "code": "SQUARE_CENTIMETER",
+      "convert": {
+        "mul": 0.0001
+      },
+      "symbol": "cm\u00b2"
+    },
+  ]
+}

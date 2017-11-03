@@ -1,0 +1,199 @@
+get:
+  summary: Get list of attributes
+  operationId: "get_attributes"
+  description: This endpoint allows you to get a list of attributes. Attributes are paginated and sorted by code.
+  tags:
+    - Attributes
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Return attributes paginated
+      schema:
+        title: Attributes
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/AttributeList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=3&limit=2"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=1&limit=2"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=2&limit=2"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=4&limit=2"
+          }
+        },
+        current_page: 3,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/attributes/sku"
+                }
+              },
+              "code": "sku",
+              "type": "pim_catalog_identifier",
+              "group": "other",
+              "unique": true,
+              "useable_as_grid_filter": true,
+              "allowed_extensions": [],
+              "metric_family": null,
+              "default_metric_unit": null,
+              "reference_data_name": null,
+              "available_locales": [],
+              "max_characters": null,
+              "validation_rule": null,
+              "validation_regexp": null,
+              "wysiwyg_enabled": false,
+              "number_min": null,
+              "number_max": null,
+              "decimals_allowed": false,
+              "negative_allowed": false,
+              "date_min": null,
+              "date_max": null,
+              "max_file_size": null,
+              "minimum_input_length": null,
+              "sort_order": 1,
+              "localizable": false,
+              "scopable": false,
+              "labels": {
+                "en_US": "Identifier",
+                "fr_FR": "Identifiant"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/attributes/release_date"
+                }
+              },
+              "code": "release_date",
+              "type": "pim_catalog_date",
+              "group": "marketing",
+              "unique": false,
+              "useable_as_grid_filter": true,
+              "allowed_extensions": [],
+              "metric_family": null,
+              "default_metric_unit": null,
+              "reference_data_name": null,
+              "available_locales": [],
+              "max_characters": null,
+              "validation_rule": null,
+              "validation_regexp": null,
+              "wysiwyg_enabled": false,
+              "number_min": null,
+              "number_max": null,
+              "decimals_allowed": false,
+              "negative_allowed": false,
+              "date_min": "2017-06-28T08:00:00",
+              "date_max": "2017-08-08T22:00:00",
+              "max_file_size": null,
+              "minimum_input_length": null,
+              "sort_order": 1,
+              "localizable": false,
+              "scopable": false,
+              "labels": {
+                "en_US": "Sale date",
+                "fr_FR": "Date des soldes"
+              }
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+post:
+  summary: Create a new attribute
+  operationId: "post_attributes"
+  description: This endpoint allows you to create a new attribute.
+  tags:
+    - Attributes
+  x-versions:
+    - 1.7
+    - 2.0
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Attribute"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
+patch:
+  summary: Update/create several attributes
+  operationId: "patch_attributes"
+  tags:
+    - Attributes
+  x-versions:
+    - 1.7
+    - 2.0
+  description: This endpoint allows you to update and/or create several attributes at once.
+  x-body-by-line: Contains several lines, each line is an attribute in JSON standard format
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Attribute"
+        x-examples:
+          x-example-1:
+            '{"code":"description","useable_as_grid_filter":true}'
+          x-example-2:
+            '{"code":"short_description","group":"marketig"}'
+          x-example-3:
+            '{"code":"release_date","date_min":"2017-06-28T08:00:00"}'
+  responses:
+    200:
+      description: OK
+      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      x-no-entity: true
+      schema:
+        $ref: "#/definitions/ErrorByLine"
+      examples:
+        x-example-1:
+          '{"line":1,"code":"description","status_code":201}'
+        x-example-2:
+          '{"line":2,"code":"short_description","status_code":422,"message":"Group "marketig" does not exist."}'
+        x-example-3:
+          '{"line":3,"code":"release_date","status_code":204}'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"
