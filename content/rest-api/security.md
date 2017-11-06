@@ -159,6 +159,10 @@ curl -X POST http://your-host/api/oauth/v1/token \
     }'
 ```
 
+:::info
+The content type `application/x-www-form-urlencoded` is also supported.
+:::
+
 :::warning
 If you experience any error, please check the [troubleshooting guide](/documentation/troubleshooting.html#missing-client-id).
 :::
