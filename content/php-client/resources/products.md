@@ -13,7 +13,7 @@ $client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAut
  *     'family': 'tshirt',
  *     'categories': ['summer_collection'],
  *     'groups': [],
- *     'variant_group': null,
+ *     'parent': null,
  *     'values': [
  *         'name': [
  *              [
@@ -144,7 +144,7 @@ $client->getProductApi()->create('top', [
     'family' => 'tshirt',
     'categories' => ['summer_collection'],
     'groups' => [],
-    'variant_group'=> null,
+    'parent'=> null,
     'values' => [
         'name' => [
             [
@@ -192,7 +192,7 @@ $client->getProductApi()->upsert('top', [
     'family' => 'tshirt',
     'categories' => ['summer_collection'],
     'groups' => [],
-    'variant_group'=> null,
+    'parent'=> null,
     'values' => [
         'name' => [
             [
