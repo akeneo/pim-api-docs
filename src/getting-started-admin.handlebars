@@ -9,7 +9,7 @@
                         <div class="panel panel-picto panel-default panel-getting-started">
                             <img src="img/illustrations/illus--lock.svg"/>
                             <div class="panel-body">
-                                <h2 class="picto">Prerequisites</h2> 
+                                <h2 class="picto">Prerequisites</h2>
                                 <h4><i class="fa fa-check-square"></i> An Akeneo PIM is already installed</h4>
                                 <p>This can seems pretty obvious. But yeah ! You will need a PIM already installed if you want to manage any access to this PIM.</p><br>
                                 <h4><i class="fa fa-check-square"></i> You are the administrator of the Akeneo PIM</h4>
@@ -82,6 +82,13 @@
                                         </div>
                                         <h3>With a command line</h3>
                                         <p>Alternatively, you can create the client id and secret with a single command line directly on the PIM server.</p>
+                                        <h4>With the 2.0 version</h4>
+                                        <pre class="hljs"><code>php bin/console pim:oauth-server:create-client \
+    --grant_type=<span class="hljs-string">"password"</span> \
+    --grant_type=<span class="hljs-string">"refresh_token"</span> \
+    --env=prod</code>
+                                        </pre>
+                                        <h4>With the 1.7 version</h4>
                                         <pre class="hljs"><code>php app/console pim:oauth-server:create-client \
     --grant_type=<span class="hljs-string">"password"</span> \
     --grant_type=<span class="hljs-string">"refresh_token"</span> \
