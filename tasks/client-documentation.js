@@ -13,7 +13,6 @@ var hbs = require('handlebars');
 var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var fs = require('fs');
 var rename = require('gulp-rename');
-var replace = require('gulp-replace');
 var revReplace = require('gulp-rev-replace');
 var concat = require('gulp-concat');
 
@@ -191,7 +190,6 @@ gulp.task('client-documentation', ['clean-dist','less'], function () {
             return (tokens[idx].nesting === 1) ? '<li><a href="' + md.utils.escapeHtml(link[1]) + '">' + linkTitle[1] + '</a></li>' : '';
         }
     })
-
     .use(require('markdown-it-container'), 'panel-link', {
         validate: function(params) {
             return params.trim().match(/^panel-link\s+(.*)$/);
@@ -222,7 +220,8 @@ gulp.task('client-documentation', ['clean-dist','less'], function () {
         'exception.md': 'Exception handling',
         'http-client.md': 'HTTP client abstraction',
         'list-resources.md': 'List resources',
-        'resources.md': 'Resources'
+        'ce-resources.md': 'CE Resources',
+        'ee-resources.md': 'EE Resources'
     };
 
     /*
@@ -232,31 +231,35 @@ gulp.task('client-documentation', ['clean-dist','less'], function () {
      * Then, rename the file from "md" to "html".
      * Finally, move the file to dist directory.
      */
-    return gulp.src(['content/php-client/resources.md', 'content/php-client/resources/*.md'])
-        .pipe(concat('resources.md'))
-        .pipe(gulp.dest('tmp/php-client/'))
-        .on('end', function () {
-            return gulp.src(['content/php-client/*.md', 'tmp/php-client/resources.md'])
-                .pipe(flatmap(function(stream, file){
-                    return gulp.src(file.path)
-                        .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-                        .pipe(insert.prepend(getTocMarkdown(pages, path.basename(file.path)) + "\n"))
-                        .pipe(gulpMarkdownIt(md))
-                        .pipe(gulp.dest('tmp/php-client'))
-                        .on('end', function () {
-                            return gulp.src('src/partials/documentation.handlebars')
-                                .pipe(gulpHandlebars({
-                                    active_documentation: true,
-                                    title: 'PHP API client documentation',
-                                    mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
-                                }, {
-                                    partialsDirectory: ['./src/partials']
-                                }))
-                                .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
-                                .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                                .pipe(gulp.dest('./dist/php-client'));
-                        })
-                }));
-        });
+    function concatenateResources(edition) {
+        gulp.src([`content/php-client/${edition}-resources.md`, `content/php-client/${edition}-resources/*.md`])
+            .pipe(concat(`${edition}-resources.md`))
+            .pipe(gulp.dest(`tmp/php-client-${edition}/`))
+            .on('end', function () {
+                return gulp.src(['content/php-client/*.md', `tmp/php-client-${edition}/${edition}-resources.md`])
+                    .pipe(flatmap(function(stream, file){
+                        return gulp.src(file.path)
+                            .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                            .pipe(insert.prepend(getTocMarkdown(pages, path.basename(file.path)) + "\n"))
+                            .pipe(gulpMarkdownIt(md))
+                            .pipe(gulp.dest(`tmp/php-client-${edition}`))
+                            .on('end', function () {
+                                return gulp.src('src/partials/documentation.handlebars')
+                                    .pipe(gulpHandlebars({
+                                        active_documentation: true,
+                                        title: 'PHP API client documentation',
+                                        mainContent: fs.readFileSync(`tmp/php-client-${edition}/` + path.basename(file.path).replace(/\.md/, '.html'))
+                                    }, {
+                                        partialsDirectory: ['./src/partials']
+                                    }))
+                                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                                    .pipe(gulp.dest('./dist/php-client'));
+                            })
+                    }));
+            });
     }
-);
+
+    concatenateResources('ce');
+    concatenateResources('ee');
+});
