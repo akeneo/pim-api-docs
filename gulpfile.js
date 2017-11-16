@@ -14,14 +14,11 @@ gulp.task('clean-dist', function () {
 // so as to relaunch the build into dist directory
 // Should be used for dev purpose
 gulp.task('watch', ['create-dist'], function() {
-  gulp.watch('content/*.md', ['create-dist']);
-  gulp.watch('content/php-client/*.md', ['create-dist']);
-  gulp.watch('content/misc/*.md', ['create-dist']);
-  gulp.watch('styles/*.less', ['create-dist']);
-  gulp.watch('src/*.handlebars', ['create-dist']);
-  gulp.watch('src/api-reference/*.handlebars',['create-dist']);
-  gulp.watch('content/img/*', ['create-dist']);
+  gulp.watch('content/**/*.md', ['create-dist']);
+  gulp.watch('content/img/**/*', ['create-dist']);
   gulp.watch('content/*.yaml', ['create-dist']);
+  gulp.watch('styles/*.less', ['create-dist']);
+  gulp.watch('src/**/*.handlebars', ['create-dist']);
 });
 
 // Launch a server with dist directory exposed on it

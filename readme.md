@@ -6,22 +6,32 @@ The API documentation can be found here: [api.akeneo.com](http://api.akeneo.com)
 ## Installation for dev/preview purposes
 
 ### Requirements
-[Node](https://nodejs.org/en/) is required and [Gulp-cli](https://github.com/gulpjs/gulp-cli) as well.
-
-```bash
-sudo npm install --global n
-sudo n 7.2.0
-npm install
-sudo npm install --global gulp-cli
-```
+[Node.js](https://nodejs.org/en/) is required.
+You can optionally choose [Yarn](https://yarnpkg.com/lang/en/) as package manager instead of NPM (provided with NodeJS by default).
 
 ### Run locally
-Once Node and gulp-cli installed, run:
+First, install the all dependencies with Yarn:
+
+```bash
+yarn install
+```
+
+or with NPM:
 
 ```bash
 npm install
+```
 
-gulp serve
+Then run the Gulp server, with Yarn: 
+
+```bash
+yarn serve
+```
+
+or with NPM:
+
+```bash
+npm serve
 ```
 
 The API documentation site is then available on `localhost:8000`.

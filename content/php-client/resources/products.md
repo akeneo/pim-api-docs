@@ -43,7 +43,7 @@ $client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAut
 $product = $client->getProductApi()->get('top');
 ```
 
-You can get more information about the returned format of the product values [here](/documentation/resources.html#product).
+You can get more information about the returned format of the product values [here](/documentation/resources.html#product-values).
 
 ### Get a list of products 
 
@@ -178,7 +178,7 @@ $client->getProductApi()->create('top', [
 );
 ```
 
-You can get more information about the expected format of the product values [here](/documentation/resources.html#product).
+You can get more information about the expected format of the product values [here](/documentation/resources.html#product-values).
 
 ### Upsert a product 
 
@@ -226,7 +226,7 @@ $client->getProductApi()->upsert('top', [
 );
 ```
 
-You can get more information about the expected format of the product values [here](/documentation/resources.html#product).
+You can get more information about the expected format of the product values [here](/documentation/resources.html#product-values).
 
 ### Upsert a list of products 
 
