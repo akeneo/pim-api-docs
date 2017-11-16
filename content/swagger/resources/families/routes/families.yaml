@@ -138,7 +138,7 @@ patch:
           x-example-1:
             '{"code":"tshirt","attributes":["description","size"]}'
           x-example-2:
-            '{"code":"cap","attribute_as_label":"descripion"}'
+            '{"code":"cap","attribute_as_label":"description"}'
           x-example-3:
             '{"code":"mug","attributes":["description","short_description"]}'
   responses:
@@ -152,7 +152,7 @@ patch:
         x-example-1:
           '{"line":1,"code":"tshirt","status_code":201}'
         x-example-2:
-          '{"line":2,"code":"cap","status_code":422,"message":"Attribute "descripion" does not exist."}'
+          '{"line":2,"code":"cap","status_code":422,"message":"Attribute "description" does not exist."}'
         x-example-3:
           '{"line":3,"code":"mug","status_code":204}'
     401:
