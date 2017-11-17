@@ -228,7 +228,26 @@
                                                                             {{#if x-warning}}
                                                                                 <a href="#" data-placement="top" data-toggle="tooltip" title="{{{x-warning}}}"> <i class="fa fa-warning fa-warning-color"></i> </a>
                                                                             {{/if}}
-                                                                            &bull; {{{description}}}
+                                                                            {{#with items}}
+                                                                                {{#if properties}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; { <br>
+                                                                                    {{#each properties}}
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                        <code>{{{@key}}}</code>
+                                                                                        <em>
+                                                                                            ({{{type}}}
+                                                                                            {{#if items}}
+                                                                                                [{{{items.type}}}
+                                                                                            ]{{/if}})
+                                                                                        </em>
+                                                                                        &bull; {{{description}}} <br>
+                                                                                    {{/each}}
+                                                                                    &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ]
+                                                                                {{else}}
+                                                                                    &bull; {{{../description}}}
+                                                                                {{/if}}
+                                                                            {{else}}
+                                                                                &bull; {{{description}}}
+                                                                            {{/with}}
                                                                         </p>
                                                                     {{/each}}
                                                                     <p>}</p>
@@ -296,6 +315,7 @@
                                                                             <em> ({{{type}}} {{#if items}} [{{{items.type}}}] {{/if}}) </em>
                                                                             {{#if properties}}: { <br>
                                                                             {{#each properties}}
+                                                                                &nbsp; &nbsp; 
                                                                                 <code>{{{@key}}}</code>
                                                                                 <em>
                                                                                     ({{{type}}}
@@ -317,7 +337,6 @@
                                                                                         &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
                                                                                       {{/each}}
                                                                                     <br>&nbsp; &nbsp; }
-                                                                                    <br>
                                                                                 {{else}}
                                                                                     {{#with items}}
                                                                                         {{#if allOf}}
@@ -350,13 +369,11 @@
                                                                                                                 <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                             } <br>
                                                                                                         {{else}}
-                                                                                                            &bull; {{{description}}}
-                                                                                                            <br>
+                                                                                                            &bull; {{{description}}} <br>
                                                                                                         {{/if}}
                                                                                                     {{/each}}
                                                                                                 {{/each}}
-                                                                                                &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp;
-                                                                                            ]
+                                                                                                &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ]
                                                                                         {{/if}}
                                                                                         {{#if properties}} : [
                                                                                             <br> &nbsp; &nbsp; &nbsp; &nbsp; { <br>
@@ -371,18 +388,19 @@
                                                                                                 </em>
                                                                                                 &bull; {{{description}}} <br>
                                                                                             {{/each}}
-                                                                                            &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ] <br>
+                                                                                            &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ]
                                                                                         {{else}}
-                                                                                            &bull; {{{description}}} <br>
+                                                                                            &bull; {{{description}}}
                                                                                         {{/if}}
+                                                                                    {{else}}
+                                                                                        &bull; {{{description}}}
                                                                                     {{/with}}
                                                                                 {{/if}}
-                                                                                {{#unless @last}} <br> {{/unless}}
                                                                             {{/each}}
-                                                                                &nbsp; }
-                                                                                {{else}}
-                                                                                    &bull; {{{description}}}</p>
-                                                                                {{/if}}
+                                                                            <br> &nbsp; }
+                                                                            {{else}}
+                                                                                &bull; {{{description}}}
+                                                                            {{/if}}
                                                                             {{/each}}
                                                                             {{#each allOf}}
                                                                                 {{#each properties}}
