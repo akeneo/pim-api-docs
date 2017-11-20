@@ -24,7 +24,7 @@ properties:
   attribute_requirements:
     type: object
     description: Attributes codes of the family that are required for the completeness calculation for each channel
-    x-validation-rules: "&bull; Each string of these arrays are existing attributes codes &#10;&bull; These attribute codes are in the array of the property `attributes` &#10;&bull; The `channelCode` is the code of an existing and activated channel"
+    x-validation-rules: "&bull; Each string of these arrays is an existing attribute code &#10;&bull; These attribute codes are in the array of the property `attributes` &#10;&bull; The `channelCode` is the code of an existing and activated channel"
     properties:
       channelCode:
         type: array

@@ -17,18 +17,23 @@ properties:
           type: integer
           description: Enrichment level
           x-immutable: true
-        attributes:
-          type: array
-          description: Each string of the array is an attribute code bind to this enrichment level
-          items:
-            type: string
-          default: []
+          x-validation-rules: "&bull; Number representing the level of the attribute set. &#10;&bull; It should be equal to 1 or 2. &#10;&bull; If you specify the level 2, you have to specify the level 1 as well."
         axes:
           type: array
-          description: Each string of the array is an attribute code that will be used as variant axis
+          description: Codes of attributes used as variant axes
+          x-immutable: true
           items:
             type: string
           default: []
+          x-validation-rules: "&bull; Should be an array of maximum 5 existing attribute codes &#10;&bull; These attributes should belong to the family of the family variant &#10;&bull; Only the following attribute types are allowed: `simple select`, `multi select`, `reference data`, `metric`, `boolean` &#10;&bull; Attributes cannot be scopable, nor localizable nor locale specific &#10;&bull; Attributes used as axes in one level cannot be used as axes or as attributes in the other level"
+        attributes:
+          type: array
+          description: Codes of attributes bind to this enrichment level
+          items:
+            type: string
+          default: []
+          x-validation-rules: "&bull; Should be an array of existing attribute codes &#10;&bull; These attributes should belong to the family of the family variant &#10;&bull; Attributes used as attribute in one level cannot be used as axes or as attributes in the other level &#10;&bull; Attributes that are `unique value` or `identifier` are automatically distributed to the lower level."
+
   labels:
     type: object
     description: Family variant labels for each locale
