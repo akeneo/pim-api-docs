@@ -9,6 +9,11 @@ post:
     - 2.0
   x-no-token: true
   parameters:
+    - name: Content-type
+      in: header
+      type: string
+      description: Equal to 'application/json' or 'application/x-www-form-urlencoded', no other value allowed
+      required: true
     - name: Authorization
       in: header
       type: string
@@ -16,6 +21,7 @@ post:
       description: Equal to 'Basic xx', where 'xx' is the base 64 encoding of the client id and secret. Find out how to generate them in the <a href="/documentation/security.html#create-an-oauth-client">Create an OAuth client</a> section.
     - name: body
       in: body
+      x-form-data: true
       schema:
         type: object
         properties:

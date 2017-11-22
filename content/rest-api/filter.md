@@ -295,10 +295,10 @@ You can filter product values on several attributes at the same time.
 ```
 
 ### Via locale
-If you want to receive for each product only product values on specific locales, you can specify it thanks to the `locales` query parameter.
+If you want to receive for each product only product values on specific locales, as well as the product values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
 #### Example
-To get products with only product values regarding the `en_US` locale, you can use the following URL.
+To get products with only product values regarding the `en_US` locale (+ the product values of the non localizable attributes), you can use the following URL.
 ```
 /api/rest/v1/products?locales=en_US
 ```
@@ -309,16 +309,22 @@ You can filter product values on several locales at the same time.
 ```
 
 ### Via channel
-If you want to receive for each product only product values about a specific channel, you can specify it thanks to the `scope` query parameter.
+There is also a `scope` query parameter that will allow you to:
+ - get only the selection of products that are in the tree linked to the channel you specified,
+ - get only the product values for this specific channel, as well as the product values of the non scopable attributes.
 
 #### Example
-To get products with only product values regarding the `ecommerce` scope, you can use the following URL.
+To get products from the tree linked to the `ecommerce` channel with only product values regarding the `ecommerce` channel (+ the product values of the non scopable attributes), you can use the following URL.
 ```
 /api/rest/v1/products?scope=ecommerce
 ```
 
 :::warning
-Note that you cannot filter product values on several channels.
+Note that you cannot use this filter on several channels.
+:::
+
+:::info
+When using this query parameter, you will never be able to retrieve products that are not categorized. This is due to the fact that we only return the selection of products that are in the tree linked to the given channel. In other words, if a given product is not categorized in this tree, you won't receive it.
 :::
 
 ## Filter locales
