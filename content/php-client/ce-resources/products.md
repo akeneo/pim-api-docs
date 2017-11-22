@@ -45,6 +45,8 @@ $product = $client->getProductApi()->get('top');
 
 You can get more information about the returned format of the product values [here](/documentation/resources.html#product-values).
 
+In the Enterprise Edition, the response contains one more field `metadata`. Look at the [product drafts](/php-client/ee-resources.html#product-draft) for an example.
+
 ### Get a list of products 
 
 There are two ways of getting products. Also, you have a search builder to ease the construction of a research.
