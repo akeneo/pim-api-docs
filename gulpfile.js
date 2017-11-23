@@ -16,8 +16,8 @@ gulp.task('clean-dist', function () {
 gulp.task('watch', ['create-dist'], function() {
   gulp.watch('content/**/*.md', ['create-dist']);
   gulp.watch('content/img/**/*', ['create-dist']);
-  gulp.watch('content/*.yaml', ['create-dist']);
-  gulp.watch('styles/*.less', ['create-dist']);
+  gulp.watch('content/swagger/**/*.yaml', ['create-dist']);
+  gulp.watch('styles/**/*.less', ['create-dist']);
   gulp.watch('src/**/*.handlebars', ['create-dist']);
 });
 
