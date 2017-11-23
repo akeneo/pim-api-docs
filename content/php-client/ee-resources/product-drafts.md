@@ -48,3 +48,13 @@ $publishedProduct = $client->getProductDraftApi()->get('top');
 You can get more information about the returned format of the product values [here](/documentation/resources.html#product-values).
 
 The field `metadata` is specific to Akeneo PIM Enterprise Edition. The status of the draft is specified in this field.
+
+### Submit a product draft for approval
+
+```php
+$client = new \Akeneo\PimEnterprise\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+
+$client->getProductProposalApi()->create('top');
+```
+
+It is mandatory that the user already created a draft for the product `top`, and that this draft was not approved yet.
