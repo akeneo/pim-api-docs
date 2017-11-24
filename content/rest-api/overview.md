@@ -105,7 +105,9 @@ Also, in 2.0, the API has been enriched with these new entities:
  - [Attribute group](/documentation/resources.html#attribute-group-20-only),
  - [Association type](/documentation/resources.html#association-type-20-only),
  - [Currency](/documentation/resources.html#currency-20-only),
- - [Measure family](/documentation/resources.html#measure-family-20-only).
+ - [Measure family](/documentation/resources.html#measure-family-20-only),
+ - Product draft (Entreprise edition only),
+ - [Published product](/documentation/resources.html#published-product-20-and-ee-only) (Entreprise edition only).
 
 For a detailed presentation as well as the format of each of these resources, take a look to the [Resources](/documentation/resources.html).
 

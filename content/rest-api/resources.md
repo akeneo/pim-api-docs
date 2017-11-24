@@ -4,7 +4,9 @@ _A small presentation of each entity accessible through the API and their associ
 
 For each resources, we defined a JSON standard format which is used to retrieve, create and update data in the PIM.
 
-## Locale
+## Main catalog entities
+
+### Locale
 A locale is a combination of a language (English, German, French...) and a country (United States, United Kingdom, France...). Examples: English UK (en_GB), English US (en_US), English AU (en_AU).
 
 You can have one or more locales activated in your PIM.
@@ -37,7 +39,7 @@ Below is the JSON standard format representing this set of locales.
 ::: panel-link Want more details about the locale resource? [Check its endpoint here!](/api-reference.html#get_locales)
 :::
 
-## Channel
+### Channel
 An channel refers to a place where your product information will be visible: for example, a website, a print catalog or a mobile application.
 Actually, a channel defines a selection of products and information to export.
 
@@ -118,7 +120,7 @@ Below is the JSON standard format representing this set of channels when request
 ::: panel-link Want more details about the channel resource? [Check its endpoint here!](/api-reference.html#get_channels)
 :::
 
-## Category
+### Category
 
 A category is a way of classifying products. Categories constitute category trees and in Akeneo, you can have multiple category trees with an unlimited number of levels (categories, subcategories, subsubcategories..).
 
@@ -160,35 +162,7 @@ Below is the JSON standard format representing a set of categories.
 ::: panel-link Want more details about the category resource? [Check its endpoints here!](/api-reference.html#Categories)
 :::
 
-## Association type (2.0 only)
-
-In the PIM, a product can be associated to another. You can create an association type to specify what is the nature of this association.
-
-Below is the JSON standard format representing these association types.
-
-```json
-{
-  "code":"upsell",
-  "labels":{
-     "en_US":"Upsell",
-     "fr_FR":"Vente incitative"
-  }
-}
-```
-```json
-{
-  "code":"cross-sell",
-  "labels":{
-     "en_US":"Cross sell",
-     "fr_FR":"Vente croisée"
-  }
-}
-```
-
-::: panel-link Want more details about the association type resource? [Check its endpoints here!](/api-reference.html#Associationtypes)
-:::
-
-## Attribute
+### Attribute
 
 An attribute is a characteristic of a product. Each product is composed of a variety of attributes.
 
@@ -248,7 +222,7 @@ Below is the JSON standard format representing this attribute.
 ::: panel-link Want more details about the attribute resource? [Check its endpoints here!](/api-reference.html#Attributes)
 :::
 
-## Attribute option
+### Attribute option
 
 Some type of attributes offers list of choices. These available choices are attribute options.
 
@@ -288,107 +262,7 @@ Below is the JSON standard format representing these attribute options.
 ::: panel-link Want more details about the attribute option resource? [Check its endpoints here!](/api-reference.html#Attributeoptions)
 :::
 
-## Attribute group (2.0 only)
-
-To facilitate the work of Julia inside the PIM, we gather attributes into groups. These groups are called `Attribute groups`.
-
-Below is the JSON standard format representing these attribute groups.
-
-```json
-{
-  "code":"technical",
-  "sort_order":0,
-  "attributes": ["weight","width","height"],
-  "labels":{
-     "en_US":"Technical",
-     "fr_FR":"Informations techniques"
-  }
-}
-```
-```json
-{
-  "code":"marketing",
-  "sort_order":1,
-  "attributes": ["marketing_name","description"],
-  "labels":{
-     "en_US":"Marketing",
-     "fr_FR":"Marketing"
-  }
-}
-```
-
-::: panel-link Want more details about the attribute group resource? [Check its endpoints here!](/api-reference.html#Attributegroups)
-:::
-
-## Currency (2.0 only)
-If you want to store price information inside your PIM, you will need currencies.
-
-Below is the JSON standard format representing a currency.
-
-```json
-{
-  "code":"EUR",
-  "enabled":true
-}
-```
-
-::: panel-link Want more details about the currency resource? [Check its endpoints here!](/api-reference.html#Currencies)
-:::
-
-## Measure family (2.0 only)
-If you want to store metrics regarding your product such as weight, height or power inside your PIM, you will need measure families.
-
-Below is the JSON standard format representing a measure family.
-
-```json
-{
-   "code":"AREA",
-   "standard":"SQUARE_METER",
-   "units":[
-     {
-       "code":  "ACRE",
-       "convert": {"mul": 4046.856422},
-       "symbol": "A",
-     },{
-        "code":  "ARE",
-        "convert": {"mul":  100},
-        "symbol": "a"
-      },...
-   ]
-}
-```
-
-::: panel-link Want more details about the measure family resource? [Check its endpoints here!](/api-reference.html#Measurefamilies)
-:::
-
-## Media file
-A media file can be an image (a photo, an illustration, etc.), a video (demonstration of a product, an animation, etc.), an audio file (music, podcast, etc.), other multimedia (PDF file) or office documents (.xlsx, .docx, .csv, etc.). It can also be any exotic format you could use.
-
-It is used as the attribute value of a product, i.e. a product value.
-
-In the Akeneo UI, you can find media files in the product form when they are associated to a media attribute.
-
-Below is the JSON standard format representing a media file.
-
-```json
-{
-  "code": "1/d/7/f/1d7f0987000cea4d14908fe679af4e36ea3632ef_10806799_1356.jpg",
-  "original_filename": "10806799-1356.jpg",
-  "mime_type": "image/jpeg",
-  "size": 16070,
-  "extension": "jpg",
-  "_links": {
-    "download": {
-      "href": "http://test-dev-feature-10.akeneo.com/api/rest/v1/media-files/1/d/7/f/1d7f0987000cea4d14908fe679af4e36ea3632ef_10806799_1356.jpg/download"
-    }
-  }
-}
-```
-
-::: panel-link Want more details about the media file resource? [Check its endpoints here!](/api-reference.html#Mediafiles)
-:::
-
-## Family
+### Family
 
 A family is a set of attributes that are shared by products belonging to this family. In other words, a family can be considered as a template for products. A product family can use all of the attributes available in the PIM. Several families of products can use the same attributes. 
 
@@ -464,7 +338,7 @@ Below is the JSON standard format representing this family.
 ::: panel-link Want more details about the family resource? [Check its endpoints here!](/api-reference.html#Families)
 :::
 
-## Family variant (2.0 only)
+### Family variant (2.0 only)
 
 The family variant is the entity used to modelize the products with variants.
 
@@ -513,7 +387,139 @@ Below is the JSON standard format representing this family variant.
 ::: panel-link Want more details about the family variant resource? [Check its endpoints here!](/api-reference.html#get_families__family_code__variants)
 :::
 
-## Product
+## Secondary catalog entities
+
+### Association type (2.0 only)
+
+In the PIM, a product can be associated to another. You can create an association type to specify what is the nature of this association.
+
+Below is the JSON standard format representing these association types.
+
+```json
+{
+  "code":"upsell",
+  "labels":{
+     "en_US":"Upsell",
+     "fr_FR":"Vente incitative"
+  }
+}
+```
+```json
+{
+  "code":"cross-sell",
+  "labels":{
+     "en_US":"Cross sell",
+     "fr_FR":"Vente croisée"
+  }
+}
+```
+
+::: panel-link Want more details about the association type resource? [Check its endpoints here!](/api-reference.html#Associationtypes)
+:::
+
+### Attribute group (2.0 only)
+
+To facilitate the work of Julia inside the PIM, we gather attributes into groups. These groups are called `Attribute groups`.
+
+Below is the JSON standard format representing these attribute groups.
+
+```json
+{
+  "code":"technical",
+  "sort_order":0,
+  "attributes": ["weight","width","height"],
+  "labels":{
+     "en_US":"Technical",
+     "fr_FR":"Informations techniques"
+  }
+}
+```
+```json
+{
+  "code":"marketing",
+  "sort_order":1,
+  "attributes": ["marketing_name","description"],
+  "labels":{
+     "en_US":"Marketing",
+     "fr_FR":"Marketing"
+  }
+}
+```
+
+::: panel-link Want more details about the attribute group resource? [Check its endpoints here!](/api-reference.html#Attributegroups)
+:::
+
+### Currency (2.0 only)
+If you want to store price information inside your PIM, you will need currencies.
+
+Below is the JSON standard format representing a currency.
+
+```json
+{
+  "code":"EUR",
+  "enabled":true
+}
+```
+
+::: panel-link Want more details about the currency resource? [Check its endpoints here!](/api-reference.html#Currencies)
+:::
+
+### Measure family (2.0 only)
+If you want to store metrics regarding your product such as weight, height or power inside your PIM, you will need measure families.
+
+Below is the JSON standard format representing a measure family.
+
+```json
+{
+   "code":"AREA",
+   "standard":"SQUARE_METER",
+   "units":[
+     {
+       "code":  "ACRE",
+       "convert": {"mul": 4046.856422},
+       "symbol": "A",
+     },{
+        "code":  "ARE",
+        "convert": {"mul":  100},
+        "symbol": "a"
+      },...
+   ]
+}
+```
+
+::: panel-link Want more details about the measure family resource? [Check its endpoints here!](/api-reference.html#Measurefamilies)
+:::
+
+### Media file
+A media file can be an image (a photo, an illustration, etc.), a video (demonstration of a product, an animation, etc.), an audio file (music, podcast, etc.), other multimedia (PDF file) or office documents (.xlsx, .docx, .csv, etc.). It can also be any exotic format you could use.
+
+It is used as the attribute value of a product, i.e. a product value.
+
+In the Akeneo UI, you can find media files in the product form when they are associated to a media attribute.
+
+Below is the JSON standard format representing a media file.
+
+```json
+{
+  "code": "1/d/7/f/1d7f0987000cea4d14908fe679af4e36ea3632ef_10806799_1356.jpg",
+  "original_filename": "10806799-1356.jpg",
+  "mime_type": "image/jpeg",
+  "size": 16070,
+  "extension": "jpg",
+  "_links": {
+    "download": {
+      "href": "http://test-dev-feature-10.akeneo.com/api/rest/v1/media-files/1/d/7/f/1d7f0987000cea4d14908fe679af4e36ea3632ef_10806799_1356.jpg/download"
+    }
+  }
+}
+```
+
+::: panel-link Want more details about the media file resource? [Check its endpoints here!](/api-reference.html#Mediafiles)
+:::
+
+## Products
+
+### Product
 
 The product is the central entity of the PIM. This is the entity that holds all the information concerning products.
 
@@ -604,7 +610,7 @@ Below is the JSON standard format representing a product.
 ::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Products)
 :::
 
-### Product values
+#### Product values
 
 Product values hold all the information of the product. In concrete terms, it is the values of the product attributes.
 
@@ -650,7 +656,7 @@ In this formula:
 | **pim_catalog_price** when `decimals_allowed` attribute property is set to `true` <br> _Array[Object{"amount": string, "currency": string}]_ | `[{"amount":"45.00","currency":"USD"}, {"amount":"56.53","currency":"EUR"}]` |
 | **pim_catalog_price** when `decimals_allowed` attribute property is set to `false` <br> _Array[Object{"amount": integer, "currency": string}]_ | `[{"amount":45,"currency":"USD"}, {"amount":56,"currency":"EUR"}]` |
 
-#### Examples
+##### Examples
 
 **Product values of a localizable attribute**
 
@@ -760,7 +766,7 @@ Note that the `locale` and `scope` properties are all set to `null` in this case
 :::
 
 
-## Product model (2.0 only)
+### Product model (2.0 only)
 
 The product model gathers similar products that differ in some aspects, and allows the enrichment of their common properties.
 
@@ -805,4 +811,91 @@ Below is the JSON standard format representing a product model. Notice how much 
 ```
 
 ::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodels)
+:::
+
+### Published product (2.0 and EE only)
+
+A published product is a product that was published by a user in order to freeze a given version of the product. It can be very useful when you want to work on a new version of your product for the next collection for example, but in the meantime, you still want to export the previous version of your product to your channels.
+
+::: warning
+This is an Entreprise Edition feature. So you won't be able to call this endpoint if you are working on a Community Edition PIM. ;)
+:::
+
+Below is the JSON standard format representing a published product. Notice how totally similar to the classical product format it is!
+
+```json
+{
+  "identifier": "1111111195",
+  "family": "clothing",
+  "parent": "jack_brown",
+  "categories": [
+    "tshirts"
+  ],
+  "enabled": true,
+  "values": {
+    "ean": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "1234567890207"
+      }
+    ],
+    "size": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "s"
+      }
+    ],
+    "weight": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": {
+          "amount": "800.0000",
+          "unit": "GRAM"
+        }
+      }
+    ],
+    "color": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "brown"
+      }
+    ],
+    "name": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "jack"
+      }
+    ],
+    "erp_name": [
+      {
+        "locale": "en_US",
+        "scope": null,
+        "data": "Jack"
+      }
+    ],
+    "collection": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": [
+          "summer_2017"
+        ]
+      }
+    ]
+  },
+  "created": "2017-10-05T11:25:48+02:00",
+  "updated": "2017-10-05T11:25:48+02:00",
+  "associations": {},
+  "metadata": {
+    "workflow_status": "working_copy"
+  }
+}
+```
+
+::: panel-link Want more details about the published product resource? [Check its endpoints here!](/api-reference.html#Publishedproducts)
 :::
