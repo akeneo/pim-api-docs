@@ -54,7 +54,7 @@ The field `metadata` is specific to Akeneo PIM Enterprise Edition. The status of
 ```php
 $client = new \Akeneo\PimEnterprise\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
-$client->getProductProposalApi()->create('top');
+$client->getProductDraftApi()->submitForApproval('top');
 ```
 
 It is mandatory that the user already created a draft for the product `top`, and that this draft was not approved yet.
