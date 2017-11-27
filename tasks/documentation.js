@@ -94,39 +94,25 @@ gulp.task('documentation', ['clean-dist','less'], function () {
                 return (tokens[idx].nesting === 1) ? '<div class="alert alert-info">' : '</div>\n';
             }
         })
-        .use(require('markdown-it-container'), 'dodont', {
+        .use(require('markdown-it-container'), 'versions', {
             validate: function(params) {
-                return params.trim().match(/^dodont(.*)$/);
+                return params.trim().match(/^versions(.*)$/);
             },
             render: function (tokens, idx) {
-                return (tokens[idx].nesting === 1) ? '<div class="row">' :
-                  '</div>\n';
-            }
-        })
-        .use(require('markdown-it-container'), 'dont', {
-            validate: function(params) {
-                return params.trim().match(/^dont(.*)$/);
-            },
-            render: function (tokens, idx) {
-                var text = tokens[idx].info.trim().match(/^dont\s+(.*).*$/);
-                return (tokens[idx].nesting === 1) ?
-                '<div class="col-xs-6">'+
-                '<div class="panel panel-danger" data-text="' +  md.utils.escapeHtml(text[1]) + '">'+
-                '<div class="panel-body">' :
-                  '<strong>DON\'T</strong></div>\n</div>\n</div>\n';
-            }
-        })
-        .use(require('markdown-it-container'), 'do', {
-            validate: function(params) {
-                return params.trim().match(/^do(.*)$/);
-            },
-            render: function (tokens, idx) {
-                var text = tokens[idx].info.trim().match(/^do\s+(.*).*$/);
-                return (tokens[idx].nesting === 1) ?
-                '<div class="col-xs-6">'+
-                '<div class="panel panel-success" data-text="' +  md.utils.escapeHtml(text[1]) + '">'+
-                '<div class="panel-body">' :
-                  '<strong>DO</strong></div>\n</div>\n</div>\n';
+                var id = tokens[idx].info.trim().match(/^versions\sid="(.*)"\s2\.0.*\s1\.7.*$/);
+                var source_v20 = tokens[idx].info.trim().match(/^versions\sid=".*"\s2\.0(.*)\s1\.7.*$/);
+                var source_v17 = tokens[idx].info.trim().match(/^versions\sid=".*"\s2\.0.*\s1\.7(.*)$/);
+                return (tokens[idx].nesting === 1) ? '<div>' +
+                    '<ul class="nav nav-tabs nav-tabs-versions" role="tablist">' +
+                        '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">v2.0</a></li>' +
+                        '<li role="presentation"><a href="#v17_' + id[1] + '" aria-controls="v17_' + id[1] + '" role="tab" data-toggle="tab">v1.7</a></li>' +
+                    '</ul>' +
+                    '<div class="panel panel-default">' +
+                        '<div class="panel-body">' +
+                            '<div class="row tab-content">'+
+                                '<div role="tabpanel" class="col-xs-12 tab-pane active" id="v2_' + id[1] + '">' + md.render(source_v20[1]) + '</div>' +
+                                '<div role="tabpanel" class="col-xs-12 tab-pane" id="v17_' + id[1] + '">' + md.render(source_v17[1]) + '</div>'
+                         : '</div>\n</div>\n</div>\n</div>\n';
             }
         });
 

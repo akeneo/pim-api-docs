@@ -22,33 +22,29 @@ HTTP/1.1 400 Bad Request
 As JSON format is expected in all POST and PATCH requests, you will get this error response when your JSON body is malformed.
 For example, these are malformed JSON.
 
-:::: dodont
-::: dont A comma is missing.
+A comma is missing.
 ```json
 {
     "code": "myproduct"
     "family": "myfamily"
 }
 ```
-:::
-::: dont There are missing quotes for the `code` property.
+
+There are missing quotes for the `code` property.
 ```json
 {
     code: "myproduct",
     "family": "myfamily"
 }
 ```
-:::
 
-::: do Just perfect. Don't move a single comma.
+Below is the good format. Just perfect. Don't move a single comma. ;)
 ```json
 {
     "code": "myproduct",
     "family": "myfamily"
 }
 ```
-:::
-::::
 
 ### 401 error
 Trying to access to the API without authentication results in a `401 Unauthorized` response.
@@ -64,19 +60,16 @@ HTTP/1.1 401 Unauthorized
 ```
 
 #### Classical mistakes
-:::: dodont
-::: dont The authorization header with the authentication token is missing.
+The authorization header with the authentication token is missing.
 ```bash
 curl https://demo.akeneo.com/api/rest/v1/categories
 ```
-:::
-::: dont Try `Bearer` instead of `Basic` as a keyword before your authentication token
+
+Try `Bearer` instead of `Basic` as a keyword before your authentication token.
 ```bash
 curl https://demo.akeneo.com/api/rest/v1/categories \
     -H "Authorization: Basic NzFiYTM4ZTEwMjcwZTcyZWIzZTA0NmY3NjE3MTIyMjM1Y2NlMmNlNWEyMTAzY2UzYmY0YWIxYmUzNTkyMDcyNQ"
 ```
-:::
-::::
 
 :::info
 You are experiencing this kind of error and the examples given here did not help you?

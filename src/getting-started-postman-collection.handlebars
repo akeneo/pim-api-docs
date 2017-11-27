@@ -93,11 +93,11 @@
                                     </div>
                                 </div>
                                 <p>In Postman, click the <code>Import</code> button and drop the two files you just downloaded in the pop-in that should look like this.</p>
-                                <img class="img-responsive img-thumbnail center-block" src="/img/drop-files-in-postman.png"><br><br>
+                                <img class="img-responsive img-thumbnail center-block" src="/img/screenshots/postman/drop-files-in-postman.png"><br><br>
                                 <p>As a result, you will see a new collection in the <code>Collection</code> tab, on the left side of your screen.</p>
-                                <img class="img-responsive img-thumbnail" src="/img/collection-in-postman.png"><br><br>
+                                <img class="img-responsive img-thumbnail" src="/img/screenshots/postman/collection-in-postman.png"><br><br>
                                 <p>A new environment should also have been created in the dropdown in the top right corner.</p>
-                                <img class="img-responsive img-thumbnail center-block" src="/img/environment-in-postman.png">
+                                <img class="img-responsive img-thumbnail center-block" src="/img/screenshots/postman/environment-in-postman.png">
                             </div>
                         </div>
                     </div>
@@ -115,9 +115,9 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <p>Click on the gear wheel in the top right corner, and then select <code>Manage environments</code>.</p> 
-                                <img class="img-responsive img-thumbnail center-block" src="/img/manage-environment.png"><br>
+                                <img class="img-responsive img-thumbnail center-block" src="/img/screenshots/postman/manage-environment.png"><br>
                                 <p>In the following pop-in select the environment called <code>Akeneo PIM API environment</code>.</p>
-                                <img class="img-responsive img-thumbnail center-block" src="/img/environments.png"><br>
+                                <img class="img-responsive img-thumbnail center-block" src="/img/screenshots/postman/environments.png"><br>
                                 <p>Then change the value of the following keys:</p>
                                 <ul>
                                     <li><code>url</code> with the url where your 1.7 PIM is hosted,</li>
@@ -144,13 +144,13 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <p>In the <code>Akeneo PIM API</code> collection, select the request named <code>Authentication by password</code>.</p>
-                                <img class="img-responsive img-thumbnail center-block" src="/img/authentication-request-in-postman.png"><br>
+                                <img class="img-responsive img-thumbnail center-block" src="/img/screenshots/postman/authentication-request-in-postman.png"><br>
                                 <p>Then, hit the blue <code>Send</code> button.</p>
-                                <img class="img-responsive img-thumbnail center-block" src="/img/send-button.png"><br>
+                                <img class="img-responsive img-thumbnail center-block" src="/img/screenshots/postman/send-button.png"><br>
                                 <p>In the response area, you should get an answer similar to the one below.</p>
-                                <img class="img-responsive img-thumbnail" src="/img/authentication-response.png">
+                                <img class="img-responsive img-thumbnail" src="/img/screenshots/postman/authentication-response.png">
                                 <div class="alert alert-warning">The authentication token only lasts for one hour. This means that after one hour your token will expire. And you will receive an error message that looks like this.
-                                    <img class="img-responsive img-thumbnail center-block" src="/img/token-expiration-in-postman.png"><br>
+                                    <img class="img-responsive img-thumbnail center-block" src="/img/screenshots/postman/token-expiration-in-postman.png"><br>
                                     Don't panic! You just have to send the <code>Authentication by password</code> request again and you'll be all good!</div>
                                 </div>
                             </div>
@@ -179,10 +179,6 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <hr>
-            <p class="text-muted text-right"><i class="fa fa-pencil"></i> Found a typo or a hole in the documentation and feel like contributing?<br><a href="https://github.com/akeneo/pim-api-docs">Join us on Github!</a></p>
-        </div>
-    </div>
+    <hr>
+    {{> contrib-footer}}
 {{/layout}}
