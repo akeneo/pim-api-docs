@@ -18,22 +18,29 @@ var revReplace = require('gulp-rev-replace');
 
 gulp.task('reference', ['clean-dist', 'less'], function() {
 
-    var versions = ['1.7', '2.0'];
-    // We construct a reference index file and a complete reference file for each PIM version: 1.7 and 2.0.
-    // When we construct the 1.7 files, we filter to not include the 2.0 only endpoints.
+    var versions = ['1.7', '2.0', '2.1'];
+    // We construct a reference index file and a complete reference file for each PIM version: 1.7, 2.0 and 2.1.
+    // When we construct the 1.7 files, we filter to not include the new 2.0 and the 2.1 endpoints.
+    // Same thing when we construct the 2.0 files, we filter to not include the 2.1 endpoints.
     _.forEach(versions, function(version) {
-        var htmlReferenceIndexfileName = (version === '1.7') ? 'api-reference-index-17' : 'api-reference-index';
+
+        var htmlReferenceIndexfileName = (version === '1.7') ? 'api-reference-index-17' : 
+                                        (version === '2.0') ? 'api-reference-index-20' : 'api-reference-index';
+        var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' :
+                                    (version === '2.0') ? 'api-reference-20' : 'api-reference';
+
         gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
             .pipe(jsonTransform(function(data, file) {
                 var templateData = data;
                 data.resources = {};
                 data.pimVersion = version;
-                data.previousVersion = version === '1.7';
+                data.htmlReferencefileName = htmlReferencefileName;
                 _.forEach(data.paths, function(path, pathUri) {
                     _.forEach(path, function(operation, verb) {
-                        // This is where we filter the 2.0 endpoints if we are constructing the 1.7 version of the reference index file
-                        if (((version === '1.7') && (operation['x-versions'][0] === 1.7)) || version === '2.0') {
+                        // This is where we filter the endpoints depending on their availability in the PIM versions
+                        if (((version === '1.7') && (operation['x-versions'][0] === 1.7)) ||
+                             (version === '2.0' && (operation['x-versions'][0] === 2.0 || operation['x-versions'][1] === 2.0)) || version === '2.1') {
                             var escapeTag = operation.tags[0].replace(/\s/g, '');
                             if (!data.resources[escapeTag]) {
                                 data.resources[escapeTag] = { resourceName: operation.tags[0], operations: {} };
@@ -52,7 +59,6 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                     .pipe(gulp.dest('dist'));
             }));
 
-        var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' : 'api-reference';
         gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
             .pipe(jsonTransform(function(data, file) {
@@ -67,8 +73,9 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                 });
                 _.forEach(data.paths, function(path, pathUri) {
                     _.forEach(path, function(operation, verb) {
-                        // This is where we filter the 2.0 endpoints if we are constructing the 1.7 version of the complete reference file
-                        if (((version === '1.7') && (operation['x-versions'][0] === 1.7)) || version === '2.0') {
+                        // This is where we filter the endpoints depending on their availability in the PIM versions
+                        if (((version === '1.7') && (operation['x-versions'][0] === 1.7)) || 
+                             (version === '2.0' && (operation['x-versions'][0] === 2.0 || operation['x-versions'][1] === 2.0)) || version === '2.1') {
                             var operationId = operation.operationId;
                             var escapeTag = operation.tags[0].replace(/\s/g, '');
                             if (!data.resources[escapeTag]) {
