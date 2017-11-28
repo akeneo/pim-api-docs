@@ -132,6 +132,7 @@ To get the products that are not in the `camcorders` and `digital_cameras` famil
 
 To filter products on creation or update date, use respectively the product property `created` and `updated`.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
+Note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini).
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
