@@ -350,7 +350,7 @@ The family variant is the entity used to modelize the products with variants.
 
 From a single place, in a family variant, you will define all the structure for products with variants. You will define the number of variant levels, the variant axes and the distribution of attributes between common attributes or specific attributes for a variant.
 
-In the Akeneo UI, you can find the family variants of one given family by going under the `Settings`/`Families` menu. Then, select one family an click on the `Variants` tab. All the variants of your family are right here!
+In the Akeneo UI, you can find the family variants of one given family by going under the `Settings`/`Families` menu. Then, select one family and click on the `Variants` tab. All the variants of your family are right here!
 
 ![Family variants in the Akeneo UI](/img/screenshots/v2.0/family_variants_ui.png)
 
