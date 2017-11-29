@@ -657,6 +657,14 @@ Below is the JSON standard format representing a product.
 }
 ```
 
+::: warning
+Note that the `parent` field is only available in the 2.0 version, as this is a brand new feature of the 2.0.
+:::
+
+::: warning
+Note that the `metadata` field in only available in the 2.0 version and as it is an Enterprise Edition feature, you won't have this field on a Community Edition PIM.
+:::
+
 ::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Products)
 :::
 
@@ -878,7 +886,7 @@ Endpoints for the product models are only available starting the 2.0 version.
 A published product is a product that was published by a user in order to freeze a given version of the product. It can be very useful when you want to work on a new version of your product for the next collection for example, but in the meantime, you still want to export the previous version of your product to your channels.
 
 ::: warning
-This is an Entreprise Edition feature. So you won't be able to call this endpoint if you are working on a Community Edition PIM. ;)
+This is an Enterprise Edition feature. So you won't be able to call this endpoint if you are working on a Community Edition PIM. ;)
 :::
 
 In the Akeneo UI v2.0, you can find the published products by clicking on the `...` button in the top right corner, when you are on the products grid. Then select the `Published products` option. You will then see a grid really similar to the classical product grid.

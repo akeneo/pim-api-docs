@@ -300,5 +300,5 @@ As accessing the API grants higher privileges than when using the UI, we strongl
 :::
 
 :::info
-Note that if a role has `Overall Web API` access, then it means that all the users depending on that role will be able to make requests on products, product models and published products. There is no way to only restrict the access on products, except if you are using a 2.0 Entreprise Edition. In this case, the EE permissions based on user groups are applied on the API for the products and the published products.
+Note that if a role has `Overall Web API` access, then it means that all the users depending on that role will be able to make requests on products, product models and published products. There is no way to only restrict the access on products, except if you are using a 2.0 Enterprise Edition. In this case, the EE permissions based on user groups are applied on the API for the products and the published products.
 :::
