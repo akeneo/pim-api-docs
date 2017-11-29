@@ -45,6 +45,8 @@ $product = $client->getProductApi()->get('top');
 
 You can get more information about the returned format of the product values [here](/documentation/resources.html#product-values).
 
+In the Enterprise Edition, the response contains one more field `metadata`. Look at the [product drafts](/php-client/ee-resources.html#product-draft) for an example.
+
 ### Get a list of products 
 
 There are two ways of getting products. Also, you have a search builder to ease the construction of a research.
@@ -227,6 +229,11 @@ $client->getProductApi()->upsert('top', [
 ```
 
 You can get more information about the expected format of the product values [here](/documentation/resources.html#product-values).
+
+:::warning
+If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the product you try to upsert.
+If you have edit rights but do not own the product, then it will create a [product draft](/php-client/ee-resources.html#product-draft) instead of updating the product.
+:::
 
 ### Upsert a list of products 
 

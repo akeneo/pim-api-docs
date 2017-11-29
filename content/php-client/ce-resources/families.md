@@ -74,8 +74,6 @@ $client->getFamilyApi()->create('caps', [
 ]);
 ```
 
-
-
 ### Upsert a family 
 
 If the family does not exist yet, this method creates it, otherwise it updates it.
