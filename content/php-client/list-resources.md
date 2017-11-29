@@ -4,6 +4,33 @@
 There are two ways of getting a list of resources, depending of your needs. 
 In the following examples, the resource is the product, but the behavior is the same for all entities.
 
+
+## With a cursor
+
+This method allows to iterate the list of resources thanks to a cursor. It will automatically get the next pages for you.
+It could be particularly useful in the context of an export.
+
+With this method, it's not possible to get the previous page, or getting the total number of resources.
+
+You can define the first parameter `page size` to adjust the number of resources returned by page. In this example, the page size is 50.
+
+```php
+
+$products = $client->getProductApi()->all(50);
+foreach ($products as $product) {
+    // do your stuff here
+    echo $product['identifier'];
+}
+```
+
+:::info
+For performance concern, this method is strongly recommended when requesting products, product models or published products.
+:::
+
+:::warning
+There is a maximum limit allowed on server side for the parameter `pageSize`. By default this limit is set to 100.
+:::
+
 ## By getting pages
 
 This method allows to get a list of resources page per page, as a classical pagination.
@@ -53,24 +80,3 @@ if ($secondPage->hasPreviousPage()) {
     $firstPage = $secondPage->getPreviousPage();
 }
 ```
-
-## With a cursor
-
-This method allows to iterate the list of resources thanks to a cursor. It will automatically get the next pages for you.
-It could be particularly useful in the context of an export.
-
-With this method, it's not possible to get the previous page, or getting the total number of resources.
-
-You can define the first parameter `page size` to adjust the number of resources returned by page. In this example, the page size is 50.
-
-```php
-
-$products = $client->getProductApi()->all(50);
-foreach ($products as $product) {
-    // do your stuff here
-    echo $product['identifier'];
-}
-```
-:::warning
-There is a maximum limit allowed on server side for the parameter `pageSize`. By default this limit is set to 100.
-:::

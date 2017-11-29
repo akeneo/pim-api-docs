@@ -3,7 +3,7 @@
 ### Get a product draft 
 
 ```php
-$client = new \Akeneo\PimEnterprise\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -52,7 +52,7 @@ The field `metadata` is specific to Akeneo PIM Enterprise Edition. The status of
 ### Submit a product draft for approval
 
 ```php
-$client = new \Akeneo\PimEnterprise\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getProductDraftApi()->submitForApproval('top');
 ```

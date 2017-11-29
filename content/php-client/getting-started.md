@@ -7,8 +7,8 @@
 
 ## Installation
 
-`api-php-client` uses [Composer](http://getcomposer.org).
-The first step to use `api-php-client` is to download Composer:
+`api-php-client` and `api-php-client-ee` use [Composer](http://getcomposer.org).
+The first step is to download Composer:
 
 ```bash
 $ curl -s http://getcomposer.org/installer | php
@@ -17,8 +17,15 @@ We use HTTPPlug as the HTTP client abstraction layer. If you want to know more a
 In this example, we will use [Guzzle](https://github.com/guzzle/guzzle) v6 as the HTTP client implementation.
 
 Run the following command to require the libraries in your project:
+
+### Community Edition 
 ```bash
 $ php composer.phar require akeneo/api-php-client php-http/guzzle6-adapter
+```
+
+### Enterprise Edition
+```bash
+$ php composer.phar require akeneo/api-php-client-ee php-http/guzzle6-adapter
 ```
 
 ::: info
@@ -31,12 +38,14 @@ You first need to initialise the client with your credentials client id/secret a
 
 If you don't have any client id/secret, let's take a look at [this page](/documentation/security.html#authentication) to create it.
 
+### Community Edition
+
 ```php
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$clientBuilder = new \Akeneo\Pim\AkeneoPimClientBuilder('http://localhost/');
+$clientBuilder = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://localhost/');
 $client = $clientBuilder->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 ```
 
@@ -46,7 +55,28 @@ You can authenticate to the client with your token/refresh token as well.
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$clientBuilder = new \Akeneo\Pim\AkeneoPimClientBuilder('http://localhost/');
+$clientBuilder = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://localhost/');
+$client = $clientBuilder->buildAuthenticatedByToken('client_id', 'secret', 'token', 'refresh_token');
+```
+
+### Enterprise Edition
+
+```php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$clientBuilder = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://localhost/');
+$client = $clientBuilder->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+```
+
+You can authenticate to the client with your token/refresh token as well.
+```php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$clientBuilder = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://localhost/');
 $client = $clientBuilder->buildAuthenticatedByToken('client_id', 'secret', 'token', 'refresh_token');
 ```
 
@@ -61,4 +91,4 @@ $product = $client->getProductApi()->get('top');
 echo $product['identifier'];
 ```
 
-Want to [update an attribute](/php-client/resources.html#upsert-an-attribute), [create a category](/php-client/resources.html#create-a-category) or [delete a product](/php-client/resources.html#delete-a-product) ? You can get code snippets for all the resources [here](/php-client/resources.html).
+Want to [update an attribute](/php-client/ce-resources.html#upsert-an-attribute), [create a category](/php-client/ce-resources.html#create-a-category) or [delete a product](/php-client/ce-resources.html#delete-a-product)? You can get code snippets for all the resources [here](/php-client/ce-resources.html)

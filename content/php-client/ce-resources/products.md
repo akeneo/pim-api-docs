@@ -3,7 +3,7 @@
 ### Get a product 
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -59,7 +59,7 @@ An helper has been added to ease the construction of these filters.
 For more information about the available filters and operators that you can use to research a list of products, please refer to [this page](/documentation/filter.html).
 
 ```php
-$searchBuilder = new \Akeneo\Pim\Search\SearchBuilder();
+$searchBuilder = new \Akeneo\Pim\ApiClient\Search\SearchBuilder();
 $searchBuilder
     ->addFilter('enabled', '=', true)
     ->addFilter('completeness', '>', 70, ['scope' => 'ecommerce'])
@@ -80,9 +80,9 @@ Also, it's possible to filter the value to return, thanks to the query parameter
 For example, in this example, we only return product values belonging to the channel "ecommerce" by adding the query parameter `'scope' => 'ecommerce'`. 
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
-$searchBuilder = new \Akeneo\Pim\Search\SearchBuilder();
+$searchBuilder = new \Akeneo\Pim\ApiClient\Search\SearchBuilder();
 $searchBuilder
     ->addFilter('completeness', '>', 70, ['scope' => 'ecommerce'])
     ->addFilter('completeness', '<', 85, ['scope' => 'ecommerce']);
@@ -115,9 +115,9 @@ As for the paginated method, the search builder can be used and all query parame
 For example, in this example, we only return product values belonging to the channel "ecommerce" by adding the query parameter `'scope' => 'ecommerce'`. 
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
-$searchBuilder = new \Akeneo\Pim\Search\SearchBuilder();
+$searchBuilder = new \Akeneo\Pim\ApiClient\Search\SearchBuilder();
 $searchBuilder
     ->addFilter('completeness', '>', 70, ['scope' => 'ecommerce'])
     ->addFilter('completeness', '8', 85, ['scope' => 'ecommerce']);
@@ -139,7 +139,7 @@ You can get more information about the available query parameters [here](/api-re
 If the product does not exist yet, this method creates it, otherwise it throws an exception.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getProductApi()->create('top', [
     'enabled' => true,
@@ -187,7 +187,7 @@ You can get more information about the expected format of the product values [he
 If the product does not exist yet, this method creates it, otherwise it updates it.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getProductApi()->upsert('top', [
     'enabled' => true,
@@ -242,7 +242,7 @@ It has the same behavior as the `upsert` method for a single product, except tha
 
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $responseLines = $client->getProductApi()->upsertList([
     [
@@ -294,7 +294,7 @@ You can get a complete description of the expected format and the returned forma
 ### Delete a product
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getProductApi()->delete('top');
 ```
