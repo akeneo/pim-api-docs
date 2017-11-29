@@ -297,16 +297,103 @@ You can filter product values on several attributes at the same time.
 ### Via locale
 If you want to receive for each product only product values on specific locales, as well as the product values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
-#### Example
-To get products with only product values regarding the `en_US` locale (+ the product values of the non localizable attributes), you can use the following URL.
+#### Example 1
+Imagine that without this filter you get these product values:
+```json
+{
+    "color": [
+        {
+            "data": "carmine_red",
+            "locale": null,
+            "scope": null,
+        }
+    ],
+    "name": [
+        {
+            "data": "Top",
+            "locale": "en_US",
+            "scope": null,
+        },
+        {
+            "data": "Débardeur",
+            "locale": "fr_FR",
+            "scope": null,
+        }
+    ],
+    "description": [
+        {
+            "data": "Summer top",
+            "locale": "en_US",
+            "scope": "ecommerce"
+        },
+        {
+            "data": "Top",
+            "locale": "en_US",
+            "scope": "tablet"
+        },
+        {
+            "data": "Débardeur pour l'été",
+            "locale": "fr_FR",
+            "scope": "ecommerce"
+        },
+        {
+            "data": "Débardeur",
+            "locale": "fr_FR",
+            "scope": "tablet"
+        }
+    ]
+}
+```
+
+To get only product values regarding the `en_US` locale (+ the product values of the non localizable attributes), you can use the following URL.
 ```
 /api/rest/v1/products?locales=en_US
 ```
 
-You can filter product values on several locales at the same time.
+As a result you will receive the following answer:
+```json
+{
+    "color": [
+        {
+            "data": "carmine_red",
+            "locale": null,
+            "scope": null,
+        }
+    ],
+    "name": [
+        {
+            "data": "Top",
+            "locale": "en_US",
+            "scope": null,
+        }
+    ],
+    "description": [
+        {
+            "data": "Summer top",
+            "locale": "en_US",
+            "scope": "ecommerce"
+        },
+        {
+            "data": "Top",
+            "locale": "en_US",
+            "scope": "tablet"
+        }
+    ]
+}
+```
+
+::: warning
+As you can see, for the simple select attribute named `color`, as the attribute is not localizable (the `locale` field is set to `null`), the product value of this attribute is not filtered and you still get the code of the attribute option, `carmine_red`.
+If you want to get the localized label of this attribute option, you will have to request the [attribute option endpoint](/api-reference.html#get_attributes__attribute_code__options__code_).
+:::
+
+#### Example 2
+You can also filter product values on several locales at the same time.
 ```
 /api/rest/v1/products?locales=en_US,fr_FR
 ```
+
+
 
 ### Via channel
 There is also a `scope` query parameter that will allow you to:
