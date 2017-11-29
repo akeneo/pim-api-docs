@@ -3,7 +3,7 @@
 ### Get a family variant
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
                      
 /*
  * Returns an array like this:
@@ -36,7 +36,7 @@ $familyVariant = $client->getFamilyVariantApi()->get('boots', 'boots_color_size'
 If the family variant does not exist yet, this method creates it, otherwise it throws an exception.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getFamilyVariantApi()->create('boots', 'boots_size_color', [
     'labels' => [
@@ -67,7 +67,7 @@ This method allows to get family variants page per page, as a classical paginati
 It's possible to get the total number of family variants with this method.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $firstPage = $client->getFamilyVariantApi()->listPerPage('boots', 50, true);
 ```
@@ -88,7 +88,7 @@ You can get more information about this method [here](/php-client/list-resources
 This method allows to iterate the family variants. It will automatically get the next pages for you.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $familyVariants = $client->getFamilyVariantApi()->all('boots', 50);
 ```
@@ -104,7 +104,7 @@ You can get more information about this method [here](/php-client/list-resources
 If the family variant does not exist yet, this method creates it, otherwise it updates it.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getFamilyVariantApi()->upsert('boots', [
     'code' => 'rain_boots_color_size',
@@ -123,7 +123,7 @@ It has the same behavior as the `upsert` method for a single family variant, exc
 
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $responseLines = $client->getFamilyVariantApi()->upsertList('boots', [
     [

@@ -3,7 +3,7 @@
 ### Get a measure family 
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -41,7 +41,7 @@ There are two ways of getting measure families.
 This method allows to get measure families page per page, as a classical pagination.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $firstPage = $client->getMeasureFamilyApi()->listPerPage(50, true);
 ```
@@ -53,7 +53,7 @@ You can get more information about this method [here](/php-client/list-resources
 This method allows to iterate the measure families. It will automatically get the next pages for you.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $categories = $client->getMeasureFamilyApi()->all(50);
 ```

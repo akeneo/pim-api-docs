@@ -3,7 +3,7 @@
 ### Get a category 
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -28,7 +28,7 @@ There are two ways of getting categories.
 This method allows to get categories page per page, as a classical pagination.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $firstPage = $client->getCategoryApi()->listPerPage(50, true);
 ```
@@ -40,7 +40,7 @@ You can get more information about this method [here](/php-client/list-resources
 This method allows to iterate the categories. It will automatically get the next pages for you.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $categories = $client->getCategoryApi()->all(50);
 ```
@@ -52,7 +52,7 @@ You can get more information about this method [here](/php-client/list-resources
 If the category does not exist yet, this method creates it, otherwise it throws an exception.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getCategoryApi()->create('winter_collection', [
     'parent' => 'master',
@@ -68,7 +68,7 @@ $client->getCategoryApi()->create('winter_collection', [
 If the category does not exist yet, this method creates it, otherwise it updates it.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getCategoryApi()->upsert('winter_collection', [
     'parent' => 'master',
@@ -86,7 +86,7 @@ It has the same behavior as the `upsert` method for a single category, except th
 
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getCategoryApi()->upsertList([
     [

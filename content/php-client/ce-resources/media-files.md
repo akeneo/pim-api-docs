@@ -3,7 +3,7 @@
 ### Get media file information
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -26,7 +26,7 @@ $product = $client->getProductMediaFileApi()->get('code/example');
 ### Download media file 
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $product = $client->getProductMediaFileApi()->download('code/example');
 
@@ -42,7 +42,7 @@ There are two ways of getting media files.
 This method allows to get media files page per page, as a classical pagination.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $firstPage = $client->getProductMediaFileApi()->listPerPage(50, true);
 ```
@@ -55,7 +55,7 @@ This method allows to iterate the media files. It will automatically get the nex
 With this method, it's not possible to get the previous page, or getting the total number of products.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 // get a cursor with a page size of 50, apply a research
 $mediaFiles = $client->getProductMediaFileApi()->all(50);
@@ -68,7 +68,7 @@ You can get more information about this method [here](/php-client/list-resources
 Create a new media file and associate it to a product.
 
 ```php
-$client = new \Akeneo\Pim\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getProductMediaFileApi()->create('/tmp/ziggy.jpg', [
     'identifier' => 'medium_boot',
