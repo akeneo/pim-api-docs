@@ -96,36 +96,49 @@ ul.nav.nav-stacked {
             color: @gray;
             line-height: @line-height-base * 0.7;
         }
-        &.active>a {
-            background-color: @gray-lighter;
-            border-radius: @border-radius-base;
+        &.active:before {
+            content: "\25B8";
+            position: absolute;
+            color: @brand-info;
+            left: -2px;
+            top: 0;
+            z-index: 100;
         }
-        >ul li {
+        &.active > a {
+           color: @brand-info;
+        }
+        > ul li {
             display: none;
-            >a {
+            position: relative;
+
+            > a {
                 font-size: @font-size-small;
                 color: @text-color;
                 margin-left: 15px;
                 font-weight: 200;
                 border-bottom: 1px @gray-lighter solid;
             }
-            &:last-child>a {
+            &:last-child > a {
                 border: none;
             }
-            &.active>a {
-                background-color: @gray-lighter;
+            &.active:before {
+                left: 12px;
+                top: -3px;
+            }
+            &.active > a {
+                color: @brand-info;
             }
         }
-        >ul>li>ul>li {
+        > ul > li > ul > li {
             margin-left: 10px;
-            >a {
+            > a {
                 font-size: @font-size-small * 0.9;
             }
         }
-        &.active>ul>li {
+        &.active > ul > li {
             display: block;
         }
-        >ul>li.active>ul>li {
+        > ul > li.active > ul > li {
             display: block;
         }
     }
