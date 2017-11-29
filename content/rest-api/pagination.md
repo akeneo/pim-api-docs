@@ -28,7 +28,59 @@ HTTP/1.1 422 Unprocessable entity
 
 To request paginated entities, you can use the [offset method](/documentation/pagination.html#offset-method).
 
-Products can also be paginated with another method, the [search after method](/documentation/pagination.html#search-after-method).
+Products, product models and published products can also be paginated with another method, the [search after method](/documentation/pagination.html#search-after-method).
+This method is recommended for performance concern.
+
+## Search-after method 
+
+:::warning
+This pagination method is only available for products, product models and published products.
+:::
+
+Do note that `Search after` method is better than `Offset`method in term of performances.
+It is strongly recommended to use it with products, product models and published products.
+
+To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. The entities you will get will then be sorted by product primary key to speed up performance.
+
+Additionally, there is a `search_after` query parameter that is used as a cursor.
+
+:::danger
+The `search_after` query parameter should never be set manually. If you want to navigate through the pages, use the links provided in `_links` property of the response of your first request. Take a look at the example below to see these links.
+:::
+
+### Example
+#### Request
+``` bash
+curl -X GET /api/rest/v1/products?pagination_type=search_after&search_after=qaXbcde&limit=20
+```
+
+This request returns the 20 products situated after the `qaXbcde` cursor.
+
+#### Response
+The response will respect this structure, even if there are no items to return.
+
+```http
+HTTP/1.1 200 OK
+
+{
+  "_links": {
+    "self": {
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_after=qaXbcde&limit=20"
+    },
+    "first": {
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&limit=20"
+    },
+    "next": {
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_type=qaXbcdedsfeF&limit=20"
+    }
+  },
+  "_embedded": {
+    "items": [
+      ...
+    ]
+  }
+}
+```
 
 ## Offset method
 
@@ -100,49 +152,3 @@ curl -X GET /api/rest/v1/products
 When trying to request a quite high page number, you will notice that this method spend more and more time to respond. This method can also be responsible for giving you duplicates. That is why we introduced another way to request paginated resources, see the search after method below. It is only avalailable on products, product models and published products right now.
 :::
 
-## Search-after type
-:::warning
-This pagination method is only available for products, product models and published products.
-:::
-
-To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. The entities you will get will then be sorted by product primary key to speed up performance.
-
-Additionally, there is a `search_after` query parameter that is used as a cursor.
-
-:::danger
-The `search_after` query parameter should never be set manually. If you want to navigate through the pages, use the links provided in `_links` property of the response of your first request. Take a look at the example below to see these links.
-:::
-
-### Example
-#### Request
-``` bash
-curl -X GET /api/rest/v1/products?pagination_type=search_after&search_after=qaXbcde&limit=20
-```
-
-This request returns the 20 products situated after the `qaXbcde` cursor.
-
-#### Response
-The response will respect this structure, even if there are no items to return.
-
-```http
-HTTP/1.1 200 OK
-
-{
-  "_links": {
-    "self": {
-      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_after=qaXbcde&limit=20"
-    },
-    "first": {
-      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&limit=20"
-    },
-    "next": {
-      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_type=qaXbcdedsfeF&limit=20"
-    }
-  },
-  "_embedded": {
-    "items": [
-      ...
-    ]
-  }
-}
-```
