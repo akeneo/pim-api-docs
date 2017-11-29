@@ -32,10 +32,52 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <p>Log in as administrator in your PIM. In the <code>System</code> menu, select the <code>User management</code> menu, then click on the <code>Role</code> entry. From here, you should be able to create a role, click on <code>Create role</code>.</p>
-                                        <img class="img-responsive" src="/img/create_a_role.png">
+                                        <div>
+                                            <ul class="nav nav-tabs nav-tabs-versions" role="tablist">
+                                                <li role="presentation" class="active">
+                                                    <a href="#v2_create_a_role" aria-controls="v2_create_a_role" role="tab" data-toggle="tab">v2.0</a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a href="#v17_create_a_role" aria-controls="v17_create_a_role" role="tab" data-toggle="tab">v1.7</a>
+                                                </li>
+                                            </ul>
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="row tab-content">
+                                                        <div role="tabpanel" class="col-xs-12 tab-pane active" id="v2_create_a_role">
+                                                            <p><img class="img-responsive" alt="Activate API access" src="/img/screenshots/v2.0/create_a_role.png"></p>
+                                                        </div>
+                                                        <div role="tabpanel" class="col-xs-12 tab-pane" id="v17_create_a_role">
+                                                            <p><img class="img-responsive" alt="Activate API access" src="/img/screenshots/v1.7/create_a_role.png"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p>Once in the role form, give a name to the role you are creating, <code>Whole API access</code> for instance.</p>
                                         <p>Then go to the <code>Web API Permissions</code> tab and activate the access to the Web API by clicking on <code>Overall Web API access</code>.</p>
-                                        <img class="img-responsive" src="/img/activate_api_access.png">
+                                        <div>
+                                            <ul class="nav nav-tabs nav-tabs-versions" role="tablist">
+                                                <li role="presentation" class="active">
+                                                    <a href="#v2_activate_api_access" aria-controls="v2_activate_api_access" role="tab" data-toggle="tab">v2.0</a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a href="#v17_activate_api_access" aria-controls="v17_activate_api_access" role="tab" data-toggle="tab">v1.7</a>
+                                                </li>
+                                            </ul>
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="row tab-content">
+                                                        <div role="tabpanel" class="col-xs-12 tab-pane active" id="v2_activate_api_access">
+                                                            <p><img class="img-responsive" alt="Activate API access" src="/img/screenshots/v2.0/activate_api_access.png"></p>
+                                                        </div>
+                                                        <div role="tabpanel" class="col-xs-12 tab-pane" id="v17_activate_api_access">
+                                                            <p><img class="img-responsive" alt="Activate API access" src="/img/screenshots/v1.7/activate_api_access.png"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p>To finish, save your role by clicking on the <code>Save</code> button.</p>
                                         <p>Great! You now have a role ready to access to the Web API. Let's go to the next step!</p>
                                     </div>
@@ -55,7 +97,28 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <p>So now you have your role dedicated to the access of the Web API, you can give this role to a set of users. In the form of this role, got to the <code>Users</code> tab, select the users for which you want to give the access. Below, for example, we give to our developer <code>Peter</code> the <code>Whole API access</code> role.</p>
-                                        <img class="img-responsive" src="/img/peter_get_the_access.png"></img>
+                                        <div>
+                                            <ul class="nav nav-tabs nav-tabs-versions" role="tablist">
+                                                <li role="presentation" class="active">
+                                                    <a href="#v2_locales" aria-controls="v2_locales" role="tab" data-toggle="tab">v2.0</a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a href="#v17_locales" aria-controls="v17_locales" role="tab" data-toggle="tab">v1.7</a>
+                                                </li>
+                                            </ul>
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="row tab-content">
+                                                        <div role="tabpanel" class="col-xs-12 tab-pane active" id="v2_locales">
+                                                            <p><img class="img-responsive" alt="Peter get the access" src="/img/screenshots/v2.0/peter_get_the_access.png"></p>
+                                                        </div>
+                                                        <div role="tabpanel" class="col-xs-12 tab-pane" id="v17_locales">
+                                                            <p><img class="img-responsive" alt="Peter get the access" src="/img/screenshots/v1.7/peter_get_the_access.png"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -76,14 +139,14 @@
                                         <p>There are 2 ways to generate client ids and secrets.</p>
                                         <h3>With the PIM UI</h3>
                                         <p>Go to the <code>System</code> menu of your PIM and select the <code>API connections</code> entry.</p> From here, you can click on the <code>Create</code> button. Give a name to the connection you are about to create and confirrm. The PIM will then automatically create credentials for you, that you will find in the API connections grid.</p>
-                                        <img class="img-responsive" src="/img/authentication_ui.png"></img>
+                                        <img class="img-responsive" src="/img/screenshots/v2.0/authentication_ui.png"></img>
                                         <div class="alert alert-warning">
-                                        This feature is only available in the PIM 2.0. If you are trying to use the API on a 1.7 PIM, please have a look to the second method below.
+                                            This feature is only available in the PIM 2.0. If you are trying to use the API on a 1.7 PIM, please have a look to the second method below.
                                         </div>
                                         <h3>With a command line</h3>
                                         <p>Alternatively, you can create the client id and secret with a single command line directly on the PIM server.</p>
                                         <h4>With the 2.0 version</h4>
-                                        <pre class="hljs"><code>php bin/console pim:oauth-server:create-client my-customer-account \
+<pre class="hljs"><code>php bin/console pim:oauth-server:create-client my-customer-account \
     --grant_type=<span class="hljs-string">"password"</span> \
     --grant_type=<span class="hljs-string">"refresh_token"</span> \
     --env=prod</code>

@@ -263,7 +263,8 @@ The response is the same as when asking for the initial token except that it con
 Like when using the PIM through the UI, ACLs are here to define what a user can and cannot do.
 In the role form, a `Web API permissions` tab includes several ACLs specially crafted for the API.
 
-![Web API permission tab screenshot](/img/activate_api_access.png)
+::: versions id="web_api_permission" 2.0![Web API permission tab screenshot](/img/screenshots/v2.0/activate_api_access.png) 1.7![Web API permission tab screenshot](/img/screenshots/v1.7/activate_api_access.png)
+:::
 
 ### Overall access
 
@@ -277,6 +278,7 @@ You can tune more finely this permission by restricting or allowing the access t
 |-----------------|-------------------|
 | List categories | GET on `/categories` and on `/categories/{category_code}`|
 | List families | GET on `/families` and on `/families/{family_code}`|
+| List family variants *(2.0 only)* | GET on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
 | List attributes | GET on `/attributes` and on `/attributes/{attribute_code}` |
 | List attribute options | GET on `/attributes/{attribute_code}/options` and on `/attributes/{attribute_code}/options/{attribute_option_code}` |
 | List attribute group *(2.0 only)* | GET on `/attribute-groups` and on `/attributes-groups/{attribute_groups_code}` |
@@ -286,6 +288,7 @@ You can tune more finely this permission by restricting or allowing the access t
 | List currencies *(2.0 only)*  | GET on `/currencies` and on `/currencies/{currency_code}` |
 | Create and update categories | POST and PATCH on `/categories/{category_code}` <br/> PATCH on `/categories` |
 | Create and update families | POST and PATCH on `/families/{family_code}` <br/> PATCH on `/families` |
+| Create and update family variants *(2.0 only)* | POST and PATCH on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
 | Create and update attributes | POST and PATCH on `/attributes/{attribute_code}` <br/> PATCH on `/attributes`|
 | Create and update attribute options | POST and PATCH on `/attributes/{attribute_code}/options/{attribute_option_code}` <br/> PATCH on `/attributes/{attribute_code}/options` |
 | Create and update attribute groups *(2.0 only)* | POST and PATCH on `/attribute-groups/{attribute_group_code}` <br/> PATCH on `/attribute-groups` |
@@ -297,5 +300,5 @@ As accessing the API grants higher privileges than when using the UI, we strongl
 :::
 
 :::info
-Note that if a role has `Overall Web API` access, then it means that all the users depending on that role will be able to make requests on products. There is no way to only restrict the access on products, except if you are using a 2.0 Entreprise Edition. In this case, the EE permissions based on user groups are applied on the API.
+Note that if a role has `Overall Web API` access, then it means that all the users depending on that role will be able to make requests on products, product models and published products. There is no way to only restrict the access on products, except if you are using a 2.0 Enterprise Edition. In this case, the EE permissions based on user groups are applied on the API for the products and the published products.
 :::

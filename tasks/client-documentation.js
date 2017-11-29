@@ -107,41 +107,6 @@ gulp.task('client-documentation', ['clean-dist','less'], function () {
         render: function (tokens, idx) {
             return (tokens[idx].nesting === 1) ? '<div class="alert alert-info">' : '</div>\n';
         }
-    })
-    .use(require('markdown-it-container'), 'dodont', {
-        validate: function(params) {
-            return params.trim().match(/^dodont(.*)$/);
-        },
-        render: function (tokens, idx) {
-            return (tokens[idx].nesting === 1) ? '<div class="row">' :
-                '</div>\n';
-        }
-    })
-    .use(require('markdown-it-container'), 'dont', {
-        validate: function(params) {
-            return params.trim().match(/^dont(.*)$/);
-        },
-        render: function (tokens, idx) {
-            var text = tokens[idx].info.trim().match(/^dont\s+(.*).*$/);
-            return (tokens[idx].nesting === 1) ?
-            '<div class="col-xs-6">'+
-            '<div class="panel panel-danger" data-text="' +  md.utils.escapeHtml(text[1]) + '">'+
-            '<div class="panel-body">' :
-                '<strong>DON\'T</strong></div>\n</div>\n</div>\n';
-        }
-    })
-    .use(require('markdown-it-container'), 'do', {
-        validate: function(params) {
-            return params.trim().match(/^do(.*)$/);
-        },
-        render: function (tokens, idx) {
-            var text = tokens[idx].info.trim().match(/^do\s+(.*).*$/);
-            return (tokens[idx].nesting === 1) ?
-            '<div class="col-xs-6">'+
-            '<div class="panel panel-success" data-text="' +  md.utils.escapeHtml(text[1]) + '">'+
-            '<div class="panel-body">' :
-                '<strong>DO</strong></div>\n</div>\n</div>\n';
-        }
     });
 
     md.use(mdToc, optionsToc)

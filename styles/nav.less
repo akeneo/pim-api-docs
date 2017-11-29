@@ -132,22 +132,20 @@ ul.nav.nav-stacked {
 }
 
 // Tabs
-.nav.nav-tabs.nav-tabs-responses {
-    >li a,
-    >li a.active {
-        padding: 5px @spacing-base/3;
-        color: @text-color;
-    }
-}
-
-.nav.nav-tabs.nav-tabs-sneak-peek {
-    >li a {
-        color: @text-color;
-        svg {
-            width: 20px;
+.nav.nav-tabs{
+    cursor: pointer;
+    border-right: 10px white solid;
+    border-left: 10px white solid;
+    &.nav-tabs-responses,
+    &.nav-tabs-versions {
+        >li a,
+        >li a.active {
+            padding: 5px @spacing-base/3;
+            color: @text-color;
         }
     }
 }
+
 
 // Fix issue of markdown-it-toc-and-anchor
 // @see https://github.com/medfreeman/markdown-it-toc-and-anchor/issues/25
