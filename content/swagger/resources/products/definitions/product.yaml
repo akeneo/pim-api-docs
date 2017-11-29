@@ -83,12 +83,12 @@ properties:
     x-read-only: true
   metadata:
     type: object
-    description: More information around the product (only available in the Entreprise Edition)
+    description: More information around the product (only available in the Enterprise Edition)
     x-immutable: true
     x-read-only: true
     properties:
       workflow_status:
-        description: Status of the product regarding the user permissions (only available in the Entreprise Edition)
+        description: Status of the product regarding the user permissions (only available in the Enterprise Edition)
         type: string
         enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
     
