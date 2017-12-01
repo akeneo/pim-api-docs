@@ -16,7 +16,8 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                         <li class="dropdown-title">Choose your PIM version</li>
                         <li><a href="/api-reference-index-17.html">1.7</a></li>
-                        <li><a href="/api-reference-index.html">2.0</a></li>
+                        <li><a href="/api-reference-index-20.html">2.0</a></li>
+                        <li><a href="/api-reference-index.html">2.1</a></li>
                     </ul>
                 </div>
             </div>
@@ -43,7 +44,7 @@
                     </h3>
                     <div class="list-group">
                         {{#each resource.operations as |operation operationId|}}
-                            <a class="list-group-item" href="api-reference{{#if ../../previousVersion}}-17{{/if}}.html#{{{operationId}}}">
+                            <a class="list-group-item" href="{{../../htmlReferencefileName}}.html#{{{operationId}}}">
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <p class="list-group-item-heading">{{{summary}}}</p>

@@ -118,6 +118,10 @@ CurrencyList:
     - $ref:  '#/definitions/ItemList'
     - $ref: '#/definitions/Currency'
 
+Asset:
+  $ref: ./resources/assets/definitions/asset.yaml
+
+
 Error:
   type: object
   properties:

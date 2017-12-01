@@ -50,12 +50,16 @@
   $ref: ./resources/attribute_groups/routes/attribute_groups.yaml
 /api/rest/v1/attribute-groups/{code}:
   $ref: ./resources/attribute_groups/routes/attribute_groups_code.yaml
+
 /api/rest/v1/media-files:
   $ref: ./resources/media_files/routes/media_files.yaml
 /api/rest/v1/media-files/{code}:
   $ref: ./resources/media_files/routes/media_files_code.yaml
 /api/rest/v1/media-files/{code}/download:
   $ref: ./resources/media_files/routes/media_files_code_download.yaml
+
+/api/rest/v1/assets/{code}:
+  $ref: ./resources/assets/routes/assets_code.yaml
 
 /api/rest/v1/locales:
   $ref: ./resources/locales/routes/locales.yaml

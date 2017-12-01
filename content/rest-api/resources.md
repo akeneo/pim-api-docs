@@ -130,7 +130,7 @@ A category is a way of classifying products. Categories constitute category tree
 A product can be classified in one or n categories.
 :::
 
-In the Akeneo UI in 2.0, you can find the categories in the `Settings`/`Categories menu`. In the 1.7, you'll find it in the `Enrich`/`Categories` menu.
+In the Akeneo UI in 2.0, you can find the categories in the `Settings`/`Categories` menu. In the 1.7, you'll find it in the `Enrich`/`Categories` menu.
 
 ::: versions id="categories" 2.0![Categories in the Akeneo UI](/img/screenshots/v2.0/categories_ui.png) 1.7![Categories in the Akeneo UI](/img/screenshots/v1.7/categories_ui.png)
 :::
@@ -564,6 +564,118 @@ Below is the JSON standard format representing a media file.
 ```
 
 ::: panel-link Want more details about the media file resource? [Check its endpoints here!](/api-reference.html#Mediafiles)
+:::
+
+### Asset (2.1 and EE only)
+An asset is the EE entity that allows to hold a file which can be an image, a video, a document... In the PIM, you can find all your assets in a library called PAM (Product Asset Manager). In this library, you can manage and classify your assets into their own categories, called [asset categories](/documentation/resources.html#asset-category-21-only).
+
+Once you upload your asset into the PAM, you can then associate it to your products thanks to a specific attribute type, called `Asset collection`. This attribute allows you to select several assets in one single attribute.
+
+An asset can be localizable, this way you can have a different file for each of your locales. The PIM can also automatically generates variations of your reference file for each of your channels. So neat!
+
+::: warning
+Do not confuse assets and media files. Those are totally different entities. The first one is only available in the EE, whereas the second is available in both CE & EE PIM.
+The main difference is that the media files cannot be classified, they are not reusable among products and you can only have one media file per media attribute. 
+Also, assets are really more powerful, you can automatically generate variations of your file depending on your channel.
+:::
+
+In the Akeneo UI, you can find the PAM, where all the assets are stored, in the `Assets` menu. Below is a screenshot of the PAM.
+
+![Assets in the Akeneo UI](/img/screenshots/v2.0/assets_ui.png)
+
+Below is the JSON standard format representing an asset, that is not localizable.
+
+```json
+{
+  "code":"tshirt_artemis_main_picture",
+  "categories": ["tshirts_assets"],
+  "description": "The main picture of the Artemis t-shirt",
+  "localizable": false,
+  "tags": ["tshirts", "red", "summer"],
+  "end_of_use": "2019-09-01T00:00:00+0200",
+  "variations": [
+    {
+      "_link": {
+       "download": {
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/variations/ecommerce/no_locale/download"
+        },
+        "self": {
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/variations/ecommerce/no_locale"
+        }
+      },
+      "locale":null,
+      "channel": "e_commerce",
+      "code": "7/5/8/e/758e39d48va7b42a55001434fd3d7b6cf3189b7f_tshirt_artemis_main_picture-ecomerce.jpg"
+    },{
+      "_link": {
+       "download": {
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/variations/print/no_locale/download"
+        },
+        "self": {
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/variations/print/no_locale"
+        }
+      },
+      "locale": null,
+      "channel": "print",
+      "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_main_picture-print.jpg"
+    }
+  ],
+  "reference_files":[
+    {
+      "_link": {
+       "download": {
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/reference-files/no_locale/download"
+        },
+        "self": {
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/reference-files/no_locale"
+        }
+      },
+      "locale": null,
+      "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_main_picture.jpg"
+    }
+  ]  
+}
+```
+
+::: panel-link Want more details about the asset resource? [Check its endpoints here!](/api-reference.html#Assets)
+:::
+
+### Asset category (2.1 and EE only)
+An asset category allows you to organise your assets. Asset categories are really similar to classical product categories. They constitute asset category trees and you can have multiple asset category trees with an unlimited number of levels (categories, subcategories, subsubcategories..).
+
+:::info
+An asset can be classified in several asset categories.
+:::
+
+In the Akeneo UI in 2.0, you can find the asset categories under the `Settings`/`Asset categories` menu.
+
+![Asset categories in the Akeneo UI](/img/screenshots/v2.0/asset_categories_ui.png)
+
+Below is the JSON standard format representing asset categories. Notice how it's really similar to the product categories format.
+```json
+// An asset root category
+{
+  "code": "asset_main_catalog",
+  "labels":{
+    "en_US": "Asset main catalog",
+    "fr_FR": "Catalogue d'assets principal"
+   },
+  "parent": null
+}
+```
+```json
+// An asset subcategory
+{
+  "code": "prioritized_images",
+  "labels":{
+    "en_US": "Prioritized images",
+    "fr_FR": "Images priorisées"
+   },
+  "parent": "asset_main_catalog"
+}
+```
+
+::: panel-link Want more details about the asset category resource? [Check its endpoints here!](/api-reference.html#Assetcategories)
 :::
 
 ## Products

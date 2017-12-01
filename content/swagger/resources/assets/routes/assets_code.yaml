@@ -1,0 +1,25 @@
+get:
+  summary: Get an asset
+  operationId: "assets_get"
+  description: This endpoint allows you to get the information about a given asset.
+  tags:
+    - Assets
+  x-versions:
+    - 2.1
+  x-ee: true
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the asset in JSON standard format
+      schema:
+        $ref: '#/definitions/Asset'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    406:
+      $ref: "#/responses/406Error"

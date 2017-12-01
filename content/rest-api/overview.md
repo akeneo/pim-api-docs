@@ -99,7 +99,7 @@ Below are the entities you can manipulate via the API in 1.7 and 2.0:
  - [Channel](/documentation/resources.html#channel),
  - [Locale](/documentation/resources.html#locale).
 
-Also, in 2.0, the API has been enriched with these new entities:
+Also, in 2.0, the API was enriched with these new entities:
  - [Product model](/documentation/resources.html#product-model-20-only),
  - [Family variant](/documentation/resources.html#family-variant-20-only),
  - [Attribute group](/documentation/resources.html#attribute-group-20-only),
@@ -108,6 +108,10 @@ Also, in 2.0, the API has been enriched with these new entities:
  - [Measure family](/documentation/resources.html#measure-family-20-only),
  - Product draft (Enterprise edition only),
  - [Published product](/documentation/resources.html#published-product-20-and-ee-only) (Enterprise edition only).
+
+To finish, in 2.1, we added in the API the following entities:
+ - [Asset](/documentation/resources.html#asset-21-only)
+ - [Asset category](/documentation/resources.html#asset-category-21-only).
 
 For a detailed presentation as well as the format of each of these resources, take a look to the [Resources](/documentation/resources.html).
 
