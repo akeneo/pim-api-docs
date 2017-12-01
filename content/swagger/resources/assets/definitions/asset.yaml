@@ -20,6 +20,7 @@ properties:
     type: boolean
     description: Whether the asset is localized or not, meaning if you want to have different reference files for each of your locale
     default: false
+    x-immutable: true
   tags:
     type: array
     description: Tags of the asset
@@ -35,7 +36,6 @@ properties:
   variations:
     type: array
     description: Variations of the asset
-    x-immutable: true
     x-read-only: true
     items:
       type: object
@@ -67,7 +67,6 @@ properties:
   reference_files:
     type: array
     description: Reference files of the asset
-    x-immutable: true
     x-read-only: true
     items:
       type: object

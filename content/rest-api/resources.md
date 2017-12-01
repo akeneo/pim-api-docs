@@ -644,14 +644,14 @@ Below is the JSON standard format representing an asset, that is not localizable
 An asset category allows you to organise your assets. Asset categories are really similar to classical product categories. They constitute asset category trees and you can have multiple asset category trees with an unlimited number of levels (categories, subcategories, subsubcategories..).
 
 :::info
-An asset can be classified in one or n asset categories.
+An asset can be classified in several asset categories.
 :::
 
 In the Akeneo UI in 2.0, you can find the asset categories under the `Settings`/`Asset categories` menu.
 
 ![Asset categories in the Akeneo UI](/img/screenshots/v2.0/asset_categories_ui.png)
 
-Below is the JSON standard format representing asset categories. Notice how it's really similar to product categories.
+Below is the JSON standard format representing asset categories. Notice how it's really similar to the product categories format.
 ```json
 // An asset root category
 {
