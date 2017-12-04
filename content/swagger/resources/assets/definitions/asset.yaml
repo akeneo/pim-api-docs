@@ -7,7 +7,7 @@ properties:
     x-immutable: true
   categories:
     type: array
-    description: Codes of the categories in which the asset is classified
+    description: Codes of the asset categories in which the asset is classified
     x-validation-rules: Each string of the array is equal to an existing asset category code
     items:
       type: string
@@ -24,7 +24,6 @@ properties:
   tags:
     type: array
     description: Tags of the asset
-    x-validation-rules: Each string of the array is equal to an existing category code
     items:
       type: string
     default: []
@@ -33,7 +32,8 @@ properties:
     description: Date on which the asset expire
     format: dateTime
     default: null
-  variations:
+    x-validation-rules: The date follows the ISO 8601 format
+  variation_files:
     type: array
     description: Variations of the asset
     x-read-only: true
@@ -42,6 +42,7 @@ properties:
       properties:
         _link:
           type: object
+          description: Links to get and download the variation file
           properties:
             self:
               type: object
@@ -73,6 +74,7 @@ properties:
       properties:
         _link:
           type: object
+          description: Links to get and download the reference file
           properties:
             self:
               type: object
@@ -99,26 +101,26 @@ example: {
   "localizable": false,
   "tags": ["tshirts", "red", "summer"],
   "end_of_use": "2019-09-01T00:00:00+0200",
-  "variations": [
+  "variation_files": [
     {
       "_link": {
        "download": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/variations/ecommerce/no_locale/download"
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/ecommerce/no_locale/download"
         },
         "self": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/variations/ecommerce/no_locale"
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/ecommerce/no_locale"
         }
       },
       "locale":null,
       "channel": "e_commerce",
-      "code": "7/5/8/e/758e39d48va7b42a55001434fd3d7b6cf3189b7f_tshirt_artemis_main_picture-ecomerce.jpg"
+      "code": "7/5/8/e/758e39d48va7b42a55001434fd3d7b6cf3189b7f_tshirt_artemis_main_picture-ecommerce.jpg"
     },{
       "_link": {
        "download": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/variations/print/no_locale/download"
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/print/no_locale/download"
         },
         "self": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/variations/print/no_locale"
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/print/no_locale"
         }
       },
       "locale": null,
@@ -130,10 +132,10 @@ example: {
     {
       "_link": {
        "download": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/reference-files/no_locale/download"
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/reference-files/no_locale/download"
         },
         "self": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/myasset/reference-files/no_locale"
+         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/reference-files/no_locale"
         }
       },
       "locale": null,

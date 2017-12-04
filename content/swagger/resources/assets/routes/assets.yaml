@@ -1,0 +1,275 @@
+get:
+  summary: Get list of assets
+  operationId: "get_assets"
+  description: This endpoint allows you to get a list of assets. Assets are paginated.
+  tags:
+    - Assets
+  x-versions:
+    - 2.1
+  x-ee: true
+  parameters:
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Returns assets paginated
+      schema:
+        title: Assets
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/AssetList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/assets?page=2&limit=3"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/assets?page=1&limit=3"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/assets?page=1&limit=3"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/assets?page=3&limit=3"
+          }
+        },
+        current_page: 2,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture"
+                }
+              },
+              "code":"tshirt_artemis_main_picture",
+              "categories": ["tshirts_assets"],
+              "description": "The main picture of the Artemis t-shirt",
+              "localizable": false,
+              "tags": ["tshirts", "red", "summer"],
+              "end_of_use": "2019-09-01T00:00:00+0200",
+              "variation_files": [
+                {
+                  "_link": {
+                   "download": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/ecommerce/no_locale/download"
+                    },
+                    "self": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/ecommerce/no_locale"
+                    }
+                  },
+                  "locale":null,
+                  "channel": "e_commerce",
+                  "code": "7/5/8/e/758e39d48va7b42a55001434fd3d7b6cf3189b7f_tshirt_artemis_main_picture-ecommerce.jpg"
+                },{
+                  "_link": {
+                   "download": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/print/no_locale/download"
+                    },
+                    "self": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/print/no_locale"
+                    }
+                  },
+                  "locale": null,
+                  "channel": "print",
+                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_main_picture-print.jpg"
+                }
+              ],
+              "reference_files":[
+                {
+                  "_link": {
+                   "download": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/reference-files/no_locale/download"
+                    },
+                    "self": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/reference-files/no_locale"
+                    }
+                  },
+                  "locale": null,
+                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_main_picture.jpg"
+                }
+              ]  
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_profile_picture"
+                }
+              },
+              "code":"tshirt_artemis_profile_picture",
+              "categories": ["tshirts_assets"],
+              "description": "The profile picture of the Artemis t-shirt",
+              "localizable": false,
+              "tags": ["tshirts", "red", "summer", "profile_views"],
+              "end_of_use": "2019-09-01T00:00:00+0200",
+              "variation_files": [
+                {
+                  "_link": {
+                   "download": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_profile_picture/variation-files/ecommerce/no_locale/download"
+                    },
+                    "self": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_profile_picture/variation-files/ecommerce/no_locale"
+                    }
+                  },
+                  "locale":null,
+                  "channel": "e_commerce",
+                  "code": "7/5/8/e/758e39d48va7b42a55001434fd3d7b6cf3189b7f_tshirt_artemis_profile_picture-ecommerce.jpg"
+                },{
+                  "_link": {
+                   "download": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_profile_picture/variation-files/print/no_locale/download"
+                    },
+                    "self": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_profile_picture/variation-files/print/no_locale"
+                    }
+                  },
+                  "locale": null,
+                  "channel": "print",
+                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_profile_picture-print.jpg"
+                }
+              ],
+              "reference_files":[
+                {
+                  "_link": {
+                   "download": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_profile_picture/reference-files/no_locale/download"
+                    },
+                    "self": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_profile_picture/reference-files/no_locale"
+                    }
+                  },
+                  "locale": null,
+                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_profile_picture.jpg"
+                }
+              ]  
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_maintenance_manual"
+                }
+              },
+              "code":"tshirt_artemis_maintenance_manual",
+              "categories": ["tshirts_assets"],
+              "description": "The maintenance manual of the Artemis t-shirt",
+              "localizable": true,
+              "tags": ["tshirts", "manuals"],
+              "end_of_use": null,
+              "variation_files": [],
+              "reference_files":[
+                {
+                  "_link": {
+                   "download": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_maintenance_manual/reference-files/en_US/download"
+                    },
+                    "self": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_maintenance_manual/reference-files/en_US"
+                    }
+                  },
+                  "locale": "en_US",
+                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_maintenance_manual-en_US.pdf"
+                },
+                {
+                  "_link": {
+                   "download": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_maintenance_manual/reference-files/fr_FR/download"
+                    },
+                    "self": {
+                     "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_maintenance_manual/reference-files/fr_FR"
+                    }
+                  },
+                  "locale": "fr_FR",
+                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_maintenance_manual-fr_FR.pdf"
+                }
+              ]  
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+post:
+  summary: Create a new asset
+  operationId: "post_assets"
+  description: This endpoint allows you to create a new asset.
+  tags:
+    - Assets
+  x-versions:
+    - 2.1
+  x-ee: true
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Asset"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
+patch:
+  summary: Update/create several assets
+  operationId: "patch_assets"
+  tags:
+    - Assets
+  x-versions:
+    - 2.1
+  x-ee: true
+  description: This endpoint allows you to update several assets at once.
+  x-body-by-line: Contains several lines, each line is a category in JSON standard format
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/Asset"
+        x-examples:
+          x-example-1:
+            '{"code":"tshirt_aria_main_picture","categories":["tshirts_assets"],"tags":["tshirts", "red", "summer"]}'
+          x-example-2:
+            '{"code":"tshirt_artemis_maintenance_manual","categories":["tshirts_assets","short_sleeve"]}'
+          x-example-3:
+            '{"code":"tshirt_artemis_main_picture","tags":["tshirts", "red", "summer","short_sleeve"]}'
+  responses:
+    200:
+      description: OK
+      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      x-no-entity: true
+      schema:
+        $ref: "#/definitions/ErrorByLine"
+      examples:
+        x-example-1:
+          '{"line":1,"code":"tshirt_aria_main_picture","status_code":201}'
+        x-example-2:
+          '{"line":2,"code":"tshirt_artemis_maintenance_manual","status_code":422,"message":"Category "short_sleeve" does not exist."}'
+        x-example-3:
+          '{"line":3,"code":"tshirt_artemis_main_picture","status_code":204}'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"
