@@ -13,7 +13,7 @@ get:
     - $ref: '#/parameters/with_count'
   responses:
     200:
-      description: Return asset categories paginated
+      description: Returns asset categories paginated
       schema:
         title: Asset Categories
         type: object
