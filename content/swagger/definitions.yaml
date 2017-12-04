@@ -120,7 +120,13 @@ CurrencyList:
 
 Asset:
   $ref: ./resources/assets/definitions/asset.yaml
-
+AssetCategory:
+  $ref: ./resources/asset_categories/definitions/asset_category.yaml
+AssetCategoryList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/AssetCategory'
 
 Error:
   type: object

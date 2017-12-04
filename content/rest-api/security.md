@@ -286,6 +286,8 @@ You can tune more finely this permission by restricting or allowing the access t
 | List channels | GET on `/channels` and on `/channels/{channel_code}` |
 | List locales | GET on `/locales` and on `/locales/{locale_code}` |
 | List currencies *(2.0 only)*  | GET on `/currencies` and on `/currencies/{currency_code}` |
+| List assets *(2.1 and EE only)*  | GET on `/assets` and on `/assets/{asset_code}` |
+| List asset categories *(2.1 and EE only)*  | GET on `/asset-categories` and on `/asset-categories/{asset_category_code}` |
 | Create and update categories | POST and PATCH on `/categories/{category_code}` <br/> PATCH on `/categories` |
 | Create and update families | POST and PATCH on `/families/{family_code}` <br/> PATCH on `/families` |
 | Create and update family variants *(2.0 only)* | POST and PATCH on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
@@ -294,6 +296,8 @@ You can tune more finely this permission by restricting or allowing the access t
 | Create and update attribute groups *(2.0 only)* | POST and PATCH on `/attribute-groups/{attribute_group_code}` <br/> PATCH on `/attribute-groups` |
 | Create and update association types *(2.0 only)* | POST and PATCH on `/association-types/{association_type_code}` <br/> PATCH on `/association-types` |
 | Create and update channels *(2.0 only)* | POST and PATCH on `/channels/{channel_code}` <br/> PATCH on `/channels` |
+| Create and update assets *(2.1 and EE only)* | POST and PATCH on `/assets/{asset_code}` <br/> PATCH on `/assets` |
+| Create and update asset categories *(2.1 and EE only)* | POST and PATCH on `/asset-categories/{asset_category_code}` <br/> PATCH on `/asset-categories` |
 
 :::warning
 As accessing the API grants higher privileges than when using the UI, we strongly recommend creating one or more dedicated users with specific roles for the web API.
