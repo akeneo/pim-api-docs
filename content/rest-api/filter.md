@@ -110,8 +110,8 @@ Here are the allowed operators you can use to filter on these properties as well
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
-| `IN` | an array of existing group or family | Only returns products that are respectively in the given families or groups |
-| `NOT IN`  | an array of existing group or family | Only returns products that are respectively not in the given families or groups |
+| `IN` | array of existing group or family | Only returns products that are respectively in the given families or groups |
+| `NOT IN`  | array of existing group or family | Only returns products that are respectively not in the given families or groups |
 | `EMPTY` | no value | Only returns products that have respectively no groups or no family |
 | `NOT EMPTY` | no value | Only returns products that have respectively a group or a family |
 
@@ -139,13 +139,13 @@ Note that dates are interpreted in the time zone of the server that runs Akeneo 
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
-| `=` | dateTime (ISO-8601) | Only returns products that were respectively updated or created during the given day |
-| `!=`  | dateTime (ISO-8601) | Only returns products that were respectively not updated or not created during the given day  |
-| `<` | dateTime (ISO-8601) | Only returns products that were respectively updated or created before the given day |
-| `>` | dateTime (ISO-8601) | Only returns products that were respectively updated or created after the given day |
-| `BETWEEN` | array[dateTime (ISO-8601),dateTime (ISO-8601)] | Only returns products that were respectively updated or created between the two given dates |
-| `NOT BETWEEN` | array[dateTime (ISO-8601),dateTime (ISO-8601)] | Only returns products that were respectively not updated or not created between the two given dates |
-| `SINCE LAST N DAYS` | integer | Only returns products that have respectively been updated or created since the last n days, n being the given value |
+| `=` | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns products that were respectively<br> updated or created during the given day |
+| `!=`  | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns products that were respectively<br> not updated or not created during the given day  |
+| `<` | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns products that were respectively<br> updated or created before the given day |
+| `>` | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns products that were respectively<br> updated or created after the given day |
+| `BETWEEN` | array of datetimes <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns products that were respectively<br> updated or created between the two given dates |
+| `NOT BETWEEN` | array of datetimes <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns products that were respectively<br> not updated or not created between the two given dates |
+| `SINCE LAST N DAYS` | integer | Only returns products that were respectively updated<br> or created during the last n days, n being the given value |
 |
 #### Examples
 To get the products that were created on the 4th of July 2016 at 10am, you can use the following URL.
