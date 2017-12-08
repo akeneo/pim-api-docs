@@ -69,7 +69,7 @@ get:
                   },
                   "locale":null,
                   "channel": "e_commerce",
-                  "code": "7/5/8/e/758e39d48va7b42a55001434fd3d7b6cf3189b7f_tshirt_artemis_main_picture-ecommerce.jpg"
+                  "code": "7/5/8/e/758e39d48va7b42a55001434fd3d7b6cf3189b7f_tshirt_artemis_main_picture_ecommerce.jpg"
                 },{
                   "_link": {
                    "download": {
@@ -81,7 +81,7 @@ get:
                   },
                   "locale": null,
                   "channel": "print",
-                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_main_picture-print.jpg"
+                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_main_picture_print.jpg"
                 }
               ],
               "reference_files":[
@@ -123,7 +123,7 @@ get:
                   },
                   "locale":null,
                   "channel": "e_commerce",
-                  "code": "7/5/8/e/758e39d48va7b42a55001434fd3d7b6cf3189b7f_tshirt_artemis_profile_picture-ecommerce.jpg"
+                  "code": "7/5/8/e/758e39d48va7b42a55001434fd3d7b6cf3189b7f_tshirt_artemis_profile_picture_ecommerce.jpg"
                 },{
                   "_link": {
                    "download": {
@@ -135,7 +135,7 @@ get:
                   },
                   "locale": null,
                   "channel": "print",
-                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_profile_picture-print.jpg"
+                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_profile_picture_print.jpg"
                 }
               ],
               "reference_files":[
@@ -177,7 +177,7 @@ get:
                     }
                   },
                   "locale": "en_US",
-                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_maintenance_manual-en_US.pdf"
+                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_maintenance_manual_en_US.pdf"
                 },
                 {
                   "_link": {
@@ -189,7 +189,7 @@ get:
                     }
                   },
                   "locale": "fr_FR",
-                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_maintenance_manual-fr_FR.pdf"
+                  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_maintenance_manual_fr_FR.pdf"
                 }
               ]  
             }
@@ -238,7 +238,7 @@ patch:
     - 2.1
   x-ee: true
   description: This endpoint allows you to update several assets at once.
-  x-body-by-line: Contains several lines, each line is a category in JSON standard format
+  x-body-by-line: Contains several lines, each line is an asset in JSON format
   parameters:
     - name: body
       in: body

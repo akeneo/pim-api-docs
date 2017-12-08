@@ -14,7 +14,7 @@ get:
   responses:
     200:
       description: OK
-      x-details: Returns the content of the variation file in JSON standard format
+      x-details: Returns the content of the variation file in JSON format
       schema:
         $ref: '#/definitions/AssetVariationFile'
     401:
