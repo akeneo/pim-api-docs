@@ -5,8 +5,9 @@ get:
   tags:
     - Families
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.0"
+    - "2.1"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -99,8 +100,9 @@ post:
   tags:
     - Families
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.0"
+    - "2.1"
   parameters:
     - name: body
       in: body
@@ -125,8 +127,9 @@ patch:
   tags:
     - Families
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.0"
+    - "2.1"
   description: This endpoint allows you to update and/or create several families at once.
   x-body-by-line: Contains several lines, each line is a family in JSON standard format
   parameters:

@@ -5,7 +5,8 @@ get:
   tags:
     - Currencies
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'

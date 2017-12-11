@@ -5,8 +5,9 @@ get:
   tags:
     - Attributes
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.0"
+    - "2.1"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -133,8 +134,9 @@ post:
   tags:
     - Attributes
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.0"
+    - "2.1"
   parameters:
     - name: body
       in: body
@@ -159,8 +161,9 @@ patch:
   tags:
     - Attributes
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.0"
+    - "2.1"
   description: This endpoint allows you to update and/or create several attributes at once.
   x-body-by-line: Contains several lines, each line is an attribute in JSON standard format
   parameters:

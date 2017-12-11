@@ -4,7 +4,8 @@ get:
   tags:
     - Products
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   x-ee: true
   description: This endpoint allows you to get the information about a given draft.
   parameters:

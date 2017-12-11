@@ -5,7 +5,8 @@ get:
   tags:
     - Measure families
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   parameters:
     - $ref: '#/parameters/code'
   responses:
