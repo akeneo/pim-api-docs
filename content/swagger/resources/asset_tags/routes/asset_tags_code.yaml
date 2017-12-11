@@ -1,0 +1,56 @@
+get:
+  summary: Get an asset tag
+  operationId: "get_asset_tags__code_"
+  description: This endpoint allows you to get the information about a given asset tag.
+  tags:
+    - Asset tags
+  x-versions:
+    - 2.1
+  x-ee: true
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the asset tag in JSON format
+      schema:
+        $ref: '#/definitions/AssetTag'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    406:
+      $ref: "#/responses/406Error"
+patch:
+  summary: Update/create an asset tag
+  operationId: "patch_asset_tags__code_"
+  tags:
+    - Asset tags
+  x-versions:
+    - 2.1
+  x-ee: true
+  description: This endpoint allows you to update a given asset tag. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no tag exists for the given code, it creates it.
+  parameters:
+    - $ref: '#/parameters/code'
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: "#/definitions/AssetTag"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    204:
+      $ref: "#/responses/NoContent"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"

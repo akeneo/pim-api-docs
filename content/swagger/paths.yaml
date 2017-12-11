@@ -64,6 +64,10 @@
   $ref: ./resources/asset_categories/routes/asset_categories.yaml
 /api/rest/v1/asset-categories/{code}:
   $ref: ./resources/asset_categories/routes/asset_categories_code.yaml
+/api/rest/v1/asset-tags:
+  $ref: ./resources/asset_tags/routes/asset_tags.yaml
+/api/rest/v1/asset-tags/{code}:
+  $ref: ./resources/asset_tags/routes/asset_tags_code.yaml
 
 /api/rest/v1/locales:
   $ref: ./resources/locales/routes/locales.yaml

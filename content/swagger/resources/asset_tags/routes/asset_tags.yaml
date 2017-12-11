@@ -1,0 +1,80 @@
+get:
+  summary: Get list of asset tags
+  operationId: "get_asset_tags"
+  description: This endpoint allows you to get a list of asset tags. Asset tags are paginated.
+  tags:
+    - Asset tags
+  x-versions:
+    - 2.1
+  x-ee: true
+  parameters:
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Returns asset tags paginated
+      schema:
+        title: Asset Tags
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/AssetTagList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/asset-tags?page=2&limit=3"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/asset-tags?page=1&limit=3"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/asset-tags?page=1&limit=3"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/asset-tags?page=3&limit=3"
+          }
+        },
+        current_page: 2,
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/asset-tags/tshirt"
+                }
+              },
+              "code": "tshirt"
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/asset-tags/belt"
+                }
+              },
+              "code": "belt"
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/asset-tags/red"
+                }
+              },
+              "code": "red"
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
