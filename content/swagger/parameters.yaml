@@ -42,6 +42,24 @@ attribute_code:
   description: Code of the attribute
   required: true
   type: string
+asset_code:
+  name: asset_code
+  in: path
+  description: Code of the asset
+  required: true
+  type: string
+channel_code:
+  name: channel_code
+  in: path
+  description: Code of the channel
+  required: true
+  type: string
+locale_code:
+  name: locale_code
+  in: path
+  description: Code of the locale
+  required: true
+  type: string
 family_code:
   name: family_code
   in: path
