@@ -24,23 +24,23 @@ HTTP/1.1 422 Unprocessable entity
   "message":"You cannot request more than 100 items." 
 }
 ```
+The limit is set to 100 because this is a good trade-off between memory consumption and performance (on server side).
 :::
 
 To request paginated entities, you can use the [offset method](/documentation/pagination.html#offset-method).
 
-Products, product models and published products can also be paginated with another method, the [search after method](/documentation/pagination.html#search-after-method).
-This method is recommended for performance concern.
+For high volume entities, such as the products, product models, published products and assets, we provide another pagination method, the [search after method](/documentation/pagination.html#search-after-method). We recommend to use this method if you want to have good performances.
 
 ## Search-after method 
 
+To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. The entities you will get, will then be sorted by product primary key to speed up performance.
+
 :::warning
-This pagination method is only available for products, product models and published products.
+This pagination method is only available for products (since 1.7), product models (since 2.0), published products (since 2.0) and assets (since 2.1).
 :::
 
-Do note that `Search after` method is better than `Offset`method in term of performances.
-It is strongly recommended to use it with products, product models and published products.
-
-To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. The entities you will get will then be sorted by product primary key to speed up performance.
+Do note that the `Search after` method is better than `Offset` method in term of performances.
+It is strongly recommended to use it when requesting entities that have high data volume such as the products, the product models, the published products and the assets.
 
 Additionally, there is a `search_after` query parameter that is used as a cursor.
 
