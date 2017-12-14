@@ -142,7 +142,7 @@ patch:
         $ref: "#/definitions/AttributeOption"
         x-examples:
           x-example-1:
-            '{"code":"black", "labels":{"en_US": "Black","fr_FR": "Noir"}}'
+            '{"code":"black", "attribute":"a_simple_select", "labels":{"en_US": "Black","fr_FR": "Noir"}}'
           x-example-2:
             '{"code":"red", "label":{"en_US": "Red","fr_FR": "Rouge"}}'
           x-example-3:
