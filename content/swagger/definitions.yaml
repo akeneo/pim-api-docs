@@ -137,6 +137,13 @@ AssetCategoryList:
   allOf:
     - $ref:  '#/definitions/ItemList'
     - $ref: '#/definitions/AssetCategory'
+AssetTag:
+  $ref: ./resources/asset_tags/definitions/asset_tag.yaml
+AssetTagList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/AssetTag'
 
 Error:
   type: object
