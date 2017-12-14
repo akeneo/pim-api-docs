@@ -35,7 +35,7 @@
                                         <div>
                                             <ul class="nav nav-tabs nav-tabs-versions" role="tablist">
                                                 <li role="presentation" class="active">
-                                                    <a href="#v2_create_a_role" aria-controls="v2_create_a_role" role="tab" data-toggle="tab">v2.0</a>
+                                                    <a href="#v2_create_a_role" aria-controls="v2_create_a_role" role="tab" data-toggle="tab">v2.x</a>
                                                 </li>
                                                 <li role="presentation">
                                                     <a href="#v17_create_a_role" aria-controls="v17_create_a_role" role="tab" data-toggle="tab">v1.7</a>
@@ -59,7 +59,7 @@
                                         <div>
                                             <ul class="nav nav-tabs nav-tabs-versions" role="tablist">
                                                 <li role="presentation" class="active">
-                                                    <a href="#v2_activate_api_access" aria-controls="v2_activate_api_access" role="tab" data-toggle="tab">v2.0</a>
+                                                    <a href="#v2_activate_api_access" aria-controls="v2_activate_api_access" role="tab" data-toggle="tab">v2.x</a>
                                                 </li>
                                                 <li role="presentation">
                                                     <a href="#v17_activate_api_access" aria-controls="v17_activate_api_access" role="tab" data-toggle="tab">v1.7</a>
@@ -100,7 +100,7 @@
                                         <div>
                                             <ul class="nav nav-tabs nav-tabs-versions" role="tablist">
                                                 <li role="presentation" class="active">
-                                                    <a href="#v2_locales" aria-controls="v2_locales" role="tab" data-toggle="tab">v2.0</a>
+                                                    <a href="#v2_locales" aria-controls="v2_locales" role="tab" data-toggle="tab">v2.x</a>
                                                 </li>
                                                 <li role="presentation">
                                                     <a href="#v17_locales" aria-controls="v17_locales" role="tab" data-toggle="tab">v1.7</a>
@@ -141,11 +141,11 @@
                                         <p>Go to the <code>System</code> menu of your PIM and select the <code>API connections</code> entry.</p> From here, you can click on the <code>Create</code> button. Give a name to the connection you are about to create and confirrm. The PIM will then automatically create credentials for you, that you will find in the API connections grid.</p>
                                         <img class="img-responsive" src="/img/screenshots/v2.0/authentication_ui.png"></img>
                                         <div class="alert alert-warning">
-                                            This feature is only available in the PIM 2.0. If you are trying to use the API on a 1.7 PIM, please have a look to the second method below.
+                                            This feature is only available since the 2.0 version. If you are trying to use the API on a 1.7 PIM, please have a look to the second method below.
                                         </div>
                                         <h3>With a command line</h3>
                                         <p>Alternatively, you can create the client id and secret with a single command line directly on the PIM server.</p>
-                                        <h4>With the 2.0 version</h4>
+                                        <h4>With a 2.x version</h4>
 <pre class="hljs"><code>php bin/console pim:oauth-server:create-client my-customer-account \
     --grant_type=<span class="hljs-string">"password"</span> \
     --grant_type=<span class="hljs-string">"refresh_token"</span> \
@@ -165,7 +165,7 @@ secret: 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s
 label: my-customer-account</code>
                                         </pre>
                                         <p>Give by any mean of your choice these credentials to Peter. And that's it! Thanks to it, he will be able to finally access the API. Take a look to the <a href="getting-started.html">Developer Getting started</a> to know how.</p>
-                                        <div class="alert alert-info">To revoke the access, you just have to revoke it from the <code>API connections</code> screen (in 2.0) or run a single command line (in 1.7). To have more details, take a look at the <a href="/documentation/security.html">Security</a> section of the documention.</div>
+                                        <div class="alert alert-info">To revoke the access, you just have to revoke it from the <code>API connections</code> screen (in 2.x) or run a single command line (in 1.7). To have more details, take a look at the <a href="/documentation/security.html">Security</a> section of the documention.</div>
                                     </div>
                                 </div>
                             </div>
