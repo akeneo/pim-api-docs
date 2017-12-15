@@ -13,7 +13,7 @@ You can have one or more locales activated in your PIM.
 
 In the Akeneo UI, you can find the locales in the `Settings`/`Locales` menu.
 
-::: versions id="locales" 2.0![Locales in the Akeneo UI](/img/screenshots/v2.0/locales_ui.png) 1.7![Locales in the Akeneo UI](/img/screenshots/v1.7/locales_ui.png)
+::: versions id="locales" 2.x![Locales in the Akeneo UI](/img/screenshots/v2.0/locales_ui.png) 1.7![Locales in the Akeneo UI](/img/screenshots/v1.7/locales_ui.png)
 :::
 
 Below is the JSON standard format representing this set of locales.
@@ -50,7 +50,7 @@ A channel is also known as a «scope» in the Akeneo PIM.
 
 In the Akeneo UI, you can find them in the `Settings`/`Channels` menu.
 
-::: versions id="channels" 2.0![Channels in the Akeneo UI](/img/screenshots/v2.0/channels_ui.png) 1.7![Channels in the Akeneo UI](/img/screenshots/v1.7/channels_ui.png)
+::: versions id="channels" 2.x![Channels in the Akeneo UI](/img/screenshots/v2.0/channels_ui.png) 1.7![Channels in the Akeneo UI](/img/screenshots/v1.7/channels_ui.png)
 :::
 
 Below is the JSON standard format representing this set of channels when requested through the API.
@@ -130,9 +130,9 @@ A category is a way of classifying products. Categories constitute category tree
 A product can be classified in one or n categories.
 :::
 
-In the Akeneo UI in 2.0, you can find the categories in the `Settings`/`Categories` menu. In the 1.7, you'll find it in the `Enrich`/`Categories` menu.
+In the Akeneo UI in v2.x, you can find the categories in the `Settings`/`Categories` menu. In the 1.7, you'll find it in the `Enrich`/`Categories` menu.
 
-::: versions id="categories" 2.0![Categories in the Akeneo UI](/img/screenshots/v2.0/categories_ui.png) 1.7![Categories in the Akeneo UI](/img/screenshots/v1.7/categories_ui.png)
+::: versions id="categories" 2.x![Categories in the Akeneo UI](/img/screenshots/v2.0/categories_ui.png) 1.7![Categories in the Akeneo UI](/img/screenshots/v1.7/categories_ui.png)
 :::
 
 Below is the JSON standard format representing a set of categories.
@@ -183,7 +183,7 @@ An attribute cannot be both localizable and locale specific at the same time.
 
 In the Akeneo UI, you can find the attributes in the `Settings`/`Attributes` menu. Below is an example of one attribute in the UI.
 
-::: versions id="attributes" 2.0![Attributes in the Akeneo UI](/img/screenshots/v2.0/attributes_ui.png) 1.7![Attributes in the Akeneo UI](/img/screenshots/v1.7/attributes_ui.png)
+::: versions id="attributes" 2.x![Attributes in the Akeneo UI](/img/screenshots/v2.0/attributes_ui.png) 1.7![Attributes in the Akeneo UI](/img/screenshots/v1.7/attributes_ui.png)
 :::
 
 Below is the JSON standard format representing this attribute.
@@ -234,7 +234,7 @@ Only attribute of type simple select, multiselect, reference data simple select 
 
 In the Akeneo UI, you can find the attribute options in the `Settings`/`Attributes` menu, then select a simple or multiselect attribute and go to the `Values` tab in the attribute form. Below is an example of the attribute options of the attribute `camera_brand` in the UI.
 
-::: versions id="attribute_options" 2.0![Attribute options in the Akeneo UI](/img/screenshots/v2.0/attribute_options_ui.png) 1.7![Attribute options in the Akeneo UI](/img/screenshots/v1.7/attribute_options_ui.png)
+::: versions id="attribute_options" 2.x![Attribute options in the Akeneo UI](/img/screenshots/v2.0/attribute_options_ui.png) 1.7![Attribute options in the Akeneo UI](/img/screenshots/v1.7/attribute_options_ui.png)
 :::
 
 Below is the JSON standard format representing these attribute options.
@@ -283,7 +283,7 @@ Nevertheless, a product does not have to belong to a family. In this case, it ha
 
 In the Akeneo UI, you can find the families in the `Settings`/`Families` menu. Below is an example of a family in the UI.
 
-::: versions id="families" 2.0![Families in the Akeneo UI](/img/screenshots/v2.0/families_ui.png) 1.7![Families in the Akeneo UI](/img/screenshots/v1.7/families_ui.png)
+::: versions id="families" 2.x![Families in the Akeneo UI](/img/screenshots/v2.0/families_ui.png) 1.7![Families in the Akeneo UI](/img/screenshots/v1.7/families_ui.png)
 :::
 
 Below is the JSON standard format representing this family.
@@ -344,7 +344,7 @@ Below is the JSON standard format representing this family.
 ::: panel-link Want more details about the family resource? [Check its endpoints here!](/api-reference.html#Families)
 :::
 
-### Family variant (2.0 only)
+### Family variant (2.x only)
 
 The family variant is the entity used to modelize the products with variants.
 
@@ -403,7 +403,7 @@ Endpoints for the family variants are only available starting the 2.0 version.
 
 ## Secondary catalog entities
 
-### Association type (2.0 only)
+### Association type (2.x only)
 
 In the PIM, a product can be associated to another. You can create an association type to specify what is the nature of this association.
 
@@ -439,7 +439,7 @@ Endpoints for the association types are only available starting the 2.0 version.
 ::: panel-link Want more details about the association type resource? [Check its endpoints here!](/api-reference.html#Associationtypes)
 :::
 
-### Attribute group (2.0 only)
+### Attribute group (2.x only)
 
 To facilitate the work of Julia inside the PIM, we gather attributes into groups. These groups are called `Attribute groups`.
 
@@ -479,7 +479,7 @@ Endpoints for the attribute groups are only available starting the 2.0 version.
 ::: panel-link Want more details about the attribute group resource? [Check its endpoints here!](/api-reference.html#Attributegroups)
 :::
 
-### Currency (2.0 only)
+### Currency (2.x only)
 If you want to store price information inside your PIM, you will need currencies.
 
 In the Akeneo UI, you can find the currencies in the `Settings`/`Currencies` menu. Below is a screenshot of all currencies in the UI.
@@ -502,7 +502,7 @@ Endpoints for the currencies are only available starting the 2.0 version.
 ::: panel-link Want more details about the currency resource? [Check its endpoints here!](/api-reference.html#Currencies)
 :::
 
-### Measure family (2.0 only)
+### Measure family (2.x only)
 If you want to store metrics regarding your product such as weight, height or power inside your PIM, you will need measure families. These entities will be really helpful in the case you are requesting products for a given channel and you want these metrics attributes to be converted into the units you specified in your channel.
 
 Below is an example of one of these metrics attributes.
@@ -543,7 +543,7 @@ It is used as the attribute value of a product, i.e. a product value.
 
 In the Akeneo UI, you can find media files in the product form when they are associated to a media attribute.
 
-::: versions id="media-files" 2.0![Media files in the Akeneo UI](/img/screenshots/v2.0/media_files_ui.png) 1.7![Media files in the Akeneo UI](/img/screenshots/v1.7/media_files_ui.png)
+::: versions id="media-files" 2.x![Media files in the Akeneo UI](/img/screenshots/v2.0/media_files_ui.png) 1.7![Media files in the Akeneo UI](/img/screenshots/v1.7/media_files_ui.png)
 :::
 
 Below is the JSON standard format representing a media file.
@@ -579,7 +579,7 @@ The main difference is that the media files cannot be classified, they are not r
 Also, assets are really more powerful, you can automatically generate variations of your file depending on your channel.
 :::
 
-In the Akeneo UI, you can find the PAM, where all the assets are stored, in the `Assets` menu. Below is a screenshot of the PAM.
+In the Akeneo UI in v2.x, you can find the PAM, where all the assets are stored, in the `Assets` menu. Below is a screenshot of the PAM.
 
 ![Assets in the Akeneo UI](/img/screenshots/v2.0/assets_ui.png)
 
@@ -647,7 +647,7 @@ An asset category allows you to organise your assets. Asset categories are reall
 An asset can be classified in several asset categories.
 :::
 
-In the Akeneo UI in 2.0, you can find the asset categories under the `Settings`/`Asset categories` menu.
+In the Akeneo UI in v2.x, you can find the asset categories under the `Settings`/`Asset categories` menu.
 
 ![Asset categories in the Akeneo UI](/img/screenshots/v2.0/asset_categories_ui.png)
 
@@ -690,7 +690,7 @@ In other words, this really is the heart entity of the PIM.
 
 In the Akeneo UI, you can find the products in the `Enrich`/`Products` menu. Below is an example of a product in the UI.
 
-::: versions id="products" 2.0![Products in the Akeneo UI](/img/screenshots/v2.0/products_ui.png) 1.7![Products in the Akeneo UI](/img/screenshots/v1.7/products_ui.png)
+::: versions id="products" 2.x![Products in the Akeneo UI](/img/screenshots/v2.0/products_ui.png) 1.7![Products in the Akeneo UI](/img/screenshots/v1.7/products_ui.png)
 :::
 
 Below is the JSON standard format representing a product.
@@ -770,11 +770,11 @@ Below is the JSON standard format representing a product.
 ```
 
 ::: warning
-Note that the `parent` field is only available in the 2.0 version, as this is a brand new feature of the 2.0.
+Note that the `parent` field is only available in the 2.x versions, as this is a brand new feature introduced in the v2.0.
 :::
 
 ::: warning
-Note that the `metadata` field in only available in the 2.0 version and as it is an Enterprise Edition feature, you won't have this field on a Community Edition PIM.
+Note that the `metadata` field in only available in the 2.x versions and as it is an Enterprise Edition feature, you won't have this field on a Community Edition PIM.
 :::
 
 ::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Products)
@@ -934,7 +934,7 @@ Note that the `locale` and `scope` properties are all set to `null` in this case
 :::
 
 
-### Product model (2.0 only)
+### Product model (2.x only)
 
 The product model gathers similar products that differ in some aspects, and allows the enrichment of their common properties.
 
@@ -993,7 +993,7 @@ Endpoints for the product models are only available starting the 2.0 version.
 ::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodels)
 :::
 
-### Published product (2.0 and EE only)
+### Published product (2.x and EE only)
 
 A published product is a product that was published by a user in order to freeze a given version of the product. It can be very useful when you want to work on a new version of your product for the next collection for example, but in the meantime, you still want to export the previous version of your product to your channels.
 
@@ -1001,7 +1001,7 @@ A published product is a product that was published by a user in order to freeze
 This is an Enterprise Edition feature. So you won't be able to call this endpoint if you are working on a Community Edition PIM. ;)
 :::
 
-In the Akeneo UI v2.0, you can find the published products by clicking on the `...` button in the top right corner, when you are on the products grid. Then select the `Published products` option. You will then see a grid really similar to the classical product grid.
+In the Akeneo UI in v2.x, you can find the published products by clicking on the `...` button in the top right corner, when you are on the products grid. Then select the `Published products` option. You will then see a grid really similar to the classical product grid.
 
 Below is the JSON standard format representing a published product. Notice how totally similar to the classical product format it is!
 

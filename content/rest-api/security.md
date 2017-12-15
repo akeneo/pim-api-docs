@@ -14,7 +14,7 @@ To increase security, the OAuth protocol specifies that a client id comes with a
 
 There are two ways to create these credentials.
 
-#### With the PIM UI (2.0 only)
+#### With the PIM UI (2.x only)
 
 Log in in your favorite PIM and click on the `System` menu. Then select the `API connections` entry. Here, you should find a `Create` button. When you click on it, the interface asks you for a label. Give a name that will represents what is going to do the connector or tool that will be using this access to the API.
 
@@ -24,7 +24,7 @@ When you confirm, the PIM automatically generates a client id and secret, that y
 
 To create a new pair of client id / secret, use the following command directly on the PIM server.
 
-**With the 2.0 version**
+**With a 2.x version**
 ```bash
 php bin/console pim:oauth-server:create-client "Magento connector" \
     --grant_type="password" \
@@ -74,7 +74,7 @@ Client ids are not enough to access the API, it's the role of tokens. See [Getti
 
 API connections can be revoked at any moment by the administrator. In this case, all tokens created with the revoked client id of the API connection will be invalidated and the application using this connection will be unable to ask for a new one.
 
-#### With the PIM UI (2.0 only)
+#### With the PIM UI (2.x only)
 
 You can revoke an API connection, in the `API connections` entry you will find in the `System` menu.
 
@@ -82,7 +82,7 @@ You can revoke an API connection, in the `API connections` entry you will find i
 
 Alternatively, you can also use the following command on the PIM server.
 
-**With the 2.0 version**
+**With a 2.x version**
 ```bash
 php bin/console pim:oauth-server:revoke-client the-client-id --env=prod
 ```
@@ -103,7 +103,7 @@ Client with public id 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s and sec
 
 ### List all API connections
 
-#### With the PIM UI (2.0 only)
+#### With the PIM UI (2.x only)
 
 Just click on the `API connections` entry you will find in the `System` menu to see the full list of API connections that have been created.
 
@@ -111,7 +111,7 @@ Just click on the `API connections` entry you will find in the `System` menu to 
 
 To get the list of all existing API connections use the following command:
 
-**With the 2.0 version**
+**With a 2.x version**
 ```shell
 php bin/console pim:oauth-server:list-clients --env=prod
 ```
@@ -263,7 +263,7 @@ The response is the same as when asking for the initial token except that it con
 Like when using the PIM through the UI, ACLs are here to define what a user can and cannot do.
 In the role form, a `Web API permissions` tab includes several ACLs specially crafted for the API.
 
-::: versions id="web_api_permission" 2.0![Web API permission tab screenshot](/img/screenshots/v2.0/activate_api_access.png) 1.7![Web API permission tab screenshot](/img/screenshots/v1.7/activate_api_access.png)
+::: versions id="web_api_permission" 2.x![Web API permission tab screenshot](/img/screenshots/v2.0/activate_api_access.png) 1.7![Web API permission tab screenshot](/img/screenshots/v1.7/activate_api_access.png)
 :::
 
 ### Overall access
@@ -278,24 +278,24 @@ You can tune more finely this permission by restricting or allowing the access t
 |-----------------|-------------------|
 | List categories | GET on `/categories` and on `/categories/{category_code}`|
 | List families | GET on `/families` and on `/families/{family_code}`|
-| List family variants *(2.0 only)* | GET on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
+| List family variants *(2.x only)* | GET on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
 | List attributes | GET on `/attributes` and on `/attributes/{attribute_code}` |
 | List attribute options | GET on `/attributes/{attribute_code}/options` and on `/attributes/{attribute_code}/options/{attribute_option_code}` |
-| List attribute group *(2.0 only)* | GET on `/attribute-groups` and on `/attributes-groups/{attribute_groups_code}` |
-| List association types *(2.0 only)* | GET on `/association-types` and on `/association-types/{association_type_code}` |
+| List attribute group *(2.x only)* | GET on `/attribute-groups` and on `/attributes-groups/{attribute_groups_code}` |
+| List association types *(2.x only)* | GET on `/association-types` and on `/association-types/{association_type_code}` |
 | List channels | GET on `/channels` and on `/channels/{channel_code}` |
 | List locales | GET on `/locales` and on `/locales/{locale_code}` |
-| List currencies *(2.0 only)*  | GET on `/currencies` and on `/currencies/{currency_code}` |
+| List currencies *(2.x only)*  | GET on `/currencies` and on `/currencies/{currency_code}` |
 | List assets *(2.1 and EE only)*  | GET on `/assets` and on `/assets/{asset_code}` <br/> GET on `assets/{asset_code}/reference-files/{locale_code}` and on `assets/{asset_code}/reference-files/{locale_code}/download` <br/> GET on `/assets/{asset_code}/variation-files/{channel_code}/{locale_code}` and on `/assets/{asset_code}/variation-files/{channel_code}/{locale_code}/download` |
 | List asset categories *(2.1 and EE only)*  | GET on `/asset-categories` and on `/asset-categories/{asset_category_code}` |
 | Create and update categories | POST and PATCH on `/categories/{category_code}` <br/> PATCH on `/categories` |
 | Create and update families | POST and PATCH on `/families/{family_code}` <br/> PATCH on `/families` |
-| Create and update family variants *(2.0 only)* | POST and PATCH on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
+| Create and update family variants *(2.x only)* | POST and PATCH on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
 | Create and update attributes | POST and PATCH on `/attributes/{attribute_code}` <br/> PATCH on `/attributes`|
 | Create and update attribute options | POST and PATCH on `/attributes/{attribute_code}/options/{attribute_option_code}` <br/> PATCH on `/attributes/{attribute_code}/options` |
-| Create and update attribute groups *(2.0 only)* | POST and PATCH on `/attribute-groups/{attribute_group_code}` <br/> PATCH on `/attribute-groups` |
-| Create and update association types *(2.0 only)* | POST and PATCH on `/association-types/{association_type_code}` <br/> PATCH on `/association-types` |
-| Create and update channels *(2.0 only)* | POST and PATCH on `/channels/{channel_code}` <br/> PATCH on `/channels` |
+| Create and update attribute groups *(2.x only)* | POST and PATCH on `/attribute-groups/{attribute_group_code}` <br/> PATCH on `/attribute-groups` |
+| Create and update association types *(2.x only)* | POST and PATCH on `/association-types/{association_type_code}` <br/> PATCH on `/association-types` |
+| Create and update channels *(2.x only)* | POST and PATCH on `/channels/{channel_code}` <br/> PATCH on `/channels` |
 | Create and update assets *(2.1 and EE only)* | POST and PATCH on `/assets/{asset_code}` <br/> PATCH on `/assets` <br/> POST on `/assets/{asset_code}/reference-files/{locale_code}` <br/> POST on `/assets/{asset_code}/variation-files/{channel_code}/{locale_code}` |
 | Create and update asset categories *(2.1 and EE only)* | POST and PATCH on `/asset-categories/{asset_category_code}` <br/> PATCH on `/asset-categories` |
 
@@ -304,5 +304,5 @@ As accessing the API grants higher privileges than when using the UI, we strongl
 :::
 
 :::info
-Note that if a role has `Overall Web API` access, then it means that all the users depending on that role will be able to make requests on products, product models and published products. There is no way to only restrict the access on products, except if you are using a 2.0 Enterprise Edition. In this case, the EE permissions based on user groups are applied on the API for the products and the published products.
+Note that if a role has `Overall Web API` access, then it means that all the users depending on that role will be able to make requests on products, product models and published products. There is no way to only restrict the access on products, except if you are using a 2.x Enterprise Edition. In this case, the EE permissions based on user groups are applied on the API for the products and the published products.
 :::

@@ -29,7 +29,7 @@ properties:
     default: []
   parent:
     type: string
-    description: Code of the parent product model when the product is a variant (only available in v2.0)
+    description: Code of the parent product model when the product is a variant (only available in 2.x)
     x-validation-rules: It is equal to an existing product model code only if the product is variant otherwise it's equal to null
     default: "null"
     x-immutable: true
@@ -83,12 +83,12 @@ properties:
     x-read-only: true
   metadata:
     type: object
-    description: More information around the product (only available in the Enterprise Edition)
+    description: More information around the product (only available in the v2.x Enterprise Edition)
     x-immutable: true
     x-read-only: true
     properties:
       workflow_status:
-        description: Status of the product regarding the user permissions (only available in the Enterprise Edition)
+        description: Status of the product regarding the user permissions (only available in the v2.x Enterprise Edition)
         type: string
         enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
     

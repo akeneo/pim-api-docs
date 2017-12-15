@@ -99,18 +99,18 @@ gulp.task('documentation', ['clean-dist','less'], function () {
                 return params.trim().match(/^versions(.*)$/);
             },
             render: function (tokens, idx) {
-                var id = tokens[idx].info.trim().match(/^versions\sid="(.*)"\s2\.0.*\s1\.7.*$/);
-                var source_v20 = tokens[idx].info.trim().match(/^versions\sid=".*"\s2\.0(.*)\s1\.7.*$/);
-                var source_v17 = tokens[idx].info.trim().match(/^versions\sid=".*"\s2\.0.*\s1\.7(.*)$/);
+                var id = tokens[idx].info.trim().match(/^versions\sid="(.*)"\s2\.x.*\s1\.7.*$/);
+                var source_v2x = tokens[idx].info.trim().match(/^versions\sid=".*"\s2\.x(.*)\s1\.7.*$/);
+                var source_v17 = tokens[idx].info.trim().match(/^versions\sid=".*"\s2\.x.*\s1\.7(.*)$/);
                 return (tokens[idx].nesting === 1) ? '<div>' +
                     '<ul class="nav nav-tabs nav-tabs-versions" role="tablist">' +
-                        '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">v2.0</a></li>' +
+                        '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">v2.x</a></li>' +
                         '<li role="presentation"><a href="#v17_' + id[1] + '" aria-controls="v17_' + id[1] + '" role="tab" data-toggle="tab">v1.7</a></li>' +
                     '</ul>' +
                     '<div class="panel panel-default">' +
                         '<div class="panel-body">' +
                             '<div class="row tab-content">'+
-                                '<div role="tabpanel" class="col-xs-12 tab-pane active" id="v2_' + id[1] + '">' + md.render(source_v20[1]) + '</div>' +
+                                '<div role="tabpanel" class="col-xs-12 tab-pane active" id="v2_' + id[1] + '">' + md.render(source_v2x[1]) + '</div>' +
                                 '<div role="tabpanel" class="col-xs-12 tab-pane" id="v17_' + id[1] + '">' + md.render(source_v17[1]) + '</div>'
                          : '</div>\n</div>\n</div>\n</div>\n';
             }
