@@ -7,7 +7,7 @@ properties:
   attribute:
     type: string
     description: Code of attribute related to the attribute option
-    x-validation-rules: It is the same attribute code that the one given as path parameter
+    x-validation-rules: It is the same attribute code as the one given as path parameter
   sort_order:
     type: integer
     description: Order of attribute option
