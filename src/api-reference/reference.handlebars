@@ -133,7 +133,9 @@
                                                     {{#each groupedParameters.header}}
                                                         <p>
                                                             <code>{{{name}}}</code>
+                                                            {{#if required}}
                                                             <a href="#" data-placement="top" data-toggle="tooltip" title="Required header"> <i class="fa fa-asterisk fa-danger"></i> </a>
+                                                            {{/if}}
                                                             <small>&bull; {{{description}}}</small>
                                                         </p>
                                                     {{/each}}
