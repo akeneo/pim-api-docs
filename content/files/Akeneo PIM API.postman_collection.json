@@ -7,6 +7,709 @@
 	},
 	"item": [
 		{
+			"name": "Asset (2.1 only)",
+			"description": "",
+			"item": [
+				{
+					"name": "asset (2.1 only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/assets/paint",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"assets",
+								"paint"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset"
+					},
+					"response": []
+				},
+				{
+					"name": "assets (2.1 only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/assets?limit=10&with_count=false",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"assets"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"equals": true
+								},
+								{
+									"key": "with_count",
+									"value": "false",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "asset (2.1 only)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"new_asset\",\n    \"localizable\": false,\n    \"description\": \"An amazing asset\",\n    \"end_of_use\": \"2018-05-12T00:00:00+02:00\",\n    \"tags\": [\"colored\"],\n    \"categories\": [\n        \"images\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/assets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"assets"
+							]
+						},
+						"description": "Assuming that there is no \"new_asset\" already existing"
+					},
+					"response": []
+				},
+				{
+					"name": "asset (2.1 only)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"paint\",\n    \"localizable\": false,\n    \"description\": \"Photo of a paint.\",\n    \"end_of_use\": \"2006-05-12T00:00:00+02:00\",\n    \"tags\": [],\n    \"categories\": [\n        \"images\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/assets/paint",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"assets",
+								"paint"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "assets (2.1 only)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.akeneo.collection+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\": \"new_asset\", \"categories\": [\"images\"]}\n{\"code\": \"new_asset_2\"}\n{\"code\": \"paint\", \"description\": \"Update the description here\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/assets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"assets"
+							]
+						},
+						"description": "\n"
+					},
+					"response": []
+				},
+				{
+					"name": "asset reference file (2.1 only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/assets/paint/reference-files/no-locale",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"assets",
+								"paint",
+								"reference-files",
+								"no-locale"
+							]
+						},
+						"description": "Assuming that the given codes are respectively the code of an existing asset and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
+					},
+					"response": []
+				},
+				{
+					"name": "asset reference file (2.1 only)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"value": "",
+									"description": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/assets/paint/reference-files/no-locale",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"assets",
+								"paint",
+								"reference-files",
+								"no-locale"
+							]
+						},
+						"description": "Assuming that the given codes are respectively the code of an existing asset and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
+					},
+					"response": []
+				},
+				{
+					"name": "download asset reference file (2.1 only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/assets/paint/reference-files/no-locale/download",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"assets",
+								"paint",
+								"reference-files",
+								"no-locale",
+								"download"
+							]
+						},
+						"description": "Assuming that the given codes are respectively the code of an existing asset and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
+					},
+					"response": []
+				},
+				{
+					"name": "asset variation file (2.1 only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/assets/paint/variation-files/ecommerce/no-locale",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"assets",
+								"paint",
+								"variation-files",
+								"ecommerce",
+								"no-locale"
+							]
+						},
+						"description": "Assuming that the given codes are respectively the code of an existing asset, an existing channel and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
+					},
+					"response": []
+				},
+				{
+					"name": "asset variation file (2.1 only)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"value": "",
+									"description": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/assets/paint/variation-files/ecommerce/no-locale",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"assets",
+								"paint",
+								"variation-files",
+								"ecommerce",
+								"no-locale"
+							]
+						},
+						"description": "Assuming that the given codes are respectively the code of an existing asset, an existing channel and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
+					},
+					"response": []
+				},
+				{
+					"name": "download asset variation file (2.1 only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/assets/paint/variation-files/ecommerce/no-locale/download",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"assets",
+								"paint",
+								"variation-files",
+								"ecommerce",
+								"no-locale",
+								"download"
+							]
+						},
+						"description": "Assuming that the given codes are respectively the code of an existing asset, an existing channel and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Asset category (2.1 only)",
+			"description": "",
+			"item": [
+				{
+					"name": "asset category (2.1 only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-categories/asset_main_catalog",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-categories",
+								"asset_main_catalog"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset category"
+					},
+					"response": []
+				},
+				{
+					"name": "asset categories (2.1 only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-categories?limit=10&with_count=false",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-categories"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"equals": true
+								},
+								{
+									"key": "with_count",
+									"value": "false",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "asset category (2.1 only)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\":\"new_asset_category\",\n  \"parent\":\"asset_main_catalog\",\n  \"labels\": {\n    \"de_DE\":\"new asset category label DE\",\n    \"en_US\":\"new asset category label US\",\n    \"fr_FR\":\"new asset category label FR\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-categories"
+							]
+						},
+						"description": "Assuming that there is no \"new_asset_category\" already existing"
+					},
+					"response": []
+				},
+				{
+					"name": "asset category (2.1 only)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\":\"new_asset_category\",\n  \"parent\":\"asset_main_catalog\",\n  \"labels\": {\n    \"de_DE\":\"new asset category label DE\",\n    \"en_US\":\"new asset category label US\",\n    \"fr_FR\":\"new asset category label FR\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-categories/new_asset_category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-categories",
+								"new_asset_category"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "asset categories (2.1 only)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.akeneo.collection+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\": \"new_asset_category\", \"parent\": \"asset_main_catalog\"}\n{\"code\": \"new_asset_category_tree\"}\n{\"code\": \"images\", \"labels\":{\"fr_FR\":\"Images\"}}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-categories"
+							]
+						},
+						"description": "\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Asset tag (2.1 only)",
+			"description": "",
+			"item": [
+				{
+					"name": "asset tag (2.1 only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-tags/colored",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-tags",
+								"colored"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset tag"
+					},
+					"response": []
+				},
+				{
+					"name": "asset tags (2.1 only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-tags?limit=10&with_count=false",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-tags"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"equals": true
+								},
+								{
+									"key": "with_count",
+									"value": "false",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "asset tag (2.1 only)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\":\"colored\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-tags/colored",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-tags",
+								"colored"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Association type (2.x only)",
 			"description": "",
 			"item": [
@@ -347,6 +1050,183 @@
 			]
 		},
 		{
+			"name": "Attribute option",
+			"description": "",
+			"item": [
+				{
+					"name": "attribute option",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes/main_color/options/white",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes",
+								"main_color",
+								"options",
+								"white"
+							]
+						},
+						"description": "Assuming that the given codes are respectively the code of an existing attribute and an existing option of this attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "attribute options",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes/main_color/options",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes",
+								"main_color",
+								"options"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "attribute option",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\":\"yellow\",\n  \"attribute\": \"main_color\",\n  \"sort_order\": 10,\n  \"labels\": {\n      \"de_DE\": \"Gelb\",\n      \"en_US\": \"Yellow\",\n      \"fr_FR\": \"Jaune\"\n  }\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes/main_color/options",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes",
+								"main_color",
+								"options"
+							]
+						},
+						"description": "Assuming that there is no \"yellow\" option already existing for the given attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "attribute option",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"white\",\n  \"attribute\": \"main_color\",\n  \"sort_order\": 1,\n  \"labels\": {\n    \"de_DE\": \"Weiß\",\n    \"en_US\": \"White\",\n    \"fr_FR\": \"Blanc\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes/main_color/options/white",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes",
+								"main_color",
+								"options",
+								"white"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "attribute options (2.1 only)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.akeneo.collection+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\": \"new_attribute_option\", \"attribute\":\"main_color\", \"labels\": { \"de_DE\": \"new attribute option label DE\"}}\n{\"code\": \"red\", \"labels\": { \"fr_FR\": \"Rouge\"}}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/attributes/main_color/options",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"attributes",
+								"main_color",
+								"options"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing attribute"
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Attribute groups (2.x only)",
 			"description": "",
 			"item": [
@@ -511,150 +1391,6 @@
 							]
 						},
 						"description": "\n"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Attribute option",
-			"description": "",
-			"item": [
-				{
-					"name": "attribute option",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/attributes/main_color/options/white",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"attributes",
-								"main_color",
-								"options",
-								"white"
-							]
-						},
-						"description": "Assuming that the given codes are respectively the code of an existing attribute and an existing option of this attribute"
-					},
-					"response": []
-				},
-				{
-					"name": "attribute options",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/attributes/main_color/options",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"attributes",
-								"main_color",
-								"options"
-							]
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "attribute option",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"code\":\"yellow\",\n  \"attribute\": \"main_color\",\n  \"sort_order\": 10,\n  \"labels\": {\n      \"de_DE\": \"Gelb\",\n      \"en_US\": \"Yellow\",\n      \"fr_FR\": \"Jaune\"\n  }\n}\n"
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/attributes/main_color/options",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"attributes",
-								"main_color",
-								"options"
-							]
-						},
-						"description": "Assuming that there is no \"yellow\" option already existing for the given attribute"
-					},
-					"response": []
-				},
-				{
-					"name": "attribute option",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"code\": \"white\",\n  \"attribute\": \"main_color\",\n  \"sort_order\": 1,\n  \"labels\": {\n    \"de_DE\": \"Weiß\",\n    \"en_US\": \"White\",\n    \"fr_FR\": \"Blanc\"\n  }\n}"
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/attributes/main_color/options/white",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"attributes",
-								"main_color",
-								"options",
-								"white"
-							]
-						},
-						"description": "Assuming that the given code is the code of an existing attribute"
 					},
 					"response": []
 				}
@@ -1322,7 +2058,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"new_family_variant\",\n    \"labels\": {\n        \"de_DE\": \"new family variant label DE\",\n        \"en_US\": \"new family variant label US\",\n        \"fr_FR\": \"new family variant label FR\"\n    },\n    \"variant_attribute_sets\": [\n        {\n            \"level\": 1,\n            \"axes\": [\n            \t\"color\"\n            ],\n            \"attributes\": [\"composition\", \"material\"]\n        },\n        {\n            \"level\": 2,\n            \"axes\": [\n            \t\"size\"\n            ],\n            \"attributes\": [\"ean\", \"sku\", \"weight\"]\n        }\n    ]\n}"
+							"raw": "{\n    \"code\": \"new_family_variant\",\n    \"labels\": {\n        \"de_DE\": \"new family variant label DE\",\n        \"en_US\": \"new family variant label US\",\n        \"fr_FR\": \"new family variant label FR\"\n    },\n    \"variant_attribute_sets\": [\n        {\n            \"level\": 1,\n            \"axes\": [\n            \t\"color\"\n            ],\n            \"attributes\": [\"composition\", \"material\", \"variant_name\", \"variant_image\"]\n        },\n        {\n            \"level\": 2,\n            \"axes\": [\n            \t\"size\"\n            ],\n            \"attributes\": [\"ean\", \"sku\", \"weight\"]\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/families/clothing/variants",
@@ -1338,7 +2074,7 @@
 								"variants"
 							]
 						},
-						"description": ""
+						"description": "Assuming that the given code is the code of an existing family"
 					},
 					"response": []
 				},
@@ -1375,7 +2111,7 @@
 								"clothing_colorsize"
 							]
 						},
-						"description": ""
+						"description": "Assuming that the given codes are respectively the code of an existing family and an existing family variant"
 					},
 					"response": []
 				},
@@ -1411,7 +2147,7 @@
 								"variants"
 							]
 						},
-						"description": ""
+						"description": "Assuming that the given code is the code of an existing family"
 					},
 					"response": []
 				}
@@ -1566,7 +2302,8 @@
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"disabled": true
 							}
 						],
 						"body": {
@@ -2108,7 +2845,7 @@
 								"amor"
 							]
 						},
-						"description": ""
+						"description": "Assuming that the given code is the code of an existing product model"
 					},
 					"response": []
 				},
@@ -2128,7 +2865,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"code\": \"new_product_model\", \"family_variant\": \"clothing_colorsize\", \"values\": { \"name\": [{\"locale\": null, \"scope\": null, \"data\": \"A new product model\"}]}}\n{\"code\": \"amor\", \"family_variant\": \"clothing_colorsize\", \"values\": { \"name\": [{\"locale\": null, \"scope\": null, \"data\": \"A new product model\"}]}}"
+							"raw": "{\"code\": \"new_product_model\", \"parent\":\"jack\", \"values\":{\"color\":[{\"scope\":null, \"locale\":null, \"data\":\"pink\"}]}}\n{\"code\": \"amor\", \"values\":{\"brand\":[{\"scope\":null, \"locale\":null, \"data\":\"akeneo\"}]}}"
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/product-models",
@@ -2324,7 +3061,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\n    \"refresh_token\" : \"{{refreshToken}}\",\n    \"grant_type\": \"refresh_token\"\n }"
 				},
 				"url": {
 					"raw": "{{url}}/api/oauth/v1/token",
