@@ -27,7 +27,7 @@ get:
 post:
   summary: Upload a new reference file
   operationId: "post_reference_files__locale_code_"
-  description: This endpoint allows you to upload a new reference file for a given asset and locale.
+  description: This endpoint allows you to upload a new reference file for a given asset and locale. It will also automatically generate all the variation files corresponding to this reference file.
   tags:
     - Assets
   x-versions:

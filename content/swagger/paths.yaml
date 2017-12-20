@@ -82,13 +82,13 @@
 /api/rest/v1/assets/{code}:
   $ref: ./resources/assets/routes/assets_code.yaml
 /api/rest/v1/assets/{asset_code}/reference-files/{locale_code}:
-  $ref: ./resources/assets/routes/assets_code_reference_files.yaml
+  $ref: ./resources/assets/routes/assets_code_reference_files_channel_code_locale_code.yaml
 /api/rest/v1/assets/{asset_code}/reference-files/{locale_code}/download:
-  $ref: ./resources/assets/routes/assets_code_reference_files_download.yaml
+  $ref: ./resources/assets/routes/assets_code_reference_files_channel_code_locale_code_download.yaml
 /api/rest/v1/assets/{asset_code}/variation-files/{channel_code}/{locale_code}:
-  $ref: ./resources/assets/routes/assets_code_variation_files.yaml
+  $ref: ./resources/assets/routes/assets_code_variation_files_channel_code_locale_code.yaml
 /api/rest/v1/assets/{asset_code}/variation-files/{channel_code}/{locale_code}/download:
-  $ref: ./resources/assets/routes/assets_code_variation_files_download.yaml
+  $ref: ./resources/assets/routes/assets_code_variation_files_channel_code_locale_code_download.yaml
 /api/rest/v1/asset-categories:
   $ref: ./resources/asset_categories/routes/asset_categories.yaml
 /api/rest/v1/asset-categories/{code}:
