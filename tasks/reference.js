@@ -22,6 +22,7 @@ function determineCategory(tag){
         case 'Published products':
         case 'Product models':
             return 'Product entities';
+        case 'Families': 
         case 'Categories': 
         case 'Attributes': 
         case 'Attribute options': 
@@ -34,6 +35,7 @@ function determineCategory(tag){
         case 'Measure families':
             return 'Global settings entities';
         case 'Asset categories':
+        case 'Asset tags':
         case 'Assets':
         case 'Media files':
             return 'Media resource entities';
