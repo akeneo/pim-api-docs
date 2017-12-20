@@ -4,7 +4,8 @@ get:
   tags:
     - Product models
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   description: This endpoint allows you to get a list of product models. Product models are paginated.
   parameters:
     - $ref: '#/parameters/pagination_type'
@@ -159,7 +160,8 @@ post:
   tags:
     - Product models
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   description: This endpoint allows you to create a new product model.
   parameters:
     - name: body
@@ -183,7 +185,8 @@ patch:
   tags:
     - Product models
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   description: This endpoint allows you to update and/or create several product models at once. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product models exists for the given code, it creates it.
   x-body-by-line: Contains several lines, each line is a product model in JSON standard format
   parameters:

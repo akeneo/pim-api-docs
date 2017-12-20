@@ -5,7 +5,8 @@ get:
   tags:
     - Published products
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   x-ee: true
   parameters:
     - name: search

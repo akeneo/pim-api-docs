@@ -1,9 +1,3 @@
-/api/rest/v1:
-  $ref: ./resources/list_endpoints.yaml
-
-/api/oauth/v1/token:
-  $ref: ./resources/token.yaml
-
 /api/rest/v1/products:
   $ref: ./resources/products/routes/products.yaml
 /api/rest/v1/products/{code}:
@@ -51,6 +45,31 @@
 /api/rest/v1/attribute-groups/{code}:
   $ref: ./resources/attribute_groups/routes/attribute_groups_code.yaml
 
+/api/rest/v1/locales:
+  $ref: ./resources/locales/routes/locales.yaml
+/api/rest/v1/locales/{code}:
+  $ref: ./resources/locales/routes/locales_code.yaml
+
+/api/rest/v1/channels:
+  $ref: ./resources/channels/routes/channels.yaml
+/api/rest/v1/channels/{code}:
+  $ref: ./resources/channels/routes/channels_code.yaml
+
+/api/rest/v1/currencies:
+  $ref: ./resources/currencies/routes/currencies.yaml
+/api/rest/v1/currencies/{code}:
+  $ref: ./resources/currencies/routes/currencies_code.yaml
+
+/api/rest/v1/measure-families:
+  $ref: ./resources/measure_families/routes/measure_families.yaml
+/api/rest/v1/measure-families/{code}:
+  $ref: ./resources/measure_families/routes/measure_families_code.yaml
+
+/api/rest/v1/association-types:
+  $ref: ./resources/association_types/routes/association_types.yaml
+/api/rest/v1/association-types/{code}:
+  $ref: ./resources/association_types/routes/association_types_code.yaml
+
 /api/rest/v1/media-files:
   $ref: ./resources/media_files/routes/media_files.yaml
 /api/rest/v1/media-files/{code}:
@@ -79,27 +98,8 @@
 /api/rest/v1/asset-tags/{code}:
   $ref: ./resources/asset_tags/routes/asset_tags_code.yaml
 
-/api/rest/v1/locales:
-  $ref: ./resources/locales/routes/locales.yaml
-/api/rest/v1/locales/{code}:
-  $ref: ./resources/locales/routes/locales_code.yaml
+/api/rest/v1:
+  $ref: ./resources/list_endpoints.yaml
 
-/api/rest/v1/channels:
-  $ref: ./resources/channels/routes/channels.yaml
-/api/rest/v1/channels/{code}:
-  $ref: ./resources/channels/routes/channels_code.yaml
-
-/api/rest/v1/currencies:
-  $ref: ./resources/currencies/routes/currencies.yaml
-/api/rest/v1/currencies/{code}:
-  $ref: ./resources/currencies/routes/currencies_code.yaml
-
-/api/rest/v1/measure-families:
-  $ref: ./resources/measure_families/routes/measure_families.yaml
-/api/rest/v1/measure-families/{code}:
-  $ref: ./resources/measure_families/routes/measure_families_code.yaml
-
-/api/rest/v1/association-types:
-  $ref: ./resources/association_types/routes/association_types.yaml
-/api/rest/v1/association-types/{code}:
-  $ref: ./resources/association_types/routes/association_types_code.yaml
+/api/oauth/v1/token:
+  $ref: ./resources/token.yaml

@@ -5,7 +5,8 @@ get:
   tags:
     - Attribute groups
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -105,7 +106,8 @@ post:
   tags:
     - Attribute groups
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   parameters:
     - name: body
       in: body
@@ -130,7 +132,8 @@ patch:
   tags:
     - Attribute groups
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   description: This endpoint allows you to update and/or create several attribute groups at once.
   x-body-by-line: Contains several lines, each line is an attribute group in JSON standard format
   parameters:

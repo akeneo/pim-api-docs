@@ -5,8 +5,9 @@ get:
   tags:
     - Attribute options
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.0"
+    - "2.1"
   parameters:
     - $ref: '#/parameters/attribute_code'
     - $ref: '#/parameters/page'
@@ -104,8 +105,9 @@ post:
   tags:
     - Attribute options
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.0"
+    - "2.1"
   parameters:
     - $ref: '#/parameters/attribute_code'
     - name: body

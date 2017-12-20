@@ -4,7 +4,8 @@ post:
   tags:
     - Products
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   x-ee: true
   description: This endpoint allows you to submit a draft for approval.
   parameters:

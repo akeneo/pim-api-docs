@@ -5,7 +5,8 @@ get:
   tags:
     - Families
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   parameters:
     - $ref: '#/parameters/family_code'
     - $ref: '#/parameters/page'
@@ -58,7 +59,8 @@ post:
   tags:
     - Families
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   description: This endpoint allows you to create a family variant.
   parameters:
     - $ref: '#/parameters/family_code'
@@ -85,7 +87,8 @@ patch:
   tags:
     - Families
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   description: This endpoint allows you to update and/or create several family variants at once, for a given family.
   x-body-by-line: Contains several lines, each line is a family in JSON standard format
   parameters:
