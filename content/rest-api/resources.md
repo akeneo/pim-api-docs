@@ -685,7 +685,7 @@ An asset tag allows you to tag your asset so that you can later easily filter on
 An asset can have several tags.
 :::
 
-In the Akeneo UI in v2.x, you can view asset tag when you are on the `Properties` tab on the asset form.
+In the Akeneo UI in v2.x, you can view asset tags when you are on the `Properties` tab on the asset form.
 
 Below is the JSON format representing asset tags.
 ```json
