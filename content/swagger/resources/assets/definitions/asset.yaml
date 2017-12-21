@@ -59,7 +59,7 @@ properties:
         locale:
           type: string
           description: Locale code of the variation 
-        channel:
+        scope:
           type: string
           description: Channel code of the variation
         code:
