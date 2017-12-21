@@ -604,7 +604,7 @@ Below is the JSON standard format representing an asset, that is not localizable
         }
       },
       "locale":null,
-      "channel": "e_commerce",
+      "scope": "e_commerce",
       "code": "7/5/8/e/758e39d48va7b42a55001434fd3d7b6cf3189b7f_tshirt_artemis_main_picture-ecomerce.jpg"
     },{
       "_link": {
@@ -616,7 +616,7 @@ Below is the JSON standard format representing an asset, that is not localizable
         }
       },
       "locale": null,
-      "channel": "print",
+      "scope": "print",
       "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_main_picture-print.jpg"
     }
   ],
