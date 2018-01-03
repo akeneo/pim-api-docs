@@ -5,7 +5,8 @@ get:
   tags:
     - Association types
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -90,7 +91,8 @@ post:
   tags:
     - Association types
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   parameters:
     - name: body
       in: body
@@ -115,7 +117,8 @@ patch:
   tags:
     - Association types
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   description: This endpoint allows you to update and/or create several association types at once.
   x-body-by-line: Contains several lines, each line is an association type in JSON standard format
   parameters:

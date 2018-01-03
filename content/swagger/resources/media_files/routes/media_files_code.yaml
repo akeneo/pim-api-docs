@@ -5,8 +5,9 @@ get:
   tags:
     - Media files
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.0"
+    - "2.1"
   parameters:
     - $ref: '#/parameters/code'
   responses:

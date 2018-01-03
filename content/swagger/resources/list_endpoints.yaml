@@ -5,8 +5,9 @@ get:
   tags:
     - Overview
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.0"
+    - "2.1"
   x-no-token: true
   responses:
     200:

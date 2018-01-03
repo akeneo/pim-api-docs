@@ -16,29 +16,69 @@ var rename = require('gulp-rename');
 var highlightJs = require('highlightjs');
 var revReplace = require('gulp-rev-replace');
 
+function determineCategory(tag){
+    switch(tag){
+        case 'Products':
+        case 'Published products':
+        case 'Product models':
+            return 'Product entities';
+        case 'Families': 
+        case 'Categories': 
+        case 'Attributes': 
+        case 'Attribute options': 
+        case 'Attribute groups': 
+        case 'Channels': 
+        case 'Association types':
+            return 'Catalog modeling entities';
+        case 'Locales': 
+        case 'Currencies':  
+        case 'Measure families':
+            return 'Global settings entities';
+        case 'Asset categories':
+        case 'Asset tags':
+        case 'Assets':
+        case 'Media files':
+            return 'Media resource entities';
+        default:
+            return 'Utilities';
+    }
+}
+
 gulp.task('reference', ['clean-dist', 'less'], function() {
 
-    var versions = ['1.7', '2.0'];
-    // We construct a reference index file and a complete reference file for each PIM version: 1.7 and 2.0.
-    // When we construct the 1.7 files, we filter to not include the 2.0 only endpoints.
+    var versions = ['1.7', '2.0', '2.1'];
+    // We construct a reference index file and a complete reference file for each PIM version: 1.7, 2.0 and 2.1.
+    // When we construct the 1.7 files, we filter to not include the new 2.0 and the 2.1 endpoints.
+    // Same thing when we construct the 2.0 files, we filter to not include the 2.1 endpoints.
     _.forEach(versions, function(version) {
-        var htmlReferenceIndexfileName = (version === '1.7') ? 'api-reference-index-17' : 'api-reference-index';
+
+        var htmlReferenceIndexfileName = (version === '1.7') ? 'api-reference-index-17' : 
+                                        (version === '2.0') ? 'api-reference-index-20' : 'api-reference-index';
+        var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' :
+                                    (version === '2.0') ? 'api-reference-20' : 'api-reference';
+
         gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
             .pipe(jsonTransform(function(data, file) {
                 var templateData = data;
-                data.resources = {};
+                data.categories = {};
                 data.pimVersion = version;
-                data.previousVersion = version === '1.7';
+                data.htmlReferencefileName = htmlReferencefileName;
                 _.forEach(data.paths, function(path, pathUri) {
                     _.forEach(path, function(operation, verb) {
-                        // This is where we filter the 2.0 endpoints if we are constructing the 1.7 version of the reference index file
-                        if (((version === '1.7') && (operation['x-versions'][0] === 1.7)) || version === '2.0') {
+                        // This is where we filter the endpoints depending on their availability in the PIM versions
+                        if (((version === '1.7') && (operation['x-versions'][0] === "1.7")) ||
+                             (version === '2.0' && (operation['x-versions'][0] === "2.0" || operation['x-versions'][1] === "2.0")) || version === '2.1') {
                             var escapeTag = operation.tags[0].replace(/\s/g, '');
-                            if (!data.resources[escapeTag]) {
-                                data.resources[escapeTag] = { resourceName: operation.tags[0], operations: {} };
+                            var category = determineCategory(operation.tags[0]);
+                            escapeCategory = category.replace(/\s/g, '');
+                            if (!data.categories[escapeCategory]){
+                                data.categories[escapeCategory] = { categoryName: category, resources: {}};
                             }
-                            data.resources[escapeTag].operations[operation.operationId] = _.extend(operation, {
+                            if (!data.categories[escapeCategory].resources[escapeTag]) {
+                                data.categories[escapeCategory].resources[escapeTag] = { resourceName: operation.tags[0], operations: {}};
+                            }
+                            data.categories[escapeCategory].resources[escapeTag].operations[operation.operationId] = _.extend(operation, {
                                 verb: verb,
                                 path: pathUri
                             });
@@ -52,12 +92,11 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                     .pipe(gulp.dest('dist'));
             }));
 
-        var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' : 'api-reference';
         gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
             .pipe(jsonTransform(function(data, file) {
                 var templateData = data;
-                data.resources = {};
+                data.categories = {};
                 data.pimVersion = version;
                 _.map(data.definitions, function(definition) {
                     _.forEach(definition.required, function(requiredProperty) {
@@ -67,12 +106,18 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                 });
                 _.forEach(data.paths, function(path, pathUri) {
                     _.forEach(path, function(operation, verb) {
-                        // This is where we filter the 2.0 endpoints if we are constructing the 1.7 version of the complete reference file
-                        if (((version === '1.7') && (operation['x-versions'][0] === 1.7)) || version === '2.0') {
+                        // This is where we filter the endpoints depending on their availability in the PIM versions
+                        if (((version === '1.7') && (operation['x-versions'][0] === "1.7")) || 
+                             (version === '2.0' && (operation['x-versions'][0] === "2.0" || operation['x-versions'][1] === "2.0")) || version === '2.1') {
                             var operationId = operation.operationId;
                             var escapeTag = operation.tags[0].replace(/\s/g, '');
-                            if (!data.resources[escapeTag]) {
-                                data.resources[escapeTag] = { resourceName: operation.tags[0], operations: {} };
+                            var category = determineCategory(operation.tags[0]);
+                            escapeCategory = category.replace(/\s/g, '');
+                            if (!data.categories[escapeCategory]){
+                                data.categories[escapeCategory] = { categoryName: category, resources: {}};
+                            }
+                            if (!data.categories[escapeCategory].resources[escapeTag]) {
+                                data.categories[escapeCategory].resources[escapeTag] = { resourceName: operation.tags[0], operations: {}};
                             }
                             var groupedParameters = _.groupBy(operation.parameters, function(parameter) {
                                 return parameter.in;
@@ -127,7 +172,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                 }
                                 return response;
                             });
-                            data.resources[escapeTag].operations[operationId] = _.extend(operation, { verb: verb, path: pathUri, groupedParameters: groupedParameters });
+                            data.categories[escapeCategory].resources[escapeTag].operations[operationId] = _.extend(operation, { verb: verb, path: pathUri, groupedParameters: groupedParameters });
                         }
                     });
                 });

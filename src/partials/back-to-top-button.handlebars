@@ -1,0 +1,17 @@
+<button id="nav_up" class="btn btn-bottom-fixed btn-navup">&and;</button>
+<script type="text/javascript">
+    $(function() {
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("nav_up").style.display = "block";
+            } else {
+                document.getElementById("nav_up").style.display = "none";
+            }
+        }
+        $('#nav_up').click(function (e) {
+            $('html, body').animate({scrollTop: '0px'}, 800);
+        });
+    });
+</script>

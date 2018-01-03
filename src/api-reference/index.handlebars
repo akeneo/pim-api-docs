@@ -16,7 +16,8 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                         <li class="dropdown-title">Choose your PIM version</li>
                         <li><a href="/api-reference-index-17.html">1.7</a></li>
-                        <li><a href="/api-reference-index.html">2.0</a></li>
+                        <li><a href="/api-reference-index-20.html">2.0</a></li>
+                        <li><a href="/api-reference-index.html">2.1</a></li>
                     </ul>
                 </div>
             </div>
@@ -26,53 +27,65 @@
                 <nav role="tablist" data-spy="affix" data-offset-top="80">
                     <ul class="nav nav-stacked">
                         <p class="pre-nav">Browse all our endpoints</p>
-                        {{#each resources as |resource resourceId|}}
+                        {{#each categories as |category categoryId|}}
                             <li class="main-nav">
-                                <a href="#{{{resourceId}}}">{{{resourceName}}}</a>
+                                <a href="#{{{categoryId}}}">{{{categoryName}}}</a>
+                                <ul class="nav">
+                                    {{#each category.resources as |resource resourceId|}}
+                                        <li class="sub-nav">
+                                            <a href="#{{{resourceId}}}">{{{resourceName}}}</a>
+                                        </li>
+                                    {{/each}}
+                                </ul>
                             </li>
                         {{/each}}
                     </ul>
                 </nav>
             </div>
             <div class="col-sm-9">
-                {{#each resources as |resource resourceId|}}
-                    <a class="anchor" id="{{{resourceId}}}"></a>
-                    <h3 class="picto">
-                        <img src="img/illustrations/illus--{{{resourceId}}}.svg"/>
-                        {{{resourceName}}}
-                    </h3>
-                    <div class="list-group">
-                        {{#each resource.operations as |operation operationId|}}
-                            <a class="list-group-item" href="api-reference{{#if ../../previousVersion}}-17{{/if}}.html#{{{operationId}}}">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <p class="list-group-item-heading">{{{summary}}}</p>
+                {{#each categories as |category categoryId|}}
+                    <a class="anchor" id="{{{categoryId}}}"></a>
+                    <h2>{{{categoryName}}}</h2>
+                    {{#each category.resources as |resource resourceId|}}
+                        <a class="anchor" id="{{{resourceId}}}"></a>
+                        <h3 class="picto">
+                            <img src="img/illustrations/illus--{{{resourceId}}}.svg"/>
+                            {{{resourceName}}}
+                        </h3>
+                        <div class="list-group">
+                            {{#each resource.operations as |operation operationId|}}
+                                <a class="list-group-item" href="{{../../../htmlReferencefileName}}.html#{{{operationId}}}">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <p class="list-group-item-heading">{{{summary}}}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-8">
-                                        <p class="list-group-item-text">
-                                            <span class="label label-verb label-{{{verb}}}">{{{verb}}}</span>
-                                            <span class="text-api-url">{{{path}}}</span>
-                                        </p>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <p class="list-group-item-text">
+                                                <span class="label label-verb label-{{{verb}}}">{{{verb}}}</span>
+                                                <span class="text-api-url">{{{path}}}</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <p class="list-group-item-text pull-right">
+                                                <em class="small">PIM versions:</em>
+                                                {{#each x-versions as |version versionId|}}
+                                                    <span class="label label-version">{{{version}}}</span>
+                                                {{/each}}
+                                                {{#if x-ee}}
+                                                    <span class="label label-ee">EE only</span>
+                                                {{/if}}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-12 col-md-4">
-                                        <p class="list-group-item-text pull-right">
-                                            <em class="small">PIM versions:</em>
-                                            {{#each x-versions as |version versionId|}}
-                                                <span class="label label-version">{{{version}}}</span>
-                                            {{/each}}
-                                            {{#if x-ee}}
-                                                <span class="label label-ee">EE only</span>
-                                            {{/if}}
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        {{/each}}
-                    </div>
+                                </a>
+                            {{/each}}
+                        </div>
+                    {{/each}}
                 {{/each}}
             </div>
         </div>
+        {{> back-to-top-button}}
     </div>
 {{/layout}}

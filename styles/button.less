@@ -4,6 +4,23 @@ a.btn {
     border: none;
     padding: 5px 16px;
     text-transform: uppercase;
+
+    &.btn-bottom-fixed{
+        position: fixed;
+        bottom: 10px;
+        right: 15px;
+        display: none;
+    }
+    &.btn-navup{
+        color: @gray;
+        border: 1px @gray-light solid;
+        background-color: white;
+        padding-bottom: 10px;
+        &:active{
+            background-color: @gray-lighter;
+            border-color: @gray;
+        }
+    }
 }
 
 .btn-akeneo {

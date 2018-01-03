@@ -118,6 +118,33 @@ CurrencyList:
     - $ref:  '#/definitions/ItemList'
     - $ref: '#/definitions/Currency'
 
+Asset:
+  $ref: ./resources/assets/definitions/asset.yaml
+AssetList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/Asset'
+AssetReferenceFile:
+  $ref: ./resources/assets/definitions/asset_reference_file.yaml
+AssetVariationFile:
+  $ref: ./resources/assets/definitions/asset_variation_file.yaml
+
+AssetCategory:
+  $ref: ./resources/asset_categories/definitions/asset_category.yaml
+AssetCategoryList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/AssetCategory'
+AssetTag:
+  $ref: ./resources/asset_tags/definitions/asset_tag.yaml
+AssetTagList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/AssetTag'
+
 Error:
   type: object
   properties:

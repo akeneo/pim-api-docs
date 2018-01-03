@@ -4,7 +4,8 @@ get:
   tags:
     - Product models
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   description: This endpoint allows you to get the information about a given product model.
   parameters:
     - $ref: '#/parameters/code'
@@ -26,7 +27,8 @@ patch:
   tags:
     - Product models
   x-versions:
-    - 2.0
+    - "2.0"
+    - "2.1"
   description: This endpoint allows you to update a given product model. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product model exists for the given code, it creates it.
   parameters:
     - $ref: '#/parameters/code'
