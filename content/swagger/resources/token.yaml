@@ -25,6 +25,7 @@ post:
       x-form-data: true
       schema:
         type: object
+        required: ["username", "password", "grant_type"]
         properties:
           username:
             type: string

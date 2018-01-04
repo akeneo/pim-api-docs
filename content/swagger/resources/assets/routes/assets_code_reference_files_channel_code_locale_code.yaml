@@ -45,6 +45,7 @@ post:
       in: body
       x-form-data: true
       schema:
+        required: ["file"]
         properties:
           file:
             type: string
