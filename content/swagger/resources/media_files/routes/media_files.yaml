@@ -139,10 +139,10 @@ post:
         properties:
           product:
             type: string
-            description: The product to which the media file will be associated. It is a JSON string that follows this formula '{"identifier":"product_identifier", "attribute":"attribute_code", "scope":"channel_code","locale":"locale_code"}' You have to either use this field or the `product_model` field, but not both at the same time.
+            description: The product to which the media file will be associated. It is a JSON string that follows this format '{"identifier":"product_identifier", "attribute":"attribute_code", "scope":"channel_code","locale":"locale_code"}'. You have to either use this field or the `product_model` field, but not both at the same time.
           product_model:
             type: string
-            description: The product model to which the media file will be associated. It is a JSON string that follows this formula '{"code":"product_model_code", "attribute":"attribute_code", "scope":"channel_code","locale":"locale_code"}' You have to either use this field or the `product` field, but not both at the same time.
+            description: The product model to which the media file will be associated. It is a JSON string that follows this format '{"code":"product_model_code", "attribute":"attribute_code", "scope":"channel_code","locale":"locale_code"}'. You have to either use this field or the `product` field, but not both at the same time.
           file:
             type: string
             description: The binaries of the file
