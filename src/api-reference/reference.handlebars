@@ -162,7 +162,9 @@
                                                                 {{#each schema.properties}}
                                                                     <p>
                                                                         <code>{{@key}}</code>
-                                                                        <a href="#" data-placement="top" data-toggle="tooltip" title="Required property"><i class="fa fa-asterisk fa-danger"></i></a>
+                                                                        {{#if required}}
+                                                                            <a href="#" data-placement="top" data-toggle="tooltip" title="Required property"><i class="fa fa-asterisk fa-danger"></i></a>
+                                                                        {{/if}}
                                                                         <em>({{{type}}} {{#if format}} / {{{format}}}{{/if}})</em>
                                                                         <small>&bull; {{description}}</small>
                                                                     </p>
