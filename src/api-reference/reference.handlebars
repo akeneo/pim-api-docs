@@ -413,7 +413,29 @@
                                                                                 {{/each}}
                                                                                 <br> &nbsp; }
                                                                                 {{else}}
-                                                                                    &bull; {{{description}}}
+                                                                                    {{#with items}}
+                                                                                                : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; { <br>
+                                                                                                        {{#each properties}}
+                                                                                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                            <code>{{{@key}}}</code>
+                                                                                                            <em>({{{type}}})</em>
+                                                                                                            {{#if properties}}
+                                                                                                                : { <br>
+                                                                                                                    {{#each properties}}
+                                                                                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                                        <code>{{{@key}}}</code>
+                                                                                                                        <em>({{{type}}})</em>
+                                                                                                                    {{/each}}
+                                                                                                                    <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                                } <br>
+                                                                                                            {{else}}
+                                                                                                                &bull; {{{description}}} <br>
+                                                                                                            {{/if}}
+                                                                                                        {{/each}}
+                                                                                                    &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ]
+                                                                                    {{else}}
+                                                                                        &bull; {{{description}}}
+                                                                                    {{/with}}
                                                                                 {{/if}}
                                                                                 {{/each}}
                                                                                 {{#each allOf}}
