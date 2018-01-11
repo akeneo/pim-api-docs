@@ -7,7 +7,7 @@ Created:
       type: string
 AssetReferenceFileUploaded:
   description: Uploaded
-  x-details: Means that the reference file upload was successful. Beware that even if the reference file upload is complete, some variations files generation could have failed. If so, you will see a warning message in the response body.
+  x-details: Means that the reference file upload was successful. Beware that even if the reference file upload is complete, some variation files generations could have failed. If so, you will see a warning message in the response body.
   headers:
     Location:
       description: URI of the created resource

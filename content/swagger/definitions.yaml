@@ -173,7 +173,7 @@ AssetReferenceFileUploadWarning:
             description: Locale for which the variation file generation failed
           message:
             type: string
-            description: Message indicating why the variation file generation failed
+            description: Message explaining why the variation file generation failed
 ErrorByLine:
   type: object
   properties:
