@@ -1,5 +1,9 @@
 ## Asset
 
+:::warning
+Only available since the version 1.1 of the API PHP client
+:::
+
 ### Get an asset 
 
 ```php
