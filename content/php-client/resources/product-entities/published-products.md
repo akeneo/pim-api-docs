@@ -1,6 +1,10 @@
-## Published product
+### Published product
 
-### Get a published product 
+::: warning
+This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
+:::
+
+#### Get a published product 
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -49,11 +53,11 @@ You can get more information about the returned format of the product values [he
 The field `product_models` in the `associations` property was added in the 2.1 version of the PIM and is therefore not present in previous versions.
 :::
 
-### Get a list of published products 
+#### Get a list of published products
 
 There are two ways of getting published products. Like for the products, you can use the [search builder](/php-client/ce-resources.html#search-builder) to ease the construction of a research.
 
-#### By getting pages
+**By getting pages**
 
 This method allows to get published products page per page, as a classical pagination. You can research published products thanks to the search builder.
 
@@ -88,7 +92,7 @@ You can get more information about this method [here](/php-client/list-resources
 
 You can get more information about the available query parameters [here](/api-reference.html#get_published_products).
 
-#### With a cursor
+**With a cursor**
 
 This method allows to iterate the published products. It will automatically get the next pages for you.
 With this method, it's not possible to get the previous page, or getting the total number of published products.

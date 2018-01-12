@@ -1,4 +1,4 @@
-## Asset variation file
+### Asset variation file
 
 :::warning
 This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
@@ -8,7 +8,7 @@ This resource is only available in the [Entreprise Edition](https://www.akeneo.c
 This resource is only available since the version 2.0 of the PHP API client.
 :::
 
-### Get a variation file of a localizable asset
+#### Get a variation file of a localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -29,7 +29,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://ake
 $product = $client->getAssetVariationFileApi()->getFromLocalizableAsset('chicagoskyline', 'mobile', 'en_US');
 ```
 
-### Get a variation file of a not localizable asset
+#### Get a variation file of a not localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -50,7 +50,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://ake
 $product = $client->getAssetVariationFileApi()->getFromNotLocalizableAsset('bridge', 'mobile');
 ```
 
-### Download a variation file of a localizable asset
+#### Download a variation file of a localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -60,7 +60,7 @@ $product = $client->getAssetVariationFileApi()->downloadFromLocalizableAsset('ch
 file_put_contents('/tmp/chicagoskyline-mobile.jpg', $product->getContents());
 ```
 
-### Download a variation file of a not localizable asset
+#### Download a variation file of a not localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -70,7 +70,7 @@ $product = $client->getAssetVariationFileApi()->downloadFromNotLocalizableAsset(
 file_put_contents('/tmp/bridge-mobile.jpg', $product->getContents());
 ```
 
-### Upload an asset variation file for a localizable asset
+#### Upload an asset variation file for a localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -78,7 +78,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://ake
 $client->getAssetVariationFileApi()->uploadForLocalizableAsset('/tmp/chicagoskyline-mobile.jpg', 'chicagoskyline', 'mobile','en_US');
 ```
 
-### Upload an asset variation file for a not localizable asset
+#### Upload an asset variation file for a not localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

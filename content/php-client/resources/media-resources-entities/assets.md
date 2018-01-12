@@ -1,4 +1,4 @@
-## Asset
+### Asset
 
 :::warning
 This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
@@ -8,7 +8,7 @@ This resource is only available in the [Entreprise Edition](https://www.akeneo.c
 This resource is only available since the version 2.0 of the PHP API client.
 :::
 
-### Get an asset 
+#### Get an asset 
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -74,11 +74,11 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://ake
 $asset = $client->getAssetApi()->get('bridge');
 ```
 
-### Get a list of assets 
+#### Get a list of assets 
 
 There are two ways of getting assets. 
 
-#### By getting pages
+**By getting pages**
 
 This method allows to get assets page per page, as a classical pagination.
 It's possible to get the total number of assets with this method.
@@ -91,7 +91,7 @@ $firstPage = $client->getAssetApi()->listPerPage(50, true);
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-#### With a cursor
+**With a cursor**
 
 This method allows to iterate the assets. It will automatically get the next pages for you.
 
@@ -103,7 +103,7 @@ $assets = $client->getAssetApi()->all(50);
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
-### Create an asset 
+#### Create an asset 
 
 If the asset does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -119,7 +119,7 @@ $client->getAssetApi()->create('unicorn', [
 ]);
 ```
 
-### Upsert an asset 
+#### Upsert an asset 
 
 If the asset does not exist yet, this method creates it, otherwise it updates it.
 
@@ -135,7 +135,7 @@ $client->getAssetApi()->upsert('bridge', [
 ]);
 ```
 
-### Upsert a list of assets 
+#### Upsert a list of assets 
 
 This method allows to create or update a list of assets.
 It has the same behavior as the `upsert` method for a single asset, except that the code must be specified in the data of each asset.

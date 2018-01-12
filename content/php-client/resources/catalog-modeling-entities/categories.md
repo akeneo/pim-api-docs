@@ -1,6 +1,6 @@
-## Category
+### Category
 
-### Get a category 
+#### Get a category 
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -19,11 +19,11 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $category = $client->getCategoryApi()->get('master');
 ```
 
-### Get a list of categories
+#### Get a list of categories
 
 There are two ways of getting categories. 
 
-#### By getting pages
+**By getting pages**
 
 This method allows to get categories page per page, as a classical pagination.
 
@@ -35,7 +35,7 @@ $firstPage = $client->getCategoryApi()->listPerPage(50, true);
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-#### With a cursor
+**With a cursor**
 
 This method allows to iterate the categories. It will automatically get the next pages for you.
 
@@ -47,7 +47,7 @@ $categories = $client->getCategoryApi()->all(50);
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
-### Create a category
+#### Create a category
 
 If the category does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -63,7 +63,7 @@ $client->getCategoryApi()->create('winter_collection', [
 ]);
 ```
 
-### Upsert a category
+#### Upsert a category
 
 If the category does not exist yet, this method creates it, otherwise it updates it.
 
@@ -79,7 +79,7 @@ $client->getCategoryApi()->upsert('winter_collection', [
 ]);
 ```
 
-### Upsert a list of categories
+#### Upsert a list of categories
 
 This method allows to create or update a list of categories.
 It has the same behavior as the `upsert` method for a single category, except that the code must be specified in the data of each category.

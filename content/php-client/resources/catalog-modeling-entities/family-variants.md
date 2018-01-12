@@ -1,6 +1,6 @@
-## Family variants
+### Family variant
 
-### Get a family variant
+#### Get a family variant
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -31,7 +31,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $familyVariant = $client->getFamilyVariantApi()->get('boots', 'boots_color_size');
 ```
 
-### Create a family variant
+#### Create a family variant
 
 If the family variant does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -57,11 +57,11 @@ $client->getFamilyVariantApi()->create('boots', 'boots_size_color', [
 ]);
 ```
 
-### Get a list of family variants
+#### Get a list of family variants
 
 There are two ways of getting family variants.
 
-#### By getting pages
+**By getting pages**
 
 This method allows to get family variants page per page, as a classical pagination.
 It's possible to get the total number of family variants with this method.
@@ -83,7 +83,7 @@ It's recommended to let this parameter with the default value `false` if the tot
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-#### With a cursor
+**With a cursor**
 
 This method allows to iterate the family variants. It will automatically get the next pages for you.
 
@@ -99,7 +99,7 @@ There is a maximum limit allowed on server side for the parameter `pageSize`.
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
-### Upsert a family variant
+#### Upsert a family variant
 
 If the family variant does not exist yet, this method creates it, otherwise it updates it.
 
@@ -116,7 +116,7 @@ $client->getFamilyVariantApi()->upsert('boots', [
 ]);
 ```
 
-### Upsert a list of family variants
+#### Upsert a list of family variants
 
 This method allows to create or update a list of family variants.
 It has the same behavior as the `upsert` method for a single family variant, except that the code must be specified in the data of each family variant.

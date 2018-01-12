@@ -1,6 +1,6 @@
-## Attribute
+### Attribute
 
-### Get an attribute 
+#### Get an attribute 
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -42,11 +42,11 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $attribute = $client->getAttributeApi()->get('release_date');
 ```
 
-### Get a list of attributes
+#### Get a list of attributes
 
 There are two ways of getting attributes. 
 
-#### By getting page
+**By getting page**
 
 This method allows to get attributes page per page, as a classical pagination.
 It's possible to get the total number of attributes with this method.
@@ -59,7 +59,7 @@ $firstPage = $client->getAttributeApi()->listPerPage(50, true);
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-#### With a cursor
+**With a cursor**
 
 This method allows to iterate the attributes. It will automatically get the next pages for you.
 With this method, it's not possible to get the previous page, or getting the total number of attributes.
@@ -72,7 +72,7 @@ $attributes = $client->getAttributeApi()->all(50);
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
-### Create an attribute 
+#### Create an attribute 
 
 If the attribute does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -111,7 +111,7 @@ $client->getAttributeApi()->create('release_date', [
 ]);
 ```
 
-### Upsert an attribute 
+#### Upsert an attribute 
 
 If the attribute does not exist yet, this method creates it, otherwise it updates it.
 
@@ -150,7 +150,7 @@ $client->getAttributeApi()->upsert('release_date', [
 ]);
 ```
 
-### Upsert a list of attributes 
+#### Upsert a list of attributes 
 
 This method allows to create or update a list of attributes.
 It has the same behavior as the `upsert` method for a single attribute, except that the code must be specified in the data of each attribute.
