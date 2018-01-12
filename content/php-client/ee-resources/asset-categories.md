@@ -1,7 +1,11 @@
 ## Asset categories
 
 :::warning
-Only available since the version 1.1 of the API PHP client
+This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
+:::
+
+:::warning
+This resource is only available since the version 2.0 of the PHP API client.
 :::
 
 ### Get an asset category
@@ -71,8 +75,7 @@ $client->getAssetCategoryApi()->upsert('dos', [
 ### Upsert a list of asset categories
 
 This method allows to create or update a list of asset categories.
-It has the same behavior as the `upsert` method for a single asset, except that the code must be specified in the data of each asset category.
-
+It has the same behavior as the `upsert` method for a single asset category, except that the code must be specified in the data of each asset category.
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
