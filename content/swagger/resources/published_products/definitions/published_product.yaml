@@ -64,6 +64,11 @@ properties:
             description: Array of published product identifiers with which the published product is in relation
             items:
               type: string
+          product_models:
+            type: array
+            description: Array of product model codes with which the product is in relation (only available since the v2.1)
+            items:
+              type: string
   created:
     type: string
     description: Date of creation
