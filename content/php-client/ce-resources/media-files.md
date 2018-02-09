@@ -20,7 +20,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  *     ],
  * ];
  */
-$product = $client->getProductMediaFileApi()->get('code/example');
+$media = $client->getProductMediaFileApi()->get('code/example');
 ```
 
 ### Download media file 
@@ -28,7 +28,7 @@ $product = $client->getProductMediaFileApi()->get('code/example');
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
-$product = $client->getProductMediaFileApi()->download('code/example');
+$mediaFile = $client->getProductMediaFileApi()->download('code/example');
 
 file_put_contents('/tmp/ziggy.jpg', $product->getContents());
 ```
@@ -52,7 +52,7 @@ You can get more information about this method [here](/php-client/list-resources
 #### With a cursor
 
 This method allows to iterate the media files. It will automatically get the next pages for you.
-With this method, it's not possible to get the previous page, or getting the total number of products.
+With this method, it's not possible to get the previous page, or getting the total number of media files.
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
