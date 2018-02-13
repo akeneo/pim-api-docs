@@ -6,7 +6,9 @@ Two clients exist:
 - a **Community Edition** client, covering the API endpoints of the PIM Community Edition
 - an **Enterprise Edition** client, covering the API endpoints of both the PIM Community Edition and the PIM Enterprise Edition
 
-The actual version of these clients is v1.0. It is compatible with **our dear PIM 2.0**.
+There are two versions of these clients:
+- The version v1.0 is compatible with the PIM 2.0.
+- The current and latest version v2.0 is compatible with the PIM 2.1
 
 ## Support & issues
 Please be aware that these PHP clients are only supported **in best effort**, whether you are an Entreprise or Community customer.
