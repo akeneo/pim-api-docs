@@ -83,3 +83,41 @@ $client->getAttributeOptionApi()->upsert('a_simple_select', 'black', [
     ]
 ]);
 ```
+
+### Upsert a list of attribute options
+
+:::warning
+Only available since the version 2.0 of the PHP API client.
+:::
+
+This method allows to create or update a list of attribute options.
+It has the same behavior as the `upsert` method for a single attribute option, except that the code and the attribute must be specified in the data of each attribute option.
+
+```php
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+
+$client->getAttributeOptionApi()->upsertList([
+    [
+        'code'       => 'black',
+        'attribute'  => 'a_simple_select',
+        'sort_order' => 2,
+        'labels'     => [
+            'en_US' => 'Black',
+            'fr_FR' => 'Noir',
+        ]
+    ],
+    [
+        'code'       => 'white',
+        'attribute'  => 'a_simple_select',
+        'sort_order' => 3,
+        'labels'     => [
+            'en_US' => 'White',
+            'fr_FR' => 'Blanc',
+        ],
+    ],
+]);
+```
+
+::: warning
+There is a limit on the maximum number of attribute options that you can upsert in one time on server side. By default this limit is set to 100.
+:::
