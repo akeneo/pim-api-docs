@@ -11,6 +11,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  *     'code'                   => 'caps',
  *     'attributes'             => ['sku', 'name', 'description', 'price', 'color'],
  *     'attribute_as_label'     => 'name',
+ *     'attribute_as_image'     => 'picture',
  *     'attribute_requirements' => [
  *         'ecommerce' => ['sku', 'name', 'description', 'price', 'color'],
  *         'tablet'    => ['sku', 'name', 'description', 'price'],
@@ -63,6 +64,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/',
 $client->getFamilyApi()->create('caps', [
      'attributes'             => ['sku', 'name', 'description', 'price', 'color'],
      'attribute_as_label'     => 'name',
+     'attribute_as_image'     => 'picture',
      'attribute_requirements' => [
          'ecommerce' => ['sku', 'name', 'description', 'price', 'color'],
          'tablet'    => ['sku', 'name', 'description', 'price'],
@@ -84,6 +86,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $client->getFamilyApi()->upsert('cap', [
      'attributes'             => ['sku', 'name', 'description', 'price', 'color'],
      'attribute_as_label'     => 'name',
+     'attribute_as_image'     => 'picture',
      'attribute_requirements' => [
          'ecommerce' => ['sku', 'name', 'description', 'price', 'color'],
          'tablet'    => ['sku', 'name', 'description', 'price'],
@@ -109,6 +112,7 @@ $client->getFamilyApi()->upsertList([
         'code'                   => 'caps',
         'attributes'             => ['sku', 'name', 'description', 'price', 'color'],
         'attribute_as_label'     => 'name',
+        'attribute_as_image'     => 'picture',
         'attribute_requirements' => [
             'ecommerce' => ['sku', 'name', 'description', 'price', 'color'],
             'tablet'    => ['sku', 'name', 'description', 'price'],
@@ -122,6 +126,7 @@ $client->getFamilyApi()->upsertList([
         'code'                   => 'hat',
         'attributes'             => ['sku', 'name', 'description', 'price', 'color'],
         'attribute_as_label'     => 'name',
+        'attribute_as_image'     => 'picture',
         'attribute_requirements' => [
             'ecommerce' => ['sku', 'name', 'color'],
             'tablet'    => ['sku', 'name'],
