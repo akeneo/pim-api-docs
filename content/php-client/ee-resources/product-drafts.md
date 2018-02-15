@@ -34,7 +34,8 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
  *             'products': [
  *                 'sunglass'
  *             ],
- *             'groups': []
+ *             'groups': [],
+ *             'product_models': []
  *         ],
  *     ],
  *     'metadata' => [
@@ -48,6 +49,10 @@ $publishedProduct = $client->getProductDraftApi()->get('top');
 You can get more information about the returned format of the product values [here](/documentation/resources.html#product-values).
 
 The field `metadata` is specific to Akeneo PIM Enterprise Edition. The status of the draft is specified in this field.
+
+::: warning
+The field `product_models` in the `associations` property was added in the 2.1 version of the PIM and is therefore not present in previous versions.
+:::
 
 ### Submit a product draft for approval
 
