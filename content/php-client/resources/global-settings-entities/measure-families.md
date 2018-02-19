@@ -1,6 +1,6 @@
-## Measure family
+### Measure family
 
-### Get a measure family 
+#### Get a measure family 
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -32,11 +32,11 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $measureFamily = $client->getMeasureFamilyApi()->get('casebox');
 ```
 
-### Get a list of measure families
+#### Get a list of measure families
 
 There are two ways of getting measure families. 
 
-#### By getting pages
+**By getting pages**
 
 This method allows to get measure families page per page, as a classical pagination.
 
@@ -48,7 +48,7 @@ $firstPage = $client->getMeasureFamilyApi()->listPerPage(50, true);
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-#### With a cursor
+**With a cursor**
 
 This method allows to iterate the measure families. It will automatically get the next pages for you.
 

@@ -1,6 +1,6 @@
-## Attribute group
+### Attribute group
 
-### Get an attribute group
+#### Get an attribute group
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -20,11 +20,11 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $attributeGroup = $client->getAttributeGroupApi()->get('marketing');
 ```
 
-### Get a list of attribute groups
+#### Get a list of attribute groups
 
 There are two ways of getting attribute groups.
  
-#### By getting pages
+**By getting pages**
  
  This method allows to get attribute groups page per page, as a classical pagination.
  
@@ -36,7 +36,7 @@ $firstPage = $client->getAttributeGroupApi()->listPerPage(50, true);
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-#### With a cursor
+**With a cursor**
 
 This method allows to iterate the attribute groups. It will automatically get the next pages for you.
 
@@ -48,7 +48,7 @@ $attributeGroups = $client->getAttributeGroupApi()->all(50);
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
-### Create an attribute group
+#### Create an attribute group
 
 If the attribute group does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -64,7 +64,7 @@ $client->getAttributeGroupApi()->create('media', [
 ]);
 ```
 
-### Upsert an attribute group
+#### Upsert an attribute group
 
 If the attribute group does not exist yet, this method creates it, otherwise it updates it.
 
@@ -80,7 +80,7 @@ $client->getAttributeGroupApi()->upsert('marketing', [
 ]);
 ```
 
-### Upsert a list of attribute groups
+#### Upsert a list of attribute groups
 
 This method allows to create or update a list of attribute groups.
 It has the same behavior as the `upsert` method for a single attribute group, except that the code must be specified in the data of each attribute group.

@@ -1,6 +1,6 @@
-## Product models
+### Product model
 
-### Get a product model
+#### Get a product model
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -28,11 +28,11 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $productModel = $client->getProductModelApi()->get('rain_boots_red');
 ```
 
-### Get a list of product models
+#### Get a list of product models
 
 There are two ways of getting product models.
 
-#### By getting pages
+**By getting pages**
 
 This method allows to get product models page per page, as a classical pagination.
 It's possible to get the total number of product models with this method.
@@ -54,7 +54,7 @@ It's recommended to let this parameter with the default value `false` if the tot
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-#### With a cursor
+**With a cursor**
 
 This method allows to iterate the product models. It will automatically get the next pages for you.
 
@@ -70,7 +70,7 @@ There is a maximum limit allowed on server side for the parameter `pageSize`.
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
-### Create a product model
+#### Create a product model
 
 If the product model does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -102,7 +102,7 @@ $client->getProductModelApi()->create('saddle_rain_boots', [
 
 Product model values use the same format as the product values. If you want to know more, take a look at [here](/documentation/resources.html#product-values).
 
-### Upsert a product model
+#### Upsert a product model
 
 If the product model does not exist yet, this method creates it, otherwise it updates it.
 
@@ -114,7 +114,7 @@ $client->getProductModelApi()->upsert('rain_boots_red', [
 ]);
 ```
 
-### Upsert a list of product models
+#### Upsert a list of product models
 
 This method allows to create or update a list of product models.
 It has the same behavior as the `upsert` method for a single product model, except that the code must be specified in the data of each product models.

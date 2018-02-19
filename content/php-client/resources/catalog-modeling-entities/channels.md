@@ -1,6 +1,6 @@
-## Channel
+### Channel
 
-### Get a channel
+#### Get a channel
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -23,11 +23,11 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $channel = $client->getChannelApi()->get('ecommerce');
 ```
 
-### Get a list of channels
+#### Get a list of channels
 
 There are two ways of getting channels. 
 
-#### By getting pages
+**By getting pages**
 
 This method allows to get channels page per page, as a classical pagination.
 
@@ -39,7 +39,7 @@ $firstPage = $client->getChannelApi()->listPerPage(50, true);
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-#### With a cursor
+**With a cursor**
 
 This method allows to iterate the channels. It will automatically get the next pages for you.
 
@@ -51,7 +51,7 @@ $channels = $client->getChannelApi()->all(50);
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
-### Create a channel
+#### Create a channel
 
 If the channel does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -69,7 +69,7 @@ $client->getChannelApi()->create('paper', [
 ]);
 ```
 
-### Upsert a channel
+#### Upsert a channel
 
 If the channel does not exist yet, this method creates it, otherwise it updates it.
 
@@ -87,7 +87,7 @@ $client->getChannelApi()->upsert('paper', [
 ]);
 ```
 
-### Upsert a list of channels
+#### Upsert a list of channels
 
 This method allows to create or update a list of channels.
 It has the same behavior as the `upsert` method for a single channel, except that the code must be specified in the data of each channel.

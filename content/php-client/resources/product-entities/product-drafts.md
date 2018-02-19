@@ -1,6 +1,10 @@
-## Product draft
+### Product draft
 
-### Get a product draft 
+::: warning
+This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
+:::
+
+#### Get a product draft 
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -43,7 +47,7 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
  *     ],
  * ]
  */
-$publishedProduct = $client->getProductDraftApi()->get('top');
+$draftProduct = $client->getProductDraftApi()->get('top');
 ```
 
 You can get more information about the returned format of the product values [here](/documentation/resources.html#product-values).
@@ -54,7 +58,7 @@ The field `metadata` is specific to Akeneo PIM Enterprise Edition. The status of
 The field `product_models` in the `associations` property was added in the 2.1 version of the PIM and is therefore not present in previous versions.
 :::
 
-### Submit a product draft for approval
+#### Submit a product draft for approval
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

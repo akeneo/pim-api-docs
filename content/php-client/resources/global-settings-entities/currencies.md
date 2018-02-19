@@ -1,6 +1,6 @@
-## Currency
+### Currency
 
-### Get a currency
+#### Get a currency
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -15,11 +15,11 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  $currency = $client->getCurrencyApi()->get('EUR');
 ```
 
-### Get a list of currencies
+#### Get a list of currencies
 
 There are two ways of getting currencies.
  
-#### By getting page
+**By getting page**
 
 This method allows to get currencies page per page, as a classical pagination.
 
@@ -31,7 +31,7 @@ $firstPage = $client->getCurrencyApi()->listPerPage(50, true);
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-#### With a cursor
+**With a cursor**
 
 This method allows to iterate the currencies. It will automatically get the next pages for you.
 

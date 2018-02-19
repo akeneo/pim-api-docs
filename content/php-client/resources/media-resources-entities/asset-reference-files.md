@@ -1,4 +1,4 @@
-## Asset reference file
+### Asset reference file
 
 :::warning
 This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
@@ -8,7 +8,7 @@ This resource is only available in the [Entreprise Edition](https://www.akeneo.c
 This resource is only available since the version 2.0 of the PHP API client.
 :::
 
-### Get a reference file of a localizable asset
+#### Get a reference file of a localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -28,7 +28,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://ake
 $product = $client->getAssetReferenceFileApi()->getFromLocalizableAsset('chicagoskyline', 'en_US');
 ```
 
-### Get a reference file of a not localizable asset
+#### Get a reference file of a not localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -48,7 +48,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://ake
 $product = $client->getAssetReferenceFileApi()->getFromNotLocalizableAsset('bridge');
 ```
 
-### Download a reference file of a localizable asset
+#### Download a reference file of a localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -58,7 +58,7 @@ $product = $client->getAssetReferenceFileApi()->downloadFromLocalizableAsset('ch
 file_put_contents('/tmp/chicagoskyline.jpg', $product->getContents());
 ```
 
-### Download a reference file of a not localizable asset
+#### Download a reference file of a not localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -68,7 +68,7 @@ $product = $client->getAssetReferenceFileApi()->downloadFromNotLocalizableAsset(
 file_put_contents('/tmp/bridge.jpg', $product->getContents());
 ```
 
-### Upload an asset reference file for a localizable asset
+#### Upload an asset reference file for a localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -108,7 +108,7 @@ try {
 
 ```
 
-### Upload an asset reference file for a not localizable asset
+#### Upload an asset reference file for a not localizable asset
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

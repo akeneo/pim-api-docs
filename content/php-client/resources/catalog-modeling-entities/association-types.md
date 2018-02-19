@@ -1,6 +1,6 @@
-## Association type
+### Association type
 
-### Get an association type
+#### Get an association type
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -18,11 +18,11 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $associationType = $client->getAssociationTypeApi()->get('X_SELL');
 ```
 
-### Get a list of association types
+#### Get a list of association types
 
 There are two ways of getting association types.
  
-#### By getting pages
+**By getting pages**
  
  This method allows to get association types page per page, as a classical pagination.
  
@@ -34,7 +34,7 @@ $firstPage = $client->getAssociationTypeApi()->listPerPage(50, true);
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-#### With a cursor
+**With a cursor**
 
 This method allows to iterate the association types. It will automatically get the next pages for you.
 
@@ -46,7 +46,7 @@ $associationTypes = $client->getAssociationTypeApi()->all(50);
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
-### Create an association type
+#### Create an association type
 
 If the association type does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -61,7 +61,7 @@ $client->getAssociationTypeApi()->create('NEW_SELL', [
 ]);
 ```
 
-### Upsert an association type
+#### Upsert an association type
 
 If the association type does not exist yet, this method creates it, otherwise it updates it.
 
@@ -76,7 +76,7 @@ $client->getAssociationTypeApi()->upsert('NEW_SELL', [
 ]);
 ```
 
-### Upsert a list of association types
+#### Upsert a list of association types
 
 This method allows to create or update a list of association types.
 It has the same behavior as the `upsert` method for a single association type, except that the code must be specified in the data of each association type.

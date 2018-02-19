@@ -15,6 +15,7 @@ var fs = require('fs');
 var rename = require('gulp-rename');
 var revReplace = require('gulp-rev-replace');
 var concat = require('gulp-concat');
+var _ = require('lodash');
 
 /**
  * Generate the table of content.
@@ -51,7 +52,39 @@ function highlight(str, lang) {
     return '<pre class="hljs"><code>' + str + '</code></pre>';
 }
 
-gulp.task('client-documentation', ['clean-dist','less'], function () {
+
+gulp.task('create-products-entities-md', function () {
+    return gulp.src(['content/php-client/resources/product-entities/products.md','content/php-client/resources/product-entities/*.md'])
+        .pipe(concat('product-entities.md'))
+        .pipe(insert.prepend('## Product entities\n'))
+        .pipe(gulp.dest('tmp/php-client-resources/'));
+});
+gulp.task('create-catalog-modeling-md', function () {
+    return gulp.src(['content/php-client/resources/catalog-modeling-entities/*.md'])
+        .pipe(concat('catalog-modeling-entities.md'))
+        .pipe(insert.prepend('## Catalog modeling entities\n'))
+        .pipe(gulp.dest('tmp/php-client-resources/'));
+});
+gulp.task('create-global-settings-md', function () {
+    return gulp.src(['content/php-client/resources/global-settings-entities/*.md'])
+        .pipe(concat('global-settings-entities.md'))
+        .pipe(insert.prepend('## Global settings entities\n'))
+        .pipe(gulp.dest('tmp/php-client-resources/'));
+});
+gulp.task('create-media-resources-md', function () {
+    return gulp.src(['content/php-client/resources/media-resources-entities/*.md'])
+        .pipe(concat('media-resources-entities.md'))
+        .pipe(insert.prepend('## Media resources entities\n'))
+        .pipe(gulp.dest('tmp/php-client-resources/'));
+});
+gulp.task('create-resources-md', ['create-products-entities-md','create-catalog-modeling-md', 'create-global-settings-md', 'create-media-resources-md'], function () {
+    return gulp.src(['tmp/php-client-resources/*.md'])
+        .pipe(concat('resources.md'))
+        .pipe(insert.prepend('# Resources\n'))
+        .pipe(gulp.dest('tmp/php-client'));
+});
+
+gulp.task('client-documentation', ['clean-dist','less', 'create-resources-md'], function () {
     var optionsMd = {
         html: true,
         xhtmlOut: true,
@@ -185,9 +218,9 @@ gulp.task('client-documentation', ['clean-dist','less'], function () {
         'exception.md': 'Exception handling',
         'http-client.md': 'HTTP client abstraction',
         'list-resources.md': 'List resources',
-        'ce-resources.md': 'CE Resources',
-        'ee-resources.md': 'EE Resources'
+        'resources.md': 'Resources'
     };
+
 
     /*
      * First, concat every resource file into the file resource.md
@@ -196,35 +229,25 @@ gulp.task('client-documentation', ['clean-dist','less'], function () {
      * Then, rename the file from "md" to "html".
      * Finally, move the file to dist directory.
      */
-    function concatenateResources(edition) {
-        gulp.src([`content/php-client/${edition}-resources.md`, `content/php-client/${edition}-resources/*.md`])
-            .pipe(concat(`${edition}-resources.md`))
-            .pipe(gulp.dest(`tmp/php-client-${edition}/`))
+    return gulp.src(['content/php-client/*.md', 'tmp/php-client/resources.md'])
+        .pipe(flatmap(function(stream, file){
+        return gulp.src(file.path)
+            .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+            .pipe(insert.prepend(getTocMarkdown(pages, path.basename(file.path)) + "\n"))
+            .pipe(gulpMarkdownIt(md))
+            .pipe(gulp.dest('tmp/php-client'))
             .on('end', function () {
-                return gulp.src(['content/php-client/*.md', `tmp/php-client-${edition}/${edition}-resources.md`])
-                    .pipe(flatmap(function(stream, file){
-                        return gulp.src(file.path)
-                            .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-                            .pipe(insert.prepend(getTocMarkdown(pages, path.basename(file.path)) + "\n"))
-                            .pipe(gulpMarkdownIt(md))
-                            .pipe(gulp.dest(`tmp/php-client-${edition}`))
-                            .on('end', function () {
-                                return gulp.src('src/partials/documentation.handlebars')
-                                    .pipe(gulpHandlebars({
-                                        active_documentation: true,
-                                        title: 'PHP API client documentation',
-                                        mainContent: fs.readFileSync(`tmp/php-client-${edition}/` + path.basename(file.path).replace(/\.md/, '.html'))
-                                    }, {
-                                        partialsDirectory: ['./src/partials']
-                                    }))
-                                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
-                                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                                    .pipe(gulp.dest('./dist/php-client'));
-                            })
-                    }));
-            });
-    }
-
-    concatenateResources('ce');
-    concatenateResources('ee');
+                return gulp.src('src/partials/documentation.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_documentation: true,
+                        title: 'PHP API client documentation',
+                        mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/php-client'));
+            })
+    }));
 });
