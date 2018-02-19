@@ -65,7 +65,9 @@ You can get more information about this method [here](/php-client/list-resources
 
 ### Create a new media file 
 
-Create a new media file and associate it to a product.
+When you create a media file, you can directly associate it to either a product or a product model.
+
+#### Association to a product
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -78,3 +80,16 @@ $client->getProductMediaFileApi()->create('/tmp/ziggy.jpg', [
 ]);
 ```
 
+#### Association to a product model
+
+```php
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+
+$client->getProductMediaFileApi()->create('/tmp/ziggy.jpg', [
+    'code'       => 'rain_boots',
+    'attribute'  => 'product_model_media',
+    'scope'      => null,
+    'locale'     => 'en_US',
+    'type'       => 'product_model',
+]);
+```
