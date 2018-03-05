@@ -35,8 +35,8 @@
                                         <p>To be authenticated when using the API, you will need to get a client id and a secret.</p>
                                         <p>The PIM administrator is responsible for giving these credentials. Ask for it.</p>
                                         <p>For your interest, the client id and the secret sould have the following form:</p>
-                                        <pre class="hljs"><code><span class="hljs-keyword">Client id</span><br>3e2iqilq2ygwk0ccgogkcwco8oosckkkk4gkoc0k4s8s044wss</code></pre>
-                                        <pre class="hljs"><code><span class="hljs-keyword">Secret</span><br>44ectenmudus8g88w4wkws84044ckw0k4w4kg0sokoss84oko8</code></pre>
+                                        <pre class="hljs"><code><span class="hljs-keyword">Client id</span><br>1_44gemst9k9a8kkocckcck444o4o8gk4880kks84sgs0w88kssc</code></pre>
+                                        <pre class="hljs"><code><span class="hljs-keyword">Secret</span><br>44gemst9k9a8kkocckcck444o4o8gk4880kks84sgs0w88kssc</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -55,18 +55,18 @@
                                     <div class="col-xs-12">
                                         <p>So now you have your client id and secret, you are ready to get a token.</p>
                                         <p>Concatenate your client id and secret with a <code>:</code> in between. For example, with the client id and secret given as example in step 1, this will give:</p>
-                                        <pre class="hljs"><code>3e2iqilq2ygwk0ccgogkcwco8oosckkkk4gkoc0k4s8s044wss<span class="hljs-string">:</span>44ectenmudus8g88w4wkws84044ckw0k4w4kg0sokoss84oko8</code></pre>
+                                        <pre class="hljs"><code>1_44gemst9k9a8kkocckcck444o4o8gk4880kks84sgs0w88kssc<span class="hljs-string">:</span>3wu8h23mn668kskks4owowo8cgsskswog0gw84cgsksgc0wg4c</code></pre>
                                         <p>Then encode this string in base 64. There are utilities functions in every languages to do so and even websites, like this <a href="https://www.base64encode.org/">one</a>.</p>
                                         <p>You can also use the terminal to get the base64 encoded string:</p>
-                                        <pre class="hljs"><code>echo -n 3e2iqilq2ygwk0ccgogkcwco8oosckkkk4gkoc0k4s8s044wss:44ectenmudus8g88w4wkws84044ckw0k4w4kg0sokoss84oko8 | base64</code></pre>
+                                        <pre class="hljs"><code>echo -n 1_44gemst9k9a8kkocckcck444o4o8gk4880kks84sgs0w88kssc:3wu8h23mn668kskks4owowo8cgsskswog0gw84cgsksgc0wg4c | base64</code></pre>
                                         <p>You will get:</p>
-                                        <pre class="hljs"><code>M2UyaXFpbHEyeWd3azBjY2dvZ2tjd2NvOG9vc2Nra2trNGdrb2MwazRzOHMwNDR3c3M6NDRlY3Rlbm11ZHVzOGc4OHc0d2t3czg0MDQ0Y2t3MGs0dzRrZzBzb2tvc3M4NG9rbzg=</code></pre>
+                                        <pre class="hljs"><code>MV80NGdlbXN0OWs5YThra29jY2tjY2s0NDRvNG84Z2s0ODgwa2tzODRzZ3Mwdzg4a3NzYzozd3U4aDIzbW42Njhrc2trczRvd293bzhjZ3Nza3N3b2cwZ3c4NGNnc2tzZ2Mwd2c0Yw==</code></pre>
                                         <p>Then ask for a token by posting a request on the authentication URI specially crafted for this purpose: <code>where-your-PIM-is-hosted/api/oauth/v1/token</code>. Set the base64 encoded string as the <code>Authorization</code> header. The body of the request should be a JSON containing your username and password. Make sure that this username/password corresponds to your PIM user account on the PIM instance you want to make requests via the API.
                                             Below is an example of the request.</p>
                                         <pre class="hljs"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/oauth/v1/token</span> HTTP/1.1
 <span class="hljs-attribute">Host</span>: where-your-PIM-is-hosted
 <span class="hljs-attribute">Content-Type</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic M2UyaXFpbHEyeWd3azBjY2dvZ2tjd2NvOG9vc2Nra2trNGdrb2MwazRzOHMwNDR3c3M6NDRlY3Rlbm11ZHVzOGc4OHc0d2t3czg0MDQ0Y2t3MGs0dzRrZzBzb2tvc3M4NG9rbzg=
+<span class="hljs-attribute">Authorization</span>: Basic MV80NGdlbXN0OWs5YThra29jY2tjY2s0NDRvNG84Z2s0ODgwa2tzODRzZ3Mwdzg4a3NzYzozd3U4aDIzbW42Njhrc2trczRvd293bzhjZ3Nza3N3b2cwZ3c4NGNnc2tzZ2Mwd2c0Yw==
 
 <span class="json">{
   <span class="hljs-attr">"grant_type"</span>: <span class="hljs-string">"password"</span>,
@@ -78,11 +78,11 @@
                                         </pre>
                                         <p>The PIM should answer with a 200 status and a JSON in the body response that will have this format:</p>
                                         <pre class="hljs"><code>{
-    <span class="hljs-attr">"access_token"</span>: <span class="hljs-string">"NzFiYTM4ZTEwMjcwZTcyZWIzZTA0NmY3NjE3MTIyMjM1Y2NlMmNlNWEyMTAzY2UzYmY0YWIxYmUzNTkyMDcyNQ"</span>,
+    <span class="hljs-attr">"access_token"</span>: <span class="hljs-string">"MTE0NzNkNzI5YTk0ZTBlNmFlNTI5NmVkOWJhZjUxYWRkN2UzZWIwOWNkMTkwNzY5Mzk3NGViMDFmYzdlODJlMg"</span>,
     <span class="hljs-attr">"expires_in"</span>: <span class="hljs-number">3600</span>,
     <span class="hljs-attr">"token_type"</span>: <span class="hljs-string">"bearer"</span>,
     <span class="hljs-attr">"scope"</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">"refresh_token"</span>: <span class="hljs-string">"MDk2ZmIwODBkYmE3YjNjZWQ4ZTk2NTk2N2JmNjkyZDQ4NzA3YzhiZDQzMjJjODI5MmQ4ZmYxZjlkZmU1ZDNkMQ"</span>
+    <span class="hljs-attr">"refresh_token"</span>: <span class="hljs-string">"ZDkyMzA2NDhlZjQ2MGQyMDQ2MWRiMDBmOTdkZjQ5ODY5Mzc3MTEzMjVkNTkwZThmNWRlNWY0MzllYWMxZWQ5ZA"</span>
 }
 </code>
                                         </pre>
