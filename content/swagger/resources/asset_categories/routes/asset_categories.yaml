@@ -6,6 +6,7 @@ get:
     - Asset categories
   x-versions:
     - 2.1
+    - 2.2
   x-ee: true
   parameters:
     - $ref: '#/parameters/page'
@@ -104,6 +105,7 @@ post:
     - Asset categories
   x-versions:
     - 2.1
+    - 2.2
   x-ee: true
   parameters:
     - name: body
@@ -130,6 +132,7 @@ patch:
     - Asset categories
   x-versions:
     - 2.1
+    - 2.2
   x-ee: true
   description: This endpoint allows you to update several asset categories at once.
   x-body-by-line: Contains several lines, each line is a category in JSON standard format

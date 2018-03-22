@@ -8,6 +8,7 @@ get:
     - "1.7"
     - "2.0"
     - "2.1"
+    - "2.2"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -135,6 +136,7 @@ post:
     - "1.7"
     - "2.0"
     - "2.1"
+    - "2.2"
   parameters:
     - name: body
       in: body
@@ -162,6 +164,7 @@ patch:
     - "1.7"
     - "2.0"
     - "2.1"
+    - "2.2"
   description: This endpoint allows you to update several categories at once.
   x-body-by-line: Contains several lines, each line is a category in JSON standard format
   parameters:

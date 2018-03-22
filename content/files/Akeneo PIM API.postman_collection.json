@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Asset (2.1 only)",
+			"name": "Asset (since 2.1)",
 			"description": "",
 			"item": [
 				{
@@ -414,7 +414,7 @@
 			]
 		},
 		{
-			"name": "Asset category (2.1 only)",
+			"name": "Asset category (since 2.1)",
 			"description": "",
 			"item": [
 				{
@@ -596,7 +596,7 @@
 			]
 		},
 		{
-			"name": "Asset tag (2.1 only)",
+			"name": "Asset tag (since 2.1)",
 			"description": "",
 			"item": [
 				{
@@ -1307,7 +1307,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"code\": \"new_attribute_group\",\n  \"sort_order\": 10,\n  \"attributes\": [\n\t\"main_color\",\n    \"secondary_color\"\n  ],\n  \"labels\": {\n    \"de_DE\": \"new attribute group label DE\",\n    \"en_US\": \"new attribute group label US\",\n    \"fr_FR\": \"new attribute group label FR\"\n  }\n}"
+							"raw": "{\n  \"code\": \"new_attribute_group\",\n  \"sort_order\": 10,\n  \"attributes\": [\n  \"main_color\",\n    \"secondary_color\"\n  ],\n  \"labels\": {\n    \"de_DE\": \"new attribute group label DE\",\n    \"en_US\": \"new attribute group label US\",\n    \"fr_FR\": \"new attribute group label FR\"\n  }\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attribute-groups",
@@ -2058,7 +2058,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"new_family_variant\",\n    \"labels\": {\n        \"de_DE\": \"new family variant label DE\",\n        \"en_US\": \"new family variant label US\",\n        \"fr_FR\": \"new family variant label FR\"\n    },\n    \"variant_attribute_sets\": [\n        {\n            \"level\": 1,\n            \"axes\": [\n            \t\"color\"\n            ],\n            \"attributes\": [\"composition\", \"material\", \"variant_name\", \"variant_image\"]\n        },\n        {\n            \"level\": 2,\n            \"axes\": [\n            \t\"size\"\n            ],\n            \"attributes\": [\"ean\", \"sku\", \"weight\"]\n        }\n    ]\n}"
+							"raw": "{\n    \"code\": \"new_family_variant\",\n    \"labels\": {\n        \"de_DE\": \"new family variant label DE\",\n        \"en_US\": \"new family variant label US\",\n        \"fr_FR\": \"new family variant label FR\"\n    },\n    \"variant_attribute_sets\": [\n        {\n            \"level\": 1,\n            \"axes\": [\n              \"color\"\n            ],\n            \"attributes\": [\"composition\", \"material\", \"variant_name\", \"variant_image\"]\n        },\n        {\n            \"level\": 2,\n            \"axes\": [\n              \"size\"\n            ],\n            \"attributes\": [\"ean\", \"sku\", \"weight\"]\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/families/clothing/variants",
@@ -2964,17 +2964,6 @@
 			"name": "Authentification by password",
 			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);",
-							"postman.setEnvironmentVariable(\"refreshToken\", jsonData.refresh_token);"
-						]
-					}
-				},
-				{
 					"listen": "prerequest",
 					"script": {
 						"type": "text/javascript",
@@ -2984,6 +2973,17 @@
 							"    btoa(postman.getEnvironmentVariable(\"clientId\") + ':' + postman.getEnvironmentVariable(\"secret\"))",
 							");",
 							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);",
+							"postman.setEnvironmentVariable(\"refreshToken\", jsonData.refresh_token);"
 						]
 					}
 				}
@@ -3024,17 +3024,6 @@
 			"name": "Authentification by refresh token",
 			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);",
-							"postman.setEnvironmentVariable(\"refreshToken\", jsonData.refresh_token);"
-						]
-					}
-				},
-				{
 					"listen": "prerequest",
 					"script": {
 						"type": "text/javascript",
@@ -3043,6 +3032,17 @@
 							"    \"base64ClientIdSecret\", ",
 							"    btoa(postman.getEnvironmentVariable(\"clientId\") + ':' + postman.getEnvironmentVariable(\"secret\"))",
 							");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);",
+							"postman.setEnvironmentVariable(\"refreshToken\", jsonData.refresh_token);"
 						]
 					}
 				}

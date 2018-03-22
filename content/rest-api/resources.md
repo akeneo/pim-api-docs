@@ -566,7 +566,7 @@ Below is the JSON standard format representing a media file.
 ::: panel-link Want more details about the media file resource? [Check its endpoints here!](/api-reference.html#Mediafiles)
 :::
 
-### Asset (2.1 and EE only)
+### Asset (since 2.1 and EE only)
 An asset is the EE entity that allows to hold a file which can be an image, a video, a document... In the PIM, you can find all your assets in a library called PAM (Product Asset Manager). In this library, you can manage and classify your assets into their own categories, called [asset categories](/documentation/resources.html#asset-category-21-only).
 
 Once you upload your asset into the PAM, you can then associate it to your products thanks to a specific attribute type, called `Asset collection`. This attribute allows you to select several assets in one single attribute.
@@ -640,7 +640,7 @@ Below is the JSON standard format representing an asset, that is not localizable
 ::: panel-link Want more details about the asset resource? [Check its endpoints here!](/api-reference.html#Assets)
 :::
 
-### Asset category (2.1 and EE only)
+### Asset category (since 2.1 and EE only)
 An asset category allows you to organise your assets. Asset categories are really similar to classical product categories. They constitute asset category trees and you can have multiple asset category trees with an unlimited number of levels (categories, subcategories, subsubcategories..).
 
 :::info
@@ -678,7 +678,7 @@ Below is the JSON standard format representing asset categories. Notice how it's
 ::: panel-link Want more details about the asset category resource? [Check its endpoints here!](/api-reference.html#Assetcategories)
 :::
 
-### Asset tags (2.1 and EE only)
+### Asset tags (since 2.1 and EE only)
 An asset tag allows you to tag your asset so that you can later easily filter on them.
 
 ::: info
