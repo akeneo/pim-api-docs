@@ -113,6 +113,10 @@ To finish, in 2.1, we added in the API the following entities:
  - [Asset](/documentation/resources.html#asset-21-only)
  - [Asset category](/documentation/resources.html#asset-category-21-only).
 
+::: info
+No addition were made in the 2.2 version. So, the scope of the API in the 2.2 version is equivalent to the 2.1 version.
+:::
+
 For a detailed presentation as well as the format of each of these resources, take a look to the [Resources](/documentation/resources.html).
 
 Also, you will find the complete reference of the endpoints available for each of these resources in the [reference API](/api-reference-index.html). You can also get the list of these endpoints by request, see [List of available endpoints](/documentation/overview.html#list-of-available-endpoints).

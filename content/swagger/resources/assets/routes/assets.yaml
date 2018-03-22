@@ -6,6 +6,7 @@ get:
     - Assets
   x-versions:
     - 2.1
+    - 2.2
   x-ee: true
   parameters:
     - $ref: '#/parameters/pagination_type'
@@ -212,6 +213,7 @@ post:
     - Assets
   x-versions:
     - 2.1
+    - 2.2
   x-ee: true
   parameters:
     - name: body
@@ -238,6 +240,7 @@ patch:
     - Assets
   x-versions:
     - 2.1
+    - 2.2
   x-ee: true
   description: This endpoint allows you to update several assets at once.
   x-body-by-line: Contains several lines, each line is an asset in JSON format

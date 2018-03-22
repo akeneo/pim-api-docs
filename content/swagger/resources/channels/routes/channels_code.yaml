@@ -8,6 +8,7 @@ get:
     - "1.7"
     - "2.0"
     - "2.1"
+    - "2.2"
   parameters:
     - $ref: '#/parameters/code'
   responses:
@@ -32,6 +33,7 @@ patch:
   x-versions:
     - "2.0"
     - "2.1"
+    - "2.2"
   description: This endpoint allows you to update a given channel. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no channel exists for the given code, it creates it.
   parameters:
     - $ref: '#/parameters/code'

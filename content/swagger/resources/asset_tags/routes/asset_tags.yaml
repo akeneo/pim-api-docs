@@ -6,6 +6,7 @@ get:
     - Asset tags
   x-versions:
     - 2.1
+    - 2.2
   x-ee: true
   parameters:
     - $ref: '#/parameters/page'

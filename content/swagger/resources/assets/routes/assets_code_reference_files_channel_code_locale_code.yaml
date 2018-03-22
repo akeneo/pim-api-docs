@@ -6,6 +6,7 @@ get:
     - Assets
   x-versions:
     - 2.1
+    - 2.2
   x-ee: true
   parameters:
     - $ref: '#/parameters/asset_code'
@@ -32,6 +33,7 @@ post:
     - Assets
   x-versions:
     - 2.1
+    - 2.2
   x-ee: true
   parameters:
     - $ref: '#/parameters/asset_code'
