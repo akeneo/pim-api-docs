@@ -91,4 +91,4 @@ $product = $client->getProductApi()->get('top');
 echo $product['identifier'];
 ```
 
-Want to [update an attribute](/php-client/ce-resources.html#upsert-an-attribute), [create a category](/php-client/ce-resources.html#create-a-category) or [delete a product](/php-client/ce-resources.html#delete-a-product)? You can get code snippets for all the resources [here](/php-client/ce-resources.html)
+Want to [update an attribute](/php-client/resources.html#upsert-an-attribute), [create a category](/php-client/resources.html#create-a-category) or [delete a product](/php-client/resources.html#delete-a-product)? You can get code snippets for all the resources [here](/php-client/resources.html)
