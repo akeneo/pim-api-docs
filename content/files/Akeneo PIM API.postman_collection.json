@@ -1,7 +1,7 @@
 {
 	"info": {
-		"name": "Official Akeneo PIM API",
-		"_postman_id": "1337",
+		"name": "Official Akeneo PIM API V2.3",
+		"_postman_id": "9d2c9a29-47d8-d779-c2f0-b886b133aad3",
 		"description": "The Akeneo API brought to you!\n\nFind out how this Postman collection works by visiting http://api.akeneo.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1681,7 +1681,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"code\": \"my_new_channel_3\",\n  \"currencies\": [\n    \"USD\",\n    \"EUR\"\n  ],\n  \"yo\":\"\",\n  \"locales\": [\n    \"de_DE\",\n    \"en_US\",\n    \"fr_FR\"\n  ],\n  \"category_tree\": \"master\",\n  \"conversion_units\":{\n    \"weight\": \"GRAM\"\n  },\n  \"labels\": {\n    \"en_US\": \"new category label US\",\n    \"de_DE\": \"new category label DE\",\n    \"fr_FR\": \"new category label FR\"\n  }\n}"
+							"raw": "{\n  \"code\": \"my_new_channel_3\",\n  \"currencies\": [\n    \"USD\",\n    \"EUR\"\n  ],\n  \"locales\": [\n    \"de_DE\",\n    \"en_US\",\n    \"fr_FR\"\n  ],\n  \"category_tree\": \"master\",\n  \"conversion_units\":{\n    \"weight\": \"GRAM\"\n  },\n  \"labels\": {\n    \"en_US\": \"new category label US\",\n    \"de_DE\": \"new category label DE\",\n    \"fr_FR\": \"new category label FR\"\n  }\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/channels/my_new_channel_3",
