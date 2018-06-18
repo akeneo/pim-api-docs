@@ -12,10 +12,9 @@ properties:
     x-immutable: true
   parent:
     type: string
-    description: Code of the parent product model
+    description: Code of the parent product model. This parent can be modified since the 2.3.
     x-validation-rules: "&bull; It is equal to an existing product model code&#10;&bull; This product model has the same family variant as the one given in the `family_variant field`"
     default: "null"
-    x-immutable: true
   categories:
     type: array
     description: Codes of the categories in which the product model is categorized
