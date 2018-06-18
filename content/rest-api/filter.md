@@ -160,6 +160,139 @@ To get the products that were updated during the last 4 days, you can use the fo
 /api/rest/v1/products?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
 ```
 
+## Filter on product model properties
+To filter product models by one of its properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
+
+```
+/api/rest/v1/product-models?search={PRODUCT_MODEL_PROPERTY:[{"operator":OPERATOR,"value":VALUE}]}
+```
+
+In the above url :
+ - `PRODUCT_MODEL_PROPERTY` can be any property detailed in the sections below,
+ - `OPERATOR` is an allowed operator for this `PRODUCT_MODEL_PROPERTY`,
+ - `VALUE` is a value whose type corresponds to the allowed type detailed below.
+
+#### Examples
+To only retrieve product models of the `winter_collection` category, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"categories":[{"operator":"IN","value":["winter_collection"]}]}
+```
+
+Of course, you can combine as many filters as you want. The example below will get you the product models being 100% complete on the en_US locale.
+
+```
+/api/rest/v1/product-models?search={"enabled":[{"operator":"IN","value":["winter_collection"}],"completeness":[{"operator":"ALL COMPLETE","locale":["en_US"]}]}
+```
+
+You can even combine several filters on the same product model properties. The example below will get you the product models created both the 4th and the 5th of July 2016.
+
+```
+/api/rest/v1/product-models?search={"created":[{"operator":"=","value":"2016-07-04"},{"operator":"=","value":"2016-07-05"}]}
+```
+
+### On categories
+
+To filter product models on their categories, use the property `categories`.
+Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `IN` | an array of existing category codes | Only returns the product models that are in the given categories |
+| `NOT IN` | an array of existing category codes | Only returns the product models that are not in the given categories |
+| `IN OR UNCLASSIFIED` |  an array of existing category codes | Only returns the product models that are in the given categories or that are not classified in any categories |
+| `IN CHILDREN` | an array of existing category codes | Only returns the product models that are in the children of the given categories |
+| `NOT IN CHILDREN` | an array of existing category codes | Only returns the product models that are not in the children of the given categories |
+| `UNCLASSIFIED` | no value | Only returns the product models that are not classified into any category |
+
+#### Example
+To get the product models of the `winter_collection` category, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"categories":[{"operator":"IN","value":["winter_collection"]}]}
+```
+
+### On completeness
+
+To filter product models on their completeness, use the `completeness` product property. You will also need to provide a `scope` value to specify on which channel you want to filter with the completeness.
+Here are the allowed operators you can use to filter by completeness as well as the corresponding type of value expected in the `search` query parameter.
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `AT LEAST COMPLETE` | no value | Only returns product models that have at least one variant product fully complete on the given channel for the given set of locales |
+| `ALL COMPLETE` | no value |  Only returns product models that have all his variant products fully complete on the given channel for the given set of locales |
+
+#### Examples
+To get the product models that are 100% complete for the `ecommerce` channel, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"completeness":[{"operator":"COMPLETE","scope":"ecommerce"}]}
+```
+
+To get the product models that have at least one variant product 100% complete on both the `en_US` and `fr_FR` locales for the `ecommerce` channel, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"completeness":[{"operator":"AT LEAST COMPLETE","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
+```
+
+### On family
+
+To filter product models on families, use respectively the product model property `family`.
+Here are the allowed operators you can use to filter on this property as well as the corresponding type of value expected in the `search` query parameter.
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `IN` | array of existing family | Only returns product models that are in the given family |
+| `NOT IN`  | array of existing family | Only returns product models that are not in the given family |
+| `EMPTY` | no value | Only returns product models that have no family |
+| `NOT EMPTY` | no value | Only returns product models that have a family |
+
+#### Examples
+To get the product models that are in the `camcorders` family, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"family":[{"operator":"IN","value":["camcorders"]}]}
+```
+
+To get the product models that are not in the `camcorders` and `digital_cameras` family, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"family":[{"operator":"NOT IN","value":["camcorders","digital_cameras"]}]}
+```
+
+### On creation or update date
+
+To filter product models on creation or update date, use respectively the product property `created` and `updated`.
+Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
+
+:::info
+Note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini).
+:::
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `=` | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns product models that were respectively<br> updated or created during the given day |
+| `!=`  | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns product models that were respectively<br> not updated or not created during the given day  |
+| `<` | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns product models that were respectively<br> updated or created before the given day |
+| `>` | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns product models that were respectively<br> updated or created after the given day |
+| `BETWEEN` | array of datetimes <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns product models that were respectively<br> updated or created between the two given dates |
+| `NOT BETWEEN` | array of datetimes <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns product models that were respectively<br> not updated or not created between the two given dates |
+| `SINCE LAST N DAYS` | integer | Only returns product models that were respectively updated<br> or created during the last n days, n being the given value |
+|
+#### Examples
+To get the product models that were created on the 4th of July 2016 at 10am, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"created":[{"operator":"=","value":"2016-07-04 10:00:00"}]}
+```
+
+To get the product models that were updated during the last 4 days, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
+```
+
+
 ## Filter on product values
 To filter products on its [product values](/documentation/resources.html#product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
