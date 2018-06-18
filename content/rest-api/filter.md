@@ -161,7 +161,12 @@ To get the products that were updated during the last 4 days, you can use the fo
 ```
 
 ## Filter on product model properties
-To filter product models by one of its properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
+
+::: warning
+This feature is available since the 2.3 version of the PIM.
+:::
+
+To filter product models by one of their properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
 /api/rest/v1/product-models?search={PRODUCT_MODEL_PROPERTY:[{"operator":OPERATOR,"value":VALUE}]}
@@ -219,25 +224,27 @@ Here are the allowed operators you can use to filter by completeness as well as 
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
-| `AT LEAST COMPLETE` | no value | Only returns product models that have at least one variant product fully complete on the given channel for the given set of locales |
+| `AT LEAST COMPLETE` | no value | Only returns product models that have `at least one variant product` fully complete on the given channel for the given set of locales |
+| `AT LEAST INCOMPLETE` | no value | Only returns product models that have `at least one variant product` incomplete on the given channel for the given set of locales |
 | `ALL COMPLETE` | no value |  Only returns product models that have all his variant products fully complete on the given channel for the given set of locales |
+| `ALL INCOMPLETE` | no value |  Only returns product models that have all his variant products incomplete on the given channel for the given set of locales |
 
 #### Examples
-To get the product models that are 100% complete for the `ecommerce` channel, you can use the following URL.
+To get the product models that are 100% complete for the `ecommerce` channel on `fr_FR` locale, you can use the following URL.
 
 ```
-/api/rest/v1/product-models?search={"completeness":[{"operator":"COMPLETE","scope":"ecommerce"}]}
+/api/rest/v1/product-models?search={"completeness":[{"operator":"ALL COMPLETE","locale":"fr_FR","scope":"ecommerce"}]}
 ```
 
 To get the product models that have at least one variant product 100% complete on both the `en_US` and `fr_FR` locales for the `ecommerce` channel, you can use the following URL.
 
 ```
-/api/rest/v1/product-models?search={"completeness":[{"operator":"AT LEAST COMPLETE","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
+/api/rest/v1/product-models?search={"completeness":[{"operator":"AT LEAST COMPLETE","locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
 ```
 
 ### On family
 
-To filter product models on families, use respectively the product model property `family`.
+To filter product models on families, use the product model property `family`.
 Here are the allowed operators you can use to filter on this property as well as the corresponding type of value expected in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
@@ -262,11 +269,11 @@ To get the product models that are not in the `camcorders` and `digital_cameras`
 
 ### On creation or update date
 
-To filter product models on creation or update date, use respectively the product property `created` and `updated`.
+To filter product models on creation or update date, use the product property `created` and `updated`, respectively.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
 :::info
-Note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini).
+Note that dates are interpreted in the time zone of the server that runs Akeneo PIM (e.g. date.timezone setting in php.ini).
 :::
 
 | Operator | Allowed value type | Filter description |
@@ -294,7 +301,7 @@ To get the product models that were updated during the last 4 days, you can use 
 
 
 ## Filter on product values
-To filter products on its [product values](/documentation/resources.html#product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
+To filter products, and product models since the v2.3, on its [product values](/documentation/resources.html#product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
 /api/rest/v1/products?search={ATTIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
