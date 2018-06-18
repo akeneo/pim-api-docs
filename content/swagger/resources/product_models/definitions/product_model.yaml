@@ -52,6 +52,17 @@ properties:
     description: Date of the last update
     format: dateTime
     x-read-only: true
+  metadata:
+    type: object
+    description: More information around the product model (only available since the v2.3 in the Enterprise Edition)
+    x-immutable: true
+    x-read-only: true
+    properties:
+      workflow_status:
+        description: Status of the product model regarding the user permissions (only available since the v2.3 in the Enterprise Edition)
+        type: string
+        enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
+
 example: {
   "code": "model-biker-jacket-leather",
   "family_variant": "clothing_material_size",
