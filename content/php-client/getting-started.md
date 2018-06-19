@@ -5,6 +5,24 @@
 * PHP >= 5.6
 * Composer
 
+## Compatibility matrix
+
+Below you will find which PHP client version to use depending on your PIM version.
+
+| PIM version | API PHP client version |
+|--------|----|
+| v2.0  | v1.0 |
+| v2.1 - v2.2 | v2.0 |
+| v2.3 | v3.0 | 
+
+::: info
+Note that our PHP client is backward compatible.
+
+For example, if your PIM is currently a v2.3, you can still use a 1.0 version of the PHP client.
+The new endpoints available in v2.3 will not be available in the v1.0 of the PHP client.
+:::
+
+
 ## Installation
 
 `api-php-client` and `api-php-client-ee` use [Composer](http://getcomposer.org).
