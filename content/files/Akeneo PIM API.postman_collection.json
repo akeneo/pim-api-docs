@@ -1,6 +1,6 @@
 {
 	"info": {
-		"name": "Official Akeneo PIM API V2.3",
+		"name": "Official Akeneo PIM API",
 		"_postman_id": "9d2c9a29-47d8-d779-c2f0-b886b133aad3",
 		"description": "The Akeneo API brought to you!\n\nFind out how this Postman collection works by visiting http://api.akeneo.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -2880,6 +2880,74 @@
 							]
 						},
 						"description": "\n"
+					},
+					"response": []
+				},
+				{
+					"name": "draft (2.3 and EE only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/product-models/amor/draft",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"product-models",
+								"amor",
+								"draft"
+							]
+						},
+						"description": "Assuming that there is already a draft for the given product model. The draft was created by the same user that is using this request.\nThe user has only an edition permission through categories on the given product model."
+					},
+					"response": []
+				},
+				{
+					"name": "proposal (2.3 and EE only)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/product-models/amor/proposal",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"product-models",
+								"amor",
+								"proposal"
+							]
+						},
+						"description": "Assuming that there is already a draft for the given product model. The draft was created by the same user using this request.\nThe user has only an edition permission through categories on the given product model."
 					},
 					"response": []
 				}
