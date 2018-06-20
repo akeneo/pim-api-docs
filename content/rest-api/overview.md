@@ -109,10 +109,13 @@ Also, in 2.0, the API was enriched with these new entities:
  - Product draft (Enterprise edition only),
  - [Published product](/documentation/resources.html#published-product-2x-and-ee-only) (Enterprise edition only).
 
-To finish, in 2.1, we added in the API the following entities:
+In 2.1, we added in the API the following entities:
  - [Asset](/documentation/resources.html#asset-21-only)
  - [Asset category](/documentation/resources.html#asset-category-21-only).
 
+To finish, in 2.3, we added in the API the following entity:
+ - Product model draft (Enterprise edition only)
+ 
 ::: info
 No addition were made in the 2.2 version. So, the scope of the API in the 2.2 version is equivalent to the 2.1 version.
 :::
