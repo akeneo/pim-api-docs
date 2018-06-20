@@ -11,6 +11,10 @@
   $ref: ./resources/product_models/routes/product_models.yaml
 /api/rest/v1/product-models/{code}:
   $ref: ./resources/product_models/routes/product_models_code.yaml
+/api/rest/v1/product-models/{code}/proposal:
+  $ref: ./resources/product_models/routes/product_models_code_proposal.yaml
+/api/rest/v1/product-models/{code}/draft:
+  $ref: ./resources/product_models/routes/product_models_code_draft.yaml
 
 /api/rest/v1/published-products:
   $ref: ./resources/published_products/routes/published_products.yaml
