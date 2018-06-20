@@ -28,6 +28,10 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $productModel = $client->getProductModelApi()->get('rain_boots_red');
 ```
 
+You can get more information about the returned format of the product values [here](/documentation/resources.html#product-values).
+
+Since the 2.3 version, in the Enterprise Edition, the response contains one more field `metadata`. Look at the [product model drafts](/php-client/ee-resources.html#product-model-draft) for an example.
+
 #### Get a list of product models
 
 There are two ways of getting product models.
