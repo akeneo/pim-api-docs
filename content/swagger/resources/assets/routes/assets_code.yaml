@@ -7,6 +7,7 @@ get:
   x-versions:
     - 2.1
     - 2.2
+    - 2.3
   x-ee: true
   parameters:
     - $ref: '#/parameters/code'
@@ -32,6 +33,7 @@ patch:
   x-versions:
     - 2.1
     - 2.2
+    - 2.3
   x-ee: true
   description: This endpoint allows you to update a given asset. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no asset exists for the given code, it creates it.
   parameters:
