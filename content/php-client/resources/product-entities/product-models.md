@@ -32,15 +32,47 @@ $productModel = $client->getProductModelApi()->get('rain_boots_red');
 
 There are two ways of getting product models.
 
+**Search builder**
+
+::: warning
+This feature is only available since the version 2.0 of the PHP API client.
+Also it was added in the 2.3 version of the PIM and is therefore not present in previous versions.
+:::
+
+You can search over the product models, thanks to a list of filters.
+A helper has been added to ease the construction of these filters.
+
+For more information about the available filters and operators that you can use to search a list of product models, please refer to [this page](/documentation/filter.html).
+
+```php
+$searchBuilder = new \Akeneo\Pim\ApiClient\Search\SearchBuilder();
+$searchBuilder
+    ->addFilter('completeness', 'AT LEAST COMPLETE', ['locale' => 'en_US'])
+    ->addFilter('completeness', 'ALL COMPLETE', ['scope' => 'ecommerce'])
+    ->addFilter('categories', 'IN', 'winter_collection');
+
+$searchFilters = $searchBuilder->getFilters();
+```
+
 **By getting pages**
 
-This method allows to get product models page per page, as a classical pagination.
+This method allows you to get product models page per page, as a classical pagination.
 It's possible to get the total number of product models with this method.
+
+As for the paginated method, since the 2.3 version of the Akeneo PIM, the search builder can be used and all query parameters are available, except `with_count`.
+
+For example, we only return product values belonging to the channel "ecommerce" by adding the query parameter `'scope' => 'ecommerce'`. 
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
-$firstPage = $client->getProductModelApi()->listPerPage(50, true);
+$searchBuilder = new \Akeneo\Pim\ApiClient\Search\SearchBuilder();
+$searchBuilder
+    ->addFilter('completeness', 'ALL COMPLETE', ['locale' => 'en_US', 'scope' => 'ecommerce']);
+$searchFilters = $searchBuilder->getFilters();
+
+// get a cursor with a page size of 50, apply a search
+$products = $client->getProductModelApi()->all(50, ['search' => $searchFilters, 'scope' => 'ecommerce']);
 ```
 
 ::: warning
@@ -56,12 +88,23 @@ You can get more information about this method [here](/php-client/list-resources
 
 **With a cursor**
 
-This method allows to iterate the product models. It will automatically get the next pages for you.
+This method allows you to iterate the product models. It will automatically get the next pages for you.
+With this method, it's not possible to get the previous page, or get the total number of product models.
+
+As for the paginated method, since the 2.3 version of the Akeneo PIM, the search builder can be used and all query parameters are available, except `with_count`.
+
+For example, in this example, we only return product values belonging to the channel "ecommerce" by adding the query parameter `'scope' => 'ecommerce'`. 
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
-$productModels = $client->getProductModelApi()->all(50);
+$searchBuilder = new \Akeneo\Pim\ApiClient\Search\SearchBuilder();
+$searchBuilder
+    ->addFilter('completeness', 'ALL COMPLETE', ['locale' => 'en_US']);
+$searchFilters = $searchBuilder->getFilters();
+
+// get a cursor with a page size of 50, apply a research
+$productModels = $client->getProductModelApi()->all(50, ['search' => $searchFilters, 'scope' => 'ecommerce']);
 ```
 
 :::warning
@@ -69,6 +112,8 @@ There is a maximum limit allowed on server side for the parameter `pageSize`.
 :::
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
+
+You can get more information about the available query parameters [here](/api-reference.html#get_product_models).
 
 #### Create a product model
 
