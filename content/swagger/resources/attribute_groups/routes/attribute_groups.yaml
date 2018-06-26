@@ -8,6 +8,7 @@ get:
     - "2.0"
     - "2.1"
     - "2.2"
+    - "2.3"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -110,6 +111,7 @@ post:
     - "2.0"
     - "2.1"
     - "2.2"
+    - "2.3"
   parameters:
     - name: body
       in: body
@@ -137,6 +139,7 @@ patch:
     - "2.0"
     - "2.1"
     - "2.2"
+    - "2.3"
   description: This endpoint allows you to update and/or create several attribute groups at once.
   x-body-by-line: Contains several lines, each line is an attribute group in JSON standard format
   parameters:

@@ -9,6 +9,7 @@ post:
     - "2.0"
     - "2.1"
     - "2.2"
+    - "2.3"
   x-no-token: true
   parameters:
     - name: Content-type
