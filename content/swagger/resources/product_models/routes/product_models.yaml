@@ -10,6 +10,26 @@ get:
     - "2.3"
   description: This endpoint allows you to get a list of product models. Product models are paginated. In the Enterprise Edition, since the 2.0, permissions based on your user groups are applied to the set of products you request.
   parameters:
+    - name: search
+      in: query
+      description: Filter product models, for more details see the <a href="/documentation/filter.html">Filters</a> section
+      required: false
+      type: string
+    - name: scope
+      in: query
+      type: string
+      description: Filter product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
+      required: false
+    - name: locales
+      in: query
+      type: string
+      description: Filter product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
+      required: false
+    - name: attributes
+      in: query
+      type: string
+      description: Filter product values to only return those concerning the given attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
+      required: false
     - $ref: '#/parameters/pagination_type'
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/search_after'
