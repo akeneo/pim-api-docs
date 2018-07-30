@@ -34,7 +34,7 @@ Of course, you can combine as many filters as you want. The example below will g
 You can even combine several filters on the same product properties. The example below will get you the products created both the 4th and the 5th of July 2016.
 
 ```
-/api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04"},{"operator":"=","value":"2016-07-05"}]}
+/api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04 10:00:00"},{"operator":"=","value":"2016-07-05 10:00:00"}]}
 ```
 
 ### On categories
