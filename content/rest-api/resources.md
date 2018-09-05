@@ -41,7 +41,7 @@ Below is the JSON standard format representing this set of locales.
 :::
 
 ### Channel
-An channel refers to a place where your product information will be visible: for example, a website, a print catalog or a mobile application.
+A channel refers to a place where your product information will be visible: for example, a website, a print catalog or a mobile application.
 Actually, a channel defines a selection of products and information to export.
 
 :::info
