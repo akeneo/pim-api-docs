@@ -8,35 +8,35 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 /*
  * Returns an array like this:
  * [
- *     'identifier': 'top',
- *     'enabled': true,
- *     'family': 'tshirt',
- *     'categories': ['summer_collection'],
- *     'groups': [],
- *     'parent': null,
- *     'values': [
- *         'name': [
+ *     'identifier' => 'top',
+ *     'enabled' => true,
+ *     'family' => 'tshirt',
+ *     'categories' => ['summer_collection'],
+ *     'groups' => [],
+ *     'parent' => null,
+ *     'values' => [
+ *         'name' => [
  *              [
- *                  'data': 'Top',
- *                  'locale': 'en_US',
- *                  'scope': null
+ *                  'data' => 'Top',
+ *                  'locale' => 'en_US',
+ *                  'scope' => null
  *              ],
  *              [
- *                  'data': 'Débardeur',
- *                  'locale': 'fr_FR',
- *                  'scope': null
+ *                  'data' => 'Débardeur',
+ *                  'locale' => 'fr_FR',
+ *                  'scope' => null
  *              ],
  *         ],
  *     ],
- *     'created': '2016-06-23T18:24:44+02:00',
- *     'updated': '2016-06-25T17:56:12+02:00',
- *     'associations': [
- *         'PACK': [
- *             'products': [
+ *     'created' => '2016-06-23T18:24:44+02:00',
+ *     'updated' => '2016-06-25T17:56:12+02:00',
+ *     'associations' => [
+ *         'PACK' => [
+ *             'products' => [
  *                 'sunglass'
  *             ],
- *             'groups': [],
- *             'product_models': []
+ *             'groups' => [],
+ *             'product_models' => []
  *         ],
  *     ],
  * ]
@@ -46,7 +46,7 @@ $product = $client->getProductApi()->get('top');
 
 You can get more information about the returned format of the product values [here](/documentation/resources.html#product-values).
 
-In the Enterprise Edition, the response contains one more field `metadata`. Look at the [product drafts](/php-client/ee-resources.html#product-draft) for an example.
+In the Enterprise Edition, the response contains one more field `metadata`. Look at the [product drafts](/php-client/resources.html#product-draft) for an example.
 
 ::: warning
 The field `product_models` in the `associations` property was added in the 2.1 version of the PIM and is therefore not present in previous versions.
