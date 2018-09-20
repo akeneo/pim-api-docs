@@ -30,16 +30,16 @@ $productModel = $client->getProductModelApi()->get('rain_boots_red');
 
 You can get more information about the returned format of the product values [here](/documentation/resources.html#product-values).
 
-Since the 2.3 version, in the Enterprise Edition, the response contains one more field `metadata`. Look at the [product model drafts](/php-client/ee-resources.html#product-model-draft) for an example.
+Since the 2.3 version, in the Enterprise Edition, the response contains one more field `metadata`. Look at the [product model drafts](/php-client/resources.html#product-model-draft) for an example.
 
 #### Get a list of product models
 
 There are two ways of getting product models.
 
-*Search builder**
+**Search builder**
 
 ::: warning
-This feature is only available since the version 2.0 of the PHP API client.
+This feature is only available since the version 3.0 of the PHP API client.
 Also it was added in the 2.3 version of the PIM and is therefore not present in previous versions.
 :::
 
@@ -62,7 +62,7 @@ $searchFilters = $searchBuilder->getFilters();
 
 This method allows you to get product models page per page, as a classical pagination.
 It's possible to get the total number of product models with this method.
-As for the paginated method, since the 2.3 version of the Akeneo PIM, the search builder can be used and all query parameters are available, except `with_count`.
+As for the paginated method, since the 3.0 version of the PHP client, the search builder can be used and all query parameters are available, except `with_count`.
 
 For example, we only return product values belonging to the channel "ecommerce" by adding the query parameter `'scope' => 'ecommerce'`. 
 ```php
@@ -93,7 +93,7 @@ You can get more information about this method [here](/php-client/list-resources
 This method allows you to iterate the product models. It will automatically get the next pages for you.
 With this method, it's not possible to get the previous page, or get the total number of product models.
 
-As for the paginated method, since the 2.3 version of the Akeneo PIM, the search builder can be used and all query parameters are available, except `with_count`.
+As for the paginated method, since the 3.0 version of the PHP client, the search builder can be used and all query parameters are available, except `with_count`.
 
 For example, in this example, we only return product values belonging to the channel "ecommerce" by adding the query parameter `'scope' => 'ecommerce'`. 
 

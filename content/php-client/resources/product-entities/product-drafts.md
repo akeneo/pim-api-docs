@@ -12,34 +12,34 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
 /*
  * Returns an array like this:
  * [
- *     'identifier': 'top',
- *     'enabled': true,
- *     'family': 'tshirt',
- *     'categories': ['summer_collection'],
- *     'groups': [],
- *     'values': [
- *         'name': [
+ *     'identifier' => 'top',
+ *     'enabled' => true,
+ *     'family' => 'tshirt',
+ *     'categories' => ['summer_collection'],
+ *     'groups' => [],
+ *     'values' => [
+ *         'name' => [
  *              [
- *                  'data': 'Top',
- *                  'locale': 'en_US',
- *                  'scope': null
+ *                  'data' => 'Top',
+ *                  'locale' => 'en_US',
+ *                  'scope' => null
  *              ],
  *              [
- *                  'data': 'Débardeur',
- *                  'locale': 'fr_FR',
- *                  'scope': null
+ *                  'data' => 'Débardeur',
+ *                  'locale' => 'fr_FR',
+ *                  'scope' => null
  *              ],
  *         ],
  *     ],
- *     'created': '2016-06-23T18:24:44+02:00',
- *     'updated': '2016-06-25T17:56:12+02:00',
- *     'associations': [
- *         'PACK': [
- *             'products': [
+ *     'created' => '2016-06-23T18:24:44+02:00',
+ *     'updated' => '2016-06-25T17:56:12+02:00',
+ *     'associations' => [
+ *         'PACK' => [
+ *             'products' => [
  *                 'sunglass'
  *             ],
- *             'groups': [],
- *             'product_models': []
+ *             'groups' => [],
+ *             'product_models' => []
  *         ],
  *     ],
  *     'metadata' => [
