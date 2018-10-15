@@ -1,0 +1,67 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Code of the record of a reference entity
+    x-immutable: true
+  labels:
+    type: object
+    description: Labels for each locale of the reference entity record
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Record label for the locale `localeCode`
+  image:
+    type: object
+    description: //TODO
+  values:
+    type: object
+    description: "Record attributes values, see <a href='/documentation/resources.html#reference-entity-record-values'>Reference entity record values</a> section for more details"
+    x-validation-rules: Validation rules detailed in Reference entity record values section
+    properties:
+      attributeCode:
+        type: array
+        items:
+          type: object
+          properties:
+            scope:
+              type: string
+              description: Channel code of the reference entity record value
+            locale:
+              type: string
+              description: Locale code of the reference entity record value
+            data:
+              type: object
+              description: Reference entity record value
+example: {
+  "code": "kartell",
+  "labels": {
+    "en_US": "Kartell",
+    "fr_FR": "Kartell"
+  },
+  "image": "//TODO",
+  "values": {
+    "description": [
+      {
+        "data": "Kartell, the Italian furniture company that sells modern and remarkable pieces of furnitures.",
+        "locale": "en_US",
+        "scope": null
+      },
+      {
+        "data": "Kartell, l'éditeur de meuble italien spécialisé dans la signature de belle pièces au design contemporain.",
+        "locale": "fr_FR",
+        "scope": null
+      }
+    ],
+    "country": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "italy"
+      }
+    ]
+  }
+}
