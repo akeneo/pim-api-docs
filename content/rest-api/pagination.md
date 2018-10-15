@@ -29,18 +29,23 @@ The limit is set to 100 because this is a good trade-off between memory consumpt
 
 To request paginated entities, you can use the [offset method](/documentation/pagination.html#offset-method).
 
-For high volume entities, such as the products, product models, published products and assets, we provide another pagination method, the [search after method](/documentation/pagination.html#search-after-method). We recommend to use this method if you want to have good performances.
+For high volume entities, such as the products, product models, published products, assets and reference entity records, we provide another pagination method, the [search after method](/documentation/pagination.html#search-after-method). We recommend to use this method if you want to have good performances.
 
 ## Search-after method 
 
 To use the search-after method, you have to set the `pagination_type` query parameter to `search_after`. The entities you will get, will then be sorted by product primary key to speed up performance.
 
 :::warning
-This pagination method is only available for products (since 1.7), product models (since 2.0), published products (since 2.0) and assets (since 2.1).
+This pagination method is only available for:
+- products (since 1.7),
+- product models (since 2.0),
+- published products (since 2.0),
+- assets (since 2.1),
+- reference entity records (since 3.0).
 :::
 
-Do note that the `Search after` method is better than `Offset` method in term of performances.
-It is strongly recommended to use it when requesting entities that have high data volume such as the products, the product models, the published products and the assets.
+Do note that the `Search-after` method is better than `Offset` method in term of performances.
+It is strongly recommended to use it when requesting entities that have high data volume such as the products, the product models, the published products, the assets and the reference entity records.
 
 Additionally, there is a `search_after` query parameter that is used as a cursor.
 
@@ -84,8 +89,9 @@ HTTP/1.1 200 OK
 
 ## Offset method
 
-This is the default pagination type, available for all resources.
-It's the most common way to paginate resources (with an offset on query).
+This is the default pagination type. It's available for all the resources, except the reference entity record : only the search-after method is available for the reference entity record.
+
+The offset method is the most common way to paginate resources (with an offset on query), but it's less efficient than the search-after method.
 
 When you want to use the classical method on products, you can set the `pagination_type` query parameter to `page` but this is not mandatory since this is the default pagination.
 
@@ -149,6 +155,6 @@ curl -X GET /api/rest/v1/products
 :::
 
 :::warning
-When trying to request a quite high page number, you will notice that this method spend more and more time to respond. This method can also be responsible for giving you duplicates. That is why we introduced another way to request paginated resources, see the search after method below. It is only avalailable on products, product models and published products right now.
+When trying to request a quite high page number, you will notice that this method spend more and more time to respond. This method can also be responsible for giving you duplicates. That is why we introduced another way to request paginated resources, see the [search-after method](/documentation/pagination.html#search-after-method). It is only avalailable on products, product models, published products, assets and reference entity records right now.
 :::
 

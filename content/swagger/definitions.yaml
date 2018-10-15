@@ -22,6 +22,14 @@ PublishedProductList:
     - $ref:  '#/definitions/ItemList'
     - $ref: '#/definitions/PublishedProduct'
 
+ReferenceEntityRecord:
+  $ref: ./resources/reference_entity_records/definitions/reference_entity_record.yaml
+ReferenceEntityRecordList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/ReferenceEntityRecord'
+
 Category:
   $ref: ./resources/categories/definitions/category.yaml
 CategoryList:
@@ -225,6 +233,30 @@ Pagination:
     current_page:
       type: integer
       description: Current page number
+SearchAfterPagination:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the current page of resources
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the first page of resources
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the next page of resources
 ItemList:
   type: object
   properties:
