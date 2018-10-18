@@ -578,7 +578,7 @@ You can filter the reference entity records to get only the completed ones on a 
 
 ### On update date
 
-You can filter the reference entity records on their update date.
+You can filter the reference entity records by their update date.
 
 Below are the allowed operators to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
 
