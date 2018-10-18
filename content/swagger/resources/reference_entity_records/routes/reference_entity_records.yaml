@@ -13,6 +13,16 @@ get:
       description: Filter records of the reference entity, for more details see the <a href="/documentation/filter.html#filter-reference-entity-records">Filters</a> section
       required: false
       type: string
+    - name: channel
+      in: query
+      type: string
+      description: Filter attribute values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-attribute-values-by-channel">Filter attribute values by channel</a> section
+      required: false
+    - name: locales
+      in: query
+      type: string
+      description: Filter attribute values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href=/documentation/filter.html#filter-attribute-values-by-locale">Filter attribute values by locale</a> section
+      required: false
     - $ref: '#/parameters/reference_entity_code'
     - $ref: '#/parameters/search_after'
     - $ref: '#/parameters/limit'
