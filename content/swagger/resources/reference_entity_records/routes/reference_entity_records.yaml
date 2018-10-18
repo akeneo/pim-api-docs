@@ -177,7 +177,7 @@ patch:
         $ref: "#/definitions/ReferenceEntityRecord"
         x-examples:
           x-example-1:
-            '{"code":"kartell","values":{"description":[{"scope":"ecommerce","locale":"en_US","data":"The contemporary Italian furniture brand"}]}}'
+            '{"code":"kartell","values":{"description":[{"channel":"ecommerce","locale":"en_US","data":"The contemporary Italian furniture brand"}]}}'
           x-example-2:
             '{"code":"calligaris","labels":{"en_US":"Calligaris","fr_FR":"Calligaris"}}'
           x-example-3:
