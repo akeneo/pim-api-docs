@@ -576,3 +576,23 @@ You can filter the reference entity records to get only the completed ones on a 
 /api/rest/v1/reference-entities/brands/records?search={"complete":[{"operator":"=","value":true,"scope":"ecommerce","locales":["en_US"]}]}
 ```
 
+### On update date
+
+You can filter the reference entity records on their update date.
+
+Below are the allowed operators to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
+
+:::info
+Note that dates are interpreted in the time zone of the server that runs Akeneo PIM (e.g. date.timezone setting in php.ini).
+:::
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `>` | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns records that were respectively<br> updated after the given day |
+
+#### Example
+To get the reference entity records that were updated since the 4th of July 2016 at 10am (server time), you can use the following URL.
+
+```
+/api/rest/v1/reference-entities/brands/records?search={"updated":[{"operator":">","value":"2018-07-04 10:00:00"}]}
+```
