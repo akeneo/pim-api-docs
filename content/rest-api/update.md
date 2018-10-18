@@ -613,7 +613,7 @@ You want to add the `short_description` of the reference entity record `kartell`
     "description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
       }
     ]
@@ -628,7 +628,7 @@ You want to add the `short_description` of the reference entity record `kartell`
     "short_description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "The famous Italian brand"
       }
     ]
@@ -644,14 +644,14 @@ You want to add the `short_description` of the reference entity record `kartell`
     "short_description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "The famous Italian brand"
       }
     ],
     "description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
       }
     ]
@@ -676,14 +676,14 @@ You want to modify the `short_description` of the reference entity record `karte
     "short_description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "The famous Italian brand"
       }
     ],
     "description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
       }
     ]
@@ -698,7 +698,7 @@ You want to modify the `short_description` of the reference entity record `karte
     "short_description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "A well-known manufacturer of high-end furniture"
       }
     ]
@@ -714,14 +714,14 @@ You want to modify the `short_description` of the reference entity record `karte
     "short_description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "A well-known manufacturer of high-end furniture"
       }
     ],
     "description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
       }
     ]
@@ -740,19 +740,19 @@ You want to modify the `short_description` of the reference entity record `karte
     "short_description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "A well-known manufacturer of high-end furniture"
       },
       {
         "locale": "fr_FR",
-        "scope": null,
+        "channel": null,
         "data": "Kartell, éditeur de meubles"
       }
     ],
     "description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
       }
     ]
@@ -767,7 +767,7 @@ You want to modify the `short_description` of the reference entity record `karte
     "short_description": [
       {
         "locale": "fr_FR",
-        "scope": null,
+        "channel": null,
         "data": "L'éditeur italien de meubles de haute qualité"
       }
     ]
@@ -783,19 +783,19 @@ You want to modify the `short_description` of the reference entity record `karte
     "short_description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "A well-known manufacturer of high-end furniture"
       },
       {
         "locale": "fr_FR",
-        "scope": null,
+        "channel": null,
         "data": "L'éditeur italien de meubles de haute qualité"
       }
     ],
     "description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
       }
     ]
@@ -818,14 +818,14 @@ You want to erase the `short_description` of the reference entity record `kartel
     "short_description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "A well-known manufacturer of high-end furniture"
       }
     ],
     "description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
       }
     ]
@@ -840,7 +840,7 @@ You want to erase the `short_description` of the reference entity record `kartel
     "short_description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": null
       }
     ]
@@ -856,14 +856,14 @@ You want to erase the `short_description` of the reference entity record `kartel
     "short_description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": null
       }
     ],
     "description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
       }
     ]

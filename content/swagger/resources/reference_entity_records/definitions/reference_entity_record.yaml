@@ -27,7 +27,7 @@ properties:
         items:
           type: object
           properties:
-            scope:
+            channel:
               type: string
               description: Channel code of the reference entity record value
             locale:
@@ -48,18 +48,18 @@ example: {
       {
         "data": "Kartell, the Italian furniture company that sells modern and remarkable pieces of furnitures.",
         "locale": "en_US",
-        "scope": null
+        "channel": null
       },
       {
         "data": "Kartell, l'éditeur de meuble italien spécialisé dans la signature de belle pièces au design contemporain.",
         "locale": "fr_FR",
-        "scope": null
+        "channel": null
       }
     ],
     "country": [
       {
         "locale": null,
-        "scope": null,
+        "channel": null,
         "data": "italy"
       }
     ]

@@ -1104,26 +1104,26 @@ Below is the JSON standard format representing a product.
     "description": [
       {
         "locale": "en_US",
-        "scope": null,
+        "channel": null,
         "data": "Kartell, the Italian furniture company that sells modern and remarkable pieces of furnitures."
       },
       {
         "locale": "fr_FR",
-        "scope": null,
+        "channel": null,
         "data": "Kartell, l'éditeur de meuble italien spécialisé dans la signature de belle pièces au design contemporain."
       }
     ],
     "country": [
       {
         "locale": null,
-        "scope": null,
+        "channel": null,
         "data": "italy"
       }
     ],
     "creation_year":[
     {
         "locale": null,
-        "scope": null,
+        "channel": null,
         "data": "1949"
       }
     ]
@@ -1147,7 +1147,7 @@ Reference entity record values follow the same format as [product values](/docum
     ATTRIBUTE_CODE: [
       {
         "locale": LOCALE_CODE,
-        "scope": CHANNEL_CODE,
+        "channel": CHANNEL_CODE,
         "data": DATA_INFORMATION
       }
     ]
@@ -1177,19 +1177,19 @@ The `short_description` attribute is localizable but not scopable, so it can hol
   "short_description": [
     {
       "locale": "en_US",
-      "scope": null,
+      "channel": null,
       "data": "A well-known manufacturer of high-end furniture"
     },
     {
       "locale": "fr_FR",
-      "scope": null,
+      "channel": null,
       "data": "Un fabricant renommé de meubles de qualité"
     }
   ]
 }
 ```
 :::info
-Note that the `scope` property is set to `null` in this case.
+Note that the `channel` property is set to `null` in this case.
 :::
 
 **Reference entity record values of a scopable attribute**
@@ -1200,12 +1200,12 @@ The `image` attribute is scopable but not localizable, so it can hold several da
   "image": [
     {
       "locale": null,
-      "scope": "ecommerce",
+      "channel": "ecommerce",
       "data": //TODO
     },
     {
       "locale": null,
-      "scope": "mobile",
+      "channel": "mobile",
       "data": //TODO
     }
   ]
@@ -1223,22 +1223,22 @@ The `description` attribute is both scopable and localizable, so it can hold sev
   "description": [
     {
       "locale": "en_US",
-      "scope": "mobile",
+      "channel": "mobile",
       "data": "Calligaris is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
     },
     {
       "locale": "en_US",
-      "scope": "ecommerce",
+      "channel": "ecommerce",
       "data": "Calligaris is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio Calligaris, a craftman specialized in the creation of wood chairs."
     },
     {
       "locale": "fr_FR",
-      "scope": "mobile",
+      "channel": "mobile",
       "data": "Calligaris est un fabricant de meuble renommée qui fut fondé en 1923 en Italie."
     },
     {
       "locale": "fr_FR",
-      "scope": "ecommerce",
+      "channel": "ecommerce",
       "data": "Calligaris est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio Calligaris, était un artisan spécialisé dans la fabrication de chaises en bois."
     }
   ]
@@ -1253,14 +1253,14 @@ The `creation_year` attribute is neither scopable nor localizable, so it can hol
   "creation_year": [
     {
       "locale": null,
-      "scope": null,
+      "channel": null,
       "data": "1949"
     }
   ]
 }
 ```
 :::info
-Note that the `locale` and `scope` properties are all set to `null` in this case.
+Note that the `locale` and `channel` properties are all set to `null` in this case.
 :::
 
 ::: panel-link Want to update reference entity record values? [Here you go!](/documentation/update.html#patch-reference-entity-record-values)

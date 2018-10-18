@@ -73,18 +73,18 @@ get:
                   {
                     "data": "The contemporary Italian furniture brand",
                     "locale": "en_US",
-                    "scope": null
+                    "channel": null
                   },
                   {
                     "data": "L'éditeur de meubles comtemporain italien",
                     "locale": "fr_FR",
-                    "scope": null
+                    "channel": null
                   }
                 ],
                 "country": [
                   {
                     "locale": null,
-                    "scope": null,
+                    "channel": null,
                     "data": "italy"
                   }
                 ]
@@ -107,18 +107,18 @@ get:
                   {
                     "data": "Modular furniture from Switzerland for your home and office",
                     "locale": "en_US",
-                    "scope": null
+                    "channel": null
                   },
                   {
                     "data": "L'éditeur de meubles modulaires suisse pour votre intérieur et pour les entreprises",
                     "locale": "fr_FR",
-                    "scope": null
+                    "channel": null
                   }
                 ],
                 "country": [
                   {
                     "locale": null,
-                    "scope": null,
+                    "channel": null,
                     "data": "switzerland"
                   }
                 ]
@@ -141,18 +141,18 @@ get:
                   {
                     "data": "Very well known French brand of modern and luxury furniture",
                     "locale": "en_US",
-                    "scope": null
+                    "channel": null
                   },
                   {
                     "data": "La marque renommée des meubles de luxe à la française",
                     "locale": "fr_FR",
-                    "scope": null
+                    "channel": null
                   }
                 ],
                 "country": [
                   {
                     "locale": null,
-                    "scope": null,
+                    "channel": null,
                     "data": "france"
                   }
                 ]
