@@ -568,12 +568,12 @@ When requesting locales, you can use a filter to get the enabled ones.
 
 ## Filter reference entity records
 
-### On completeness
+### Filter records by completeness
 You can filter the reference entity records to get only the completed ones on a given channel for given locales.
 
 #### Example
 ```
-/api/rest/v1/reference-entities/brands/records?search={"complete":[{"operator":"=","value":true,"scope":"ecommerce","locales":["en_US"]}]}
+/api/rest/v1/reference-entities/brands/records?search={"complete":[{"operator":"=","value":true,"channel":"ecommerce","locales":["en_US"]}]}
 ```
 
 ### On update date
