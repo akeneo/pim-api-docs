@@ -14,9 +14,9 @@ properties:
       localeCode:
         type: string
         description: Record label for the locale `localeCode`
-  image:
+  main_image:
     type: object
-    description: //TODO
+    description: The main image of the record
   values:
     type: object
     description: "Record attributes values, see <a href='/documentation/resources.html#reference-entity-record-values'>Reference entity record values</a> section for more details"
@@ -42,7 +42,13 @@ example: {
     "en_US": "Kartell",
     "fr_FR": "Kartell"
   },
-  "image": "//TODO",
+  "main_image": { 
+    "_links": {
+      "download": {
+        "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell/main_image/download"
+      }
+    }
+  },
   "values": {
     "description": [
       {

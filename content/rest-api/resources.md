@@ -1101,7 +1101,13 @@ Below is the JSON standard format representing a product.
     "en_US": "Kartell",
     "fr_FR": "Kartell"
   },
-  "image": //TODO
+  "main_image": {
+    "_links": {
+      "download": {
+        "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell/main_image/download"
+      }
+    }
+  },
   "values": {
     "description": [
       {
@@ -1127,6 +1133,26 @@ Below is the JSON standard format representing a product.
         "locale": null,
         "channel": null,
         "data": "1949"
+      }
+    ],
+    "products_visuals":[
+    {
+        "locale": "en_US",
+        "channel": null,
+        "_links": {
+          "download": {
+            "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell/files/product_visuals/no-channel/en_US/download"
+          }
+        }
+      },
+    {
+        "locale": "fr_FR",
+        "channel": null,
+        "_links": {
+          "download": {
+            "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell/files/product_visuals/no-channel/fr_FR/download"
+          }
+        }
       }
     ]
   }
@@ -1236,7 +1262,7 @@ The `description` attribute is both scopable and localizable, so it can hold sev
     {
       "locale": "fr_FR",
       "channel": "mobile",
-      "data": "Calligaris est un fabricant de meuble renommée qui fut fondé en 1923 en Italie."
+      "data": "Calligaris est un fabricant de meubles renommé qui fut fondé en 1923 en Italie."
     },
     {
       "locale": "fr_FR",

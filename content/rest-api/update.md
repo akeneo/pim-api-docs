@@ -321,7 +321,7 @@ In the examples below only products values are represented, but usually products
 ::: panel-link Don't know what a product value is? [Check the product value section](/documentation/resources.html#product-values)
 :::
 
-### Add a product value or a reference entity record value
+### Add a product value
 You want to add the `description` of the product `boots-4846` for the `en_US` locale.
 
 **Original resource**
