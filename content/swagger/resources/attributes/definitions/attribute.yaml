@@ -117,7 +117,7 @@ properties:
       type: string
   max_file_size:
     type: string
-    description: Max file size when the attribute type is `pim_catalog_file` or `pim_catalog_image`
+    description: Max file size in MB when the attribute type is `pim_catalog_file` or `pim_catalog_image`
     x-warning: Only for `pim_catalog_file` or `pim_catalog_image` attribute types
 example: {
   "code": "release_date",

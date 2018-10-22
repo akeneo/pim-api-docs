@@ -3,7 +3,7 @@ get:
   operationId: "get_attributes__attribute_code__options__code_"
   description: This endpoint allows you to get the information about a given attribute option.
   tags:
-    - Attribute options
+    - Attribute option
   x-versions:
     - "1.7"
     - "2.0"
@@ -31,7 +31,7 @@ patch:
   summary: Update/create an attribute option
   operationId: "patch_attributes__attribute_code__options__code_"
   tags:
-    - Attribute options
+    - Attribute option
   x-versions:
     - "1.7"
     - "2.0"

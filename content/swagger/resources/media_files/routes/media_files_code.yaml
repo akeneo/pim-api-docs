@@ -3,7 +3,7 @@ get:
   operationId: "get_media_files__code_"
   description: This endpoint allows you to get the information about a given media file.
   tags:
-    - Media files
+    - Media file
   x-versions:
     - "1.7"
     - "2.0"

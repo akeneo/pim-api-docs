@@ -3,7 +3,7 @@ get:
   operationId: "association_types_get_list"
   description: This endpoint allows you to get a list of association types. Association types are paginated and sorted by code.
   tags:
-    - Association types
+    - Association type
   x-versions:
     - "2.0"
     - "2.1"
@@ -91,7 +91,7 @@ post:
   operationId: "association_types_post"
   description: This endpoint allows you to create a new association type.
   tags:
-    - Association types
+    - Association type
   x-versions:
     - "2.0"
     - "2.1"
@@ -119,7 +119,7 @@ patch:
   summary: Update/create several association types
   operationId: "several_association_types_patch"
   tags:
-    - Association types
+    - Association type
   x-versions:
     - "2.0"
     - "2.1"

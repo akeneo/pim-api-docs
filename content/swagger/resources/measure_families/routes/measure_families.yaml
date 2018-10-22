@@ -3,7 +3,7 @@ get:
   operationId: "measure_families_get_list"
   description: This endpoint allows you to get a list of measure families. Measure families are paginated and sorted by code.
   tags:
-    - Measure families
+    - Measure family
   x-versions:
     - "2.0"
     - "2.1"

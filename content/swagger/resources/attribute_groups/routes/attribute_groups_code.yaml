@@ -3,7 +3,7 @@ get:
   operationId: "attribute_groups_get"
   description: This endpoint allows you to get the information about a given attribute group.
   tags:
-    - Attribute groups
+    - Attribute group
   x-versions:
     - "2.0"
     - "2.1"
@@ -29,7 +29,7 @@ patch:
   summary: Update/create an attribute group
   operationId: "attribute_groups_patch"
   tags:
-    - Attribute groups
+    - Attribute group
   x-versions:
     - "2.0"
     - "2.1"

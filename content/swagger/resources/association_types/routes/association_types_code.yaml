@@ -3,7 +3,7 @@ get:
   operationId: "association_types_get"
   description: This endpoint allows you to get the information about a given association type.
   tags:
-    - Association types
+    - Association type
   x-versions:
     - "2.0"
     - "2.1"
@@ -29,7 +29,7 @@ patch:
   summary: Update/create an association type
   operationId: "association_types_patch"
   tags:
-    - Association types
+    - Association type
   x-versions:
     - "2.0"
     - "2.1"

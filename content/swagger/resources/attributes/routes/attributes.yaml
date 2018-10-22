@@ -3,7 +3,7 @@ get:
   operationId: "get_attributes"
   description: This endpoint allows you to get a list of attributes. Attributes are paginated and sorted by code.
   tags:
-    - Attributes
+    - Attribute
   x-versions:
     - "1.7"
     - "2.0"
@@ -134,7 +134,7 @@ post:
   operationId: "post_attributes"
   description: This endpoint allows you to create a new attribute.
   tags:
-    - Attributes
+    - Attribute
   x-versions:
     - "1.7"
     - "2.0"
@@ -163,7 +163,7 @@ patch:
   summary: Update/create several attributes
   operationId: "patch_attributes"
   tags:
-    - Attributes
+    - Attribute
   x-versions:
     - "1.7"
     - "2.0"

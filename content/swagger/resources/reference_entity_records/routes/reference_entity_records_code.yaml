@@ -2,7 +2,7 @@ get:
   summary: Get a record of a given reference entity
   operationId: "get_reference_entity_records__code_"
   tags:
-    - Reference entity records
+    - Reference entity record
   x-versions:
     - "3.0"
   x-ee: true

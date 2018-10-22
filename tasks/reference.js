@@ -18,28 +18,29 @@ var revReplace = require('gulp-rev-replace');
 
 function determineCategory(tag){
     switch(tag){
-        case 'Products':
-        case 'Published products':
-        case 'Product models':
+        case 'Product':
+        case 'Published product':
+        case 'Product model':
             return 'Product entities';
-        case 'Reference entity records':
+        case 'Reference entity record':
+        case 'Reference entity':
             return 'Reference entities';
-        case 'Families': 
-        case 'Categories': 
-        case 'Attributes': 
-        case 'Attribute options': 
-        case 'Attribute groups': 
-        case 'Channels': 
-        case 'Association types':
+        case 'Family': 
+        case 'Category': 
+        case 'Attribute': 
+        case 'Attribute option': 
+        case 'Attribute group': 
+        case 'Channel': 
+        case 'Association type':
             return 'Catalog modeling entities';
-        case 'Locales': 
-        case 'Currencies':  
-        case 'Measure families':
+        case 'Locale': 
+        case 'Currency':  
+        case 'Measure family':
             return 'Global settings entities';
-        case 'Asset categories':
-        case 'Asset tags':
-        case 'Assets':
-        case 'Media files':
+        case 'Asset category':
+        case 'Asset tag':
+        case 'Asset':
+        case 'Media file':
             return 'Media resource entities';
         default:
             return 'Utilities';
