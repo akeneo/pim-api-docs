@@ -1,0 +1,85 @@
+get:
+  summary: Get list of reference entities
+  operationId: "get_reference_entities"
+  description: This endpoint allows you to get a list of reference entities. Reference entities are paginated.
+  tags:
+    - Reference entity
+  x-versions:
+    - "3.0"
+  x-ee: true
+  parameters:
+    - $ref: '#/parameters/search_after'
+    - $ref: '#/parameters/limit'
+  responses:
+    200:
+      description: Return reference entities paginated
+      schema:
+        title: Reference Entities
+        type: object
+        allOf:
+          - $ref: '#/definitions/SearchAfterPagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/ReferenceEntityList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities?limit=3"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities?limit=3"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities?page=3&search_after=2x055w%3D%3D"
+          }
+        },
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands"
+                }
+              },
+              "code": "brands",
+              "labels": {
+                "en_US": "Brands",
+                "fr_FR": "Marque"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/designers"
+                }
+              },
+              "code": "designers",
+              "labels": {
+                "en_US": "Designers",
+                "fr_FR": "Designers"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/colors"
+                }
+              },
+              "code": "colors",
+              "labels": {
+                "en_US": "Colors",
+                "fr_FR": "Couleurs"
+              }
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    406:
+      $ref: "#/responses/406Error"

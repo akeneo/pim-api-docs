@@ -162,7 +162,7 @@ Below is the JSON standard format representing a set of categories.
 }
 ```
 
-::: panel-link Want more details about the category resource? [Check its endpoints here!](/api-reference.html#Categories)
+::: panel-link Want more details about the category resource? [Check its endpoints here!](/api-reference.html#Category)
 :::
 
 ### Attribute
@@ -223,7 +223,7 @@ Below is the JSON standard format representing this attribute.
 }
 ```
 
-::: panel-link Want more details about the attribute resource? [Check its endpoints here!](/api-reference.html#Attributes)
+::: panel-link Want more details about the attribute resource? [Check its endpoints here!](/api-reference.html#Attribute)
 :::
 
 ### Attribute option
@@ -264,7 +264,7 @@ Below is the JSON standard format representing these attribute options.
 }
 ```
 
-::: panel-link Want more details about the attribute option resource? [Check its endpoints here!](/api-reference.html#Attributeoptions)
+::: panel-link Want more details about the attribute option resource? [Check its endpoints here!](/api-reference.html#Attributeoption)
 :::
 
 ### Family
@@ -341,7 +341,7 @@ Below is the JSON standard format representing this family.
 }
 ```
 
-::: panel-link Want more details about the family resource? [Check its endpoints here!](/api-reference.html#Families)
+::: panel-link Want more details about the family resource? [Check its endpoints here!](/api-reference.html#Family)
 :::
 
 ### Family variant (2.x only)
@@ -436,7 +436,7 @@ Below is the JSON standard format representing these association types.
 Endpoints for the association types are only available starting the 2.0 version.
 :::
 
-::: panel-link Want more details about the association type resource? [Check its endpoints here!](/api-reference.html#Associationtypes)
+::: panel-link Want more details about the association type resource? [Check its endpoints here!](/api-reference.html#Associationtype)
 :::
 
 ### Attribute group (2.x only)
@@ -476,7 +476,7 @@ Below is the JSON standard format representing these attribute groups.
 Endpoints for the attribute groups are only available starting the 2.0 version.
 :::
 
-::: panel-link Want more details about the attribute group resource? [Check its endpoints here!](/api-reference.html#Attributegroups)
+::: panel-link Want more details about the attribute group resource? [Check its endpoints here!](/api-reference.html#Attributegroup)
 :::
 
 ### Currency (2.x only)
@@ -499,7 +499,7 @@ Below is the JSON standard format representing a currency.
 Endpoints for the currencies are only available starting the 2.0 version.
 :::
 
-::: panel-link Want more details about the currency resource? [Check its endpoints here!](/api-reference.html#Currencies)
+::: panel-link Want more details about the currency resource? [Check its endpoints here!](/api-reference.html#Currency)
 :::
 
 ### Measure family (2.x only)
@@ -533,7 +533,7 @@ Below is the JSON standard format representing a measure family.
 Endpoints for the measure families are only available starting the 2.0 version.
 :::
 
-::: panel-link Want more details about the measure family resource? [Check its endpoints here!](/api-reference.html#Measurefamilies)
+::: panel-link Want more details about the measure family resource? [Check its endpoints here!](/api-reference.html#Measurefamily)
 :::
 
 ### Media file
@@ -563,7 +563,7 @@ Below is the JSON standard format representing a media file.
 }
 ```
 
-::: panel-link Want more details about the media file resource? [Check its endpoints here!](/api-reference.html#Mediafiles)
+::: panel-link Want more details about the media file resource? [Check its endpoints here!](/api-reference.html#Mediafile)
 :::
 
 ### Asset (since 2.1 and EE only)
@@ -637,7 +637,7 @@ Below is the JSON standard format representing an asset, that is not localizable
 }
 ```
 
-::: panel-link Want more details about the asset resource? [Check its endpoints here!](/api-reference.html#Assets)
+::: panel-link Want more details about the asset resource? [Check its endpoints here!](/api-reference.html#Asset)
 :::
 
 ### Asset category (since 2.1 and EE only)
@@ -675,7 +675,7 @@ Below is the JSON standard format representing asset categories. Notice how it's
 }
 ```
 
-::: panel-link Want more details about the asset category resource? [Check its endpoints here!](/api-reference.html#Assetcategories)
+::: panel-link Want more details about the asset category resource? [Check its endpoints here!](/api-reference.html#Assetcategory)
 :::
 
 ### Asset tags (since 2.1 and EE only)
@@ -694,7 +694,7 @@ Below is the JSON format representing asset tags.
 }
 ```
 
-::: panel-link Want more details about the asset tag resource? [Check its endpoints here!](/api-reference.html#Assettags)
+::: panel-link Want more details about the asset tag resource? [Check its endpoints here!](/api-reference.html#Assettag)
 :::
 
 ## Product entities
@@ -798,7 +798,7 @@ Note that the `parent` field is only available in the 2.x versions, as this is a
 Note that the `metadata` field is only available in the 2.x versions and as it is an Enterprise Edition feature, you won't have this field on a Community Edition PIM.
 :::
 
-::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Products)
+::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Product)
 :::
 
 #### Product values
@@ -1021,7 +1021,7 @@ Endpoints for the product models are only available starting the 2.0 version.
 Note that the `metadata` field is only available since the 2.3 version and as it is an Enterprise Edition feature, you won't have this field on a Community Edition PIM.
 :::
 
-::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodels)
+::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodel)
 :::
 
 ### Published product (2.x and EE only)
@@ -1081,10 +1081,53 @@ Below is the JSON standard format representing a published product. Notice how t
 Endpoints for the published products are only available starting the 2.0 version.
 :::
 
-::: panel-link Want more details about the published product resource? [Check its endpoints here!](/api-reference.html#Publishedproducts)
+::: panel-link Want more details about the published product resource? [Check its endpoints here!](/api-reference.html#Publishedproduct)
 :::
 
 ## Reference entities
+
+### Reference entity (3.x and EE only)
+
+Reference entities have been introduced in the PIM in the 3.0 version.
+
+In the Akeneo UI, you can find the reference entities in the `Entities` menu. Below is an example of a reference entity in the UI.
+
+![Reference entity](/img/screenshots/...png)
+
+Below is the JSON standard format representing a reference entity.
+
+```json
+{
+  "code": "brands",
+  "attributes": {
+    "description": {
+      "labels": {
+        "en_US": "Description",
+        "fr_FR": "Description"
+      },
+      "type": "",
+      "localizable": true,
+      "scopable": false
+    },
+    "country": {
+      "labels": {
+        "en_US": "Country",
+        "fr_FR": "Pays"
+      },
+      "type": "",
+      "localizable": true,
+      "scopable": false
+    }
+  },
+  "labels": {
+    "en_US": "Brands",
+    "fr_FR": "Marques"
+  }
+}
+```
+
+::: panel-link Want more details about the reference entity resource? [Check its endpoints here!](/api-reference.html#Referenceentity)
+:::
 
 ### Reference entity record (3.x and EE only)
 
@@ -1146,7 +1189,7 @@ Below is the JSON standard format representing a reference entity record.
 }
 ```
 
-::: panel-link Want more details about the reference entity record resource? [Check its endpoints here!](/api-reference.html#Referenceentityrecords)
+::: panel-link Want more details about the reference entity record resource? [Check its endpoints here!](/api-reference.html#Referenceentityrecord)
 :::
 
 #### Reference entity record values

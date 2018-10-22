@@ -3,7 +3,7 @@ get:
   operationId: "get_media_files"
   description: This endpoint allows you to get a list of media files.
   tags:
-    - Media files
+    - Media file
   x-versions:
     - "1.7"
     - "2.0"
@@ -122,7 +122,7 @@ post:
   operationId: "post_media_files"
   description: This endpoint allows you to create a new media file and associate it to an attribute value of a given product or product model.
   tags:
-    - Media files
+    - Media file
   x-versions:
     - "1.7"
     - "2.0"

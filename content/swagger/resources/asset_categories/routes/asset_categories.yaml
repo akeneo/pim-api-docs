@@ -3,7 +3,7 @@ get:
   operationId: "get_asset_categories"
   description: This endpoint allows you to get a list of asset categories. Asset categories are paginated and sorted by `root/left`.
   tags:
-    - Asset categories
+    - Asset category
   x-versions:
     - 2.1
     - 2.2
@@ -103,7 +103,7 @@ post:
   operationId: "post_asset_categories"
   description: This endpoint allows you to create a new asset category.
   tags:
-    - Asset categories
+    - Asset category
   x-versions:
     - 2.1
     - 2.2
@@ -131,7 +131,7 @@ patch:
   summary: Update/create several asset categories
   operationId: "patch_asset_categories"
   tags:
-    - Asset categories
+    - Asset category
   x-versions:
     - 2.1
     - 2.2

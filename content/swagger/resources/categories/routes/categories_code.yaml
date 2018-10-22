@@ -3,7 +3,7 @@ get:
   operationId: "get_categories__code_"
   description: This endpoint allows you to get the information about a given category.
   tags:
-    - Categories
+    - Category
   x-versions:
     - "1.7"
     - "2.0"
@@ -30,7 +30,7 @@ patch:
   summary: Update/create a category
   operationId: "patch_categories__code_"
   tags:
-    - Categories
+    - Category
   x-versions:
     - "1.7"
     - "2.0"

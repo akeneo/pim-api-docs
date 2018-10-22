@@ -2,7 +2,7 @@ get:
   summary: Get a published product
   operationId: "get_published_products__code_"
   tags:
-    - Published products
+    - Published product
   x-versions:
     - "2.0"
     - "2.1"

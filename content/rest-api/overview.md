@@ -121,6 +121,7 @@ In 2.3, we added in the API the following entity:
  - Product model draft (Enterprise edition only)
 
 To finish, in 3.0, we added in the API the following entity:
+ - [Reference entity](/documentation/resources.html#reference-entity-3x-and-ee-only) (Enterprise edition only)
  - [Reference entity record](/documentation/resources.html#reference-entity-record-3x-and-ee-only) (Enterprise edition only)
 
 For a detailed presentation as well as the format of each of these resources, take a look to the [Resources](/documentation/resources.html).

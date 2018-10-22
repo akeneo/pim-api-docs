@@ -2,7 +2,7 @@ post:
   summary: Submit a draft for approval
   operationId: "post_product_model_proposal"
   tags:
-    - Product models
+    - Product model
   x-versions:
     - "2.3"
   x-ee: true

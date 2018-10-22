@@ -3,7 +3,7 @@ get:
   operationId: "get_assets"
   description: This endpoint allows you to get a list of assets. Assets are paginated.
   tags:
-    - Assets
+    - Asset
   x-versions:
     - 2.1
     - 2.2
@@ -211,7 +211,7 @@ post:
   operationId: "post_assets"
   description: This endpoint allows you to create a new asset.
   tags:
-    - Assets
+    - Asset
   x-versions:
     - 2.1
     - 2.2
@@ -239,7 +239,7 @@ patch:
   summary: Update/create several assets
   operationId: "patch_assets"
   tags:
-    - Assets
+    - Asset
   x-versions:
     - 2.1
     - 2.2

@@ -1,0 +1,23 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Reference entity code
+    x-immutable: true
+  labels:
+    type: object
+    description: Reference entity labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Reference entity label for the locale `localeCode`
+example: {
+  "code": "brands",
+  "labels": {
+    "en_US": "Brands",
+    "fr_FR": "Marques"
+  }
+}

@@ -22,6 +22,14 @@ PublishedProductList:
     - $ref:  '#/definitions/ItemList'
     - $ref: '#/definitions/PublishedProduct'
 
+ReferenceEntity:
+  $ref: ./resources/reference_entities/definitions/reference_entity.yaml
+ReferenceEntityList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/ReferenceEntity'
+
 ReferenceEntityRecord:
   type: object
   allOf:

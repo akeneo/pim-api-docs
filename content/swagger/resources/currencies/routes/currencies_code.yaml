@@ -3,7 +3,7 @@ get:
   operationId: "currencies_get"
   description: This endpoint allows you to get the information about a given currency.
   tags:
-    - Currencies
+    - Currency
   x-versions:
     - "2.0"
     - "2.1"
