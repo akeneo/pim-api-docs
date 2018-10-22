@@ -52,7 +52,13 @@ get:
                 "en_US": "Kartell",
                 "fr_FR": "Kartell"
               },
-              "image": "//TODO",
+              "image": { 
+                "_links": {
+                  "download": {
+                    "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell/main_image/download"
+                  }
+                }
+              },
               "values": {
                 "description": [
                   {
@@ -86,7 +92,13 @@ get:
                 "en_US": "USM",
                 "fr_FR": "USM"
               },
-              "image": "//TODO",
+              "image": { 
+                "_links": {
+                  "download": {
+                    "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/usm/main_image/download"
+                  }
+                }
+              },
               "values": {
                 "description": [
                   {
@@ -120,7 +132,13 @@ get:
                 "en_US": "Ligne roset",
                 "fr_FR": "Ligne roset"
               },
-              "image": "//TODO",
+              "image": { 
+                "_links": {
+                  "download": {
+                    "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/ligneroset/main_image/download"
+                  }
+                }
+              },
               "values": {
                 "description": [
                   {
