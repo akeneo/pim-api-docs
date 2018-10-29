@@ -24,10 +24,5 @@ example: {
   "original_filename": "10806799-1356.jpg",
   "mime_type": "image/jpeg",
   "size": 16070,
-  "extension": "jpg",
-  "_links": {
-    "download": {
-      "href": "https://demo.akeneo.com/api/rest/v1/media-files/7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg/download"
-    }
-  }
+  "extension": "jpg"
 }

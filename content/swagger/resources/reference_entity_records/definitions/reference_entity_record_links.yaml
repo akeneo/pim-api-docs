@@ -4,7 +4,7 @@ properties:
     type: object
     x-read-only: true
     properties:
-      download:
+      main_image_download:
         type: object
         properties:
           href:
