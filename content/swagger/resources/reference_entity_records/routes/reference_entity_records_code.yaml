@@ -38,7 +38,7 @@ patch:
       in: body
       required: true
       schema:
-        $ref: "#/definitions/ReferenceEntityRecord"
+        $ref: ../definitions/reference_entity_record.yaml
   responses:
     201:
       $ref: "#/responses/Created"
