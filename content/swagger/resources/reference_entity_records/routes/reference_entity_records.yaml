@@ -189,7 +189,7 @@ patch:
     - name: body
       in: body
       schema:
-        $ref: "#/definitions/ReferenceEntityRecord"
+        $ref: ../definitions/reference_entity_record.yaml
         x-examples:
           x-example-1:
             '{"code":"kartell","values":{"description":[{"channel":"ecommerce","locale":"en_US","data":"The contemporary Italian furniture brand"}]}}'
