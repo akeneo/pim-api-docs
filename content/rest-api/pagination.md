@@ -47,6 +47,10 @@ This pagination method is only available for:
 Do note that the `Search-after` method is better than `Offset` method in term of performances.
 It is strongly recommended to use it when requesting entities that have high data volume such as the products, the product models, the published products, the assets and the reference entity records.
 
+::: info
+For the reference entities records, the `Search-after`method is the only one available. So you don't have to worry about wich method to choose. ;)
+:::
+
 Additionally, there is a `search_after` query parameter that is used as a cursor.
 
 :::danger
