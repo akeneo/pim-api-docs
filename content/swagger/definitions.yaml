@@ -23,12 +23,15 @@ PublishedProductList:
     - $ref: '#/definitions/PublishedProduct'
 
 ReferenceEntityRecord:
-  $ref: ./resources/reference_entity_records/definitions/reference_entity_record.yaml
+  type: object
+  allOf:
+    - $ref: ./resources/reference_entity_records/definitions/reference_entity_record_links.yaml
+    - $ref: ./resources/reference_entity_records/definitions/reference_entity_record.yaml
 ReferenceEntityRecordList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/ReferenceEntityRecord'
+    - $ref: '#/definitions/ReferenceEntityRecordItemList'
+    - $ref: ./resources/reference_entity_records/definitions/reference_entity_record.yaml
 
 Category:
   $ref: ./resources/categories/definitions/category.yaml
@@ -87,12 +90,14 @@ AttributeGroupList:
     - $ref: '#/definitions/AttributeGroup'
 
 MediaFile:
-  $ref: ./resources/media_files/definitions/media_file.yaml
+  allOf:
+    - $ref: ./resources/media_files/definitions/media_file_links.yaml
+    - $ref: ./resources/media_files/definitions/media_file.yaml
 MediaFileList:
   type: object
   allOf:
     - $ref: '#/definitions/MediaFileItemList'
-    - $ref: '#/definitions/MediaFile'
+    - $ref: ./resources/media_files/definitions/media_file.yaml
 
 Locale:
   $ref: ./resources/locales/definitions/locale.yaml
@@ -269,6 +274,7 @@ ItemList:
             href:
               type: string
               description: URI of the resource
+
 MediaFileItemList:
   type: object
   properties:
@@ -287,3 +293,22 @@ MediaFileItemList:
             href:
               type: string
               description: URI to download the binaries of the media file
+
+ReferenceEntityRecordItemList:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the resource
+        download:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI to download the binarie of the record's main image file
