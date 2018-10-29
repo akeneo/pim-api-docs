@@ -1103,13 +1103,7 @@ Below is the JSON standard format representing a product.
     "en_US": "Kartell",
     "fr_FR": "Kartell"
   },
-  "main_image": {
-    "_links": {
-      "download": {
-        "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell/main_image/download"
-      }
-    }
-  },
+  "main_image": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg",
   "values": {
     "description": [
       {
@@ -1137,24 +1131,11 @@ Below is the JSON standard format representing a product.
         "data": "1949"
       }
     ],
-    "products_visuals":[
+    "collection_overview":[
     {
-        "locale": "en_US",
+        "locale": null,
         "channel": null,
-        "_links": {
-          "download": {
-            "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell/files/product_visuals/no-channel/en_US/download"
-          }
-        }
-      },
-    {
-        "locale": "fr_FR",
-        "channel": null,
-        "_links": {
-          "download": {
-            "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell/files/product_visuals/no-channel/fr_FR/download"
-          }
-        }
+        "data": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"
       }
     ]
   }

@@ -45,6 +45,9 @@ get:
               "_links": {
                 "self": {
                   "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell"
+                },
+                "main_image_download": {
+                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entity-files/0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg/download"
                 }
               },
               "code": "kartell",
@@ -52,13 +55,7 @@ get:
                 "en_US": "Kartell",
                 "fr_FR": "Kartell"
               },
-              "image": { 
-                "_links": {
-                  "download": {
-                    "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell/main_image/download"
-                  }
-                }
-              },
+              "main_image": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg",
               "values": {
                 "description": [
                   {
@@ -85,6 +82,9 @@ get:
               "_links": {
                 "self": {
                   "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/usm"
+                },
+                "main_image_download": {
+                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entity-files/9/c/g/1/0cb0c0e115dedba76f8d1ad8343ec897abc43bv4_image.jpg/download"
                 }
               },
               "code": "usm",
@@ -92,13 +92,7 @@ get:
                 "en_US": "USM",
                 "fr_FR": "USM"
               },
-              "image": { 
-                "_links": {
-                  "download": {
-                    "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/usm/main_image/download"
-                  }
-                }
-              },
+              "main_image": "9/c/g/1/0cb0c0e115dedba76f8d1ad8343ec897abc43bv4_image.jpg",
               "values": {
                 "description": [
                   {
@@ -125,6 +119,9 @@ get:
               "_links": {
                 "self": {
                   "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/ligneroset"
+                },
+                "main_image_download": {
+                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entity-files/4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_image.jpg/download"
                 }
               },
               "code": "ligneroset",
@@ -132,13 +129,7 @@ get:
                 "en_US": "Ligne roset",
                 "fr_FR": "Ligne roset"
               },
-              "image": { 
-                "_links": {
-                  "download": {
-                    "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities/brands/records/ligneroset/main_image/download"
-                  }
-                }
-              },
+              "main_image": "4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_image.jpg",
               "values": {
                 "description": [
                   {
