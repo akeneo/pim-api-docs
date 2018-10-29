@@ -1086,11 +1086,13 @@ Endpoints for the published products are only available starting the 2.0 version
 
 Reference entities have been introduced in the PIM in the 3.0 version.
 
-//TODO Def!
+A record holds all the information of a reference entity. A record can be related to one or more products.
+
+Let's give an example to be clearer. For the "Brand" reference entity, a record could be all the information regarding the "Kartell" brand.
 
 In the Akeneo UI, you can find the reference entity records in the `Entities` menu by selecting one of the entity of your choice. Below is an example of the record of a reference entity in the UI.
 
-![Reference entity record](/img/screenshots/...png)
+![Reference entity record](/img/screenshots/v3.0/reference_entity_record.png)
 
 Below is the JSON standard format representing a product.
 
