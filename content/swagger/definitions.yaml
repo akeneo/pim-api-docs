@@ -38,9 +38,7 @@ ReferenceEntityRecord:
       "en_US": "Kartell",
       "fr_FR": "Kartell"
     },
-    "main_image": {
-      "code": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg",
-    },
+    "main_image": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg",
     "values": {
       "description": [
         {
