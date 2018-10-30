@@ -105,6 +105,9 @@ ReferenceEntityRecordList:
     - $ref: '#/definitions/ReferenceEntityRecordItemList'
     - $ref: ./resources/reference_entity_records/definitions/reference_entity_record.yaml
 
+RecordMediaFile:
+  $ref: ./resources/reference_entity_media_files/definitions/reference_entity_media_file.yaml
+
 Category:
   $ref: ./resources/categories/definitions/category.yaml
 CategoryList:
