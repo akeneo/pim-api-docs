@@ -31,6 +31,9 @@
 /api/rest/v1/reference-entities/{reference_entity_code}/records/{code}:
   $ref: ./resources/reference_entity_records/routes/reference_entity_records_code.yaml
 
+/api/rest/v1/reference-entities-media-files:
+  $ref: ./resources/reference_entities_media_files/routes/reference_entities_media_files.yaml
+
 /api/rest/v1/categories:
   $ref: ./resources/categories/routes/categories.yaml
 /api/rest/v1/categories/{code}:
