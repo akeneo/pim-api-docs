@@ -32,7 +32,11 @@
   $ref: ./resources/reference_entity_records/routes/reference_entity_records_code.yaml
 
 /api/rest/v1/reference-entities-media-files:
-  $ref: ./resources/reference_entities_media_files/routes/reference_entities_media_files.yaml
+  $ref: ./resources/reference_entity_media_files/routes/reference_entity_media_files.yaml
+/api/rest/v1/reference-entities-media-files/{code}:
+  $ref: ./resources/reference_entity_media_files/routes/reference_entity_media_files_code.yaml
+/api/rest/v1/reference-entities-media-files/{code}/download:
+  $ref: ./resources/reference_entity_media_files/routes/reference_entity_media_files_code_download.yaml
 
 /api/rest/v1/categories:
   $ref: ./resources/categories/routes/categories.yaml

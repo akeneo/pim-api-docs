@@ -1,7 +1,7 @@
 post:
-  summary: Create a new media file that will be used in one reference entity record
+  summary: Create a new record media file
   operationId: "post_reference_entity_media_files"
-  description: This endpoint allows you to create a new media file and associate it to an attribute value of a given record of reference entity.
+  description: This endpoint allows you to create a new media file and associate it to the main image or to an attribute value of a record of reference entity.
   tags:
     - Record media file
   x-versions:
