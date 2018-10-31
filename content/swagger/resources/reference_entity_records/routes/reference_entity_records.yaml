@@ -168,34 +168,35 @@ patch:
     - "3.0"
   x-ee: true
   description: This endpoint allows you to update and/or create several records of one given reference entity at once. Learn more about <a href="/documentation/update.html#patch-reference-entity-record-values">Update behavior</a>. Note that if the record does not already exist for the given reference entity, it creates it.
-  x-body-by-line: Contains several lines, each line is a reference entity record in JSON standard format
   parameters:
     - $ref: '#/parameters/reference_entity_code'
     - name: body
       in: body
+      required: true
       schema:
-        $ref: ../definitions/reference_entity_record.yaml
-        x-examples:
-          x-example-1:
-            '{"code":"kartell","values":{"description":[{"channel":"ecommerce","locale":"en_US","data":"The contemporary Italian furniture brand"}]}}'
-          x-example-2:
-            '{"code":"calligaris","labels":{"en_US":"Calligaris","fr_FR":"Calligaris"}}'
-          x-example-3:
-            '{"code":"alessi"}'
+        $ref: ../definitions/reference_entity_records.yaml
   responses:
     200:
       description: OK
-      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      x-details: Returns an JSON array in which each object gives you the status of each record creation or update
       x-no-entity: true
       schema:
-        $ref: "#/definitions/ErrorByLine"
-      examples:
-        x-example-1:
-          '{"line":1,"code":"cap","status_code":204}'
-        x-example-2:
-          '{"line":2,"code":"calligaris","status_code":422,"message":"Property "group" does not exist."}'
-        x-example-3:
-          '{"line":3,"code":"alessi","status_code":201}'
+        $ref: '#/definitions/ErrorByObject'
+      x-examples: [
+        {
+          "code": "kartell",
+          "status_code": 204
+        },
+        {
+          "code": "ligneroset",
+          "status_code": 422,
+          "message": "Property 'group' does not exist."
+        },
+        {
+          "code": "usm",
+          "status_code": 201
+        }
+      ]
     401:
       $ref: "#/responses/401Error"
     413:
