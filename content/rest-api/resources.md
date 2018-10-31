@@ -1094,7 +1094,7 @@ In the Akeneo UI, you can find the reference entity records in the `Entities` me
 
 ![Reference entity record](/img/screenshots/v3.0/reference_entity_record.png)
 
-Below is the JSON standard format representing a product.
+Below is the JSON standard format representing a reference entity record.
 
 ```json
 {
