@@ -5,6 +5,16 @@ Created:
     Location:
       description: URI of the created resource
       type: string
+RecordMediaFileUploaded:
+  description: Created
+  x-details: Means that the record media file creation was successful
+  headers:
+    Location:
+      description: URI of the created resource
+      type: string
+    Reference-entities-media-file-code:
+      description: Code of the record media file
+      type: string
 AssetReferenceFileUploaded:
   description: Uploaded
   x-details: Means that the reference file upload was successful. Beware that even if the reference file upload is complete, some variation files generations could have failed. If so, you will see a warning message in the response body.
