@@ -36,7 +36,7 @@ example: [
           "data": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png",
           "_links": {
             "download": {
-              "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-files/5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png/download"
+              "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png/download"
             }
           }
         }
