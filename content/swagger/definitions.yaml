@@ -47,6 +47,13 @@ ReferenceEntityList:
     - $ref: '#/definitions/ReferenceEntityItemList'
     - $ref: ./resources/reference_entities/definitions/reference_entity.yaml
 
+ReferenceEntityAttribute:
+  $ref: ./resources/reference_entity_attributes/definitions/reference_entity_attribute.yaml
+ReferenceEntityAttributeList:
+  type: array
+  items: 
+    $ref: ./resources/reference_entity_attributes/definitions/reference_entity_attribute.yaml
+
 ReferenceEntityRecord:
   type: object
   allOf:

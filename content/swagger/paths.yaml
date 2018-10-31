@@ -26,6 +26,11 @@
 /api/rest/v1/reference-entities/{code}:
   $ref: ./resources/reference_entities/routes/reference_entities_code.yaml
 
+/api/rest/v1/reference-entities/{reference_entity_code}/attributes:
+  $ref: ./resources/reference_entity_attributes/routes/reference_entity_attributes.yaml
+/api/rest/v1/reference-entities/{reference_entity_code}/attributes/{code}:
+  $ref: ./resources/reference_entity_attributes/routes/reference_entity_attributes_code.yaml
+
 /api/rest/v1/reference-entities/{reference_entity_code}/records:
   $ref: ./resources/reference_entity_records/routes/reference_entity_records.yaml
 /api/rest/v1/reference-entities/{reference_entity_code}/records/{code}:

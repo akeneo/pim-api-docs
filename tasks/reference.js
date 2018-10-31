@@ -25,6 +25,7 @@ function determineCategory(tag){
         case 'Reference entity record':
         case 'Reference entity':
         case 'Record media file':
+        case 'Reference entity attribute':
             return 'Reference entities';
         case 'Family': 
         case 'Category': 
