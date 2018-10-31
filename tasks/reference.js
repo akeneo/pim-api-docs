@@ -24,6 +24,7 @@ function determineCategory(tag){
             return 'Product entities';
         case 'Reference entity record':
         case 'Reference entity':
+        case 'Reference entity attribute':
             return 'Reference entities';
         case 'Family': 
         case 'Category': 
