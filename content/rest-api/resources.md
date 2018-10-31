@@ -1108,6 +1108,33 @@ Below is the JSON format representing a reference entity.
 ::: panel-link Want more details about the reference entity resource? [Check its endpoints here!](/api-reference.html#Referenceentity)
 :::
 
+### Reference entity attribute (3.x and EE only)
+
+Reference entities have attributes that allow to describe their [records](/documentation/resources.html#reference-entity-record-3x-and-ee-only).
+
+In the Akeneo UI, you can find the attributes that compose a given reference entity by following these simple steps. Go in the `Entities` menu. Click on a reference entity and then, click on the `Attributes` sub menu. Below is an example of the attributes that compose the `Designer` entity in the UI.
+
+![Reference entity attributes](/img/screenshots/v3.0/reference_entity_attribute.png)
+
+Below is the JSON standard format representing a reference entity attribute.
+
+```json
+{
+  "code": "description",
+  "type": "text",
+  "localizable": true,
+  "scopable": false,
+  "max_characters": null,
+  "is_textarea": true,
+  "is_rich_text_editor": true,
+  "validation_rule": null,
+  "validation_regexp": null
+}
+```
+
+::: panel-link Want more details about the reference entity attribute resource? [Check its endpoints here!](/api-reference.html#Referenceentityattribute)
+:::
+
 ### Reference entity record (3.x and EE only)
 
 Reference entities have been introduced in the PIM in the 3.0 version.
