@@ -1307,3 +1307,15 @@ Note that the `locale` and `channel` properties are all set to `null` in this ca
 ::: panel-link Want to update reference entity record values? [Here you go!](/documentation/update.html#patch-reference-entity-record-values)
 :::
 
+### Record media file (3.x and EE only)
+
+Record media files corresponds to the images that you can link to the records of your reference entities.
+
+In the Akeneo UI, you can find these media files in the detail of a record. In the screenshot below, there are two record media files: 
+- the first image with the logo of the brand,
+- the second image inside the `Photo` attribute.
+
+![Reference entity record](/img/screenshots/v3.0/reference_entity_record.png)
+
+::: panel-link Want more details about the record media file resource? [Check its endpoints here!](/api-reference.html#Recordmediafile)
+:::
