@@ -1,7 +1,8 @@
 get:
-  summary: Get a record media file
-  operationId: "get_reference_entity_media_files__code_"
-  description: This endpoint allows you to get the information about a given record media file.
+  summary: Download a record media file
+  operationId: "get_reference_entity_media_files__code"
+  description: This endpoint allows you to download a given record media file.
+  x-content-type: Mime-type of the media file
   tags:
     - Record media file
   x-versions:
@@ -12,12 +13,9 @@ get:
   responses:
     200:
       description: OK
-      x-details: Returns the content of the record media file in JSON standard format
-      schema:
-        $ref: '#/definitions/RecordMediaFile'
+      x-details: Returns the binary of the record media file
+      x-content-type: Mime-type of the record media file
     401:
       $ref: "#/responses/401Error"
     404:
       $ref: "#/responses/404Error"
-    406:
-      $ref: "#/responses/406Error"
