@@ -3,11 +3,11 @@ required: ["code"]
 properties:
   code:
     type: string
-    description: Code of the record of a reference entity
+    description: Code of the record
     x-immutable: true
   labels:
     type: object
-    description: Labels for each locale of the reference entity record
+    description: Labels for each locale of the record
     x-validation-rules: The `localeCode` is the code of an existing and activated locale
     default: {}
     properties:

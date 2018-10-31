@@ -1,0 +1,104 @@
+type: array
+items:
+  $ref: ../definitions/reference_entity_record.yaml
+example: [
+  {
+    "code": "kartell",
+    "labels": {
+      "en_US": "Kartell",
+      "fr_FR": "Kartell"
+    },
+    "main_image": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg",
+    "values": {
+      "description": [
+        {
+          "locale": "en_US",
+          "channel": null,
+          "data": "Kartell, the Italian furniture company that sells modern and remarkable pieces of furnitures."
+        },
+        {
+          "locale": "fr_FR",
+          "channel": null,
+          "data": "Kartell, l'éditeur de meuble italien spécialisé dans la signature de belle pièces au design contemporain."
+        }
+      ],
+      "country": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "italy"
+        }
+      ],
+      "collection_overview":[
+        {
+          "locale": null,
+          "channel": null,
+          "data": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png",
+          "_links": {
+            "download": {
+              "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-files/5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png/download"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "code": "ligneroset",
+    "labels":{
+      "en_US": "Ligne roset",
+      "fr_FR": "Ligne roset"
+    },
+    "main_image": "4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_image.jpg",
+    "values": {
+      "description": [
+        {
+          "data": "Very well known French brand of modern and luxury furniture",
+          "locale": "en_US",
+          "channel": null
+        },
+        {
+          "data": "La marque renommée des meubles de luxe à la française",
+          "locale": "fr_FR",
+          "channel": null
+        }
+      ],
+      "country": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "france"
+        }
+      ]
+    }
+  },
+  {
+    "code": "usm",
+    "labels":{
+      "en_US": "USM",
+      "fr_FR": "USM"
+    },
+    "main_image": "9/c/g/1/0cb0c0e115dedba76f8d1ad8343ec897abc43bv4_image.jpg",
+    "values": {
+      "description": [
+        {
+          "data": "Modular furniture from Switzerland for your home and office",
+          "locale": "en_US",
+          "channel": null
+        },
+        {
+          "data": "L'éditeur de meubles modulaires suisse pour votre intérieur et pour les entreprises",
+          "locale": "fr_FR",
+          "channel": null
+        }
+      ],
+      "country": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "switzerland"
+        }
+      ]
+    }
+  }
+]
