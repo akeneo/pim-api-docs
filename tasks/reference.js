@@ -158,6 +158,26 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                         parameter.schema.properties[requiredProperty].patchRequired = true;
                                     }
                                 });
+                                if(parameter.schema.items){
+                                    _.map(parameter.schema.items.properties, function(property, propertyName) {
+                                        property.default = (property.default === 0) ? '0' :
+                                            (property.default === null) ? 'null' :
+                                            (property.default === true) ? 'true' :
+                                            (property.default === false) ? 'false' :
+                                            (property.default && _.isEmpty(property.default)) ? '[]' : property.default;
+                                        property['x-immutable'] = (verb === 'patch') ? property['x-immutable'] : false;
+                                        if (verb === 'post' && property['x-read-only']) {
+                                            readOnlyProperties.push(propertyName);
+                                        }
+                                    });
+                                    _.forEach(parameter.schema.items.required, function(requiredProperty) {
+                                        if (verb !== 'patch') {
+                                            parameter.schema.items.properties[requiredProperty].required = true;
+                                        } else {
+                                            parameter.schema.items.properties[requiredProperty].patchRequired = true;
+                                        }
+                                    });
+                                }
                                 _.forEach(readOnlyProperties, function(propToDelete) {
                                     delete parameter.schema.properties[propToDelete];
                                 });
@@ -179,7 +199,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                 var status = code.match(/^2.*$/) ? 'success' : 'error';
                                 response[status] = true;
                                 response.id = operationId + '_' + code;
-                                var example = response.examples || ((response.schema) ? response.schema.example : undefined);
+                                var example = response.examples || response['x-examples'] || ((response.schema) ? response.schema.example : undefined);
                                 if (example) {
                                     var highlightjsExample = example['x-example-1'] ?
                                         highlightJs.highlight('bash', example['x-example-1'] + '\n' + example['x-example-2'] + '\n' + example['x-example-3'], true) :

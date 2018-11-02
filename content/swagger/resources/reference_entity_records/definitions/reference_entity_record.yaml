@@ -3,11 +3,11 @@ required: ["code"]
 properties:
   code:
     type: string
-    description: Code of the record of a reference entity
+    description: Code of the record
     x-immutable: true
   labels:
     type: object
-    description: Labels for each locale of the reference entity record
+    description: Labels for each locale of the record
     x-validation-rules: The `localeCode` is the code of an existing and activated locale
     default: {}
     properties:
@@ -37,11 +37,6 @@ properties:
               type: object
               description: Reference entity record value
 example: {
-  "_links": {
-    "main_image_download": {
-      "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entity-media-files/0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg"
-    }
-  },
   "code": "kartell",
   "labels": {
     "en_US": "Kartell",
@@ -72,12 +67,7 @@ example: {
       {
         "locale": null,
         "channel": null,
-        "data": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png",
-        "_links": {
-          "download": {
-            "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"
-          }
-        }
+        "data": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"
       }
     ]
   }
