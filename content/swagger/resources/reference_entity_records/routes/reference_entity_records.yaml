@@ -162,7 +162,7 @@ patch:
   summary: Update/create several reference entity records
   operationId: "patch_reference_entity_records"
   tags:
-    - Reference entity records
+    - Reference entity record
   x-versions:
     - "3.0"
   x-ee: true
