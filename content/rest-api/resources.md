@@ -847,6 +847,8 @@ In this formula:
 | **pim_catalog_price** when `decimals_allowed` attribute property is set to `true` <br> _Array[Object{"amount": string, "currency": string}]_ | `[{"amount":"45.00","currency":"USD"}, {"amount":"56.53","currency":"EUR"}]` |
 | **pim_catalog_price** when `decimals_allowed` attribute property is set to `false` <br> _Array[Object{"amount": integer, "currency": string}]_ | `[{"amount":45,"currency":"USD"}, {"amount":56,"currency":"EUR"}]` |
 | **pim_assets_collection** <br> _Array[string]_ | `["my_first_asset_code", "my_second_asset_code"]` |
+| **Reference entity simple select**<br> Since the 3.0 only <br> _string_  | `"italy"` |
+| **Reference entity multi select**<br> Since the 3.0 only <br> _Array[string]_ | `["starck", "dixon"]` |
 
 **Product values of a localizable attribute**
 
