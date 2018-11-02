@@ -62,7 +62,7 @@ get:
                   "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell"
                 },
                 "main_image_download": {
-                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg/download"
+                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg"
                 }
               },
               "code": "kartell",
@@ -99,7 +99,7 @@ get:
                   "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/usm"
                 },
                 "main_image_download": {
-                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/9/c/g/1/0cb0c0e115dedba76f8d1ad8343ec897abc43bv4_image.jpg/download"
+                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/9/c/g/1/0cb0c0e115dedba76f8d1ad8343ec897abc43bv4_image.jpg"
                 }
               },
               "code": "usm",
@@ -136,7 +136,7 @@ get:
                   "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/ligneroset"
                 },
                 "main_image_download": {
-                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_image.jpg/download"
+                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_image.jpg"
                 }
               },
               "code": "ligneroset",
