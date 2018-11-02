@@ -35,7 +35,7 @@ get:
             href: "https://demo.akeneo.com/api/rest/v1/reference-entities?limit=3"
           },
           next: {
-            href: "https://demo.akeneo.com/api/rest/v1/reference-entities?page=3&search_after=2x055w%3D%3D"
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities?limit=3&search_after=2x055w%3D%3D"
           }
         },
         _embedded: {
