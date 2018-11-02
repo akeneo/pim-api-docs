@@ -23,12 +23,29 @@ PublishedProductList:
     - $ref: '#/definitions/PublishedProduct'
 
 ReferenceEntity:
-  $ref: ./resources/reference_entities/definitions/reference_entity.yaml
+  type: object
+  allOf:
+    - $ref: ./resources/reference_entities/definitions/reference_entity_links.yaml
+    - $ref: ./resources/reference_entities/definitions/reference_entity.yaml
+  example: {
+    "_links": {
+      "image_download": {
+        "href": "https://demo.akeneo.com/api/rest/v1/reference-entities-media-files/0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
+      }
+    },
+    "code": "brands",
+    "labels": {
+      "en_US": "Brands",
+      "fr_FR": "Marques"
+    },
+    "image": "0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
+  }
+
 ReferenceEntityList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/ReferenceEntity'
+    - $ref: '#/definitions/ReferenceEntityItemList'
+    - $ref: ./resources/reference_entities/definitions/reference_entity.yaml
 
 ReferenceEntityRecord:
   type: object
@@ -376,6 +393,24 @@ MediaFileItemList:
               type: string
               description: URI to download the binaries of the media file
 
+ReferenceEntityItemList:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the resource
+        image_download:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI to download the binaries of the reference entity image file
 ReferenceEntityRecordItemList:
   type: object
   properties:

@@ -44,13 +44,17 @@ get:
               "_links": {
                 "self": {
                   "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands"
+                },
+                "image_download": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities-media-files/0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
                 }
               },
               "code": "brands",
               "labels": {
                 "en_US": "Brands",
                 "fr_FR": "Marque"
-              }
+              },
+              "image": "0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
             },
             {
               "_links": {
@@ -62,7 +66,8 @@ get:
               "labels": {
                 "en_US": "Designers",
                 "fr_FR": "Designers"
-              }
+              },
+              "image": null
             },
             {
               "_links": {
@@ -74,7 +79,8 @@ get:
               "labels": {
                 "en_US": "Colors",
                 "fr_FR": "Couleurs"
-              }
+              },
+              "image": null
             }
           ]
         }

@@ -1095,30 +1095,11 @@ Below is the JSON standard format representing a reference entity.
 ```json
 {
   "code": "brands",
-  "attributes": {
-    "description": {
-      "labels": {
-        "en_US": "Description",
-        "fr_FR": "Description"
-      },
-      "type": "",
-      "localizable": true,
-      "scopable": false
-    },
-    "country": {
-      "labels": {
-        "en_US": "Country",
-        "fr_FR": "Pays"
-      },
-      "type": "",
-      "localizable": true,
-      "scopable": false
-    }
-  },
   "labels": {
     "en_US": "Brands",
     "fr_FR": "Marques"
-  }
+  },
+  "image": "0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
 }
 ```
 
