@@ -1090,9 +1090,9 @@ Endpoints for the published products are only available starting the 2.0 version
 
 Reference entities have been introduced in the PIM in the 3.0 version.
 
-In the Akeneo UI, you can find the reference entities in the `Entities` menu. Below is an example of a reference entity in the UI.
+In the Akeneo UI, you can find the reference entities in the `Entities` menu. Below is an example of the `Brand` reference entity with its [records](/documentation/resources.html#reference-entity-record-3x-and-ee-only) in the UI.
 
-![Reference entity](/img/screenshots/...png)
+![Reference entity](/img/screenshots/v3.0/reference_entity.png)
 
 Below is the JSON standard format representing a reference entity.
 
