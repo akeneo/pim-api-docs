@@ -313,7 +313,7 @@ You want to remove the product `boots-4846` from the category `boots`. Here is h
 
 ## Patch product values
 
-The PATCH behavior described above is quite intuitive. However, applying a PATCH containing product values on a product is a bit different.
+The PATCH behavior described above is quite intuitive. However, applying a PATCH containing [product values](/documentation/resources.html#product-values) on a product is a bit different.
 
 ::: info
 In the examples below only products values are represented, but usually products also include other information as specified in the standard format.
@@ -385,7 +385,7 @@ Wondering how to format the `data` property in these product values? In fact, it
 ### Modify a product value
 
 #### First example
-You want to add the `name` of the product `boots-4846` for the `en_US` locale.
+You want to modify the `name` of the product `boots-4846` for the `en_US` locale.
 
 **Original resource**
 ```json
@@ -449,7 +449,7 @@ You want to add the `name` of the product `boots-4846` for the `en_US` locale.
 ```
 
 #### Second example
-You want to add the `name` of the product `boots-4846` for the `fr_FR` locale but the `name` on the `en_US` locale is already set.
+You want to modify the `name` of the product `boots-4846` for the `fr_FR` locale but the `name` on the `en_US` locale is already set.
 
 **Original resource**
 ```json
@@ -593,4 +593,285 @@ You want to erase the `name` of the product `boots-4846` for the `en_US` locale.
 
 ::: info 
 Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#product-values)
+:::
+
+## Patch reference entity record values
+
+Applying a PATCH on a reference entity record containing values is also a bit different. Below we present three use cases to update these reference entity record values.
+
+::: panel-link Don't know what a reference entity record value is? [Check the reference entity record value section](/documentation/resources.html#reference-entity-record-values)
+:::
+
+### Add a reference entity record value
+You want to add the `short_description` of the reference entity record `kartell` for the `en_US` locale.
+
+**Original resource**
+```json
+{
+  "code": "kartell",
+  "values": {
+    "description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
+      }
+    ]
+  }
+}
+```
+
+**PATCH request body**
+```json
+{
+  "values": {
+    "short_description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "The famous Italian brand"
+      }
+    ]
+  }
+}
+```
+
+**Resulting resource**
+```json
+{
+  "code": "kartell",
+  "values": {
+    "short_description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "The famous Italian brand"
+      }
+    ],
+    "description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
+      }
+    ]
+  }
+}
+```
+
+::: info 
+Wondering how to format the `data` property in these reference entity record values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#reference-entity-record-values)
+:::
+
+### Modify a reference entity record value
+
+#### First example
+You want to modify the `short_description` of the reference entity record `kartell` for the `en_US` locale.
+
+**Original resource**
+```json
+{
+  "code": "kartell",
+  "values": {
+    "short_description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "The famous Italian brand"
+      }
+    ],
+    "description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
+      }
+    ]
+  }
+}
+```
+
+**PATCH request body**
+```json
+{
+  "values": {
+    "short_description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "A well-known manufacturer of high-end furniture"
+      }
+    ]
+  }
+}
+```
+
+**Resulting resource**
+```json
+{
+  "code": "kartell",
+  "values": {
+    "short_description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "A well-known manufacturer of high-end furniture"
+      }
+    ],
+    "description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
+      }
+    ]
+  }
+}
+```
+
+#### Second example
+You want to modify the `short_description` of the reference entity record `kartell` for the `fr_FR` locale but the `name` on the `en_US` locale is already set.
+
+**Original resource**
+```json
+{
+  "identifier": "kartell",
+  "values": {
+    "short_description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "A well-known manufacturer of high-end furniture"
+      },
+      {
+        "locale": "fr_FR",
+        "channel": null,
+        "data": "Kartell, éditeur de meubles"
+      }
+    ],
+    "description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
+      }
+    ]
+  }
+}
+```
+
+**PATCH request body**
+```json
+{
+  "values": {
+    "short_description": [
+      {
+        "locale": "fr_FR",
+        "channel": null,
+        "data": "L'éditeur italien de meubles de haute qualité"
+      }
+    ]
+  }
+}
+```
+
+**Resulting resource**
+```json
+{
+  "identifier": "kartell",
+  "values": {
+    "short_description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "A well-known manufacturer of high-end furniture"
+      },
+      {
+        "locale": "fr_FR",
+        "channel": null,
+        "data": "L'éditeur italien de meubles de haute qualité"
+      }
+    ],
+    "description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
+      }
+    ]
+  }
+}
+```
+
+::: info 
+Wondering how to format the `data` property in these reference entity record values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#reference-entity-record-values)
+:::
+
+### Erase a reference entity record value
+You want to erase the `short_description` of the reference entity record `kartell` for the `en_US` locale.
+
+**Original resource**
+```json
+{
+  "identifier": "kartell",
+  "values": {
+    "short_description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "A well-known manufacturer of high-end furniture"
+      }
+    ],
+    "description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
+      }
+    ]
+  }
+}
+```
+
+**PATCH request body**
+```json
+{
+  "values": {
+    "short_description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": null
+      }
+    ]
+  }
+}
+```
+
+**Resulting resource**
+```json
+{
+  "identifier": "kartell",
+  "values": {
+    "short_description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": null
+      }
+    ],
+    "description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell was founded in 1949 in Italy. Today, it's a well-known brand that sells high-end furniture."
+      }
+    ]
+  }
+}
+```
+
+
+::: info 
+Wondering how to format the `data` property in these reference entity record values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#reference-entity-record-values)
 :::

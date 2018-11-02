@@ -22,6 +22,8 @@ function determineCategory(tag){
         case 'Published products':
         case 'Product models':
             return 'Product entities';
+        case 'Reference entity records':
+            return 'Reference entities';
         case 'Families': 
         case 'Categories': 
         case 'Attributes': 
@@ -46,7 +48,7 @@ function determineCategory(tag){
 
 gulp.task('reference', ['clean-dist', 'less'], function() {
 
-    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3'];
+    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3', '3.0'];
     // We construct a reference index file and a complete reference file for each PIM version: 1.7, 2.0 and 2.1.
     // When we construct the 1.7 files, we filter to not include the new 2.0 and the 2.1 endpoints.
     // Same thing when we construct the 2.0 files, we filter to not include the 2.1 endpoints.
@@ -55,11 +57,13 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
         var htmlReferenceIndexfileName = (version === '1.7') ? 'api-reference-index-17' : 
                                         (version === '2.0') ? 'api-reference-index-20' :
                                         (version === '2.1') ? 'api-reference-index-21' :
-                                        (version === '2.2') ? 'api-reference-index-22' : 'api-reference-index';
+                                        (version === '2.2') ? 'api-reference-index-22' :
+                                        (version === '2.3') ? 'api-reference-index-23' : 'api-reference-index';
         var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' :
                                     (version === '2.0') ? 'api-reference-20' :
                                     (version === '2.1') ? 'api-reference-21' :
-                                    (version === '2.2') ? 'api-reference-22' : 'api-reference';
+                                    (version === '2.2') ? 'api-reference-22' :
+                                    (version === '2.3') ? 'api-reference-23' : 'api-reference';
 
         gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
@@ -75,7 +79,8 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                              (version === '2.0' && (operation['x-versions'][0] === '2.0' || operation['x-versions'][1] === '2.0')) ||
                              (version === '2.1' && (operation['x-versions'][0] === '2.1' || operation['x-versions'][1] === '2.1' || operation['x-versions'][2] === '2.1')) ||
                              (version === '2.2' && (operation['x-versions'][0] === '2.2' || operation['x-versions'][1] === '2.2' || operation['x-versions'][2] === '2.2' || operation['x-versions'][3] === '2.2')) ||
-                              version === '2.3') {
+                             (version === '2.3' && (operation['x-versions'][0] === '2.3' || operation['x-versions'][1] === '2.3' || operation['x-versions'][2] === '2.3' || operation['x-versions'][3] === '2.3' || operation['x-versions'][4] === '2.3')) ||
+                              version === '3.0') {
                             var escapeTag = operation.tags[0].replace(/\s/g, '');
                             var category = determineCategory(operation.tags[0]);
                             escapeCategory = category.replace(/\s/g, '');
@@ -118,7 +123,8 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                              (version === '2.0' && (operation['x-versions'][0] === '2.0' || operation['x-versions'][1] === '2.0')) ||
                              (version === '2.1' && (operation['x-versions'][0] === '2.1' || operation['x-versions'][1] === '2.1' || operation['x-versions'][2] === '2.1')) ||
                              (version === '2.2' && (operation['x-versions'][0] === '2.2' || operation['x-versions'][1] === '2.2' || operation['x-versions'][2] === '2.2' || operation['x-versions'][3] === '2.2')) ||
-                              version === '2.3') {
+                             (version === '2.3' && (operation['x-versions'][0] === '2.3' || operation['x-versions'][1] === '2.3' || operation['x-versions'][2] === '2.3' || operation['x-versions'][3] === '2.3' || operation['x-versions'][4] === '2.3')) ||
+                              version === '3.0') {
                             var operationId = operation.operationId;
                             var escapeTag = operation.tags[0].replace(/\s/g, '');
                             var category = determineCategory(operation.tags[0]);

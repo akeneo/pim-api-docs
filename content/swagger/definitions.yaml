@@ -22,6 +22,64 @@ PublishedProductList:
     - $ref:  '#/definitions/ItemList'
     - $ref: '#/definitions/PublishedProduct'
 
+ReferenceEntityRecord:
+  type: object
+  allOf:
+    - $ref: ./resources/reference_entity_records/definitions/reference_entity_record_links.yaml
+    - $ref: ./resources/reference_entity_records/definitions/reference_entity_record.yaml
+  example: {
+    "_links": {
+      "main_image_download": {
+        "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entity-media-files/0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg"
+      }
+    },
+    "code": "kartell",
+    "labels": {
+      "en_US": "Kartell",
+      "fr_FR": "Kartell"
+    },
+    "main_image": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg",
+    "values": {
+      "description": [
+        {
+          "locale": "en_US",
+          "channel": null,
+          "data": "Kartell, the Italian furniture company that sells modern and remarkable pieces of furnitures."
+        },
+        {
+          "locale": "fr_FR",
+          "channel": null,
+          "data": "Kartell, l'éditeur de meuble italien spécialisé dans la signature de belle pièces au design contemporain."
+        }
+      ],
+      "country": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "italy"
+        }
+      ],
+      "collection_overview":[
+        {
+          "locale": null,
+          "channel": null,
+          "data": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png",
+          "_links": {
+            "download": {
+              "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"
+            }
+          }
+        }
+      ]
+    }
+  }
+
+ReferenceEntityRecordList:
+  type: object
+  allOf:
+    - $ref: '#/definitions/ReferenceEntityRecordItemList'
+    - $ref: ./resources/reference_entity_records/definitions/reference_entity_record.yaml
+
 Category:
   $ref: ./resources/categories/definitions/category.yaml
 CategoryList:
@@ -79,12 +137,27 @@ AttributeGroupList:
     - $ref: '#/definitions/AttributeGroup'
 
 MediaFile:
-  $ref: ./resources/media_files/definitions/media_file.yaml
+  allOf:
+    - $ref: ./resources/media_files/definitions/media_file_links.yaml
+    - $ref: ./resources/media_files/definitions/media_file.yaml
+  example: {
+    "_links": {
+      "download": {
+        "href": "https://demo.akeneo.com/api/rest/v1/media-files/7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg/download"
+      }
+    },
+    "code": "7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg",
+    "original_filename": "10806799-1356.jpg",
+    "mime_type": "image/jpeg",
+    "size": 16070,
+    "extension": "jpg"
+  }
+
 MediaFileList:
   type: object
   allOf:
     - $ref: '#/definitions/MediaFileItemList'
-    - $ref: '#/definitions/MediaFile'
+    - $ref: ./resources/media_files/definitions/media_file.yaml
 
 Locale:
   $ref: ./resources/locales/definitions/locale.yaml
@@ -225,6 +298,30 @@ Pagination:
     current_page:
       type: integer
       description: Current page number
+SearchAfterPagination:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the current page of resources
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the first page of resources
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the next page of resources
 ItemList:
   type: object
   properties:
@@ -237,6 +334,7 @@ ItemList:
             href:
               type: string
               description: URI of the resource
+
 MediaFileItemList:
   type: object
   properties:
@@ -255,3 +353,22 @@ MediaFileItemList:
             href:
               type: string
               description: URI to download the binaries of the media file
+
+ReferenceEntityRecordItemList:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the resource
+        main_image_download:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI to download the binaries of the record's main image file

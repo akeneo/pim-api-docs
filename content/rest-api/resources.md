@@ -697,7 +697,7 @@ Below is the JSON format representing asset tags.
 ::: panel-link Want more details about the asset tag resource? [Check its endpoints here!](/api-reference.html#Assettags)
 :::
 
-## Products
+## Product entities
 
 ### Product
 
@@ -707,7 +707,9 @@ It can be classified in several categories. It can belong to a group and inherit
 
 In other words, this really is the heart entity of the PIM.
 
-In the Akeneo UI, you can find the products in the `Enrich`/`Products` menu. Below is an example of a product in the UI.
+In the Akeneo UI, in the 1.7 version, you can find the products in the `Enrich`/`Products` menu. In the 2.x version, it's below the `Products` menu.
+
+Below is an example of a product in the UI.
 
 ::: versions id="products" 2.x![Products in the Akeneo UI](/img/screenshots/v2.0/products_ui.png) 1.7![Products in the Akeneo UI](/img/screenshots/v1.7/products_ui.png)
 :::
@@ -1079,3 +1081,201 @@ Endpoints for the published products are only available starting the 2.0 version
 
 ::: panel-link Want more details about the published product resource? [Check its endpoints here!](/api-reference.html#Publishedproducts)
 :::
+
+## Reference entities
+
+### Reference entity record (3.x and EE only)
+
+Reference entities have been introduced in the PIM in the 3.0 version.
+
+A record holds all the information of a reference entity. A record can be related to one or more products.
+
+Let's give an example to be clearer. For the "Brand" reference entity, a record could be all the information regarding the "Kartell" brand.
+
+In the Akeneo UI, you can find the reference entity records in the `Entities` menu by selecting one of the entity of your choice. Below is an example of the record of a reference entity in the UI.
+
+![Reference entity record](/img/screenshots/v3.0/reference_entity_record.png)
+
+Below is the JSON standard format representing a reference entity record.
+
+```json
+{
+  "code": "kartell",
+  "labels": {
+    "en_US": "Kartell",
+    "fr_FR": "Kartell"
+  },
+  "main_image": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg",
+  "values": {
+    "description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell, the Italian furniture company that sells modern and remarkable pieces of furnitures."
+      },
+      {
+        "locale": "fr_FR",
+        "channel": null,
+        "data": "Kartell, l'éditeur de meuble italien spécialisé dans la signature de belle pièces au design contemporain."
+      }
+    ],
+    "country": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "italy"
+      }
+    ],
+    "creation_year":[
+    {
+        "locale": null,
+        "channel": null,
+        "data": "1949"
+      }
+    ],
+    "collection_overview":[
+    {
+        "locale": null,
+        "channel": null,
+        "data": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"
+      }
+    ]
+  }
+}
+```
+
+::: panel-link Want more details about the reference entity record resource? [Check its endpoints here!](/api-reference.html#Referenceentityrecords)
+:::
+
+#### Reference entity record values
+
+Reference entity record values hold all the information of a reference entity record. In concrete terms, it is the values of the attributes you will find in the record of a reference entity.
+
+In the API, the reference entity record values are in the property `values` of the reference entity record.
+
+Reference entity record values follow the same format as [product values](/documentation/resources.html#product-values): 
+```json
+{
+  "values": {
+    ATTRIBUTE_CODE: [
+      {
+        "locale": LOCALE_CODE,
+        "channel": CHANNEL_CODE,
+        "data": DATA_INFORMATION
+      }
+    ]
+  }
+}
+```
+In this formula:
+ - `ATTRIBUTE_CODE` is the code of an attribute of the reference entity record,
+ - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise,
+ - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise,
+ - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type as you can see in the table below.
+
+| Attribute type / Format| Example |
+| ----------------- | -------------- |
+| **Text** <br> _string_ | `"A well-known manufacturer of high-end furniture"` |
+| **Image** <br> _string_ | `// TODO` |
+| **Simple select** <br> _string_ | `"yellow"` |
+| **Multi select** <br> _Array[string]_ | `["leather", "cotton"]` |
+| **Reference entity simple select** <br> _string_ | `"italy"` |
+| **Reference entity multi select** <br> _Array[string]_ | `["starck", "dixon"]` |
+
+**Reference entity record values of a localizable attribute**
+
+The `short_description` attribute is localizable but not scopable, so it can hold several data values, up to one for each locale.
+```json
+{
+  "short_description": [
+    {
+      "locale": "en_US",
+      "channel": null,
+      "data": "A well-known manufacturer of high-end furniture"
+    },
+    {
+      "locale": "fr_FR",
+      "channel": null,
+      "data": "Un fabricant renommé de meubles de qualité"
+    }
+  ]
+}
+```
+:::info
+Note that the `channel` property is set to `null` in this case.
+:::
+
+**Reference entity record values of a scopable attribute**
+
+The `image` attribute is scopable but not localizable, so it can hold several data values, up to one for each channel.
+```json
+{
+  "image": [
+    {
+      "locale": null,
+      "channel": "ecommerce",
+      "data": //TODO
+    },
+    {
+      "locale": null,
+      "channel": "mobile",
+      "data": //TODO
+    }
+  ]
+}
+```
+:::info
+Note that the `locale` property is set to `null` in this case.
+:::
+
+**Reference entity record values of a localizable and scopable attribute**
+
+The `description` attribute is both scopable and localizable, so it can hold several data values, up to one for each couple of channels and locales.
+```js
+{
+  "description": [
+    {
+      "locale": "en_US",
+      "channel": "mobile",
+      "data": "Calligaris is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
+    },
+    {
+      "locale": "en_US",
+      "channel": "ecommerce",
+      "data": "Calligaris is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio Calligaris, a craftman specialized in the creation of wood chairs."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "mobile",
+      "data": "Calligaris est un fabricant de meubles renommé qui fut fondé en 1923 en Italie."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "ecommerce",
+      "data": "Calligaris est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio Calligaris, était un artisan spécialisé dans la fabrication de chaises en bois."
+    }
+  ]
+}
+```
+
+**Reference entity record value of a non localizable, non scopable attribute**
+
+The `creation_year` attribute is neither scopable nor localizable, so it can hold only one data value.
+```json
+{
+  "creation_year": [
+    {
+      "locale": null,
+      "channel": null,
+      "data": "1949"
+    }
+  ]
+}
+```
+:::info
+Note that the `locale` and `channel` properties are all set to `null` in this case.
+:::
+
+::: panel-link Want to update reference entity record values? [Here you go!](/documentation/update.html#patch-reference-entity-record-values)
+:::
+
