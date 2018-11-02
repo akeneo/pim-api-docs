@@ -1094,7 +1094,7 @@ In the Akeneo UI, you can find the reference entities in the `Entities` menu. Be
 
 ![Reference entity](/img/screenshots/v3.0/reference_entity.png)
 
-Below is the JSON standard format representing a reference entity.
+Below is the JSON format representing a reference entity.
 
 ```json
 {
