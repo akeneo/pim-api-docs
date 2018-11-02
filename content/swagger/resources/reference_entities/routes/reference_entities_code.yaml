@@ -29,7 +29,7 @@ patch:
   x-versions:
     - "3.0"
   x-ee: true
-  description: This endpoint allows you to update a given renference entity. Note that if the reference entity does not already exist, it creates it.
+  description: This endpoint allows you to update a given reference entity. Note that if the reference entity does not already exist, it creates it.
   parameters:
     - $ref: '#/parameters/code'
     - name: body
