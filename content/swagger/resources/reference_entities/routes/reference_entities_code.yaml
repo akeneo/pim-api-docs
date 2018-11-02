@@ -12,7 +12,7 @@ get:
   responses:
     200:
       description: OK
-      x-details: Returns the content of the reference entity in JSON standard format.
+      x-details: Returns the content of the reference entity in JSON format.
       schema:
         $ref: '#/definitions/ReferenceEntity'
     401:
