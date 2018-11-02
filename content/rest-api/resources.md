@@ -1121,6 +1121,10 @@ Below is the JSON standard format representing a reference entity attribute.
 ```json
 {
   "code": "description",
+  "labels": {
+    "en_US": "Description",
+    "fr_FR": "Description"
+  },
   "type": "text",
   "localizable": true,
   "scopable": false,
