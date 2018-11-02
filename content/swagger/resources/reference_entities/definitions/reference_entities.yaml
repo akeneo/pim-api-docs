@@ -1,0 +1,27 @@
+type: array
+items:
+  $ref: ../definitions/reference_entity.yaml
+example: [
+  {
+    "code": "brands",
+    "labels": {
+      "en_US": "Brands",
+      "fr_FR": "Marques"
+    },
+    "image": "0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
+  },
+  {
+    "code": "colors",
+    "labels": {
+      "en_US": "Colors",
+      "fr_FR": "Couleurs"
+    }
+  },
+  {
+    "code": "designers",
+    "labels": {
+      "en_US": "Desginers",
+      "fr_FR": "Designers"
+    }
+  }
+]
