@@ -106,7 +106,7 @@ patch:
   responses:
     200:
       description: OK
-      x-details: Returns an JSON array in which each object gives you the status of each record creation or update
+      x-details: Returns an JSON array in which each object gives you the status of each reference entity creation or update
       x-no-entity: true
       schema:
         $ref: '#/definitions/ErrorByObject'
