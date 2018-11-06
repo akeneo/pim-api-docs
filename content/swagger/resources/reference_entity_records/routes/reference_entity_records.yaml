@@ -10,7 +10,6 @@ get:
   parameters:
     - $ref: '#/parameters/reference_entity_code'
     - $ref: '#/parameters/search_after'
-    - $ref: '#/parameters/limit'
   responses:
     200:
       description: Return the records of the given reference entity paginated
@@ -30,13 +29,13 @@ get:
       examples: {
         _links: {
           self: {
-            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records?limit=3"
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records"
           },
           first: {
-            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records?limit=3"
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records"
           },
           next: {
-            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records?limit=3&search_after=2x088w%3D%3D"
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records?search_after=2x088w%3D%3D"
           }
         },
         _embedded: {
