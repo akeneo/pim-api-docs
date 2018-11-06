@@ -30,7 +30,7 @@ properties:
     x-immutable: true
   max_characters:
     type: integer
-    description: Number maximum of characters allowed for the value of the attribute when the attribute type is `text`
+    description: Maximum number of characters allowed for the value of the attribute when the attribute type is `text`
     x-warning: Only for `text` attribute type
   is_textarea:
     type: boolean
