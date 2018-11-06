@@ -9,7 +9,6 @@ get:
   x-ee: true
   parameters:
     - $ref: '#/parameters/search_after'
-    - $ref: '#/parameters/limit'
   responses:
     200:
       description: Return reference entities paginated
@@ -29,13 +28,13 @@ get:
       examples: {
         _links: {
           self: {
-            href: "https://demo.akeneo.com/api/rest/v1/reference-entities?limit=3"
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities"
           },
           first: {
-            href: "https://demo.akeneo.com/api/rest/v1/reference-entities?limit=3"
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities"
           },
           next: {
-            href: "https://demo.akeneo.com/api/rest/v1/reference-entities?limit=3&search_after=2x055w%3D%3D"
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities?search_after=2x055w%3D%3D"
           }
         },
         _embedded: {
