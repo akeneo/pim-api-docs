@@ -177,10 +177,6 @@ Some attributes can be shown only for specific locales. We will call them locale
 
 Finally, an attribute can be scopable. An attribute is scopable if its values differ for each channel. For instance, you might have one short description for your e-commerce website, maybe one even shorter for your mobile app but a long one for your print catalog.
 
-:::warning
-An attribute cannot be both localizable and locale specific at the same time.
-:::
-
 In the Akeneo UI, you can find the attributes in the `Settings`/`Attributes` menu. Below is an example of one attribute in the UI.
 
 ::: versions id="attributes" 2.x![Attributes in the Akeneo UI](/img/screenshots/v2.0/attributes_ui.png) 1.7![Attributes in the Akeneo UI](/img/screenshots/v1.7/attributes_ui.png)
