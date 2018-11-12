@@ -576,3 +576,23 @@ You can filter the reference entity records to get only the completed ones on a 
 /api/rest/v1/reference-entities/brands/records?search={"complete":[{"operator":"=","value":true,"channel":"ecommerce","locales":["en_US"]}]}
 ```
 
+### Filter records by update date
+
+You can filter the reference entity records by their update date.
+
+Below are the allowed operators to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
+
+:::info
+Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+:::
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `>` | datetime <br> _Format: ISO 8601_ | Only returns records that were respectively<br> updated after the given day and hour |
+
+#### Example
+To get the reference entity records that were updated since the 4th of July 2016 at 10am (UTC), you can use the following URL.
+
+```
+/api/rest/v1/reference-entities/brands/records?search={"updated":[{"operator":">","value":"2018-07-04T10:00:00+00:00"}]}
+```
