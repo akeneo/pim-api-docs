@@ -8,6 +8,11 @@ get:
   x-ee: true
   description: This endpoint allows you to get a list of records of a given reference entity. Records are paginated and can be filtered.
   parameters:
+    - name: search
+      in: query
+      description: Filter records of the reference entity, for more details see the <a href="/documentation/filter.html#filter-reference-entity-records">Filters</a> section
+      required: false
+      type: string
     - $ref: '#/parameters/reference_entity_code'
     - $ref: '#/parameters/search_after'
   responses:
