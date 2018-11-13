@@ -1,0 +1,34 @@
+post:
+  summary: Create a new record media file
+  operationId: "post_reference_entity_media_files"
+  description: This endpoint allows you to create a new media file and associate it to the main image or to an attribute value of a record of a reference entity.
+  tags:
+    - Record media file
+  x-versions:
+    - "3.0"
+  x-ee: true
+  parameters:
+    - name: Content-type
+      in: header
+      type: string
+      description: Equal to 'multipart/form-data', no other value allowed
+      required: true
+    - name: body
+      in: body
+      x-form-data: true
+      schema:
+        required: ["file"]
+        properties:
+          file:
+            type: string
+            description: The binary of the record media file
+            format: binary
+  responses:
+    201:
+      $ref: "#/responses/RecordMediaFileUploaded"
+    401:
+      $ref: "#/responses/401Error"
+    415:
+      $ref: "#/responses/415ErrorMultipart"
+    422:
+      $ref: "#/responses/422Error"
