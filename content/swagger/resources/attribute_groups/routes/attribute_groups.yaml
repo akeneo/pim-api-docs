@@ -3,7 +3,7 @@ get:
   operationId: "attribute_groups_get_list"
   description: This endpoint allows you to get a list of attribute groups. Attribute groups are paginated and sorted by code.
   tags:
-    - Attribute groups
+    - Attribute group
   x-versions:
     - "2.0"
     - "2.1"
@@ -106,7 +106,7 @@ post:
   operationId: "attribute_groups_post"
   description: This endpoint allows you to create a new attribute group.
   tags:
-    - Attribute groups
+    - Attribute group
   x-versions:
     - "2.0"
     - "2.1"
@@ -134,7 +134,7 @@ patch:
   summary: Update/create several attribute groups
   operationId: "several_attribute_groups_patch"
   tags:
-    - Attribute groups
+    - Attribute group
   x-versions:
     - "2.0"
     - "2.1"

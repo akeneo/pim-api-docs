@@ -3,7 +3,7 @@ get:
   operationId: "get_families"
   description: This endpoint allows you to get a list of families. Families are paginated and sorted by code.
   tags:
-    - Families
+    - Family
   x-versions:
     - "1.7"
     - "2.0"
@@ -100,7 +100,7 @@ post:
   operationId: "post_families"
   description: This endpoint allows you to create a new family.
   tags:
-    - Families
+    - Family
   x-versions:
     - "1.7"
     - "2.0"
@@ -129,7 +129,7 @@ patch:
   summary: Update/create several families
   operationId: "patch_families"
   tags:
-    - Families
+    - Family
   x-versions:
     - "1.7"
     - "2.0"

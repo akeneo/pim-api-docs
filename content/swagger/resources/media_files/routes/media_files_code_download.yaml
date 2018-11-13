@@ -4,7 +4,7 @@ get:
   description: This endpoint allows you to download a given media file.
   x-content-type: Mime-type of the media file
   tags:
-    - Media files
+    - Media file
   x-versions:
     - "1.7"
     - "2.0"

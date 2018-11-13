@@ -2,7 +2,7 @@ get:
   summary: Get a draft
   operationId: "get_product_model_draft__code_"
   tags:
-    - Product models
+    - Product model
   x-versions:
     - "2.3"
   x-ee: true

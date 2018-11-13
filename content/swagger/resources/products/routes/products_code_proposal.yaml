@@ -2,7 +2,7 @@ post:
   summary: Submit a draft for approval
   operationId: "post_proposal"
   tags:
-    - Products
+    - Product
   x-versions:
     - "2.0"
     - "2.1"

@@ -3,7 +3,7 @@ get:
   operationId: "get_categories"
   description: This endpoint allows you to get a list of categories. Categories are paginated and sorted by `root/left`.
   tags:
-    - Categories
+    - Category
   x-versions:
     - "1.7"
     - "2.0"
@@ -132,7 +132,7 @@ post:
   operationId: "post_categories"
   description: This endpoint allows you to create a new category.
   tags:
-    - Categories
+    - Category
   x-versions:
     - "1.7"
     - "2.0"
@@ -161,7 +161,7 @@ patch:
   summary: Update/create several categories
   operationId: "patch_categories"
   tags:
-    - Categories
+    - Category
   x-versions:
     - "1.7"
     - "2.0"

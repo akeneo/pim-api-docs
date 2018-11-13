@@ -16,15 +16,20 @@
 /api/rest/v1/product-models/{code}/draft:
   $ref: ./resources/product_models/routes/product_models_code_draft.yaml
 
-/api/rest/v1/reference-entities/{reference_entity_code}/records:
-  $ref: ./resources/reference_entity_records/routes/reference_entity_records.yaml
-/api/rest/v1/reference-entities/{reference_entity_code}/records/{code}:
-  $ref: ./resources/reference_entity_records/routes/reference_entity_records_code.yaml
-
 /api/rest/v1/published-products:
   $ref: ./resources/published_products/routes/published_products.yaml
 /api/rest/v1/published-products/{code}:
   $ref: ./resources/published_products/routes/published_products_code.yaml
+
+/api/rest/v1/reference-entities:
+  $ref: ./resources/reference_entities/routes/reference_entities.yaml
+/api/rest/v1/reference-entities/{code}:
+  $ref: ./resources/reference_entities/routes/reference_entities_code.yaml
+
+/api/rest/v1/reference-entities/{reference_entity_code}/records:
+  $ref: ./resources/reference_entity_records/routes/reference_entity_records.yaml
+/api/rest/v1/reference-entities/{reference_entity_code}/records/{code}:
+  $ref: ./resources/reference_entity_records/routes/reference_entity_records_code.yaml
 
 /api/rest/v1/categories:
   $ref: ./resources/categories/routes/categories.yaml

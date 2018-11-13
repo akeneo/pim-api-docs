@@ -3,7 +3,7 @@ get:
   operationId: "get_asset_tags"
   description: This endpoint allows you to get a list of asset tags. Asset tags are paginated.
   tags:
-    - Asset tags
+    - Asset tag
   x-versions:
     - 2.1
     - 2.2

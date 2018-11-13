@@ -3,7 +3,7 @@ get:
   operationId: "measure_families_get"
   description: This endpoint allows you to get the information about a given measure family.
   tags:
-    - Measure families
+    - Measure family
   x-versions:
     - "2.0"
     - "2.1"

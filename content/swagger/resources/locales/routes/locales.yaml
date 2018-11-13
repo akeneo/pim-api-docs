@@ -3,7 +3,7 @@ get:
   operationId: "get_locales"
   description: This endpoint allows you to get a list of locales. Locales are paginated and sorted by code.
   tags:
-    - Locales
+    - Locale
   x-versions:
     - "1.7"
     - "2.0"

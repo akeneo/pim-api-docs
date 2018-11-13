@@ -3,7 +3,7 @@ get:
   operationId: "get_channels__code_"
   description: This endpoint allows you to get the information about a given channel.
   tags:
-    - Channels
+    - Channel
   x-versions:
     - "1.7"
     - "2.0"
@@ -30,7 +30,7 @@ patch:
   summary: Update/create a channel
   operationId: "channels_patch"
   tags:
-    - Channels
+    - Channel
   x-versions:
     - "2.0"
     - "2.1"
