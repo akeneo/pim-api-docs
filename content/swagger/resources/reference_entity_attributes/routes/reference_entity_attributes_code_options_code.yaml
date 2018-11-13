@@ -1,7 +1,7 @@
 get:
-  summary: Get an attribute option for a given attribute of a given reference entity
+  summary: Get a reference entity attribute option
   operationId: "get_reference_entity_attributes__attribute_code__options__code_"
-  description: This endpoint allows you to get the information about a given attribute option.
+  description: This endpoint allows you to get the information about a given option of a given attribute for a given reference entity.
   tags:
     - Reference entity attribute option
   x-versions:
@@ -23,3 +23,32 @@ get:
       $ref: "#/responses/404Error"
     406:
       $ref: "#/responses/406Error"
+patch:
+  summary: Update/create a reference entity attribute option
+  operationId: "patch_reference_entity_attributes__attribute_code__options__code_"
+  tags:
+    - Reference entity attribute option
+  x-versions:
+    - "3.0"
+  x-ee: true
+  description: This endpoint allows you to update a given option of a given attribute for a given reference entity. Learn more about <a href="/documentation/update.html#patch-reference-entity-record-values">Update behavior</a>. Note that if the option does not already exist for the given attribute of the given reference entity, it creates it.
+  parameters:
+    - $ref: '#/parameters/reference_entity_code'
+    - $ref: '#/parameters/attribute_code'
+    - $ref: '#/parameters/code'
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: ../definitions/reference_entity_attribute_option.yaml
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    204:
+      $ref: "#/responses/NoContent"
+    401:
+      $ref: "#/responses/401Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
