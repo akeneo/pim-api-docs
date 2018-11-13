@@ -1088,7 +1088,9 @@ Endpoints for the published products are only available starting the 2.0 version
 
 ### Reference entity (3.x and EE only)
 
-Reference entities have been introduced in the PIM in the 3.0 version.
+Reference entities have been introduced in the PIM in the 3.0 version. Note that they are a EE feature, so they are not available in the Community Edition.
+
+Reference entities are objects that are related to products but have their own attributes and lifecycle. A reference entity can be for example the brands, the ranges, the manufacturers, the colors, the materials or the care instructions... And so many other entities.
 
 In the Akeneo UI, you can find the reference entities in the `Entities` menu. Below is an example of the `Brand` reference entity with its [records](/documentation/resources.html#reference-entity-record-3x-and-ee-only) in the UI.
 
