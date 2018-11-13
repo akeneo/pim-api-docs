@@ -1113,7 +1113,7 @@ Below is the JSON format representing a reference entity.
 Reference entities have attributes that allow to describe their [records](/documentation/resources.html#reference-entity-record-3x-and-ee-only).
 
 ::: warning
-Note that "Reference entity attribute option" are not the same entity than "Attribute option", even though they have a lot in common. The first one is used to describe reference entities records, the second one is use to describe products.
+Note that "Reference entity attribute" are not the same entity than "Attribute", even though they have a lot in common. The first one is used to describe reference entities records, the second one is use to describe products.
 :::
 
 In the Akeneo UI, you can find the attributes that compose a given reference entity by following these simple steps. Go in the `Entities` menu. Click on a reference entity and then, click on the `Attributes` sub menu. Below is an example of the attributes that compose the `Designer` entity in the UI.
