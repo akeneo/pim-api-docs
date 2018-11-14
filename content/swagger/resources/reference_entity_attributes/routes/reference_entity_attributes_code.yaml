@@ -1,0 +1,24 @@
+get:
+  summary: Get an attribute of a given reference entity
+  operationId: "get_reference_entity_attributes__code_"
+  tags:
+    - Reference entity attribute
+  x-versions:
+    - "3.0"
+  x-ee: true
+  description: This endpoint allows you to get the information about a given attribute for a given reference entity.
+  parameters:
+    - $ref: '#/parameters/reference_entity_code'
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the product in JSON format
+      schema:
+        $ref: '#/definitions/ReferenceEntityAttribute'
+    401:
+      $ref: "#/responses/401Error"
+    406:
+      $ref: "#/responses/406Error"
+    404:
+      $ref: "#/responses/404Error"

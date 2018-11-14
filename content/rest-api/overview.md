@@ -122,6 +122,7 @@ In 2.3, we added in the API the following entity:
 
 To finish, in 3.0, we added in the API the following entities:
  - [Reference entity](/documentation/resources.html#reference-entity-3x-and-ee-only) (Enterprise edition only)
+ - [Reference entity attribute](/documentation/resources.html#reference-entity-attribute-3x-and-ee-only) (Enterprise edition only)
  - [Reference entity record](/documentation/resources.html#reference-entity-record-3x-and-ee-only) (Enterprise edition only)
  - [Record media file](/documentation/resources.html#record-media-file-3x-and-ee-only) (Enterprise edition only)
 
