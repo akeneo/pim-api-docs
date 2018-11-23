@@ -3,7 +3,7 @@ get:
   operationId: "get_variation_files__channel_code__locale_code"
   description: This endpoint allows you to get the information about a variation file of a given asset.
   tags:
-    - Asset
+    - Asset variation file
   x-versions:
     - 2.1
     - 2.2
@@ -32,7 +32,7 @@ post:
   operationId: "post_variation_files__channel_code__locale_code_"
   description: This endpoint allows you to upload a new variation file for a given asset, channel and locale.
   tags:
-    - Asset
+    - Asset variation file
   x-versions:
     - 2.1
     - 2.2
