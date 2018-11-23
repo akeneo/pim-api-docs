@@ -1132,7 +1132,8 @@ Below is the JSON standard format representing a reference entity attribute.
   "is_textarea": true,
   "is_rich_text_editor": true,
   "validation_rule": null,
-  "validation_regexp": null
+  "validation_regexp": null,
+  "reference_entity_code": null
 }
 ```
 
