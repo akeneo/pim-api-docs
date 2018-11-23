@@ -17,7 +17,7 @@ properties:
   type:
     type: string
     description: Attribute type
-    enum: ['text', 'image']
+    enum: ['text', 'image', 'single_option', 'multiple_options', 'reference_entity_single_link', 'reference_entity_multiple_links']
   localizable:
     type: boolean
     description: Whether the attribute is localizable, i.e. can have one value by locale
@@ -47,7 +47,7 @@ properties:
     description: Validation rule type used to validate the attribute value when the attribute type is `text`
     default : null
     x-warning: Only for `text` attribute type
-    enum: ['email','url','regexp', null]
+    enum: ['email', 'url', 'regexp', null]
   validation_regexp:
     type: string
     description: Regexp expression used to validate the attribute value when the attribute type is `text`
@@ -66,6 +66,11 @@ properties:
     description: Max file size in MB when the attribute type is `image`
     default : null
     x-warning: Only for `image` attribute type
+  reference_entity_code:
+    type: string
+    description: Code of the linked reference entity when the attribute type is `reference_entity_single_link` or `reference_entity_multiple_links`
+    default : null
+    x-warning: Only for `reference_entity_single_link` and `reference_entity_multiple_links` attribute type
 example: {
   "code": "description",
   "labels": {
@@ -79,5 +84,6 @@ example: {
   "is_textarea": true,
   "is_rich_text_editor": true,
   "validation_rule": null,
-  "validation_regexp": null
+  "validation_regexp": null,
+  "reference_entity_code": null
 }
