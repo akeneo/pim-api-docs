@@ -1232,7 +1232,7 @@ In this formula:
 | Attribute type / Format| Example |
 | ----------------- | -------------- |
 | **Text** <br> _string_ | `"A well-known manufacturer of high-end furniture"` |
-| **Image** <br> _string_ | `// TODO` |
+| **Image** <br> _string_ | `"5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"` |
 | **Simple select** <br> _string_ | `"yellow"` |
 | **Multi select** <br> _Array[string]_ | `["leather", "cotton"]` |
 | **Reference entity simple select** <br> _string_ | `"italy"` |
