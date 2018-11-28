@@ -1146,7 +1146,7 @@ Below is the JSON standard format representing a reference entity attribute.
 
 ### Reference entity attribute option (3.x and EE only)
 
-Some type of attributes of reference entities can offer list of choices. These available choices are reference entity attribute options.
+Some type of attributes of reference entities can offer a list of choices. These available choices are reference entity attribute options.
 
 ::: warning
 Note that "Reference entity attribute option" are not the same entity than "Attribute option", even though they have a lot in common. The first one is an option of an attribute used to describe reference entities records, the second one is an option of an attribute used to describe products.
