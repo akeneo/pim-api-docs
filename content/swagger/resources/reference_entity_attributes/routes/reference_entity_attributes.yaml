@@ -50,11 +50,7 @@ get:
           "type": "text",
           "localizable": true,
           "scopable": false,
-          "max_characters": 100,
-          "is_textarea": false,
-          "is_rich_text_editor": null,
-          "validation_rule": null,
-          "validation_regexp": null
+          "reference_entity_code": null
         },
         {
           "_links": {
