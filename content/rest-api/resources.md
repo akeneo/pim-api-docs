@@ -1149,10 +1149,10 @@ Below is the JSON standard format representing a reference entity attribute.
 Some type of attributes of reference entities can offer a list of choices. These available choices are reference entity attribute options.
 
 ::: warning
-Note that "Reference entity attribute option" are not the same entity than "Attribute option", even though they have a lot in common. The first one is an option of an attribute used to describe reference entities records, the second one is an option of an attribute used to describe products.
+Note that "Reference entity attribute option" are not the same entity as "Attribute option", even though they have a lot in common. The first one is an option of an attribute used to describe reference entities records, the second one is an option of an attribute used to describe products.
 :::
 
-Only attribute of type simple select or multiselect can have options.
+Only attribute of type `single option` or `multiple options` can have options.
 
 In the Akeneo UI, ... ?? TODO
 
