@@ -1120,7 +1120,7 @@ In the Akeneo UI, you can find the attributes that compose a given reference ent
 
 ![Reference entity attributes](/img/screenshots/v3.0/reference_entity_attribute.png)
 
-The JSON format for the reference entity attribute can differ according to its type. Below are some examples for each attribute type.
+The JSON format for a reference entity attribute can differ according to its type. Below are some examples for each attribute type.
 
 Format for the `text` attribute type
 ```json
