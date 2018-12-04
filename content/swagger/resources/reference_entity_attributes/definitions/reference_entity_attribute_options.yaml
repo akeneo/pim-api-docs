@@ -1,0 +1,26 @@
+type: array
+items:
+  $ref: ../definitions/reference_entity_attribute_option.yaml
+example: [
+  {
+    "code": "woodland_retreat",
+    "labels": {
+      "en_US": "Woodland Retreat",
+      "fr_FR": "Retraite dans les Bois"
+    }
+  },
+  {
+    "code": "new_nordic",
+    "labels": {
+      "en_US": "New Nordic",
+      "fr_FR": "Renouveau Scandinave"
+    }
+  },
+  {
+    "code": "global_nomad",
+    "labels": {
+      "en_US": "Global Nomad",
+      "fr_FR": "Nomade du Monde"
+    }
+  }
+]
