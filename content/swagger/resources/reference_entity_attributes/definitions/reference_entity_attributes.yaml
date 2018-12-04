@@ -11,6 +11,7 @@ example: [
     "type": "text",
     "localizable": true,
     "scopable": false,
+    "is_required_for_completeness": true,
     "max_characters": null,
     "is_textarea": true,
     "is_rich_text_editor": true,
@@ -26,6 +27,7 @@ example: [
     "type": "text",
     "localizable": true,
     "scopable": false,
+    "is_required_for_completeness": false,
     "max_characters": 100,
     "is_textarea": false,
     "is_rich_text_editor": null,
@@ -41,6 +43,7 @@ example: [
     "type": "image",
     "localizable": true,
     "scopable": false,
+    "is_required_for_completeness": true,
     "allowed_extensions": ["png"],
     "max_file_size": "1000"
   }

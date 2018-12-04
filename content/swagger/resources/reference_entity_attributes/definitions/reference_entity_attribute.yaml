@@ -28,6 +28,10 @@ properties:
     description: Whether the attribute is scopable, i.e. can have one value by channel
     default : false
     x-immutable: true
+  is_required_for_completeness:
+    type: boolean
+    description: Whether the attribute should be part of the record's completeness calculation
+    default : false
   max_characters:
     type: integer
     description: Maximum number of characters allowed for the value of the attribute when the attribute type is `text`
@@ -80,6 +84,7 @@ example: {
   "type": "text",
   "localizable": true,
   "scopable": false,
+  "is_required_for_completeness": true,
   "max_characters": null,
   "is_textarea": true,
   "is_rich_text_editor": true,

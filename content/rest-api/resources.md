@@ -1100,10 +1100,10 @@ Below is the JSON format representing a reference entity.
 
 ```json
 {
-  "code": "brands",
+  "code": "brand",
   "labels": {
-    "en_US": "Brands",
-    "fr_FR": "Marques"
+    "en_US": "Brand",
+    "fr_FR": "Marque"
   },
   "image": "0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
 }
@@ -1124,8 +1124,9 @@ In the Akeneo UI, you can find the attributes that compose a given reference ent
 
 ![Reference entity attributes](/img/screenshots/v3.0/reference_entity_attribute.png)
 
-Below is the JSON standard format representing a reference entity attribute.
+The JSON format for a reference entity attribute can differ according to its type. Below are some examples for each attribute type.
 
+Format for the `text` attribute type
 ```json
 {
   "code": "description",
@@ -1136,12 +1137,87 @@ Below is the JSON standard format representing a reference entity attribute.
   "type": "text",
   "localizable": true,
   "scopable": false,
+  "is_required_for_completeness": true,
   "max_characters": null,
   "is_textarea": true,
   "is_rich_text_editor": true,
   "validation_rule": null,
-  "validation_regexp": null,
-  "reference_entity_code": null
+  "validation_regexp": null
+}
+```
+
+Format for the `image` attribute type
+```json
+{
+  "code": "photo",
+  "labels": {
+    "en_US": "Photo",
+    "fr_FR": "Photo"
+  },
+  "type": "image",
+  "localizable": false,
+  "scopable": false,
+  "is_required_for_completeness": true,
+  "allowed_extensions": ["jpg"],
+  "max_file_size": "10"
+}
+```
+
+Format for the `single option` and `multiple options` attribute types
+```json
+{
+  "code": "nationality",
+  "labels": {
+    "en_US": "Nationality",
+    "fr_FR": "Nationalité"
+  },
+  "type": "single_option",
+  "localizable": false,
+  "scopable": false,
+  "is_required_for_completeness": false
+}
+```
+```json
+{
+  "code": "sales_areas",
+  "labels": {
+    "en_US": "Sales areas",
+    "fr_FR": "Zones de vente"
+  },
+  "type": "multiple_options",
+  "localizable": false,
+  "scopable": false,
+  "is_required_for_completeness": true
+}
+```
+
+Format for the `reference entity single link` and `reference entity multiple links` attribute types
+```json
+{
+  "code": "country",
+  "labels": {
+    "en_US": "Country",
+    "fr_FR": "Pays"
+  },
+  "type": "reference_entity_single_link",
+  "localizable": false,
+  "scopable": false,
+  "is_required_for_completeness": false,
+  "reference_entity_code": "country"
+}
+```
+```json
+{
+  "code": "designers",
+  "labels": {
+    "en_US": "Designers",
+    "fr_FR": "Designeurs"
+  },
+  "type": "reference_entity_multiple_links",
+  "localizable": false,
+  "scopable": false,
+  "is_required_for_completeness": true,
+  "reference_entity_code": "designer"
 }
 ```
 
@@ -1223,6 +1299,13 @@ Below is the JSON standard format representing a reference entity record.
         "data": "Kartell, l'éditeur de meuble italien spécialisé dans la signature de belle pièces au design contemporain."
       }
     ],
+    "designer":[
+      {
+        "locale": null,
+        "channel": null,
+        "data": "starck"
+      }
+    ],
     "country": [
       {
         "locale": null,
@@ -1237,7 +1320,7 @@ Below is the JSON standard format representing a reference entity record.
         "data": "1949"
       }
     ],
-    "collection_overview":[
+    "photo":[
     {
         "locale": null,
         "channel": null,
@@ -1318,12 +1401,12 @@ The `image` attribute is scopable but not localizable, so it can hold several da
     {
       "locale": null,
       "channel": "ecommerce",
-      "data": //TODO
+      "data": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img_ecommerce.png"
     },
     {
       "locale": null,
       "channel": "mobile",
-      "data": //TODO
+      "data": "c/4/d/8/51d81dc778ba1501a8f998f3ab57975610g7867i_img_mobile.png"
     }
   ]
 }
