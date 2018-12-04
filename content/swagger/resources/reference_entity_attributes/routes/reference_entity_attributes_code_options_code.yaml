@@ -31,7 +31,7 @@ patch:
   x-versions:
     - "3.0"
   x-ee: true
-  description: This endpoint allows you to update a given option of a given attribute for a given reference entity. Learn more about <a href="/documentation/update.html#patch-reference-entity-record-values">Update behavior</a>. Note that if the option does not already exist for the given attribute of the given reference entity, it creates it.
+  description: This endpoint allows you to update a given option for a given attribute and a given reference entity. Learn more about <a href="/documentation/update.html#patch-reference-entity-record-values">Update behavior</a>. Note that if the option does not already exist for the given attribute of the given reference entity, it creates it.
   parameters:
     - $ref: '#/parameters/reference_entity_code'
     - $ref: '#/parameters/attribute_code'
