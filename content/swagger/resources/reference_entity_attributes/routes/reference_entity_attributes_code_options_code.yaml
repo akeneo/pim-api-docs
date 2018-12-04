@@ -1,0 +1,25 @@
+get:
+  summary: Get an attribute option for a given attribute of a given reference entity
+  operationId: "get_reference_entity_attributes__attribute_code__options__code_"
+  description: This endpoint allows you to get the information about a given attribute option.
+  tags:
+    - Reference entity attribute option
+  x-versions:
+    - "3.0"
+  x-ee: true
+  parameters:
+    - $ref: '#/parameters/reference_entity_code'
+    - $ref: '#/parameters/attribute_code'
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the reference entity attribute option in JSON format
+      schema:
+        $ref: '#/definitions/ReferenceEntityAttributeOption'
+    401:
+      $ref: "#/responses/401Error"
+    404:
+      $ref: "#/responses/404Error"
+    406:
+      $ref: "#/responses/406Error"

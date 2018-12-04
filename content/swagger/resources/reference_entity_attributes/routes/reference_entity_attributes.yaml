@@ -48,7 +48,7 @@ get:
             "fr_FR": "Pays"
           },
           "type": "text",
-          "localizable": true,
+          "localizable": false,
           "scopable": false,
           "reference_entity_code": null
         },

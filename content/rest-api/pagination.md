@@ -47,6 +47,8 @@ This pagination method is only available for:
 - product models (since 2.0),
 - published products (since 2.0),
 - assets (since 2.1),
+- reference entities (since 3.0),
+- reference entity attribute options (since 3.0),
 - reference entity records (since 3.0).
 :::
 
@@ -55,7 +57,7 @@ On the products, product models, published products and assets, you will have to
 :::
 
 ::: info
-For the reference entities and their records, the `Search-after` method is the only one available. So you don't have to worry about which method to choose. ;)
+For the reference entities and their records, and reference entity attribute options, the `Search-after` method is the only one available. So you don't have to worry about which method to choose. ;)
 :::
 
 ### Example
