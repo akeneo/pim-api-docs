@@ -9,7 +9,7 @@ properties:
     type: string
     description: Attribute type
     x-validation-rules: The type is one of the following values
-    enum: ['pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price', 'pim_catalog_boolean']
+    enum: ['pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price', 'pim_catalog_boolean', 'akeneo_reference_entity', 'akeneo_reference_entity_collection']
     x-immutable: true
   labels:
     type: object
@@ -119,6 +119,10 @@ properties:
     type: string
     description: Max file size in MB when the attribute type is `pim_catalog_file` or `pim_catalog_image`
     x-warning: Only for `pim_catalog_file` or `pim_catalog_image` attribute types
+  reference_data_name:
+    type: string
+    description: Reference entity code when the attribute type is `akeneo_reference_entity` or `akeneo_reference_entity_collection`
+    x-warning: Only for `akeneo_reference_entity` or `akeneo_reference_entity_collection` attribute types
 example: {
   "code": "release_date",
   "type": "pim_catalog_date",
