@@ -36,3 +36,8 @@ npm serve
 
 The API documentation site is then available on `localhost:8000`.
 Files located in the content and src directories are watched for changes, so when developing you do not need to launch any other task.
+
+## Swagger
+
+As Swagger YAML spec uses references and links, the speification is considred as non valid.
+Therefore, the valid JSON specification "content/swagger/akeneo-web-api.json" is generated during the build and should be versionned.
