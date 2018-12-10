@@ -36,3 +36,8 @@ npm serve
 
 The API documentation site is then available on `localhost:8000`.
 Files located in the content and src directories are watched for changes, so when developing you do not need to launch any other task.
+
+## Swagger
+
+As our YAML Swagger spec uses references and links, it is considered as non-valid.
+During the build, we generate a valid JSON specification that is put under the `content/swagger` folder. Don't forget to version it if you made any change into the YAML Swagger spec.

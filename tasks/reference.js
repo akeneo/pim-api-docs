@@ -101,6 +101,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
 
         gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
+            .pipe(gulp.dest('content/swagger'))
             .pipe(jsonTransform(function(data, file) {
                 var templateData = data;
                 data.categories = {};
