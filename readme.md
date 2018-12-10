@@ -40,4 +40,4 @@ Files located in the content and src directories are watched for changes, so whe
 ## Swagger
 
 As our YAML Swagger spec uses references and links, it is considered as non-valid.
-Therefore, the valid JSON specification "content/swagger/akeneo-web-api.json" is generated during the build and should be versionned.
+During the build, we generate a valid JSON specification that is put under the `content/swagger` folder. Don't forget to version it if you made any change into the YAML Swagger spec.
