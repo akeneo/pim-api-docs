@@ -21,7 +21,7 @@ post:
         properties:
           file:
             type: string
-            description: The binary of the rmedia file
+            description: The binary of the media file
             format: binary
   responses:
     201:
