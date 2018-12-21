@@ -1,7 +1,7 @@
 get:
-  summary: Get a media file
+  summary: Get a product media file
   operationId: "get_media_files__code_"
-  description: This endpoint allows you to get the information about a given media file.
+  description: This endpoint allows you to get the information about a given media file that is used as an attribute value of a product or a product model.
   tags:
     - Product media file
   x-versions:

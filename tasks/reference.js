@@ -44,7 +44,7 @@ function determineCategory(tag){
             return 'PAM';
         case 'Reference entity record':
         case 'Reference entity':
-        case 'Record media file':
+        case 'Reference entity media file':
         case 'Reference entity attribute':
         case 'Reference entity attribute option':
             return 'Reference entities';
