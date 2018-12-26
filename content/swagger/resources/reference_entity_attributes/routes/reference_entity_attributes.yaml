@@ -51,8 +51,7 @@ get:
           "type": "text",
           "localizable": false,
           "scopable": false,
-          "is_required_for_completeness": false,
-          "reference_entity_code": null
+          "is_required_for_completeness": false
         },
         {
           "_links": {
