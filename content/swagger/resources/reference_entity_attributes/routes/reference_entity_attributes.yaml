@@ -17,11 +17,6 @@ get:
         $ref: '#/definitions/ReferenceEntityAttributeList'
       x-examples: [
         {
-          "_links": {
-            "self": {
-              "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/attributes/description"
-            }
-          },
           "code": "description",
           "labels": {
             "en_US": "Description",
@@ -38,11 +33,6 @@ get:
           "validation_regexp": null
         },
         {
-          "_links": {
-            "self": {
-              "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/attributes/country"
-            }
-          },
           "code": "country",
           "labels": {
             "en_US": "Country",
@@ -54,11 +44,6 @@ get:
           "is_required_for_completeness": false
         },
         {
-          "_links": {
-            "self": {
-              "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/attributes/collection_overview"
-            }
-          },
           "code": "collection_overview",
           "labels": {
             "en_US": "Collection overview",
@@ -76,47 +61,3 @@ get:
       $ref: "#/responses/401Error"
     406:
       $ref: "#/responses/406Error"
-patch:
-  summary: Update/create several attributes of a given reference entity
-  operationId: "patch_reference_entity_attributes"
-  tags:
-    - Reference entity attribute
-  x-versions:
-    - "3.0"
-  x-ee: true
-  description: This endpoint allows you to update and/or create several reference entity attributes at once. Note that if the attribute does not already exist for the given reference entity, it creates it.
-  parameters:
-    - $ref: '#/parameters/reference_entity_code'
-    - name: body
-      in: body
-      required: true
-      schema:
-        $ref: ../definitions/reference_entity_attributes.yaml
-  responses:
-    200:
-      description: OK
-      x-details: Returns an JSON array in which each object gives you the status of each attribute creation or update
-      x-no-entity: true
-      schema:
-        $ref: '#/definitions/ErrorByObject'
-      x-examples: [
-        {
-          "code": "description",
-          "status_code": 204
-        },
-        {
-          "code": "country",
-          "status_code": 422,
-          "message": "Property 'group' does not exist."
-        },
-        {
-          "code": "collection_overview",
-          "status_code": 201
-        }
-      ]
-    401:
-      $ref: "#/responses/401Error"
-    413:
-      $ref: "#/responses/413Error"
-    415:
-      $ref: "#/responses/415ErrorStream"
