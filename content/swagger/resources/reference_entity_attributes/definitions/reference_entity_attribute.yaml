@@ -89,6 +89,5 @@ example: {
   "is_textarea": true,
   "is_rich_text_editor": true,
   "validation_rule": null,
-  "validation_regexp": null,
-  "reference_entity_code": null
+  "validation_regexp": null
 }
