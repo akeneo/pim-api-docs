@@ -57,10 +57,9 @@ ReferenceEntityAttributeList:
 ReferenceEntityAttributeOption:
   $ref: ./resources/reference_entity_attributes/definitions/reference_entity_attribute_option.yaml
 ReferenceEntityAttributeOptionList:
-  type: object
-  allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: ./resources/reference_entity_attributes/definitions/reference_entity_attribute_option.yaml
+  type: array
+  items:
+    $ref: ./resources/reference_entity_attributes/definitions/reference_entity_attribute_option.yaml
 
 ReferenceEntityRecord:
   type: object

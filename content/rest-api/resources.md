@@ -1220,6 +1220,11 @@ Format for the `reference entity single link` and `reference entity multiple lin
 }
 ```
 
+::: warning
+You can have at max 100 attributes to describe the structure of one given reference entity.    
+As a consequence, when you ask for the list of attributes of one given reference entity, you'll see that the response is not paginated. It won't cause any performance issue, since you can't have more than 100 attributes per reference entity.
+:::
+
 ::: panel-link Want more details about the reference entity attribute resource? [Check its endpoints here!](/api-reference.html#Referenceentityattribute)
 :::
 
@@ -1259,6 +1264,11 @@ Below is the JSON format representing these reference entity attribute options.
   }
 }
 ```
+
+::: warning
+You can have at max 100 options per attribute. If you want to have more, it makes totally sense to create a new reference entity that you can then use as an attribute.  
+As a consequence of this limit, when you ask for the list of attribute options of one given attribute, you'll see that the response is not paginated. It won't cause any performance issue, since you can't have more than 100 options per attribute.
+:::
 
 ::: panel-link Want more details about the reference entity attribute option resource? [Check its endpoints here!](/api-reference.html#Referenceentityattributeoption)
 :::
