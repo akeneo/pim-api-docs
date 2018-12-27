@@ -1,10 +1,10 @@
 get:
-  summary: Download a record media file
+  summary: Download the media file associated to a reference entity or a record
   operationId: "get_reference_entity_media_files__code"
-  description: This endpoint allows you to download a given record media file.
+  description: This endpoint allows you to download a given media file that is associated with a reference entity or a record.
   x-content-type: Mime-type of the media file
   tags:
-    - Record media file
+    - Reference entity media file
   x-versions:
     - "3.0"
   x-ee: true
@@ -13,8 +13,8 @@ get:
   responses:
     200:
       description: OK
-      x-details: Returns the binary of the record media file
-      x-content-type: Mime-type of the record media file
+      x-details: Returns the binary of the media file
+      x-content-type: Mime-type of the media file
     401:
       $ref: "#/responses/401Error"
     404:

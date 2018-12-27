@@ -5,15 +5,15 @@ Created:
     Location:
       description: URI of the created resource
       type: string
-RecordMediaFileUploaded:
+ReferenceEntityMediaFileUploaded:
   description: Created
-  x-details: Means that the record media file creation was successful
+  x-details: Means that the media file creation was successful
   headers:
     Location:
       description: URI of the created resource
       type: string
     Reference-entities-media-file-code:
-      description: Code of the record media file
+      description: Code of the media file
       type: string
 AssetReferenceFileUploaded:
   description: Uploaded

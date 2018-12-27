@@ -1,10 +1,10 @@
 get:
-  summary: Download a media file
+  summary: Download a product media file
   operationId: "get_media_files__code__download"
-  description: This endpoint allows you to download a given media file.
+  description: This endpoint allows you to download a given media file that is used as an attribute value of a product or a product model.
   x-content-type: Mime-type of the media file
   tags:
-    - Media file
+    - Product media file
   x-versions:
     - "1.7"
     - "2.0"

@@ -3,7 +3,7 @@ get:
   operationId: "get_reference_files__locale_code_"
   description: This endpoint allows you to get the information about a reference file of a given asset.
   tags:
-    - Asset
+    - Asset reference file
   x-versions:
     - 2.1
     - 2.2
@@ -31,7 +31,7 @@ post:
   operationId: "post_reference_files__locale_code_"
   description: This endpoint allows you to upload a new reference file for a given asset and locale. It will also automatically generate all the variation files corresponding to this reference file.
   tags:
-    - Asset
+    - Asset reference file
   x-versions:
     - 2.1
     - 2.2

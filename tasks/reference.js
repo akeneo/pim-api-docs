@@ -21,30 +21,33 @@ function determineCategory(tag){
         case 'Product':
         case 'Published product':
         case 'Product model':
-            return 'Product entities';
-        case 'Reference entity record':
-        case 'Reference entity':
-        case 'Record media file':
-        case 'Reference entity attribute':
-        case 'Reference entity attribute option':
-            return 'Reference entities';
+        case 'Product media file':
+            return 'Products';
         case 'Family': 
-        case 'Category': 
+        case 'Family variant': 
         case 'Attribute': 
         case 'Attribute option': 
         case 'Attribute group': 
-        case 'Channel': 
+        case 'Category': 
         case 'Association type':
-            return 'Catalog modeling entities';
+            return 'Catalog structure';
+        case 'Channel': 
         case 'Locale': 
         case 'Currency':  
         case 'Measure family':
-            return 'Global settings entities';
+            return 'Target market settings';
         case 'Asset category':
         case 'Asset tag':
         case 'Asset':
-        case 'Media file':
-            return 'Media resource entities';
+        case 'Asset reference file':
+        case 'Asset variation file':
+            return 'PAM';
+        case 'Reference entity record':
+        case 'Reference entity':
+        case 'Reference entity media file':
+        case 'Reference entity attribute':
+        case 'Reference entity attribute option':
+            return 'Reference entities';
         default:
             return 'Utilities';
     }

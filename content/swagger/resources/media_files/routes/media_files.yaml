@@ -1,9 +1,9 @@
 get:
-  summary: Get a list of media files
+  summary: Get a list of product media files
   operationId: "get_media_files"
-  description: This endpoint allows you to get a list of media files.
+  description: This endpoint allows you to get a list of media files that are used as attribute values in products or product models.
   tags:
-    - Media file
+    - Product media file
   x-versions:
     - "1.7"
     - "2.0"
@@ -118,11 +118,11 @@ get:
     406:
       $ref: "#/responses/406Error"
 post:
-  summary: Create a new media file
+  summary: Create a new product media file
   operationId: "post_media_files"
   description: This endpoint allows you to create a new media file and associate it to an attribute value of a given product or product model.
   tags:
-    - Media file
+    - Product media file
   x-versions:
     - "1.7"
     - "2.0"
