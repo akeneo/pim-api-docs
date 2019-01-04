@@ -573,7 +573,7 @@ You can filter the reference entity records to get only the completed ones on a 
 
 #### Example
 ```
-/api/rest/v1/reference-entities/brands/records?search={"complete":[{"operator":"=","value":true,"channel":"ecommerce","locales":["en_US"]}]}
+/api/rest/v1/reference-entities/brands/records?search={"complete":{"operator":"=","value":true,"channel":"ecommerce","locales":["en_US"]}}
 ```
 
 ### Filter records by update date
