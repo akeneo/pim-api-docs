@@ -74,6 +74,7 @@ properties:
     type: string
     description: Code of the linked reference entity when the attribute type is `reference_entity_single_link` or `reference_entity_multiple_links`
     default : null
+    x-validation-rules: Required when the attribute type is either `reference_entity_single_link` or `reference_entity_multiple_links`
     x-warning: Only for `reference_entity_single_link` and `reference_entity_multiple_links` attribute type
 example: {
   "code": "description",

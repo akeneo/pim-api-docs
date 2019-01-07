@@ -5,18 +5,6 @@ properties:
     type: string
     description: Code of the record
     x-immutable: true
-  labels:
-    type: object
-    description: Labels for each locale of the record
-    x-validation-rules: The `localeCode` is the code of an existing and activated locale
-    default: {}
-    properties:
-      localeCode:
-        type: string
-        description: Record label for the locale `localeCode`
-  main_image:
-    type: string
-    description: Code of the main image of the record
   values:
     type: object
     description: "Record attributes values, see <a href='/documentation/resources.html#reference-entity-record-values'>Reference entity record values</a> section for more details"
@@ -38,12 +26,21 @@ properties:
               description: Reference entity record value
 example: {
   "code": "kartell",
-  "labels": {
-    "en_US": "Kartell",
-    "fr_FR": "Kartell"
-  },
-  "main_image": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg",
   "values": {
+    "label": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell"
+      }
+    ],
+    "main_image": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg"
+      }
+    ],
     "description": [
       {
         "locale": "en_US",
