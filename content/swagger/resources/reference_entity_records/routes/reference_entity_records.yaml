@@ -59,18 +59,24 @@ get:
               "_links": {
                 "self": {
                   "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell"
-                },
-                "main_image_download": {
-                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg"
                 }
               },
               "code": "kartell",
-              "labels":{
-                "en_US": "Kartell",
-                "fr_FR": "Kartell"
-              },
-              "main_image": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg",
               "values": {
+                "label": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "Kartell"
+                  }
+                ],
+                "main_image": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg"
+                  }
+                ],
                 "description": [
                   {
                     "data": "The contemporary Italian furniture brand",
@@ -96,18 +102,24 @@ get:
               "_links": {
                 "self": {
                   "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/usm"
-                },
-                "main_image_download": {
-                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/9/c/g/1/0cb0c0e115dedba76f8d1ad8343ec897abc43bv4_image.jpg"
                 }
               },
               "code": "usm",
-              "labels":{
-                "en_US": "USM",
-                "fr_FR": "USM"
-              },
-              "main_image": "9/c/g/1/0cb0c0e115dedba76f8d1ad8343ec897abc43bv4_image.jpg",
               "values": {
+                "label": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "USM"
+                  }
+                ],
+                "main_image": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "9/c/g/1/0cb0c0e115dedba76f8d1ad8343ec897abc43bv4_image.jpg"
+                  }
+                ],
                 "description": [
                   {
                     "data": "Modular furniture from Switzerland for your home and office",
@@ -133,18 +145,24 @@ get:
               "_links": {
                 "self": {
                   "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/ligneroset"
-                },
-                "main_image_download": {
-                  "href": "https://demo.cloud.akeneo.com/api/rest/v1/reference-entities-media-files/4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_image.jpg"
                 }
               },
               "code": "ligneroset",
-              "labels":{
-                "en_US": "Ligne roset",
-                "fr_FR": "Ligne roset"
-              },
-              "main_image": "4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_image.jpg",
               "values": {
+                "label": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "Ligne Roset"
+                  }
+                ],
+                "main_image": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_image.jpg"
+                  }
+                ],
                 "description": [
                   {
                     "data": "Very well known French brand of modern and luxury furniture",
