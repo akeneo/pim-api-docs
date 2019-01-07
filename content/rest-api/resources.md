@@ -1290,12 +1290,21 @@ Below is the JSON standard format representing a reference entity record.
 ```json
 {
   "code": "kartell",
-  "labels": {
-    "en_US": "Kartell",
-    "fr_FR": "Kartell"
-  },
-  "main_image": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg",
   "values": {
+    "labels": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell"
+      }
+    ],
+    "main_image": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg"
+      }
+    ],
     "description": [
       {
         "locale": "en_US",
