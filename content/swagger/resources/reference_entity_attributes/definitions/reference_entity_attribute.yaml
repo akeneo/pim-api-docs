@@ -18,12 +18,12 @@ properties:
     type: string
     description: Attribute type
     enum: ['text', 'image', 'single_option', 'multiple_options', 'reference_entity_single_link', 'reference_entity_multiple_links']
-  localizable:
+  value_per_locale:
     type: boolean
     description: Whether the attribute is localizable, i.e. can have one value by locale
     default: false
     x-immutable: true
-  scopable:
+  value_per_channel:
     type: boolean
     description: Whether the attribute is scopable, i.e. can have one value by channel
     default : false
@@ -83,8 +83,8 @@ example: {
     "fr_FR": "Description"
   },
   "type": "text",
-  "localizable": true,
-  "scopable": false,
+  "value_per_locale": true,
+  "value_per_channel": false,
   "is_required_for_completeness": true,
   "max_characters": null,
   "is_textarea": true,

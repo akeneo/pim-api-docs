@@ -1138,8 +1138,8 @@ Format for the `text` attribute type
     "fr_FR": "Description"
   },
   "type": "text",
-  "localizable": true,
-  "scopable": false,
+  "value_per_locale": true,
+  "value_per_channel": false,
   "is_required_for_completeness": true,
   "max_characters": null,
   "is_textarea": true,
@@ -1158,8 +1158,8 @@ Format for the `image` attribute type
     "fr_FR": "Photo"
   },
   "type": "image",
-  "localizable": false,
-  "scopable": false,
+  "value_per_locale": false,
+  "value_per_channel": false,
   "is_required_for_completeness": true,
   "allowed_extensions": ["jpg"],
   "max_file_size": "10"
@@ -1175,8 +1175,8 @@ Format for the `single option` and `multiple options` attribute types
     "fr_FR": "Nationalité"
   },
   "type": "single_option",
-  "localizable": false,
-  "scopable": false,
+  "value_per_locale": false,
+  "value_per_channel": false,
   "is_required_for_completeness": false
 }
 ```
@@ -1188,8 +1188,8 @@ Format for the `single option` and `multiple options` attribute types
     "fr_FR": "Zones de vente"
   },
   "type": "multiple_options",
-  "localizable": false,
-  "scopable": false,
+  "value_per_locale": false,
+  "value_per_channel": false,
   "is_required_for_completeness": true
 }
 ```
@@ -1203,8 +1203,8 @@ Format for the `reference entity single link` and `reference entity multiple lin
     "fr_FR": "Pays"
   },
   "type": "reference_entity_single_link",
-  "localizable": false,
-  "scopable": false,
+  "value_per_locale": false,
+  "value_per_channel": false,
   "is_required_for_completeness": false,
   "reference_entity_code": "country"
 }
@@ -1217,8 +1217,8 @@ Format for the `reference entity single link` and `reference entity multiple lin
     "fr_FR": "Designeurs"
   },
   "type": "reference_entity_multiple_links",
-  "localizable": false,
-  "scopable": false,
+  "value_per_locale": false,
+  "value_per_channel": false,
   "is_required_for_completeness": true,
   "reference_entity_code": "designer"
 }

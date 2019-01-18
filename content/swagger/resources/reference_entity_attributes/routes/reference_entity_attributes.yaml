@@ -23,8 +23,8 @@ get:
             "fr_FR": "Description"
           },
           "type": "text",
-          "localizable": true,
-          "scopable": false,
+          "value_per_locale": true,
+          "value_per_channel": false,
           "is_required_for_completeness": true,
           "max_characters": null,
           "is_textarea": true,
@@ -39,8 +39,8 @@ get:
             "fr_FR": "Pays"
           },
           "type": "text",
-          "localizable": false,
-          "scopable": false,
+          "value_per_locale": false,
+          "value_per_channel": false,
           "is_required_for_completeness": false
         },
         {
@@ -50,8 +50,8 @@ get:
             "fr_FR": "Aperçu de la collection"
           },
           "type": "image",
-          "localizable": true,
-          "scopable": false,
+          "value_per_locale": true,
+          "value_per_channel": false,
           "is_required_for_completeness": true,
           "allowed_extensions": ["png"],
           "max_file_size": "1000"
