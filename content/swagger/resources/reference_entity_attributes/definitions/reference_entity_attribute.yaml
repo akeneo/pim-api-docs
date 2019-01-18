@@ -18,6 +18,7 @@ properties:
     type: string
     description: Attribute type
     enum: ['text', 'image', 'single_option', 'multiple_options', 'reference_entity_single_link', 'reference_entity_multiple_links']
+    x-immutable: true
   localizable:
     type: boolean
     description: Whether the attribute is localizable, i.e. can have one value by locale
