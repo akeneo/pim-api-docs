@@ -1,4 +1,4 @@
-### Media file
+### Product media file
 
 #### Get media file information
 

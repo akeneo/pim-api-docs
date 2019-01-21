@@ -53,32 +53,32 @@ function highlight(str, lang) {
 }
 
 
-gulp.task('create-products-entities-md', function () {
-    return gulp.src(['content/php-client/resources/product-entities/products.md','content/php-client/resources/product-entities/*.md'])
-        .pipe(concat('product-entities.md'))
-        .pipe(insert.prepend('## Product entities\n'))
+gulp.task('create-products-md', function () {
+    return gulp.src(['content/php-client/resources/products/product.md','content/php-client/resources/products/*.md'])
+        .pipe(concat('products.md'))
+        .pipe(insert.prepend('## Products\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
-gulp.task('create-catalog-modeling-md', function () {
-    return gulp.src(['content/php-client/resources/catalog-modeling-entities/*.md'])
-        .pipe(concat('catalog-modeling-entities.md'))
-        .pipe(insert.prepend('## Catalog modeling entities\n'))
+gulp.task('create-catalog-structure-md', function () {
+    return gulp.src(['content/php-client/resources/catalog-structure/*.md'])
+        .pipe(concat('catalog-structure.md'))
+        .pipe(insert.prepend('## Catalog structure\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
-gulp.task('create-global-settings-md', function () {
-    return gulp.src(['content/php-client/resources/global-settings-entities/*.md'])
-        .pipe(concat('global-settings-entities.md'))
-        .pipe(insert.prepend('## Global settings entities\n'))
+gulp.task('create-target-market-settings-md', function () {
+    return gulp.src(['content/php-client/resources/target-market-settings/*.md'])
+        .pipe(concat('target-market-settings.md'))
+        .pipe(insert.prepend('## Target market settings\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
-gulp.task('create-media-resources-md', function () {
-    return gulp.src(['content/php-client/resources/media-resources-entities/*.md'])
-        .pipe(concat('media-resources-entities.md'))
-        .pipe(insert.prepend('## Media resources entities\n'))
+gulp.task('create-PAM-md', function () {
+    return gulp.src(['content/php-client/resources/PAM/*.md'])
+        .pipe(concat('PAM.md'))
+        .pipe(insert.prepend('## PAM\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
-gulp.task('create-resources-md', ['create-products-entities-md','create-catalog-modeling-md', 'create-global-settings-md', 'create-media-resources-md'], function () {
-    return gulp.src(['tmp/php-client-resources/*.md'])
+gulp.task('create-resources-md', ['create-products-md','create-catalog-structure-md', 'create-target-market-settings-md', 'create-PAM-md'], function () {
+    return gulp.src(['tmp/php-client-resources/products.md', 'tmp/php-client-resources/catalog-structure.md', 'tmp/php-client-resources/target-market-settings.md', 'tmp/php-client-resources/PAM.md'])
         .pipe(concat('resources.md'))
         .pipe(insert.prepend('# Resources\n'))
         .pipe(gulp.dest('tmp/php-client'));
