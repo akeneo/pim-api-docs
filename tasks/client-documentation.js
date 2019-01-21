@@ -77,8 +77,14 @@ gulp.task('create-PAM-md', function () {
         .pipe(insert.prepend('## PAM\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
-gulp.task('create-resources-md', ['create-products-md','create-catalog-structure-md', 'create-target-market-settings-md', 'create-PAM-md'], function () {
-    return gulp.src(['tmp/php-client-resources/products.md', 'tmp/php-client-resources/catalog-structure.md', 'tmp/php-client-resources/target-market-settings.md', 'tmp/php-client-resources/PAM.md'])
+gulp.task('create-reference-entity-md', function () {
+    return gulp.src(['content/php-client/resources/reference-entity/*.md'])
+        .pipe(concat('reference-entity.md'))
+        .pipe(insert.prepend('## Reference entities\n'))
+        .pipe(gulp.dest('tmp/php-client-resources/'));
+});
+gulp.task('create-resources-md', ['create-products-md','create-catalog-structure-md', 'create-target-market-settings-md', 'create-PAM-md', 'create-reference-entity-md'], function () {
+    return gulp.src(['tmp/php-client-resources/products.md', 'tmp/php-client-resources/catalog-structure.md', 'tmp/php-client-resources/target-market-settings.md', 'tmp/php-client-resources/PAM.md', 'tmp/php-client-resources/reference-entity.md'])
         .pipe(concat('resources.md'))
         .pipe(insert.prepend('# Resources\n'))
         .pipe(gulp.dest('tmp/php-client'));
