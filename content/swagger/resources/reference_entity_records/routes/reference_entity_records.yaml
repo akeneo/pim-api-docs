@@ -70,7 +70,7 @@ get:
                     "data": "Kartell"
                   }
                 ],
-                "main_image": [
+                "image": [
                   {
                     "locale": null,
                     "channel": null,
@@ -113,7 +113,7 @@ get:
                     "data": "USM"
                   }
                 ],
-                "main_image": [
+                "image": [
                   {
                     "locale": null,
                     "channel": null,
@@ -156,7 +156,7 @@ get:
                     "data": "Ligne Roset"
                   }
                 ],
-                "main_image": [
+                "image": [
                   {
                     "locale": null,
                     "channel": null,
