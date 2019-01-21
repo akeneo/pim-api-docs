@@ -18,6 +18,7 @@ properties:
     type: string
     description: Attribute type
     enum: ['text', 'image', 'single_option', 'multiple_options', 'reference_entity_single_link', 'reference_entity_multiple_links']
+    x-immutable: true
   value_per_locale:
     type: boolean
     description: Whether the attribute is localizable, i.e. can have one value by locale
@@ -76,6 +77,7 @@ properties:
     default : null
     x-validation-rules: Required when the attribute type is either `reference_entity_single_link` or `reference_entity_multiple_links`
     x-warning: Only for `reference_entity_single_link` and `reference_entity_multiple_links` attribute type
+    x-immutable: true
 example: {
   "code": "description",
   "labels": {
