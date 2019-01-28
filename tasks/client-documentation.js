@@ -78,7 +78,7 @@ gulp.task('create-PAM-md', function () {
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
 gulp.task('create-reference-entity-md', function () {
-    return gulp.src(['content/php-client/resources/reference-entity/*.md'])
+    return gulp.src(['content/php-client/resources/reference-entity/reference-entities.md', 'content/php-client/resources/reference-entity/*.md'])
         .pipe(concat('reference-entity.md'))
         .pipe(insert.prepend('## Reference entities\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
