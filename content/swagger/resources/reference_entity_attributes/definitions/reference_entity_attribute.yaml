@@ -50,9 +50,9 @@ properties:
   validation_rule:
     type: string
     description: Validation rule type used to validate the attribute value when the attribute type is `text`
-    default : null
+    default : "none"
     x-warning: Only for `text` attribute type
-    enum: ['email', 'url', 'regexp', null]
+    enum: ['email', 'url', 'regexp', 'none']
   validation_regexp:
     type: string
     description: Regexp expression used to validate the attribute value when the attribute type is `text`
