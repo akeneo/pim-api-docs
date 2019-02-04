@@ -1,17 +1,16 @@
 {
 	"info": {
 		"name": "Official Akeneo PIM API",
-		"_postman_id": "9d2c9a29-47d8-d779-c2f0-b886b133aad3",
+		"_postman_id": "99160e3a-9fe8-4804-9cb6-2c353d70ac9d",
 		"description": "The Akeneo API brought to you!\n\nFind out how this Postman collection works by visiting http://api.akeneo.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Asset (since 2.1)",
-			"description": "",
+			"name": "Asset (>= v2.1)",
 			"item": [
 				{
-					"name": "asset (2.1 only)",
+					"name": "asset (>= v2.1)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -22,7 +21,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/assets/paint",
@@ -42,7 +41,7 @@
 					"response": []
 				},
 				{
-					"name": "assets (2.1 only)",
+					"name": "assets (>= v2.1)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -53,7 +52,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/assets?limit=10&with_count=false",
@@ -69,22 +68,19 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": "10",
-									"equals": true
+									"value": "10"
 								},
 								{
 									"key": "with_count",
-									"value": "false",
-									"equals": true
+									"value": "false"
 								}
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "asset (2.1 only)",
+					"name": "asset (>= v2.1)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -118,7 +114,7 @@
 					"response": []
 				},
 				{
-					"name": "asset (2.1 only)",
+					"name": "asset (>= v2.1)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -147,13 +143,12 @@
 								"assets",
 								"paint"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "assets (2.1 only)",
+					"name": "assets (>= v2.1)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -187,7 +182,7 @@
 					"response": []
 				},
 				{
-					"name": "asset reference file (2.1 only)",
+					"name": "asset reference file (>= v2.1)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -198,7 +193,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/assets/paint/reference-files/no-locale",
@@ -220,7 +215,7 @@
 					"response": []
 				},
 				{
-					"name": "asset reference file (2.1 only)",
+					"name": "asset reference file (>= v2.1)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -238,9 +233,8 @@
 							"formdata": [
 								{
 									"key": "file",
-									"value": "",
-									"description": "",
-									"type": "file"
+									"type": "file",
+									"src": ""
 								}
 							]
 						},
@@ -264,7 +258,7 @@
 					"response": []
 				},
 				{
-					"name": "download asset reference file (2.1 only)",
+					"name": "download asset reference file (>= v2.1)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -275,7 +269,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/assets/paint/reference-files/no-locale/download",
@@ -298,7 +292,7 @@
 					"response": []
 				},
 				{
-					"name": "asset variation file (2.1 only)",
+					"name": "asset variation file (>= v2.1)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -309,7 +303,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/assets/paint/variation-files/ecommerce/no-locale",
@@ -332,7 +326,7 @@
 					"response": []
 				},
 				{
-					"name": "asset variation file (2.1 only)",
+					"name": "asset variation file (>= v2.1)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -350,9 +344,8 @@
 							"formdata": [
 								{
 									"key": "file",
-									"value": "",
-									"description": "",
-									"type": "file"
+									"type": "file",
+									"src": ""
 								}
 							]
 						},
@@ -377,7 +370,7 @@
 					"response": []
 				},
 				{
-					"name": "download asset variation file (2.1 only)",
+					"name": "download asset variation file (>= v2.1)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -388,7 +381,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/assets/paint/variation-files/ecommerce/no-locale/download",
@@ -414,11 +407,10 @@
 			]
 		},
 		{
-			"name": "Asset category (since 2.1)",
-			"description": "",
+			"name": "Asset category (>= v2.1)",
 			"item": [
 				{
-					"name": "asset category (2.1 only)",
+					"name": "asset category (>= v2.1)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -429,7 +421,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/asset-categories/asset_main_catalog",
@@ -449,7 +441,7 @@
 					"response": []
 				},
 				{
-					"name": "asset categories (2.1 only)",
+					"name": "asset categories (>= v2.1)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -460,7 +452,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/asset-categories?limit=10&with_count=false",
@@ -476,22 +468,19 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": "10",
-									"equals": true
+									"value": "10"
 								},
 								{
 									"key": "with_count",
-									"value": "false",
-									"equals": true
+									"value": "false"
 								}
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "asset category (2.1 only)",
+					"name": "asset category (>= v2.1)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -525,7 +514,7 @@
 					"response": []
 				},
 				{
-					"name": "asset category (2.1 only)",
+					"name": "asset category (>= v2.1)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -554,13 +543,12 @@
 								"asset-categories",
 								"new_asset_category"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "asset categories (2.1 only)",
+					"name": "asset categories (>= v2.1)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -596,11 +584,10 @@
 			]
 		},
 		{
-			"name": "Asset tag (since 2.1)",
-			"description": "",
+			"name": "Asset tag (>= v2.1)",
 			"item": [
 				{
-					"name": "asset tag (2.1 only)",
+					"name": "asset tag (>= v2.1)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -611,7 +598,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/asset-tags/colored",
@@ -631,7 +618,7 @@
 					"response": []
 				},
 				{
-					"name": "asset tags (2.1 only)",
+					"name": "asset tags (>= v2.1)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -642,7 +629,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/asset-tags?limit=10&with_count=false",
@@ -658,17 +645,14 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": "10",
-									"equals": true
+									"value": "10"
 								},
 								{
 									"key": "with_count",
-									"value": "false",
-									"equals": true
+									"value": "false"
 								}
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -702,19 +686,17 @@
 								"asset-tags",
 								"colored"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "Association type (2.x only)",
-			"description": "",
+			"name": "Association type (>= v2)",
 			"item": [
 				{
-					"name": "association type (2.x only)",
+					"name": "association type (>= v2)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -725,7 +707,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/association-types/upsell",
@@ -745,7 +727,7 @@
 					"response": []
 				},
 				{
-					"name": "association types (2.x only)",
+					"name": "association types (>= v2)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -756,7 +738,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/association-types",
@@ -769,13 +751,12 @@
 								"v1",
 								"association-types"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "association type (2.x only)",
+					"name": "association type (>= v2)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -809,7 +790,7 @@
 					"response": []
 				},
 				{
-					"name": "association type (2.x only)",
+					"name": "association type (>= v2)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -838,13 +819,12 @@
 								"association-types",
 								"upsell"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "association types (2.x only)",
+					"name": "association types (>= v2)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -881,7 +861,6 @@
 		},
 		{
 			"name": "Attribute",
-			"description": "",
 			"item": [
 				{
 					"name": "attribute",
@@ -895,7 +874,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attributes/auto_exposure",
@@ -926,7 +905,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attributes",
@@ -939,8 +918,7 @@
 								"v1",
 								"attributes"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1008,8 +986,7 @@
 								"attributes",
 								"auto_exposure"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1051,7 +1028,6 @@
 		},
 		{
 			"name": "Attribute option",
-			"description": "",
 			"item": [
 				{
 					"name": "attribute option",
@@ -1065,7 +1041,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attributes/main_color/options/white",
@@ -1096,7 +1072,10 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attributes/main_color/options",
 							"host": [
@@ -1110,8 +1089,7 @@
 								"main_color",
 								"options"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1227,11 +1205,10 @@
 			]
 		},
 		{
-			"name": "Attribute groups (2.x only)",
-			"description": "",
+			"name": "Attribute groups (>= v2)",
 			"item": [
 				{
-					"name": "attribute group (2.x only)",
+					"name": "attribute group (>= v2)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1242,7 +1219,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attribute-groups/technical",
@@ -1262,7 +1239,7 @@
 					"response": []
 				},
 				{
-					"name": "attribute groups (2.x only)",
+					"name": "attribute groups (>= v2)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1273,7 +1250,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attribute-groups",
@@ -1286,13 +1263,12 @@
 								"v1",
 								"attribute-groups"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "attribute group (2.x only)",
+					"name": "attribute group (>= v2)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1326,7 +1302,7 @@
 					"response": []
 				},
 				{
-					"name": "attribute group (2.x only)",
+					"name": "attribute group (>= v2)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -1355,13 +1331,12 @@
 								"attribute-groups",
 								"technical"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "attribute groups (2.x only)",
+					"name": "attribute groups (>= v2)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -1398,7 +1373,6 @@
 		},
 		{
 			"name": "Category",
-			"description": "",
 			"item": [
 				{
 					"name": "category",
@@ -1412,7 +1386,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/categories/master",
@@ -1443,7 +1417,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/categories",
@@ -1456,8 +1430,7 @@
 								"v1",
 								"categories"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1525,8 +1498,7 @@
 								"categories",
 								"audio_video"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1568,7 +1540,6 @@
 		},
 		{
 			"name": "Channel",
-			"description": "",
 			"item": [
 				{
 					"name": "channel",
@@ -1582,7 +1553,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/channels/ecommerce",
@@ -1613,7 +1584,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/channels",
@@ -1626,8 +1597,7 @@
 								"v1",
 								"channels"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1681,7 +1651,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"code\": \"my_new_channel_3\",\n  \"currencies\": [\n    \"USD\",\n    \"EUR\"\n  ],\n  \"locales\": [\n    \"de_DE\",\n    \"en_US\",\n    \"fr_FR\"\n  ],\n  \"category_tree\": \"master\",\n  \"conversion_units\":{\n    \"weight\": \"GRAM\"\n  },\n  \"labels\": {\n    \"en_US\": \"new category label US\",\n    \"de_DE\": \"new category label DE\",\n    \"fr_FR\": \"new category label FR\"\n  }\n}"
+							"raw": "{\n  \"code\": \"my_new_channel_3\",\n  \"currencies\": [\n    \"USD\",\n    \"EUR\"\n  ],\n  \"yo\":\"\",\n  \"locales\": [\n    \"de_DE\",\n    \"en_US\",\n    \"fr_FR\"\n  ],\n  \"category_tree\": \"master\",\n  \"conversion_units\":{\n    \"weight\": \"GRAM\"\n  },\n  \"labels\": {\n    \"en_US\": \"new category label US\",\n    \"de_DE\": \"new category label DE\",\n    \"fr_FR\": \"new category label FR\"\n  }\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/channels/my_new_channel_3",
@@ -1695,8 +1665,7 @@
 								"channels",
 								"my_new_channel_3"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1737,11 +1706,10 @@
 			]
 		},
 		{
-			"name": "Currency (2.x only)",
-			"description": "",
+			"name": "Currency (>= v2)",
 			"item": [
 				{
-					"name": "currency (2.x only)",
+					"name": "currency (>= v2)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1752,7 +1720,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/currencies/USD",
@@ -1772,7 +1740,7 @@
 					"response": []
 				},
 				{
-					"name": "currencies (2.x only)",
+					"name": "currencies (>= v2)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1783,7 +1751,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/currencies",
@@ -1796,8 +1764,7 @@
 								"v1",
 								"currencies"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
@@ -1805,7 +1772,6 @@
 		},
 		{
 			"name": "Family",
-			"description": "",
 			"item": [
 				{
 					"name": "family",
@@ -1819,7 +1785,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/families/camcorders",
@@ -1850,7 +1816,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/families",
@@ -1863,8 +1829,7 @@
 								"v1",
 								"families"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1932,8 +1897,7 @@
 								"families",
 								"camcorders"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1974,11 +1938,10 @@
 			]
 		},
 		{
-			"name": "Family variant (2.x only)",
-			"description": "",
+			"name": "Family variant (>= v2)",
 			"item": [
 				{
-					"name": "family variant (2.x only)",
+					"name": "family variant (>= v2)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2011,7 +1974,7 @@
 					"response": []
 				},
 				{
-					"name": "family variants (2.x only)",
+					"name": "family variants (>= v2)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2037,13 +2000,12 @@
 								"clothing",
 								"variants"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "family variant (2.x only)",
+					"name": "family variant (>= v2)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2079,7 +2041,7 @@
 					"response": []
 				},
 				{
-					"name": "family variant (2.x only)",
+					"name": "family variant (>= v2)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -2116,7 +2078,7 @@
 					"response": []
 				},
 				{
-					"name": "family variants (2.x only)",
+					"name": "family variants (>= v2)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -2155,7 +2117,6 @@
 		},
 		{
 			"name": "Locale",
-			"description": "",
 			"item": [
 				{
 					"name": "locale",
@@ -2169,7 +2130,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/locales/en_US",
@@ -2200,7 +2161,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/locales",
@@ -2213,19 +2174,17 @@
 								"v1",
 								"locales"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "Measure family (2.x only)",
-			"description": "",
+			"name": "Reference entity (>= v3 and EE only)",
 			"item": [
 				{
-					"name": "measure family (2.x only)",
+					"name": "reference entity",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2236,7 +2195,550 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing reference entity"
+					},
+					"response": []
+				},
+				{
+					"name": "reference entities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reference entity",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"brand\",\n  \"labels\": {\n    \"en_US\": \"Brand\",\n    \"fr_FR\": \"Marque\"\n  },\n  \"image\": \"0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reference entity attribute (>= v3 and EE only)",
+			"item": [
+				{
+					"name": "reference entity attribute",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand/attributes/description",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand",
+								"attributes",
+								"description"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing reference entity and the second given code is the code of an existing reference entity attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "reference entity attributes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand/attributes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand",
+								"attributes"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing reference entity"
+					},
+					"response": []
+				},
+				{
+					"name": "reference entity attribute",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"salesarea\",\n  \"labels\": {\n    \"en_US\": \"Sales area\"\n  },\n  \"type\": \"single_option\",\n  \"value_per_locale\": false,\n  \"value_per_channel\": false,\n  \"is_required_for_completeness\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand/attributes/salesarea",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand",
+								"attributes",
+								"salesarea"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing reference entity"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reference entity attribute option (>= v3 and EE only)",
+			"item": [
+				{
+					"name": "reference entity attribute option",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand/attributes/nationality/options/french",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand",
+								"attributes",
+								"nationality",
+								"options",
+								"french"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing reference entity, the second given code is the code of an existing reference entity attribute of type single or multiple options, and the third given code is the code of an existing option of this reference entity attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "reference entity attribute options",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand/attributes/nationality/options",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand",
+								"attributes",
+								"nationality",
+								"options"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing reference entity and the second given code is the code of an existing reference entity attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "reference entity attribute option",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"usa\",\n  \"labels\": {\n    \"en_US\": \"United States\",\n    \"fr_FR\": \"Etats Unis\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand/attributes/salesarea/options/usa",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand",
+								"attributes",
+								"salesarea",
+								"options",
+								"usa"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing reference entity and the second given code is the code of an existing attribute for this reference entity that is a single or multiple options attribute"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reference entity record (>= v3 and EE only)",
+			"item": [
+				{
+					"name": "reference entity record",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand/records/kartell",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand",
+								"records",
+								"kartell"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing reference entity and the second given code is the code of an existing reference entity record"
+					},
+					"response": []
+				},
+				{
+					"name": "reference entity records",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand/records",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand",
+								"records"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing reference entity"
+					},
+					"response": []
+				},
+				{
+					"name": "reference entity record",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"kartell\",\n    \"values\": {\n        \"label\": [\n            {\n                \"locale\": \"en_US\",\n                \"channel\": null,\n                \"data\": \"Kartell\"\n            },\n            {\n                \"locale\": \"fr_FR\",\n                \"channel\": null,\n                \"data\": \"Kartell\"\n            }\n        ],\n        \"nationality\": [\n            {\n                \"locale\": null,\n                \"channel\": null,\n                \"data\": \"Italy\"\n            }\n        ],\n        \"founder\": [\n            {\n                \"locale\": null,\n                \"channel\": null,\n                \"data\": \"Philippe Starck\"\n            }\n        ],\n        \"founded\": [\n            {\n                \"locale\": null,\n                \"channel\": null,\n                \"data\": \"1949\"\n            }\n        ],\n        \"image\": [\n            {\n                \"locale\": null,\n                \"channel\": null,\n                \"data\": \"8/f/2/4/8f244c7911e1e70125e224f53273583a7b3a7883_kartell_products.jpg\",\n                \"_links\": {\n                    \"download\": {\n                        \"href\": \"http://test-dev-feature-14.core.akeneo.com/api/rest/v1/reference-entities-media-files/8/f/2/4/8f244c7911e1e70125e224f53273583a7b3a7883_kartell_products.jpg\"\n                    }\n                }\n            }\n        ],\n        \"description\": [\n            {\n                \"locale\": \"en_US\",\n                \"channel\": \"ecommerce\",\n                \"data\": \"<p><span style=\\\"color: rgb(102,102,102);background-color: rgb(255,255,255);font-size: 11px;font-family: Arial, Helvetica, sans-serif;\\\">‘’Kartell - The Culture of Plastics’’… In just over 50 years, this famous Italian company has revolutionised plastic, elevating it and propelling it into the refined world of luxury. Today, Kartell has more than a hundred showrooms all over the world and a good number of its creations have become cult pieces on display in the most prestigious museums. The famous Kartell Louis Ghost armchair has the most sales for armchairs in the world, with 1.5 million sales! Challenging the material, constantly researching new tactile, visual and aesthetic effects - Kartell faces every challenge!</span>&nbsp;</p>\\n\"\n            },\n            {\n                \"locale\": \"fr_FR\",\n                \"channel\": \"ecommerce\",\n                \"data\": \"<p style=\\\"text-align:justify;\\\"><span style=\\\"color: rgb(102,102,102);background-color: rgb(255,255,255);font-size: 11px;font-family: Arial, Helvetica, sans-serif;\\\">Entreprise leader du design, fondée à Milan en 1949 par Giulio Castelli, Kartell est depuis près de 70 ans une des entreprises symbole de la conception Made in Italy. Une histoire pleine de succès racontée à travers un incroyable éventail de produits - meubles, accessoires de décoration, éclairage - devenus partie intégrante du paysage domestique, et même de véritables icônes du design contemporain.</span></p>\\n<p style=\\\"text-align:justify;\\\"><span style=\\\"color: rgb(102,102,102);background-color: rgb(255,255,255);font-size: 11px;font-family: Arial, Helvetica, sans-serif;\\\">Depuis 1988, Claudio Luti, l’héritier de l’«esprit Kartell», insuffle une prodigieuse dynamique à la marque.</span>&nbsp;</p>\\n\"\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand/records/kartell",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand",
+								"records",
+								"kartell"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing reference entity"
+					},
+					"response": []
+				},
+				{
+					"name": "reference entity records",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"code\": \"kartell\",\n    \"values\": {\n       \"label\": [\n           {\n           \t\t\"locale\": \"en_US\",\n        \t\t\"channel\": null,\n        \t\t\"data\": \"Kartell\"\n            },\n            {\n                \"locale\": \"fr_FR\",\n                \"channel\": null,\n                \"data\": \"Kartell\"\n            }\n        ],\n        \"nationality\": [\n            {\n                \"locale\": null,\n                \"channel\": null,\n                \"data\": \"Italy\"\n            }\n        ],\n        \"founder\": [\n            {\n                \"locale\": null,\n                \"channel\": null,\n                \"data\": \"Philippe Starck\"\n            }\n        ],\n        \"founded\": [\n            {\n                \"locale\": null,\n                \"channel\": null,\n                \"data\": \"1949\"\n            }\n        ],\n        \"image\": [\n            {\n                \"locale\": null,\n                \"channel\": null,\n                \"data\": \"8/f/2/4/8f244c7911e1e70125e224f53273583a7b3a7883_kartell_products.jpg\",\n                \"_links\": {\n                    \"download\": {\n                        \"href\": \"http://test-dev-feature-14.core.akeneo.com/api/rest/v1/reference-entities-media-files/8/f/2/4/8f244c7911e1e70125e224f53273583a7b3a7883_kartell_products.jpg\"\n                    }\n                }\n            }\n        ],\n        \"description\": [\n            {\n                \"locale\": \"en_US\",\n                \"channel\": \"ecommerce\",\n                \"data\": \"<p><span style=\\\"color: rgb(102,102,102);background-color: rgb(255,255,255);font-size: 11px;font-family: Arial, Helvetica, sans-serif;\\\">‘’Kartell - The Culture of Plastics’’… In just over 50 years, this famous Italian company has revolutionised plastic, elevating it and propelling it into the refined world of luxury. Today, Kartell has more than a hundred showrooms all over the world and a good number of its creations have become cult pieces on display in the most prestigious museums. The famous Kartell Louis Ghost armchair has the most sales for armchairs in the world, with 1.5 million sales! Challenging the material, constantly researching new tactile, visual and aesthetic effects - Kartell faces every challenge!</span>&nbsp;</p>\\n\"\n            },\n            {\n                \"locale\": \"fr_FR\",\n                \"channel\": \"ecommerce\",\n                \"data\": \"<p style=\\\"text-align:justify;\\\"><span style=\\\"color: rgb(102,102,102);background-color: rgb(255,255,255);font-size: 11px;font-family: Arial, Helvetica, sans-serif;\\\">Entreprise leader du design, fondée à Milan en 1949 par Giulio Castelli, Kartell est depuis près de 70 ans une des entreprises symbole de la conception Made in Italy. Une histoire pleine de succès racontée à travers un incroyable éventail de produits - meubles, accessoires de décoration, éclairage - devenus partie intégrante du paysage domestique, et même de véritables icônes du design contemporain.</span></p>\\n<p style=\\\"text-align:justify;\\\"><span style=\\\"color: rgb(102,102,102);background-color: rgb(255,255,255);font-size: 11px;font-family: Arial, Helvetica, sans-serif;\\\">Depuis 1988, Claudio Luti, l’héritier de l’«esprit Kartell», insuffle une prodigieuse dynamique à la marque.</span>&nbsp;</p>\\n\"\n            }\n        ]\n    }\n},\n  {\n    \"code\": \"ligneroset\",\n    \"values\": {\n       \"label\": [\n           {\n           \t\t\"locale\": \"en_US\",\n        \t\t\"channel\": null,\n        \t\t\"data\": \"Ligne Roset\"\n            },\n            {\n                \"locale\": \"fr_FR\",\n                \"channel\": null,\n                \"data\": \"Ligne Roset\"\n            }\n        ],\n        \"image\": [\n            {\n                \"locale\": null,\n                \"channel\": null,\n                \"data\": \"4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_ligne_roset.jpg\",\n                \"_links\": {\n                    \"download\": {\n                        \"href\": \"http://test-dev-feature-14.core.akeneo.com/api/rest/v1/reference-entities-media-files/4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_ligne_roset.jpg\"\n                    }\n                }\n            }\n        ],\n       \"description\": [\n        {\n          \"data\": \"Very well known French brand of modern and luxury furniture\",\n          \"locale\": \"en_US\",\n          \"channel\": null\n        },\n        {\n          \"data\": \"La marque renommée des meubles de luxe à la française\",\n          \"locale\": \"fr_FR\",\n          \"channel\": null\n        }\n      ],\n       \"country\": [\n        {\n          \"locale\": null,\n          \"channel\": null,\n          \"data\": \"france\"\n        }\n      ]\n    }\n  },\n  {\n    \"code\": \"usm\",\n    \"values\": {\n       \"label\": [\n           {\n           \t\t\"locale\": \"en_US\",\n        \t\t\"channel\": null,\n        \t\t\"data\": \"USM\"\n            },\n            {\n                \"locale\": \"fr_FR\",\n                \"channel\": null,\n                \"data\": \"USM\"\n            }\n        ],\n        \"image\": [\n            {\n                \"locale\": null,\n                \"channel\": null,\n                \"data\": \"4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_usm.jpg\",\n                \"_links\": {\n                    \"download\": {\n                        \"href\": \"http://test-dev-feature-14.core.akeneo.com/api/rest/v1/reference-entities-media-files/4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_usm.jpg\"\n                    }\n                }\n            }\n        ],\n      \"description\": [\n        {\n          \"data\": \"Modular furniture from Switzerland for your home and office\",\n          \"locale\": \"en_US\",\n          \"channel\": null\n        },\n        {\n          \"data\": \"L'éditeur de meubles modulaires suisse pour votre intérieur et pour les entreprises\",\n          \"locale\": \"fr_FR\",\n          \"channel\": null\n        }\n      ],\n      \"country\": [\n        {\n          \"locale\": null,\n          \"channel\": null,\n          \"data\": \"switzerland\"\n        }\n      ]\n    }\n  }\n]"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities/brand/records",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities",
+								"brand",
+								"records"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing reference entity"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reference entity media file (>= v3 and EE only)",
+			"item": [
+				{
+					"name": "reference entity media file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities-media-files/c/f/9/e/cf9e5fad2fe33e326b6def8f4e433537eb7f6633_8z2q6xwlya4_test.jpg",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities-media-files",
+								"c",
+								"f",
+								"9",
+								"e",
+								"cf9e5fad2fe33e326b6def8f4e433537eb7f6633_8z2q6xwlya4_test.jpg"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing reference entity and the second given code is the code of an existing reference entity record"
+					},
+					"response": []
+				},
+				{
+					"name": "reference entity media file",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/reference-entities-media-files",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"reference-entities-media-files"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Measure family (>= v2)",
+			"item": [
+				{
+					"name": "measure family (>= v2)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/measure-families/area",
@@ -2256,7 +2758,7 @@
 					"response": []
 				},
 				{
-					"name": "measure families (2.x only)",
+					"name": "measure families (>= v2)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2267,7 +2769,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/measure-families",
@@ -2280,8 +2782,7 @@
 								"v1",
 								"measure-families"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
@@ -2289,7 +2790,6 @@
 		},
 		{
 			"name": "Media file",
-			"description": "",
 			"item": [
 				{
 					"name": "media",
@@ -2307,19 +2807,8 @@
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "product",
-									"value": "{\"identifier\":\"10699783\", \"attribute\":\"picture\", \"scope\": null,\"locale\":null}",
-									"type": "text"
-								},
-								{
-									"key": "file",
-									"value": "",
-									"type": "file"
-								}
-							]
+							"mode": "raw",
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/media-files/d/d/b/6/ddb6ad393f81503b6be7380785e3b32bbd28cd08_test.png",
@@ -2353,19 +2842,8 @@
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "product",
-									"value": "{\"identifier\":\"10699783\", \"attribute\":\"picture\", \"scope\": null,\"locale\":null}",
-									"type": "text"
-								},
-								{
-									"key": "file",
-									"value": "",
-									"type": "file"
-								}
-							]
+							"mode": "raw",
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/media-files",
@@ -2378,8 +2856,7 @@
 								"v1",
 								"media-files"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -2407,8 +2884,8 @@
 								},
 								{
 									"key": "file",
-									"value": "",
-									"type": "file"
+									"type": "file",
+									"src": ""
 								}
 							]
 						},
@@ -2432,7 +2909,6 @@
 		},
 		{
 			"name": "Product",
-			"description": "",
 			"item": [
 				{
 					"name": "product",
@@ -2446,7 +2922,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/products/AKNSTK",
@@ -2485,7 +2961,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/products",
@@ -2567,8 +3043,7 @@
 								"products",
 								"AKNSTK"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -2653,7 +3128,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/products/AKNTS_BPS/draft",
@@ -2712,11 +3187,10 @@
 			]
 		},
 		{
-			"name": "Product model (2.x only)",
-			"description": "",
+			"name": "Product model (>= v2)",
 			"item": [
 				{
-					"name": "product model (2.x only)",
+					"name": "product model (>= v2)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2747,7 +3221,7 @@
 					"response": []
 				},
 				{
-					"name": "product models (2.x only)",
+					"name": "product models (>= v2)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2762,7 +3236,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/product-models",
@@ -2781,7 +3255,7 @@
 					"response": []
 				},
 				{
-					"name": "product model (2.x only)",
+					"name": "product model (>= v2)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2809,13 +3283,12 @@
 								"v1",
 								"product-models"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "product model (2.x only)",
+					"name": "product model (>= v2)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -2850,7 +3323,7 @@
 					"response": []
 				},
 				{
-					"name": "product models (2.x only)",
+					"name": "product models (>= v2)",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -2884,7 +3357,7 @@
 					"response": []
 				},
 				{
-					"name": "draft (2.3 and EE only)",
+					"name": "product model draft (>= v2 and EE only)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2895,7 +3368,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/product-models/amor/draft",
@@ -2911,12 +3384,12 @@
 								"draft"
 							]
 						},
-						"description": "Assuming that there is already a draft for the given product model. The draft was created by the same user that is using this request.\nThe user has only an edition permission through categories on the given product model."
+						"description": "Assuming that there is already a draft for the given product. The draft was created by the same user that using this request.\nThe user has only an edition permission through categories on the given product."
 					},
 					"response": []
 				},
 				{
-					"name": "proposal (2.3 and EE only)",
+					"name": "product model proposal (>= v2 and EE only)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2947,18 +3420,17 @@
 								"proposal"
 							]
 						},
-						"description": "Assuming that there is already a draft for the given product model. The draft was created by the same user using this request.\nThe user has only an edition permission through categories on the given product model."
+						"description": "Assuming that there is already a draft for the given product. The draft was created by the same user using this request.\nThe user has only an edition permission through categories on the given product."
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "Published product (2.x and EE only)",
-			"description": "",
+			"name": "Published product (>= v2 and EE only)",
 			"item": [
 				{
-					"name": "published product (2.x and EE only)",
+					"name": "published product (>= v2 and EE only)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2973,7 +3445,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/published-products/13527420",
@@ -2993,7 +3465,7 @@
 					"response": []
 				},
 				{
-					"name": "published products (2.x and EE only)",
+					"name": "published products (>= v2 and EE only)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -3008,7 +3480,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"master\",\n    \"parent\": null,\n    \"labels\": {\n      \"en_US\": \"Master catalog modified\",\n      \"de_DE\": \"Hauptkatalog\",\n      \"fr_FR\": \"Catalogue principal\"\n   }\n }"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/published-products",
@@ -3083,8 +3555,7 @@
 						"v1",
 						"token"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -3142,8 +3613,7 @@
 						"v1",
 						"token"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		}
