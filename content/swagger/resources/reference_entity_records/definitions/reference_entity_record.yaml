@@ -34,7 +34,7 @@ example: {
         "data": "Kartell"
       }
     ],
-    "main_image": [
+    "image": [
       {
         "locale": null,
         "channel": null,

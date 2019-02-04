@@ -12,7 +12,7 @@ example: [
           "data": "Kartell"
         }
       ],
-      "main_image": [
+      "image": [
         {
           "locale": null,
           "channel": null,
@@ -57,7 +57,7 @@ example: [
           "data": "Ligne Roset"
         }
       ],
-      "main_image": [
+      "image": [
         {
           "locale": null,
           "channel": null,
@@ -95,7 +95,7 @@ example: [
           "data": "USM"
         }
       ],
-      "main_image": [
+      "image": [
         {
           "locale": null,
           "channel": null,
