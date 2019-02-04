@@ -1295,14 +1295,14 @@ Below is the JSON standard format representing a reference entity record.
 {
   "code": "kartell",
   "values": {
-    "labels": [
+    "label": [
       {
         "locale": "en_US",
         "channel": null,
         "data": "Kartell"
       }
     ],
-    "main_image": [
+    "image": [
       {
         "locale": null,
         "channel": null,
