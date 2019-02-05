@@ -3,7 +3,7 @@ get:
   operationId: "get_asset_tags__code_"
   description: This endpoint allows you to get the information about a given asset tag.
   tags:
-    - Asset tags
+    - Asset tag
   x-versions:
     - 2.1
     - 2.2
@@ -29,7 +29,7 @@ patch:
   summary: Update/create an asset tag
   operationId: "patch_asset_tags__code_"
   tags:
-    - Asset tags
+    - Asset tag
   x-versions:
     - 2.1
     - 2.2

@@ -22,6 +22,53 @@ PublishedProductList:
     - $ref:  '#/definitions/ItemList'
     - $ref: '#/definitions/PublishedProduct'
 
+ReferenceEntity:
+  type: object
+  allOf:
+    - $ref: ./resources/reference_entities/definitions/reference_entity_links.yaml
+    - $ref: ./resources/reference_entities/definitions/reference_entity.yaml
+  example: {
+    "_links": {
+      "image_download": {
+        "href": "https://demo.akeneo.com/api/rest/v1/reference-entities-media-files/0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
+      }
+    },
+    "code": "brands",
+    "labels": {
+      "en_US": "Brands",
+      "fr_FR": "Marques"
+    },
+    "image": "0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
+  }
+
+ReferenceEntityList:
+  type: object
+  allOf:
+    - $ref: '#/definitions/ReferenceEntityItemList'
+    - $ref: ./resources/reference_entities/definitions/reference_entity.yaml
+
+ReferenceEntityAttribute:
+  $ref: ./resources/reference_entity_attributes/definitions/reference_entity_attribute.yaml
+ReferenceEntityAttributeList:
+  type: array
+  items: 
+    $ref: ./resources/reference_entity_attributes/definitions/reference_entity_attribute.yaml
+
+ReferenceEntityAttributeOption:
+  $ref: ./resources/reference_entity_attributes/definitions/reference_entity_attribute_option.yaml
+ReferenceEntityAttributeOptionList:
+  type: array
+  items:
+    $ref: ./resources/reference_entity_attributes/definitions/reference_entity_attribute_option.yaml
+
+ReferenceEntityRecord:
+  $ref: ./resources/reference_entity_records/definitions/reference_entity_record.yaml
+ReferenceEntityRecordList:
+  type: object
+  allOf:
+    - $ref: '#/definitions/ReferenceEntityRecordItemList'
+    - $ref: ./resources/reference_entity_records/definitions/reference_entity_record.yaml
+
 Category:
   $ref: ./resources/categories/definitions/category.yaml
 CategoryList:
@@ -79,12 +126,27 @@ AttributeGroupList:
     - $ref: '#/definitions/AttributeGroup'
 
 MediaFile:
-  $ref: ./resources/media_files/definitions/media_file.yaml
+  allOf:
+    - $ref: ./resources/media_files/definitions/media_file_links.yaml
+    - $ref: ./resources/media_files/definitions/media_file.yaml
+  example: {
+    "_links": {
+      "download": {
+        "href": "https://demo.akeneo.com/api/rest/v1/media-files/7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg/download"
+      }
+    },
+    "code": "7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg",
+    "original_filename": "10806799-1356.jpg",
+    "mime_type": "image/jpeg",
+    "size": 16070,
+    "extension": "jpg"
+  }
+
 MediaFileList:
   type: object
   allOf:
     - $ref: '#/definitions/MediaFileItemList'
-    - $ref: '#/definitions/MediaFile'
+    - $ref: ./resources/media_files/definitions/media_file.yaml
 
 Locale:
   $ref: ./resources/locales/definitions/locale.yaml
@@ -192,6 +254,20 @@ ErrorByLine:
     message:
       type: string
       description: Message explaining the error
+ErrorByObject:
+  type: array
+  items:
+    type: object
+    properties:
+      code:
+        type: string
+        description: Resource code
+      status_code:
+        type: integer
+        description: HTTP status code, see <a href="/documentation/responses.html#client-errors">Client errors</a> to understand the meaning of each code
+      message:
+        type: string
+        description: Message explaining the error
 Pagination:
   type: object
   properties:
@@ -225,6 +301,30 @@ Pagination:
     current_page:
       type: integer
       description: Current page number
+SearchAfterPagination:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the current page of resources
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the first page of resources
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the next page of resources
 ItemList:
   type: object
   properties:
@@ -237,6 +337,7 @@ ItemList:
             href:
               type: string
               description: URI of the resource
+
 MediaFileItemList:
   type: object
   properties:
@@ -255,3 +356,34 @@ MediaFileItemList:
             href:
               type: string
               description: URI to download the binaries of the media file
+
+ReferenceEntityItemList:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the resource
+        image_download:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI to download the binaries of the reference entity image file
+ReferenceEntityRecordItemList:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the resource

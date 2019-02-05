@@ -4,7 +4,7 @@ get:
   description: This endpoint allows you to download a given reference file.
   x-content-type: Mime-type of the reference file
   tags:
-    - Assets
+    - Asset reference file
   x-versions:
     - 2.1
     - 2.2

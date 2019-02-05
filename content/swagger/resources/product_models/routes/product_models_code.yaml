@@ -2,7 +2,7 @@ get:
   summary: Get a product model
   operationId: "get_product_models__code_"
   tags:
-    - Product models
+    - Product model
   x-versions:
     - "2.0"
     - "2.1"
@@ -27,7 +27,7 @@ patch:
   summary: Update/create a product model
   operationId: "patch_product_models__code_"
   tags:
-    - Product models
+    - Product model
   x-versions:
     - "2.0"
     - "2.1"

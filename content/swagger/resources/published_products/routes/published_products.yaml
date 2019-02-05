@@ -3,7 +3,7 @@ get:
   operationId: "get_published_products"
   description: This endpoint allows you to get a list of published products. Published products are paginated and they can be filtered.
   tags:
-    - Published products
+    - Published product
   x-versions:
     - "2.0"
     - "2.1"

@@ -2,7 +2,7 @@ get:
   summary: Get list of product models
   operationId: "get_product_models"
   tags:
-    - Product models
+    - Product model
   x-versions:
     - "2.0"
     - "2.1"
@@ -180,7 +180,7 @@ post:
   summary: Create a new product model
   operationId: "post_product_models"
   tags:
-    - Product models
+    - Product model
   x-versions:
     - "2.0"
     - "2.1"
@@ -207,7 +207,7 @@ patch:
   summary: Update/create several product models
   operationId: "patch_product_models"
   tags:
-    - Product models
+    - Product model
   x-versions:
     - "2.0"
     - "2.1"

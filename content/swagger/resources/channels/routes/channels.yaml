@@ -3,7 +3,7 @@ get:
   operationId: "get_channels"
   description: This endpoint allows you to get a list of channels. Channels are paginated and sorted by code.
   tags:
-    - Channels
+    - Channel
   x-versions:
     - "1.7"
     - "2.0"
@@ -115,7 +115,7 @@ post:
   operationId: "channels_post"
   description: This endpoint allows you to create a new channel.
   tags:
-    - Channels
+    - Channel
   x-versions:
     - "2.0"
     - "2.1"
@@ -143,7 +143,7 @@ patch:
   summary: Update/create several channels
   operationId: "several_channels_patch"
   tags:
-    - Channels
+    - Channel
   x-versions:
     - "2.0"
     - "2.1"

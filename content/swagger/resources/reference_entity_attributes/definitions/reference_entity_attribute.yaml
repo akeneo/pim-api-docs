@@ -1,0 +1,96 @@
+type: object
+required: ["code", "type"]
+properties:
+  code:
+    type: string
+    description: Attribute code
+    x-immutable: true
+  labels:
+    type: object
+    description: Attribute labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Attribute label for the locale `localeCode`
+  type:
+    type: string
+    description: Attribute type
+    enum: ['text', 'image', 'single_option', 'multiple_options', 'reference_entity_single_link', 'reference_entity_multiple_links']
+    x-immutable: true
+  value_per_locale:
+    type: boolean
+    description: Whether the attribute is localizable, i.e. can have one value by locale
+    default: false
+    x-immutable: true
+  value_per_channel:
+    type: boolean
+    description: Whether the attribute is scopable, i.e. can have one value by channel
+    default : false
+    x-immutable: true
+  is_required_for_completeness:
+    type: boolean
+    description: Whether the attribute should be part of the record's completeness calculation
+    default : false
+  max_characters:
+    type: integer
+    description: Maximum number of characters allowed for the value of the attribute when the attribute type is `text`
+    x-warning: Only for `text` attribute type
+  is_textarea:
+    type: boolean
+    description: Whether the UI should display a text area instead of a simple field when the attribute type is `text`
+    default : false
+    x-warning: Only for `text` attribute type
+  is_rich_text_editor:
+    type: boolean
+    description: Whether the UI should display a rich text editor instead of a simple text area when the attribute type is `text`
+    x-validation-rules: Required when the property `is_textarea` is equal to `true`
+    x-warning: Only for `text` attribute type
+  validation_rule:
+    type: string
+    description: Validation rule type used to validate the attribute value when the attribute type is `text`
+    default : "none"
+    x-warning: Only for `text` attribute type
+    enum: ['email', 'url', 'regexp', 'none']
+  validation_regexp:
+    type: string
+    description: Regexp expression used to validate the attribute value when the attribute type is `text`
+    default : null
+    x-validation-rules: Required when the property `validation_rule` is equal to `regexp`
+    x-warning: Only for `text` attribute type
+  allowed_extensions:
+    type: array
+    description: Extensions allowed when the attribute type is `image` 
+    default : []
+    x-warning: Only for `image` attribute type
+    items:
+      type: string
+  max_file_size:
+    type: string
+    description: Max file size in MB when the attribute type is `image`
+    default : null
+    x-warning: Only for `image` attribute type
+  reference_entity_code:
+    type: string
+    description: Code of the linked reference entity when the attribute type is `reference_entity_single_link` or `reference_entity_multiple_links`
+    default : null
+    x-validation-rules: Required when the attribute type is either `reference_entity_single_link` or `reference_entity_multiple_links`
+    x-warning: Only for `reference_entity_single_link` and `reference_entity_multiple_links` attribute type
+    x-immutable: true
+example: {
+  "code": "description",
+  "labels": {
+    "en_US": "Description",
+    "fr_FR": "Description"
+  },
+  "type": "text",
+  "value_per_locale": true,
+  "value_per_channel": false,
+  "is_required_for_completeness": true,
+  "max_characters": null,
+  "is_textarea": true,
+  "is_rich_text_editor": true,
+  "validation_rule": null,
+  "validation_regexp": null
+}

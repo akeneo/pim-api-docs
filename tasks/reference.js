@@ -18,27 +18,36 @@ var revReplace = require('gulp-rev-replace');
 
 function determineCategory(tag){
     switch(tag){
-        case 'Products':
-        case 'Published products':
-        case 'Product models':
-            return 'Product entities';
-        case 'Families': 
-        case 'Categories': 
-        case 'Attributes': 
-        case 'Attribute options': 
-        case 'Attribute groups': 
-        case 'Channels': 
-        case 'Association types':
-            return 'Catalog modeling entities';
-        case 'Locales': 
-        case 'Currencies':  
-        case 'Measure families':
-            return 'Global settings entities';
-        case 'Asset categories':
-        case 'Asset tags':
-        case 'Assets':
-        case 'Media files':
-            return 'Media resource entities';
+        case 'Product':
+        case 'Published product':
+        case 'Product model':
+        case 'Product media file':
+            return 'Products';
+        case 'Family': 
+        case 'Family variant': 
+        case 'Attribute': 
+        case 'Attribute option': 
+        case 'Attribute group': 
+        case 'Category': 
+        case 'Association type':
+            return 'Catalog structure';
+        case 'Channel': 
+        case 'Locale': 
+        case 'Currency':  
+        case 'Measure family':
+            return 'Target market settings';
+        case 'Asset category':
+        case 'Asset tag':
+        case 'Asset':
+        case 'Asset reference file':
+        case 'Asset variation file':
+            return 'PAM';
+        case 'Reference entity record':
+        case 'Reference entity':
+        case 'Reference entity media file':
+        case 'Reference entity attribute':
+        case 'Reference entity attribute option':
+            return 'Reference entities';
         default:
             return 'Utilities';
     }
@@ -46,7 +55,7 @@ function determineCategory(tag){
 
 gulp.task('reference', ['clean-dist', 'less'], function() {
 
-    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3'];
+    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3', '3.0'];
     // We construct a reference index file and a complete reference file for each PIM version: 1.7, 2.0 and 2.1.
     // When we construct the 1.7 files, we filter to not include the new 2.0 and the 2.1 endpoints.
     // Same thing when we construct the 2.0 files, we filter to not include the 2.1 endpoints.
@@ -55,11 +64,13 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
         var htmlReferenceIndexfileName = (version === '1.7') ? 'api-reference-index-17' : 
                                         (version === '2.0') ? 'api-reference-index-20' :
                                         (version === '2.1') ? 'api-reference-index-21' :
-                                        (version === '2.2') ? 'api-reference-index-22' : 'api-reference-index';
+                                        (version === '2.2') ? 'api-reference-index-22' :
+                                        (version === '2.3') ? 'api-reference-index-23' : 'api-reference-index';
         var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' :
                                     (version === '2.0') ? 'api-reference-20' :
                                     (version === '2.1') ? 'api-reference-21' :
-                                    (version === '2.2') ? 'api-reference-22' : 'api-reference';
+                                    (version === '2.2') ? 'api-reference-22' :
+                                    (version === '2.3') ? 'api-reference-23' : 'api-reference';
 
         gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
@@ -75,7 +86,8 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                              (version === '2.0' && (operation['x-versions'][0] === '2.0' || operation['x-versions'][1] === '2.0')) ||
                              (version === '2.1' && (operation['x-versions'][0] === '2.1' || operation['x-versions'][1] === '2.1' || operation['x-versions'][2] === '2.1')) ||
                              (version === '2.2' && (operation['x-versions'][0] === '2.2' || operation['x-versions'][1] === '2.2' || operation['x-versions'][2] === '2.2' || operation['x-versions'][3] === '2.2')) ||
-                              version === '2.3') {
+                             (version === '2.3' && (operation['x-versions'][0] === '2.3' || operation['x-versions'][1] === '2.3' || operation['x-versions'][2] === '2.3' || operation['x-versions'][3] === '2.3' || operation['x-versions'][4] === '2.3')) ||
+                              version === '3.0') {
                             var escapeTag = operation.tags[0].replace(/\s/g, '');
                             var category = determineCategory(operation.tags[0]);
                             escapeCategory = category.replace(/\s/g, '');
@@ -119,7 +131,8 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                              (version === '2.0' && (operation['x-versions'][0] === '2.0' || operation['x-versions'][1] === '2.0')) ||
                              (version === '2.1' && (operation['x-versions'][0] === '2.1' || operation['x-versions'][1] === '2.1' || operation['x-versions'][2] === '2.1')) ||
                              (version === '2.2' && (operation['x-versions'][0] === '2.2' || operation['x-versions'][1] === '2.2' || operation['x-versions'][2] === '2.2' || operation['x-versions'][3] === '2.2')) ||
-                              version === '2.3') {
+                             (version === '2.3' && (operation['x-versions'][0] === '2.3' || operation['x-versions'][1] === '2.3' || operation['x-versions'][2] === '2.3' || operation['x-versions'][3] === '2.3' || operation['x-versions'][4] === '2.3')) ||
+                              version === '3.0') {
                             var operationId = operation.operationId;
                             var escapeTag = operation.tags[0].replace(/\s/g, '');
                             var category = determineCategory(operation.tags[0]);
@@ -153,6 +166,26 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                         parameter.schema.properties[requiredProperty].patchRequired = true;
                                     }
                                 });
+                                if(parameter.schema.items){
+                                    _.map(parameter.schema.items.properties, function(property, propertyName) {
+                                        property.default = (property.default === 0) ? '0' :
+                                            (property.default === null) ? 'null' :
+                                            (property.default === true) ? 'true' :
+                                            (property.default === false) ? 'false' :
+                                            (property.default && _.isEmpty(property.default)) ? '[]' : property.default;
+                                        property['x-immutable'] = (verb === 'patch') ? property['x-immutable'] : false;
+                                        if (verb === 'post' && property['x-read-only']) {
+                                            readOnlyProperties.push(propertyName);
+                                        }
+                                    });
+                                    _.forEach(parameter.schema.items.required, function(requiredProperty) {
+                                        if (verb !== 'patch') {
+                                            parameter.schema.items.properties[requiredProperty].required = true;
+                                        } else {
+                                            parameter.schema.items.properties[requiredProperty].patchRequired = true;
+                                        }
+                                    });
+                                }
                                 _.forEach(readOnlyProperties, function(propToDelete) {
                                     delete parameter.schema.properties[propToDelete];
                                 });
@@ -174,7 +207,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                 var status = code.match(/^2.*$/) ? 'success' : 'error';
                                 response[status] = true;
                                 response.id = operationId + '_' + code;
-                                var example = response.examples || ((response.schema) ? response.schema.example : undefined);
+                                var example = response.examples || response['x-examples'] || ((response.schema) ? response.schema.example : undefined);
                                 if (example) {
                                     var highlightjsExample = example['x-example-1'] ?
                                         highlightJs.highlight('bash', example['x-example-1'] + '\n' + example['x-example-2'] + '\n' + example['x-example-3'], true) :

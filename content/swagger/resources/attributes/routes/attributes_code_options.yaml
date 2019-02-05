@@ -3,7 +3,7 @@ get:
   operationId: "get_attributes__attribute_code__options"
   description: This endpoint allows you to get a list of attribute options. Attribute options are paginated and sorted by code.
   tags:
-    - Attribute options
+    - Attribute option
   x-versions:
     - "1.7"
     - "2.0"
@@ -105,7 +105,7 @@ post:
   operationId: "post_attributes__attribute_code__options"
   description: This endpoint allows you to create a new attribute option.
   tags:
-    - Attribute options
+    - Attribute option
   x-versions:
     - "1.7"
     - "2.0"
@@ -135,7 +135,7 @@ patch:
   summary: Update/create several attribute options
   operationId: "patch_attributes__attribute_code__options"
   tags:
-    - Attribute options
+    - Attribute option
   x-versions:
     - 2.1
     - 2.2

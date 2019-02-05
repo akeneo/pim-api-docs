@@ -3,7 +3,7 @@ get:
   operationId: "currencies_get_list"
   description: This endpoint allows you to get a list of currencies. Currencies are paginated and sorted by code.
   tags:
-    - Currencies
+    - Currency
   x-versions:
     - "2.0"
     - "2.1"

@@ -1,0 +1,237 @@
+get:
+  summary: Get the list of the records of a reference entity
+  operationId: "get_reference_entity_records"
+  tags:
+    - Reference entity record
+  x-versions:
+    - "3.0"
+  x-ee: true
+  description: This endpoint allows you to get a list of records of a given reference entity. Records are paginated and can be filtered.
+  parameters:
+    - name: search
+      in: query
+      description: Filter records of the reference entity, for more details see the <a href="/documentation/filter.html#filter-reference-entity-records">Filters</a> section
+      required: false
+      type: string
+    - name: channel
+      in: query
+      type: string
+      description: Filter attribute values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-attribute-values-by-channel">Filter attribute values by channel</a> section
+      required: false
+    - name: locales
+      in: query
+      type: string
+      description: Filter attribute values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href=/documentation/filter.html#filter-attribute-values-by-locale">Filter attribute values by locale</a> section
+      required: false
+    - $ref: '#/parameters/reference_entity_code'
+    - $ref: '#/parameters/search_after'
+  responses:
+    200:
+      description: Return the records of the given reference entity paginated
+      schema:
+        title: Reference entity record
+        type: object
+        allOf:
+          - $ref: '#/definitions/SearchAfterPagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/ReferenceEntityRecordList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records?search_after=2x088w%3D%3D"
+          }
+        },
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell"
+                }
+              },
+              "code": "kartell",
+              "values": {
+                "label": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "Kartell"
+                  }
+                ],
+                "image": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg"
+                  }
+                ],
+                "description": [
+                  {
+                    "data": "The contemporary Italian furniture brand",
+                    "locale": "en_US",
+                    "channel": null
+                  },
+                  {
+                    "data": "L'éditeur de meubles comtemporain italien",
+                    "locale": "fr_FR",
+                    "channel": null
+                  }
+                ],
+                "country": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "italy"
+                  }
+                ]
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/usm"
+                }
+              },
+              "code": "usm",
+              "values": {
+                "label": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "USM"
+                  }
+                ],
+                "image": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "9/c/g/1/0cb0c0e115dedba76f8d1ad8343ec897abc43bv4_image.jpg"
+                  }
+                ],
+                "description": [
+                  {
+                    "data": "Modular furniture from Switzerland for your home and office",
+                    "locale": "en_US",
+                    "channel": null
+                  },
+                  {
+                    "data": "L'éditeur de meubles modulaires suisse pour votre intérieur et pour les entreprises",
+                    "locale": "fr_FR",
+                    "channel": null
+                  }
+                ],
+                "country": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "switzerland"
+                  }
+                ]
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/ligneroset"
+                }
+              },
+              "code": "ligneroset",
+              "values": {
+                "label": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "Ligne Roset"
+                  }
+                ],
+                "image": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_image.jpg"
+                  }
+                ],
+                "description": [
+                  {
+                    "data": "Very well known French brand of modern and luxury furniture",
+                    "locale": "en_US",
+                    "channel": null
+                  },
+                  {
+                    "data": "La marque renommée des meubles de luxe à la française",
+                    "locale": "fr_FR",
+                    "channel": null
+                  }
+                ],
+                "country": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "france"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    406:
+      $ref: "#/responses/406Error"
+patch:
+  summary: Update/create several reference entity records
+  operationId: "patch_reference_entity_records"
+  tags:
+    - Reference entity record
+  x-versions:
+    - "3.0"
+  x-ee: true
+  description: This endpoint allows you to update and/or create several records of one given reference entity at once. Learn more about <a href="/documentation/update.html#patch-reference-entity-record-values">Update behavior</a>. Note that if the record does not already exist for the given reference entity, it creates it.
+  parameters:
+    - $ref: '#/parameters/reference_entity_code'
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: ../definitions/reference_entity_records.yaml
+  responses:
+    200:
+      description: OK
+      x-details: Returns an JSON array in which each object gives you the status of each record creation or update
+      x-no-entity: true
+      schema:
+        $ref: '#/definitions/ErrorByObject'
+      x-examples: [
+        {
+          "code": "kartell",
+          "status_code": 204
+        },
+        {
+          "code": "ligneroset",
+          "status_code": 422,
+          "message": "Property 'group' does not exist."
+        },
+        {
+          "code": "usm",
+          "status_code": 201
+        }
+      ]
+    401:
+      $ref: "#/responses/401Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"

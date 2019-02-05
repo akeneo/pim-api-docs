@@ -565,3 +565,184 @@ When requesting locales, you can use a filter to get the enabled ones.
 ```
 /api/rest/v1/locales?search={"enabled":[{"operator":"=","value":true}]}
 ```
+
+## Filter reference entity records
+
+### Filter records by completeness
+You can filter the reference entity records to get only the completed ones on a given channel for given locales.
+
+#### Example
+```
+/api/rest/v1/reference-entities/brands/records?search={"complete":{"operator":"=","value":true,"channel":"ecommerce","locales":["en_US"]}}
+```
+
+### Filter records by update date
+
+You can filter the reference entity records by their update date.
+
+Below are the allowed operators to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
+
+:::info
+Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+:::
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `>` | datetime <br> _Format: ISO 8601_ | Only returns records that were respectively<br> updated after the given day and hour |
+
+#### Example
+To get the reference entity records that were updated since the 4th of July 2016 at 10am (UTC), you can use the following URL.
+
+```
+/api/rest/v1/reference-entities/brands/records?search={"updated":[{"operator":">","value":"2018-07-04T10:00:00+00:00"}]}
+```
+
+### Filter attribute values by locale
+If you want to receive reference entity records of one given reference entity with only the attribute values of specific locales, as well as the attribute values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
+
+#### Example 1
+Imagine that without this filter you get these attribute values:
+```json
+{
+  "description": [
+    {
+      "locale": "en_US",
+      "channel": "mobile",
+      "data": "Calligaris is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
+    },
+    {
+      "locale": "en_US",
+      "channel": "ecommerce",
+      "data": "Calligaris is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio Calligaris, a craftman specialized in the creation of wood chairs."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "mobile",
+      "data": "Calligaris est un fabricant de meuble renommée qui fut fondé en 1923 en Italie."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "ecommerce",
+      "data": "Calligaris est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio Calligaris, était un artisan spécialisé dans la fabrication de chaises en bois."
+    }
+  ],
+  "creation_year":[
+    {
+      "locale": null,
+      "channel":null,
+      "data":"1923"
+    }
+  ]
+}
+```
+
+To get only the attribute values regarding the `en_US` locale (+ the attribute values of the non localizable attributes), you can use the following URL.
+```
+/api/rest/v1/reference-entities/brands/records?locales=en_US
+```
+
+As a result you will receive the following answer:
+```json
+{
+  "description": [
+    {
+      "locale": "en_US",
+      "channel": "mobile",
+      "data": "Calligaris is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
+    },
+    {
+      "locale": "en_US",
+      "channel": "ecommerce",
+      "data": "Calligaris is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio Calligaris, a craftman specialized in the creation of wood chairs."
+    }
+  ],
+  "creation_year":[
+    {
+      "locale": null,
+      "channel":null,
+      "data":"1923"
+    }
+  ]
+}
+```
+
+#### Example 2
+You can also filter attribute values on several locales at the same time.
+```
+/api/rest/v1/reference-entities/brands/records?locales=en_US,fr_FR
+```
+
+
+
+### Filter attribute values by channel
+There is also a `channel` query parameter that will allow you to get only the attribute values for a specific channel, as well as the attribute values of the non scopable attributes.
+
+:::warning
+Note that you cannot use this filter on several channels.
+:::
+
+#### Example
+Imagine that without this filter you get these attribute values:
+```json
+{
+  "description": [
+    {
+      "locale": "en_US",
+      "channel": "mobile",
+      "data": "Calligaris is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
+    },
+    {
+      "locale": "en_US",
+      "channel": "ecommerce",
+      "data": "Calligaris is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio Calligaris, a craftman specialized in the creation of wood chairs."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "mobile",
+      "data": "Calligaris est un fabricant de meuble renommée qui fut fondé en 1923 en Italie."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "ecommerce",
+      "data": "Calligaris est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio Calligaris, était un artisan spécialisé dans la fabrication de chaises en bois."
+    }
+  ],
+  "creation_year":[
+    {
+      "locale": null,
+      "channel":null,
+      "data":"1923"
+    }
+  ]
+}
+```
+
+To get only the attribute values regarding the `ecommerce` channel (+ the attribute values of the non scopable attributes), you can use the following URL.
+```
+/api/rest/v1/reference-entities/brands/records?channel=ecommerce
+```
+
+As a result you will receive the following answer:
+```json
+{
+  "description": [
+    {
+      "locale": "en_US",
+      "channel": "ecommerce",
+      "data": "Calligaris is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio Calligaris, a craftman specialized in the creation of wood chairs."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "ecommerce",
+      "data": "Calligaris est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio Calligaris, était un artisan spécialisé dans la fabrication de chaises en bois."
+    }
+  ],
+  "creation_year":[
+    {
+      "locale": null,
+      "channel":null,
+      "data":"1923"
+    }
+  ]
+}
+```

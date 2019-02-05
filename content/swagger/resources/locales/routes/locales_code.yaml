@@ -3,7 +3,7 @@ get:
   operationId: "get_locales__code_"
   description: This endpoint allows you to get the information about a given locale.
   tags:
-    - Locales
+    - Locale
   x-versions:
     - "1.7"
     - "2.0"
