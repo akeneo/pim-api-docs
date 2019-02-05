@@ -298,6 +298,9 @@ To get the product models that were updated during the last 4 days, you can use 
 ```
 /api/rest/v1/product-models?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
 ```
+:::warning
+The API will return variant products along product models if these products had their product models edited over the last 4 days. Since they inherit values from their parents, they will also match the condition of the `updated` operator.
+:::
 
 ## Filter on product values
 To filter products, and product models since the v2.3, on its [product values](/documentation/resources.html#product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
