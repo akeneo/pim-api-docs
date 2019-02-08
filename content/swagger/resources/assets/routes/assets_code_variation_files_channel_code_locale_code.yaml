@@ -5,9 +5,10 @@ get:
   tags:
     - Asset variation file
   x-versions:
-    - 2.1
-    - 2.2
-    - 2.3
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.0"
   x-ee: true
   parameters:
     - $ref: '#/parameters/asset_code'
@@ -34,9 +35,10 @@ post:
   tags:
     - Asset variation file
   x-versions:
-    - 2.1
-    - 2.2
-    - 2.3
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.0"
   x-ee: true
   parameters:
     - $ref: '#/parameters/asset_code'

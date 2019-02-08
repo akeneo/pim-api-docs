@@ -10,6 +10,7 @@ get:
     - "2.1"
     - "2.2"
     - "2.3"
+    - "3.0"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -129,6 +130,7 @@ post:
     - "2.1"
     - "2.2"
     - "2.3"
+    - "3.0"
   parameters:
     - name: Content-type
       in: header

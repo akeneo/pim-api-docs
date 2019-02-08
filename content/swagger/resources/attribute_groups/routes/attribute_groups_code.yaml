@@ -9,6 +9,7 @@ get:
     - "2.1"
     - "2.2"
     - "2.3"
+    - "3.0"
   parameters:
     - $ref: '#/parameters/code'
   responses:
@@ -35,6 +36,7 @@ patch:
     - "2.1"
     - "2.2"
     - "2.3"
+    - "3.0"
   description: This endpoint allows you to update a given attribute group. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute group exists for the given code, it creates it.
   parameters:
     - $ref: '#/parameters/code'
