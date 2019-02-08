@@ -14,6 +14,7 @@ Below you will find which PHP client version to use depending on your PIM versio
 | v2.0  | v1.0 |
 | v2.1 - v2.2 | v2.0 |
 | v2.3 | v3.0 | 
+| v3.0 | v4.0 | 
 
 ::: info
 Note that our PHP client is backward compatible.
