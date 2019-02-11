@@ -4,6 +4,10 @@
 This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
 :::
 
+:::warning
+This resource is only available since the version 4.0 of the PHP API client.
+:::
+
 #### Get a reference entity
 
 ```php
