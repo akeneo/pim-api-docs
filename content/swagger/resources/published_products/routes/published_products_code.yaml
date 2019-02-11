@@ -8,6 +8,7 @@ get:
     - "2.1"
     - "2.2"
     - "2.3"
+    - "3.0"
   x-ee: true
   description: This endpoint allows you to get the information about a given published product.
   parameters:

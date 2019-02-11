@@ -5,9 +5,10 @@ get:
   tags:
     - Asset tag
   x-versions:
-    - 2.1
-    - 2.2
-    - 2.3
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.0"
   x-ee: true
   parameters:
     - $ref: '#/parameters/code'
@@ -31,9 +32,10 @@ patch:
   tags:
     - Asset tag
   x-versions:
-    - 2.1
-    - 2.2
-    - 2.3
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.0"
   x-ee: true
   description: This endpoint allows you to update a given asset tag. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no tag exists for the given code, it creates it.
   parameters:

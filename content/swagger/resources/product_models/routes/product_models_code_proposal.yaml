@@ -5,6 +5,7 @@ post:
     - Product model
   x-versions:
     - "2.3"
+    - "3.0"
   x-ee: true
   description: This endpoint allows you to submit a product model draft for approval.
   parameters:
