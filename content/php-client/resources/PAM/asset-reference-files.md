@@ -58,7 +58,7 @@ $product = $client->getAssetReferenceFileApi()->downloadFromLocalizableAsset('ch
 file_put_contents('/tmp/chicagoskyline.jpg', $product->getContents());
 ```
 
-From v4 of the PHP client, the response is returned instead of the content. It allows to get the filename and the Mime type from the response.
+From the v4 of the PHP client, the response is returned instead of the content. It allows getting the filename and the MIME type from the response.
 You can get the content this way:
 
 ```php
