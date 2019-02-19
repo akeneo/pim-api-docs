@@ -58,6 +58,13 @@ $product = $client->getAssetReferenceFileApi()->downloadFromLocalizableAsset('ch
 file_put_contents('/tmp/chicagoskyline.jpg', $product->getContents());
 ```
 
+From v4 of the PHP client, the response is returned instead of the content. It allows to get the filename and the Mime type from the response.
+You can get the content this way:
+
+```php
+file_put_contents('/tmp/chicagoskyline.jpg', $product->getBody()->getContents());
+```
+
 #### Download a reference file of a not localizable asset
 
 ```php
@@ -66,6 +73,13 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://ake
 $product = $client->getAssetReferenceFileApi()->downloadFromNotLocalizableAsset('bridge');
 
 file_put_contents('/tmp/bridge.jpg', $product->getContents());
+```
+
+From v4 of the PHP client, the response is returned instead of the content. It allows to get the filename and the Mime type from the response.
+You can get the content this way:
+
+```php
+file_put_contents('/tmp/bridge.jpg', $product->getBody()->getContents());
 ```
 
 #### Upload an asset reference file for a localizable asset

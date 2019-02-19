@@ -33,6 +33,13 @@ $mediaFile = $client->getProductMediaFileApi()->download('code/example');
 file_put_contents('/tmp/ziggy.jpg', $product->getContents());
 ```
 
+From v4 of the PHP client, the response is returned instead of the content. It allows to get the filename and the Mime type from the response.
+You can get the content this way:
+
+```php
+file_put_contents('/tmp/bridge.jpg', $product->getBody()->getContents());
+```
+
 #### Get a list of media file information 
 
 There are two ways of getting media files.
