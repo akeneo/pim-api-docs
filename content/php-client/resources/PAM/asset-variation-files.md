@@ -60,6 +60,13 @@ $product = $client->getAssetVariationFileApi()->downloadFromLocalizableAsset('ch
 file_put_contents('/tmp/chicagoskyline-mobile.jpg', $product->getContents());
 ```
 
+From the v4 of the PHP client, the response is returned instead of the content. It allows getting the filename and the MIME type from the response.
+You can get the content this way:
+
+```php
+file_put_contents('/tmp/chicagoskyline-mobile.jpg', $product->getBody()->getContents());
+```
+
 #### Download a variation file of a not localizable asset
 
 ```php
@@ -68,6 +75,13 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://ake
 $product = $client->getAssetVariationFileApi()->downloadFromNotLocalizableAsset('bridge', 'mobile');
 
 file_put_contents('/tmp/bridge-mobile.jpg', $product->getContents());
+```
+
+From the v4 of the PHP client, the response is returned instead of the content. It allows getting the filename and the MIME type from the response.
+You can get the content this way:
+
+```php
+file_put_contents('/tmp/bridge-mobile.jpg', $product->getBody()->getContents());
 ```
 
 #### Upload an asset variation file for a localizable asset
@@ -85,3 +99,4 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://ake
 
 $client->getAssetVariationFileApi()->uploadForNotLocalizableAsset('/tmp/bridge-mobile.jpg', 'bridge', 'mobile');
 ```
+
