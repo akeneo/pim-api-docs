@@ -29,7 +29,7 @@ get:
           "max_characters": null,
           "is_textarea": true,
           "is_rich_text_editor": true,
-          "validation_rule": null,
+          "validation_rule": "none",
           "validation_regexp": null
         },
         {
