@@ -1,6 +1,6 @@
 ### Locale
 
-#### Get a locale 
+#### Get a locale
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -12,12 +12,12 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  *     'enable' => true,
  * ]
  */
-$locale = $client->getLocaleApi()->get('ecommerce');
+$locale = $client->getLocaleApi()->get('en_US');
 ```
 
-#### Get a list of locales 
+#### Get a list of locales
 
-There are two ways of getting locales. 
+There are two ways of getting locales.
 
 **By getting pages**
 
