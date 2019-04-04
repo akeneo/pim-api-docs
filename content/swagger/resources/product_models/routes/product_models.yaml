@@ -70,11 +70,12 @@ get:
             {
               "_links": {
                 "self": {
-                  "href": "http:\/\/demo.akeneo.com\/api\/rest\/v1\/product-models\/shoes"
+                  "href": "http:\/\/demo.akeneo.com\/api\/rest\/v1\/product-models\/amarisshoe"
                 }
               },
-              "code": "shoes",
-              "family_variant": "familyVariantA1",
+              "code": "amarisshoe",
+              "family": "shoes",
+              "family_variant": "shoes_VariantA1",
               "parent": null,
               "categories": ["clothing", "shoes"],
               "values": {
@@ -104,11 +105,12 @@ get:
             {
               "_links": {
                 "self": {
-                  "href": "http:\/\/demo.akeneo.com\/api\/rest\/v1\/product-models\/tshirt"
+                  "href": "http:\/\/demo.akeneo.com\/api\/rest\/v1\/product-models\/Abiloitshirt"
                 }
               },
-              "code": "tshirt",
-              "family_variant": "familyVariantA1",
+              "code": "Abiloitshirt",
+              "family": "clothing",
+              "family_variant": "clothing_VariantA1",
               "parent": null,
               "categories": ["clothing", "tshirt"],
               "values": {
@@ -138,11 +140,12 @@ get:
             {
               "_links": {
                 "self": {
-                  "href": "http:\/\/demo.akeneo.com\/api\/rest\/v1\/product-models\/trousers"
+                  "href": "http:\/\/demo.akeneo.com\/api\/rest\/v1\/product-models\/Astertrousers"
                 }
               },
-              "code": "trousers",
-              "family_variant": "familyVariantA1",
+              "code": "Astertrousers",
+              "family": "clothing",
+              "family_variant": "clothing_VariantA1",
               "parent": null,
               "categories": ["clothing", "trousers"],
               "values": {
