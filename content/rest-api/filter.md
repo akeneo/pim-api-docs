@@ -37,7 +37,7 @@ You can even combine several filters on the same product properties. The example
 /api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04 10:00:00"},{"operator":"=","value":"2016-07-05 10:00:00"}]}
 ```
 
-### On categories
+### On their categories
 
 To filter products on their categories, use the property `categories`.
 Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
@@ -59,7 +59,7 @@ To get the products of the `winter_collection` category, you can use the followi
 ```
 
 
-### On status
+### On their status
 
 To filter products on their status, use the `enabled` property.
 Here are the allowed operators you can use to filter on the status as well as the corresponding type of value expected in the `search` query parameter.
@@ -76,7 +76,7 @@ To get the disabled products, you can use the following URL.
 /api/rest/v1/products?search={"enabled":[{"operator":"=","value":false}]}
 ```
 
-### On completeness
+### On their completeness
 
 To filter products on their completeness, use the `completeness` product property. You will also need to provide a `scope` value to specify on which channel you want to filter with the completeness.
 Here are the allowed operators you can use to filter by completeness as well as the corresponding type of value expected in the `search` query parameter.
@@ -103,7 +103,7 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 /api/rest/v1/products?search={"completeness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
 ```
 
-### On group or family
+### On their group or family
 
 To filter products on groups or families, use respectively the product property `groups` and `family`.
 Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -128,7 +128,7 @@ To get the products that are not in the `camcorders` and `digital_cameras` famil
 /api/rest/v1/products?search={"family":[{"operator":"NOT IN","value":["camcorders","digital_cameras"]}]}
 ```
 
-### On creation or update date
+### On their creation or update date
 
 To filter products on creation or update date, use respectively the product property `created` and `updated`.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -158,6 +158,25 @@ To get the products that were updated during the last 4 days, you can use the fo
 
 ```
 /api/rest/v1/products?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
+```
+
+
+### On their parent
+
+To get the variant products of a given product model, use the filter called `parent`.  
+For now, this filter only accepts one operator: `=`. It expects a code of a product model, given as a string. This product model can be either a root product model or a sub product model.
+
+#### Examples
+To get all the variant products of the root product model with the code `tshirt_armor`, you can use the following URL.
+
+```
+/api/rest/v1/products?search={"parent":[{"operator":"=","value":"tshirt_armor"}]}
+```
+
+To get all the variant products of the sub product model with the code `tshirt_armor_blue`, you can use the following URL.
+
+```
+/api/rest/v1/products?search={"parent":[{"operator":"=","value":"tshirt_armor_blue"}]}
 ```
 
 ## Filter on product model properties
