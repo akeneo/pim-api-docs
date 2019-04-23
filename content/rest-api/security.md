@@ -154,8 +154,8 @@ curl -X POST http://your-host/api/oauth/v1/token \
     -H "Authorization: Basic YOUR_BASE_64_CLIENT_ID_AND_SECRET" \
     -d '{
         "grant_type": "password",
-        "username": your_username,
-        "password": your_password
+        "username": "your_username",
+        "password": "your_password"
     }'
 ```
 
