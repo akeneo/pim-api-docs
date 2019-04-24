@@ -6,6 +6,7 @@ get:
     - Reference entity attribute option
   x-versions:
     - "3.0"
+    - "3.1"
   x-ee: true
   parameters:
     - $ref: '#/parameters/reference_entity_code'
