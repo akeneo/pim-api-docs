@@ -6,6 +6,7 @@ get:
   x-versions:
     - "2.3"
     - "3.0"
+    - "3.1"
   x-ee: true
   description: This endpoint allows you to get the information about a given product model draft.
   parameters:

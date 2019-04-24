@@ -9,6 +9,7 @@ get:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   x-ee: true
   parameters:
     - $ref: '#/parameters/page'
@@ -110,6 +111,7 @@ post:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   x-ee: true
   parameters:
     - name: body
@@ -139,6 +141,7 @@ patch:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   x-ee: true
   description: This endpoint allows you to update several asset categories at once.
   x-body-by-line: Contains several lines, each line is a category in JSON standard format

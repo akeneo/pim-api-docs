@@ -11,6 +11,7 @@ get:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   parameters:
     - $ref: '#/parameters/attribute_code'
     - $ref: '#/parameters/page'
@@ -114,6 +115,7 @@ post:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   parameters:
     - $ref: '#/parameters/attribute_code'
     - name: body
@@ -143,6 +145,7 @@ patch:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   description: This endpoint allows you to update several attribute options at once.
   x-body-by-line: Contains several lines, each line is an attribute option in JSON standard format
   parameters:
