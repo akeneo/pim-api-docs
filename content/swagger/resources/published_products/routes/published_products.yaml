@@ -10,6 +10,7 @@ get:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   x-ee: true
   parameters:
     - name: search

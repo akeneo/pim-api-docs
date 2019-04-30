@@ -5,6 +5,7 @@ get:
     - Reference entity record
   x-versions:
     - "3.0"
+    - "3.1"
   x-ee: true
   description: This endpoint allows you to get the information about a given record for a given reference entity.
   parameters:
@@ -29,6 +30,7 @@ patch:
     - Reference entity record
   x-versions:
     - "3.0"
+    - "3.1"
   x-ee: true
   description: This endpoint allows you to update a given record of a given renference entity. Learn more about <a href="/documentation/update.html#patch-reference-entity-record-values">Update behavior</a>. Note that if the record does not already exist for the given reference entity, it creates it.
   parameters:

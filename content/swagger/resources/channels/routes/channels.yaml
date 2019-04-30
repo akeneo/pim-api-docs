@@ -11,6 +11,7 @@ get:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -123,6 +124,7 @@ post:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   parameters:
     - name: body
       in: body
@@ -152,6 +154,7 @@ patch:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   description: This endpoint allows you to update and/or create several channels at once.
   x-body-by-line: Contains several lines, each line is a channel in JSON standard format
   parameters:

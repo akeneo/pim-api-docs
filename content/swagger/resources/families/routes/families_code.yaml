@@ -11,6 +11,7 @@ get:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   parameters:
     - $ref: '#/parameters/code'
   responses:
@@ -39,6 +40,7 @@ patch:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   description: This endpoint allows you to update a given family. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no family exists for the given code, it creates it.
   parameters:
     - $ref: '#/parameters/code'

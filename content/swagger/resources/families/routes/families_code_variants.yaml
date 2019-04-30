@@ -10,6 +10,7 @@ get:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   parameters:
     - $ref: '#/parameters/family_code'
     - $ref: '#/parameters/page'
@@ -67,6 +68,7 @@ post:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   description: This endpoint allows you to create a family variant.
   parameters:
     - $ref: '#/parameters/family_code'
@@ -98,6 +100,7 @@ patch:
     - "2.2"
     - "2.3"
     - "3.0"
+    - "3.1"
   description: This endpoint allows you to update and/or create several family variants at once, for a given family.
   x-body-by-line: Contains several lines, each line is a family in JSON standard format
   parameters:
