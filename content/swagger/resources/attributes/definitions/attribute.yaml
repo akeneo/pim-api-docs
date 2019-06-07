@@ -76,7 +76,7 @@ properties:
     x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
   number_max:
     type: string
-    description: Minimum integer value allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
+    description: Maximum integer value allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
     x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
   decimals_allowed:
     type: boolean
