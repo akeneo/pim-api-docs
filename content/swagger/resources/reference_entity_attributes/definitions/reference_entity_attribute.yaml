@@ -17,7 +17,7 @@ properties:
   type:
     type: string
     description: Attribute type
-    enum: ['text', 'image', 'single_option', 'multiple_options', 'reference_entity_single_link', 'reference_entity_multiple_links']
+    enum: ['text', 'image', 'number', 'single_option', 'multiple_options', 'reference_entity_single_link', 'reference_entity_multiple_links']
     x-immutable: true
   value_per_locale:
     type: boolean
