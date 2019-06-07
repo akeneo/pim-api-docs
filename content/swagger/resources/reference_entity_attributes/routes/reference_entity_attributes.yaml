@@ -45,6 +45,20 @@ get:
           "is_required_for_completeness": false
         },
         {
+          "code": "creation_year",
+          "labels": {
+            "en_US": "Creation year",
+            "fr_FR": "Année de création"
+          },
+          "type": "number",
+          "value_per_locale": false,
+          "value_per_channel": false,
+          "is_required_for_completeness": false,
+          "decimals_allowed": false,
+          "min_value": "1800",
+          "max_value": "2100"
+        },
+        {
           "code": "collection_overview",
           "labels": {
             "en_US": "Collection overview",
