@@ -1162,6 +1162,24 @@ Format for the `image` attribute type
 }
 ```
 
+Format for the `number` attribute type (_since the 3.2 version_)
+```json
+{
+    "code": "creation_year",
+    "labels": {
+        "en_US": "Creation year",
+        "fr_FR": "Année de création"
+    },
+    "type": "number",
+    "value_per_locale": false,
+    "value_per_channel": false,
+    "is_required_for_completeness": false,
+    "decimals_allowed": false,
+    "min_value": "1800",
+    "max_value": "2100"
+}
+```
+
 Format for the `single option` and `multiple options` attribute types
 ```json
 {
@@ -1382,6 +1400,7 @@ In this formula:
 | ----------------- | -------------- |
 | **Text** <br> _string_ | `"A well-known manufacturer of high-end furniture"` |
 | **Image** <br> _string_ | `"5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"` |
+| **Number** <br> _string_ | `"1949"` |
 | **Simple select** <br> _string_ | `"yellow"` |
 | **Multi select** <br> _Array[string]_ | `["leather", "cotton"]` |
 | **Reference entity simple select** <br> _string_ | `"italy"` |
