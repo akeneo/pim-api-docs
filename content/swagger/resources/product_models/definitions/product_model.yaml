@@ -5,10 +5,15 @@ properties:
     type: string
     description: Product model code
     x-immutable: true
+  family:
+    type: string
+    description: Family code  from which the product inherits its attributes and attributes requirements
+    x-validation-rules: It is equal to an existing family code
+    x-immutable: true
   family_variant:
     type: string
     description: Family variant code from which the product model inherits its attributes and variant attributes
-    x-validation-rules: It is equal to an existing family variant code
+    x-validation-rules: It is equal to an existing family variant code that belong to the family given in the `family` field
     x-immutable: true
   parent:
     type: string
@@ -65,6 +70,7 @@ properties:
 
 example: {
   "code": "model-biker-jacket-leather",
+  "family": "clothing",
   "family_variant": "clothing_material_size",
   "parent": "model-biker-jacket",
   "categories": ["summer_collection"],
