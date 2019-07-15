@@ -7,6 +7,7 @@ post:
   x-versions:
     - "3.0"
     - "3.1"
+    - "3.2"
   x-ee: true
   parameters:
     - name: Content-type
