@@ -66,6 +66,13 @@ example: {
         "channel": null,
         "data": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"
       }
+    ],
+    "creation_year":[
+      {
+        "locale": null,
+        "channel": null,
+        "data": "1949"
+      }
     ]
   }
 }
