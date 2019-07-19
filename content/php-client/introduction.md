@@ -21,7 +21,7 @@ Don't forget that we also love when you contribute and help us do better tools. 
 
 
 ## Keep in touch
-If you just want to discuss about it, join the community in the [#web-api](https://akeneopim-ug.slack.com/messages/web-api/) channel in our [Slack user group community](https://akeneopim-ug.herokuapp.com/).
+If you just want to discuss about it, join the community in the [#web-api](https://akeneopim-ug.slack.com/messages/web-api/) channel in our [Slack user group community](https://akeneopim-ug.slack.com/).
 
 :::panel-link Want to be ready quickly?[Let's start with our simple getting started](/php-client/getting-started.html)
 :::
