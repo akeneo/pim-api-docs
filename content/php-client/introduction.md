@@ -10,7 +10,7 @@ There are three versions of these clients:
 - The version v1.0 is compatible with the PIM 2.0.
 - The version v2.0 is compatible with the PIM 2.1 and 2.2.
 - The version v3.0 is compatible with the PIM 2.3.
-- The current and latest version v4.0 is compatible with the PIM 3.0 and 3.1.
+- The current and latest version v4.0 is compatible with the PIM 3.0, 3.1 and 3.2.
 
 ## Support & issues
 Please be aware that these PHP clients are only supported **in best effort**, whether you are an Entreprise or Community customer.
