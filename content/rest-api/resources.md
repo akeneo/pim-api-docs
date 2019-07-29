@@ -284,6 +284,7 @@ To finish, below is the JSON standard format representing a product model. Notic
 ```json
 {
   "code": "jack",
+  "family": "clothing",
   "family_variant": "clothing_color_size",
   "parent": null,
   "categories": [],
@@ -326,6 +327,10 @@ Endpoints for the product models are only available starting the 2.0 version.
 
 ::: warning
 Note that the `metadata` field is only available since the 2.3 version and as it is an Enterprise Edition feature, you won't have this field on a Community Edition PIM.
+:::
+
+::: warning
+Note that the `family` field is only available since the 3.2 version.
 :::
 
 ::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodel)

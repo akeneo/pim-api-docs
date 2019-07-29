@@ -7,7 +7,7 @@ properties:
     x-immutable: true
   family:
     type: string
-    description: Family code  from which the product inherits its attributes and attributes requirements
+    description: Family code  from which the product inherits its attributes and attributes requirements (since the 3.2)
     x-validation-rules: It is equal to an existing family code
     x-immutable: true
   family_variant:
