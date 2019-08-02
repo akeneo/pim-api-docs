@@ -214,7 +214,7 @@ curl https://demo.akeneo.com/api/rest/v1/categories \
 :::info
 There are only 2 routes that do not require authentication:
  - the root of the API, that lists all the available endpoints. See [this section](/documentation/overview.html#list-of-available-endpoints) for more info.
- - and of course, the root to get tokens. Pretty logic, isn't it!
+ - and of course, the route to get tokens. Pretty logic, isn't it!
 :::
 
 
