@@ -15,7 +15,7 @@ get:
   responses:
     200:
       description: OK
-      x-details: Returns the content of the product in JSON format
+      x-details: Returns the content of the reference entity attribute in JSON format
       schema:
         $ref: '#/definitions/ReferenceEntityAttribute'
     401:
