@@ -81,18 +81,19 @@ properties:
   decimals_allowed:
     type: boolean
     description: Whether decimals are allowed when the attribute type is `number`
+    default: false
     x-warning: Only for `number` attribute type    
   min_value:
     type: string
     description: Minimum value allowed when the attribute type is `number`
     default : null
-    x-validation-rules: The minimum value must be lower than th maximum value
+    x-validation-rules: The minimum value must be lower than the maximum value
     x-warning: Only for `number` attribute type
   max_value:
     type: string
     description: Maximum value allowed when the attribute type is `number`
     default : null
-    x-validation-rules: The maximum value must be greater than th maximum value
+    x-validation-rules: The maximum value must be greater than the minimum value
     x-warning: Only for `number` attribute type   
 example: {
   "code": "description",

@@ -666,7 +666,7 @@ Wondering how to format the `data` property in these reference entity record val
 ### Modify a reference entity record value
 
 #### First example
-You want to modify the `short_description` of the reference entity record `kartell` for the `en_US` locale.
+You want to modify the `short_description` of the `kartell` reference entity record for the `en_US` locale.
 
 **Original resource**
 ```json
@@ -730,7 +730,7 @@ You want to modify the `short_description` of the reference entity record `karte
 ```
 
 #### Second example
-You want to modify the `short_description` of the reference entity record `kartell` for the `fr_FR` locale but the `name` on the `en_US` locale is already set.
+You want to modify the `short_description` of the `kartell` reference entity record for the `fr_FR` locale but the `short_description` on the `en_US` locale is already set.
 
 **Original resource**
 ```json
@@ -778,7 +778,7 @@ You want to modify the `short_description` of the reference entity record `karte
 **Resulting resource**
 ```json
 {
-  "identifier": "kartell",
+  "code": "kartell",
   "values": {
     "short_description": [
       {
@@ -808,12 +808,12 @@ Wondering how to format the `data` property in these reference entity record val
 :::
 
 ### Erase a reference entity record value
-You want to erase the `short_description` of the reference entity record `kartell` for the `en_US` locale.
+You want to erase the `short_description` of the `kartell` reference entity record for the `en_US` locale.
 
 **Original resource**
 ```json
 {
-  "identifier": "kartell",
+  "code": "kartell",
   "values": {
     "short_description": [
       {
@@ -851,7 +851,7 @@ You want to erase the `short_description` of the reference entity record `kartel
 **Resulting resource**
 ```json
 {
-  "identifier": "kartell",
+  "code": "kartell",
   "values": {
     "short_description": [
       {
