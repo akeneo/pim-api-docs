@@ -161,10 +161,14 @@ To get the products that were updated during the last 4 days, you can use the fo
 ```
 
 
-### On their parent
+### On their parent (since 3.2)
 
 To get the variant products of a given product model, use the filter called `parent`.  
 For now, this filter only accepts one operator: `=`. It expects a code of a product model, given as a string. This product model can be either a root product model or a sub product model.
+
+::: warning
+This filter is available starting the 3.2 version of the PIM.
+:::
 
 #### Examples
 To get all the variant products of the root product model with the code `tshirt_armor`, you can use the following URL.
@@ -585,7 +589,11 @@ When requesting locales, you can use a filter to get the enabled ones.
 /api/rest/v1/locales?search={"enabled":[{"operator":"=","value":true}]}
 ```
 
-## Filter reference entity records
+## Filter reference entity records (since 3.0)
+
+::: info
+All these filters are available starting the 3.0 version of the PIM.
+:::
 
 ### Filter records by completeness
 You can filter the reference entity records to get only the completed ones on a given channel for given locales.
