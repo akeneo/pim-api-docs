@@ -37,6 +37,12 @@ npm serve
 The API documentation site is then available on `localhost:8000`.
 Files located in the content and src directories are watched for changes, so when developing you do not need to launch any other task.
 
+### Run with Docker
+
+```bash
+make serve
+```
+
 ## Swagger
 
 As our YAML Swagger spec uses references and links, it is considered as non-valid.
