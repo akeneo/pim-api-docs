@@ -30,7 +30,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/AttributeOptionList'
@@ -51,7 +51,7 @@ get:
         },
         current_page: 3,
         _embedded: {
-          _items: [
+          items: [
             {
               "_links": {
                 "self": {

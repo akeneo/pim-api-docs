@@ -23,7 +23,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/ReferenceEntityList'
@@ -40,7 +40,7 @@ get:
           }
         },
         _embedded: {
-          _items: [
+          items: [
             {
               "_links": {
                 "self": {
