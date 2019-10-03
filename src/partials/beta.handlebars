@@ -1,0 +1,30 @@
+{{!-- Template for the Beta documentation page --}}
+{{#> layout }}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>{{{title}}}</h1>
+            </div>
+        </div>
+        <div class="row hidden-xs">
+            {{{mainContent}}}
+            <div class="col-xs-offset-3 col-xs-9">
+                {{{referenceIndex}}}
+            </div>
+        </div>
+        <div class="row visible-xs">
+            {{{mainContent}}}
+        </div>
+        <div class="row visible-xs">
+            <div class="col-xs-12">
+                {{{referenceIndex}}}
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-xs-12 col-sm-offset-3 col-sm-9">
+                <hr>
+            </div>
+        </div>
+        {{> contrib-footer}}
+    </div>
+{{/layout}}
