@@ -1,0 +1,735 @@
+{
+	"info": {
+		"_postman_id": "6a7c373d-7438-423d-abbd-056570a68400",
+		"name": "Asset Manager API Beta in PIM v3.2",
+		"description": "The Asset Manager API in Beta brought to you!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Asset family (>= v3.2 and EE only)",
+			"item": [
+				{
+					"name": "asset family",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset family"
+					},
+					"response": []
+				},
+				{
+					"name": "asset families",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "asset family",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"model_pictures\",\n  \"labels\": {\n    \"en_US\": \"Model pictures\",\n    \"fr_FR\": \"Photos mannequin\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2ad0ebaa-9f95-46ab-a04f-9a1a13f690c5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ebe76584-1b5a-4542-be95-c3b5758c44c6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Asset attribute (>= v3.2 and EE only)",
+			"item": [
+				{
+					"name": "asset attribute",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes/warning_mention",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes",
+								"warning_mention"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family and the second given code is the code of an existing asset attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "asset attributes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset family"
+					},
+					"response": []
+				},
+				{
+					"name": "asset attribute",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"warning_mention\",\n  \"labels\": {\n    \"en_US\": \"Warning mention\"\n  },\n  \"type\": \"text\",\n  \"value_per_locale\": true,\n  \"value_per_channel\": false,\n  \"is_required_for_completeness\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes/warning_mention",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes",
+								"warning_mention"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "88b22f34-eed5-44e0-8fef-02b7db657c8f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb890627-3742-4053-94c1-8ceb959efd9a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Asset attribute option (>= v3.2 and EE only)",
+			"item": [
+				{
+					"name": "asset attribute option",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes/model_is_wearing_size/options/small",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes",
+								"model_is_wearing_size",
+								"options",
+								"small"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family, the second given code is the code of an existing asset attribute of type single or multiple options, and the third given code is the code of an existing option of this asset attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "asset attribute options",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes/model_is_wearing_size/options",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes",
+								"model_is_wearing_size",
+								"options"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset family and the second given code is the code of an existing asset attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "asset attribute option",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"small\",\n  \"labels\": {\n    \"en_US\": \"S\",\n    \"fr_FR\": \"S\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes/model_is_wearing_size/options/small",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes",
+								"model_is_wearing_size",
+								"options",
+								"small"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family and the second given code is the code of an existing attribute for this asset family that is a single or multiple options attribute"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bb95089a-c721-466f-82cb-c626620fc702",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec7c1fc2-7506-4e83-bb31-bc545f718061",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Asset media file (>= v3.2 and EE only)",
+			"item": [
+				{
+					"name": "asset media file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-media-files/c/f/9/e/cf9e5fad2fe33e326b6def8f4e433537eb7f6633_8z2q6xwlya4_test.jpg",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-media-files",
+								"c",
+								"f",
+								"9",
+								"e",
+								"cf9e5fad2fe33e326b6def8f4e433537eb7f6633_8z2q6xwlya4_test.jpg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "asset media file",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-media-files",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-media-files"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Asset (>= v3.2 and EE only)",
+			"item": [
+				{
+					"name": "asset",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/assets/allie_jean_model_picture",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"assets",
+								"allie_jean_model_picture"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family and the second given code is the code of an existing asset"
+					},
+					"response": []
+				},
+				{
+					"name": "assets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/assets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"assets"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset family"
+					},
+					"response": []
+				},
+				{
+					"name": "asset",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"allie_jean_model_picture\",\n    \"values\": {\n    \t\"media_link\": [\n\t      {\n\t        \"locale\": null,\n\t        \"channel\": null,\n\t        \"data\": \"allie_jean_model_picture.png\"\n\t      }\n\t    ],\n\t    \"model_is_wearing_size\": [\n\t      {\n\t        \"locale\": null,\n\t        \"channel\": null,\n\t        \"data\": \"small\"\n\t      }\n\t    ],\n\t    \"warning_mention\": [\n\t      {\n\t        \"locale\": \"fr_FR\",\n\t        \"channel\": null,\n\t        \"data\": \"Photo retouched.\"\n\t      }\n\t    ]\n   }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/assets/allie_jean_model_picture",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"assets",
+								"allie_jean_model_picture"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family"
+					},
+					"response": []
+				},
+				{
+					"name": "assets",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t{\n\t\t\"code\": \"allie_jean_model_picture\",\n\t\t\"values\": {\n\t\t\t\"media_link\": [\n\t\t      {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"allie_jean_model_picture.jpg\"\n\t\t      }\n\t\t    ],\n\t\t    \"model_is_wearing_size\": [\n\t\t      {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"small\"\n\t\t      }\n\t\t    ],\n\t\t    \"warning_mention\": [\n\t\t      {\n\t\t        \"locale\": \"en_US\",\n\t\t        \"channel\": null,\n\t\t        \"data\": \"Photo retouched.\"\n\t\t      }\n\t\t    ]\n\t   }\n\t},\n\t{\n\t\t\"code\": \"amy_socks_model_picture\",\n\t\t\"values\": {\n\t\t\t\"media_link\": [\n\t\t      {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"amy_socks_model_picture.jpg\"\n\t\t      }\n\t\t    ],\n\t\t    \"model_is_wearing_size\": [\n\t\t      {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"unique_size\"\n\t\t      }\n\t\t    ],\n\t\t    \"warning_mention\": [\n\t\t      {\n\t\t        \"locale\": \"en_US\",\n\t\t        \"channel\": null,\n\t\t        \"data\": \"Photo not retouched.\"\n\t\t      }\n\t\t    ]\n\t   }\n\t},\n\t{\n\t\t\"code\": \"alice_blouse_model_picture\",\n\t\t\"values\": {\n\t\t\t\"media_link\": [\n\t\t\t {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"alice_blouse_model_picture.jpg\"\n\t\t      }\n\t\t    ],\n\t\t    \"model_is_wearing_size\": [\n\t\t      {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"small\"\n\t\t      }\n\t\t    ],\n\t\t    \"warning_mention\": [\n\t\t      {\n\t\t        \"locale\": \"en_US\",\n\t\t        \"channel\": null,\n\t\t        \"data\": \"Photo retouched.\"\n\t\t      }\n\t\t    ]\n\t   }\n\t}\n]"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/assets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"assets"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset family"
+					},
+					"response": []
+				},
+				{
+					"name": "asset",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/assets/allie_jean_model_picture",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"assets",
+								"allie_jean_model_picture"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family and the second given code is the code of an existing asset"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentification by password",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(",
+							"    \"base64ClientIdSecret\", ",
+							"    btoa(postman.getEnvironmentVariable(\"clientId\") + ':' + postman.getEnvironmentVariable(\"secret\"))",
+							");",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);",
+							"postman.setEnvironmentVariable(\"refreshToken\", jsonData.refresh_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {{base64ClientIdSecret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"{{username}}\",\n    \"password\" : \"{{password}}\",\n    \"grant_type\": \"password\"\n }"
+				},
+				"url": {
+					"raw": "{{url}}/api/oauth/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"oauth",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authentification by refresh token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(",
+							"    \"base64ClientIdSecret\", ",
+							"    btoa(postman.getEnvironmentVariable(\"clientId\") + ':' + postman.getEnvironmentVariable(\"secret\"))",
+							");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);",
+							"postman.setEnvironmentVariable(\"refreshToken\", jsonData.refresh_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {{base64ClientIdSecret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh_token\" : \"{{refreshToken}}\",\n    \"grant_type\": \"refresh_token\"\n }"
+				},
+				"url": {
+					"raw": "{{url}}/api/oauth/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"oauth",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
