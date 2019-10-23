@@ -7,7 +7,7 @@ Now that your PIM and your DAM are [well prepared](pre-requisites.html) for thei
 That's the easy part. At Akeneo, we recommend using our API, whenever you want to connect your PIM to whatever third-party. So here you go! Use the API! :rocket: :wink:
 
 _But why?_  
-We will never repeat this enough: the API is the **most stable** way to connect to the PIM. You won't suffer from migrations from a PIM version to another, as we guarantee we won't introduce any BC breaks in our API.  
+We will never repeat it enough: the API is the **most stable** way to connect to the PIM. You won't suffer from migrations from a PIM version to another, as we guarantee we won't introduce any BC breaks in our API.  
 Also, and it is quite important to keep it in mind, the API is the **fastest way** to push and pull data from the PIM.
 
 ::: tips
@@ -19,7 +19,7 @@ Also, if you are a PHP developer, we provide a [PHP Client](https://github.com/a
 
 ## On the DAM side
 
-All DAMs are different. So you are going to need to get information on your DAM capabilities in terms of connectivity:
+All DAMs are different. So you'll to need to get information on your DAM capabilities in terms of connectivity:
 - Does it provide an API? Webhooks? A queuing system?
 - How does the API authentication work?
 - What are the API endpoints to pull assets from the DAM?
@@ -32,8 +32,8 @@ There are two main ways to connect a DAM and a PIM:
 
 Both have their advantages and drawbacks.
 
-For those who are not comfortable with those different ways to connect, here is a bit of literature to learn more about them.  
-For the other ones, you can skip this part. :wink:
+For those who are not comfortable with these different ways to connect, below is a bit of literature to learn more about them.  
+For the others, you can skip this part. :wink:
 
 ### API (REST/GraphQL)
 It is the most common way to connect with an external application.
@@ -41,7 +41,7 @@ It is the most common way to connect with an external application.
 ![API Schema](../../img/guides/dam_pim-connection_api.svg)
 
 APIs are great for initialization purposes. But their main drawback lays in the fact you'll need a polling mechanism in order to monitor if something changed in the application.    
-In other words, you'll need to regularly ask which were the last updated DAM assets, in order to synchronize them with the PIM.
+In other words, you'll need to regularly ask what were the last updated DAM assets, in order to synchronize them with the PIM.
 
 ### Queuing systems
 Queuing systems offer the possibility to get closer to real-time and are run asynchronously, protecting your connector from too many simultaneous requests.
@@ -53,8 +53,8 @@ Then the connector will consume these messages.
 
 ### Webhooks
 
-With webhooks, the DAM will send newly created assets and updated assets values to your connector.
-It allows you to have a kind of "real-time" asset synchronization between your DAM and your PIM.
+With webhooks, the DAM will send freshly created assets and updated assets values to your connector.
+It allows you to have some kind of "real-time" asset synchronization between your DAM and your PIM.
 
 ![Webhooks Schema](../../img/guides/dam_pim-connection_webhook.svg)
 
@@ -85,9 +85,9 @@ When you use an asynchronous method to connect, you will need to [synchronize yo
 
 You should avoid having too many calls to the PIM API and process only data you need. This is why the [DAM attribute selection](/pre-requisites.html#define-the-attributes-of-your-asset-families) is really important.
 
-For queuing systems and webhooks, you need to send all messages related to assets. Then, in the connector, filter them to keep only DAM assets that are related to products and that you want in the PIM (see [Pre-requisites](pre-requisites.html#which-dam-assets-are-products-related)).  
+For queuing systems and webhooks, you need to send all messages related to assets. Then, in the connector, filter them to keep only DAM assets that are related to products that you want in the PIM (see [Pre-requisites](pre-requisites.html#which-dam-assets-are-products-related)).  
 
-If you are using an API on the DAM, please make sure to only query the modified assets since the last successful synchronization, in order to avoid synchronizing twice the exact same asset.
+If you are using an API in the DAM, please make sure to only query the modified assets since the last successful synchronization, in order to avoid synchronizing twice the exact same asset.
 
 Also, some APIs have a rate limit so feel free to check what is the best for you.
 
@@ -104,7 +104,7 @@ If the memory is not stable (meaning it returns to a base after each batch call)
 
 One of the best ways to enhance your connector performance is to limit the number of I/O calls to your infrastructure (HTTP requests to the API, database queries, etc...).
 
-For example, it is better to patch assets using bulk requests than using many single patches. It will limit the number of API calls.  
+For example, it is better to patch assets using bulk requests than using multiple single patches. It will limit the number of API calls.  
 You can also implement a cache system for the PIM asset structure (asset family and asset attribute) to avoid using an API call each time you need it.
 
 Keep in mind that one of the most efficient ways to enhance your connector performance is to be able to scale (see above).
@@ -116,12 +116,12 @@ You should handle errors on DAM and PIM sides (unavailable server, authenticatio
 Here are the [client errors](/documentation/responses.html#client-errors) that you can have on the PIM side, with our PHP client.
 
 ::: info
-If you are [creating/updating multiple assets at once](/php-client/exception.html) the API will return a list of errors for each attribute that it couldn't create or update successfully.  
-You'll need to find a way to re-play those calls for the assets than have not been synchronized.
+If you are [creating/updating multiple assets at once](/php-client/exception.html), the API will return a list of errors for each attribute that it couldn't create or update successfully.  
+You'll need to find a way to run the calls again for the assets that have not been synchronized.
 :::
 
 ### Our skeleton
 
 As already stated in the [introduction](introduction.html#our-skeleton), we provide a skeleton from which you can take inspiration when writing your own connector.   
-It is fuelled with coding best practices, so do not hesitate to have a look at it.  
+It is fueled with coding best practices, so do not hesitate to have a look at it.  
 As a reminder, this skeleton is only supported in **best effort**.  
