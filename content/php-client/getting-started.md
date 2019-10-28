@@ -14,7 +14,8 @@ Below you will find which PHP client version to use depending on your PIM versio
 | v2.0  | v1.0 | March 2019 |
 | v2.1 - v2.2 | v2.0 | March 2019 |
 | v2.3 | v3.0 | December 2019 |
-| v3.0 - v3.1 - v3.2 | v4.0 | August 2020 |
+| v3.0 - v3.1 | v4.0 | August 2020 |
+| v3.2 | v5.0 | August 2020 |
 
 ::: info
 Note that our PHP client is backward compatible.

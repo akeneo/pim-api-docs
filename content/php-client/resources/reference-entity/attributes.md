@@ -33,7 +33,7 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
  * ]
  */
 $referenceEntityAttribute = $client->getReferenceEntityAttributeApi()->get('brand', 'description');
-̀ ``
+```
 
 #### Get the list of attributes of a given reference entity
 
