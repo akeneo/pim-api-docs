@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="840" height="419">
+  <defs>
+    <rect id="b" width="300" height="298" rx="10"/>
+    <filter id="a" width="119.3%" height="119.5%" x="-9%" y="-8.4%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="9"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0"/>
+    </filter>
+    <rect id="d" width="300" height="89" rx="10"/>
+    <filter id="c" width="119.3%" height="165.2%" x="-9%" y="-28.1%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="9"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#FFF" d="M0 0h840v418H0z"/>
+    <path fill="#F5F9F8" d="M0 0h840v872H0z"/>
+    <g transform="translate(480 60)">
+      <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+      <use fill="#FFF" xlink:href="#b"/>
+    </g>
+    <g transform="translate(500 80)">
+      <rect width="48" height="48" fill="#5D63AA" rx="5"/>
+      <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" d="M19.886 16C16.962 17.609 15 20.575 15 23.97c0 3.437 2.013 6.436 5 8.03m2-.5l3 2.5v-5l-3 2.5zM27.114 16C30.038 17.609 32 20.575 32 23.97c0 3.437-2.013 6.436-5 8.03m-2-15.5L22 19v-5l3 2.5z"/>
+    </g>
+    <path fill="#EEEEF7" d="M500 148h260v1H500z"/>
+    <text fill="#8F92C7" font-family="Lato-MediumItalic, Lato" font-size="16" font-style="italic" font-weight="500" transform="translate(480 60)">
+      <tspan x="83" y="66">Synchronization application</tspan>
+    </text>
+    <text fill="#3A438B" font-family="Lato-MediumItalic, Lato" font-size="24" font-style="italic" font-weight="500" transform="translate(480 60)">
+      <tspan x="83" y="46">Middleware</tspan>
+    </text>
+    <g transform="translate(500 163)">
+      <text fill="#3A438B" font-family="Lato-Medium, Lato" font-size="14" font-weight="400">
+        <tspan x="16" y="20.159">Get asset family to fetch</tspan>
+      </text>
+      <circle cx="5" cy="15" r="5" fill="#4EA7DD"/>
+    </g>
+    <g transform="translate(60 163)">
+      <use fill="#000" filter="url(#c)" xlink:href="#d"/>
+      <use fill="#FFF" xlink:href="#d"/>
+    </g>
+    <g transform="translate(80 183)">
+      <rect width="48" height="48" fill="#4EA7DD" rx="5"/>
+      <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" d="M15 16h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H15a1 1 0 0 1-1-1V17a1 1 0 0 1 1-1zm11 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-12.111 3.778l5-3.555 4.361 4.444 3.638-2.666 5 2.666M17 14h17.111v17.5"/>
+    </g>
+    <path fill="#FFF" d="M80 251h260v1H80z"/>
+    <text fill="#8F92C7" font-family="Lato-MediumItalic, Lato" font-size="16" font-style="italic" font-weight="500" transform="translate(60 163)">
+      <tspan x="83" y="66">Master of assets</tspan>
+    </text>
+    <text fill="#3A438B" font-family="Lato-MediumItalic, Lato" font-size="24" font-style="italic" font-weight="500" transform="translate(60 163)">
+      <tspan x="83" y="46">DAM</tspan>
+    </text>
+    <path stroke="#8F92C7" stroke-dasharray="2 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M504.902 178l.098 40H341c-16.569 0-30 13.431-30 30v28c0 16.569 13.431 30 30 30h164v34"/>
+    <g transform="translate(500 203)">
+      <text fill="#3A438B" font-family="Lato-Medium, Lato" font-size="14" font-weight="400">
+        <tspan x="16" y="20.159">Fetch assets</tspan>
+      </text>
+      <circle cx="5" cy="15" r="5" fill="#4EA7DD"/>
+    </g>
+    <g transform="translate(500 291)">
+      <text fill="#3A438B" font-family="Lato-Medium, Lato" font-size="14" font-weight="400">
+        <tspan x="16" y="20.159">DAM assets data</tspan>
+      </text>
+      <circle cx="5" cy="15" r="5" fill="#4EA7DD"/>
+    </g>
+    <g fill="#3A438B" font-family="Lato-Medium, Lato" font-size="12" font-weight="400">
+      <text transform="translate(516 231)">
+        <tspan x="0" y="12">- By asset family</tspan>
+      </text>
+    </g>
+    <g fill="#3A438B" font-family="Lato-Medium, Lato" font-size="12" font-weight="400">
+      <text transform="translate(516 251)">
+        <tspan x="0" y="12">- Since update</tspan>
+      </text>
+    </g>
+    <g fill="#8F92C7">
+      <path d="M491 311.879V301.12c0-1.171.888-2.121 1.984-2.121.527 0 1.031.223 1.403.621L499.42 305c.775.828.775 2.172 0 3l-5.032 5.379a1.895 1.895 0 0 1-2.806 0 2.198 2.198 0 0 1-.581-1.5z"/>
+    </g>
+  </g>
+</svg>

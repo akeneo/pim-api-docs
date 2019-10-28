@@ -4,6 +4,7 @@
 var gulp = require('gulp');
 var MarkdownIt = require('markdown-it');
 var mdToc = require('markdown-it-toc-and-anchor').default;
+var mdEmoji = require('markdown-it-emoji');
 var flatmap = require('gulp-flatmap');
 var insert = require('gulp-insert');
 var path = require('path');
@@ -70,6 +71,7 @@ gulp.task('documentation', ['clean-dist','less'], function () {
             '<'+tokens[idx].tag+' title-id="' + tokens[idx].attrs[0][1] + '">';
       };
 
+      md.use(mdEmoji);
       md.use(require('markdown-it-container'), 'danger', {
             validate: function(params) {
                 return params.trim().match(/^danger(.*)$/);

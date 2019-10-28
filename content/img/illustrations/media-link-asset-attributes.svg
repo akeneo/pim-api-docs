@@ -1,0 +1,194 @@
+<svg width="1039" height="561" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <rect id="b" width="316" height="436" rx="10"/>
+    <filter x="-8.5%" y="-5.7%" width="118.4%" height="113.3%" filterUnits="objectBoundingBox" id="a">
+      <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0" in="shadowBlurOuter1"/>
+    </filter>
+    <rect id="d" width="316" height="396" rx="10"/>
+    <filter x="-8.5%" y="-6.3%" width="118.4%" height="114.6%" filterUnits="objectBoundingBox" id="c">
+      <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0" in="shadowBlurOuter1"/>
+    </filter>
+    <rect id="f" width="316" height="436" rx="10"/>
+    <filter x="-8.5%" y="-5.7%" width="118.4%" height="113.3%" filterUnits="objectBoundingBox" id="e">
+      <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0" in="shadowBlurOuter1"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#F5F9F8" d="M0 0h1039v561H0z"/>
+    <g transform="translate(32 61)">
+      <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+      <use fill="#FFF" xlink:href="#b"/>
+    </g>
+    <g transform="translate(52 81)">
+      <rect fill="#E0F1FC" width="48" height="48" rx="5"/>
+      <path d="M20.816 23.646c-.521.521-1.384.504-1.926-.04l-3.932-3.93c-.542-.543-.56-1.405-.039-1.927l2.83-2.83c.522-.521 1.384-.503 1.927.04l3.93 3.93c.544.543.561 1.406.04 1.927m3.538 3.538c.521-.521 1.384-.504 1.926.04l3.932 3.93c.542.543.56 1.405.039 1.927l-2.83 2.83c-.522.521-1.384.503-1.927-.04l-3.93-3.93c-.544-.543-.561-1.406-.04-1.927m-3.302-6.132l5.896 5.896" stroke="#4EA7DD"/>
+    </g>
+    <path fill="#EADBED" d="M52 149h276v1H52z"/>
+    <text font-family="Lato-MediumItalic, Lato" font-size="13" font-style="italic" font-weight="500" fill="#8F92C7" transform="translate(32 61)">
+      <tspan x="83" y="63">Asset attribute</tspan>
+    </text>
+    <text font-family="Lato-MediumItalic, Lato" font-size="24" font-style="italic" font-weight="500" fill="#3A438B" transform="translate(32 61)">
+      <tspan x="83" y="46">Media link</tspan>
+    </text>
+    <g transform="translate(73 157)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">Media link attribute type</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+    </g>
+    <g transform="translate(73 201)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">Same values for all locales</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+    </g>
+    <g transform="translate(73 245)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">Same values for all channels</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+    </g>
+    <g transform="translate(73 289)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">Required for completeness</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+    </g>
+    <g transform="translate(73 333)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">Contains media of image type</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+    </g>
+    <g transform="translate(73 377)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">Prefix with &quot;https://my-dam.com/&quot;</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+    </g>
+    <g transform="translate(73 421)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">Suffix with &quot;?height=630&amp;width=485&quot;</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+    </g>
+    <g>
+      <g transform="translate(362 61)">
+        <use fill="#000" filter="url(#c)" xlink:href="#d"/>
+        <use fill="#FFF" xlink:href="#d"/>
+      </g>
+      <g transform="translate(382 81)">
+        <rect fill="#E0F1FC" width="48" height="48" rx="5"/>
+        <path d="M20.816 23.646c-.521.521-1.384.504-1.926-.04l-3.932-3.93c-.542-.543-.56-1.405-.039-1.927l2.83-2.83c.522-.521 1.384-.503 1.927.04l3.93 3.93c.544.543.561 1.406.04 1.927m3.538 3.538c.521-.521 1.384-.504 1.926.04l3.932 3.93c.542.543.56 1.405.039 1.927l-2.83 2.83c-.522.521-1.384.503-1.927-.04l-3.93-3.93c-.544-.543-.561-1.406-.04-1.927m-3.302-6.132l5.896 5.896" stroke="#4EA7DD"/>
+      </g>
+      <path fill="#EADBED" d="M382 149h276v1H382z"/>
+      <text font-family="Lato-MediumItalic, Lato" font-size="13" font-style="italic" font-weight="500" fill="#8F92C7" transform="translate(362 61)">
+        <tspan x="83" y="63">Asset attribute</tspan>
+      </text>
+      <text font-family="Lato-MediumItalic, Lato" font-size="24" font-style="italic" font-weight="500" fill="#3A438B" transform="translate(362 61)">
+        <tspan x="83" y="46">Video link</tspan>
+      </text>
+      <g transform="translate(403 157)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Media link attribute type</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+      <g transform="translate(403 201)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">One value per locale</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+      <g transform="translate(403 245)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Same values for all channels</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+      <g transform="translate(403 289)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Required for completeness</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+      <g transform="translate(403 333)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Contains media of video type</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+      <g transform="translate(403 377)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Prefix with &quot;https://my-dam.com/&quot;</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+    </g>
+    <g>
+      <g transform="translate(692 61)">
+        <use fill="#000" filter="url(#e)" xlink:href="#f"/>
+        <use fill="#FFF" xlink:href="#f"/>
+      </g>
+      <g transform="translate(712 81)">
+        <rect fill="#E0F1FC" width="48" height="48" rx="5"/>
+        <path d="M20.816 23.646c-.521.521-1.384.504-1.926-.04l-3.932-3.93c-.542-.543-.56-1.405-.039-1.927l2.83-2.83c.522-.521 1.384-.503 1.927.04l3.93 3.93c.544.543.561 1.406.04 1.927m3.538 3.538c.521-.521 1.384-.504 1.926.04l3.932 3.93c.542.543.56 1.405.039 1.927l-2.83 2.83c-.522.521-1.384.503-1.927-.04l-3.93-3.93c-.544-.543-.561-1.406-.04-1.927m-3.302-6.132l5.896 5.896" stroke="#4EA7DD"/>
+      </g>
+      <path fill="#EADBED" d="M712 149h276v1H712z"/>
+      <text font-family="Lato-MediumItalic, Lato" font-size="13" font-style="italic" font-weight="500" fill="#8F92C7" transform="translate(692 61)">
+        <tspan x="83" y="63">Asset attribute</tspan>
+      </text>
+      <text font-family="Lato-MediumItalic, Lato" font-size="24" font-style="italic" font-weight="500" fill="#3A438B" transform="translate(692 61)">
+        <tspan x="83" y="46">Thumbnail link</tspan>
+      </text>
+      <g transform="translate(733 157)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Media link attribute type</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+      <g transform="translate(733 201)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Same values for all locales</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+      <g transform="translate(733 245)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Same values for all channels</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+      <g transform="translate(733 289)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Required for completeness</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+      <g transform="translate(733 333)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Contains media of image type</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+      <g transform="translate(733 377)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Prefix with &quot;https://my-dam.com/&quot;</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+      <g transform="translate(733 421)">
+        <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+          <tspan x="16" y="27">Suffix with &quot;?height=50&amp;width=75&quot;</tspan>
+        </text>
+        <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
+      </g>
+    </g>
+  </g>
+</svg>

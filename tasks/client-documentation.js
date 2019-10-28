@@ -4,6 +4,7 @@
 var gulp = require('gulp');
 var MarkdownIt = require('markdown-it');
 var mdToc = require('markdown-it-toc-and-anchor').default;
+var mdEmoji = require('markdown-it-emoji');
 var flatmap = require('gulp-flatmap');
 var insert = require('gulp-insert');
 var path = require('path');
@@ -123,6 +124,7 @@ gulp.task('client-documentation', ['clean-dist','less', 'create-resources-md'], 
             '<'+tokens[idx].tag+' title-id="' + tokens[idx].attrs[0][1] + '">';
     };
 
+    md.use(mdEmoji);
     md.use(require('markdown-it-container'), 'danger', {
         validate: function(params) {
             return params.trim().match(/^danger(.*)$/);
@@ -145,6 +147,14 @@ gulp.task('client-documentation', ['clean-dist','less', 'create-resources-md'], 
         },
         render: function (tokens, idx) {
             return (tokens[idx].nesting === 1) ? '<div class="alert alert-info">' : '</div>\n';
+        }
+    })
+    .use(require('markdown-it-container'), 'tips', {
+        validate: function(params) {
+           return params.trim().match(/^tips(.*)$/);
+        },
+        render: function (tokens, idx) {
+            return (tokens[idx].nesting === 1) ? '<div class="alert alert-tips">' : '</div>\n';
         }
     });
 

@@ -1,0 +1,125 @@
+type: array
+items:
+  $ref: ../definitions/asset.yaml
+example: [
+  {
+    "code": "sku_54628_picture1",
+    "values": {
+      "media_preview": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "sku_54628_picture1.jpg"
+        }
+      ],
+      "model_wears_size": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "s"
+        }
+      ],
+      "photographer": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "ben_levy"
+        }
+      ],
+      "main_colors": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": ["red","purple"]
+        }
+      ],
+      "end_of_use_date": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "02/03/2021"
+        }
+      ]
+    }
+  },
+  {
+    "code": "sku_54628_picture2",
+    "values": {
+      "media_preview": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "sku_54628_picture2.jpg"
+        }
+      ],
+      "model_wears_size": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "s"
+        }
+      ],
+      "photographer": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "ben_levy"
+        }
+      ],
+      "main_colors": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": ["blue","white"]
+        }
+      ],
+      "end_of_use_date": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "02/03/2021"
+        }
+      ]
+    }
+  },
+  {
+    "code": "sku_54628_picture3",
+    "values": {
+      "media_preview": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "sku_54628_picture3.jpg"
+        }
+      ],
+      "model_wears_size": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "s"
+        }
+      ],
+      "photographer": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "ben_levy"
+        }
+      ],
+      "main_colors": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": ["purple"]
+        }
+      ],
+      "end_of_use_date": [
+        {
+          "locale": null,
+          "channel": null,
+          "data": "02/03/2021"
+        }
+      ]
+    }
+  }
+]

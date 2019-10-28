@@ -1,0 +1,66 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Code of the asset
+    x-immutable: true
+  values:
+    type: object
+    description: "Asset attributes values, see the <a href='/documentation/asset-manager.html#focus-on-the-asset-values'>Focus on the asset values</a> section for more details."
+    x-validation-rules: Validation rules detailed in Asset attribute values section
+    properties:
+      attributeCode:
+        type: array
+        items:
+          type: object
+          properties:
+            channel:
+              type: string
+              description: Channel code of the asset attribute value
+            locale:
+              type: string
+              description: Locale code of the asset attribute value
+            data:
+              type: object
+              description: Asset attribute value
+example: {
+  "code": "sku_54628_picture1",
+  "values": {
+    "media_preview": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "sku_54628_picture1.jpg"
+      }
+    ],
+    "model_wears_size": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "s"
+      }
+    ],
+    "photographer": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "ben_levy"
+      }
+    ],
+    "main_colors": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": ["red","purple"]
+      }
+    ],
+    "end_of_use_date": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "02/03/2021"
+      }
+    ]
+  }
+}
