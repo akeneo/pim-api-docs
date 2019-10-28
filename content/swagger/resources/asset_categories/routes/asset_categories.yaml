@@ -28,7 +28,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/AssetCategoryList'
@@ -49,7 +49,7 @@ get:
         },
         current_page: 2,
         _embedded: {
-          _items: [
+          items: [
             {
               "_links": {
                 "self": {
