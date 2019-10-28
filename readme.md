@@ -37,6 +37,23 @@ npm serve
 The API documentation site is then available on `localhost:8000`.
 Files located in the content and src directories are watched for changes, so when developing you do not need to launch any other task.
 
+### Run with Docker
+
+```bash
+make serve
+```
+
+### Deploy with Docker
+
+Prerequisites are:
+- Having your SSH key deployed on the server (see Ansible configuration).
+- _(optional)_ Having a `~/.ssh/config` with an Host alias to the server.
+- Having a `config.json` with the deploy configuration defined for the targeted ENV (see `config.json.dist`).
+
+```bash
+make deploy-staging
+```
+
 ## Swagger
 
 As our YAML Swagger spec uses references and links, it is considered as non-valid.

@@ -1,0 +1,96 @@
+AssetFamilyList:
+  type: object
+  allOf:
+    - $ref: '#/definitions/AssetFamilyItemList'
+    - $ref: ./resources/asset_families/definitions/asset_family.yaml
+
+AssetFamilyItemList:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the resource
+
+AssetAttributeList:
+  type: array
+  items: 
+    $ref: ./resources/asset_attributes/definitions/asset_attribute.yaml
+    
+AssetAttributeOptionList:
+  type: array
+  items:
+    $ref: ./resources/asset_attributes/definitions/asset_attribute_option.yaml
+
+AssetList:
+  type: object
+  allOf:
+    - $ref: '#/definitions/AssetItemList'
+    - $ref: ./resources/assets/definitions/asset.yaml
+
+AssetItemList:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the resource
+             
+SearchAfterPagination:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the current page of resources
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the first page of resources
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the next page of resources
+
+Error:
+  type: object
+  properties:
+    code:
+      type: integer
+      description: HTTP status code
+    message:
+      type: string
+      description: Message explaining the error
+ErrorByObject:
+  type: array
+  items:
+    type: object
+    properties:
+      code:
+        type: string
+        description: Resource code
+      status_code:
+        type: integer
+        description: HTTP status code, see <a href="/documentation/responses.html#client-errors">Client errors</a> to understand the meaning of each code
+      message:
+        type: string
+        description: Message explaining the error

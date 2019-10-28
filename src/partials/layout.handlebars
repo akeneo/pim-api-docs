@@ -31,14 +31,8 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown{{#if active_getting_started}} active{{/if}}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Getting started <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-title">Getting started</li>
-                        <li><a href="/getting-started-postman-collection.html">Play around with Postman</a></li>
-                        <li><a href="/getting-started.html">Make my first request</a></li>
-                        <li><a href="/getting-started-admin.html">Manage my API connections</a></li>
-                    </ul>
+                <li class="dropdown{{#if active_guides}} active{{/if}}">
+                    <a href="/guides-index.html">Guides</a>
                 </li>
                 <li class="dropdown{{#if active_documentation}} active{{/if}}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
@@ -48,7 +42,9 @@
                         <li><a href="/php-client/introduction.html">PHP client</a></li>
                     </ul>
                 </li>
-                <li class="{{#if active_api_reference}}active{{/if}}"><a href="/api-reference-index.html">API reference</a></li>
+                <li class="{{#if active_api_reference}}active{{/if}}">
+                    <a href="/api-reference-index.html">API reference</a>
+                </li>
             </ul>
             <form class="navbar-form navbar-right">
                 <div class="form-group form-search">

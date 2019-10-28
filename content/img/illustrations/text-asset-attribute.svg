@@ -1,0 +1,65 @@
+<svg width="405" height="518" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <rect id="b" width="306" height="397" rx="10"/>
+    <filter x="-8.8%" y="-6.3%" width="119%" height="114.6%" filterUnits="objectBoundingBox" id="a">
+      <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0" in="shadowBlurOuter1"/>
+    </filter>
+    <path d="M15 14l-3.522-8L8 14h7zM2 22v-.537c.744-.087 1.303-.377 1.675-.87.372-.493 1.01-1.832 1.915-4.017L11.625 2h.566l7.208 16.838c.48 1.122.865 1.816 1.152 2.082.288.265.77.447 1.449.543V22h-7.364v-.537c.848-.077 1.395-.171 1.64-.282.245-.112.367-.385.367-.82 0-.145-.047-.401-.141-.769a8.51 8.51 0 0 0-.396-1.16l-1.201-2.857H7.329c-.754 1.944-1.204 3.13-1.35 3.56-.146.43-.22.772-.22 1.023 0 .503.199.85.594 1.044.245.116.707.203 1.386.261V22H2z" id="c"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#F5F9F8" d="M0 0h405v518H0z"/>
+    <g transform="translate(47 59)">
+      <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+      <use fill="#FFF" xlink:href="#b"/>
+    </g>
+    <g transform="translate(67 79)">
+      <rect fill="#E0F1FC" width="48" height="48" rx="5"/>
+      <use stroke="#4EA7DD" xlink:href="#c" transform="translate(12 12)"/>
+    </g>
+    <path fill="#EADBED" d="M67 147h266v1H67z"/>
+    <text font-family="Lato-MediumItalic, Lato" font-size="13" font-style="italic" font-weight="500" fill="#8F92C7" transform="translate(47 59)">
+      <tspan x="83" y="63">Asset attribute</tspan>
+    </text>
+    <text font-family="Lato-MediumItalic, Lato" font-size="24" font-style="italic" font-weight="500" fill="#3A438B" transform="translate(47 59)">
+      <tspan x="83" y="46">Warning mention</tspan>
+    </text>
+    <g transform="translate(82 158)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">Text attribute type</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="3.877" cy="22" r="4"/>
+    </g>
+    <g transform="translate(82 202)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">One value per locale</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="3.877" cy="22" r="4"/>
+    </g>
+    <g transform="translate(82 246)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">Same values for all channels</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="3.877" cy="22" r="4"/>
+    </g>
+    <g transform="translate(82 290)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">Not required for completeness</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="3.877" cy="22" r="4"/>
+    </g>
+    <g transform="translate(82 334)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">Contains simple text</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="3.877" cy="22" r="4"/>
+    </g>
+    <g transform="translate(82 375)">
+      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
+        <tspan x="16" y="27">With maximum 50 characters</tspan>
+      </text>
+      <circle fill="#4EA7DD" cx="3.877" cy="22" r="4"/>
+    </g>
+  </g>
+</svg>

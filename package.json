@@ -34,6 +34,7 @@
     "markdown-it": "8.2.2",
     "markdown-it-container": "2.0.0",
     "markdown-it-toc-and-anchor": "4.1.1",
+    "markdown-it-emoji": "1.4.0",
     "merge-stream": "1.0.1",
     "minimist": "1.2.0",
     "require-dir": "^0.3.1"

@@ -4,6 +4,7 @@
 var gulp = require('gulp');
 var MarkdownIt = require('markdown-it');
 var mdToc = require('markdown-it-toc-and-anchor').default;
+var mdEmoji = require('markdown-it-emoji');
 var flatmap = require('gulp-flatmap');
 var insert = require('gulp-insert');
 var path = require('path');
@@ -83,8 +84,19 @@ gulp.task('create-reference-entity-md', function () {
         .pipe(insert.prepend('## Reference entities\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
-gulp.task('create-resources-md', ['create-products-md','create-catalog-structure-md', 'create-target-market-settings-md', 'create-PAM-md', 'create-reference-entity-md'], function () {
-    return gulp.src(['tmp/php-client-resources/products.md', 'tmp/php-client-resources/catalog-structure.md', 'tmp/php-client-resources/target-market-settings.md', 'tmp/php-client-resources/PAM.md', 'tmp/php-client-resources/reference-entity.md'])
+gulp.task('create-asset-manager-md', function () {
+    return gulp.src(['content/php-client/resources/asset-manager/assets.md', 'content/php-client/resources/asset-manager/*.md'])
+        .pipe(concat('asset-manager.md'))
+        .pipe(insert.prepend('## Asset Manager\n'))
+        .pipe(gulp.dest('tmp/php-client-resources/'));
+});
+gulp.task('create-resources-md', ['create-products-md','create-catalog-structure-md', 'create-target-market-settings-md', 'create-PAM-md', 'create-reference-entity-md', 'create-asset-manager-md'], function () {
+    return gulp.src(['tmp/php-client-resources/products.md',
+                    'tmp/php-client-resources/catalog-structure.md',
+                    'tmp/php-client-resources/target-market-settings.md',
+                    'tmp/php-client-resources/PAM.md',
+                    'tmp/php-client-resources/reference-entity.md',
+                    'tmp/php-client-resources/asset-manager.md'])
         .pipe(concat('resources.md'))
         .pipe(insert.prepend('# Resources\n'))
         .pipe(gulp.dest('tmp/php-client'));
@@ -123,6 +135,7 @@ gulp.task('client-documentation', ['clean-dist','less', 'create-resources-md'], 
             '<'+tokens[idx].tag+' title-id="' + tokens[idx].attrs[0][1] + '">';
     };
 
+    md.use(mdEmoji);
     md.use(require('markdown-it-container'), 'danger', {
         validate: function(params) {
             return params.trim().match(/^danger(.*)$/);
@@ -145,6 +158,14 @@ gulp.task('client-documentation', ['clean-dist','less', 'create-resources-md'], 
         },
         render: function (tokens, idx) {
             return (tokens[idx].nesting === 1) ? '<div class="alert alert-info">' : '</div>\n';
+        }
+    })
+    .use(require('markdown-it-container'), 'tips', {
+        validate: function(params) {
+           return params.trim().match(/^tips(.*)$/);
+        },
+        render: function (tokens, idx) {
+            return (tokens[idx].nesting === 1) ? '<div class="alert alert-tips">' : '</div>\n';
         }
     });
 
