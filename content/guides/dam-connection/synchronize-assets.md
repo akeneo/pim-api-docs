@@ -319,5 +319,5 @@ In this case, you should first call the [patch attribute options](/api-reference
 
 ![Push assets with options](../../img/guides/dam_pim-asset-push.svg)
 
-Again, don't hesitate to take a look at our [skeleton](https://github.com/akeneo/dam-connector/blob/master/src/Infrastructure/Pim/AttributeOptionsApi.php) to see it in action. :wink:
+Again, don't hesitate to take a look at our [skeleton](https://github.com/akeneo/dam-connector/blob/master/src/Infrastructure/Pim/AttributeOptionsApi.php) to see it all in action. :wink:
 
