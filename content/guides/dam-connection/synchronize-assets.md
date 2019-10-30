@@ -269,7 +269,7 @@ Here are the different steps to follow:
 1. The `warning_mention` DAM Property is mapped to the `disclaimer` PIM attribute.
 1. Fetching the information for the `disclaimer` PIM attribute will tell you that:
     - This attribute is a **text** attribute. So the `data` field of its asset attribute value expects a string.
-    - This attribute is **localizable**. So you need to know for which PIM locale this information was enriched. Here, in our example, we consider that the DAM does not handle localization and every text properties within the DAM are enriched in English. So we directly write this as is, in the connector: the corresponding locale for localizable attributes will be "en_US".
+    - This attribute is **localizable**. So you need to know for which PIM locale this information was enriched. Here, in our example, we consider that the DAM does not handle localization and every text property within the DAM is enriched in English. So we specify it, in the connector: the corresponding locale for localizable attributes will be "en_US".
 1. In the end, you'll generate this asset value:
     ```json
     "disclaimer": [
