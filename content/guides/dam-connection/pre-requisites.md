@@ -46,7 +46,7 @@ Let's illustrate that with an example.
 In this example, you can see that in the `Model picture` asset family we have:
 - a `Code` and a `Label` that are created automatically when you create an asset family,
 - a `DAM url` [media link attribute](/documentation/asset-manager-beta.html#the-media-link-attribute). This attribute is instrumental in the DAM-PIM connection. You can name it however you like. This is the attribute you will use to store the url of the source DAM file,
-- a `Tags` attribute whose values will be supplied by the DAM. Indeed, there is also a `Tags` property on the DAM side and the enrichment of this property is done exclusively there. As we decided to also keep this information on the PIM side (for filtering purposes for example) we need it to send it over. This explains why this `Tags` attribute is in the asset family,
+- a `Tags` attribute whose values will be supplied by the DAM. Indeed, there is also a `Tags` property on the DAM side and the enrichment of this property is done exclusively there. As we decided to also keep this information on the PIM side (for filtering purposes for example) it needs to be sent over. This explains why this `Tags` attribute is in the asset family,
 - a `Product reference` attribute whose value will be the product identifier to which the asset refers. In this example, this information is also supplied by the DAM as it appears in the DAM asset filename and can easily be extracted,
 - two attributes `Model is wearing size` and `Warning mention` that only appear on the PIM side. These attributes will be enriched by marketers directly in the PIM. That's why they do not appear on the DAM side.
 
