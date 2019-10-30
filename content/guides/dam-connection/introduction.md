@@ -66,7 +66,7 @@ It is written in our favorite language, aka PHP.
 You'll find it [here](https://github.com/akeneo/dam-connector). Enjoy!
 
 ::: warning
-This connector skeleton is provided as is. It is only supported in **best effort** mode, either you are an Enterprise or Community user.
+This connector skeleton is provided as-is. It is only supported in **best effort** mode, whether you are an Enterprise or a Community user.
 :::
 
 ::: warning
