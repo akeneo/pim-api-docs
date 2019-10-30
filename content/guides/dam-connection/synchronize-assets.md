@@ -179,7 +179,7 @@ Want to dig deeper? You'll find an example of such a file in our [skeleton](http
 :::
 
 ::: warning
-Don't forget to deal with errors, if the configuration file doesn't match the structure of the DAM or PIM asset.
+Don't forget to handle any error that may appear, if the configuration file doesn't match the structure of the DAM or PIM asset.
 :::
 
 ### Generate asset attribute values
