@@ -49,7 +49,7 @@ To properly connect your DAM to your PIM, as illustrated above, here are the ste
 1. First, you're going to need to understand how the Asset Manager works. Carefully read about all its concepts, right [here](/documentation/asset-manager.html), and you'll become an Asset Manager master! On a more serious note, these concepts are key to create a great connector that will perfectly fit with our PIM. 😉
 2. Then, we strongly encourage you to read the [glossary](glossary.html). It will help you grasp the basic notions we are going to use throughout this guide. It's worth the read - you'll see it's pretty short.
 3. Before beginning to write any code, you'll need to study carefully your DAM and its asset modelisation. It's a crucial step, don't miss it. You'll find more about how to successfully initialize your Asset Manager families that will match the assets you're going to receive from the DAM, in the [Structure your DAM and PIM](pre-requisites.html) section.
-4. For this step, you are going to choose your connector architecture and technical stack. Check out this [section](technical-stack.html) to learn more. You'll see it also provides you with pro tips regarding the scalability or the error management and so on...
+4. For this step, you are going to choose your connector's architecture and technical stack. Check out this [section](technical-stack.html) to find out more. You'll see it also provides pro tips regarding scalability, error management and so on...
 5. Now, hands on your keyboard, this is the part where you start coding. Build the DAM-PIM connector by following the steps described in the [Synchronize assets](synchronize-assets.html) section.
 
 And... that's it! :tada: You now have a functional DAM-PIM connector.
