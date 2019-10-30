@@ -184,7 +184,7 @@ Don't forget to handle any error that may appear, if the configuration file does
 
 ### Generate asset attribute values
 
-As of now, you know how to map properties and attributes. The next step is to generate your asset attribute values for your PIM assets.
+You now know how to map properties and attributes. The next step is to generate your asset attribute values for your PIM assets.
 
 An asset attribute value in the PIM has the following JSON format:
 ```json
