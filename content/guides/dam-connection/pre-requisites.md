@@ -50,7 +50,7 @@ In this example, you can see that in the `Model picture` asset family we have:
 - a `Product reference` attribute whose value will be the product identifier to which the asset refers. In this example, this information is also supplied by the DAM as it appears in the DAM asset filename and can easily be extracted,
 - two attributes: `Model is wearing size` and `Warning mention` that only appear on the PIM side. Those attributes will be enriched by marketers directly in the PIM. That's why they do not appear on the DAM side.
 
-Still in this example, we decided that the `Photographer` property adds no value to the PIM side, so we didn't want this information to move from the DAM to the PIM. As a result, this information won't appear in the asset family, no attribute needs to be created.
+Still in this example, we decided that the `Photographer` property adds no value to the PIM side, so we didn't want this information to move from the DAM to the PIM. As a result, this information won't appear in the asset family, no attribute is to be created.
 
 ::: warning
 Do not create asset attributes for all your DAM properties. Some of them will be totally useless on the PIM side. We don't want to drown the PIM asset with useless information.  
