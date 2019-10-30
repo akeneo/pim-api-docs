@@ -246,7 +246,7 @@ Here are the different steps to follow:
 1. Fetching the information for the `main_colors` PIM attribute will tell you that:
     - This attribute is a **multiple options** attribute. Therefore the `data` field of its asset attribute value expects an array filled with `main_colors` option codes.
     - This attribute is **not localizable**. So you should put `null` in the `locale` field.
-1. Then you have to transform the DAM asset value, which is a comma-separated list of colors, into an array of color options for the PIM asset value. _Nota: Be sure to first create your color options in the PIM, if they don't already exist. See [here](#dealing-with-options), for more information._
+1. Then you have to transform the DAM asset value, which is a comma-separated list of colors, into an array of color options for the PIM asset value. _Nota: Be sure you first create your color options in the PIM, if they don't already exist. See [here](#dealing-with-options), for more information._
 1. Finally, you can generate the asset value expected by the API:
     ```json
     "main_colors": [
