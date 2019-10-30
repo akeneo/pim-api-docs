@@ -37,7 +37,7 @@ This step is the most crucial one. You will need to put good thoughts into the c
 
 Once you have chosen your asset families, you will define the set of attributes that structures each of them.
 
-In the case of a DAM-PIM connection, in your asset family structure, you will have a mix of attributes coming from your DAM and some others that will only be on the PIM side.
+In the case of a DAM-PIM connection, in your asset family structure, you will have a mix of attributes coming from your DAM and others that will only be on the PIM side.
 
 Let's illustrate that with an example.
 
