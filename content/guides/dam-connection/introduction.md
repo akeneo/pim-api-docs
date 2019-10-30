@@ -37,7 +37,7 @@ Want to dig deeper into the Asset Manager? Take a dive into its concepts right [
 Now, let's take a closer look. 
 
 You already have a DAM installed and a lot of your assets are already stored in it. Some of those assets are product assets: product user guides, product images, product video shootings,...  
-You also have at your disposal an Akeneo PIM. And your goal is quite simple. You want the product assets located in your DAM to be sent to your PIM, so that you can have all the visuals, documentation and product shootings of your product along with your product information in one single product sheet.
+You are also using an Akeneo PIM. And your goal is quite simple. You want the product assets located in your DAM to be sent to your PIM, so that you can have all the visuals, documentation and product shootings of your product along with your product information in one single product sheet.
 
 Let me show you how!
 
