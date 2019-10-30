@@ -118,7 +118,7 @@ Those are just suggestions. Don't hesitate to find the one that will best suit y
 
 Some of your DAM product assets will be localized. For example, you can have several versions of the same product user guides: one in French and one in English.  
 
-For these assets, you'll need to find a way to identify which locale they are referring to.
+For those assets, you'll need to find a way to identify which locale they are referring to.
 
 Depending on your DAM capabilities and also, on how your DAM assets are already modelized, there are several ways to add this information within your DAM assets. Here is a list of suggestions:
 - Your DAM supports dynamic properties/attributes defined for each asset. You could create a new property/attribute named `Locale` whose options will be the code of the activated PIM locale. Then, you enrich this property/attribute with the right locale on each of your localized DAM product assets.
