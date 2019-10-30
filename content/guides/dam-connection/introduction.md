@@ -17,7 +17,7 @@ If you want to know more about the Asset Manager, don't hesitate to take a look 
 
 ### Macro overview
 
-As an image is worth more than a thousand words, here's a small diagram to help you get the point of this guide.
+As an image is worth a thousand words, here's a small diagram to help you get the point of this guide.
 
 ![Macro overview of the DAM connection](../../img/guides/dam-connection-macro.svg)
 
