@@ -33,7 +33,7 @@ Depending on your DAM capabilities, there are multiple ways to do it (API calls,
 
 See the [Define your technical stack](technical-stack.html) part of this documentation to have an idea of the different possibilities and their main constraints.
 
-To collect these assets, first you'll need to fetch the codes of the PIM asset families that you defined earlier in the [PIM structuration](pre-requisites.html#in-the-pim) step. To do so, you can either:
+To collect those assets, first, you'll need to fetch the codes of the PIM asset families that you defined earlier in the [PIM structuration](pre-requisites.html#in-the-pim) step. To do so, you can either:
 - call the PIM API [asset family GET endpoint](/api-reference-asset-manager.html#get_asset_families),
 - write directly the codes of your asset families in a configuration file, the way we did in our [skeleton](https://github.com/akeneo/dam-connector/blob/master/config/resources/dam-example/mapping.yaml).
 
