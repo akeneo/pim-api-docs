@@ -79,7 +79,7 @@ There are 4 things you'll need to take into consideration.
 
 In your DAM, all kinds of assets are stored: assets for marketing purposes, assets for internal purposes, assets for your products...  
 In our case, the only relevant ones are the DAM assets for products. They are what we call _product assets_.  
-As they are the only ones we are going to send to your PIM, we need a way to identify these product assets inside your DAM.
+As they are the only ones we are going to send to your PIM, we need a way to identify those product assets inside your DAM.
 
 ::: warning
 Do not skip this step. It's really important as you don't want to see all your DAM assets into your PIM. You only want to see the product assets, and that's it! :wink:
