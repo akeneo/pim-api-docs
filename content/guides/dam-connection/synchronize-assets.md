@@ -21,7 +21,7 @@ Below is the general diagram of what your connector will actually do under the h
 It can be summed up in 3 steps:
 - First, collect your DAM assets,
 - Then, turn them into PIM assets,
-- To finish, create these PIM assets in your PIM.
+- To finish, create those PIM assets in your PIM.
 
 Tada! :tada:
 
