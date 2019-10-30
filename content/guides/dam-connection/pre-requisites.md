@@ -139,7 +139,7 @@ So don't bother if you can't have this information on the DAM side: marketers wi
 
 Depending on your DAM capabilities and also on how your DAM assets are already modelized, there are several ways to add this information within your DAM assets. Here is a list of suggestions:
 - In the filename of your DAM product assets, you could add the SKU/identifier of the product they refer to. For example: `allie-jean_care-instructions_fr.png`, `allie-jean` being the SKU of an existing PIM product.
-- Your DAM supports dynamic properties/attributes defined on each asset. You could create a new property/attribute named `sku` or `product_ref`. Then, you enrich this property/attribute with the right identifier on each of your DAM product assets. These identifiers must match the ones used for your products in your PIM.
+- Your DAM supports dynamic properties/attributes defined on each asset. You could create a new property/attribute named `sku` or `product_ref`. Then, you enrich this property/attribute with the right identifier on each of your DAM product assets. Those identifiers must match the ones used for your products in your PIM.
 
 ::: tips
 Those are just suggestions. Don't hesitate to find the one that will best suit you and your DAM users.
