@@ -76,7 +76,7 @@ As we are in a more technical section, let's show some code! Below you'll find a
 ]
 ```
 
-After this transformation step, here is how the JSON of the corresponding PIM asset will look like:
+After this transformation step, here is what the JSON of the corresponding PIM asset will look like:
 
 `PATCH /api/rest/v1/asset-families/model_pictures/assets`
 ```json
