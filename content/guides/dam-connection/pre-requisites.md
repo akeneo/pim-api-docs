@@ -10,7 +10,7 @@ Everything begins with the creation of your asset families. You know, this reall
 Still not familiar with the asset family concept? You may need to read [this](/documentation/asset-manager-beta.html#the-asset-family) carefully.
 :::
 
-To create these asset families, you'll need the help of your PIM and DAM users. By analyzing together the assets already stored in your DAM, you'll find the perfect set of asset families with the right attribute structure to optimize your asset representation in the PIM. 
+To create those asset families, you'll need the help of your PIM and DAM users. By analyzing together the assets already stored in your DAM, you'll find the perfect set of asset families with the right attribute structure to optimize your asset representation in the PIM. 
 
 Here are some tips to help you with this task.
 
