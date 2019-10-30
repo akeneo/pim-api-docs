@@ -30,7 +30,7 @@ To help you decide, you can take into account the following statements:
 - The [product link rule](/documentation/asset-manager-beta.html#focus-on-the-product-link-rule) is defined at the asset family level, so make sure that all the assets belonging to the same family are linked to your products the same way.
 
 ::: tips
-This step is the most crucial one. You will need to put good thoughts on the creation of your asset families. As a result, it's a step that can hardly be automated, as it really depends on your users' needs.
+This step is the most crucial one. You will need to put good thoughts into the creation of your asset families. As a result, it's a step that can hardly be automated, as it really depends on your users' needs.
 :::
 
 ### Define the attributes of your asset families
