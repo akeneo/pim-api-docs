@@ -39,7 +39,7 @@ To collect these assets, first you'll need to fetch the codes of the PIM asset f
 
 Thanks to the asset family codes, now, you'll be able to ask the DAM only for the assets that belong to those families. This is thanks to the upstream work you operated on the DAM side by [adding the asset family information on each of your assets](pre-requisites.html#which-asset-family-your-dam-product-assets-belong-to). It will avoid requesting the entire DAM data, which would be really useless and counterproductive. :wink:
 
-Don't forget that, when collecting your DAM assets, you should also filter them to only request **product** assets, thanks to the identification of product assets you've done earlier [here](pre-requisites.html#which-dam-assets-are-products-related).
+Don't forget that, when collecting your DAM assets, you should also filter them to only request the **product** assets, thanks to the identification of product assets you've done earlier [here](pre-requisites.html#which-dam-assets-are-products-related).
 
 ## Transform DAM assets into PIM assets
 
