@@ -134,7 +134,7 @@ If you want your DAM assets to be automatically linked to your products once imp
 
 ::: tips
 This step is only mandatory if you want your assets to be automatically linked to your products. In fact, it is also possible to do this operation *manually*.  
-So don't bother if you can't have this information on the DAM side: marketers will manually do this assignment in the UI of the PIM, once the DAM product assets are imported in the PIM Asset Manager.
+So don't bother if you can't have this information on the DAM side: marketers will manually assign assets directly in the UI of the PIM, once the DAM product assets are imported in the PIM Asset Manager.
 :::
 
 Depending on your DAM capabilities and also on how your DAM assets are already modelized, there are several ways to add this information within your DAM assets. Here is a list of suggestions:
