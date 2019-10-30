@@ -75,5 +75,5 @@ This skeleton is **far from being production-ready**. We don't recommend you to 
 
 If you ever find a bug, do not hesitate to directly open an issue on the [Github](https://github.com/akeneo/dam-connector/issues) repository.
 
-Don't forget that we also love it when you contribute and help us make better tools. So do not hesitate! Each feedback/pull request is very welcome!
+Don't forget that we also love it when you contribute and help us make better tools. So do not hesitate! Every feedback/pull request is very welcome!
 
