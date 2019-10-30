@@ -7,7 +7,7 @@ Did you carefully read the previous sections? If not, you're missing some crucia
 We promise it's worth the read. :wink:
 :::
 
-As a reminder, the connector is the piece of software that is between the DAM and the PIM and that's in charge of the synchronization of the DAM assets within the PIM, as illustrated in this diagram.
+As a reminder, the connector is the piece of software that is between the DAM and the PIM and that's in charge of the synchronization of the DAM assets with the PIM, as illustrated in this diagram.
 
 ![Macro overview of the DAM connection](../../img/guides/dam-connection-macro.svg)
 
