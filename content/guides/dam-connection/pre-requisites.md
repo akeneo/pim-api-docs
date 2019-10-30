@@ -4,7 +4,7 @@ Before writing any line of code for the connector, you'll need to prepare your D
 
 ## In your PIM
 
-Everything begin with the creation of your asset families. You know, this really important entity that allows you to structure your PIM assets.
+Everything begins with the creation of your asset families. You know, this really important entity that allows you to structure your PIM assets.
 
 ::: tips
 Still not familiar with the asset family concept? You may need to read [this](/documentation/asset-manager-beta.html#the-asset-family) carefully.
