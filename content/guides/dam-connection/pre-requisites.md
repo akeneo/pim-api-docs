@@ -66,7 +66,7 @@ If you answer `No` to all of these questions, it's likely that you don't need th
 Once you have a better idea of the modelization of your asset families, you can create them.  
 For now, you can only create them via the API. Don't worry, the corresponding UI is coming soon but in the meantime, we advise you to use a script using the API. You can find an example of this script in our [DAM connector skeleton](introduction.html#the-skeleton).
 
-To create an asset family with its attributes and its product link rules, you'll need to follow these steps: 
+To create an asset family with its attributes and its product link rules, you'll need to follow those steps: 
 1. Create your asset family with its code and labels.  
 2. Add asset attributes to your family.  
 3. Add the product link rules to your asset family.
