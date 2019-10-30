@@ -24,7 +24,7 @@ As an image is worth more than a thousand words, here's a small diagram to help 
 In this guide, we consider the DAM as the master of the product assets. It means that assets are sent from the DAM to the PIM, and not the other way around.  
 First, photographers or marketers upload their new product assets into the DAM. Then, thanks to the connector we're going to build in this guide, these assets are sent via the API to the Asset Manager of our PIM.  
 
-Once assets are inside the Asset Manager, there are two ways to link them to the right product:
+Once the assets are in the Asset Manager, there are two ways to link them to the right product:
 - _Manually_: marketers manually assign the imported assets to the right products,
 - _Automatically_: a product link rule is automatically run after the asset creation in the Asset Manager and assigns them to the right products.
 
