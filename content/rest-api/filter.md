@@ -109,7 +109,7 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 /api/rest/v1/products?search={"completeness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
 ```
 :::info
-Filtering on completness is also available for published products.
+Filtering on completeness is also available for published products.
 :::
 
 ### On their group or family
