@@ -401,7 +401,7 @@ is equivalent to
 ```
 
 :::info
-`search_locale` query parameter is also available for the published products.
+This query parameter is also available for the published products.
 :::
 
 ### `search_scope` query parameter
