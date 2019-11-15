@@ -417,7 +417,7 @@ is equivalent to
 ```
 
 :::info
-`search_scope` query parameter is also available for the published products.
+This query parameter is also available for the published products.
 :::
 
 ### Available operators
