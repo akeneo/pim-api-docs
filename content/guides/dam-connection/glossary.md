@@ -1,6 +1,6 @@
 # Glossary
 
-To better understand what we are talking about, have a look at Akeneo PIM [Asset manager concepts](/documentation/asset-manager.html#concepts-resources).
+To better understand what we are talking about, have a look at Akeneo PIM [Asset manager concepts](/beta/asset-manager/concepts-and-resources.html).
 
 Every DAM (Digital Asset Manager) third-party system is different. Anyway, we defined global concepts for the DAM:
 - **DAM asset**: This is the representation of the asset from the DAM. 
