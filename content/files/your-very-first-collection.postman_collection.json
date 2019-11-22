@@ -1,0 +1,106 @@
+{
+	"info": {
+		"name": "Your very first collection",
+		"description": "This is the collection for the very first tutorial to learn how to use the Akeneo PIM API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Your very first request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					},
+					{
+						"key": "Cookie",
+						"value": ""
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/rest/v1/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"v1",
+						"products"
+					]
+				},
+				"description": "This API request asks the PIM for its 100 first products."
+			},
+			"response": []
+		},
+		{
+			"name": "The authentication request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a121ed64-a205-496a-a182-c5cf3b4bb9b9",
+						"exec": [
+							"postman.setEnvironmentVariable(",
+							"    \"base64ClientIdSecret\", ",
+							"    btoa(postman.getEnvironmentVariable(\"clientId\") + ':' + postman.getEnvironmentVariable(\"secret\"))",
+							");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a44f4b34-52f5-4b3a-b57e-ea3a5cabd14c",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);",
+							"postman.setEnvironmentVariable(\"refreshToken\", jsonData.refresh_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {{base64ClientIdSecret}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"{{username}}\",\n    \"password\" : \"{{password}}\",\n    \"grant_type\": \"password\"\n }"
+				},
+				"url": {
+					"raw": "{{url}}/api/oauth/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"oauth",
+						"v1",
+						"token"
+					]
+				},
+				"description": "It allows you to authenticate yourself thanks to the credentials you provided in the Postman environment you set up before."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

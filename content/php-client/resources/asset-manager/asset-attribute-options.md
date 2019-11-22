@@ -1,6 +1,6 @@
 ### Asset attribute option
 
-We refer here to the asset attribute option of the [Asset Manager](/documentation/asset-manager.html#the-asset-attribute-option).
+We refer here to the asset attribute option of the [Asset Manager](/beta/asset-manager/concepts-and-resources.html#the-asset-attribute-option).
 
 ::: warning
 This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).

@@ -34,7 +34,7 @@ Depending on your DAM capabilities, there are multiple ways to do it (API calls,
 See the [Define your technical stack](technical-stack.html) part of this documentation to have an idea of the different possibilities and their main constraints.
 
 To collect those assets, first, you'll need to fetch the codes of the PIM asset families that you defined earlier in the [PIM structuration](pre-requisites.html#in-the-pim) step. To do so, you can either:
-- call the PIM API [asset family GET endpoint](/api-reference-asset-manager.html#get_asset_families),
+- call the PIM API [asset family GET endpoint](/beta/asset-manager/api-reference.html#get_asset_families),
 - write directly the codes of your asset families in a configuration file, the way we did in our [skeleton](https://github.com/akeneo/dam-connector/blob/master/config/resources/dam-example/mapping.yaml).
 
 Thanks to the asset family codes, now, you'll be able to ask the DAM only for the assets that belong to those families. This is thanks to the upstream work you operated on the DAM side by [adding the asset family information on each of your assets](pre-requisites.html#which-asset-family-your-dam-product-assets-belong-to). It will avoid requesting the entire DAM data, which would be really useless and counterproductive. :wink:
@@ -43,7 +43,7 @@ Don't forget that, when collecting your DAM assets, you should also filter them 
 
 ## Transform DAM assets into PIM assets
 
-We already covered in a previous [section](/pre-requisites.html#define-the-attributes-of-your-asset-families) that DAM and PIM assets have a totally different structure. 
+We already covered in a previous [section](pre-requisites.html#define-the-attributes-of-your-asset-families) that DAM and PIM assets have a totally different structure. 
 
 Remember this example?
 
@@ -200,7 +200,7 @@ To generate an asset attribute value, you need to know 2 things:
 - What is the type of this asset attribute? In order to give the proper data format in the `data` field.
 - Is this attribute localizable or not? In order to complete the `locale` field with the right value (`null` or the code of an activated PIM locale).
 
-To answer these questions, fetch each of your attribute by directly calling this [endpoint](/api-reference-asset-manager.html#get_asset_families__code__attributes).
+To answer these questions, fetch each of your attribute by directly calling this [endpoint](/beta/asset-manager/api-reference.html#get_asset_families__code__attributes).
 
 ::: info
 We don't bother to mention the `channel` field here, as it will almost always be set to `null`, as the channel concept is specific to the PIM and there are little chances that your DAM properties will require any scopable PIM asset attribute.
@@ -311,11 +311,11 @@ It's also a very important attribute for our use case because it will receive th
 
 ## Create/update assets in the PIM
 
-When your PIM assets are ready, you can call the [patch assets](/api-reference-asset-manager.html#patch_assets) endpoint to create/update them in the PIM. For more details, have a look at our [skeleton](https://github.com/akeneo/dam-connector/blob/master/src/Infrastructure/Pim/UpdateAssetApi.php)!
+When your PIM assets are ready, you can call the [patch assets](/beta/asset-manager/api-reference.html#patch_assets) endpoint to create/update them in the PIM. For more details, have a look at our [skeleton](https://github.com/akeneo/dam-connector/blob/master/src/Infrastructure/Pim/UpdateAssetApi.php)!
 
 ### Dealing with options
 For the single option and multiple options attributes, you may want to dynamically add new options provided by the DAM to your PIM asset attribute.  
-In this case, you should first call the [patch attribute options](/api-reference-asset-manager.html#patch_asset_attributes__attribute_code__options__code_) endpoint, as illustrated in the diagram below. 
+In this case, you should first call the [patch attribute options](/beta/asset-manager/api-reference.html#patch_asset_attributes__attribute_code__options__code_) endpoint, as illustrated in the diagram below. 
 
 ![Push assets with options](../../img/guides/dam_pim-asset-push.svg)
 

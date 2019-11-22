@@ -45,6 +45,7 @@ gulp.task('create-dist', [
   'client-documentation',
   'misc-documentation',
   'guides',
+  'getting-started',
   'beta-documentation',
   'beta-reference'
 ]);

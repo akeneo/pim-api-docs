@@ -1,6 +1,6 @@
 ### Asset
 
-We refer here to the asset of the [Asset Manager](/documentation/asset-manager.html#the-asset).
+We refer here to the asset of the [Asset Manager](/beta/asset-manager/concepts-and-resources.html#the-asset).
 
 ::: warning
 This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
