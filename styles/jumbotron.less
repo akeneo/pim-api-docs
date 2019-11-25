@@ -1,10 +1,10 @@
 .jumbotron {
     background-color: @gray-lighter;
     h1.emphasis {
-        color: #11324D;
+        color: darken(@brand-primary, 10%);
         font-size: @font-size-base*2;
-        font-weight: normal;
-        font-family: Comfortaa, sans-serif;
+        font-weight: bold;
+        font-style: italic;
         +p {
             font-size: 19px;
             font-weight: 300;
@@ -13,15 +13,12 @@
     +.jumbotron {
         background-color: @gray-lighter;
         margin-top: -@jumbotron-padding;
-        p {
-            margin-bottom: 0;
-        }
         .container {
             margin-bottom: 0px;
         }
     }
-    h1 {
-        color: white;
+    &.jumbotron-white{
+        background-color: white;
     }
     h2 {
         margin-top: 0px;

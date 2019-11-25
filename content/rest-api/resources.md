@@ -206,7 +206,7 @@ Note that the `locale` property is set to `null` in this case.
 **Product values of a localizable and scopable attribute**
 
 The `description` attribute is both scopable and localizable, so it can hold several data values, up to one for each couple of channels and locales.
-```js
+```json
 {
   "description": [
     {
