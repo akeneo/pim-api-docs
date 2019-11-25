@@ -11,3 +11,22 @@ div.list-group {
         }
     }
 }
+
+ol{
+    margin-left: 0;
+    padding-right: 0;
+    list-style-type: none;
+    > li {
+        counter-increment: step-counter;
+        &::before {
+            content: counter(step-counter);
+            margin-right: 10px;
+            font-size: 80%;
+            background-color: lighten(@brand-info,10%);
+            color: white;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: @border-radius-base;
+        }
+    }
+}

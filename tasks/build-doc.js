@@ -249,7 +249,7 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_guides:  true,
                         title: pages[path.basename(path.dirname(file.path))].title,
                         image: pages[path.basename(path.dirname(file.path))].image,
                         mainContent: fs.readFileSync('tmp/getting-started/' + path.basename(path.dirname(file.path)) + '/' + path.basename(file.path).replace(/\.md/, '.html'))
@@ -301,7 +301,7 @@ gulp.task('guides', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_guides: true,
                         title: pages[path.basename(path.dirname(file.path))].title,
                         mainContent: fs.readFileSync('tmp/guides/' + path.basename(path.dirname(file.path)) + '/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -426,6 +426,7 @@ gulp.task('beta-documentation', ['clean-dist','less'], function () {
                                         .on('end', function(){
                                             return gulp.src('src/partials/beta.handlebars')
                                                     .pipe(gulpHandlebars({
+                                                        active_guides: true,
                                                         title: pages[guideCode].title,
                                                         mainContent: fs.readFileSync('tmp/beta/' + guideCode + '/reference.html'),
                                                         referenceIndex: fs.readFileSync('tmp/beta/' + guideCode + '/api-reference-index.html')
@@ -518,6 +519,7 @@ gulp.task('client-documentation', ['clean-dist','less', 'create-resources-md'], 
                     .pipe(gulpHandlebars({
                         active_documentation: true,
                         title: 'PHP API client documentation',
+                        image: 'illustrations/illus--php-client.svg',
                         mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -543,6 +545,7 @@ gulp.task('misc-documentation', ['clean-dist','less'], function () {
                 .on('end', function () {
                     return gulp.src('src/partials/misc.handlebars')
                         .pipe(gulpHandlebars({
+                            active_documentation: true,
                             title: 'Documentation',
                             mainContent: fs.readFileSync('tmp/misc/' + path.basename(file.path).replace(/\.md/, '.html'))
                         }, {
