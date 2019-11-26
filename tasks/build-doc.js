@@ -230,15 +230,15 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
                 'step-3.md': '3. Make the API request'
             }
         },
-        'create-a-connector-4x': {
-            gettingStartedName: 'create-a-connector',
+        'connect-the-pim-4x': {
+            gettingStartedName: 'connect-the-pim',
             pimVersion: 'v4',
-            title: 'The "Create a connector" tutorial',
+            title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': '1. Generate your credentials',
-                'step-2.md': '2. Set up Postman',
+                'step-1.md': '1. Create an app',
+                'step-2.md': '2. Code your connector',
                 'step-3.md': '3. Make the API request'
             }
         }

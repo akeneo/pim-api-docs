@@ -38,7 +38,8 @@ _Sidenote: the code of the app is automatically generated based on the label._
 ![Flow type selection](/img/getting-started/flow-type-selection.png)
 _Sidenote: Interested in knowing more about what is the use of the flow type? Read this [help center section](https://help.akeneo.com/articles/manage-your-apps.html#choose-your-flow-type)._
 
-You're done! :tada:
+You're done! :tada:  
+Your app is now created. The screen displays the setting page of your app, as well as the automatically generated credentials of the app. You will need them in the next step.
 
 ::: panel-link And now, let's configure the tool that will make the API request [The Postman set up](/getting-started/your-first-tutorial-4x/step-2.html)
 :::
