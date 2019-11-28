@@ -33,9 +33,9 @@ _Sidenote: This tutorial is dedicated to 4.x PIM. Here is the one for [older PIM
 ![App creation button]()
 1. In the `Label` field, enter `My very first app`.  
 _Sidenote: the code of the app is automatically generated based on the label._
-![App creation popin](../../img/getting-started/app-creation-popin.png)
+![App creation popin](/img/getting-started/app-creation-popin.png)
 1. Choose the flow type of your app. For this tutorial, pick `Destination` as we are going to make an API request that will retrieve products from your PIM. So your PIM is going to send data to a destination: you. :wink:  
-![Flow type selection](../../img/getting-started/flow-type-selection.png)
+![Flow type selection](/img/getting-started/flow-type-selection.png)
 _Sidenote: Interested in knowing more about what is the use of the flow type? Read this [help center section](https://help.akeneo.com/articles/manage-your-apps.html#choose-your-flow-type)._
 
 You're done! :tada:

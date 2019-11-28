@@ -17,13 +17,13 @@ Then, we are going to create a dedicated user role. We will name it `My API user
 1. Click on `System` menu.
 1. Click on the `Role` submenu. 
 1. From here, you should be able to create a role, click on `Create role`.
-![Role creation](../../img/getting-started/role-creation.png)
+![Role creation](/img/getting-started/role-creation.png)
 1. Once in the role form, give a name to the role you are creating: `My API user role`.
-![Role naming](../../img/getting-started/role-naming.png)
+![Role naming](/img/getting-started/role-naming.png)
 1. Go to the `Web API Permissions` tab and activate the access to the Web API by clicking on `Overall Web API access.
-![Permission activation](../../img/getting-started/permission-activation.png)
+![Permission activation](/img/getting-started/permission-activation.png)
 1. Click on the `Users` tab and tick the box next to the `myAPIuser` to associate your API user to this new role.
-![Permission assignation](../../img/getting-started/permission-assignation.png)
+![Permission assignation](/img/getting-started/permission-assignation.png)
 1. Click on the `Save` button.
 
 ::: info
@@ -48,12 +48,12 @@ This feature is only available since the 2.0 version. If you are trying to use t
 1. Click on the `System` menu.
 1. Click on the `API connections` submenu.
 1. Click on the `Create` button.
-![API connections empty screen](../../img/getting-started/api-connections-empty-screen.png)
+![API connections empty screen](/img/getting-started/api-connections-empty-screen.png)
 The following popin should be then displayed.
-![API connection creation popin](../../img/getting-started/api-connection-creation-popin.png)
+![API connection creation popin](/img/getting-started/api-connection-creation-popin.png)
 1. Enter `My very first API connection` in the label field and click on the `Save` button.  
 You API connection appears in the API connections table and should look like this:
-![My very first API connection](../../img/getting-started/my-very-first-api-connection.png)
+![My very first API connection](/img/getting-started/my-very-first-api-connection.png)
 
 And that's it! :tada:
 
