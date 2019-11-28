@@ -166,7 +166,7 @@ md.use(require('markdown-it-container'), 'mainContent', {
         return params.trim().match(/^mainContent$/);
     },
     render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div class="col-xs-12 col-sm-9">' : '</div>';
+        return (tokens[idx].nesting === 1) ? '<div class="col-xs-12 col-sm-offset-1 col-sm-8">' : '</div>';
     }
 });
 md.use(require('markdown-it-container'), 'tocLink', {
@@ -207,33 +207,39 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
       
     var pages = {
         'your-first-tutorial-4x': {
+            gettingStartedName: 'your-first-tutorial',
+            pimVersion: 'v4',
             title: 'Your very first tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': 'Create an app',
-                'step-2.md': 'Set up Postman',
-                'step-3.md': 'Make the API request'
+                'step-1.md': '1. Create an app',
+                'step-2.md': '2. Set up Postman',
+                'step-3.md': '3. Make the API request'
             }
         },
         'your-first-tutorial-old': {
+            gettingStartedName: 'your-first-tutorial',
+            pimVersion: 'v1.7 / v2 / v3',
             title: 'Your very first tutorial',
             image: 'illustrations/illus--old-versions.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': 'Generate the credentials',
-                'step-2.md': 'Set up Postman',
-                'step-3.md': 'Make the API request'
+                'step-1.md': '1. Generate the credentials',
+                'step-2.md': '2. Set up Postman',
+                'step-3.md': '3. Make the API request'
             }
         },
         'create-a-connector-4x': {
+            gettingStartedName: 'create-a-connector',
+            pimVersion: 'v4',
             title: 'The "Create a connector" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': 'Generate your credentials',
-                'step-2.md': 'Set up Postman',
-                'step-3.md': 'Make the API request'
+                'step-1.md': '1. Generate your credentials',
+                'step-2.md': '2. Set up Postman',
+                'step-3.md': '3. Make the API request'
             }
         }
     };
@@ -247,11 +253,13 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
               .pipe(gulpMarkdownIt(md))
               .pipe(gulp.dest('tmp/getting-started/'))
               .on('end', function () {
-                  return gulp.src('src/partials/documentation.handlebars')
+                  return gulp.src('src/partials/getting-started.handlebars')
                     .pipe(gulpHandlebars({
                         active_guides:  true,
                         title: pages[path.basename(path.dirname(file.path))].title,
                         image: pages[path.basename(path.dirname(file.path))].image,
+                        gettingStartedName: pages[path.basename(path.dirname(file.path))].gettingStartedName,
+                        pimVersion: pages[path.basename(path.dirname(file.path))].pimVersion,
                         mainContent: fs.readFileSync('tmp/getting-started/' + path.basename(path.dirname(file.path)) + '/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']

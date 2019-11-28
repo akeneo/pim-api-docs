@@ -1,7 +1,7 @@
 button.btn,
 a.btn {
     border-radius: 100px;
-    border: none;
+    border-width: 2px;
     padding: 5px 16px;
     text-transform: uppercase;
 
@@ -23,6 +23,15 @@ a.btn {
     }
     &.btn-default{
         border: 1px solid @gray-lighter;
+    }
+    &.btn-ghost.btn-primary{
+        .button-variant(@brand-primary;
+        transparent;
+        @brand-primary);
+        border: 2px solid;
+    }
+    +a.btn {
+        margin-right: 10px;
     }
 }
 

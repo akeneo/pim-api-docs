@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-target="#navbar">
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top navbar-white">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -83,8 +83,10 @@
         $(window).scroll(function(){
             if($(window).scrollTop() <= 40){
                 navbar.removeClass('scroll');
+                navbar.addClass('navbar-white');
             } else {
-              navbar.addClass('scroll');
+                navbar.addClass('scroll');
+                navbar.removeClass('navbar-white');
             }
         });
     });
