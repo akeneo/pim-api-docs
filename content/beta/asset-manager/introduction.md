@@ -14,7 +14,7 @@ The assets of the Asset Manager will be way more powerful than before. They will
 
 Below, you'll find an illustration of this wonderful new feature.
 
-![Asset manager schema](../../img/illustrations/asset-manager.svg)
+![Asset manager schema](../../img/beta/asset-manager.svg)
 
 This documentation explains the API built around this new Asset Manager. It also presents all the concepts of the Asset Manager so that you, as a developer using our API, can easily understand all our available [endpoints](#reference).
 

@@ -21,7 +21,7 @@ It is almost __impossible__ for Julia to deal with all these sources.
 So, to prevent Julia from going nuts, her company has invested in a very useful tool, a __PIM__. This type of software helps companies to centralize and harmonize all the technical and marketing information of their catalogs and products. That's exactly what __Julia needs__!
 
 As summed up in the diagram below, a PIM allows Julia to gather all the product information in one single place, to enrich it and to spread it to several channels like an e-commerce website or a printed catalog... 
-![PIM schema](/img/pim.png)
+![PIM schema](/img/rest-api/pim.png)
 
 **In a nutshell, the PIM is for product information what CRM is for customer information!**
 

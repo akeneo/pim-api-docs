@@ -1,21 +1,21 @@
-<svg width="405" height="465" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="405" height="418" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <filter x="-8.5%" y="-7.4%" width="118.4%" height="117.1%" filterUnits="objectBoundingBox" id="a">
+    <rect id="b" width="316" height="299" rx="10"/>
+    <filter x="-8.5%" y="-8.4%" width="118.4%" height="119.4%" filterUnits="objectBoundingBox" id="a">
       <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
       <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
       <feColorMatrix values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0" in="shadowBlurOuter1"/>
     </filter>
-    <rect id="b" x="0" y="0" width="316" height="340" rx="10"/>
   </defs>
   <g fill="none" fill-rule="evenodd">
-    <path fill="#F5F9F8" d="M0 0h405v465H0z"/>
+    <path fill="#F5F9F8" d="M0 0h405v418H0z"/>
     <g transform="translate(45 61)">
       <use fill="#000" filter="url(#a)" xlink:href="#b"/>
       <use fill="#FFF" xlink:href="#b"/>
     </g>
     <g transform="translate(65 81)">
       <rect fill="#E0F1FC" width="48" height="48" rx="5"/>
-      <path d="M15 14h18a1 1 0 011 1v18a1 1 0 01-1 1H15a1 1 0 01-1-1V15a1 1 0 011-1zm12.5 9a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM14 27l5.556-4 4.847 5 4.041-3L34 28" stroke="#4EA7DD" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M15 14h18a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H15a1 1 0 0 1-1-1V15a1 1 0 0 1 1-1zm12.5 9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM14 27l5.556-4 4.847 5 4.041-3L34 28" stroke="#4EA7DD" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
     <path fill="#EADBED" d="M65 149h276v1H65z"/>
     <text font-family="Lato-MediumItalic, Lato" font-size="13" font-style="italic" font-weight="500" fill="#8F92C7" transform="translate(45 61)">
@@ -26,7 +26,7 @@
     </text>
     <g transform="translate(83 157)">
       <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
-        <tspan x="16" y="27">Media file attribute type</tspan>
+        <tspan x="16" y="27">Image attribute type</tspan>
       </text>
       <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
     </g>
@@ -45,12 +45,6 @@
     <g transform="translate(83 289)">
       <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
         <tspan x="16" y="27">Required for completeness</tspan>
-      </text>
-      <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
-    </g>
-    <g transform="translate(83 333)">
-      <text font-family="Lato-Medium, Lato" font-size="14" font-weight="400" fill="#3A438B">
-        <tspan x="16" y="27">Image file type</tspan>
       </text>
       <circle fill="#4EA7DD" cx="4" cy="22" r="4"/>
     </g>

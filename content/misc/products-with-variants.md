@@ -125,7 +125,7 @@ All the other attributes have their value stored into standard products that we 
 
 To be much clearer, below is a diagram representing this modeling.
 
-![Modeling of the products with variants](../img/product_with_variants.png)
+![Modeling of the products with variants](../img/rest-api/product_with_variants.png)
 
 ### Example  
 In the API, you will end up with the following change in your products with variants.   

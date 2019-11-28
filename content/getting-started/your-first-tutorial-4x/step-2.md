@@ -20,22 +20,22 @@ If you have trouble using Postman, do not hesitate to browse their really comple
 To set up Postman, follow these steps:
 1. Download the Postman application (which is free by the way) from their [official website](https://www.getpostman.com/downloads/).
 2. Download those two files:  
-    - [The Postman collection containing your first request](../../files/your-very-first-collection.postman_collection.json)  
-    - [A pre-configured Postman environment](../../files/akeneo-PIM-API-environment-4x.postman_environment.json)
+    - [The Postman collection containing your first request](/files/your-very-first-collection.postman_collection.json)  
+    - [A pre-configured Postman environment](/files/akeneo-PIM-API-environment-4x.postman_environment.json)
 3. Import in Postman those files. To do so, click the `Import` button and drop the two files you just downloaded in the pop-in that should look like this.
-![Postman import popin](../../img/getting-started/postman-import-popin.png)
+![Postman import popin](/img/getting-started/postman-import-popin.png)
 As a result, you will see a new collection in the Collection tab, on the left side of your screen, like this.
-![Collection in Postman](../../img/getting-started/very-first-request-collection-in-postman.png)
+![Collection in Postman](/img/getting-started/very-first-request-collection-in-postman.png)
 A new environment should also have been created in the dropdown in the top right corner.
-![Environment in Postman](../../img/getting-started/postman-environment-4x.png)
+![Environment in Postman](/img/getting-started/postman-environment-4x.png)
 6. Click on the gear wheel in the top right corner, and then select `Manage environments`.
 7. In the pop-in that just opened, select the environment called `Akeneo 4.x PIM API environment`.
-![Postman environment popin](../../img/getting-started/postman-environment-4x-popin.png)
+![Postman environment popin](/img/getting-started/postman-environment-4x-popin.png)
 8. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.x PIM is hosted.
-![Url in environment](../../img/getting-started/url-environment-4x.png)
+![Url in environment](/img/getting-started/url-environment-4x.png)
 9. Back in the PIM, go to `System`/`Apps` and select your `My very first app` app.
 5. In the right side of the screen, there are your app credentials to connect to the API. Copy those information and paste them into the corresponding field in the Postman popin.
-![Credentials copy/pasted in Postman](../../img/getting-started/copy-past-credentials-4x.png)
+![Credentials copy/pasted in Postman](/img/getting-started/copy-past-credentials-4x.png)
 
 That's it for this step!
 
