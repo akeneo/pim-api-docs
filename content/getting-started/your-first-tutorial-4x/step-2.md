@@ -39,6 +39,6 @@ A new environment should also have been created in the dropdown in the top right
 
 That's it for this step!
 
-::: panel-link And now, let's make this request for real [The final step](/getting-started/my-first-tutorial-4x/step-3.html)
+::: panel-link And now, let's make this request for real [The final step](/getting-started/your-first-tutorial-4x/step-3.html)
 :::
 

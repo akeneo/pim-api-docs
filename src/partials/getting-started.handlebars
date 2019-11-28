@@ -1,0 +1,32 @@
+{{!-- Shared template for the getting started pages --}}
+{{#> layout title=title }}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-9 col-md-10">
+                <h1>{{{title}}}</h1>
+            </div>
+            <div class="col-xs-12">
+                <div class="dropdown pull-right">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Your PIM version: <strong>{{{pimVersion}}}</strong>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="dropdown-title">Choose your PIM version</li>
+                        <li><a href="/getting-started/{{gettingStartedName}}-4x/welcome.html">v4</a></li>
+                        <li><a href="/getting-started/{{gettingStartedName}}-old/welcome.html">v1.7 / v2 / v3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {{{mainContent}}}
+        </div>
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-9">
+                <hr>
+            </div>
+        </div>
+        {{> contrib-footer}}
+    </div>
+{{/layout}}

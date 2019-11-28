@@ -1,55 +1,10 @@
 .jumbotron {
     background-color: @gray-lighter;
-    h1.emphasis {
-        color: darken(@brand-primary, 10%);
-        font-size: @font-size-base*2;
-        font-weight: bold;
-        font-style: italic;
-        +p {
-            font-size: 19px;
-            font-weight: 300;
-        }
-    }
-    +.jumbotron {
-        background-color: @gray-lighter;
-        margin-top: -@jumbotron-padding;
-        .container {
-            margin-bottom: 0px;
-        }
-    }
-    &.jumbotron-white{
-        background-color: white;
-    }
     h2 {
         margin-top: 0px;
     }
     p {
         font-size: @font-size-base;
         font-weight: 300;
-    }
-    .btn p {
-        margin-left: 10px;
-        &.lead {
-            margin-bottom: 0;
-            margin-top: 20px;
-            font-size: @font-size-large;
-        }
-    }
-    .panel-jumbotron {
-        margin: @spacing-base/6;
-        @media (min-width: @screen-sm-min) {
-            margin: @spacing-base;
-        }
-        @media (min-width: @screen-lg-min) {
-            margin: 0 @spacing-base/6 0 0;
-        }
-        @media (min-width: @screen-xlg-min) {
-            margin: @spacing-base/2 @spacing-base @spacing-base/2 @spacing-base/4;
-        }
-        @media (max-width: @screen-lg-min) {
-            .panel {
-                margin-bottom: 0;
-            }
-        }
     }
 }

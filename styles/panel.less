@@ -22,8 +22,45 @@
                 margin: 0;
             }
         }
+        &.panel-ghost {
+            border: none;
+            background-color: transparent;
+            box-shadow: none;
+            &:hover {
+                box-shadow: none;
+                color: darken(@brand-primary, 10%);
+                .panel-btn-big {
+                    color: darken(@brand-primary, 10%);
+                }
+            }
+            .panel-btn-big {
+                text-align: left;
+            }
+        }
     }
-
+    &.panel-light {
+        border: none;
+        background-color: @gray-lighter;
+        h2 {
+            text-align: center;
+            margin-top: 15px;
+        }
+    }
+    &.panel-hero {
+        margin-top: 5px;
+        .panel-body {
+            padding: @spacing-base;
+        }
+    }
+    &.panel-full-primary {
+        background-color: @brand-primary;
+        h2, p {
+            color: white;
+        }
+        h2 {
+            font-style: italic;
+        }
+    }
     &.panel-disabled {
         background-color: lighten(@gray-lighter, 3%);
         border: none;
@@ -37,27 +74,6 @@
             bottom: 30%;
             left: 35%;
             color: @brand-primary;
-            font-size: @font-size-h3;
-            font-weight: bold;
-            .rotate(-10deg);
-            z-index: 1;
-        }
-    }
-    &.panel-new {
-        background-color: @brand-primary;
-        color: rgba(255, 255, 255, 0.75);
-        p:first-of-type {
-            color: white;
-        }
-        &:hover {
-            background-color: lighten(@brand-primary, 5%);
-        }
-        &:before {
-            content: 'NEW';
-            position: absolute;
-            bottom: 25%;
-            right: 5%;
-            color: white;
             font-size: @font-size-h3;
             font-weight: bold;
             .rotate(-10deg);
@@ -114,17 +130,6 @@
 ul+.panel {
     margin-top: 0;
     border-top: none;
-}
-
-
-.panel-light {
-    margin-top: @spacing-base * 2/3;
-    border: none;
-    background-color: @gray-lighter;
-    h2 {
-        text-align: center;
-        margin-top: 15px;
-    }
 }
 
 hr.big {

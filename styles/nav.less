@@ -4,14 +4,16 @@ nav {
         .box-shadow(0 5px 25px 0 @gray-light);
     }
     &.navbar-default {
+        &.navbar-white {
+            background-color: white;
+            border-color: white;
+        }
         .navbar-brand {
-            padding: 21px 30px;
+            padding: 21px 0px 21px 30px;
         }
         .navbar-nav {
-            margin-top: 0;
-            margin-bottom: 0;
             &.navbar-right {
-                &:last-child {
+                &:first-child {
                     margin-right: -15px;
                 }
             }

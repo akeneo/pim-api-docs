@@ -40,5 +40,5 @@ _Sidenote: Interested in knowing more about what is the use of the flow type? Re
 
 You're done! :tada:
 
-::: panel-link And now, let's configure the tool that will make the API request [The Postman set up](/getting-started/my-first-tutorial-4x/step-2.html)
+::: panel-link And now, let's configure the tool that will make the API request [The Postman set up](/getting-started/your-first-tutorial-4x/step-2.html)
 :::
