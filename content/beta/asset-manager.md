@@ -85,14 +85,8 @@ There are several types of asset attributes, that will allow you to handle diffe
 - the [`text` attribute](#the-text-attribute),
 - the [`single and multiple options` attributes](#the-single-and-multiple-options-attributes),
 - the [`number` attribute](#the-number-attribute),
-- the [`image` attribute](#the-image-attribute),
+- the [`media file` attribute](#the-media_file-attribute),
 - the [`media link` attribute](#the-media-link-attribute).
-
-::: info
-Coming soon! 3 new attribute types are going to be introduced:
-- the [`file` attribute](#coming-soon-the-file-attribute),
-- the [`reference entity single and multiple links` attributes](#coming-soon-the-reference-entity-single-and-multiple-links-attributes).
-:::
 
 ::: warning
 You can have a maximum of 100 attributes to describe the structure for one given asset family.    
@@ -181,13 +175,13 @@ And here is the JSON format of the `number` attribute type.
 }
 ```
 
-### The `image` attribute
-The image attribute is useful to hold the binaries of a picture.
+### The `media_file` attribute
+The media file attribute is useful to hold the binaries of a file, a file being a picture, a pdf, a video...
 
-Here is an example of an `image` attribute.
-![An example of an image asset attribute](../img/illustrations/image-asset-attribute.svg)
+Here is an example of an `media_file` attribute.
+![An example of an media file asset attribute](../img/illustrations/media-file-asset-attribute.svg)
 
-And here is the JSON format of the `image` attribute type.
+And here is the JSON format of the `media_file` attribute type, for an image.
 ```json
 {
   "code": "picture",
@@ -195,7 +189,8 @@ And here is the JSON format of the `image` attribute type.
     "en_US": "Picture",
     "fr_FR": "Photo"
   },
-  "type": "image",
+  "type": "media_file",
+  "media_type": "image",
   "value_per_locale": false,
   "value_per_channel": false,
   "is_required_for_completeness": true,
@@ -203,6 +198,10 @@ And here is the JSON format of the `image` attribute type.
   "max_file_size": "10"
 }
 ```
+::: info
+As of the v3.2, you can only have images in this attribute. Indeed, the `media_type` field only accepts the `image` value.  
+In the next version, you will be able to add new type of files (like PDF).
+:::
 
 ### The `media link` attribute
 The media link attribute type comes in pretty handy whenever you want your asset to refer to an external file, not hosted inside the PIM. For example, it can be very useful whenever you already have all your assets stored in a CDN or a DAM. The illustration below gives you an idea of how this attribute type can be used in such a case.
@@ -236,60 +235,6 @@ The available media types that you can put in the `media_type` field are:
 - _"image"_,
 - _"other"_.
 :::
-
-
-### COMING SOON - The `file` attribute
-
-Format for the `file` attribute type
-```json
-{
-  "code": "user_instructions_pdf",
-  "labels": {
-    "en_US": "User instructions pdf",
-    "fr_FR": "PDF du manuel utilisateurs"
-  },
-  "type": "file",
-  "value_per_locale": false,
-  "value_per_channel": false,
-  "is_required_for_completeness": true,
-  "allowed_extensions": ["pdf"],
-  "max_file_size": "10"
-}
-```
-
-### COMING SOON - The `reference entity single and multiple links` attributes
-
-Format for the `reference entity single link` and the `reference entity multiple links` attribute types
-```json
-{
-  "code": "photographer",
-  "labels": {
-    "en_US": "Photographer",
-    "fr_FR": "Photographe"
-  },
-  "type": "reference_entity_single_link",
-  "value_per_locale": false,
-  "value_per_channel": false,
-  "is_required_for_completeness": false,
-  "reference_entity_code": "artists"
-}
-```
-
-```json
-{
-  "code": "main_colors",
-  "labels": {
-    "en_US": "Main colors",
-    "fr_FR": "Couleurs dominantes"
-  },
-  "type": "reference_entity_multiple_links",
-  "value_per_locale": false,
-  "value_per_channel": false,
-  "is_required_for_completeness": true,
-  "reference_entity_code": "colors"
-}
-```
-
 
 ::: panel-link Want more details about the asset attribute resource? [Check its endpoints here!](#Assetattribute)
 :::
@@ -496,12 +441,9 @@ The following table summarizes the format of the `data` value depending on the a
 | Attribute type / Format| Example |
 | ----------------- | -------------- |
 | **Text** <br> _string_ | `"Scott, 2-seat sofa, grey"` |
-| **Image** <br> _string_ | `"5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"` |
-| **[COMING SOON] File** <br> _string_ | `"5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_user_instructions.pdf"` |
+| **Media file** <br> _string_ | `"5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"` |
 | **Single option** <br> _string_ | `"s"` |
 | **Multiple options** <br> _Array[string]_ | `["leather", "cotton"]` |
-| **[COMING SOON] Reference entity simple select** <br> _string_ | `"ben_levy"` |
-| **[COMING SOON] Reference entity multi select** <br> _Array[string]_ | `["red", "purple"]` |
 | **Number** <br> _string_ | `"1"` |
 | **Media link** <br> _string_ | `"sku_54628_picture1.jpg"` |
 
@@ -598,7 +540,7 @@ The `photographer` attribute is neither scopable nor localizable, so it can hold
     {
       "locale": null,
       "channel": null,
-      "data": "ben_levy"
+      "data": "Ben Levy"
     }
   ]
 }
