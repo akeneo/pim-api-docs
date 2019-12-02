@@ -10,7 +10,7 @@ This feature is only available in the Enterprise Edition.
 The assets of the Asset Manager will be way more powerful than before. They will benefit from 3 major new features:
 - the possibility to define a flexible structure, thanks to the [asset families](#the-asset-family),
 - the possibility to automatize the link with your products, thanks to the [product link rules](#focus-on-the-product-link-rule),
-- the possibility to refer to both external and internal binaries, thanks to the [media link](#the-media-link-attribute), the [image](#the-image-attribute) and the [file](#coming-soon-the-file-attribute) attribute types. 
+- the possibility to refer to both external and internal binaries, thanks to the [media link](#the-media-link-attribute) and the [media file](#the-media-file-attribute) attribute types. 
 
 Below, you'll find an illustration of this wonderful new feature.
 
@@ -178,8 +178,8 @@ And here is the JSON format of the `number` attribute type.
 ### The `media_file` attribute
 The media file attribute is useful to hold the binaries of a file, a file being a picture, a pdf, a video...
 
-Here is an example of an `media_file` attribute.
-![An example of an media file asset attribute](../img/illustrations/media-file-asset-attribute.svg)
+Here is an example of a `media_file` attribute.
+![An example of a media file asset attribute](../img/illustrations/media-file-asset-attribute.svg)
 
 And here is the JSON format of the `media_file` attribute type, for an image.
 ```json
@@ -200,7 +200,7 @@ And here is the JSON format of the `media_file` attribute type, for an image.
 ```
 ::: info
 As of the v3.2, you can only have images in this attribute. Indeed, the `media_type` field only accepts the `image` value.  
-In the next version, you will be able to add new type of files (like PDF).
+In the next version, you will be able to add new types of files (like PDF).
 :::
 
 ### The `media link` attribute
