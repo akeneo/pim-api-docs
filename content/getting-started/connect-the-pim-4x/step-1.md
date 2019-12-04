@@ -20,12 +20,12 @@ Want to dig a bit deeper into the app notion? Visit the dedicated help center [a
 
 ## Step by step
 
-Remember, we took as an example, an ERP connection for the purpose of this tutorial.  
+Remember, as an example, we took an ERP connection for the purpose of this tutorial.  
 As an app corresponds to one specific connection, we will name our app: `My ERP`.
 
 Follow these steps:
 1. Log into your 4.x PIM.  
-_Sidenote: This tutorial is dedicated to 4.x PIM. Here is the one for [older PIM version](/getting-started/create-a-connector-old)._
+_Sidenote: This tutorial is dedicated to 4.x PIMs. Here is the one for [older PIM versions](/getting-started/create-a-connector-old)._
 1. Click on the `System` menu.
 1. Click on the `Apps` submenu.
 1. Click on the `Create` button.
@@ -39,7 +39,7 @@ _"But why?"_ - you will say. If you remember our use case, our connection is goi
 _Sidenote: Interested in knowing more about this flow type? Read this [help center section](https://help.akeneo.com/articles/manage-your-apps.html#choose-your-flow-type)._
 
 You're done! :tada:  
-Your `My ERP` app is now created. The screen displays the setting page of your app, as well as the automatically generated credentials of the app. You will need them in the next step.
+Your `My ERP` app is now created. The screen displays the setting page of your app, as well as the automatically generated credentials of the app. You will need them in the last step.
 
-::: panel-link And now, let's dig into the creation of the connector in itself [The connector coding phase](/getting-started/connect-the-pim-4x/step-2.html)
+::: panel-link And now, let's dig into the creation of the connector itself [The connector cooking phase](/getting-started/connect-the-pim-4x/step-2.html)
 :::

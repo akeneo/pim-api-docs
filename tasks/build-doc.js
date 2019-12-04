@@ -238,8 +238,8 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
             files: {
                 'welcome.md': 'Welcome',
                 'step-1.md': '1. Create an app',
-                'step-2.md': '2. Code your connector',
-                'step-3.md': '3. Make the API request'
+                'step-2.md': '2. Cook your connector',
+                'step-3.md': '3. Identify your connector in the PIM'
             }
         }
     };
