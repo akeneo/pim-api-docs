@@ -153,7 +153,7 @@ In this formula:
 | **pim_catalog_metric** when `decimals_allowed` attribute property is set to `false` <br> _Object{"amount": integer, "unit": string}_ | `{"amount":13,"unit":"KILOWATT"}` |
 | **pim_catalog_price** when `decimals_allowed` attribute property is set to `true` <br> _Array[Object{"amount": string, "currency": string}]_ | `[{"amount":"45.00","currency":"USD"}, {"amount":"56.53","currency":"EUR"}]` |
 | **pim_catalog_price** when `decimals_allowed` attribute property is set to `false` <br> _Array[Object{"amount": integer, "currency": string}]_ | `[{"amount":45,"currency":"USD"}, {"amount":56,"currency":"EUR"}]` |
-| **pim_assets_collection** <br> _Array[string]_ | `["my_first_asset_code", "my_second_asset_code"]` |
+| **pim_assets_collection** <br> _Array[string]_ <br><em>Deprecated - See <a href="/api-reference-index.html#PAM">here</a></em> | `["my_first_asset_code", "my_second_asset_code"]` |
 | **akeneo_reference_entity**<br> Since the 3.0 only <br> _string_  | `"italy"` |
 | **akeneo_reference_entity_collection**<br> Since the 3.0 only <br> _Array[string]_ | `["starck", "dixon"]` |
 
@@ -954,9 +954,21 @@ Endpoints for the measure families are only available starting the 2.0 version.
 ::: panel-link Want more details about the measure family resource? [Check its endpoints here!](/api-reference.html#Measurefamily)
 :::
 
-## PAM
+## PAM _- Deprecated_
 
-### Asset (since 2.1 and EE only)
+::: warning
+With the introduction of our brand new way to handle assets, the Asset Manager, the PAM feature will be removed from the v4.0 of the PIM. As a result, **from now on, all the API resources regarding the PAM assets are deprecated**. They will not be available anymore starting from the v4.0.  
+Don't hesitate to take a look at the [Asset Manager documentation](/documentation/asset-manager.html) to discover this new feature and how much more efficient it will be to handle your precious assets.
+:::
+
+### Asset (since 2.1 and EE only) _- Deprecated_
+
+::: warning
+This resource is **deprecated**. It means that it will be removed in the next PIM version, aka the 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated.  
+Since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM.  
+[Eager to know more about these new assets? It's right here!](/documentation/asset-manager.html#the-asset)
+:::
+
 An asset is the EE entity that allows to hold a file which can be an image, a video, a document... In the PIM, you can find all your assets in a library called PAM (Product Asset Manager). In this library, you can manage and classify your assets into their own categories, called [asset categories](/documentation/resources.html#asset-category-21-only).
 
 Once you upload your asset into the PAM, you can then associate it to your products thanks to a specific attribute type, called `Asset collection`. This attribute allows you to select several assets in one single attribute.
@@ -1030,7 +1042,14 @@ Below is the JSON standard format representing an asset, that is not localizable
 ::: panel-link Want more details about the asset resource? [Check its endpoints here!](/api-reference.html#Asset)
 :::
 
-### Asset category (since 2.1 and EE only)
+### Asset category (since 2.1 and EE only) _- Deprecated_
+
+::: warning
+This resource is **deprecated**. It means that it will be removed in the next PIM version, aka the 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated.  
+Since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, categories can be modelized thanks to a [single or multiple options attribute](/documentation/asset-manager.html#the-single-and-multiple-options-attributes) in your [asset family](/documentation/asset-manager.html#the-asset-family).  
+[Eager to know more about the Asset Manager? It's right here!](/documentation/asset-manager.html#concepts-resources)
+:::
+
 An asset category allows you to organise your assets. Asset categories are really similar to classical product categories. They constitute asset category trees and you can have multiple asset category trees with an unlimited number of levels (categories, subcategories, subsubcategories..).
 
 :::info
@@ -1068,7 +1087,14 @@ Below is the JSON standard format representing asset categories. Notice how it's
 ::: panel-link Want more details about the asset category resource? [Check its endpoints here!](/api-reference.html#Assetcategory)
 :::
 
-### Asset tags (since 2.1 and EE only)
+### Asset tags (since 2.1 and EE only) _- Deprecated_
+
+::: warning
+This resource is **deprecated**. It means that it will be removed in the next PIM version, aka the 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated.  
+Since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, tags can be modelized thanks to a [single or multiple options attribute](/documentation/asset-manager.html#the-single-and-multiple-options-attributes) in your [asset family](/documentation/asset-manager.html#the-asset-family).  
+[Eager to know more about the Asset Manager? It's right here!](/documentation/asset-manager.html#concepts-resources)
+:::
+
 An asset tag allows you to tag your asset so that you can later easily filter on them.
 
 ::: info

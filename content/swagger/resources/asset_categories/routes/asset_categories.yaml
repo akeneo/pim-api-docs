@@ -12,6 +12,7 @@ get:
     - "3.1"
     - "3.2"
   x-ee: true
+  x-deprecated: true
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -115,6 +116,7 @@ post:
     - "3.1"
     - "3.2"
   x-ee: true
+  x-deprecated: true
   parameters:
     - name: body
       in: body
@@ -146,6 +148,7 @@ patch:
     - "3.1"
     - "3.2"
   x-ee: true
+  x-deprecated: true
   description: This endpoint allows you to update several asset categories at once.
   x-body-by-line: Contains several lines, each line is a category in JSON standard format
   parameters:

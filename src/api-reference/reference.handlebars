@@ -34,7 +34,7 @@
                         <p class="pre-nav">Browse all our endpoints</p>
                         {{#each categories as |category categoryId|}}
                             <li class="main-nav">
-                                <a href="#{{{categoryId}}}">{{{categoryName}}}</a>
+                                <a href="#{{{categoryId}}}">{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</a>
                                 <ul class="nav">
                                     {{#each resources as |resource resourceId|}}
                                         <li class="sub-nav">
@@ -60,10 +60,15 @@
             <div class="col-xs-12 col-sm-9">
                 {{#each categories as |category categoryId|}}
                     <a class="anchor" id="{{{categoryId}}}"></a>
-                    <h1>{{{categoryName}}}</h1>
+                    <h1>{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</h1>
+                    {{#if categoryDeprecated}}
+                        <div class="alert alert-warning">
+                            <p>With the introduction of our brand new way to handle assets, the Asset Manager, the PAM feature will be removed from the v4.0 of the PIM. As a result, from now on, <b>all the endpoints regarding the PAM assets are deprecated</b>. They will not be available anymore starting from the v4.0.<br/>Don't hesitate to take a look at the <a href="/documentation/asset-manager.html">Asset Manager documentation</a> to discover this new feature and how much more efficient it will be to handle your precious assets.</p>
+                        </div>
+                    {{/if}}
                     {{#each resources as |resource resourceId|}}
                         <a class="anchor" id="{{{resourceId}}}"></a>
-                        <h2 class="picto">{{{resourceName}}}
+                        <h2 class="picto">{{{resourceName}}}{{#if ../categoryDeprecated}}<em> - Deprecated</em>{{/if}}
                             <img src="img/illustrations/illus--{{{resourceId}}}.svg"/>
                         </h2>
                         <div id="{{{resource}}}-detail"></div>
@@ -77,6 +82,9 @@
                                                 {{{summary}}}
                                                 {{#if x-ee}}
                                                     &nbsp;<span class="label label-ee">EE only</span>
+                                                {{/if}}
+                                                {{#if x-deprecated}}
+                                                    <span class="label label-warning">deprecated</span>
                                                 {{/if}}
                                             </h3>
                                             <p>{{{description}}}</p>

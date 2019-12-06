@@ -75,7 +75,7 @@ gulp.task('create-target-market-settings-md', function () {
 gulp.task('create-PAM-md', function () {
     return gulp.src(['content/php-client/resources/PAM/*.md'])
         .pipe(concat('PAM.md'))
-        .pipe(insert.prepend('## PAM\n'))
+        .pipe(insert.prepend('## PAM <em>- Deprecated</em>\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
 gulp.task('create-reference-entity-md', function () {

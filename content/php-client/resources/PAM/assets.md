@@ -1,11 +1,13 @@
-### Asset
+### Asset _- Deprecated_
 
-:::warning
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
+::: warning
+This resource is **deprecated**. It means that it will be removed in the next PHP client version, aka the 6.0. As a result, from now on, all the methods regarding this resource are deprecated.  
+Since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM.  
+[Eager to know more about these new assets? It's right here!](/documentation/asset-manager.html#the-asset)
 :::
 
-:::warning
-This resource is only available since the version 2.0 of the PHP API client.
+:::info
+This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/) and since the version 2.0 of the PHP API client.
 :::
 
 #### Get an asset 
