@@ -1,11 +1,13 @@
-### Asset reference file
+### Asset reference file _- Deprecated_
 
-:::warning
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
+::: warning
+This resource is **deprecated**. It means that it will be removed in the next PHP client version, aka the 6.0. As a result, from now on, all the endpoints regarding this resource are deprecated.  
+Since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, asset reference files can be modelized thanks to [media file attributes](/documentation/asset-manager.html#the-media-file-attribute) in your [asset family](/documentation/asset-manager.html#the-asset-family).  
+[Eager to know more about the Asset Manager? It's right here!](/documentation/asset-manager.html#concepts-resources)
 :::
 
-:::warning
-This resource is only available since the version 2.0 of the PHP API client.
+:::info
+This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/) and since the version 2.0 of the PHP API client.
 :::
 
 #### Get a reference file of a localizable asset

@@ -99,6 +99,9 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                             escapeCategory = category.replace(/\s/g, '');
                             if (!data.categories[escapeCategory]){
                                 data.categories[escapeCategory] = { categoryName: category, resources: {}};
+                                if(escapeCategory === 'PAM') {
+                                    data.categories[escapeCategory].categoryDeprecated = true;
+                                }
                             }
                             if (!data.categories[escapeCategory].resources[escapeTag]) {
                                 data.categories[escapeCategory].resources[escapeTag] = { resourceName: operation.tags[0], operations: {}};
@@ -147,6 +150,9 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                             escapeCategory = category.replace(/\s/g, '');
                             if (!data.categories[escapeCategory]){
                                 data.categories[escapeCategory] = { categoryName: category, resources: {}};
+                                if(escapeCategory === 'PAM') {
+                                    data.categories[escapeCategory].categoryDeprecated = true;
+                                }
                             }
                             if (!data.categories[escapeCategory].resources[escapeTag]) {
                                 data.categories[escapeCategory].resources[escapeTag] = { resourceName: operation.tags[0], operations: {}};

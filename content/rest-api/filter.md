@@ -2,10 +2,6 @@
 
 When requesting a list of resources via the API, you can apply filters to get only the ones you want.
 
-::: info
-Note that all the filters available on the products are also available on the published products.
-:::
-
 ## Filter on product properties
 To filter products by one of its properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
 
@@ -37,6 +33,10 @@ You can even combine several filters on the same product properties. The example
 /api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04 10:00:00"},{"operator":"=","value":"2016-07-05 10:00:00"}]}
 ```
 
+:::info
+Filtering on product properties is also available for published products.
+:::
+
 ### On their categories
 
 To filter products on their categories, use the property `categories`.
@@ -58,6 +58,9 @@ To get the products of the `winter_collection` category, you can use the followi
 /api/rest/v1/products?search={"categories":[{"operator":"IN","value":["winter_collection"]}]}
 ```
 
+:::info
+Filtering on categories is also available for published products.
+:::
 
 ### On their status
 
@@ -75,6 +78,9 @@ To get the disabled products, you can use the following URL.
 ```
 /api/rest/v1/products?search={"enabled":[{"operator":"=","value":false}]}
 ```
+:::info
+Filtering on status is also available for published products.
+:::
 
 ### On their completeness
 
@@ -102,6 +108,9 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 ```
 /api/rest/v1/products?search={"completeness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
 ```
+:::info
+Filtering on completeness is also available for published products.
+:::
 
 ### On their group or family
 
@@ -127,6 +136,10 @@ To get the products that are not in the `camcorders` and `digital_cameras` famil
 ```
 /api/rest/v1/products?search={"family":[{"operator":"NOT IN","value":["camcorders","digital_cameras"]}]}
 ```
+
+:::info
+Filtering on family or group is also available for published products.
+:::
 
 ### On their creation or update date
 
@@ -159,12 +172,18 @@ To get the products that were updated during the last 4 days, you can use the fo
 ```
 /api/rest/v1/products?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
 ```
+:::info
+Filtering on creation or update date is also available for published products.
+:::
 
-
-### On their parent
+### On their parent (since 3.2)
 
 To get the variant products of a given product model, use the filter called `parent`.  
 For now, this filter only accepts one operator: `=`. It expects a code of a product model, given as a string. This product model can be either a root product model or a sub product model.
+
+::: warning
+This filter is available starting the 3.2 version of the PIM.
+:::
 
 #### Examples
 To get all the variant products of the root product model with the code `tshirt_armor`, you can use the following URL.
@@ -369,6 +388,10 @@ You can even combine several filters on the same attribute. The example below wi
 /api/rest/v1/products?search={"description":[{"operator":"NOT EMPTY","locale":"en_US","scope":"ecommerce"},{"operator":"EMPTY","locale":"fr_FR","scope":"ecommerce"}]}
 ```
 
+:::info
+Filtering on product values is also available for published products.
+:::
+
 ### `search_locale` query parameter
 If you need to filter on several attributes on the same locale, you can use the `search_locale` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing locale code.
 
@@ -381,6 +404,10 @@ is equivalent to
 /api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","scope":"ecommerce"}]}&search_locale=en_US
 ```
 
+:::info
+This query parameter is also available for the published products.
+:::
+
 ### `search_scope` query parameter
 If you need to filter on several attributes on the same channel, you can use the `search_scope` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing channel code.
 
@@ -392,6 +419,10 @@ is equivalent to
 
 /api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US"}]}&search_scope=ecommerce
 ```
+
+:::info
+This query parameter is also available for the published products.
+:::
 
 ### Available operators
 As seen previously, the attribute type determines which set of operators is available to use these filters.
@@ -441,6 +472,10 @@ As seen previously, the attribute type determines which set of operators is avai
 
 ## Filter product values
 Thanks to the above sections, you are able to filter your products to only get those you want. In this section, you will see that you also can filter the product values to only receive those you want. 
+
+:::info
+Filtering product values via attributes, channel or locale is also available for published products.
+:::
 
 ### Via attributes
 If you want to receive for each product only product values about specific attributes, you can specify it thanks to the `attributes` query parameter.
@@ -585,7 +620,11 @@ When requesting locales, you can use a filter to get the enabled ones.
 /api/rest/v1/locales?search={"enabled":[{"operator":"=","value":true}]}
 ```
 
-## Filter reference entity records
+## Filter reference entity records (since 3.0)
+
+::: info
+All these filters are available starting the 3.0 version of the PIM.
+:::
 
 ### Filter records by completeness
 You can filter the reference entity records to get only the completed ones on a given channel for given locales.
