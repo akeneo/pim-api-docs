@@ -1,7 +1,7 @@
 post:
   summary: Create a new media file for an asset
   operationId: "post_asset_media_files"
-  description: This endpoint allows you to create a new media file and associate it to an image attribute value of an asset.
+  description: This endpoint allows you to create a new media file and associate it to a media file attribute value of an asset.
   tags:
     - Asset media file
   x-versions:

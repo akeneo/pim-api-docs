@@ -17,7 +17,7 @@ properties:
   type:
     type: string
     description: Attribute type
-    enum: ['text', 'media_link', 'number', 'image', 'single_option', 'multiple_options', 'reference_entity_single_link', 'reference_entity_multiple_links']
+    enum: ['text', 'media_link', 'number', 'media_file', 'single_option', 'multiple_options', 'reference_entity_single_link', 'reference_entity_multiple_links']
     x-immutable: true
   value_per_locale:
     type: boolean
@@ -61,23 +61,16 @@ properties:
     x-warning: Only for `text` attribute type
   allowed_extensions:
     type: array
-    description: Extensions allowed when the attribute type is `image`
+    description: Extensions allowed when the attribute type is `media_file`
     default: []
-    x-warning: Only for `image` attribute type
+    x-warning: Only for `media_file` attribute type
     items:
       type: string
   max_file_size:
     type: string
-    description: Max file size in MB when the attribute type is `image`
+    description: Max file size in MB when the attribute type is `media_file`
     default: null
-    x-warning: Only for `image` attribute type
-  reference_entity_code:
-    type: string
-    description: COMING SOON - Code of the linked reference entity when the attribute type is `reference_entity_single_link` or `reference_entity_multiple_links`
-    default: null
-    x-validation-rules: Required when the attribute type is either `reference_entity_single_link` or `reference_entity_multiple_links`
-    x-warning: Only for `reference_entity_single_link` and `reference_entity_multiple_links` attribute type
-    x-immutable: true
+    x-warning: Only for `media_file` attribute type
   decimals_allowed:
    type: boolean
    description: Whether decimals are allowed when the attribute type is `number`
@@ -97,9 +90,9 @@ properties:
    x-warning: Only for `number` attribute type
   media_type:
    type: string
-   description: Type of the media behind the url, to allow its preview in the PIM
+   description: For the `media_link` attribute type, it is the type of the media behind the url, to allow its preview in the PIM. For the `media_file` attribute type, it is the type of the file.
    enum: ['image', 'other']
-   x-warning: Only required for `media_link` attribute type
+   x-warning: Only required for `media_link` and `media_file` attribute types
   prefix:
    type: string
    description: Prefix of the `media_link` attribute type. The common url root that prefixes the link to the media
