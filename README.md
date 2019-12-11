@@ -6,53 +6,30 @@ The API documentation can be found here: [api.akeneo.com](http://api.akeneo.com)
 ## Installation for dev/preview purposes
 
 ### Requirements
-[Node.js](https://nodejs.org/en/) is required.
-You can optionally choose [Yarn](https://yarnpkg.com/lang/en/) as package manager instead of NPM (provided with NodeJS by default).
+- Install [Docker Engine](https://docs.docker.com/engine/installation/).
+- Install [Docker Compose](https://docs.docker.com/compose/install/).
 
-### Run locally
-First, install the all dependencies with Yarn:
-
-```bash
-yarn install
-```
-
-or with NPM:
+### Run with docker
 
 ```bash
-npm install
-```
-
-Then run the Gulp server, with Yarn: 
-
-```bash
-yarn serve
-```
-
-or with NPM:
-
-```bash
-npm serve
+make build
 ```
 
 The API documentation site is then available on `localhost:8000`.
 Files located in the content and src directories are watched for changes, so when developing you do not need to launch any other task.
 
-### Run with Docker
+## Deployment
+
+Your public SSH key should be deployed on the server (see Ansible configuration).
 
 ```bash
-make serve
+HOSTNAME=xxx PORT=xxx make deploy
 ```
 
-### Deploy with Docker
+HOSTNAME is the server to deploy the documentation on.
+PORT is the SSH port to connect to the server.
 
-Prerequisites are:
-- Having your SSH key deployed on the server (see Ansible configuration).
-- _(optional)_ Having a `~/.ssh/config` with an Host alias to the server.
-- Having a `config.json` with the deploy configuration defined for the targeted ENV (see `config.json.dist`).
-
-```bash
-make deploy-staging
-```
+To know the production and staging environments of api-docs, please read the [inventory](https://github.com/akeneo/ansible/blob/master/inventories/core.inventory).
 
 ## Swagger
 
