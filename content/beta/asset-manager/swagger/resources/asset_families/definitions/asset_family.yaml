@@ -54,12 +54,73 @@ properties:
                 type: string
               mode:
                 type: string
-
+  transformations:
+    type: array
+    description: TODO
+    x-validation-rules: TODO
+    default: {}
+    items:
+      type: object
+      properties:
+        label:
+          type: string
+          description: The name of the transformation
+        source:
+          type: object
+          description: TODO
+          properties:
+            attribute:
+              type: string
+              description: TODO
+            channel:
+              type: string
+              description: TODO
+            locale:
+              type: string
+              description: TODO
+        target:
+          type: object
+          description: TODO
+          properties:
+            attribute:
+              type: string
+              description: TODO
+            channel:
+              type: string
+              description: TODO
+            locale:
+              type: string
+              description: TODO
+        operations:
+            type: object
+            description: TODO
+            properties:
+              type:
+                type: string
+                description: TODO
+              parameters:
+                type: object
+                description: TODO
+                properties:
+                    colorspace:
+                      type: string
+                    width:
+                      type: string
+                    height:
+                      type: string
+                    scale:
+                      type: string
+                    resolution-unit:
+                      type: string
+                    resolution-x:
+                      type: string
+                    resolution-y:
+                      type: string
 example: {
-  "code": "user_instructions",
+  "code": "model_pictures",
   "labels": {
-    "en_US": "User instructions",
-    "fr_FR": "Notice d'utilisation"
+    "en_US": "Model pictures",
+    "fr_FR": "Photographies en pied"
   },
   "product_link_rules":
   [
@@ -73,9 +134,33 @@ example: {
       ],
       "assign_assets_to": [
         {
-          "attribute": "user_instructions",
-          "locale": "{{locale}}",
+          "attribute": "model_pictures",
           "mode": "replace"
+        }
+      ]
+    }
+  ],
+  "transformations": [
+    {
+      "source": {
+        "attribute": "main_image"
+      },
+      "target": {
+        "attribute": "thumbnail"
+      },
+      "operations": [
+        {
+          "type": "resize",
+          "parameters": {
+            "width": "150px",
+            "height": "150px"
+          }
+        },
+        {
+          "type": "colorspace",
+          "parameters": {
+            "colorspace": "grey"
+          }
         }
       ]
     }

@@ -66,6 +66,31 @@ get:
                     }
                   ]
                 }
+              ],
+              "transformations": [
+                {
+                  "source": {
+                    "attribute": "main_image"
+                  },
+                  "target": {
+                    "attribute": "thumbnail"
+                  },
+                  "operations": [
+                    {
+                      "type": "resize",
+                      "parameters": {
+                        "width": "150px",
+                        "height": "150px"
+                      }
+                    },
+                    {
+                      "type": "colorspace",
+                      "parameters": {
+                        "colorspace": "grey"
+                      }
+                    }
+                  ]
+                }
               ]
             },
             {
