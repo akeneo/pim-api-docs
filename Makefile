@@ -10,8 +10,11 @@ docker-build:
 yarn-install: docker-build
 	$(_DOCKER_RUN) $(_DOCKER_IMAGE_TAG) yarn install
 
-build: yarn-install
+watch: yarn-install
 	$(_DOCKER_RUN) --expose=8000 -p=8000:8000 $(_DOCKER_IMAGE_TAG) yarn gulp serve
+
+build: yarn-install
+	$(_DOCKER_RUN) --expose=8000 -p=8000:8000 $(_DOCKER_IMAGE_TAG) yarn gulp create-dist
 
 deploy: yarn-install
 	$(_DOCKER_RUN) -e PORT -e HOSTNAME -v "$${SSH_AUTH_SOCK}":/ssh-auth.sock:ro -e SSH_AUTH_SOCK=/ssh-auth.sock $(_DOCKER_IMAGE_TAG) yarn gulp deploy

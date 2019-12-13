@@ -23,12 +23,13 @@ gulp.task('deploy', ['create-dist'], function() {
         });
     }
 
+    // silent mode is activated to prevent to display hostname and port on the CI for security concern
     return gulp.src(rsyncPaths)
         .pipe(rsync({
             hostname: process.env.HOSTNAME,
             username: "akeneo",
             destination: "/var/www/html",
-            progress: true,
+            progress: false,
             incremental: true,
             relative: false,
             emptyDirectories: true,
@@ -36,6 +37,7 @@ gulp.task('deploy', ['create-dist'], function() {
             clean: true,
             exclude: [],
             shell: "ssh -o StrictHostKeyChecking=no -p " + process.env.PORT,
-            command: true
+            command: false,
+            silent: true
         }));
 });

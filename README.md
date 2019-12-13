@@ -9,10 +9,18 @@ The API documentation can be found here: [api.akeneo.com](http://api.akeneo.com)
 - Install [Docker Engine](https://docs.docker.com/engine/installation/).
 - Install [Docker Compose](https://docs.docker.com/compose/install/).
 
-### Run with docker
+### Build with docker
 
 ```bash
 make build
+```
+
+This is only building the documentation. The documentation is not available with this command, as it does not launch the HTTP server. 
+
+### Build and launch HTTP server with docker
+
+```bash
+make watch
 ```
 
 The API documentation site is then available on `localhost:8000`.
