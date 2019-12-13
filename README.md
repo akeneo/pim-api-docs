@@ -28,7 +28,25 @@ Files located in the content and src directories are watched for changes, so whe
 
 ## Deployment
 
-Your public SSH key should be deployed on the server (see Ansible configuration).
+### Continuous delivery
+
+Once you merge a PR into the `master` branch, it is deployed on the staging server. Here are the steps to release:
+
+- Check the staging environment if everything is ok to be deployed in production
+- Open this [link](https://circleci.com/gh/akeneo/workflows/pim-api-docs/tree/master). You have to be connected with your Github account.
+- Click on the first row which should be "On hold"
+
+![List of merged PR in master](.circleci/list_workflows.jpg)
+
+- Click on the box "approve_to_deploy_in_production" and approve. It will launch the deployment in production.
+
+![List of jobs in a workflow](.circleci/list_jobs.jpg)
+
+- It's deployed in production in 1 minute!
+
+### Local deployment
+
+Your public SSH key should be deployed on the server (see Ansible configuration). It is strongly recommended to release with the CI process though.
 
 ```bash
 HOSTNAME=xxx PORT=xxx make deploy
