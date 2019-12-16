@@ -1,20 +1,20 @@
-_DOCKER_IMAGE_TAG = pim-api-docs:latest
-_DOCKER_RUN = docker run -it --rm -u "$${UID}":"$${GID}" -v "$${PWD}":/opt/workdir -w /opt/workdir
+DOCKER_IMAGE_TAG = pim-api-docs:latest
+DOCKER_RUN = docker run -it --rm -u "$${UID}":"$${GID}" -v "$${PWD}":/opt/workdir -w /opt/workdir
 
-.PHONY: _docker-build _yarn-install serve deploy-staging
+.PHONY: docker-build yarn-install serve deploy-staging
 .DEFAULT_GOAL := build
 
 docker-build:
-	docker build -t $(_DOCKER_IMAGE_TAG) .
+	docker build -t $(DOCKER_IMAGE_TAG) .
 
 yarn-install: docker-build
-	$(_DOCKER_RUN) $(_DOCKER_IMAGE_TAG) yarn install
+	$(DOCKER_RUN) $(DOCKER_IMAGE_TAG) yarn install
 
 watch: yarn-install
-	$(_DOCKER_RUN) --expose=8000 -p=8000:8000 $(_DOCKER_IMAGE_TAG) yarn gulp serve
+	$(DOCKER_RUN) --expose=8000 -p=8000:8000 $(DOCKER_IMAGE_TAG) yarn gulp serve
 
 build: yarn-install
-	$(_DOCKER_RUN) --expose=8000 -p=8000:8000 $(_DOCKER_IMAGE_TAG) yarn gulp create-dist
+	$(DOCKER_RUN) $(DOCKER_IMAGE_TAG) yarn gulp create-dist
 
 deploy: yarn-install
-	$(_DOCKER_RUN) -e PORT -e HOSTNAME -v "$${SSH_AUTH_SOCK}":/ssh-auth.sock:ro -e SSH_AUTH_SOCK=/ssh-auth.sock $(_DOCKER_IMAGE_TAG) yarn gulp deploy
+	$(DOCKER_RUN) -e PORT -e HOSTNAME -v "$${SSH_AUTH_SOCK}":/ssh-auth.sock:ro -e SSH_AUTH_SOCK=/ssh-auth.sock $(_DOCKER_IMAGE_TAG) yarn gulp deploy
