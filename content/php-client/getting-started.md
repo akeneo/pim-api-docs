@@ -40,12 +40,12 @@ Run the following command to require the libraries in your project:
 
 ### Community Edition 
 ```bash
-$ php composer.phar require akeneo/api-php-client php-http/guzzle6-adapter
+$ php composer.phar require akeneo/api-php-client php-http/guzzle6-adapter:^2.0 http-interop/http-factory-guzzle:^1.0
 ```
 
 ### Enterprise Edition
 ```bash
-$ php composer.phar require akeneo/api-php-client-ee php-http/guzzle6-adapter
+$ php composer.phar require akeneo/api-php-client-ee php-http/guzzle6-adapter:^2.0 http-interop/http-factory-guzzle:^1.0
 ```
 
 ::: info
