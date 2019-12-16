@@ -17,4 +17,4 @@ build: yarn-install
 	$(DOCKER_RUN) $(DOCKER_IMAGE_TAG) yarn gulp create-dist
 
 deploy: yarn-install
-	$(DOCKER_RUN) -e PORT -e HOSTNAME -v "$${SSH_AUTH_SOCK}":/ssh-auth.sock:ro -e SSH_AUTH_SOCK=/ssh-auth.sock $(_DOCKER_IMAGE_TAG) yarn gulp deploy
+	$(DOCKER_RUN) -e PORT -e HOSTNAME -v "$${SSH_AUTH_SOCK}":/ssh-auth.sock:ro -e SSH_AUTH_SOCK=/ssh-auth.sock $(DOCKER_IMAGE_TAG) yarn gulp deploy
