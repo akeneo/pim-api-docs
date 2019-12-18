@@ -13,14 +13,16 @@ Below are some examples of asset families, along with their asset attributes.
 
 For each asset family, you can define the way the PIM will automatically link the assets of this family to your products. We called that the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the precise format of this rule.
 
+For each asset family, you can define several transformations for your [media file attributes](#the-media-file-attribute). Don't hesitate to read the [Transformations section](#focus-on-the-transformations) to learn more and also, find their JSON format.
+
 Here is the JSON format representing an example of asset family.
 
 ```json
 {
-  "code": "user_instructions",
+  "code": "packshots",
   "labels": {
-    "en_US": "User instructions",
-    "fr_FR": "Notice d'utilisation"
+    "en_US": "Pachskots",
+    "fr_FR": "Packshots"
   },
   "product_link_rules": [
     {
@@ -33,9 +35,39 @@ Here is the JSON format representing an example of asset family.
       ],
       "assign_assets_to": [
         {
-          "attribute": "user_instructions",
-          "locale": "{{locale}}",
+          "attribute": "model_pictures",
           "mode": "replace"
+        }
+      ]
+    }
+  ],
+  "transformations": [
+    {
+      "label": "Thumbnail plus black and white transformation",
+      "filename_suffix": "_thumbnailBW",
+      "source": {
+        "attribute": "main_image",
+        "channel": null,
+        "locale": null
+      },
+      "target": {
+        "attribute": "thumbnail",
+        "channel": null,
+        "locale": null
+      },
+      "operations": [
+        {
+          "type": "resize",
+          "parameters": {
+            "width": 150,
+            "height": 150
+          }
+        },
+        {
+          "type": "colorspace",
+          "parameters": {
+            "colorspace": "grey"
+          }
         }
       ]
     }

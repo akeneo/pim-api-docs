@@ -69,18 +69,24 @@ get:
               ],
               "transformations": [
                 {
+                  "label": "My transformation",
+                  "filename_suffix": "_thumbnailBW",
                   "source": {
-                    "attribute": "main_image"
+                    "attribute": "main_image",
+                    "locale": null,
+                    "channel": null
                   },
                   "target": {
-                    "attribute": "thumbnail"
+                    "attribute": "thumbnail",
+                    "locale": null,
+                    "channel": null
                   },
                   "operations": [
                     {
-                      "type": "resize",
+                      "type": "thumbnail",
                       "parameters": {
-                        "width": "150px",
-                        "height": "150px"
+                        "width": 150,
+                        "height": 150
                       }
                     },
                     {

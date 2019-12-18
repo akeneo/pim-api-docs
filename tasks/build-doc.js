@@ -374,6 +374,7 @@ gulp.task('beta-documentation', ['clean-dist','less'], function () {
                 'asset-values-focus.md': 'Focus on asset values',
                 'link-products.md': 'Link with products and product models',
                 'product-link-rule-focus.md': 'Focus on the product link rule',
+                'transformations-focus.md': 'Focus on the transformations',
                 'asset-filters.md': 'Asset filters',
                 'reference.md': 'Reference'
             }

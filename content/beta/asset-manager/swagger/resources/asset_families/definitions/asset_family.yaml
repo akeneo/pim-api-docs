@@ -56,66 +56,68 @@ properties:
                 type: string
   transformations:
     type: array
-    description: TODO
-    x-validation-rules: TODO
+    description: The transformations to perform on source files in order to generate new files into your asset attributes. To understand the format of this property, see <a href='/beta/asset-manager/transformations-focus.html'>here</a>.
+    x-validation-rules: To know more about the validation of this property, take a look at our transformation format.
     default: {}
     items:
       type: object
+      required: ['label', 'target', 'source', 'operations']
       properties:
         label:
           type: string
           description: The name of the transformation
+        filename_suffix:
+          type: string
+          description: The suffix that will be append to the source filename to generate the target filename. More details <a href='/beta/asset-manager/transformations-focus.html#target-filename'>here</a>.
+        filename_preffix:
+          type: string
+          description: The prefix that will be prepend to the source filename to generate the target filename. More details <a href='/beta/asset-manager/transformations-focus.html#target-filename'>here</a>.
         source:
           type: object
-          description: TODO
+          required: ['attribute', 'channel', 'locale']
+          description: The attribute value in which is stored the media file you want to use as the source file for your transformation. More details <a href='/beta/asset-manager/transformations-focus.html#source-file'>here</a>.
           properties:
             attribute:
               type: string
-              description: TODO
             channel:
               type: string
-              description: TODO
             locale:
               type: string
-              description: TODO
         target:
           type: object
-          description: TODO
+          required: ['attribute', 'channel', 'locale']
+          description: The attribute value in which the PIM will generate the new transformed file, aka the target file. More details <a href='/beta/asset-manager/transformations-focus.html#target-file'>here</a>.
           properties:
             attribute:
               type: string
-              description: TODO
             channel:
               type: string
-              description: TODO
             locale:
               type: string
-              description: TODO
         operations:
             type: object
-            description: TODO
+            description: The transformations that should be applied to your source file to generate the target file. More details <a href='/beta/asset-manager/transformations-focus.html#transformation-operations'>here</a>.
+            x-validation-rules: Should contain at least one operation
             properties:
               type:
                 type: string
-                description: TODO
               parameters:
                 type: object
-                description: TODO
                 properties:
                     colorspace:
                       type: string
                     width:
-                      type: string
+                      type: integer
                     height:
-                      type: string
-                    scale:
-                      type: string
+                      type: integer
+                    ratio:
+                      type: integer
                     resolution-unit:
                       type: string
                     resolution-x:
-                      type: string
+                      type: integer
                     resolution-y:
-                      type: string
+                      type: integer
 example: {
   "code": "model_pictures",
   "labels": {
@@ -142,18 +144,24 @@ example: {
   ],
   "transformations": [
     {
+      "label": "My transformation",
+      "filename_suffix": "_thumbnailBW",
       "source": {
-        "attribute": "main_image"
+        "attribute": "main_image",
+        "channel": null,
+        "locale": null
       },
       "target": {
-        "attribute": "thumbnail"
+        "attribute": "thumbnail",
+        "channel": null,
+        "locale": null
       },
       "operations": [
         {
-          "type": "resize",
+          "type": "thumbnail",
           "parameters": {
-            "width": "150px",
-            "height": "150px"
+            "width": 150,
+            "height": 150
           }
         },
         {

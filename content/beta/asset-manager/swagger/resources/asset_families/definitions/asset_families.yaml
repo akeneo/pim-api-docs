@@ -52,18 +52,24 @@ example: [
     ],
     "transformations": [
       {
+        "label": "My transformation",
+        "filename_suffix": "_thumbnailBW",
         "source": {
-          "attribute": "main_image"
+          "attribute": "main_image",
+          "channel": null,
+          "locale": null
         },
         "target": {
-          "attribute": "thumbnail"
+          "attribute": "thumbnail",
+          "channel": null,
+          "locale": null
         },
         "operations": [
           {
-            "type": "resize",
+            "type": "thumbnail",
             "parameters": {
-              "width": "150px",
-              "height": "150px"
+              "width": 150,
+              "height": 150
             }
           },
           {
