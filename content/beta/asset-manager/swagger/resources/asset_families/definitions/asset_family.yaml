@@ -71,7 +71,7 @@ properties:
           description: The suffix that will be append to the source filename to generate the target filename. More details <a href='/beta/asset-manager/transformations-focus.html#target-filename'>here</a>.
         filename_prefix:
           type: string
-          description: The prefix that will be prepend to the source filename to generate the target filename. More details <a href='/beta/asset-manager/transformations-focus.html#target-filename'>here</a>.
+          description: The prefix that will be prepended to the source filename to generate the target filename. More details <a href='/beta/asset-manager/transformations-focus.html#target-filename'>here</a>.
         source:
           type: object
           required: ['attribute', 'channel', 'locale']
