@@ -15,7 +15,7 @@ The PIM can automatically generate the thumbnail version of your main image for 
 For each transformation, we define:
 - a media file attribute that will be used as the source for your transformation and wisely called *source* attribute: in our example, the `main_image` attribute,
 - a media file attribute in which the generated file will be stored, called the *target* attribute: in our example, the `thumbnail` attribute,
-- a set of operations to perform on the source picture to generate the target one: in our example, a resizing.
+- a set of ordered operations to perform on the source picture to generate the target one: in our example, a resizing.
 
 ::: info
 You can have up to **10** different transformations for one given asset family and each transformation can perform several operations.
