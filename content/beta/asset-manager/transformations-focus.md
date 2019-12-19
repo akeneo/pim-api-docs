@@ -213,7 +213,7 @@ There are additionnal business rules regarding this `target` property whenever y
 
 The `operations` property allows you to define which image transformations should be applied to your source file to generate the target file.
 
-In one single transformation, you can define one or several product operations.
+In one single transformation, you can define one or several operations.
 
 ::: warning
 Defining the same operation twice in the same transformation is forbidden as it would totally make no sense.
