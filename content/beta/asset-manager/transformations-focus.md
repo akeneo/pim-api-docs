@@ -25,7 +25,7 @@ The JSON format of the transformations is an array of transformations. A transfo
 - a [label](#label), to name your transformation,
 - a [filename part](#target-filename), 
 - the [`source` part](#source-file),
-- the[ `target` part](#target-file),
+- the [`target` part](#target-file),
 - the [`operations` part](#transformation-operations).
 
 ```json
