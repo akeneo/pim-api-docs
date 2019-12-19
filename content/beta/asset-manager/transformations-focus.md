@@ -216,7 +216,7 @@ The `operations` property allows you to define which image transformations shoul
 In one single transformation, you can define one or several operations.
 
 ::: warning
-Defining the same operation twice in the same transformation is forbidden as it would totally make no sense.
+Defining the same operation type twice in the same transformation is forbidden as it would totally make no sense.
 :::
 
 The `operations` property follows this format:
