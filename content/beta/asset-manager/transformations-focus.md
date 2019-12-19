@@ -133,7 +133,7 @@ It will be used in error messages whenever your transformation failed to generat
 
 ## Target filename
 
-You can give a name to the generated target file. By default, the naming is based on the filename of the source file. You can define a suffix or a prefix that will be concatenated to this filename and be used as the filename of the target file. 
+You can give a name to the generated target file. By default, the naming is based on the filename of the source file. You can define a suffix and/or a prefix that will be concatenated to this filename and be used as the filename of the target file. 
 
 To do this, use:
 - the `filename_prefix`: the string that will be prepend to the source filename.
