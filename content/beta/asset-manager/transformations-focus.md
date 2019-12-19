@@ -242,7 +242,7 @@ Let's now detail the available operation names as well as their corresponding pa
 
 ### Thumbnail
 
-With the `thumbnail` type, you can automatically generate a thumbnail. It keeps the image proportions and crop it if needed.
+With the `thumbnail` type, you can automatically generate a thumbnail. It keeps the image proportions and crops it if needed.
 
 There are 2 available parameters for this operation.
 
