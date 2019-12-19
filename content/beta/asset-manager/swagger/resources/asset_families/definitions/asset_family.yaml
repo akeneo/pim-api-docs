@@ -69,7 +69,7 @@ properties:
         filename_suffix:
           type: string
           description: The suffix that will be append to the source filename to generate the target filename. More details <a href='/beta/asset-manager/transformations-focus.html#target-filename'>here</a>.
-        filename_preffix:
+        filename_prefix:
           type: string
           description: The prefix that will be prepend to the source filename to generate the target filename. More details <a href='/beta/asset-manager/transformations-focus.html#target-filename'>here</a>.
         source:
