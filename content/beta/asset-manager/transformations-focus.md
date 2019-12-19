@@ -1,6 +1,6 @@
 # Focus on the transformations
 
-For each [asset family](#the-asset-family), you can define transformations. They allow you to ask the PIM to automatically generates one or several new variations of a given media file for each one of the assets that are inside your family.
+For each [asset family](#the-asset-family), you can define transformations. They allow you to ask the PIM to automatically generate one or several new variations of a given media file for each asset belonging to your family.
 
 Let's take an example to make it much clearer.
 
