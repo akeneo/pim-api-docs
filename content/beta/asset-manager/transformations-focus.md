@@ -176,7 +176,7 @@ If the `MEDIA_FILE_ATTRIBUTE_NAME` is the code of an attribute that is not scopa
 :::
 
 ::: info
-There are additionnal business rules regarding this `target` property whenever you have multiple transformations for the same asset family. See the [Dealing with several transformations](#dealing-with-several-transformations) section for more details.
+There are additional business rules regarding this `target` property whenever you have multiple transformations for the same asset family. See the [Dealing with several transformations](#dealing-with-several-transformations) section for more details.
 :::
 
 ## Target file
