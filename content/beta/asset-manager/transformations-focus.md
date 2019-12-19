@@ -197,7 +197,7 @@ It follows this format:
 In this formula:
  - `MEDIA_FILE_ATTRIBUTE_NAME` is the code of the asset attribute that holds the target file. This asset attribute should be defined in the asset family and of type `media_file`.
  - `TARGET_LOCALE_CODE` is an existing locale code when `MEDIA_FILE_ATTRIBUTE_NAME` is the code of a localizable asset attribute.
- - `TARGET_CHANNEL_CODE` is an existing channel code when `MEDIA_FILE_ATTRIBUTE_NAME` is the code of a scopable product attribute.
+ - `TARGET_CHANNEL_CODE` is an existing channel code when `MEDIA_FILE_ATTRIBUTE_NAME` is the code of a scopable asset attribute.
 
 ::: warning
 The `attribute`, `locale` and `channel` properties are mandatory. 
