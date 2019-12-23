@@ -1,4 +1,4 @@
-# Create an app
+# _Step 1_ | Create an app
 
 In this step, you are going to create an app. :rocket:
 

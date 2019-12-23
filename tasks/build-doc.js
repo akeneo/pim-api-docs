@@ -237,9 +237,20 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
             image: 'illustrations/illus--v4.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': '1. Create an app',
-                'step-2.md': '2. Cook your connector',
-                'step-3.md': '3. Identify your connector in the PIM'
+                'step-1.md': 'Step 1 | Create an app',
+                'step-2.md': 'Step 2 | Cook your connector',
+                'step-3.md': 'Step 3 | Identify your connector in the PIM'
+            }
+        },
+        'connect-the-pim-old': {
+            gettingStartedName: 'connect-the-pim',
+            pimVersion: 'v1.7 / v2 / v3',
+            title: 'The "Connect the PIM" tutorial',
+            image: 'illustrations/illus--v4.svg',
+            files: {
+                'welcome.md': 'Welcome',
+                'step-1.md': 'Step 1 | Cook your connector',
+                'step-2.md': 'Step 2 | Generate the credentials'
             }
         }
     };

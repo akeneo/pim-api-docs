@@ -1,4 +1,4 @@
-# _Step 2_ | Cook your connector
+# _Step 1_ | Cook your connector
 
 In this step, there are 2 sub-steps.
 
@@ -116,5 +116,5 @@ It encapsulates a lot of complexity, like dealing with pagination or the authent
 
 If you are not a PHP developer, you can take a look out there and find if our community already provided a client for your favorite language. If not, feel free to contribute. :wink:
 
-::: panel-link Now that you created your connector, let's move on to [The PIM connection binding phase](/getting-started/connect-the-pim-4x/step-3.html)
+::: panel-link Now that you created your connector, let's move on to [The PIM credentials generation](/getting-started/connect-the-pim-old/step-2.html)
 :::
