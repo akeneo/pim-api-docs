@@ -18,7 +18,7 @@ In the Akeneo UI, in the 1.7 version, you can find the products in the `Enrich`/
 
 Below is an example of a product in the UI.
 
-::: versions id="products" 2.x![Products in the Akeneo UI](/img/screenshots/v2.0/products_ui.png) 1.7![Products in the Akeneo UI](/img/screenshots/v1.7/products_ui.png)
+::: versions id="products" 2.x![Products in the Akeneo UI](/img/rest-api/products_ui.png) 1.7![Products in the Akeneo UI](/img/rest-api/v1.7/products_ui.png)
 :::
 
 Below is the JSON standard format representing a product.
@@ -273,11 +273,11 @@ It's like a product, but it's not a product! It can be categorized and it's comp
 
 In the Akeneo UI, product models are displayed in the grid, exactly like classical products. To distinguish them from products, notice the small pile of pictures: it symbolizes the fact that a product model gathers several products with different variants.
 
-![Product models in the grid](/img/screenshots/v2.0/product_models_in_the_grid.png)
+![Product models in the grid](/img/rest-api/product_models_in_the_grid_ui.png)
 
 It's also possible to enrich product model. Below, you can find a screenshot of what the UI looks like.
 
-![Product models in the PEF](/img/screenshots/v2.0/product_models_in_the_pef.png)
+![Product models in the PEF](/img/rest-api/product_models_in_the_pef_ui.png)
 
 To finish, below is the JSON standard format representing a product model. Notice how much it's closed to the product standard format!
 
@@ -403,7 +403,7 @@ It is used as the attribute value of a product, i.e. a product value.
 
 In the Akeneo UI, you can find media files in the product form when they are associated to a media attribute.
 
-::: versions id="media-files" 2.x![Media files in the Akeneo UI](/img/screenshots/v2.0/media_files_ui.png) 1.7![Media files in the Akeneo UI](/img/screenshots/v1.7/media_files_ui.png)
+::: versions id="media-files" 2.x![Media files in the Akeneo UI](/img/rest-api/media_files_ui.png) 1.7![Media files in the Akeneo UI](/img/rest-api/v1.7/media_files_ui.png)
 :::
 
 Below is the JSON standard format representing a media file.
@@ -438,7 +438,7 @@ A product can be classified in one or n categories.
 
 In the Akeneo UI in v2.x, you can find the categories in the `Settings`/`Categories` menu. In the 1.7, you'll find it in the `Enrich`/`Categories` menu.
 
-::: versions id="categories" 2.x![Categories in the Akeneo UI](/img/screenshots/v2.0/categories_ui.png) 1.7![Categories in the Akeneo UI](/img/screenshots/v1.7/categories_ui.png)
+::: versions id="categories" 2.x![Categories in the Akeneo UI](/img/rest-api/categories_ui.png) 1.7![Categories in the Akeneo UI](/img/rest-api/v1.7/categories_ui.png)
 :::
 
 Below is the JSON standard format representing a set of categories.
@@ -485,7 +485,7 @@ Finally, an attribute can be scopable. An attribute is scopable if its values di
 
 In the Akeneo UI, you can find the attributes in the `Settings`/`Attributes` menu. Below is an example of one attribute in the UI.
 
-::: versions id="attributes" 2.x![Attributes in the Akeneo UI](/img/screenshots/v2.0/attributes_ui.png) 1.7![Attributes in the Akeneo UI](/img/screenshots/v1.7/attributes_ui.png)
+::: versions id="attributes" 2.x![Attributes in the Akeneo UI](/img/rest-api/attributes_ui.png) 1.7![Attributes in the Akeneo UI](/img/rest-api/v1.7/attributes_ui.png)
 :::
 
 Below is the JSON standard format representing this attribute.
@@ -536,7 +536,7 @@ Only attribute of type simple select, multiselect, reference data simple select 
 
 In the Akeneo UI, you can find the attribute options in the `Settings`/`Attributes` menu, then select a simple or multiselect attribute and go to the `Values` tab in the attribute form. Below is an example of the attribute options of the attribute `camera_brand` in the UI.
 
-::: versions id="attribute_options" 2.x![Attribute options in the Akeneo UI](/img/screenshots/v2.0/attribute_options_ui.png) 1.7![Attribute options in the Akeneo UI](/img/screenshots/v1.7/attribute_options_ui.png)
+::: versions id="attribute_options" 2.x![Attribute options in the Akeneo UI](/img/rest-api/attribute_options_ui.png) 1.7![Attribute options in the Akeneo UI](/img/rest-api/v1.7/attribute_options_ui.png)
 :::
 
 Below is the JSON standard format representing these attribute options.
@@ -585,7 +585,7 @@ Nevertheless, a product does not have to belong to a family. In this case, it ha
 
 In the Akeneo UI, you can find the families in the `Settings`/`Families` menu. Below is an example of a family in the UI.
 
-::: versions id="families" 2.x![Families in the Akeneo UI](/img/screenshots/v2.0/families_ui.png) 1.7![Families in the Akeneo UI](/img/screenshots/v1.7/families_ui.png)
+::: versions id="families" 2.x![Families in the Akeneo UI](/img/rest-api/families_ui.png) 1.7![Families in the Akeneo UI](/img/rest-api/v1.7/families_ui.png)
 :::
 
 Below is the JSON standard format representing this family.
@@ -654,7 +654,7 @@ From a single place, in a family variant, you will define all the structure for 
 
 In the Akeneo UI, you can find the family variants of one given family by going under the `Settings`/`Families` menu. Then, select one family and click on the `Variants` tab. All the variants of your family are right here!
 
-![Family variants in the Akeneo UI](/img/screenshots/v2.0/family_variants_ui.png)
+![Family variants in the Akeneo UI](/img/rest-api/family_variants_ui.png)
 
 Below is the JSON standard format representing this family variant.
 
@@ -709,7 +709,7 @@ To facilitate the work of Julia inside the PIM, we gather attributes into groups
 
 In the Akeneo UI, you can find the attribute groups in the `Settings`/`Attribute groups` menu. Below is a screenshot of all attribute groups in the UI.
 
-![Attribute groups in the Akeneo UI](/img/screenshots/v2.0/attribute_groups_ui.png)
+![Attribute groups in the Akeneo UI](/img/rest-api/attribute_groups_ui.png)
 
 Below is the JSON standard format representing these attribute groups.
 
@@ -749,7 +749,7 @@ In the PIM, a product can be associated to another. You can create an associatio
 
 In the Akeneo UI, you can find the association types in the `Settings`/`Association types` menu. Below is an example of an association type in the UI.
 
-![Association types in the Akeneo UI](/img/screenshots/v2.0/association_types_ui.png)
+![Association types in the Akeneo UI](/img/rest-api/association_types_ui.png)
 
 Below is the JSON standard format representing these association types.
 
@@ -788,7 +788,7 @@ You can have one or more locales activated in your PIM.
 
 In the Akeneo UI, you can find the locales in the `Settings`/`Locales` menu.
 
-::: versions id="locales" 2.x![Locales in the Akeneo UI](/img/screenshots/v2.0/locales_ui.png) 1.7![Locales in the Akeneo UI](/img/screenshots/v1.7/locales_ui.png)
+::: versions id="locales" 2.x![Locales in the Akeneo UI](/img/rest-api/locales_ui.png) 1.7![Locales in the Akeneo UI](/img/rest-api/v1.7/locales_ui.png)
 :::
 
 Below is the JSON standard format representing this set of locales.
@@ -825,7 +825,7 @@ A channel is also known as a «scope» in the Akeneo PIM.
 
 In the Akeneo UI, you can find them in the `Settings`/`Channels` menu.
 
-::: versions id="channels" 2.x![Channels in the Akeneo UI](/img/screenshots/v2.0/channels_ui.png) 1.7![Channels in the Akeneo UI](/img/screenshots/v1.7/channels_ui.png)
+::: versions id="channels" 2.x![Channels in the Akeneo UI](/img/rest-api/channels_ui.png) 1.7![Channels in the Akeneo UI](/img/rest-api/v1.7/channels_ui.png)
 :::
 
 Below is the JSON standard format representing this set of channels when requested through the API.
@@ -902,7 +902,7 @@ If you want to store price information inside your PIM, you will need currencies
 
 In the Akeneo UI, you can find the currencies in the `Settings`/`Currencies` menu. Below is a screenshot of all currencies in the UI.
 
-![Currencies in the Akeneo UI](/img/screenshots/v2.0/currencies_ui.png)
+![Currencies in the Akeneo UI](/img/rest-api/currencies_ui.png)
 
 Below is the JSON standard format representing a currency.
 
@@ -925,7 +925,7 @@ If you want to store metrics regarding your product such as weight, height or po
 
 Below is an example of one of these metrics attributes.
 
-![Metrics attribute](/img/screenshots/v2.0/metrics_attributes.png) 
+![Metrics attribute](/img/rest-api/metrics_attributes_ui.png) 
 
 Below is the JSON standard format representing a measure family.
 
@@ -984,7 +984,7 @@ Also, assets are really more powerful, you can automatically generate variations
 
 In the Akeneo UI in v2.x, you can find the PAM, where all the assets are stored, in the `Assets` menu. Below is a screenshot of the PAM.
 
-![Assets in the Akeneo UI](/img/screenshots/v2.0/assets_ui.png)
+![Assets in the Akeneo UI](/img/rest-api/assets_ui.png)
 
 Below is the JSON standard format representing an asset, that is not localizable.
 
@@ -1059,7 +1059,7 @@ An asset can be classified in several asset categories.
 
 In the Akeneo UI in v2.x, you can find the asset categories under the `Settings`/`Asset categories` menu.
 
-![Asset categories in the Akeneo UI](/img/screenshots/v2.0/asset_categories_ui.png)
+![Asset categories in the Akeneo UI](/img/rest-api/asset_categories_ui.png)
 
 Below is the JSON standard format representing asset categories. Notice how it's really similar to the product categories format.
 ```json
@@ -1125,7 +1125,7 @@ Reference entities are objects that are related to products but have their own a
 
 In the Akeneo UI, you can find the reference entities in the `Entities` menu. Below is an example of the `Brand` reference entity with its [records](/documentation/resources.html#reference-entity-record-3x-and-ee-only) in the UI.
 
-![Reference entity](/img/screenshots/v3.0/reference_entity.png)
+![Reference entity](/img/rest-api/v3.0/reference_entity.png)
 
 Below is the JSON format representing a reference entity.
 
@@ -1153,7 +1153,7 @@ Note that the "Reference entity attribute" resource is not the same as the "Attr
 
 In the Akeneo UI, you can find the attributes that compose a given reference entity by following these simple steps. Go in the `Entities` menu. Click on a reference entity and then, click on the `Attributes` sub menu. Below is an example of the attributes that compose the `Designer` entity in the UI.
 
-![Reference entity attributes](/img/screenshots/v3.0/reference_entity_attribute.png)
+![Reference entity attributes](/img/rest-api/v3.0/reference_entity_attribute.png)
 
 The JSON format for a reference entity attribute can differ according to its type. Below are some examples for each attribute type.
 
@@ -1292,7 +1292,7 @@ In the Akeneo UI, if you want to manage the options of an reference entity attri
 
 The screenshot below shows the screen where you can manage your options.
 
-![Reference entity attribute options in the Akeneo UI](/img/screenshots/v3.0/reference_entity_attribute_options.png)
+![Reference entity attribute options in the Akeneo UI](/img/rest-api/v3.0/reference_entity_attribute_options.png)
 
 Below is the JSON format representing these reference entity attribute options.
 
@@ -1333,7 +1333,7 @@ Let's give an example to be clearer. For the "Brand" reference entity, a record 
 
 In the Akeneo UI, you can find the reference entity records in the `Entities` menu by selecting one of the entity of your choice. Below is an example of the record of a reference entity in the UI.
 
-![Reference entity record](/img/screenshots/v3.0/reference_entity_record.png)
+![Reference entity record](/img/rest-api/v3.0/reference_entity_record.png)
 
 Below is the JSON standard format representing a reference entity record.
 
@@ -1543,11 +1543,11 @@ In the Akeneo UI, you can find these media files in the detail of a record. In t
 - the first image with the logo of the brand,
 - the second image inside the `Photo` attribute.
 
-![Reference entity record](/img/screenshots/v3.0/reference_entity_record.png)
+![Reference entity record](/img/rest-api/v3.0/reference_entity_record.png)
 
 You can also find media files in the properties of a reference entity, as shown in the screenshot below. 
 
-![Reference entity record](/img/screenshots/v3.0/reference_entity_media_file.png)
+![Reference entity record](/img/rest-api/v3.0/reference_entity_media_file.png)
 
 ::: panel-link Want more details about the reference entity media file resource? [Check its endpoints here!](/api-reference.html#Referenceentitymediafile)
 :::
