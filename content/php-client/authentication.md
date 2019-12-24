@@ -16,7 +16,7 @@ $client = $clientBuilder->buildAuthenticatedByPassword('client_id', 'secret', 'a
 ```
 
 Then, every request made by the client is automatically authenticated.
-If you don't have any client id, please take a look at [this page](/documentation/security.html#authentication) to create it.
+If you don't have any client id, please take a look at [this page](/documentation/authentication.html#client-idsecret-generation) to create it.
 
 This is the easiest way to authenticate the client.
 

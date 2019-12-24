@@ -56,7 +56,7 @@ If you don't know which implementation to choose, we strongly recommend you to u
 
 You first need to initialise the client with your credentials client id/secret and with your user/password.
 
-If you don't have any client id/secret, let's take a look at [this page](/documentation/security.html#authentication) to create it.
+If you don't have any client id/secret, let's take a look at [this page](/documentation/authentication.html#client-idsecret-generation) to create it.
 
 ### Community Edition
 
