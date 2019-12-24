@@ -145,7 +145,7 @@ md.use(require('markdown-it-container'), 'version-screenshots', {
         var source_v17 = tokens[idx].info.trim().match(/^version-screenshots\sid=".*"\s2\.x.*\s1\.7(.*)$/);
         return (tokens[idx].nesting === 1) ? '<div>' +
                     '<ul class="nav nav-tabs nav-tabs-versions" role="tablist">' +
-                        '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">v2.x</a></li>' +
+                        '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">v2 / v3 / v4</a></li>' +
                         '<li role="presentation"><a href="#v17_' + id[1] + '" aria-controls="v17_' + id[1] + '" role="tab" data-toggle="tab">v1.7</a></li>' +
                     '</ul>' +
                     '<div class="panel panel-default">' +
@@ -350,7 +350,8 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
     var pages = {
         'introduction.md': 'Introduction',
         'overview.md': 'Overview',
-        'security.md': 'Security',
+        'authentication.md': 'Authentication',
+        'permissions.md': 'Permissions',
         'responses.md': 'Response codes',
         'pagination.md': 'Pagination',
         'update.md': 'Update behavior',
