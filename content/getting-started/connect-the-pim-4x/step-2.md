@@ -80,7 +80,7 @@ _For our example, here is the global orchestration of our connector. First, ever
 As we want you to build the best connector ever, here are some tips to help you cook it the right way.
 
 ### Start small
-The use case we took here is really simple, as you can see. In real life, connections maybe a bit more tricky with a lot of different use cases to handle.
+The use case we took here is really simple, as you can see. In real life, connections may be a bit more tricky with a lot of different use cases to handle.
 
 We highly recommend you to **start small**. Focus on one single use case at first. Then, when the first one is robust and approved, add some more.
 
