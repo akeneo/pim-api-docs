@@ -66,7 +66,7 @@ Choose the architecture you want for your connector. Indeed, you will have two o
     - You can otherwise create a middleware that will sit right in the middle of the third-party you want to connect, and the PIM.
 
 #### In this tutorial
-_For our example, we choose the second option there is little chance that your ERP allows developing into its base code. So you will have to develop your connector as a middleware._
+_For our example, we choose the second option as little chances are that your ERP accepts external development into its base code. Here, you will have to develop your connector as a middleware._
 
 ### 6- Ochestrate your global connector
 
