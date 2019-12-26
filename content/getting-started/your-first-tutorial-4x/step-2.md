@@ -9,7 +9,7 @@ We use it internally at Akeneo. It helps us develop and test our API. If you wan
 With Postman, you can share pre-configured API requests in **collections** with whoever you want.  
 We crafted for you a very simple collection, that contains only two pre-configured requests:
 - `Your very first request`: The Graal! That's the whole goal of this tutorial: being able to launch this request and receive an answer from the PIM. More concretely, this request will in fact asks the PIM for its first 100 products.
-- `The authentication request`: Very useful, this request will allow you to authenticate yourself. Indeed, the API is protected and is only accessible to people that have app credentials. To avoid anyone to mess with your precious PIM data. :wink: 
+- `The authentication request`: Very useful, this request will allow you to authenticate yourself. Indeed, the API is protected and is only accessible to people that have connection credentials. To avoid anyone to mess with your precious PIM data. :wink: 
 
 ::: tips
 If you have trouble using Postman, do not hesitate to browse their really complete [documentation](https://learning.getpostman.com/docs).
@@ -33,8 +33,8 @@ A new environment should also have been created in the dropdown in the top right
 ![Postman environment popin](/img/getting-started/postman-environment-4x-popin.png)
 8. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.x PIM is hosted.
 ![Url in environment](/img/getting-started/url-environment-4x.png)
-9. Back in the PIM, go to `System`/`Apps` and select your `My very first app` app.
-5. In the right side of the screen, there are your app credentials to connect to the API. Copy those information and paste them into the corresponding field in the Postman popin.
+9. Back in the PIM, go to `System`/`Connections` and select your `My very first connection` connection.
+5. In the right side of the screen, there are your connection credentials to connect to the API. Copy those information and paste them into the corresponding field in the Postman popin.
 ![Credentials copy/pasted in Postman](/img/getting-started/copy-past-credentials-4x.png)
 
 That's it for this step!
