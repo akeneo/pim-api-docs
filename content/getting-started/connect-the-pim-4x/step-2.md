@@ -63,7 +63,7 @@ _For our example, you will need to create and update products in the PIM so we w
 ### 5- Think about your architecture
 Choose the architecture you want for your connector. Indeed, you will have two options here:
     - You have access to the third-party code source and can develop your connector directly in it.
-    - You can otherwise create a middleware that will sit right in the middle of the tird-party you want to connect and the PIM.
+    - You can otherwise create a middleware that will sit right in the middle of the third-party you want to connect, and the PIM.
 
 #### In this tutorial
 _For our example, we choose the second option there is little chance that your ERP allows developing into its base code. So you will have to develop your connector as a middleware._
