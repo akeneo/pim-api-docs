@@ -52,7 +52,7 @@ _In our example, let's say that you took a look at your ERP and discovered that,
 Define at which frequency you want your connector to integrate data into the PIM or retrieve it, if it is a destination. You need to choose this frequency carefully as it can have an impact on the PIM load.
 
 #### In this tutorial
-_In our example, as stated above, we know that every day, new products are created into the ERP. So we define that our connector will integrate new products, once a day at midnight, outside working hour, to lower as much as possible the PIM load._
+_In our example, as stated above, we know that every day, new products are created in the ERP. So we define that our connector will integrate new products, once a day at midnight, outside working hours, to lower as much as possible the PIM load._
 
 ### 4- Explore our API reference
 In this step, you will need to find in our [API reference](api-reference-index.html) the endpoints you will need to achieve such a connection. 
