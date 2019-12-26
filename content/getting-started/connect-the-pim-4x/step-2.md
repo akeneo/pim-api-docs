@@ -30,7 +30,7 @@ Below are the macro steps to successfully go through this development.
 3. Choose your integration frequency
 4. Explore our API reference
 5. Think about your architecture
-6. Ochestrate your global connector
+6. Orchestrate your global connector
 
 Those steps are detailed below, illustrated by our tutotrial example.
 
