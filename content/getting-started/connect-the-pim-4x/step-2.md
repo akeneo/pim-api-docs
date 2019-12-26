@@ -68,7 +68,7 @@ Choose the architecture you want for your connector. Indeed, you will have two o
 #### In this tutorial
 _For our example, we choose the second option as little chances are that your ERP accepts external development into its base code. Here, you will have to develop your connector as a middleware._
 
-### 6- Ochestrate your global connector
+### 6- Orchestrate your global connector
 
 A crucial step. In most cases, you will need to manually map some PIM information with the data sent or received in the software you want to connect.
 
