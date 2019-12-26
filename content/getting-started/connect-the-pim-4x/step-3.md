@@ -1,6 +1,6 @@
 # _Step 3_ | Identify your connector in the PIM
 
-In the very first step of this tutorial, you created in the PIM a connection.  
+In the very first step of this tutorial, you created a connection in the PIM.  
 In this step, we are going to associate this connection to the connector you've built (or downloaded from the marketplace).
 
 By doing so, you will be able to easily monitor the data flows that are exchanged between your connector and the PIM.
