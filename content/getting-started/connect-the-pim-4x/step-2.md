@@ -39,7 +39,7 @@ Those steps are detailed below, illustrated by our tutotrial example.
 We know it can seem a bit obvious but it really is the first step for a successful connection between the PIM and your third-party. You need to have at least the global scenario of your connection in mind.
 
 #### In this tutorial
-_You want to connect your ERP. Each day, new products are created into your ERP. You want those new products to be sent over to the PIM so that you can enrich them, in the PIM, the day after._
+_You want to connect your ERP. Each day, new products are created in your ERP. You want those new products to be sent over to the PIM so that you can enrich them, in the PIM, the day after._
 
 ### 2- Find out what are the third-party connection possibilities
 
