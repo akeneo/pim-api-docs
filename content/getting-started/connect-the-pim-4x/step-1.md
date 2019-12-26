@@ -8,7 +8,7 @@ Creating an app is the primary step that will allow to connect your PIM. So let'
 
 Well, maybe you are not familiar with what an app is. Let me help you here.
 
-In a few words, an app can be seen as a door for the PIM. It allows you to push data into or pull data from the PIM. 
+In a few words, an app can be considered as a door for the PIM. It allows you to push data into or pull data from the PIM. 
 
 Apps are directly declared into the UI of the PIM. To declare an app, you should follow this simple rule: **One app corresponds to one specific data flow**, aka one specific connection.
 
