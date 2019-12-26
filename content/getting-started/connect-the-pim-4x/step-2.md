@@ -112,7 +112,7 @@ Testing should not be optional. You will need to test your full use case and als
 
 If you want to use PHP to build your connector, we highly recommend the use of our PHP client.
 
-It encapsulates a lot of complexity, like dealing with pagination or the authentication. In the end, you will save a lot of time by using it.
+It encapsulates a lot of complexity, like dealing with pagination or authentication. In the end, you will save a lot of time by using it.
 
 If you are not a PHP developer, you can take a look out there and find if our community already provided a client for your favorite language. If not, feel free to contribute. :wink:
 
