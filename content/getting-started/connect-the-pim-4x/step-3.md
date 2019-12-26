@@ -21,7 +21,7 @@ To access this screen, click on the `Activity` menu and then on the `Connection 
 You can follow here the number of products that were updated or created during the last seven days. In our tutorial, it's perfect, because we are updating/creating products coming from our ERP. So we can verify that products are actually created/updated by our connector. 😊
 
 ::: info
-In 4.0, you can only follow the creation and update of products through the Connection dashboard. But don't worry, in next versions, you will be able to also follow the distribution of products sent to your various destinations, in the case you chose `Destination`as your connection flow type. So stay tuned!
+In 4.0, you can only follow the creation and update of products through the Connection dashboard. But don't worry, in next versions, you will also be able to follow the distribution of products sent to your various destinations, in the case you chose `Destination`as your connection flow type. Stay tuned!
 :::
 
 
