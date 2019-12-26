@@ -3,7 +3,7 @@
 In the very first step of this tutorial, you created a connection in the PIM.  
 In this step, we are going to associate this connection to the connector you've built (or downloaded from the marketplace).
 
-By doing so, you will be able to easily monitor the data flows that are exchanged between your connector and the PIM.
+By doing so, you will be able to easily monitor the data flows between your connector and the PIM.
 
 1. In your PIM, go under `System`/`Connections`.
 2. In the overview of all your connections, click on the one we created in step 1, aka `My ERP`.
