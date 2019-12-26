@@ -129,7 +129,7 @@ Still not comfortable with transformations? Don't hesitate to go through the nex
 ## Label
 
 It's just a string and it's basically the name you want to give to your transformation.  
-It will be used in error messages whenever your transformation failed to generate your variations for example.
+It will be used in error messages whenever your transformation failed to generate your variations.
 
 ## Target filename
 
