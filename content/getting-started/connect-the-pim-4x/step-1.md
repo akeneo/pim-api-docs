@@ -2,7 +2,7 @@
 
 In this step, you are going to create an app. :rocket:
 
-Creating an app is the primary step that will allow to connect your PIM. So let's see how to do that! You'll see, it's easy as a breeze.
+Creating an app is the primary step that will allow to connect your PIM. So let's see how to do so! You'll see, it's easy as a breeze.
 
 ## You said `app`?
 
