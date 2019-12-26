@@ -7,7 +7,7 @@ Indeed, you will need an API user, a password, a client ID and a secret if you w
 ::: info
 _Best practice_  
 We strongly advise you to create **one set of credentials** for each one of your connectors.  
-Indeed, it will ease a lot your migration to the PIM v4, in case you are planning it.
+Indeed, it will ease a lot your migration to the PIM v4, in case you are planning for it.
 :::
 
 ## Create an API user
@@ -119,7 +119,6 @@ They will authenticate all its API calls.
 You can now use your connector for real and test the entire workflow, from the product creation in your ERP to their creation into the PIM, for our tutorial example.
 
 And... that's it! :tada: You now know how to properly connect the PIM. :wink:
-
 
 
 
