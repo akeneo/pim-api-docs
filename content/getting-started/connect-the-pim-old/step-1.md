@@ -100,7 +100,7 @@ As stated previously, again, we advise you to start small. Benchmark your connec
 
 To help you in this task, here are examples of questions you can ask yourself:
 - _"How many [products](/documentation/resources.html#product), [product models](/documentation/resources.html#product-model-2x-only), [assets](/documentation/resources.html#asset-since-21-and-ee-only-deprecated), [reference entity records](/documentation/resources.html#reference-entity-record-3x-and-ee-only) or [options](/documentation/resources.html#attribute-option) your connector will handle?"_
-- _"How big are your products, assets or reference entities in terms of number of attributes completed?"_
+- _"How big are your products, product models, assets or reference entities in terms of number of attributes completed?"_
 
 Also, don't forget to think about the fact that every API call you are doing has an impact on the **PIM load**. Always keep in mind that your connector won't be the only one connected to the PIM. Try to have a load print as low as possible. To do so, you can use caches for example.
 
