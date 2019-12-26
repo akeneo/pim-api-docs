@@ -55,7 +55,7 @@ Define at which frequency you want your connector to integrate data into the PIM
 _In our example, as stated above, we know that every day, new products are created in the ERP. So we define that our connector will integrate new products, once a day at midnight, outside working hours, to lower as much as possible the PIM load._
 
 ### 4- Explore our API reference
-In this step, you will need to find in our [API reference](api-reference-index.html) the endpoints you will need to achieve such a connection. 
+In this step, you will need to find in our [API reference](api-reference-index.html) the endpoints you will need to achieve such connection. 
 
 #### In this tutorial
 _For our example, you will need to create and update products in the PIM so we will mainly need this endpoint: [Patch](/api-reference.html#patch_products) on products._
