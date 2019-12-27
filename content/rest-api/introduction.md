@@ -21,45 +21,61 @@ It is almost __impossible__ for Julia to deal with all these sources.
 So, to prevent Julia from going nuts, her company has invested in a very useful tool, a __PIM__. This type of software helps companies to centralize and harmonize all the technical and marketing information of their catalogs and products. That's exactly what __Julia needs__!
 
 As summed up in the diagram below, a PIM allows Julia to gather all the product information in one single place, to enrich it and to spread it to several channels like an e-commerce website or a printed catalog... 
-![PIM schema](/img/pim.png)
+![PIM schema](/img/rest-api/pim.png)
 
 **In a nutshell, the PIM is for product information what CRM is for customer information!**
 
-_Well, if you do not know what a CRM is, here is a little bit of [information](https://en.wikipedia.org/wiki/Customer_relationship_management). ;)_
+_Well, if you do not know what a CRM is, here is a little bit of [information](https://en.wikipedia.org/wiki/Customer_relationship_management)._ ;)
 
 ::: panel-link Want more details about the Akeneo PIM solution? [Check our website!](http://www.akeneo.com)
 :::
 
-## Why did we create an API?
+## Why should you use our API?
 
-When you install a PIM for a client, you usually have to write tools or even connectors. These connectors are here to connect the PIM with all the data sources it needs. They are also developed to spread products information to systems such as e-commerce website or marketplaces.
+When you install a PIM for a client, you usually have to write tools or even connectors to integrate it perfectly into his very own IT landscape. 
 
-The API is here to help you develop theses tools and connectors.
+At Akeneo, we recommend the use of our API to achieve with success such task. 
 
-### Stable API = Long-lasting tools
+> In fact, the API is the **best** way to connect your PIM to third-parties.
 
-Today, when you write a tool/connector, you have to dig deeply into the PIM code. So you ended up writing code that is really tied to ours. It can lead to painful migrations, especially when things have [changed in our codebase](https://github.com/akeneo/pim-community-dev/blob/master/CHANGELOG-1.7.md).
+Wondering why? Here are the reasons!
 
-But we really want you to keep writing amazing tools, we had to do something to help you.
+### Stable API = long-lasting tools
+
+Today, when you write a connector/tool, some of you are used to dig deeply into the PIM open source code. So you end up writing code that is really tied to ours. It always lead to painful migrations, especially when things heavily changed in our codebase, like it is the case for each new PIM version.
+
+But we really want you to keep writing amazing connectors and tools. So we had to do something to help you.
 
 And here comes the API!
 
-Thanks to the API, you will be able to build long lasting tools. We guarantee that this brand new API will be stable in time and that we will not integrate BC breaks between versions.
+Thanks to the API, you will be able to build long lasting connectors. We guarantee that **our API will be stable** in time and that we will not integrate BC breaks between PIM versions.
 
-In the end, we hope that these amazing tools you are going to build on top of our API, will be easier to implement, easier to integrate, easier to maintain and above all, that you will not suffer from painful migrations again.
+In the end, we hope that these amazing connectors you are going to build on top of our API, will be easier to implement, easier to integrate, easier to maintain and above all, that you will not suffer from painful migrations again.
 
-### More languages = more innovation
+### More performance = better tools
 
-With the API, you will also be able to write tool in another language than PHP. So take your favorite technology and do not hesitate, write your tools with it.
+Starting the v3 version of the PIM, we worked a lot on improving the performance of our PIM, including our API.
+
+Today, the API is officially the **most performant way** to connect the PIM.
+
+### More languages = innovating tools
+
+With the API, you will also be able to write tools in another language than PHP. So pick your favorite technology and do not hesitate, write your tools with it.
 
 As the API is a standard REST API, you can use the language you want to implement connectors or even external applications based on the PIM data.
 
 Be innovative! Offer value to our common end-users! They will love it.
 
+### The only way for Serenity users
 
-## From the old API to the new one
+For our Serenity users, the API is the **only way** to connect their PIM. 
 
-With the introduction of this new Web API in the 1.7 release, we decided to remove the old one which was not compatible. This means you won't be able to use it anymore.
+Indeed, in this case, as the PIM is provided to you as a service, you cannot customize any part of its code. The API is your only way out when it comes to integrating it into your IT infrastructure.
+
+
+## From the v1.6 old API to the new one
+
+With the introduction of the API in the 1.7 release, we decided to remove the old one which was not compatible. This means you won't be able to use it anymore.
 
 But don't worry, if you were using it, we've got you covered. In the following section, you will find a guide explaining you the main differences between the two APIs. We really hope it will facilitate your migration process.
 

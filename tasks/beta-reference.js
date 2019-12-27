@@ -1,5 +1,5 @@
 /**
- * Compile API Reference index and Complete Reference with handlebars
+ * Compile API Reference with handlebars
  *
  * This script will:
  * - load the api YAML
@@ -18,7 +18,7 @@ var revReplace = require('gulp-rev-replace');
 
 gulp.task('beta-reference', ['clean-dist', 'less'], function() {
 
-        gulp.src('content/beta/swagger/akeneo-web-api.yaml')
+        gulp.src('content/beta/asset-manager/swagger/root.yaml')
             .pipe(swagger('akeneo-web-api.json'))
             .pipe(gulp.dest('content/swagger'))
             .pipe(jsonTransform(function(data, file) {
@@ -115,8 +115,8 @@ gulp.task('beta-reference', ['clean-dist', 'less'], function() {
                 });
                 return gulp.src('src/api-reference/beta/reference.handlebars')
                     .pipe(gulpHandlebars(templateData, {}))
-                    .pipe(rename('api-reference-asset-manager.html'))
+                    .pipe(rename('api-reference.html'))
                     .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))
-                    .pipe(gulp.dest('dist'));
+                    .pipe(gulp.dest('dist/beta/asset-manager'));
             }));
 });

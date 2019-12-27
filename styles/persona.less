@@ -1,0 +1,35 @@
+.persona {
+    cursor: pointer;
+    border-radius: @border-radius-base;
+    margin: @spacing-base/2 0 @spacing-base 0;
+    .transition(all 0.25s);
+    background-color: #fff;
+    border: 1px solid @gray-lighter;
+    padding-bottom: 40px;
+    img {
+        padding: 20px 0 20px 0;
+    }
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        padding-bottom: @spacing-base / 2;
+        margin: 0;
+        font-size: ceil(@font-size-h1 * 1.2);
+        font-style: italic;
+    }
+    p {
+        color: @text-color;
+    }
+    &:hover {
+        -webkit-transform: scale3d(1.01, 1.01);
+        -ms-transform: scale3d(1.01, 1.01);
+        transform: scale3d(1.01, 1.01);
+        .box-shadow(0 5px 25px 0 @gray-light);
+    }
+    a:hover {
+        text-decoration: none;
+    }
+    a:focus {
+        outline: none;
+    }
+}

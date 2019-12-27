@@ -1,0 +1,39 @@
+.footer{
+    background-color: @gray-lighter;
+    height: 200px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    margin-top: @spacing-base * 2 ;
+    &:before{
+        background-color: @gray-lighter;
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        z-index: -1;
+        top: -65px;
+        left: 0;
+        .skew(0, -3deg);
+    }
+    .container{
+        margin-bottom: 30px;
+    }
+    .social-icon{
+        margin-top: 20px;
+        height: 20px;
+        display: flex;
+        margin-bottom: 0;
+        a{
+            margin: 0 10px;
+            align-self: center;
+            img{
+                height: 22px;
+            }
+            &:hover {
+                filter: saturate(0.6);
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 ### Asset media file
 
-We refer here to the asset media file of the [Asset Manager](/documentation/asset-manager.html#the-asset-media-file).
+We refer here to the asset media file of the [Asset Manager](/beta/asset-manager/concepts-and-resources.html#the-asset-media-file).
 
 ::: warning
 This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).

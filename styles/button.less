@@ -1,7 +1,7 @@
 button.btn,
 a.btn {
     border-radius: 100px;
-    border: none;
+    border-width: 2px;
     padding: 5px 16px;
     text-transform: uppercase;
 
@@ -20,6 +20,21 @@ a.btn {
             background-color: @gray-lighter;
             border-color: @gray;
         }
+    }
+    &.btn-default{
+        border: 1px solid @gray-lighter;
+    }
+    &.btn-ghost.btn-primary{
+        .button-variant(@brand-primary;
+        transparent;
+        @brand-primary);
+        border: 2px solid;
+        &:hover{
+            background-color: lighten(@brand-primary, 50%);
+        }
+    }
+    +a.btn.pull-right {
+        margin-right: 10px;
     }
 }
 

@@ -1,0 +1,34 @@
+<svg width="296" height="282" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" fill-rule="evenodd">
+    <path d="M25 228.56C25 171.365 71.365 125 128.56 125s103.56 46.365 103.56 103.56H25z" fill="#E1F2FF" fill-rule="nonzero"/>
+    <g fill="#FFF" fill-rule="nonzero" stroke="#5E63B6" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+      <path d="M20 220h36M62 220h176.89M246 220h6.97M3 220h8.97M95 230h67.19M171 230h9.14M87 229l-5 .08"/>
+    </g>
+    <g stroke="#5E63B6" stroke-linecap="round">
+      <path stroke-width="2" stroke-linejoin="round" d="M206.98 68.4v7M210.48 71.9h-7M80 24v7M84 28h-7"/>
+      <path d="M42.73 188.68v3.94M44.7 190.65h-3.94"/>
+      <path stroke-linejoin="round" d="M217.73 128.68v3.94M219.7 130.65h-3.94"/>
+      <path d="M48.73 88.68v3.94M50.7 90.65h-3.94"/>
+      <path stroke-width="2" fill="#FFF" fill-rule="nonzero" d="M26.42 127.28v8.12M30.48 131.34h-8.13"/>
+    </g>
+    <g transform="translate(44 26)">
+      <rect stroke="#5E63B6" stroke-width="2" fill="#FFF" fill-rule="nonzero" width="116.18" height="116.18" rx="2"/>
+      <path d="M14 12h87.97a2 2 0 012 2v87.97a2 2 0 01-2 2H14a2 2 0 01-2-2V14a2 2 0 012-2z" stroke="#E1F2FF" stroke-width="2" fill="#FFF" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="50"/>
+      <text fill="#5E63B6" font-family="Lato-Black, Lato" font-size="18" font-weight="700">
+        <tspan x="51" y="96">O</tspan>
+      </text>
+      <text fill="#5E63B6" font-family="Lato-Black, Lato" font-size="18" font-weight="700">
+        <tspan x="56" y="33">I</tspan>
+      </text>
+      <path stroke="#5E63B6" stroke-width="2" fill="#FFF" fill-rule="nonzero" d="M47 43h22v24H47z"/>
+      <path stroke="#5E63B6" stroke-width="2" fill="#E1F2FF" fill-rule="nonzero" d="M47 67h22v9.38H47z"/>
+      <path stroke="#E1F2FF" stroke-width="2" fill="#FFF" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="50" d="M55 47h7.72"/>
+    </g>
+    <ellipse stroke="#5E63B6" stroke-width="4" fill="#FFF" cx="96.5" cy="188.5" rx="31.5" ry="30.5"/>
+    <ellipse stroke="#5E63B6" stroke-width="3" fill="#FFF" cx="97" cy="188.5" rx="16" ry="15.5"/>
+    <path d="M101.01 196.61c.065.205.129.344.142.39-.451-4.45 2.011-6.305 2.804-9.243a1.014 1.014 0 010-.145 2.07 2.07 0 00.04-.205 4.302 4.302 0 00-.833-2.76l-.16-.244a19.723 19.723 0 00-.323-.455l-.032-.046-.097-.126-.097-.125-.103-.126-.103-.132-.077-.092A22.047 22.047 0 0098.605 180c.18 1.556.194 3.128.045 4.687a18.002 18.002 0 01-1.534 5.196c-1.77-.135-3.51-.55-5.158-1.228A20.935 20.935 0 0188 186.278c0 .14 0 .278.045.416v.126c0 .099 0 .198.039.297.038.099 0 .092 0 .139l.045.297v.118c0 .126.039.251.064.37v.033c0 .145.052.284.078.43l.077.382v.08l.078.343v.066c0 .132.064.264.096.396.108.418.226.82.355 1.208.2.607.447 1.197.741 1.763l.123.224.116.192.129.198.167.237v.04c.065.086.136.165.207.244l.148.159.064.06.097.085.071.06.09.072.071.053.097.066.07.046.104.06.07.04.117.052h.058l.18.06.11.039c2.901.786 5.725-.462 9.27 2.132" fill="#9452BA" fill-rule="nonzero"/>
+    <path d="M181 96h-20.726c-9.274 0-13.503 11.225-13.503 23.582v39.39c0 17.83-18.763 14.84-22.771 14.84M207 158.001h-26.487c-20.325-.242 0 38.827-18.314 38.827-13.384.387-29.556 0-34.199 0" stroke="#5E63B6" stroke-width="5"/>
+    <path d="M202.91 93H194v-3h8.91c.601 0 1.09.468 1.09 1.047v.906c0 .579-.489 1.047-1.09 1.047zM202.91 102H194v-3h8.91c.601 0 1.09.467 1.09 1.046v.908c0 .578-.489 1.046-1.09 1.046zM182.997 84h9.343c.918 0 1.66.774 1.66 1.726v20.547c0 .954-.742 1.727-1.66 1.727h-9.343c-2.208 0-3.997-1.863-3.997-4.16V88.16c0-2.297 1.79-4.16 3.997-4.16z" stroke="#5E63B6" stroke-width="2" fill="#5E63B6"/>
+    <path d="M202.91 93H194v-3h8.91c.601 0 1.09.468 1.09 1.047v.906c0 .579-.489 1.047-1.09 1.047zM202.91 102H194v-3h8.91c.601 0 1.09.467 1.09 1.046v.908c0 .578-.489 1.046-1.09 1.046zM182.997 84h9.343c.918 0 1.66.774 1.66 1.726v20.547c0 .954-.742 1.727-1.66 1.727h-9.343c-2.208 0-3.997-1.863-3.997-4.16V88.16c0-2.297 1.79-4.16 3.997-4.16zM222.91 155H214v-3h8.91c.601 0 1.09.468 1.09 1.047v.906c0 .579-.489 1.047-1.09 1.047zM222.91 164H214v-3h8.91c.601 0 1.09.467 1.09 1.046v.908c0 .578-.489 1.046-1.09 1.046zM206.665 146h6.229c.611 0 1.106.774 1.106 1.726v20.547c0 .954-.495 1.727-1.106 1.727h-6.23c-1.471 0-2.664-1.863-2.664-4.16v-15.68c0-2.297 1.193-4.16 2.665-4.16z" stroke="#5E63B6" stroke-width="2" fill="#5E63B6"/>
+  </g>
+</svg>
