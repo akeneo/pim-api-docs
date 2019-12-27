@@ -153,7 +153,7 @@ And here is the JSON format of the `number` attribute type.
 The media file attribute is useful to hold the binaries of a file, a file being a picture, a pdf, a video...
 
 Here is an example of a `media_file` attribute.
-![An example of a media file asset attribute](../img/beta/media-file-asset-attribute.svg)
+![An example of a media file asset attribute](/img/beta/media-file-asset-attribute.svg)
 
 And here is the JSON format of the `media_file` attribute type, for an image.
 ```json
