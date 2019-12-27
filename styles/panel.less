@@ -1,6 +1,9 @@
 .panel {
     color: @text-color;
     margin-bottom: @spacing-base / 2;
+    h2 {
+        margin-bottom: 7.5px;
+    }
     &.panel-btn {
         cursor: pointer;
         .transition(all 0.25s);
@@ -29,7 +32,7 @@
             &:hover {
                 box-shadow: none;
                 color: darken(@brand-primary, 10%);
-                .panel-btn-big {
+                .panel-btn-big, h3 {
                     color: darken(@brand-primary, 10%);
                 }
             }
@@ -50,7 +53,7 @@
         margin-top: @spacing-base/3;
         box-shadow: none;
         .panel-body {
-            padding: @spacing-base;
+            padding: @spacing-base 0;
         }
     }
     &.panel-full-primary {
@@ -66,18 +69,24 @@
         background-color: lighten(@gray-lighter, 3%);
         border: none;
         color: @gray-light;
+        h2 {
+            color: lighten(@brand-primary, 30%);
+        }
+        img {
+            filter: opacity(0.5);
+        }
         p:first-of-type {
             color: @gray-light;
         }
         &:before {
             content: 'COMING SOON';
             position: absolute;
-            bottom: 30%;
-            left: 35%;
+            top: 6%;
+            left: 12%;
             color: @brand-primary;
             font-size: @font-size-h3;
             font-weight: bold;
-            .rotate(-10deg);
+            .rotate(-8deg);
             z-index: 1;
         }
     }
