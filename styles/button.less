@@ -29,8 +29,11 @@ a.btn {
         transparent;
         @brand-primary);
         border: 2px solid;
+        &:hover{
+            background-color: lighten(@brand-primary, 50%);
+        }
     }
-    +a.btn {
+    +a.btn.pull-right {
         margin-right: 10px;
     }
 }
