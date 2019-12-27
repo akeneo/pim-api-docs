@@ -10,7 +10,7 @@ Say we have a `packshots` asset family. In its structure, it has 2 media file at
 
 The PIM can automatically generate the thumbnail version of your main image for you, and this, thanks to the definition of a transformation!
 
-![image]()
+![Asset transformation example](/img/beta/asset-transformation.svg)
 
 For each transformation, we define:
 - a media file attribute that will be used as the source for your transformation and wisely called *source* attribute: in our example, the `main_image` attribute,
