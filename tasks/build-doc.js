@@ -139,8 +139,8 @@ md.use(require('markdown-it-container'), 'toc', {
         return params.trim().match(/^toc$/);
     },
     render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div id="navbar" class="col-sm-3 hidden-xs">' +
-        '<nav role="tablist" id="navbar-nav" data-spy="affix" data-offset-top="80" class="affix-top"><ul class="nav nav-stacked" style="counter-increment: step-counter;"><p class="pre-nav">Summary</p>' :
+        return (tokens[idx].nesting === 1) ? '<div id="navbar" class="col-sm-3 hidden-xs sticky">' +
+        '<nav role="tablist" id="navbar-nav"><ul class="nav nav-stacked" style="counter-increment: step-counter;"><p class="pre-nav">Summary</p>' :
                   "</ul></nav></div>\n";
             }
 });
