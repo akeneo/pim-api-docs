@@ -6,7 +6,7 @@
   "dependencies": {
     "jquery": "3.4.0",
     "font-awesome": "4.7.0",
-    "bootstrap": "3.3.7"
+    "bootstrap": "3.4.1"
   },
   "devDependencies": {
     "del": "2.2.2",
