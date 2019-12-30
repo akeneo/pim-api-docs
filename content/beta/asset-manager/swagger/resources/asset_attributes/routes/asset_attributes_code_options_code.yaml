@@ -6,6 +6,7 @@ get:
     - Asset attribute option
   x-versions:
     - "3.2"
+    - "4.0"
   x-ee: true
   parameters:
     - $ref: '#/parameters/asset_family_code'
@@ -30,6 +31,7 @@ patch:
     - Asset attribute option
   x-versions:
     - "3.2"
+    - "4.0"
   x-ee: true
   description: This endpoint allows you to update a given option for a given attribute and a given asset family. Learn more about the <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if the option does not already exist for the given attribute of the given asset family, it creates it.
   parameters:

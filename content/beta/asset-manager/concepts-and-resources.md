@@ -174,7 +174,7 @@ And here is the JSON format of the `media_file` attribute type, for an image.
 ```
 
 ::: info
-As of the v3.2, you can only have images in this attribute. Indeed, the `media_type` field only accepts the `image` value.  
+As of the v3.2 and v4.0, you can only have images in this attribute. Indeed, the `media_type` field only accepts the `image` value.  
 In the next version, you will be able to add new types of files (like PDF).
 :::
 

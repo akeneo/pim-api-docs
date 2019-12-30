@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "6a7c373d-7438-423d-abbd-056570a68400",
-		"name": "Asset Manager API Beta in PIM v3.2",
+		"name": "Asset Manager API in PIM v3.2/v4.0",
 		"description": "The Asset Manager API in Beta brought to you!",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},

@@ -5,6 +5,7 @@ get:
     - Asset family
   x-versions:
     - "3.2"
+    - "4.0"
   x-ee: true
   description: This endpoint allows you to get the information about a given asset family.
   parameters:
@@ -28,6 +29,7 @@ patch:
     - Asset family
   x-versions:
     - "3.2"
+    - "4.0"
   x-ee: true
   description: This endpoint allows you to update a given asset family. Note that if the asset family does not already exist, it creates it.
   parameters:
