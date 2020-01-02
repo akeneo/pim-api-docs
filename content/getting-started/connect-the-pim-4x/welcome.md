@@ -29,5 +29,5 @@ In this tutorial, for our ERP example, let's say each day, new products are refe
 
 That's it! :tada:
 
-::: panel-link Let's move to the first step of this tutorial [The app creation](/getting-started/connect-the-pim-4x/step-1.html)
+::: panel-link Let's move to the first step of this tutorial [The connection creation](/getting-started/connect-the-pim-4x/step-1.html)
 :::

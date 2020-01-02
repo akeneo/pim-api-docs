@@ -213,7 +213,7 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
             image: 'illustrations/illus--v4.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': '1. Create an app',
+                'step-1.md': '1. Create a Connection',
                 'step-2.md': '2. Set up Postman',
                 'step-3.md': '3. Make the API request'
             }
@@ -237,7 +237,7 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
             image: 'illustrations/illus--v4.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': 'Step 1 | Create an app',
+                'step-1.md': 'Step 1 | Create a Connection',
                 'step-2.md': 'Step 2 | Cook your connector',
                 'step-3.md': 'Step 3 | Identify your connector in the PIM'
             }
