@@ -17,7 +17,7 @@ The results are already filtered to show you the API-based connectors only.
 You found what you were looking for? Great! You can now install your connector and go directly to the [third step of this tutorial](/getting-started/connect-the-pim-4x/step-3.html).
 
 Couldn't find any connector that suits you?  
-It is the case for our example in this tutorial. We want to connect the PIM to our ERP but the marketplace doesn't provide any connector that covers this use case.  
+It is the case in our example in this tutorial. We want to connect the PIM to our ERP but the marketplace doesn't provide any connector that covers this use case.  
 Alright! So let's build it ourselves!
 
 ## Build your very own connector
