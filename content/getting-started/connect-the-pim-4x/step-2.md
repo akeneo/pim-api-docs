@@ -22,7 +22,7 @@ Alright! So let's build it ourselves!
 
 ## Build your very own connector
 
-In the case you can't find an already cooked connector on our marketplace, you will have to develop it. 
+In the event you can't find an existing connector on our marketplace, you will have to develop it. 
 
 Below are the macro steps to successfully go through this development.
 1. Have your connection use case in mind
