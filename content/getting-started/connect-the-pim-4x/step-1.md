@@ -39,7 +39,7 @@ _"But why?"_ - you will say. If you remember our use case, our connection is goi
 _Sidenote: Interested in knowing more about this flow type? Read this [help center section](https://help.akeneo.com/articles/manage-your-apps.html#choose-your-flow-type)._
 
 You're done! :tada:  
-Your `My ERP` app is now created. The screen displays the setting page of your app, as well as the automatically generated credentials of the app. You will need them in the last step.
+Your `My ERP` app is now created. The screen should now display the setting page of your app, as well as the credentials of the app, that were generated automatically upon creation. Please care about those, you will need them for the last step.
 
 ::: panel-link And now, let's dig into the creation of the connector itself [The connector cooking phase](/getting-started/connect-the-pim-4x/step-2.html)
 :::
