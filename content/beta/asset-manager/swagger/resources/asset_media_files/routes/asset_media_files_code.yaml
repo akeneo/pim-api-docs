@@ -7,6 +7,7 @@ get:
     - Asset media file
   x-versions:
     - "3.2"
+    - "4.0"
   x-ee: true
   parameters:
     - $ref: '#/parameters/code'
