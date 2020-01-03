@@ -1,4 +1,4 @@
-# 👋 Welcome in this tutorial!
+# 👋 Welcome in this guide!
 
 This tutorial will teach you:
 > How to connect the PIM with the API on a 4.x PIM

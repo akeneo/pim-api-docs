@@ -29,10 +29,10 @@ _Sidenote: This tutorial is dedicated to 4.x PIMs. Here is the one for [older PI
 1. Click on the `System` menu.
 1. Click on the `Connections` submenu.
 1. Click on the `Create` button.
-![Connection creation button]()
+![Connection creation button](/img/getting-started/connection-creation-button.png)
 1. In the `Label` field, enter `My ERP`.  
 _Sidenote: the code of the connection is automatically generated based on the label. You can modify it if you want._
-![Connection creation popin](/img/getting-started/connection-creation-popin-my-erp.png)
+![Connection creation popin](/img/getting-started/connection-creation-erp-popin.png)
 1. Choose the flow type of your connection. For this tutorial, pick `Source`.  
 _"But why?"_ - you will say. If you remember our use case, our connection is going to request data from the ERP to send it to the PIM. So this connection can be considered as a data "source" for our PIM. :wink:  
 ![Flow type selection](/img/getting-started/source-flow-type-selection.png)

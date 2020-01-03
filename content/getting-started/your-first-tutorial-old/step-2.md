@@ -1,4 +1,4 @@
-# Set up Postman
+# _Step 2_ | Set up Postman
 
 In this step, you are going to configure Postman, a tool that will allow us to easily make your very first API request. :rocket:
 
@@ -38,6 +38,6 @@ A new environment should also have been created in the dropdown in the top right
 
 That's it for this step!
 
-::: panel-link And now, let's make this request for real [The final step](/getting-started/my-first-tutorial-old/step-3.html)
+::: panel-link And now, let's make this request for real [The final step](/getting-started/your-first-tutorial-old/step-3.html)
 :::
 

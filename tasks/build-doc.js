@@ -213,9 +213,9 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
             image: 'illustrations/illus--v4.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': '1. Create a Connection',
-                'step-2.md': '2. Set up Postman',
-                'step-3.md': '3. Make the API request'
+                'step-1.md': 'Step 1 | Create a Connection',
+                'step-2.md': 'Step 2 | Set up Postman',
+                'step-3.md': 'Step 3 | Make the API request'
             }
         },
         'your-first-tutorial-old': {
@@ -225,9 +225,9 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
             image: 'illustrations/illus--old-versions.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': '1. Generate the credentials',
-                'step-2.md': '2. Set up Postman',
-                'step-3.md': '3. Make the API request'
+                'step-1.md': 'Step 1 | Generate the credentials',
+                'step-2.md': 'Step 2 | Set up Postman',
+                'step-3.md': 'Step 3 | Make the API request'
             }
         },
         'connect-the-pim-4x': {
@@ -250,7 +250,8 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
             files: {
                 'welcome.md': 'Welcome',
                 'step-1.md': 'Step 1 | Cook your connector',
-                'step-2.md': 'Step 2 | Generate the credentials'
+                'step-2.md': 'Step 2 | Generate the credentials',
+                'step-3.md': 'Step 3 | Configure your connector'
             }
         }
     };

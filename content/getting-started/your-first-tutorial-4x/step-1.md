@@ -1,4 +1,4 @@
-# Create a Connection
+# _Step 1_ | Create a Connection
 
 In this step, you are going to create what we call a `Connection`. :rocket:
 
@@ -30,7 +30,7 @@ _Sidenote: This tutorial is dedicated to 4.x PIM. Here is the one for [older PIM
 1. Click on the `System` menu.
 1. Click on the `Connections` submenu.
 1. Click on the `Create` button.
-![Connection creation button]()
+![Connection creation button](/img/getting-started/connection-creation-button.png)
 1. In the `Label` field, enter `My very first connection`.  
 _Sidenote: the code of the connection is automatically generated based on the label._
 ![Connection creation popin](/img/getting-started/connection-creation-popin.png)

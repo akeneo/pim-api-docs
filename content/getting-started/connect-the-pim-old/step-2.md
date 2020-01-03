@@ -81,6 +81,9 @@ You API connection appears in the API connections table and should look like thi
 
 And that's it! :tada:
 
+::: panel-link Now that you generated your credentials, let's move on to [The connector configuration](/getting-started/connect-the-pim-old/step-3.html)
+:::
+
 ### By command line for v1.7 PIM only
 
 ::: warning
@@ -105,20 +108,5 @@ label: ERP connection
 
 Easy, right? 🙂
 
-## Configure your connector with the credentials
-
-Thanks to the previous steps, you now have:
-- a username,
-- a password for this user,
-- a client ID,
-- a secret.
-
-Give this set of credentials to the connector you cooked in step 1.  
-They will authenticate all its API calls.
-
-You can now use your connector for real and test the entire workflow, from the product creation in your ERP to their creation into the PIM, for our tutorial example.
-
-And... that's it! :tada: You now know how to properly connect the PIM. :wink:
-
-
-
+::: panel-link Now that you generated your credentials, let's move on to [The connector configuration](/getting-started/connect-the-pim-old/step-3.html)
+:::
