@@ -105,26 +105,49 @@
 /api/rest/v1/reference-entities-media-files/{code}:
   $ref: ./resources/reference_entity_media_files/routes/reference_entity_media_files_code.yaml
 
-/api/rest/v1/assets:
+/api/rest/v1/asset-families:
+  $ref: ./resources/asset_families/routes/asset_families.yaml
+/api/rest/v1/asset-families/{code}:
+  $ref: ./resources/asset_families/routes/asset_families_code.yaml
+/api/rest/v1/asset-families/{asset_family_code}/attributes:
+  $ref: ./resources/asset_attributes/routes/asset_attributes.yaml
+/api/rest/v1/asset-families/{asset_family_code}/attributes/{code}:
+  $ref: ./resources/asset_attributes/routes/asset_attributes_code.yaml
+/api/rest/v1/asset-families/{asset_family_code}/attributes/{attribute_code}/options:
+  $ref: ./resources/asset_attributes/routes/asset_attributes_code_options.yaml
+/api/rest/v1/asset-families/{asset_family_code}/attributes/{attribute_code}/options/{code}:
+  $ref: ./resources/asset_attributes/routes/asset_attributes_code_options_code.yaml
+
+/api/rest/v1/asset-media-files:
+  $ref: ./resources/asset_media_files/routes/asset_media_files.yaml
+/api/rest/v1/asset-media-files/{code}:
+  $ref: ./resources/asset_media_files/routes/asset_media_files_code.yaml
+
+/api/rest/v1/asset-families/{asset_family_code}/assets:
   $ref: ./resources/assets/routes/assets.yaml
-/api/rest/v1/assets/{code}:
+/api/rest/v1/asset-families/{asset_family_code}/assets/{code}:
   $ref: ./resources/assets/routes/assets_code.yaml
+
+/api/rest/v1/assets:
+  $ref: ./resources/deprecated/assets/routes/assets.yaml
+/api/rest/v1/assets/{code}:
+  $ref: ./resources/deprecated/assets/routes/assets_code.yaml
 /api/rest/v1/assets/{asset_code}/reference-files/{locale_code}:
-  $ref: ./resources/assets/routes/assets_code_reference_files_channel_code_locale_code.yaml
+  $ref: ./resources/deprecated/assets/routes/assets_code_reference_files_channel_code_locale_code.yaml
 /api/rest/v1/assets/{asset_code}/reference-files/{locale_code}/download:
-  $ref: ./resources/assets/routes/assets_code_reference_files_channel_code_locale_code_download.yaml
+  $ref: ./resources/deprecated/assets/routes/assets_code_reference_files_channel_code_locale_code_download.yaml
 /api/rest/v1/assets/{asset_code}/variation-files/{channel_code}/{locale_code}:
-  $ref: ./resources/assets/routes/assets_code_variation_files_channel_code_locale_code.yaml
+  $ref: ./resources/deprecated/assets/routes/assets_code_variation_files_channel_code_locale_code.yaml
 /api/rest/v1/assets/{asset_code}/variation-files/{channel_code}/{locale_code}/download:
-  $ref: ./resources/assets/routes/assets_code_variation_files_channel_code_locale_code_download.yaml
+  $ref: ./resources/deprecated/assets/routes/assets_code_variation_files_channel_code_locale_code_download.yaml
 /api/rest/v1/asset-categories:
-  $ref: ./resources/asset_categories/routes/asset_categories.yaml
+  $ref: ./resources/deprecated/asset_categories/routes/asset_categories.yaml
 /api/rest/v1/asset-categories/{code}:
-  $ref: ./resources/asset_categories/routes/asset_categories_code.yaml
+  $ref: ./resources/deprecated/asset_categories/routes/asset_categories_code.yaml
 /api/rest/v1/asset-tags:
-  $ref: ./resources/asset_tags/routes/asset_tags.yaml
+  $ref: ./resources/deprecated/asset_tags/routes/asset_tags.yaml
 /api/rest/v1/asset-tags/{code}:
-  $ref: ./resources/asset_tags/routes/asset_tags_code.yaml
+  $ref: ./resources/deprecated/asset_tags/routes/asset_tags_code.yaml
 
 /api/rest/v1:
   $ref: ./resources/list_endpoints.yaml

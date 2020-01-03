@@ -42,6 +42,12 @@ reference_entity_code:
   description: Code of the reference entity
   required: true
   type: string
+asset_family_code:
+  name: asset_family_code
+  in: path
+  description: Code of the asset family
+  required: true
+  type: string
 attribute_code:
   name: attribute_code
   in: path

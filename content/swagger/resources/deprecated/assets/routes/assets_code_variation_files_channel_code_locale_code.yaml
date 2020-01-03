@@ -1,9 +1,9 @@
 get:
   summary: Get a variation file
   operationId: "get_variation_files__channel_code__locale_code"
-  description: This endpoint allows you to get the information about a variation file of a given asset.
+  description: This endpoint allows you to get the information about a variation file of a given PAM asset.
   tags:
-    - Asset variation file
+    - PAM asset variation file
   x-versions:
     - "2.1"
     - "2.2"
@@ -22,7 +22,7 @@ get:
       description: OK
       x-details: Returns the content of the variation file in JSON format
       schema:
-        $ref: '#/definitions/AssetVariationFile'
+        $ref: '#/definitions/DeprecatedAssetVariationFile'
     401:
       $ref: "#/responses/401Error"
     403:
@@ -34,9 +34,9 @@ get:
 post:
   summary: Upload a new variation file
   operationId: "post_variation_files__channel_code__locale_code_"
-  description: This endpoint allows you to upload a new variation file for a given asset, channel and locale.
+  description: This endpoint allows you to upload a new variation file for a given PAM asset, channel and locale.
   tags:
-    - Asset variation file
+    - PAM asset variation file
   x-versions:
     - "2.1"
     - "2.2"

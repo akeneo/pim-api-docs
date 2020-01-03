@@ -4,7 +4,7 @@ get:
   description: This endpoint allows you to download a given variation file.
   x-content-type: Mime-type of the variation file
   tags:
-    - Asset variation file
+    - PAM asset variation file
   x-versions:
     - "2.1"
     - "2.2"

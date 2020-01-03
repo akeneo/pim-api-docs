@@ -1,9 +1,9 @@
 get:
-  summary: Get list of asset tags
+  summary: Get list of PAM asset tags
   operationId: "get_asset_tags"
-  description: This endpoint allows you to get a list of asset tags. Asset tags are paginated.
+  description: This endpoint allows you to get a list of PAM asset tags. PAM asset tags are paginated.
   tags:
-    - Asset tag
+    - PAM asset tag
   x-versions:
     - "2.1"
     - "2.2"
@@ -19,9 +19,9 @@ get:
     - $ref: '#/parameters/with_count'
   responses:
     200:
-      description: Returns asset tags paginated
+      description: Returns PAM asset tags paginated
       schema:
-        title: Asset Tags
+        title: PAM Asset Tags
         type: object
         allOf:
           - $ref: '#/definitions/Pagination'
@@ -32,7 +32,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '#/definitions/AssetTagList'
+                      $ref: '#/definitions/DeprecatedAssetTagList'
       examples: {
         _links: {
           self: {

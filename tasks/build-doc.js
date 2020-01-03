@@ -363,96 +363,6 @@ gulp.task('documentation', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('beta-documentation', ['clean-dist','less'], function () {
-
-    var pages = {
-        'asset-manager': {
-            title: 'The API of the Asset Manager',
-            files: {
-                'introduction.md': 'Introduction',
-                'concepts-and-resources.md': 'Concept & resources',
-                'asset-values-focus.md': 'Focus on asset values',
-                'link-products.md': 'Link with products and product models',
-                'product-link-rule-focus.md': 'Focus on the product link rule',
-                'transformations-focus.md': 'Focus on the transformations',
-                'asset-filters.md': 'Asset filters',
-                'reference.md': 'Reference'
-            }
-        }
-    };
-
-    var isOnePage = false;
-
-    return gulp.src('content/beta/**/*.md')
-        .pipe(flatmap(function(stream, file){
-            var guideCode = path.basename(path.dirname(file.path));
-            return gulp.src('content/beta/**/*.md')
-                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages[guideCode].files, path.basename(file.path), '/beta/' + guideCode) + "\n"))
-                .pipe(gulpMarkdownIt(md))
-                .pipe(gulp.dest('tmp/beta/'))
-                .on('end', function () {
-                    return gulp.src('src/partials/documentation.handlebars')
-                        .pipe(gulpHandlebars({
-                            active_documentation: true,
-                            title: pages[guideCode].title,
-                            mainContent: fs.readFileSync('tmp/beta/' + guideCode + '/' + path.basename(file.path).replace(/\.md/, '.html'))
-                        }, {
-                            partialsDirectory: ['./src/partials']
-                        }))
-                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
-                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                        .pipe(gulp.dest('./dist/beta/' + guideCode))
-                        .on('end', function () {
-                            return gulp.src('content/beta/' + guideCode + '/swagger/root.yaml')
-                                .pipe(swagger('akeneo-web-api.json'))
-                                .pipe(jsonTransform(function(data, file) {
-                                    var templateData = data;
-                                    data.categories = {};
-                                    data.htmlReferencefileName = 'beta/' + guideCode + '/api-reference';
-                                    _.forEach(data.paths, function(path, pathUri) {
-                                        _.forEach(path, function(operation, verb) {
-                                            var escapeTag = operation.tags[0].replace(/\s/g, '');
-                                            var category = 'Asset Manager';
-                                            escapeCategory = category.replace(/\s/g, '');
-                                                if (!data.categories[escapeCategory]){
-                                                    data.categories[escapeCategory] = { categoryName: category, resources: {}};
-                                                }
-                                                if (!data.categories[escapeCategory].resources[escapeTag]) {
-                                                    data.categories[escapeCategory].resources[escapeTag] = { resourceName: operation.tags[0], operations: {}};
-                                                }
-                                                data.categories[escapeCategory].resources[escapeTag].operations[operation.operationId] = _.extend(operation, {
-                                                    verb: verb,
-                                                    path: pathUri
-                                                });
-                                        });
-                                    });
-                                    return gulp.src('src/api-reference/beta/index.handlebars')
-                                        .pipe(gulpHandlebars(templateData, {}))
-                                        .pipe(rename('api-reference-index.html'))
-                                        .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))
-                                        .pipe(gulp.dest('tmp/beta/' + guideCode))
-                                        .on('end', function(){
-                                            return gulp.src('src/partials/beta.handlebars')
-                                                    .pipe(gulpHandlebars({
-                                                        active_guides: true,
-                                                        title: pages[guideCode].title,
-                                                        mainContent: fs.readFileSync('tmp/beta/' + guideCode + '/reference.html'),
-                                                        referenceIndex: fs.readFileSync('tmp/beta/' + guideCode + '/api-reference-index.html')
-                                                    }, {
-                                                        partialsDirectory: ['src/partials']
-                                                    }))
-                                                    .pipe(rename('reference.html'))
-                                                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                                                    .pipe(gulp.dest('dist/beta/' + guideCode));
-                                        });
-                                }));
-                        });
-            });
-        }));
-
-});
-
 gulp.task('create-products-md', function () {
     return gulp.src(['content/php-client/resources/products/product.md','content/php-client/resources/products/*.md'])
         .pipe(concat('products.md'))
@@ -493,9 +403,9 @@ gulp.task('create-resources-md', ['create-products-md','create-catalog-structure
     return gulp.src(['tmp/php-client-resources/products.md',
                     'tmp/php-client-resources/catalog-structure.md',
                     'tmp/php-client-resources/target-market-settings.md',
+                    'tmp/php-client-resources/asset-manager.md',
                     'tmp/php-client-resources/PAM.md',
-                    'tmp/php-client-resources/reference-entity.md',
-                    'tmp/php-client-resources/asset-manager.md'])
+                    'tmp/php-client-resources/reference-entity.md'])
         .pipe(concat('resources.md'))
         .pipe(insert.prepend('# Resources\n'))
         .pipe(gulp.dest('tmp/php-client'));

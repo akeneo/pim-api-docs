@@ -1,9 +1,9 @@
 get:
-  summary: Get list of asset categories
+  summary: Get list of PAM asset categories
   operationId: "get_asset_categories"
-  description: This endpoint allows you to get a list of asset categories. Asset categories are paginated and sorted by `root/left`.
+  description: This endpoint allows you to get a list of PAM asset categories. PAM asset categories are paginated and sorted by `root/left`.
   tags:
-    - Asset category
+    - PAM asset category
   x-versions:
     - "2.1"
     - "2.2"
@@ -19,9 +19,9 @@ get:
     - $ref: '#/parameters/with_count'
   responses:
     200:
-      description: Returns asset categories paginated
+      description: Returns PAM asset categories paginated
       schema:
-        title: Asset Categories
+        title: PAM Asset Categories
         type: object
         allOf:
           - $ref: '#/definitions/Pagination'
@@ -32,7 +32,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '#/definitions/AssetCategoryList'
+                      $ref: '#/definitions/DeprecatedAssetCategoryList'
       examples: {
         _links: {
           self: {
@@ -103,11 +103,11 @@ get:
     406:
       $ref: "#/responses/406Error"
 post:
-  summary: Create a new asset category
+  summary: Create a new PAM asset category
   operationId: "post_asset_categories"
-  description: This endpoint allows you to create a new asset category.
+  description: This endpoint allows you to create a new PAM asset category.
   tags:
-    - Asset category
+    - PAM asset category
   x-versions:
     - "2.1"
     - "2.2"
@@ -121,7 +121,7 @@ post:
     - name: body
       in: body
       schema:
-        $ref: "#/definitions/AssetCategory"
+        $ref: "#/definitions/DeprecatedAssetCategory"
   responses:
     201:
       $ref: "#/responses/Created"
@@ -136,10 +136,10 @@ post:
     422:
       $ref: "#/responses/422Error"
 patch:
-  summary: Update/create several asset categories
+  summary: Update/create several PAM asset categories
   operationId: "patch_asset_categories"
   tags:
-    - Asset category
+    - PAM asset category
   x-versions:
     - "2.1"
     - "2.2"
@@ -149,13 +149,13 @@ patch:
     - "3.2"
   x-ee: true
   x-deprecated: true
-  description: This endpoint allows you to update several asset categories at once.
+  description: This endpoint allows you to update several PAM asset categories at once.
   x-body-by-line: Contains several lines, each line is a category in JSON standard format
   parameters:
     - name: body
       in: body
       schema:
-        $ref: "#/definitions/AssetCategory"
+        $ref: "#/definitions/DeprecatedAssetCategory"
         x-examples:
           x-example-1:
             '{"code":"pictures","parent":null}'

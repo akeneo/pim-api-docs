@@ -3,22 +3,22 @@ required: ["code"]
 properties:
   code:
     type: string
-    description: Asset category code
+    description: PAM asset category code
     x-immutable: true
   parent:
     type: string
-    description: Asset category code of the parent's asset category
+    description: PAM ssset category code of the parent's asset category
     x-validation-rules: "&bull; It is either equal to `null` or to an existing asset category code. &#10;&bull; If equal to an existing asset category code, it cannot reference itself."
     default: "null"
   labels:
     type: object
-    description: Asset category labels for each locale
+    description: PAM asset category labels for each locale
     x-validation-rules: The `localeCode` is the code of an existing and activated locale
     default: {}
     properties:
       localeCode:
         type: string
-        description: Asset category label for the locale `localeCode`
+        description: PAM asset category label for the locale `localeCode`
 example: {
   "code": "front_views",
   "parent": "pictures",

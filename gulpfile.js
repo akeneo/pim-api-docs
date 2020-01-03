@@ -45,9 +45,7 @@ gulp.task('create-dist', [
   'client-documentation',
   'misc-documentation',
   'guides',
-  'getting-started',
-  'beta-documentation',
-  'beta-reference'
+  'getting-started'
 ]);
 
 // Main task that should be used for development purpose

@@ -1,9 +1,9 @@
 get:
   summary: Get a reference file
   operationId: "get_reference_files__locale_code_"
-  description: This endpoint allows you to get the information about a reference file of a given asset.
+  description: This endpoint allows you to get the information about a reference file of a given PAM asset.
   tags:
-    - Asset reference file
+    - PAM asset reference file
   x-versions:
     - "2.1"
     - "2.2"
@@ -21,7 +21,7 @@ get:
       description: OK
       x-details: Returns the content of the reference file in JSON format
       schema:
-        $ref: '#/definitions/AssetReferenceFile'
+        $ref: '#/definitions/DeprecatedAssetReferenceFile'
     401:
       $ref: "#/responses/401Error"
     403:
@@ -33,9 +33,9 @@ get:
 post:
   summary: Upload a new reference file
   operationId: "post_reference_files__locale_code_"
-  description: This endpoint allows you to upload a new reference file for a given asset and locale. It will also automatically generate all the variation files corresponding to this reference file.
+  description: This endpoint allows you to upload a new reference file for a given PAM asset and locale. It will also automatically generate all the variation files corresponding to this reference file.
   tags:
-    - Asset reference file
+    - PAM asset reference file
   x-versions:
     - "2.1"
     - "2.2"
@@ -65,7 +65,7 @@ post:
             format: binary
   responses:
     201:
-      $ref: "#/responses/AssetReferenceFileUploaded"
+      $ref: "#/responses/DeprecatedAssetReferenceFileUploaded"
     400:
       $ref: "#/responses/400Error"
     401:
