@@ -131,24 +131,6 @@ Still not comfortable with transformations? Don't hesitate to go through the nex
 It's just a string and it's basically the name you want to give to your transformation.  
 It will be used in error messages whenever your transformation failed to generate your variations.
 
-## Target filename
-
-You can give a name to the generated target file. By default, the naming is based on the filename of the source file. You can define a suffix and/or a prefix that will be concatenated to this filename and be used as the filename of the target file. 
-
-To do this, use:
-- the `filename_prefix`: the string that will be prepend to the source filename.
-- the `filename_suffix`: the string that will be append to the source filename.
-
-You can use both properties if you want to suffix and prefix the source filename.
-
-::: warning
-You need to define at least either a suffix or a prefix, as the target filename can't be the same as the source filename.
-:::
-
-::: info
-Suffix and prefix can only contain alphanumeric characters and the following characters: '_', '-', '.' and space.
-:::
-
 ## Source file
 
 The `source` property allows you to define in which attribute value is stored the media file you want to use as the source file for your transformation.
@@ -208,6 +190,34 @@ If the `MEDIA_FILE_ATTRIBUTE_NAME` is the code of an attribute that is not scopa
 ::: info
 There are additionnal business rules regarding this `target` property whenever you have multiple transformations for the same asset family. See the [Dealing with several transformations](#dealing-with-several-transformations) section for more details.
 :::
+
+## Target filename
+
+You can give a name to the generated target file. By default, the naming is based on the filename of the source file. You can define a suffix and/or a prefix that will be concatenated to this filename and be used as the filename of the target file. 
+
+To do this, use:
+- the `filename_prefix` property, the string that will be prepend to the source filename.
+- the `filename_suffix` property, the string that will be append to the source filename.
+
+You can use both properties if you want to suffix and prefix the source filename.
+
+::: warning
+You need to define at least either a suffix or a prefix, as the target filename can't be the same as the source filename.
+:::
+
+::: info
+Suffix and prefix can only contain alphanumeric characters and the following characters: `_`, `-`, `.` and space.
+:::
+
+Let's take an example to make this much clearer. Let's say you have a file named `amor_red_model_picture.jpg`. You want to generate a thumbnail version of this file and you want the new generated file to be named `amor_red_model_picture_160x160.jpg`. Then, use the following properties in your transformation for the generated file to be named properly.
+```json
+{
+  ...,
+  "filename_prefix": null,
+  "filename_suffix": "_160x160",
+  ...
+}
+```
 
 ## Transformation operations
 
