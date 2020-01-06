@@ -56,7 +56,7 @@ properties:
                 type: string
   transformations:
     type: array
-    description: The transformations to perform on source files in order to generate new files into your asset attributes. To understand the format of this property, see <a href='/beta/asset-manager/transformations-focus.html'>here</a>.
+    description: The transformations to perform on source files in order to generate new files into your asset attributes (only available since v4.0). To understand the format of this property, see <a href='/beta/asset-manager/transformations-focus.html'>here</a>.
     x-validation-rules: To know more about the validation of this property, take a look at our transformation format.
     default: {}
     items:
