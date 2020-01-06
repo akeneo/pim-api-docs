@@ -49,6 +49,37 @@ example: [
           }
         ]
       }
+    ],
+    "transformations": [
+      {
+        "label": "Thumbnail plus black and white transformation",
+        "filename_suffix": "_thumbnailBW",
+        "source": {
+          "attribute": "main_image",
+          "channel": null,
+          "locale": null
+        },
+        "target": {
+          "attribute": "thumbnail",
+          "channel": null,
+          "locale": null
+        },
+        "operations": [
+          {
+            "type": "thumbnail",
+            "parameters": {
+              "width": 150,
+              "height": 150
+            }
+          },
+          {
+            "type": "colorspace",
+            "parameters": {
+              "colorspace": "grey"
+            }
+          }
+        ]
+      }
     ]
   },
   {

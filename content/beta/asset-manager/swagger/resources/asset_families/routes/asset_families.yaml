@@ -67,6 +67,37 @@ get:
                     }
                   ]
                 }
+              ],
+              "transformations": [
+                {
+                  "label": "My transformation",
+                  "filename_suffix": "_thumbnailBW",
+                  "source": {
+                    "attribute": "main_image",
+                    "locale": null,
+                    "channel": null
+                  },
+                  "target": {
+                    "attribute": "thumbnail",
+                    "locale": null,
+                    "channel": null
+                  },
+                  "operations": [
+                    {
+                      "type": "thumbnail",
+                      "parameters": {
+                        "width": 150,
+                        "height": 150
+                      }
+                    },
+                    {
+                      "type": "colorspace",
+                      "parameters": {
+                        "colorspace": "grey"
+                      }
+                    }
+                  ]
+                }
               ]
             },
             {
