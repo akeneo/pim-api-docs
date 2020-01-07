@@ -96,6 +96,121 @@ Here is the JSON format representing an example of asset family.
 ::: panel-link Want more details about the asset family resource? [Check its endpoints here!](/api-reference.html#Assetfamily)
 :::
 
+## Focus on the naming convention
+
+We noticed that you, our precious customers, usually name their asset files with precious information:
+- the SKU of the product corresponding to the asset,
+- the locale into which your user guides are translated,
+- the picture type: _Is it a frontview, backview,...?_,
+- ...
+
+The idea of the naming convention feature is to be able to extract those information and use them to automatically enrich your assets with new attributes.
+
+By defining a naming convention, for each [asset family](#the-asset-family), the PIM will be able to split the asset code or the main media filename, in order to extract the information you want and populate asset attributes with these ones.  
+This operation is done automatically by the PIM upon each asset creation.
+
+::: info
+This naming convention is defined at the [asset family](#the-asset-family) level.
+:::
+
+::: tips
+The naming convention is perfect to automatically populate the asset attributes that will be then used by the [product link rule](#focus-on-the-product-link-rule). :wink:
+:::
+
+The JSON format of the naming convention is composed of several parts:
+- the [`source` part](#the-source-string),
+- the [`pattern` part](#the-split-pattern),
+- a [boolean stating whether to abort the asset creation in case there was an error during the application of the naming convention](#Abortion-on-error).
+```json
+{
+  "naming_convention": {
+    "source": {...},
+    "pattern": A_REGEXP,
+    "abort_asset_creation_on_error": A_BOOLEAN
+  }
+}
+```
+
+#### Examples
+```json
+{
+  "naming_convention": {
+    "source": {
+        "property": "main_asset_image",
+        "channel": null,
+        "locale": null
+    },
+    "pattern": "/(?P<product_ref>.*)-.*-(?P<attribute_ref>.*)\.jpg/",
+    "abort_asset_creation_on_error": true
+  }
+}
+```
+
+Still not comfortable with the naming convention? Don't hesitate to go through the next sections where we detail each part of the naming convention format.
+
+### The source string
+
+The `source` property allows you to define on which string the split will be applied. It can be either:
+- the asset code,
+- the filename of the main media attribute.
+
+It follows this format:
+```json
+{
+  "source": {
+    "property": CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME,
+    "locale": SOURCE_LOCALE_CODE,
+    "channel": SOURCE_CHANNEL_CODE
+  },...
+}
+```
+
+In this formula:
+ - `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` can be one of the following strings:
+     + _"code"_: when you want the asset code to be used as the source string,
+     + _"main_media"_: when you want the filename of the main media to be used as the source string.
+ - `SOURCE_LOCALE_CODE` is an existing locale code when `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to _"main_media"_ and the main media attribute of the family is localizable.
+ - `SOURCE_CHANNEL_CODE` is an existing channel code when `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to _"main_media"_ and the main media attribute of the family is scopable.
+
+::: warning
+The `property`, `locale` and `channel` properties are mandatory.  
+The `locale` property should be set to `null` if:
+- `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to _"code"_,
+- `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to "main_media" and the main media attribute of the family is not localizable.  
+The `channel` property should be set to `null` if:
+- `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to _"code"_,
+- `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to "main_media" and the main media attribute of the family is not scopable.  
+:::
+
+### The split pattern
+
+The `pattern` property allows you to define how the PIM should split the [source string](#the-source-string). Then, the result of the split will automatically populate the corresponding asset attributes.
+
+The split pattern should be a string. It should be given as a regular expression.  
+In order for the PIM to know into which asset attributes the result of the split should be sent, this regular expression should contain one or several named capture groups and the names of these capture groups should be existing asset attribute codes of the family.
+
+::: tips
+Not comfortable with regular expressions? You can try yours [right here](https://regex101.com/)!
+:::
+
+Let's take an example to make this clearer! 
+```regexp
+/(?P<product_ref>.*)-.*-(?P<attribute_ref>.*)\.jpg/
+```
+The regexp above will split the source string in 3 parts, thanks to 2 named capture groups:
+- `(?P<product_ref>.*)` is the first capture group. It is named `product_ref`. So, the result of this capture will be sent into the `product_ref` asset attribute. The `product_ref` attribute should exist in the asset family.
+- `(?P<attribute_ref>.*)` is the second capture group. It is named `attribute_ref`. So, the result of this capture will be sent into the `attribute_ref` asset attribute. The `attribute_ref` attribute should exist in the asset family.
+Let's say our source string is equal to `allie_jean-picture-packshot.png`. After the naming convention application, the `product_ref` asset attribute will contain the value "allie_jean" and the `attribute_ref` asset attribute will contain the value "packshot". 
+
+### Abortion on error
+
+Sometimes, the application of the naming convention will fail. For example, if the regular expression did not capture any group. In this case, you can choose if you still want the corresponding asset to be created. As a result, the asset won't be created and you will be able to re-submit it with a better filename/code for example.
+
+To allow this behavior, set the `abort_asset_creation_on_error` to `true`.
+
+If you want the asset the be created even if the naming convention application failed, set the property to `false`.
+
+
 ## Focus on the product link rule
 
 The product link rule enables you to automatically link assets to products, based on assets name or attributes. This rule is defined at the [asset family](#the-asset-family) level.  
@@ -567,7 +682,14 @@ Not sure you understood, so let's write the product link rule for my previous ex
 ```
 
 As a prerequisite for this rule to work, we would need two new attributes in the structure of our `user_instructions` asset family. One named `product_ref`, and the other `locale`.  
-In our example, for our `XMLD500_fr_FR_user_guide` asset, we would store the string `XMLD500` into the `product ref` attribute and `fr_FR` in the `locale` attribute
+In our example, for our `XMLD500_fr_FR_user_guide` asset, we would store the string `XMLD500` into the `product ref` attribute and `fr_FR` in the `locale` attribute.
+
+::: tips
+To populate the `product_ref` and `locale` attributes, you have three choices:
+- enrich those information by hand in the PIM interface,
+- in the case you have a connector creating assets in the PIM, you can code this step directly in your connector,
+- or since the v4.0, you can use the naming convention feature if these information are already stored in your asset code or in the filename of your main media file. :wink: Eager to know more? Take a look at the [naming convention focus section](#focus-on-the-naming-convention).
+:::
 
 In fine, below is the JSON of our dear `XMLD500_fr_FR_user_guide` asset, once we added those new attributes.
 
@@ -600,10 +722,6 @@ In fine, below is the JSON of our dear `XMLD500_fr_FR_user_guide` asset, once we
   }
 }
 ```
-
-::: info
-Those two new attributes can be easily filled by using the API and a simple regular expression on the code of the asset, as both information, the product reference and the locale are already in the code.
-:::
 
 So, now that our asset is ready, whenever the rule is launched, the PIM will automatically extrapolate the rule, by replacing the curlies reference, `{{product_ref}}` and `{{locale}}`, by their real values in the asset it's currently trying to link to products.
 

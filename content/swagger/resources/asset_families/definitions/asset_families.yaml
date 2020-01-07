@@ -8,6 +8,15 @@ example: [
       "en_US": "User guides",
       "fr_FR": "Guide utilisateur"
     },
+    “naming_convention”:{
+      "source": {
+        "property": "code",
+        "channel": null,
+        "locale": null
+      },
+      "pattern": "/?P(<product_ref>.*)-.*-(?P<locale>.*)/",
+      "abort_asset_creation_on_error": true
+    },
     "product_link_rules":[
       {
         "product_selections": [
@@ -32,6 +41,15 @@ example: [
     "labels": {
       "en_US": "Packshots",
       "fr_FR": "Plans produit"
+    },
+    “naming_convention”:{
+      "source": {
+        "property": "code",
+        "channel": null,
+        "locale": null
+      },
+      "pattern": "/(?P<product_ref>.*)-.*-(?P<my_product_attribute>.*)/",
+      "abort_asset_creation_on_error": true
     },
     "product_link_rules": [
       {
@@ -87,6 +105,15 @@ example: [
     "labels": {
       "en_US": "Videos",
       "fr_FR": "Vidéos"
+    },
+    “naming_convention”:{
+      "source": {
+        "property": "code",
+        "channel": null,
+        "locale": null
+      },
+      "pattern": "/.*-(?P<category>.*)-(?P<locale>.*)/",
+      "abort_asset_creation_on_error": true
     },
     "product_link_rules": [
       {
