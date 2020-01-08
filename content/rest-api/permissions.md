@@ -95,31 +95,31 @@ With these powerful permissions, you can hide a whole part of your product catal
 
 The EE permissions can be based on three different levels:
 - you can hide products that are inside one or several given **categories**,
-- you can hide the product information of the attributes that are inside one or several given **attribute group**,
-- you can hide the translated product information of one or several given **locale**.
+- you can hide the product information of the attributes that are inside one or several given **attribute groups**,
+- you can hide the translated product information of one or several given **locales**.
 
-It can be very useful in the case:
+It can be very useful if:
 - you don't want your third party-connector to mess up with this part of the product catalog.  
 _For example, you have products created in the PIM coming from your ERP and you want them to be created only in your `ERP` category tree. You can use the EE permissions to hide the other trees from your connector, this way, it will only be able to create products in the `ERP` tree._
 - you don't want your third-party connector to be aware of this part of the product catalog.  
-_For example, you are a reseller and you provide an API connection to one of your supplier for him to push its product data into the PIM. But you don't want him to be able to access or erase any data that does not concern his products. In this case, you can give him access only to the category containing his products, and not to the other suppliers categories. Pretty neat, right?_
+_For example, you are a reseller and you provide an API connection to one of your suppliers for them to push its product data into the PIM. But you don't want them to be able to access or erase any data that does not involve their products. In this case, you can give them restricted access to the category containing his products, and not to the other suppliers' categories. Pretty neat, right?_
 
 To enable these powers:
-1. Log in into your favorite PIM and navigate to the `System/User groups` menu.
+1. Log into your favorite PIM and navigate to the `System/User groups` menu.
 1. Click on the `Create group` button and input a new name for the user group you are creating, `ERP connection user group` for example.
 ![New ERP connection user group](/img/rest-api/erp-connection-user-group.png)
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
 ![API user in the user group](/img/rest-api/my-erp-user-in-group.png)
 1. Then, navigate to the `Settings/Categories` menu, if you want to benefit from permissions on categories, otherwise jump to step 9.
-1. For each category you want to hide from your API calls, go in the `Permissions` tab.
+1. For each category you want to hide from your API calls, enter the `Permissions` tab.
 1.  Remove the group you just created from the `Allowed to view products`, `Allowed to edit products` and `Allowed to own products` inputs. Don't forget to click on the `Save` button.
 ![Permissions for hide mode](/img/rest-api/hide-permission-mode.png)
 1. Then, navigate to the `Settings/Locales` menu, if you want to benefit from permissions on locales, otherwise jump to step 10.
-1. For each locale you want to hide from your API calls, go in the `Permissions` tab.
-1.  Remove the group you just created from the `Allowed to view information`, `Allowed to edit information` inputs. Don't forget to click on the `Save` button.
+1. For each locale you want to hide from your API calls, enter the `Permissions` tab.
+1.  Remove the group you just created from the `Allowed to view information` and `Allowed to edit information` inputs. Don't forget to click on the `Save` button.
 1. Then, navigate to the `Settings/Attribute groups` menu.
-1. For each locale you want to hide from your API calls, go in the `Permissions` tab.
-1.  Remove the group you just created from the `Allowed to view attributes`, `Allowed to edit attributes` inputs. Don't forget to click on the `Save` button.
+1. For each locale you want to hide from your API calls, enter the `Permissions` tab.
+1.  Remove the group you just created from the `Allowed to view attributes` and `Allowed to edit attributes` inputs. Don't forget to click on the `Save` button.
 
 That's it! :tada:
 
@@ -139,7 +139,7 @@ The same way you can hide a part of your product catalog, you can also only give
 This can be pretty useful whenever you only want to share your catalog in a read-only mode. :wink:
 
 To enable this possibility:
-1. Log in into your favorite PIM.
+1. Log into your favorite PIM.
 1. Navigate to the `System/User groups` menu.
 1. Click on the `Create group` button.
 1. Input a new name for the user group you are creating, `ERP connection user group` for example.
@@ -147,7 +147,7 @@ To enable this possibility:
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
 ![API user in the user group](/img/rest-api/my-erp-user-in-group.png)
 1. Then, navigate to the `Settings/Categories` menu.
-1. For each category you wish put in read-only mode, go in the `Permissions` tab.
+1. For each category you wish to put in read-only mode, enter the `Permissions` tab.
 1. Add the group you just created into the `Allowed to view products` input.
 1. If your user group is already set into the `Allowed to own products` and `Allowed to edit products` inputs, remove it. 
 ![Permissions for read-only mode](/img/rest-api/read-only-permission-mode.png)
@@ -155,15 +155,15 @@ To enable this possibility:
 
 That's it! :tada:
 
-Don't hesitate to test your configuration by calling the [PATCH product endpoint](/api-reference.html#patch_products__code_) with an update in the body of your product. You should receive a 403, saying that you don't have the right update this product, exactly the expected behavior!
+Don't hesitate to test your configuration by calling the [PATCH product endpoint](/api-reference.html#patch_products__code_) with an update in the body of your product. You should receive a 403, saying that you don't have the right update for this product, exactly the expected behavior!
 
 ### Proposals of product information updates
 
-The second power of these permissions is that for some **given categories**, you can define that the PATCH API endpoints will only be able to create modification proposals on your product values, instead of directly applying the update on them.  
+The second power of these permissions is that for some **given categories**, you can define that the PATCH API endpoints will only be able to suggest modifications on your product values, instead of automatically updating them.  
 Your PIM users will then be able to validate or reject them directly in the PIM UI. This is perfect if you want to easily control the product information that is pushed from outside into your product catalog. :wink:
 
 To enable this possibility:
-1. Log in into your favorite PIM.
+1. Log into your favorite PIM.
 1. Navigate to the `System/User groups` menu.
 1. Click on the `Create group` button.
 1. Input a new name for the user group you are creating, `ERP connection user group` for example.
@@ -171,7 +171,7 @@ To enable this possibility:
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
 ![API user in the user group](/img/rest-api/my-erp-user-in-group.png)
 1. Then, navigate to the `Settings/Categories` menu.
-1. For each category you wish to only create proposals, go in the `Permissions` tab.
+1. For each category you wish to only create proposals, enter the `Permissions` tab.
 1.  Add the group you just created into the `Allowed to view products` and `Allowed to edit products` inputs.
 1. If your user group is already set into the `Allowed to own products` input, remove it. 
 ![Permissions for proposals](/img/rest-api/proposal-permission-mode.png)
@@ -192,5 +192,5 @@ Proposals can be created only on product updates, not on product creations. :win
 ::: tips
 Having trouble creating proposals on one given product?   
 As soon as your product is at least owned in one category by your API user group, the API will directly apply the updates, instead of creating a draft and then a proposal.  
-So be sure to verify that your product is only classified in categories for which your API user group does not own it.
+So make sure your product is only classified in categories that are not owned by your API user group. 
 :::
