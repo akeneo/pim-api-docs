@@ -4,7 +4,7 @@ This tutorial will teach you:
 > How to connect the PIM with the API on a v1.7, v2 or v3 PIM
 
 ## Goal
-At the end of this tutorial, you will know what are the primary steps to properly connect the PIM.
+At the end of this tutorial, you will know what the primary steps to properly connect the PIM are.
 
 ::: tips
 Connections will be achieved with the help of the API, as the API is the best way to connect the PIM. Wondering why? Discover the reasons [here](/documentation/introduction.html#why-should-you-use-our-api)!
@@ -25,7 +25,7 @@ It can be one of the following: an ERP, a DAM, an ecommerce platform, a syndicat
 As an example, in this tutorial, we will consider that we want to connect the PIM to your ERP.
 
 You will also have to know the use case for your connection.  
-In this tutorial, for our ERP example, let's say each day, new products are referenced into your ERP. You want those new products to be sent over to your PIM so that you can enrich them, in the PIM, the day after.
+In this tutorial, for our ERP example, let's say every day, new products are referenced into your ERP. You want those new products to be sent over to your PIM so that you can enrich them, in the PIM, the day after.
 
 That's it! :tada:
 

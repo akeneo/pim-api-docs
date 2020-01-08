@@ -1,7 +1,7 @@
 # Configure your connector
 
-Thanks to step 1, you now have a wonderful connector.
-Thanks to the step 2, you now have:
+Thanks to step 1, you now have a wonderful connector.  
+Thanks to step 2, you now have:
 - a username,
 - a password for this user,
 - a client ID,
