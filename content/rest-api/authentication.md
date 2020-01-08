@@ -1,7 +1,7 @@
 # Authentication
 
 For security reasons, to access the API, you will need to be authenticated.
-To authenticate your API calls, the PIM will provide you with a pair of client ID and secret. [See here to discover how](#client-idsecret-generation).
+To authenticate your API calls, the PIM will provide you a pair of client ID and secret. [See here to discover how](#client-idsecret-generation).
 
 Client IDs allow two things:
 - asking a token for a specific API user,
@@ -251,4 +251,3 @@ HTTP/1.1 200 OK
 ```
 
 The response is the same as when asking for the initial token except that it contains a new `access_token` and `refresh_token`. You can then use the new `access_token` in every request you make to the API.
-
