@@ -38,7 +38,7 @@ Do not give any UI permissions to your API user roles.
 
 ### Overall access
 
-The first ACL `Overall Web API access` means that if enabled, each user depending on that role will have access to the Web API.
+The first ACL `Overall Web API access` means that if enabled, each user under that role will have access to the Web API.
 
 You will need to give at least this ACL to all the API user roles you created before for them to be able to call the API.
 
