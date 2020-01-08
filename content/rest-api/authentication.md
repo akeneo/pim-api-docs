@@ -196,7 +196,7 @@ Detail of the information given in the response:
 
 ## Access a resource
 
-Use the token that you got before in every request to the API.
+Use the token that you just got for every request to the API.
 
 #### Example
 
