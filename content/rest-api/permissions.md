@@ -30,7 +30,7 @@ Here are the simple steps to follow to configure those permissions.
 ::: versions id="web_api_permission" 2.x![Web API permission tab screenshot](/img/rest-api/activate_api_access.png) 1.7![Web API permission tab screenshot](/img/rest-api/v1.7/activate_api_access.png)
 :::
 
-We strongly recommend you to create **dedicated user roles** for your API users, different from the user roles that you use for your UI users. So go ahead and create one user role by API connections you will need.
+We strongly recommend you to create **dedicated user roles** for your API users, different from the user roles that you use for your UI users. So go ahead and create one user role for every API connection you will need.
 
 ::: warning
 Do not give any UI permissions to your API user roles.
