@@ -1,6 +1,6 @@
 # Catalog structure
 
-In the PIM, products are structured thanks to the Catalog structure enities.
+In the PIM, products are structured thanks to the Catalog structure entities.
 
 Each section below contains an explanation of the concept behind these resources, what is their usage in the PIM and their JSON format in order to interact with the API.
 
