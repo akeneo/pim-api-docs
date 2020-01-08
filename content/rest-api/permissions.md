@@ -91,7 +91,7 @@ All the permissions described here, apply to both product and product model upda
 :::
 
 ### Hide a part of your catalog
-With these powerful permissions, you can hide a whole part of your product catalog. It is the very first power of these permissions.
+With these powerful permissions, you can hide a whole part of your product catalog. It is their very first power.
 
 The EE permissions can be based on three different levels:
 - you can hide products that are inside one or several given **category**,
