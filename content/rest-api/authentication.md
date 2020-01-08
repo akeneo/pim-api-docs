@@ -9,7 +9,7 @@ Client IDs allow two things:
 
 This means that you will also need to [create an API user](#api-user-creation) in order to get this token. 
 
-Once you get its username and password, in combination of the client ID and the secret, you will be able to finally generate a token for the API. This is the _key_ to finally access the API. See [here for more details](#token-generation).
+Once you get its username and password, together with the client ID and the secret, you will eventually be able to generate a token for the API. This is the _key_ to finally access the API. See [here for more details](#token-generation).
 
 ## Client ID/secret generation
 
