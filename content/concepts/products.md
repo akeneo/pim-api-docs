@@ -314,7 +314,7 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
         "data": {
           "amount":10,
           "unit": "KILOWATT"
-      }
+        }
       }
     ]
   }
@@ -328,6 +328,7 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
         "data": {
           "amount":"25.45",
           "unit": "CENTIMETER"
+        }
       }
     ]
   }
@@ -351,7 +352,7 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
         "data": {
           "amount":200,
           "unit": "USD"
-      }
+        }
       }
     ]
   }
@@ -365,6 +366,7 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
         "data": {
           "amount":"25.50",
           "unit": "EUR"
+        }
       }
     ]
   }
