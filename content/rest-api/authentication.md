@@ -4,7 +4,7 @@ For security reasons, to access the API, you will need to be authenticated.
 To authenticate your API calls, the PIM will provide you a pair of client ID and secret. [See here to discover how](#client-idsecret-generation).
 
 Client IDs allow two things:
-- asking a token for a specific API user,
+- to ask for a token for a specific API user,
 - refreshing an expired token.
 
 This means that you will also need to [create an API user](#api-user-creation) in order to get this token. 
