@@ -51,7 +51,7 @@ In 2.x or 3.X, you will need to create what we called an `API connection`.
 The PIM automatically generates a client ID and secret, that you will find in the API connections grid.
 
 ::: info
-In case your secret leaked, you can revoke an API connection by clicking on the `Revoke` button, in the `API connections` entry you will find in the `System` menu.  
+In case your secret leaked, you can revoke an API connection by clicking on the `Revoke` button. It is located in the `API connections` entry you will find under the `System` menu.  
 Note that it will totally delete your whole API connection, i.e. you will have to create a new one.
 :::
 
