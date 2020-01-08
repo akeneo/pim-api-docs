@@ -15,7 +15,7 @@ $clientBuilder = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://localh
 $client = $clientBuilder->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 ```
 
-Then, every request made by the client is automatically authenticated.
+Then, every client's request is automatically authenticated.
 If you don't have any client id, please take a look at [this page](/documentation/authentication.html#client-idsecret-generation) to create it.
 
 This is the easiest way to authenticate the client.
