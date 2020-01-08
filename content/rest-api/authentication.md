@@ -128,7 +128,7 @@ In previous versions of the PIM, you need to navigate to the `System/Users` menu
 
 ## Token generation
 
-You now have a client ID, a secret, a usename and a password. The last information needed to use the API is the token.
+You now have a client ID, a secret, a username and a password. The last information needed to use the API is the token.
 
 First, you will have to encode in base64 the secret id and the secret given by the administrator with a `:` in between.
 
