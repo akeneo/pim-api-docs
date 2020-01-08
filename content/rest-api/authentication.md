@@ -42,7 +42,7 @@ In case your secret leaked, you can easily revoke it and generate a new one for 
 
 In 2.x or 3.X, you will need to create what we called an `API connection`. 
 
-1. Log in into your favorite PIM.
+1. Log into your favorite PIM.
 1. Navigate to the `System/API connections` menu. 
 1. Click on the `Create` button. 
 1. Input a label for your connection, `ERP connection` for example.
