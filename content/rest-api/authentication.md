@@ -189,7 +189,7 @@ HTTP/1.1 200 OK
 ```
 
 Detail of the information given in the response:
-- `access_token` is the information that must be included in every requests to the API for the client application to be authorized (see the example below).
+- `access_token` must be included in every request to the API for the client application to be authorized (see the example below).
 - `expires_in` is the token lifespan (in seconds). By default, it lasts 1 hour.
 - `refresh_token` is a special token used only to refresh your `access_token` after it expired.
 
