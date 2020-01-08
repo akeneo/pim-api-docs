@@ -98,7 +98,7 @@ Here is the JSON format representing an example of asset family.
 
 ## Focus on the naming convention
 
-We noticed that you, our precious customers, usually name their asset files or asset codes using precious information:
+We noticed that you, our precious customers 🥰, usually name their asset files or asset codes using precious information:
 - the SKU of the product corresponding to the asset,
 - the locale into which your user guides are translated,
 - the picture type: _Is it a frontview, backview,...?_,
