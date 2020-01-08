@@ -30,7 +30,7 @@ Starting from the v4 of the PIM, there is now one unique and streamlined way to 
 
 Congrats! You officially created your very first connection to the PIM. :tada:
 
-You can now find the client ID and the secret in the `Credentials` section of the connection you just created.
+You can now find the client ID and secret in the `Credentials` section of the connection you've just created.
 
 [Not comfortable with the **Connection** notion? We explain everything right here!](https://help.akeneo.com/pim/articles/what-is-a-connection.html)
 
