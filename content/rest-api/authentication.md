@@ -119,7 +119,7 @@ You now have a client ID and a secret.  But the request to get this token needs 
 
 In v4 PIM, this username and password are automatically generated whenever you create a connection in the UI. Navigate to `System/Connections`, click on your connection and find your username and password in the `Credentials` section.
 
-You may need to regenerate a password if you didn't save it somewhere. Indeed, the PIM can only show it to you once, at the connection creation for security reasons. There is a `Regenerate` button close to the hidden password, if needed. :wink:
+You may need to regenerate a password if you haven't saved it anywhere. Indeed, for security reasons, the PIM can only show it to you once, after the connection is created. There is a `Regenerate` button close to the hidden password if needed. :wink:
 
 ### With a v1.7, 2.x and 3.x PIM
 
