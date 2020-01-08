@@ -20,7 +20,7 @@ Like when using the PIM through the UI, we use ACLs to define which endpoint a c
 
 Here are the simple steps to follow to configure those permissions.
 
-1. Log in into your favorite PIM.
+1. Log into your favorite PIM.
 1. Navigate to the `System/Roles` menu.
 1. Click on the `Create role` button.
 1. Input a new name for the user role you are creating, `ERP connection user role` for example.
