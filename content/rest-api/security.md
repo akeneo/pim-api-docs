@@ -263,7 +263,7 @@ The response is the same as when asking for the initial token except that it con
 Like when using the PIM through the UI, ACLs are here to define what a user can and cannot do.
 In the role form, a `Web API permissions` tab includes several ACLs specially crafted for the API.
 
-::: versions id="web_api_permission" 2.x![Web API permission tab screenshot](/img/screenshots/v2.0/activate_api_access.png) 1.7![Web API permission tab screenshot](/img/screenshots/v1.7/activate_api_access.png)
+::: version-screenshots id="web_api_permission" 2.x![Web API permission tab screenshot](/img/screenshots/v2.0/activate_api_access.png) 1.7![Web API permission tab screenshot](/img/screenshots/v1.7/activate_api_access.png)
 :::
 
 ### Overall access

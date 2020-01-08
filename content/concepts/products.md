@@ -1,0 +1,431 @@
+# Products
+
+The Product is the central resource of our PIM, seems legit since we are doing Product Management. :wink:
+
+In the sections below, you will find all the different flavours of products you can meet in the PIM.  
+Each section contains an explanation of the concept behind the resource, what is its usage in the PIM and its JSON format in order to interact with the API.
+
+## Product
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+The product is the central entity of the PIM. This is the entity that holds all the information concerning products.
+
+It can be classified in several categories. It can belong to a group and inherit its attributes from a family. It can hold associations with other products or group of products.
+
+In other words, this really is the heart entity of the PIM.
+
+In the Akeneo UI, in the 1.7 version, you can find the products in the `Enrich`/`Products` menu. Since the 2.0, it's below the `Products` menu.
+
+Below is an example of a product in the UI.
+
+::: version-screenshots id="products" 2.x![Products in the Akeneo UI](/img/concepts/products_ui.png) 1.7![Products in the Akeneo UI](/img/concepts/v1.7/products_ui.png)
+:::
+
+Below is the JSON standard format representing a product.
+
+```json
+{
+  "identifier": "1111111195",
+  "family": "clothing",
+  "parent": "jack_brown",
+  "categories": [
+    "tshirts"
+  ],
+  "enabled": true,
+  "values": {
+    "ean": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "1234567890207"
+      }
+    ],
+    "size": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "s"
+      }
+    ],
+    "weight": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": {
+          "amount": "800.0000",
+          "unit": "GRAM"
+        }
+      }
+    ],
+    "color": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "brown"
+      }
+    ],
+    "name": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "jack"
+      }
+    ],
+    "erp_name": [
+      {
+        "locale": "en_US",
+        "scope": null,
+        "data": "Jack"
+      }
+    ],
+    "collection": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": [
+          "summer_2017"
+        ]
+      }
+    ]
+  },
+  "created": "2017-10-05T11:25:48+02:00",
+  "updated": "2017-10-05T11:25:48+02:00",
+  "associations": {},
+  "metadata": {
+    "workflow_status": "working_copy"
+  }
+}
+```
+
+::: warning
+Note that the `parent` field is only available starting from the v2, as this is a brand new feature introduced in the v2.0.
+:::
+
+::: warning
+Note that the `metadata` field is only available starting from the v2 and as it is an Enterprise Edition feature, you won't have this field on a Community Edition PIM.
+:::
+
+::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Product)
+:::
+
+## Focus on the product values
+
+Product values hold all the information of the product. They are part of the [Product resource](#product). In concrete terms, it is the values of the product attributes.
+
+In the API, the product values are in the property `values` of the product entity.
+
+A product value follows this format:
+```json
+{
+  "values": {
+    ATTRIBUTE_CODE: [
+      {
+        "locale": LOCALE_CODE,
+        "scope": CHANNEL_CODE,
+        "data": DATA_INFORMATION
+      }
+    ]
+  }
+}
+```
+In this formula:
+ - `ATTRIBUTE_CODE` is the code of an attribute of the product,
+ - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise,
+ - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise,
+ - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type as you can see in the table below.
+
+| Attribute type / Format| Example |
+| ----------------- | -------------- |
+| **pim_catalog_identifier** <br> _string_ | `"12348716"` |
+| **pim_catalog_text** <br> _string_ | `"Tshirt long sleeves"` |
+| **pim_catalog_textarea** <br> _string_ | `"Tshirt long sleeves\nWinter special, 100% whool"` |
+| **pim_catalog_file** <br> _string_ | `"f/2/e/6/f2e6674e076ad6fafa12012e8fd026acdc70f814_myFile.pdf"` |
+| **pim_catalog_image** <br> _string_ | `"f/4/d/1/f4d12ffbdbe628ba8e0b932c27f425130cc23535_myImage.jpg"` |
+| **pim_catalog_date** <br> _string, ISO-8601 format_ | `"2012-03-13T00:00:00+01:00"` |
+| **pim_catalog_simpleselect** <br> _string_ | `"xs"` |
+| **pim_catalog_reference_data_simpleselect** <br> _string_ | `"bouroullec"` |
+| **pim_catalog_multiselect** <br> _Array[string]_ | `["leather", "cotton"]` |
+| **pim_catalog_reference_data_multiselect** <br> _Array[string]_ | `["red", "black", "grey"]` |
+| **pim_catalog_number** when `decimals_allowed` attribute property is set to `true` <br> _string_ | `"89.897"` |
+| **pim_catalog_number** when `decimals_allowed` attribute property is set to `false` <br> _integer_ | `42` |
+| **pim_catalog_boolean** <br> _boolean_ | `true` |
+| **pim_catalog_metric** when `decimals_allowed` attribute property is set to `true` <br> _Object{"amount": string, "unit": string}_ | `{"amount":"-12.78","unit":"KILOWATT"}` |
+| **pim_catalog_metric** when `decimals_allowed` attribute property is set to `false` <br> _Object{"amount": integer, "unit": string}_ | `{"amount":13,"unit":"KILOWATT"}` |
+| **pim_catalog_price** when `decimals_allowed` attribute property is set to `true` <br> _Array[Object{"amount": string, "currency": string}]_ | `[{"amount":"45.00","currency":"USD"}, {"amount":"56.53","currency":"EUR"}]` |
+| **pim_catalog_price** when `decimals_allowed` attribute property is set to `false` <br> _Array[Object{"amount": integer, "currency": string}]_ | `[{"amount":45,"currency":"USD"}, {"amount":56,"currency":"EUR"}]` |
+| **pim_assets_collection** <br> _Array[string]_ <br><em>Deprecated - See <a href="/api-reference-index.html#PAM">here</a></em> | `["my_first_asset_code", "my_second_asset_code"]` |
+| **akeneo_reference_entity**<br> Since the 3.0 only <br> _string_  | `"italy"` |
+| **akeneo_reference_entity_collection**<br> Since the 3.0 only <br> _Array[string]_ | `["starck", "dixon"]` |
+
+### Product values of a localizable attribute
+
+The `short_description` attribute is localizable but not scopable, so it can hold several data values, up to one for each locale.
+```json
+{
+  "short_description": [
+    {
+      "locale": "en_US",
+      "scope": null,
+      "data": "Tshirt long sleeves"
+    },
+    {
+      "locale": "fr_FR",
+      "scope": null,
+      "data": "Tshirt manches longues"
+    }
+  ]
+}
+```
+:::info
+Note that the `scope` property is set to `null` in this case.
+:::
+
+### Product values of a scopable attribute
+
+The `release_date` attribute is scopable but not localizable, so it can hold several data values, up to one for each channel.
+```json
+{
+  "release_date": [
+    {
+      "locale": null,
+      "scope": "ecommerce",
+      "data": "2012-03-13T00:00:00+01:00"
+    },
+    {
+      "locale": null,
+      "scope": "mobile",
+      "data": "2012-04-23T00:00:00+01:00"
+    }
+  ]
+}
+```
+:::info
+Note that the `locale` property is set to `null` in this case.
+:::
+
+### Product values of a localizable and scopable attribute
+
+The `description` attribute is both scopable and localizable, so it can hold several data values, up to one for each couple of channels and locales.
+```json
+{
+  "description": [
+    {
+      "locale": "de_DE",
+      "scope": "mobile",
+      "data": "Akeneo Mug"
+    },
+    {
+      "locale": "de_DE",
+      "scope": "print",
+      "data": "Akeneo Mug"
+    },
+    {
+      "locale": "en_US",
+      "scope": "mobile",
+      "data": "Akeneo Mug"
+    },
+    {
+      "locale": "en_US",
+      "scope": "print",
+      "data": "Akeneo Mug"
+    },
+    {
+      "locale": "fr_FR",
+      "scope": "mobile",
+      "data": "Mug Akeneo"
+    },
+    {
+      "locale": "fr_FR",
+      "scope": "print",
+      "data": "Mug Akeneo"
+    }
+  ]
+}
+```
+
+### Product value of a non localizable, non scopable attribute
+
+The `main_color` attribute is neither scopable nor localizable, so it can hold only one data value.
+```json
+{
+  "main_color": [
+    {
+      "locale": null,
+      "scope": null,
+      "data": "black"
+    }
+  ]
+}
+```
+:::info
+Note that the `locale` and `scope` properties are all set to `null` in this case.
+:::
+
+::: panel-link Want to update product values? [Here you go!](/documentation/update.html#patch-product-values)
+:::
+
+
+## Product model
+::: availability versions=2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+The product model gathers similar products that differ in some aspects, and allows the enrichment of their common properties.
+
+It's like a product, but it's not a product! It can be categorized and it's composed of product values. For more information about what are the "product values", take a look to this dedicated piece of [documentation](/documentation/resources.html#product-values).
+
+In the Akeneo UI, product models are displayed in the grid, exactly like classical products. To distinguish them from products, notice the small pile of pictures: it symbolizes the fact that a product model gathers several products with different variants.
+
+![Product models in the grid](/img/concepts/product_models_in_the_grid_ui.png)
+
+It's also possible to enrich product model. Below, you can find a screenshot of what the UI looks like.
+
+![Product models in the PEF](/img/concepts/product_models_in_the_pef_ui.png)
+
+To finish, below is the JSON standard format representing a product model. Notice how much it's closed to the product standard format!
+
+```json
+{
+  "code": "jack",
+  "family": "clothing",
+  "family_variant": "clothing_color_size",
+  "parent": null,
+  "categories": [],
+  "values": {
+    "name": [
+      {
+          "locale": null,
+          "scope": null,
+          "data": "jack"
+      }
+    ],
+    "erp_name": [
+      {
+        "locale": "en_US",
+        "scope": null,
+        "data": "Jack"
+      }
+    ],
+    "collection": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": [
+          "summer_2017"
+        ]
+      }
+    ]
+  },
+  "created": "2017-10-05T11:24:46+02:00",
+  "updated": "2017-10-05T11:24:46+02:00",
+  "metadata": {
+    "workflow_status": "working_copy"
+  }
+}
+```
+
+::: warning
+Note that the `metadata` field is only available since the 2.3 version and as it is an Enterprise Edition feature, you won't have this field on a Community Edition PIM.
+:::
+
+::: warning
+Note that the `family` field is only available since the 3.2 version.
+:::
+
+::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodel)
+:::
+
+## Published product
+::: availability versions=2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=EE
+:::
+
+A published product is a product that was published by a user in order to freeze a given version of the product. It can be very useful when you want to work on a new version of your product for the next collection for example, but in the meantime, you still want to export the previous version of your product to your channels.
+
+::: warning
+This is an Enterprise Edition feature. So you won't be able to call this endpoint if you are working on a Community Edition PIM. ;)
+:::
+
+In the Akeneo UI since the 2.0 version, you can find the published products by clicking on the `...` button in the top right corner, when you are on the products grid. Then select the `Published products` option. You will then see a grid really similar to the classical product grid.
+
+Below is the JSON standard format representing a published product. Notice how totally similar to the classical product format it is!
+
+```json
+{
+  "identifier": "11118726289",
+  "family": "mp3",
+  "parent": null,
+  "categories": [
+    "audio_video"
+  ],
+  "enabled": true,
+  "values": {
+    "name": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "MP3 player"
+      }
+    ],
+    "weight": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": {
+          "amount": "600.0000",
+          "unit": "GRAM"
+        }
+      }
+    ],
+    "color": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "glossy_red"
+      }
+    ]
+  },
+  "created": "2017-10-05T11:25:48+02:00",
+  "updated": "2017-10-05T11:25:48+02:00",
+  "associations": {}
+}
+```
+
+::: warning
+Endpoints for the published products are only available starting the 2.0 version.
+:::
+
+::: panel-link Want more details about the published product resource? [Check its endpoints here!](/api-reference.html#Publishedproduct)
+:::
+
+## Product media file
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+A product media file can be an image (a photo, an illustration, etc.), a video (demonstration of a product, an animation, etc.), an audio file (music, podcast, etc.), other multimedia (PDF file) or office documents (.xlsx, .docx, .csv, etc.). It can also be any exotic format you could use.
+
+It is used as the attribute value of a product, i.e. a product value.
+
+In the Akeneo UI, you can find media files in the product form when they are associated to a media attribute.
+
+::: version-screenshots id="media-files" 2.x![Media files in the Akeneo UI](/img/concepts/media_files_ui.png) 1.7![Media files in the Akeneo UI](/img/concepts/v1.7/media_files_ui.png)
+:::
+
+Below is the JSON standard format representing a media file.
+
+```json
+{
+  "code": "1/d/7/f/1d7f0987000cea4d14908fe679af4e36ea3632ef_10806799_1356.jpg",
+  "original_filename": "10806799-1356.jpg",
+  "mime_type": "image/jpeg",
+  "size": 16070,
+  "extension": "jpg",
+  "_links": {
+    "download": {
+      "href": "http://test-dev-feature-10.akeneo.com/api/rest/v1/media-files/1/d/7/f/1d7f0987000cea4d14908fe679af4e36ea3632ef_10806799_1356.jpg/download"
+    }
+  }
+}
+```
+
+::: panel-link Want more details about the media file resource? [Check its endpoints here!](/api-reference.html#Mediafile)
+:::

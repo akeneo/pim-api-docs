@@ -1,15 +1,32 @@
-# Concepts & resources
+# Asset Manager
+The Asset Manager is a brand new and more efficient way to manage the assets linked to your products/product models inside the PIM. :rocket:
 
-In this section, we will introduce all the API resources our team created to interact with the Asset Manager.
+The assets of the Asset Manager will be way more powerful than before. They will benefit from 3 major new features:
+- the possibility to define a flexible structure, thanks to the [asset families](#the-asset-family),
+- the possibility to automatize the link with your products, thanks to the [product link rules](#focus-on-the-product-link-rule),
+- the possibility to refer to both external and internal binaries, thanks to the [media link](#the-media-link-attribute) and the [media file](#the-media-file-attribute) attribute types.
+
+Below, you'll find an illustration of this wonderful new feature.
+
+![Asset manager schema](/img/concepts/asset-manager.svg)
+
+This part of the documentation introduces all the API resources our team created to interact with the Asset Manager.
+
+::: info
+The Asset Manager is an Entreprise only feature, meaning all the following resources are only available in the Entreprise Edition.
+:::
 
 ## The asset family
+::: availability versions=3.2,4.0 editions=EE
+:::
+
 An asset family gathers a number of assets that share a common attribute structure. In other words, an asset family can be considered as a template for its assets.
 
 An asset family is made of [asset attributes](#the-asset-attribute). Unlike the [product families](/documentation/resources.html#family), asset attributes are not shared between asset families.
 
 Below are some examples of asset families, along with their asset attributes.
 
-![Asset family scheme](/img/beta/asset-family.svg)
+![Asset family scheme](/img/concepts/asset-family.svg)
 
 For each asset family, you can define the way the PIM will automatically link the assets of this family to your products. We called that the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the precise format of this rule.
 
@@ -79,6 +96,8 @@ Here is the JSON format representing an example of asset family.
 :::
 
 ## The asset attribute
+::: availability versions=3.2,4.0 editions=EE
+:::
 
 In an asset family, an asset attribute is a characteristic of an asset for this family. It helps to describe and qualify an asset.
 An asset attribute can have a value per channel and/or per locale.
@@ -103,7 +122,7 @@ As a consequence, when you ask for the list of attributes for one given asset fa
 The text attribute is useful to hold textual information such as a description, a warning mention or whatever other information you can think of and which is basically made of a bunch of characters.
 
 Here is an example of a `text` attribute.
-![An example of a text asset attribute](/img/beta/text-asset-attribute.svg)
+![An example of a text asset attribute](/img/concepts/text-asset-attribute.svg)
 
 And here is the JSON format of the `text` attribute type.
 ```json
@@ -129,7 +148,7 @@ And here is the JSON format of the `text` attribute type.
 The single and multiple options attributes are useful to hold data that can be selected among a list of choices. The single option attribute allows the selection of one single value, whereas the multiple options can hold one or several values.
 
 Here are some examples of a `single option` and `multiple options` attributes.
-![Examples of a single and a multiple options asset attributes](/img/beta/single-and-multiple-options-asset-attributes.svg)
+![Examples of a single and a multiple options asset attributes](/img/concepts/single-and-multiple-options-asset-attributes.svg)
 
 And here is the JSON format of the `single option` attribute type.
 ```json
@@ -164,7 +183,7 @@ And here is the JSON format of the `multiple options` attribute type.
 The number attribute is useful to hold numeral information, such as a number of pages or a video duration.
 
 Here is an example of a `number` attribute.
-![An example of a number asset attribute](/img/beta/number-asset-attribute.svg)
+![An example of a number asset attribute](/img/concepts/number-asset-attribute.svg)
 
 And here is the JSON format of the `number` attribute type.
 ```json
@@ -185,7 +204,7 @@ And here is the JSON format of the `number` attribute type.
 The media file attribute is useful to hold the binaries of a file, a file being a picture, a pdf, a video...
 
 Here is an example of a `media_file` attribute.
-![An example of a media file asset attribute](/img/beta/media-file-asset-attribute.svg)
+![An example of a media file asset attribute](/img/concepts/media-file-asset-attribute.svg)
 
 And here is the JSON format of the `media_file` attribute type, for an image.
 ```json
@@ -212,10 +231,10 @@ In the next version, you will be able to add new types of files (like PDF).
 
 ### The `media link` attribute
 The media link attribute type comes in pretty handy whenever you want your asset to refer to an external file, not hosted inside the PIM. For example, it can be very useful whenever you already have all your assets stored in a CDN or a DAM. The illustration below gives you an idea of how this attribute type can be used in such a case.
-![Assets stored in a DAM](/img/beta/asset-dam-link.svg)
+![Assets stored in a DAM](/img/concepts/asset-dam-link.svg)
 
 Here are examples of several media link asset attributes.
-![Examples of media link asset attributes](/img/beta/media-link-asset-attributes.svg)
+![Examples of media link asset attributes](/img/concepts/media-link-asset-attributes.svg)
 
 Below is the JSON format of the `media_link` attribute type.
 ```json
@@ -247,6 +266,8 @@ The available media types that you can put in the `media_type` field are:
 :::
 
 ## The asset
+::: availability versions=3.2,4.0 editions=EE
+:::
 
 An asset is a flexible object that makes it possible to enrich products with images, videos, documents…
 
@@ -254,7 +275,7 @@ An asset must be part of an asset family. That way, it will have its own attribu
 
 Below are some examples of assets.
 
-![Asset examples](/img/beta/asset.svg)
+![Asset examples](/img/concepts/asset.svg)
 
 Below is the JSON format representing an example of an asset of the Asset Manager.
 
@@ -343,6 +364,8 @@ An asset can hold one or several files. This comes in pretty handy if, for insta
 :::
 
 ## The asset attribute option
+::: availability versions=3.2,4.0 editions=EE
+:::
 
 Some types of asset attributes can offer a list of choices. These available choices are asset attribute options.
 
@@ -353,7 +376,7 @@ Note that the "Assets attribute option" resource is not the same as the "Attribu
 Only `single option` or `multiple options` attributes can have options.
 
 Below is an example of an attribute option, used inside an asset.
-![Asset attribute option example](/img/beta/asset-attribute-option.svg)
+![Asset attribute option example](/img/concepts/asset-attribute-option.svg)
 
 Below is the JSON format representing this asset attribute option and some other.
 
@@ -404,11 +427,14 @@ As a consequence, when you ask for the list of attribute options for one given a
 
 
 ## The asset media file
+::: availability versions=3.2,4.0 editions=EE
+:::
+
 Asset media files correspond to the binaries of the images that you can link to your assets. 
 
 Below we illustrate an example of an asset media file linked to an asset.
 
-![Asset media file](/img/beta/asset-media-file.svg)
+![Asset media file](/img/concepts/asset-media-file.svg)
 
 ::: panel-link Want more details about the asset media file resource? [Check its endpoints here!](#Assetmediafile)
 :::
