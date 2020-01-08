@@ -87,7 +87,7 @@ Those permissions were introduced in the API starting from the 2.0 version.
 :::
 
 ::: info
-All the permissions describe here, apply to both product and product model updates.
+All the permissions described here, apply to both product and product model updates.
 :::
 
 ### Hide a part of your catalog
