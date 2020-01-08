@@ -35,7 +35,7 @@ You can now find the client ID and secret in the `Credentials` section of the co
 [Not comfortable with the **Connection** notion? We explain everything right here!](https://help.akeneo.com/pim/articles/what-is-a-connection.html)
 
 ::: info
-In case your secret leaked, you can easily revoke and regenerate a new secret for your connection by clicking on the dedicated icon, on the right side of the secret.
+In case your secret leaked, you can easily revoke it and generate a new one for your connection by clicking on the dedicated icon, on the right side of the secret.
 :::
 
 ### With a v2.x and 3.x PIM
