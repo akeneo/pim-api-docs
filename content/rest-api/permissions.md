@@ -47,7 +47,7 @@ Do not give this permission to your UI user role as it makes no sense to give AP
 :::
 
 :::info
-Note that if a role has `Overall Web API` access, then it means that all the users depending on that role will be able to make requests on products, product models and published products.  
+Note that if a role has `Overall Web API` access, then it means that all the users under that role will be able to make requests on products, product models and published products.  
 There is no way to only restrict the access on products, except if you are using a 2.x Enterprise Edition. In this case, the EE permissions based on user groups are applied on the API for the products and the published products.
 :::
 
