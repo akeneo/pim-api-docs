@@ -95,7 +95,7 @@ Client with public id 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s and sec
 ```
 
 #### List all API connections
-Just run the following command, stil on your PIM server.
+Just run the following command, still on your PIM server.
 ```shell
 php app/console pim:oauth-server:list-clients --env=prod
 ```
