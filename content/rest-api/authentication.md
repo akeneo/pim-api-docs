@@ -89,7 +89,7 @@ We ask for a confirmation when you revoke a client.
 ```bash
 This operation is irreversible. Are you sure you want to revoke this client? (Y/n)
 ```
-If you type Y, the client is then revoke and you will receive this message.
+If you type Y, the client is then revoked and you will receive this message.
 ```bash
 Client with public id 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s and secret 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s has been revoked.
 ```
