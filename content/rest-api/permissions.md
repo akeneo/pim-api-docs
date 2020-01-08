@@ -80,7 +80,7 @@ You can fine-tune even more this permission by restricting or allowing access to
 
 The Entreprise Edition permissions based on the user groups are also enforced in the API.
 
-Those permissions are really powerful and allows to create great workflows around product enrichment with the API. There are 3 ways to benefit from those permissions. They are detailed in the fllowing sections.
+Those permissions are really powerful and make it possible to create great workflows around product enrichment with the API. There are 3 ways to benefit from those permissions. They are detailed in the following sections.
 
 ::: warning
 Those permissions were introduced in the API starting from the 2.0 version.
