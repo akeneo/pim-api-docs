@@ -12,7 +12,7 @@ In other words, you will need to define for your API user:
 - a role, if you want to use the ACLs permissions, 
 - and a group if you want to use the EE permissions.
 
-[Can't remember how to get this API user? See here to get your answer!](/documentation/authentication.html#api-user-creation)
+[Can't remember how to get this API user? See here to find out how!](/documentation/authentication.html#api-user-creation)
 
 ## Endpoint access restrictions
 
