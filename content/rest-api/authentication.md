@@ -21,7 +21,7 @@ Depending on your PIM version, there are two different ways to generate these cl
 ### Starting from the v4 of the PIM
 Starting from the v4 of the PIM, there is now one unique and streamlined way to generate your client ID and secret. See by yourself!
 
-1. Log in into your favorite PIM.
+1. Log into your favorite PIM.
 1. Navigate to the `System/Connections` menu.
 1. Click on the `Create` button.
 1. Input a label for your connection, `ERP` for example.
