@@ -169,8 +169,8 @@ In this formula:
  - `CODE_OR_ATTRIBUTE_CODE` can be either:
      + the _"code"_ string: when you want the asset code to be used as the source string,
      + the code of the main media asset attribute of the family: when you want the filename of the main media to be used as the source string.
- - `SOURCE_LOCALE_CODE` is an existing locale code when `CODE_OR_ATTRIBUTE_CODE` is equal to _"main_media"_ and the main media attribute of the family is localizable.
- - `SOURCE_CHANNEL_CODE` is an existing channel code when `CODE_OR_ATTRIBUTE_CODE` is equal to _"main_media"_ and the main media attribute of the family is scopable.
+ - `SOURCE_LOCALE_CODE` is an existing locale code when `CODE_OR_ATTRIBUTE_CODE` is the code of to the main media asset attribute of the family and this one is localizable.
+ - `SOURCE_CHANNEL_CODE` is an existing channel code when `CODE_OR_ATTRIBUTE_CODE` is the code of to the main media asset attribute of the family and this one is scopable.
 
 ::: warning
 The `property`, `locale` and `channel` properties are mandatory.  
@@ -188,6 +188,10 @@ The `pattern` property allows you to define how the PIM should split the [source
 
 The split pattern should be a string. It should be given as a regular expression.  
 In order for the PIM to know into which asset attributes the result of the split should be sent, this regular expression should contain one or several named capture groups and the names of these capture groups should be existing asset attribute codes of the family.
+
+::: warning
+These asset attributes cannot be localizable neither scopable.
+:::
 
 ::: tips
 Not comfortable with regular expressions? You can try yours [right here](https://regex101.com/)!
