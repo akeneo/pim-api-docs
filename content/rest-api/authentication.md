@@ -14,7 +14,7 @@ Once you get its username and password, together with the client ID and the secr
 ## Client ID/secret generation
 
 Depending on your PIM version, there are two different ways to generate these client IDs/secrets:
-- Proud user of a PIM v4, you can follow [these simple steps](#starting-from-the-v4-of-the-pim).
+- Proud user of a v4 PIM, you can follow [these simple steps](#starting-from-the-v4-of-the-pim).
 - Using a PIM v2.x or v3.x? [Follow the instructions right here.](#with-a-v2x-and-3x-pim)
 - Still using the v1.7? [Here you go!](#with-a-17-pim)
 
