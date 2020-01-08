@@ -7,7 +7,7 @@ There are two ways to handle this in the API, depending on the wanted result:
 
 We detail in the sections below those two ways.
 
-Before diving into those sections, here is one key information you need to know: those permissions are enforced thanks to the API user you use [whenever you ask for a token](/documentation/authentication.html#token-generation). All the API calls launched with the generated token afterwards, will then benefit from the permissions defined by the user group and the user role of this API user.  
+Before diving into those sections, here is one key piece of information you need: those permissions are enforced thanks to the API user you use [whenever you ask for a token](/documentation/authentication.html#token-generation). All the API calls launched with the generated token afterwards will then benefit from the permissions defined by the user group and the user role of this API user.  
 In other words, you will need to define for you API user:
 - a role, if you want to use the ACLs permissions, 
 - and a group if you want to use the EE permissions.
