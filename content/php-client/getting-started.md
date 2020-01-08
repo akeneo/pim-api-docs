@@ -52,7 +52,7 @@ $ php composer.phar require akeneo/api-php-client-ee php-http/guzzle6-adapter:^2
 If you don't know which implementation to choose, we strongly recommend you to use Guzzle v6, as in the previous example.
 :::
 
-## Initialisation of the client
+## Initialization of the client
 
 You first need to initialize the client with your credentials client id/secret and with your user/password.
 
