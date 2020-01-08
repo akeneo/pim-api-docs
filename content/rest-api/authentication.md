@@ -250,4 +250,4 @@ HTTP/1.1 200 OK
 }
 ```
 
-The response is the same as when asking for the initial token except that it contains a new `access_token` and `refresh_token`. You can then use the new `access_token` in every request you make to the API.
+The response is the same as when asking for the initial token, except that it contains a new `access_token` and a new `refresh_token`. You can then use this `access_token` for every API request you do within an hour.
