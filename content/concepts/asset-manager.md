@@ -98,7 +98,7 @@ Here is the JSON format representing an example of asset family.
 
 ## Focus on the naming convention
 
-We noticed that you, our precious customers 🥰, usually name their asset files or asset codes using precious information:
+We noticed that you, our precious customers 🥰, usually name your asset files or asset codes using precious information:
 - the SKU of the product corresponding to the asset,
 - the locale into which your user guides are translated,
 - the picture type: _Is it a frontview, backview,...?_,
@@ -169,8 +169,8 @@ In this formula:
  - `CODE_OR_ATTRIBUTE_CODE` can be either:
      + the _"code"_ string: when you want the asset code to be used as the source string,
      + the code of the main media asset attribute of the family: when you want the filename of the main media to be used as the source string.
- - `SOURCE_LOCALE_CODE` is an existing locale code when `CODE_OR_ATTRIBUTE_CODE` is the code of to the main media asset attribute of the family and this one is localizable.
- - `SOURCE_CHANNEL_CODE` is an existing channel code when `CODE_OR_ATTRIBUTE_CODE` is the code of to the main media asset attribute of the family and this one is scopable.
+ - `SOURCE_LOCALE_CODE` is an existing locale code when `CODE_OR_ATTRIBUTE_CODE` is the code of the main media asset attribute of the family and this one is localizable.
+ - `SOURCE_CHANNEL_CODE` is an existing channel code when `CODE_OR_ATTRIBUTE_CODE` is the code of the main media asset attribute of the family and this one is scopable.
 
 ::: warning
 The `property`, `locale` and `channel` properties are mandatory.  
@@ -212,7 +212,7 @@ Sometimes, the application of the naming convention will fail. For example, if t
 
 To allow this behavior, set the `abort_asset_creation_on_error` to `true`.
 
-If you want the asset the be created even if the naming convention application failed, set the property to `false`.
+If you want the asset to be created even if the naming convention application failed, set the property to `false`.
 
 
 ## Focus on the product link rule
