@@ -55,7 +55,7 @@ There is no way to only restrict access to products, except if you are using a 2
 
 You can fine-tune even more this permission by restricting or allowing access to the entities of the catalog structure (categories, families, attributes, attribute options, channels and locales). The table below lists all the ACLs available.
 
-| Permission name | If enable, you will be able to |
+| Permission name | If enabled, you will be able to |
 |-----------------|-------------------|
 | List categories | GET on `/categories` and on `/categories/{category_code}`|
 | List families | GET on `/families` and on `/families/{family_code}`|
