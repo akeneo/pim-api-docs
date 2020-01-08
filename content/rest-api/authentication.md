@@ -123,7 +123,7 @@ You may need to regenerate a password if you didn't save it somewhere. Indeed, t
 
 ### With a v1.7, 2.x and 3.x PIM
 
-In previous versions of the PIM, you need to navigate to the `System/Users` menu in your PIM UI and create a new user. We strongly advise you to create specific API user. Do not re-use UI users. 🙂
+In previous versions of the PIM, you need to navigate to the `System/Users` menu in your PIM UI and create a new user. We strongly advise you to create specific API users. Do not re-use UI users. 🙂
 
 
 ## Token generation
