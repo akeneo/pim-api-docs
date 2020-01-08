@@ -43,13 +43,15 @@ The `search_after` query parameter should never be set manually. If you want to 
 
 :::warning
 This pagination method is only available for:
-- products (since 1.7),
-- product models (since 2.0),
-- published products (since 2.0),
-- assets (since 2.1),
-- reference entities (since 3.0),
-- reference entity attribute options (since 3.0),
-- reference entity records (since 3.0).
+- products,
+- product models,
+- published products,
+- PAM assets (_deprecated_),
+- reference entities,
+- reference entity attribute options,
+- reference entity records,
+- Asset Manager assets,
+- Asset Manager asset families.
 :::
 
 ::: info

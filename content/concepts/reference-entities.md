@@ -17,7 +17,7 @@ The Reference Entities is an Entreprise only feature, meaning all the following 
 
 Reference entities are objects that are related to products but have their own attributes and lifecycle. A reference entity can be for example the brands, the ranges, the manufacturers, the colors, the materials or the care instructions... And so many other entities.
 
-In the Akeneo UI, you can find the reference entities in the `Entities` menu. Below is an example of the `Brand` reference entity with its [records](/documentation/resources.html#reference-entity-record-3x-and-ee-only) in the UI.
+In the Akeneo UI, you can find the reference entities in the `Entities` menu. Below is an example of the `Brand` reference entity with its [records](#reference-entity-record) in the UI.
 
 ![Reference entity](/img/concepts/reference_entity_ui.png)
 
@@ -41,7 +41,7 @@ Below is the JSON format representing a reference entity.
 ::: availability versions=3.0,3.1,3.2,4.0 editions=EE
 :::
 
-Reference entities have attributes that allow to describe their [records](/documentation/resources.html#reference-entity-record-3x-and-ee-only).
+Reference entities have attributes that allow to describe their [records](#reference-entity-record).
 
 ::: warning
 Note that the "Reference entity attribute" resource is not the same as the "Attribute" resource, even though they have a lot in common. The first one is used to describe reference entities records, the second one is use to describe products.
@@ -308,7 +308,9 @@ Reference entity record values hold all the information of a reference entity re
 
 In the API, the reference entity record values are in the property `values` of the reference entity record.
 
-Reference entity record values follow the same format as [product values](/documentation/resources.html#product-values): 
+### The global format
+
+Reference entity record values follow the same format as [product values](/concepts/products.html#focus-on-the-product-values): 
 ```json
 {
   "values": {
@@ -324,9 +326,12 @@ Reference entity record values follow the same format as [product values](/docum
 ```
 In this formula:
  - `ATTRIBUTE_CODE` is the code of an attribute of the reference entity record,
- - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise,
- - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise,
- - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type as you can see in the table below.
+ - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-channel-format)
+ - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-channel-format)
+ - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
+
+### The `data` format
+The table below describes the format of the `data` property for each [reference entity attribute](#reference-entity-attribute) type.
 
 | Attribute type / Format| Example |
 | ----------------- | -------------- |
@@ -338,7 +343,16 @@ In this formula:
 | **Reference entity simple select** <br> _string_ | `"italy"` |
 | **Reference entity multi select** <br> _Array[string]_ | `["starck", "dixon"]` |
 
-### Reference entity record values of a localizable attribute
+### The `locale` and `channel` format
+
+The reference entity record values can be localizable and/or scopable. Here are some examples to illustrate those different possibilities.
+
+::: info
+Reference entity record values should be **localizable** whenever you want to enrich different values among your activated locales.  
+Reference entity record values should be **scopable** whenever you want to enrich different values among your channels.
+:::
+
+#### Reference entity record values of a localizable attribute
 
 The `short_description` attribute is localizable but not scopable, so it can hold several data values, up to one for each locale.
 ```json
@@ -361,7 +375,7 @@ The `short_description` attribute is localizable but not scopable, so it can hol
 Note that the `channel` property is set to `null` in this case.
 :::
 
-### Reference entity record values of a scopable attribute
+#### Reference entity record values of a scopable attribute
 
 The `image` attribute is scopable but not localizable, so it can hold several data values, up to one for each channel.
 ```json
@@ -384,7 +398,7 @@ The `image` attribute is scopable but not localizable, so it can hold several da
 Note that the `locale` property is set to `null` in this case.
 :::
 
-### Reference entity record values of a localizable and scopable attribute
+#### Reference entity record values of a localizable and scopable attribute
 
 The `description` attribute is both scopable and localizable, so it can hold several data values, up to one for each couple of channels and locales.
 ```js
@@ -414,7 +428,7 @@ The `description` attribute is both scopable and localizable, so it can hold sev
 }
 ```
 
-### Reference entity record value of a non localizable, non scopable attribute
+#### Reference entity record value of a non localizable, non scopable attribute
 
 The `creation_year` attribute is neither scopable nor localizable, so it can hold only one data value.
 ```json
@@ -432,7 +446,7 @@ The `creation_year` attribute is neither scopable nor localizable, so it can hol
 Note that the `locale` and `channel` properties are all set to `null` in this case.
 :::
 
-::: panel-link Want to update reference entity record values? [Here you go!](/documentation/update.html#patch-reference-entity-record-values)
+::: panel-link Want to update reference entity record values? [Here you go!](/documentation/update.html#update-reference-entity-record-values)
 :::
 
 ## Reference entity media file

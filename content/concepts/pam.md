@@ -17,10 +17,10 @@ Also, don't hesitate to take a look at the [Asset Manager documentation](/concep
 ::: warning
 This resource is **deprecated** and is removed from the API since the 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
 Also, did you know that since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM.  
-[Eager to know more about these new assets? It's right here!](/concepts/asset-manager.html#the-asset)
+[Eager to know more about these new assets? It's right here!](/concepts/asset-manager.html#asset)
 :::
 
-An asset is the EE entity that allows to hold a file which can be an image, a video, a document... In the PIM, you can find all your assets in a library called PAM (Product Asset Manager). In this library, you can manage and classify your assets into their own categories, called [asset categories](/documentation/resources.html#asset-category-21-only).
+An asset is the EE entity that allows to hold a file which can be an image, a video, a document... In the PIM, you can find all your assets in a library called PAM (Product Asset Manager). In this library, you can manage and classify your assets into their own categories, called [asset categories](/concepts/pam.html#asset-category).
 
 Once you upload your asset into the PAM, you can then associate it to your products thanks to a specific attribute type, called `Asset collection`. This attribute allows you to select several assets in one single attribute.
 
@@ -99,7 +99,7 @@ Below is the JSON standard format representing an asset, that is not localizable
 
 ::: warning
 This resource is **deprecated** and is removed from the API since the 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
-Also, did you know that since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, categories can be modelized thanks to a [single or multiple options attribute](/concepts/asset-manager.html#the-single-and-multiple-options-attributes) in your [asset family](/concepts/asset-manager.html#the-asset-family).  
+Also, did you know that since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, categories can be modelized thanks to a [single or multiple options attribute](/concepts/asset-manager.html#the-single-and-multiple-options-attributes) in your [asset family](/concepts/asset-manager.html#asset-family).  
 [Eager to know more about the Asset Manager? It's right here!](/concepts/asset-manager.html#concepts-resources)
 :::
 
@@ -146,7 +146,7 @@ Below is the JSON standard format representing asset categories. Notice how it's
 
 ::: warning
 This resource is **deprecated** and is removed from the API since the 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
-Also, did you know that since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, tags can be modelized thanks to a [single or multiple options attribute](/concepts/asset-manager.html#the-single-and-multiple-options-attributes) in your [asset family](/concepts/asset-manager.html#the-asset-family).  
+Also, did you know that since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, tags can be modelized thanks to a [single or multiple options attribute](/concepts/asset-manager.html#the-single-and-multiple-options-attributes) in your [asset family](/concepts/asset-manager.html#asset-family).  
 [Eager to know more about the Asset Manager? It's right here!](/concepts/asset-manager.html#concepts-resources)
 :::
 

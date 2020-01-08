@@ -7,7 +7,7 @@ Before writing any line of code for the connector, you'll need to prepare your D
 Everything begins with the creation of your asset families. You know, this really important entity that allows you to structure your PIM assets.
 
 ::: tips
-Still not familiar with the asset family concept? You may need to read [this](/beta/asset-manager/concepts-and-resources.html#the-asset-family) carefully.
+Still not familiar with the asset family concept? You may need to read [this](/concepts/asset-manager.html#asset-family) carefully.
 :::
 
 To create those asset families, you'll need the help of your PIM and DAM users. By analyzing together the assets already stored in your DAM, you'll find the perfect set of asset families with the right attribute structure to optimize your asset representation in the PIM. 
@@ -27,7 +27,7 @@ Below are some examples of asset families so that you have an idea on how to cho
 
 To help you decide, you can take into account the following statements:
 - Assets of a given asset family share the same attribute structure, so make sure that all the assets belonging to the same family can be described using the same set of attributes,
-- The [product link rule](/beta/asset-manager/product-link-rule-focus.html) is defined at the asset family level, so make sure that all the assets belonging to the same family are linked to your products the same way.
+- The [product link rule](/concepts/asset-manager.html#focus-on-the-product-link-rule) is defined at the asset family level, so make sure that all the assets belonging to the same family are linked to your products the same way.
 
 ::: tips
 This step is the most crucial one. You will need to put good thoughts into the creation of your asset families. As a result, it's a step that can hardly be automated, as it really depends on your users' needs.
@@ -45,7 +45,7 @@ Let's illustrate that with an example.
 
 In this example, you can see that in the `Model picture` asset family we have:
 - a `Code` and a `Label` that are created automatically when you create an asset family,
-- a `DAM url` [media link attribute](/beta/asset-manager/concepts-and-resources.html#the-media-link-attribute). This attribute is instrumental in the DAM-PIM connection. You can name it however you like. This is the attribute you will use to store the url of the source DAM file,
+- a `DAM url` [media link attribute](/concepts/asset-manager.html#the-media-link-attribute). This attribute is instrumental in the DAM-PIM connection. You can name it however you like. This is the attribute you will use to store the url of the source DAM file,
 - a `Tags` attribute whose values will be supplied by the DAM. Indeed, there is also a `Tags` property on the DAM side and the enrichment of this property is done exclusively there. As we decided to also keep this information on the PIM side (for filtering purposes for example) it needs to be sent over. This explains why this `Tags` attribute is in the asset family,
 - a `Product reference` attribute whose value will be the product identifier to which the asset refers. In this example, this information is also supplied by the DAM as it appears in the DAM asset filename and can easily be extracted,
 - two attributes: `Model is wearing size` and `Warning mention` that only appear on the PIM side. Those attributes will be enriched by marketers directly in the PIM. That's why they do not appear on the DAM side.
@@ -96,7 +96,7 @@ Those are just suggestions. Don't hesitate to find the one that will best suit y
 
 ### Which asset family do your DAM product assets belong to?
 
-In the PIM, in the Asset Manager, assets must belong to an [asset family](/beta/asset-manager/concepts-and-resources.html#the-asset-family).  
+In the PIM, in the Asset Manager, assets must belong to an [asset family](/concepts/asset-manager.html#asset-family).  
 So, at one point, whenever the connector creates an asset in the PIM, it will need to know in which family it should create it.  
 As a result, we need this information to be on the DAM side, for each DAM asset.
 

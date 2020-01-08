@@ -11,18 +11,18 @@ get:
   parameters:
     - name: search
       in: query
-      description: Filter assets, for more details see the <a href="/beta/asset-manager/asset-filters.html">Asset filters</a> section
+      description: Filter assets, for more details see the <a href="/documentation/filter.html#filter-assets">Asset filters</a> section
       required: false
       type: string
     - name: channel
       in: query
       type: string
-      description: Filter asset values to return scopable asset attributes for the given channel as well as the non localizable/non scopable asset attributes, for more details see the <a href="/beta/asset-manager/asset-filters.html#filter-asset-values-by-channel">Filter asset values by channel</a> section
+      description: Filter asset values to return scopable asset attributes for the given channel as well as the non localizable/non scopable asset attributes, for more details see the <a href="/documentation/filter.html#asset-values-by-channel">Filter asset values by channel</a> section
       required: false
     - name: locales
       in: query
       type: string
-      description: Filter asset values to return localizable attributes for the given locales as well as the non localizable/non scopable asset attributes, for more details see the <a href="/beta/asset-manager/asset-filters.html#filter-asset-values-by-locale">Filter asset values by locale</a> section
+      description: Filter asset values to return localizable attributes for the given locales as well as the non localizable/non scopable asset attributes, for more details see the <a href="/documentation/filter.html#asset-values-by-locale">Filter asset values by locale</a> section
       required: false
     - $ref: '#/parameters/asset_family_code'
     - $ref: '#/parameters/search_after'

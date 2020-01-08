@@ -115,6 +115,8 @@ Product values hold all the information of the product. They are part of the [Pr
 
 In the API, the product values are in the property `values` of the product entity.
 
+### The global format
+
 A product value follows this format:
 ```json
 {
@@ -131,34 +133,345 @@ A product value follows this format:
 ```
 In this formula:
  - `ATTRIBUTE_CODE` is the code of an attribute of the product,
- - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise,
- - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise,
- - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type as you can see in the table below.
+ - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
+ - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
+ - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
 
-| Attribute type / Format| Example |
-| ----------------- | -------------- |
-| **pim_catalog_identifier** <br> _string_ | `"12348716"` |
-| **pim_catalog_text** <br> _string_ | `"Tshirt long sleeves"` |
-| **pim_catalog_textarea** <br> _string_ | `"Tshirt long sleeves\nWinter special, 100% whool"` |
-| **pim_catalog_file** <br> _string_ | `"f/2/e/6/f2e6674e076ad6fafa12012e8fd026acdc70f814_myFile.pdf"` |
-| **pim_catalog_image** <br> _string_ | `"f/4/d/1/f4d12ffbdbe628ba8e0b932c27f425130cc23535_myImage.jpg"` |
-| **pim_catalog_date** <br> _string, ISO-8601 format_ | `"2012-03-13T00:00:00+01:00"` |
-| **pim_catalog_simpleselect** <br> _string_ | `"xs"` |
-| **pim_catalog_reference_data_simpleselect** <br> _string_ | `"bouroullec"` |
-| **pim_catalog_multiselect** <br> _Array[string]_ | `["leather", "cotton"]` |
-| **pim_catalog_reference_data_multiselect** <br> _Array[string]_ | `["red", "black", "grey"]` |
-| **pim_catalog_number** when `decimals_allowed` attribute property is set to `true` <br> _string_ | `"89.897"` |
-| **pim_catalog_number** when `decimals_allowed` attribute property is set to `false` <br> _integer_ | `42` |
-| **pim_catalog_boolean** <br> _boolean_ | `true` |
-| **pim_catalog_metric** when `decimals_allowed` attribute property is set to `true` <br> _Object{"amount": string, "unit": string}_ | `{"amount":"-12.78","unit":"KILOWATT"}` |
-| **pim_catalog_metric** when `decimals_allowed` attribute property is set to `false` <br> _Object{"amount": integer, "unit": string}_ | `{"amount":13,"unit":"KILOWATT"}` |
-| **pim_catalog_price** when `decimals_allowed` attribute property is set to `true` <br> _Array[Object{"amount": string, "currency": string}]_ | `[{"amount":"45.00","currency":"USD"}, {"amount":"56.53","currency":"EUR"}]` |
-| **pim_catalog_price** when `decimals_allowed` attribute property is set to `false` <br> _Array[Object{"amount": integer, "currency": string}]_ | `[{"amount":45,"currency":"USD"}, {"amount":56,"currency":"EUR"}]` |
-| **pim_assets_collection** <br> _Array[string]_ <br><em>Deprecated - See <a href="/api-reference-index.html#PAM">here</a></em> | `["my_first_asset_code", "my_second_asset_code"]` |
-| **akeneo_reference_entity**<br> Since the 3.0 only <br> _string_  | `"italy"` |
-| **akeneo_reference_entity_collection**<br> Since the 3.0 only <br> _Array[string]_ | `["starck", "dixon"]` |
+### The `data` format
+The sections below describe the format of the `data` property for each [product attribute](/concepts/catalog-structure.html#attribute) type.
 
-### Product values of a localizable attribute
+#### Text and text area attributes
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+Whenever the attribute's type is either `pim_catalog_text` or `pim_catalog_textarea`, the `data` field should contain a string.
+
+**Example**
+```json
+{
+  "values": {
+    "description": [
+      {
+        "data": "Tshirt long sleeves\nWinter special, 100% whool"
+      }
+    ]
+  }
+}
+```
+
+#### Media file attributes
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+Whenever the attribute's type is either `pim_catalog_file` or `pim_catalog_image`, the `data` field should contain a string, that should be the code of a [product media file](#product-media-file).
+
+**Example**
+```json
+{
+  "values": {
+    "packshot": [
+      {
+        "data": "f/2/e/6/f2e6674e0766acdc70f814_myFile.pdf"
+      }
+    ]
+  }
+}
+```
+
+#### Date attribute
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+Whenever the attribute's type is `pim_catalog_date`, the `data` field should contain a string, in ISO-8601 format.
+
+**Example**
+```json
+{
+  "values": {
+    "packshot": [
+      {
+        "data": "f/2/e/6/f2e6674e0766acdc70f814_myFile.pdf"
+      }
+    ]
+  }
+}
+```
+
+#### Simple and multi select attribute
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+Whenever the attribute's type is `pim_catalog_simpleselect`, the `data` field should contain a string, that should be the code of an [attribute option](/concepts/catalog-structure.html#attribute-option).
+
+##### Example
+```json
+{
+  "values": {
+    "main_color": [
+      {
+        "data": "blue"
+      }
+    ]
+  }
+}
+```
+
+Whenever the attribute's type is `pim_catalog_multiselect`, the `data` field should contain an array of strings, each string being the code of an [attribute option](/concepts/catalog-structure.html#attribute-option).
+
+##### Example
+```json
+{
+  "values": {
+    "materials": [
+      {
+        "data": ["leather", "cotton"]
+      }
+    ]
+  }
+}
+```
+
+#### Reference data simple and multi select attribute
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+Whenever the attribute's type is `pim_catalog_reference_data_simpleselect`, the `data` field should contain a string, that should be the code of a reference data attribute option.
+
+##### Example
+```json
+{
+  "values": {
+    "designer": [
+      {
+        "data": "bouroullec"
+      }
+    ]
+  }
+}
+```
+
+Whenever the attribute's type is `pim_catalog_reference_data_multiselect`, the `data` field should contain an array of strings, each string being the code of a reference data attribute option.
+
+##### Example
+```json
+{
+  "values": {
+    "collections": [
+      {
+        "data": ["winter_2019", "spring_2020"]
+      }
+    ]
+  }
+}
+```
+
+#### Number attribute
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+Whenever the attribute's type is `pim_catalog_number`, the `data` field should contain:
+- an integer, whenever the `decimals_allowed` property of the attribute is set to `false`.
+- a string representing a number, whenever the `decimals_allowed` property of the attribute is set to `true`.
+
+##### Examples
+```json
+{
+  "values": {
+    "age": [
+      {
+        "data": 40
+      }
+    ]
+  }
+}
+```
+```json
+{
+  "values": {
+    "typing_speed": [
+      {
+        "data": "89.897"
+      }
+    ]
+  }
+}
+```
+
+#### Metric attribute
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+Whenever the attribute's type is `pim_catalog_metric`, the `data` field should contain:
+- an integer, whenever the `decimals_allowed` property of the attribute is set to `false`.
+- a string representing a number, whenever the `decimals_allowed` property of the attribute is set to `true`.
+
+##### Examples
+```json
+{
+  "values": {
+    "power": [
+      {
+        "data": {
+          "amount":10,
+          "unit": "KILOWATT"
+      }
+      }
+    ]
+  }
+}
+```
+```json
+{
+  "values": {
+    "height": [
+      {
+        "data": {
+          "amount":"25.45",
+          "unit": "CENTIMETER"
+      }
+    ]
+  }
+}
+```
+
+#### Price attribute
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+Whenever the attribute's type is `pim_catalog_price`, the `data` field should contain:
+- an integer, whenever the `decimals_allowed` property of the attribute is set to `false`.
+- a string representing a number, whenever the `decimals_allowed` property of the attribute is set to `true`.
+
+##### Examples
+```json
+{
+  "values": {
+    "recommended_price": [
+      {
+        "data": {
+          "amount":200,
+          "unit": "USD"
+      }
+      }
+    ]
+  }
+}
+```
+```json
+{
+  "values": {
+    "price": [
+      {
+        "data": {
+          "amount":"25.50",
+          "unit": "EUR"
+      }
+    ]
+  }
+}
+```
+
+#### Boolean attribute
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+:::
+
+Whenever the attribute's type is `pim_catalog_boolean`, the `data` field should contain either `true` or `false`.
+
+##### Example
+```json
+{
+  "values": {
+    "is_smart": [
+      {
+        "data": "true"
+      }
+    ]
+  }
+}
+```
+
+#### Reference entity single and multiple links attribute
+::: availability versions=3.0,3.1,3.2,4.0 editions=EE
+:::
+
+Whenever the attribute's type is `akeneo_reference_entity`, the `data` field should contain a string, that should be the code of a [reference entity record](/concepts/reference-entities.html#reference-entity-record).
+
+##### Example
+```json
+{
+  "values": {
+    "designer": [
+      {
+        "data": "bouroullec"
+      }
+    ]
+  }
+}
+```
+
+Whenever the attribute's type is `akeneo_reference_entity_collection`, the `data` field should contain an array of strings, each string being the code of a [reference entity record](/concepts/reference-entities.html#reference-entity-record).
+
+##### Example
+```json
+{
+  "values": {
+    "collections": [
+      {
+        "data": ["winter_2019", "spring_2020"]
+      }
+    ]
+  }
+}
+```
+
+#### PAM asset collection attribute _- Deprecated_
+::: availability versions=2.1,2.2,2.3,3.0,3.1,3.2 editions=EE
+:::
+
+Whenever the attribute's type is `pim_assets_collection`, the `data` field should contain an array of strings, each string being the code of a [PAM asset](/concepts/pam.html#asset).
+
+##### Example
+```json
+{
+  "values": {
+    "userguides": [
+      {
+        "data": ["guarantee_notice", "how_to_guide"]
+      }
+    ]
+  }
+}
+```
+
+#### Asset Manager asset collection attribute
+::: availability versions=3.2,4.0 editions=EE
+:::
+
+Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` field should contain an array of strings, each string being the code of an [Asset Manager asset](/concepts/asset-manager.html#asset).
+
+##### Example
+```json
+{
+  "values": {
+    "model_pictures": [
+      {
+        "data": ["allie_jean_frontview", "allie_jean_backview"]
+      }
+    ]
+  }
+}
+```
+
+### The `locale` and `scope` format
+
+The product values can be localizable and/or scopable. Here are some examples to illustrate those different possibilities.
+
+::: info
+Product values should be **localizable** whenever you want to enrich different values among your activated locales.  
+Product values should be **scopable** whenever you want to enrich different values among your channels.
+:::
+
+#### Product values of a localizable attribute
 
 The `short_description` attribute is localizable but not scopable, so it can hold several data values, up to one for each locale.
 ```json
@@ -181,7 +494,7 @@ The `short_description` attribute is localizable but not scopable, so it can hol
 Note that the `scope` property is set to `null` in this case.
 :::
 
-### Product values of a scopable attribute
+#### Product values of a scopable attribute
 
 The `release_date` attribute is scopable but not localizable, so it can hold several data values, up to one for each channel.
 ```json
@@ -204,7 +517,7 @@ The `release_date` attribute is scopable but not localizable, so it can hold sev
 Note that the `locale` property is set to `null` in this case.
 :::
 
-### Product values of a localizable and scopable attribute
+#### Product values of a localizable and scopable attribute
 
 The `description` attribute is both scopable and localizable, so it can hold several data values, up to one for each couple of channels and locales.
 ```json
@@ -244,7 +557,7 @@ The `description` attribute is both scopable and localizable, so it can hold sev
 }
 ```
 
-### Product value of a non localizable, non scopable attribute
+#### Product value of a non localizable, non scopable attribute
 
 The `main_color` attribute is neither scopable nor localizable, so it can hold only one data value.
 ```json
@@ -262,7 +575,7 @@ The `main_color` attribute is neither scopable nor localizable, so it can hold o
 Note that the `locale` and `scope` properties are all set to `null` in this case.
 :::
 
-::: panel-link Want to update product values? [Here you go!](/documentation/update.html#patch-product-values)
+::: panel-link Want to update product values? [Here you go!](/documentation/update.html#update-product-values)
 :::
 
 
@@ -272,7 +585,7 @@ Note that the `locale` and `scope` properties are all set to `null` in this case
 
 The product model gathers similar products that differ in some aspects, and allows the enrichment of their common properties.
 
-It's like a product, but it's not a product! It can be categorized and it's composed of product values. For more information about what are the "product values", take a look to this dedicated piece of [documentation](/documentation/resources.html#product-values).
+It's like a product, but it's not a product! It can be categorized and it's composed of product values. For more information about what are the "product values", take a look to this dedicated piece of [documentation](/concepts/products.html#focus-on-the-product-values).
 
 In the Akeneo UI, product models are displayed in the grid, exactly like classical products. To distinguish them from products, notice the small pile of pictures: it symbolizes the fact that a product model gathers several products with different variants.
 

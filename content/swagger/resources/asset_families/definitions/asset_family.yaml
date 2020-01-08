@@ -16,7 +16,7 @@ properties:
         description: Asset family label for the locale `localeCode`
   product_link_rules:
     type: array
-    description: The rules that will be run after the asset creation, in order to automatically link the assets of this family to a set of products. To understand the format of this property, see <a href='/beta/asset-manager/product-link-rule-focus.html'>here</a>.
+    description: The rules that will be run after the asset creation, in order to automatically link the assets of this family to a set of products. To understand the format of this property, see <a href='/concepts/asset-manager.html#focus-on-the-product-link-rule'>here</a>.
     x-validation-rules: To know more about the validation of this property, take a look at our product link rule format.
     default: {}
     items:
@@ -24,7 +24,7 @@ properties:
       properties:
         product_selections:
           type: array
-          description: The product selection to which the assets of the asset family to be automatically linked. More details <a href='/beta/asset-manager/product-link-rule-focus.html#product-selection'>here</a>.
+          description: The product selection to which the assets of the asset family to be automatically linked. More details <a href='/concepts/asset-manager.html#product-selection'>here</a>.
           items:
             type: object
             required: ["field", "operator", "value"]
@@ -41,7 +41,7 @@ properties:
                 type: string
         assign_assets_to:
           type: array
-          description: The product value in which your assets will be assigned. More details <a href='/beta/asset-manager/product-link-rule-focus.html#product-value-assignment'>here</a>.
+          description: The product value in which your assets will be assigned. More details <a href='/concepts/asset-manager.html#product-value-assignment'>here</a>.
           items:
             type: object
             required: ["attribute","mode"]
@@ -56,7 +56,7 @@ properties:
                 type: string
   transformations:
     type: array
-    description: The transformations to perform on source files in order to generate new files into your asset attributes (only available since v4.0). To understand the format of this property, see <a href='/beta/asset-manager/transformations-focus.html'>here</a>.
+    description: The transformations to perform on source files in order to generate new files into your asset attributes (only available since v4.0). To understand the format of this property, see <a href='/concepts/asset-manager.html#focus-on-the-transformations'>here</a>.
     x-validation-rules: To know more about the validation of this property, take a look at our transformation format.
     default: {}
     items:
@@ -68,14 +68,14 @@ properties:
           description: The name of the transformation
         filename_suffix:
           type: string
-          description: The suffix that will be appended to the source filename to generate the target filename. More details <a href='/beta/asset-manager/transformations-focus.html#target-filename'>here</a>.
+          description: The suffix that will be appended to the source filename to generate the target filename. More details <a href='/concepts/asset-manager.html#target-filename'>here</a>.
         filename_prefix:
           type: string
-          description: The prefix that will be prepended to the source filename to generate the target filename. More details <a href='/beta/asset-manager/transformations-focus.html#target-filename'>here</a>.
+          description: The prefix that will be prepended to the source filename to generate the target filename. More details <a href='/concepts/asset-manager.html#target-filename'>here</a>.
         source:
           type: object
           required: ['attribute', 'channel', 'locale']
-          description: The attribute value in which is stored the media file you want to use as the source file for your transformation. More details <a href='/beta/asset-manager/transformations-focus.html#source-file'>here</a>.
+          description: The attribute value in which is stored the media file you want to use as the source file for your transformation. More details <a href='/concepts/asset-manager.html#source-file'>here</a>.
           properties:
             attribute:
               type: string
@@ -86,7 +86,7 @@ properties:
         target:
           type: object
           required: ['attribute', 'channel', 'locale']
-          description: The attribute value in which the PIM will generate the new transformed file, aka the target file. More details <a href='/beta/asset-manager/transformations-focus.html#target-file'>here</a>.
+          description: The attribute value in which the PIM will generate the new transformed file, aka the target file. More details <a href='/concepts/asset-manager.html#target-file'>here</a>.
           properties:
             attribute:
               type: string
@@ -96,7 +96,7 @@ properties:
               type: string
         operations:
             type: object
-            description: The transformations that should be applied to your source file to generate the target file. More details <a href='/beta/asset-manager/transformations-focus.html#transformation-operations'>here</a>.
+            description: The transformations that should be applied to your source file to generate the target file. More details <a href='/concepts/asset-manager.html#transformation-operations'>here</a>.
             x-validation-rules: Should contain at least one operation
             properties:
               type:
