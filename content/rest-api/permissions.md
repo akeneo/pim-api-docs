@@ -160,7 +160,7 @@ Don't hesitate to test your configuration by calling the [PATCH product endpoint
 ### Proposals of product information updates
 
 The second power of these permissions is that for some **given categories**, you can define that the PATCH API endpoints will only be able to suggest modifications on your product values, instead of automatically updating them.  
-Your PIM users will then be able to validate or reject them directly in the PIM UI. This is perfect if you want to easily control the product information that is pushed from outside into your product catalog. :wink:
+Your PIM users will then be able to validate or reject them directly in the PIM UI. This is perfect if you want to easily control the product information that is pushed into your product catalog. :wink:
 
 To enable this possibility:
 1. Log into your favorite PIM.
