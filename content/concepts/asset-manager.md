@@ -98,7 +98,7 @@ Here is the JSON format representing an example of asset family.
 
 ## Focus on the naming convention
 
-We noticed that you, our precious customers, usually name their asset files with precious information:
+We noticed that you, our precious customers, usually name their asset files or asset codes using precious information:
 - the SKU of the product corresponding to the asset,
 - the locale into which your user guides are translated,
 - the picture type: _Is it a frontview, backview,...?_,
@@ -152,13 +152,13 @@ Still not comfortable with the naming convention? Don't hesitate to go through t
 
 The `source` property allows you to define on which string the split will be applied. It can be either:
 - the asset code,
-- the filename of the main media attribute.
+- the code of the main media attribute of your family.
 
 It follows this format:
 ```json
 {
   "source": {
-    "property": CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME,
+    "property": CODE_OR_ATTRIBUTE_CODE,
     "locale": SOURCE_LOCALE_CODE,
     "channel": SOURCE_CHANNEL_CODE
   },...
@@ -166,20 +166,20 @@ It follows this format:
 ```
 
 In this formula:
- - `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` can be one of the following strings:
-     + _"code"_: when you want the asset code to be used as the source string,
-     + _"main_media"_: when you want the filename of the main media to be used as the source string.
- - `SOURCE_LOCALE_CODE` is an existing locale code when `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to _"main_media"_ and the main media attribute of the family is localizable.
- - `SOURCE_CHANNEL_CODE` is an existing channel code when `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to _"main_media"_ and the main media attribute of the family is scopable.
+ - `CODE_OR_ATTRIBUTE_CODE` can be either:
+     + the _"code"_ string: when you want the asset code to be used as the source string,
+     + the code of the main media asset attribute of the family: when you want the filename of the main media to be used as the source string.
+ - `SOURCE_LOCALE_CODE` is an existing locale code when `CODE_OR_ATTRIBUTE_CODE` is equal to _"main_media"_ and the main media attribute of the family is localizable.
+ - `SOURCE_CHANNEL_CODE` is an existing channel code when `CODE_OR_ATTRIBUTE_CODE` is equal to _"main_media"_ and the main media attribute of the family is scopable.
 
 ::: warning
 The `property`, `locale` and `channel` properties are mandatory.  
 The `locale` property should be set to `null` if:
-- `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to _"code"_,
-- `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to "main_media" and the main media attribute of the family is not localizable.  
+- `CODE_OR_ATTRIBUTE_CODE` is equal to _"code"_,
+- `CODE_OR_ATTRIBUTE_CODE` is equal to the code of the main media attribute and this one is not localizable.  
 The `channel` property should be set to `null` if:
-- `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to _"code"_,
-- `CODE_OR_MAIN_MEDIA_ATTRIBUTE_NAME` is equal to "main_media" and the main media attribute of the family is not scopable.  
+- `CODE_OR_ATTRIBUTE_CODE` is equal to _"code"_,
+- `CODE_OR_ATTRIBUTE_CODE` is equal to the code of the main media attribute and this one is not scopable.  
 :::
 
 ### The split pattern
