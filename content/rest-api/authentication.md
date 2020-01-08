@@ -5,7 +5,7 @@ To authenticate your API calls, the PIM will provide you a pair of client ID and
 
 Client IDs allow two things:
 - to ask for a token for a specific API user,
-- refreshing an expired token.
+- to refresh an expired token.
 
 This means that you will also need to [create an API user](#api-user-creation) in order to get this token. 
 
