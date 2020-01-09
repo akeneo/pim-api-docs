@@ -1177,7 +1177,7 @@ You need to define at least either a suffix or a prefix, as the target filename 
 :::
 
 ::: info
-Suffix and prefix can only contain alphanumeric characters and the following characters: `_`, `-`, `.` and space.
+Suffix and prefix can only contain alphanumeric characters, the following characters: `_`, `-`, `.` and space.
 :::
 
 Let's take an example to make this much clearer. Let's say you have a file named `amor_red_model_picture.jpg`. You want to generate a thumbnail version of this file and you want the new generated file to be named `amor_red_model_picture_160x160.jpg`. Then, use the following properties in your transformation for the generated file to be named properly.
