@@ -7,7 +7,7 @@ properties:
     x-immutable: true
   values:
     type: object
-    description: "Record attributes values, see <a href='/documentation/resources.html#reference-entity-record-values'>Reference entity record values</a> section for more details"
+    description: "Record attributes values, see <a href='/concepts/reference-entities.html#focus-on-the-reference-entity-record-values'>Reference entity record values</a> section for more details"
     x-validation-rules: Validation rules detailed in Reference entity record values section
     properties:
       attributeCode:

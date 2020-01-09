@@ -1,0 +1,82 @@
+get:
+  summary: Get a variation file
+  operationId: "get_variation_files__channel_code__locale_code"
+  description: This endpoint allows you to get the information about a variation file of a given PAM asset.
+  tags:
+    - PAM asset variation file
+  x-versions:
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.0"
+    - "3.1"
+    - "3.2"
+  x-ee: true
+  x-deprecated: true
+  parameters:
+    - $ref: '#/parameters/asset_code'
+    - $ref: '#/parameters/channel_code'
+    - $ref: '#/parameters/locale_code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the variation file in JSON format
+      schema:
+        $ref: '#/definitions/DeprecatedAssetVariationFile'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    406:
+      $ref: "#/responses/406Error"
+post:
+  summary: Upload a new variation file
+  operationId: "post_variation_files__channel_code__locale_code_"
+  description: This endpoint allows you to upload a new variation file for a given PAM asset, channel and locale.
+  tags:
+    - PAM asset variation file
+  x-versions:
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.0"
+    - "3.1"
+    - "3.2"
+  x-ee: true
+  x-deprecated: true
+  parameters:
+    - $ref: '#/parameters/asset_code'
+    - $ref: '#/parameters/channel_code'
+    - $ref: '#/parameters/locale_code'
+    - name: Content-type
+      in: header
+      type: string
+      description: Equal to 'multipart/form-data', no other value allowed
+      required: true
+    - name: body
+      in: body
+      x-form-data: true
+      schema:
+        required: ["file"]
+        properties:
+          file:
+            type: string
+            description: The binaries of the file
+            format: binary
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    415:
+      $ref: "#/responses/415ErrorMultipart"
+    422:
+      $ref: "#/responses/422Error"

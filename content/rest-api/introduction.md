@@ -182,5 +182,5 @@ We played the 7 differences game for you and guess what! There are only 4! Here 
  - the `resource` property does not exist anymore,
  - there are two new properties: `created` and `updated` that gives you respectively the date of the creation of the product and the date of its last update.
 
-:::panel-link Product standard format in details [You want to get more information about the new standard format regarding the product, don't hesitate to take a look to the dedicated documentation!](/documentation/resources.html#product)
+:::panel-link Product standard format in details [You want to get more information about the new standard format regarding the product, don't hesitate to take a look to the dedicated documentation!](/concepts/products.html#product)
 :::

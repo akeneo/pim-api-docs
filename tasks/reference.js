@@ -36,11 +36,17 @@ function determineCategory(tag){
         case 'Currency':  
         case 'Measure family':
             return 'Target market settings';
-        case 'Asset category':
-        case 'Asset tag':
         case 'Asset':
-        case 'Asset reference file':
-        case 'Asset variation file':
+        case 'Asset attribute':
+        case 'Asset family':
+        case 'Asset attribute option':
+        case 'Asset media file':
+            return 'Asset Manager';
+        case 'PAM asset category':
+        case 'PAM asset tag':
+        case 'PAM asset':
+        case 'PAM asset reference file':
+        case 'PAM asset variation file':
             return 'PAM';
         case 'Reference entity record':
         case 'Reference entity':

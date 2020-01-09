@@ -113,14 +113,36 @@ md.use(require('markdown-it-container'), 'tips', {
         return (tokens[idx].nesting === 1) ? '<div class="alert alert-tips">' : '</div>\n';
     }
 });
-md.use(require('markdown-it-container'), 'versions', {
+md.use(require('markdown-it-container'), 'availability', {
     validate: function(params) {
-        return params.trim().match(/^versions(.*)$/);
+        return params.trim().match(/^availability(.*)$/);
     },
     render: function (tokens, idx) {
-        var id = tokens[idx].info.trim().match(/^versions\sid="(.*)"\s2\.x.*\s1\.7.*$/);
-        var source_v2x = tokens[idx].info.trim().match(/^versions\sid=".*"\s2\.x(.*)\s1\.7.*$/);
-        var source_v17 = tokens[idx].info.trim().match(/^versions\sid=".*"\s2\.x.*\s1\.7(.*)$/);
+        var versionsAndEditions = tokens[idx].info.trim().match(/^availability\sversions=(.*)\seditions=(.*)$/);
+        var html = '';
+        if(tokens[idx].nesting === 1) {
+            var versions = versionsAndEditions[1].split(',');
+            html += _.reduce(versions, function(res, version) {
+                return res + ' <span class="label label-version">' + version + '</span>';
+            }, '<p><em class="small text-primary">Available in the PIM versions:</em>');
+            var editions = versionsAndEditions[2].split(',');
+            html += _.reduce(editions, function(res, edition) {
+                return res + ' <span class="label label-info">' + edition + '</span>';
+            }, '<em class="small text-primary">&nbsp;&nbsp;|&nbsp;&nbsp;Available in the PIM editions:</em>');
+        } else {
+            html = '</p>';
+        }
+        return html;
+    }
+});
+md.use(require('markdown-it-container'), 'version-screenshots', {
+    validate: function(params) {
+        return params.trim().match(/^version-screenshots(.*)$/);
+    },
+    render: function (tokens, idx) {
+        var id = tokens[idx].info.trim().match(/^version-screenshots\sid="(.*)"\s2\.x.*\s1\.7.*$/);
+        var source_v2x = tokens[idx].info.trim().match(/^version-screenshots\sid=".*"\s2\.x(.*)\s1\.7.*$/);
+        var source_v17 = tokens[idx].info.trim().match(/^version-screenshots\sid=".*"\s2\.x.*\s1\.7(.*)$/);
         return (tokens[idx].nesting === 1) ? '<div>' +
                     '<ul class="nav nav-tabs nav-tabs-versions" role="tablist">' +
                         '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">v2.x</a></li>' +
@@ -203,7 +225,7 @@ md.use(require('markdown-it-container'), 'panel-link', {
 });
 
 
-gulp.task('getting-started', ['clean-dist','less'], function () {
+gulp.task('build-getting-started', ['clean-dist','less'], function () {
       
     var pages = {
         'your-first-tutorial-4x': {
@@ -284,7 +306,7 @@ gulp.task('getting-started', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('guides', ['clean-dist','less'], function () {
+gulp.task('build-guides', ['clean-dist','less'], function () {
 
     var pages = {
         'dam-connection': {
@@ -335,13 +357,12 @@ gulp.task('guides', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('documentation', ['clean-dist','less'], function () {
+gulp.task('build-rest-api', ['clean-dist','less'], function () {
 
     var pages = {
         'introduction.md': 'Introduction',
         'overview.md': 'Overview',
         'security.md': 'Security',
-        'resources.md': 'Resources',
         'responses.md': 'Response codes',
         'pagination.md': 'Pagination',
         'update.md': 'Update behavior',
@@ -357,13 +378,13 @@ gulp.task('documentation', ['clean-dist','less'], function () {
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
               .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/documentation') + "\n"))
               .pipe(gulpMarkdownIt(md))
-              .pipe(gulp.dest('tmp/'))
+              .pipe(gulp.dest('tmp/documentation/'))
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation:  true,
                         title: 'REST API documentation',
-                        mainContent: fs.readFileSync('tmp/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        mainContent: fs.readFileSync('tmp/documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
                     }))
@@ -375,94 +396,42 @@ gulp.task('documentation', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('beta-documentation', ['clean-dist','less'], function () {
+gulp.task('build-concepts', ['clean-dist','less'], function () {
 
     var pages = {
-        'asset-manager': {
-            title: 'The API of the Asset Manager',
-            files: {
-                'introduction.md': 'Introduction',
-                'concepts-and-resources.md': 'Concept & resources',
-                'asset-values-focus.md': 'Focus on asset values',
-                'link-products.md': 'Link with products and product models',
-                'product-link-rule-focus.md': 'Focus on the product link rule',
-                'asset-filters.md': 'Asset filters',
-                'reference.md': 'Reference'
-            }
-        }
+        'products.md': 'Products',
+        'catalog-structure.md': 'Catalog structure',
+        'target-market-settings.md': 'Target market settings',
+        'reference-entities.md': 'Reference entities',
+        'asset-manager.md': 'Asset Manager',
+        'pam.md': 'PAM <em>- Deprecated</em>'
     };
 
     var isOnePage = false;
 
-    return gulp.src('content/beta/**/*.md')
+    return gulp.src('content/concepts/*.md')
         .pipe(flatmap(function(stream, file){
-            var guideCode = path.basename(path.dirname(file.path));
-            return gulp.src('content/beta/**/*.md')
-                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages[guideCode].files, path.basename(file.path), '/beta/' + guideCode) + "\n"))
-                .pipe(gulpMarkdownIt(md))
-                .pipe(gulp.dest('tmp/beta/'))
-                .on('end', function () {
-                    return gulp.src('src/partials/documentation.handlebars')
-                        .pipe(gulpHandlebars({
-                            active_documentation: true,
-                            title: pages[guideCode].title,
-                            mainContent: fs.readFileSync('tmp/beta/' + guideCode + '/' + path.basename(file.path).replace(/\.md/, '.html'))
-                        }, {
-                            partialsDirectory: ['./src/partials']
-                        }))
-                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
-                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                        .pipe(gulp.dest('./dist/beta/' + guideCode))
-                        .on('end', function () {
-                            return gulp.src('content/beta/' + guideCode + '/swagger/root.yaml')
-                                .pipe(swagger('akeneo-web-api.json'))
-                                .pipe(jsonTransform(function(data, file) {
-                                    var templateData = data;
-                                    data.categories = {};
-                                    data.htmlReferencefileName = 'beta/' + guideCode + '/api-reference';
-                                    _.forEach(data.paths, function(path, pathUri) {
-                                        _.forEach(path, function(operation, verb) {
-                                            var escapeTag = operation.tags[0].replace(/\s/g, '');
-                                            var category = 'Asset Manager';
-                                            escapeCategory = category.replace(/\s/g, '');
-                                                if (!data.categories[escapeCategory]){
-                                                    data.categories[escapeCategory] = { categoryName: category, resources: {}};
-                                                }
-                                                if (!data.categories[escapeCategory].resources[escapeTag]) {
-                                                    data.categories[escapeCategory].resources[escapeTag] = { resourceName: operation.tags[0], operations: {}};
-                                                }
-                                                data.categories[escapeCategory].resources[escapeTag].operations[operation.operationId] = _.extend(operation, {
-                                                    verb: verb,
-                                                    path: pathUri
-                                                });
-                                        });
-                                    });
-                                    return gulp.src('src/api-reference/beta/index.handlebars')
-                                        .pipe(gulpHandlebars(templateData, {}))
-                                        .pipe(rename('api-reference-index.html'))
-                                        .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))
-                                        .pipe(gulp.dest('tmp/beta/' + guideCode))
-                                        .on('end', function(){
-                                            return gulp.src('src/partials/beta.handlebars')
-                                                    .pipe(gulpHandlebars({
-                                                        active_guides: true,
-                                                        title: pages[guideCode].title,
-                                                        mainContent: fs.readFileSync('tmp/beta/' + guideCode + '/reference.html'),
-                                                        referenceIndex: fs.readFileSync('tmp/beta/' + guideCode + '/api-reference-index.html')
-                                                    }, {
-                                                        partialsDirectory: ['src/partials']
-                                                    }))
-                                                    .pipe(rename('reference.html'))
-                                                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                                                    .pipe(gulp.dest('dist/beta/' + guideCode));
-                                        });
-                                }));
-                        });
-            });
+            return gulp.src('content/concepts/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/concepts') + "\n"))
+              .pipe(gulpMarkdownIt(md))
+              .pipe(gulp.dest('tmp/concepts/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/documentation.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_documentation:  true,
+                        title: 'Concepts & resources',
+                        mainContent: fs.readFileSync('tmp/concepts/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/concepts'));
+              })
         }));
-
-});
+  }
+);
 
 gulp.task('create-products-md', function () {
     return gulp.src(['content/php-client/resources/products/product.md','content/php-client/resources/products/*.md'])
@@ -504,15 +473,15 @@ gulp.task('create-resources-md', ['create-products-md','create-catalog-structure
     return gulp.src(['tmp/php-client-resources/products.md',
                     'tmp/php-client-resources/catalog-structure.md',
                     'tmp/php-client-resources/target-market-settings.md',
+                    'tmp/php-client-resources/asset-manager.md',
                     'tmp/php-client-resources/PAM.md',
-                    'tmp/php-client-resources/reference-entity.md',
-                    'tmp/php-client-resources/asset-manager.md'])
+                    'tmp/php-client-resources/reference-entity.md'])
         .pipe(concat('resources.md'))
         .pipe(insert.prepend('# Resources\n'))
         .pipe(gulp.dest('tmp/php-client'));
 });
 
-gulp.task('client-documentation', ['clean-dist','less', 'create-resources-md'], function () {
+gulp.task('build-php-client', ['clean-dist','less', 'create-resources-md'], function () {
 
     var pages = {
         'introduction.md': 'Introduction',
@@ -551,7 +520,7 @@ gulp.task('client-documentation', ['clean-dist','less', 'create-resources-md'], 
     }));
 });
 
-gulp.task('misc-documentation', ['clean-dist','less'], function () {
+gulp.task('build-misc-documentation', ['clean-dist','less'], function () {
 
     var isOnePage = true;
 
