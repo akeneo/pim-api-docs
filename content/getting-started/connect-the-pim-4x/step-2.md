@@ -10,7 +10,7 @@ Indeed, we have a marketplace on which our dear ecosystem publishes its own tool
 
 So, we definitely recommend you to take a look at it and try to find a connector that can suit your use case. It will save you a lot of time!
 
-1. Navigate to the [marketplace](https://marketplace.akeneo.com/extensions/add-ons?edition=all&version=all&api_use=1&sort=date) website.  
+1. Navigate to the [marketplace](https://marketplace.akeneo.com/extensions?edition=all&version=all&api_use=1&sort=date) website.  
 The results are already filtered to show you the API-based connectors only.
 1. In this list of connectors, try to find the one that can fit your use case best.
 
@@ -64,6 +64,10 @@ _For our example, you will need to create and update products in the PIM so we w
 Choose the architecture you want for your connector. Indeed, you will have two options here:
     - You have access to the third-party code source and can develop your connector directly in it.
     - You can otherwise create a middleware that will sit right in the middle of the third-party you want to connect, and the PIM.
+
+::: warning
+If you choose option 1, coding directly into your third-party, you will have to check that your connector won't have too much impact on the third-party software's good operation.
+:::
 
 #### In this tutorial
 _For our example, we choose the second option as there are little chances that your ERP accepts external development into its base code. Here, you will have to develop your connector as a middleware._
