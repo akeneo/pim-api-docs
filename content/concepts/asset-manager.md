@@ -187,7 +187,8 @@ The `channel` property should be set to `null` if:
 The `pattern` property allows you to define how the PIM should split the [source string](#the-source-string). Then, the result of the split will automatically populate the corresponding asset attributes.
 
 The split pattern should be a string. It should be given as a regular expression.  
-In order for the PIM to know into which asset attributes the result of the split should be sent, this regular expression should contain one or several named capture groups and the names of these capture groups should be existing asset attribute codes of the family.
+In order for the PIM to know into which asset attributes the result of the split should be sent, this regular expression should contain one or several named capture groups.  
+Note that the names of these capture groups should be equal to the code of existing asset attribute of the family and these asset attributes can only be [`text` attributes](#the-text-attribute) and [`number` attributes](#the-number-attribute).
 
 ::: warning
 These asset attributes cannot be localizable neither scopable.
