@@ -1,6 +1,6 @@
 # Products
 
-The Product is the central resource of our PIM, seems legit since we are doing Product Management. :wink:
+The **Product** is the central resource of our PIM and, when you think about it, it makes perfect sense since what we are doing is Product Management. :wink:
 
 In the sections below, you will find all the different flavors of products you can find in the PIM.  
 Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API. 
