@@ -41,13 +41,12 @@ gulp.task('create-dist', [
   'copy-assets',
   'reference',
   'landings',
-  'documentation',
-  'client-documentation',
-  'misc-documentation',
-  'guides',
-  'getting-started',
-  'beta-documentation',
-  'beta-reference'
+  'build-concepts',
+  'build-rest-api',
+  'build-php-client',
+  'build-misc-documentation',
+  'build-guides',
+  'build-getting-started'
 ]);
 
 // Main task that should be used for development purpose

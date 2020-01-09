@@ -28,7 +28,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $productModel = $client->getProductModelApi()->get('rain_boots_red');
 ```
 
-You can get more information about the returned format of the product values [here](/documentation/resources.html#product-values).
+You can get more information about the returned format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
 Since the 2.3 version, in the Enterprise Edition, the response contains one more field `metadata`. Look at the [product model drafts](/php-client/resources.html#product-model-draft) for an example.
 
@@ -147,7 +147,7 @@ $client->getProductModelApi()->create('saddle_rain_boots', [
 ]);
 ```
 
-Product model values use the same format as the product values. If you want to know more, take a look at [here](/documentation/resources.html#product-values).
+Product model values use the same format as the product values. If you want to know more, take a look at [here](/concepts/products.html#focus-on-the-product-values).
 
 #### Upsert a product model
 

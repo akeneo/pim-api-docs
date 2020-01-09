@@ -30,7 +30,7 @@ In the first version of the API, we use 4 HTTP verbs. They are the following.
 
 This means that data extracted thanks to the API will be in JSON format. And if you need to create or update data using the API, you will also need to use the JSON format.
 
-For each entity, we have defined a standard format that is completely detailed in the [Resources](/documentation/resources.html) section.
+For each entity, we have defined a standard format that is completely detailed in the [Concepts & resources](/concepts/introduction.html) section.
 
 ### Format headers
 When creating and updating data via the API, you will need to explicitly tell the API that you are providing JSON content by using a `Content-type` header set to `application/json`.
@@ -89,45 +89,8 @@ HTTP/1.1 406 Not Acceptable
 
 ## Scope of the API
 
-Below are the entities you can manipulate via the API in 1.7 and 2.0:
- - [Product](/documentation/resources.html#product),
- - [Category](/documentation/resources.html#category),
- - [Family](/documentation/resources.html#family),
- - [Attribute](/documentation/resources.html#attribute),
- - [Attribute option](/documentation/resources.html#attribute-option),
- - [Media file](/documentation/resources.html#media-file),
- - [Channel](/documentation/resources.html#channel),
- - [Locale](/documentation/resources.html#locale).
-
-Also, in 2.0, the API was enriched with these new entities:
- - [Product model](/documentation/resources.html#product-model-2x-only),
- - [Family variant](/documentation/resources.html#family-variant-2x-only),
- - [Attribute group](/documentation/resources.html#attribute-group-2x-only),
- - [Association type](/documentation/resources.html#association-type-2x-only),
- - [Currency](/documentation/resources.html#currency-2x-only),
- - [Measure family](/documentation/resources.html#measure-family-2x-only),
- - Product draft (Enterprise edition only),
- - [Published product](/documentation/resources.html#published-product-2x-and-ee-only) (Enterprise edition only).
-
-In 2.1, we added in the API the following entities:
- - [Asset](/documentation/resources.html#asset-21-only)
- - [Asset category](/documentation/resources.html#asset-category-21-only).
-
-::: info
-No addition were made in the 2.2 version. So, the scope of the API in the 2.2 version is equivalent to the 2.1 version.
-:::
-
-In 2.3, we added in the API the following entity:
- - Product model draft (Enterprise edition only)
-
-To finish, in 3.0, we added in the API the following entities:
- - [Reference entity](/documentation/resources.html#reference-entity-3x-and-ee-only) (Enterprise edition only),
- - [Reference entity attribute](/documentation/resources.html#reference-entity-attribute-3x-and-ee-only) (Enterprise edition only),
- - [Reference entity attribute option](/documentation/resources.html#reference-entity-attribute-option-3x-and-ee-only) (Enterprise edition only),
- - [Reference entity record](/documentation/resources.html#reference-entity-record-3x-and-ee-only) (Enterprise edition only),
- - [Record media file](/documentation/resources.html#record-media-file-3x-and-ee-only) (Enterprise edition only).
-
-For a detailed presentation as well as the format of each of these resources, take a look to the [Resources](/documentation/resources.html).
+For each new PIM versions, we add more and more resources to our API scope.  
+For a detailed presentation as well as the format of each of these resources, take a look to the [Concepts & resources](/concepts/introduction.html) documentation.
 
 Also, you will find the complete reference of the endpoints available for each of these resources in the [reference API](/api-reference-index.html). You can also get the list of these endpoints by request, see [List of available endpoints](/documentation/overview.html#list-of-available-endpoints).
 

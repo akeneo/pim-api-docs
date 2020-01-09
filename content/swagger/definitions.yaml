@@ -180,32 +180,53 @@ CurrencyList:
     - $ref:  '#/definitions/ItemList'
     - $ref: '#/definitions/Currency'
 
-Asset:
-  $ref: ./resources/assets/definitions/asset.yaml
+AssetFamilyList:
+  type: object
+  allOf:
+    - $ref: '#/definitions/AssetFamilyItemList'
+    - $ref: ./resources/asset_families/definitions/asset_family.yaml
+
+AssetFamilyItemList:
+  type: object
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the resource
+
+AssetAttributeList:
+  type: array
+  items: 
+    $ref: ./resources/asset_attributes/definitions/asset_attribute.yaml
+    
+AssetAttributeOptionList:
+  type: array
+  items:
+    $ref: ./resources/asset_attributes/definitions/asset_attribute_option.yaml
+
 AssetList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/Asset'
-AssetReferenceFile:
-  $ref: ./resources/assets/definitions/asset_reference_file.yaml
-AssetVariationFile:
-  $ref: ./resources/assets/definitions/asset_variation_file.yaml
+    - $ref: '#/definitions/AssetItemList'
+    - $ref: ./resources/assets/definitions/asset.yaml
 
-AssetCategory:
-  $ref: ./resources/asset_categories/definitions/asset_category.yaml
-AssetCategoryList:
+AssetItemList:
   type: object
-  allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/AssetCategory'
-AssetTag:
-  $ref: ./resources/asset_tags/definitions/asset_tag.yaml
-AssetTagList:
-  type: object
-  allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/AssetTag'
+  properties:
+    _links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              description: URI of the resource
 
 Error:
   type: object
@@ -216,26 +237,6 @@ Error:
     message:
       type: string
       description: Message explaining the error
-AssetReferenceFileUploadWarning:
-  type: object
-  properties:
-    message:
-      type: string
-      description: Message explaining the warning
-    errors:
-      type: array
-      items:
-        type: object
-        properties:
-          channel:
-            type: string
-            description: Channel for which the variation file generation failed
-          locale:
-            type: string
-            description: Locale for which the variation file generation failed
-          message:
-            type: string
-            description: Message explaining why the variation file generation failed
 ErrorByLine:
   type: object
   properties:
@@ -387,3 +388,52 @@ ReferenceEntityRecordItemList:
             href:
               type: string
               description: URI of the resource
+
+DeprecatedAsset:
+  $ref: ./resources/deprecated/assets/definitions/asset.yaml
+DeprecatedAssetList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/DeprecatedAsset'
+DeprecatedAssetReferenceFile:
+  $ref: ./resources/deprecated/assets/definitions/asset_reference_file.yaml
+DeprecatedAssetVariationFile:
+  $ref: ./resources/deprecated/assets/definitions/asset_variation_file.yaml
+
+DeprecatedAssetCategory:
+  $ref: ./resources/deprecated/asset_categories/definitions/asset_category.yaml
+DeprecatedAssetCategoryList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/DeprecatedAssetCategory'
+
+DeprecatedAssetTag:
+  $ref: ./resources/deprecated/asset_tags/definitions/asset_tag.yaml
+DeprecatedAssetTagList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/DeprecatedAssetTag'
+
+DeprecatedAssetReferenceFileUploadWarning:
+  type: object
+  properties:
+    message:
+      type: string
+      description: Message explaining the warning
+    errors:
+      type: array
+      items:
+        type: object
+        properties:
+          channel:
+            type: string
+            description: Channel for which the variation file generation failed
+          locale:
+            type: string
+            description: Locale for which the variation file generation failed
+          message:
+            type: string
+            description: Message explaining why the variation file generation failed

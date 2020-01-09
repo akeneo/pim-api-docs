@@ -311,14 +311,14 @@ You want to remove the product `boots-4846` from the category `boots`. Here is h
 }
 ```
 
-## Patch product values
+## Update product values
 
-The PATCH behavior described above is quite intuitive. However, applying a PATCH containing [product values](/documentation/resources.html#product-values) on a product is a bit different.
+The PATCH behavior described above is quite intuitive. However, applying a PATCH containing [product values](/concepts/products.html#focus-on-the-products-values) on a product is a bit different.
 
 ::: info
 In the examples below only products values are represented, but usually products also include other information as specified in the standard format.
 :::
-::: panel-link Don't know what a product value is? [Check the product value section](/documentation/resources.html#product-values)
+::: panel-link Don't know what a product value is? [Check the product value section](/concepts/products.html#focus-on-the-product-values)
 :::
 
 ### Add a product value
@@ -379,7 +379,7 @@ You want to add the `description` of the product `boots-4846` for the `en_US` lo
 ```
 
 ::: info 
-Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#product-values)
+Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/concepts/products.html#focus-on-the-products-values)
 :::
 
 ### Modify a product value
@@ -523,7 +523,7 @@ You want to modify the `name` of the product `boots-4846` for the `fr_FR` locale
 ```
 
 ::: info 
-Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#product-values)
+Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/concepts/products.html#focus-on-the-products-values)
 :::
 
 ### Erase a product value
@@ -592,14 +592,14 @@ You want to erase the `name` of the product `boots-4846` for the `en_US` locale.
 
 
 ::: info 
-Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#product-values)
+Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/concepts/products.html#focus-on-the-products-values)
 :::
 
-## Patch reference entity record values
+## Update reference entity record values
 
 Applying a PATCH on a reference entity record containing values is also a bit different. Below we present three use cases to update these reference entity record values.
 
-::: panel-link Don't know what a reference entity record value is? [Check the reference entity record value section](/documentation/resources.html#reference-entity-record-values)
+::: panel-link Don't know what a reference entity record value is? [Check the reference entity record value section](/concepts/reference-entities.html#focus-on-the-reference-entity-record-values)
 :::
 
 ### Add a reference entity record value
@@ -660,7 +660,7 @@ You want to add the `short_description` of the reference entity record `kartell`
 ```
 
 ::: info 
-Wondering how to format the `data` property in these reference entity record values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#reference-entity-record-values)
+Wondering how to format the `data` property in these reference entity record values? In fact, it depends on the attribute type. [More details right here!](/concepts/reference-entities.html#focus-on-the-reference-entity-record-values)
 :::
 
 ### Modify a reference entity record value
@@ -804,7 +804,7 @@ You want to modify the `short_description` of the `kartell` reference entity rec
 ```
 
 ::: info 
-Wondering how to format the `data` property in these reference entity record values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#reference-entity-record-values)
+Wondering how to format the `data` property in these reference entity record values? In fact, it depends on the attribute type. [More details right here!](/concepts/reference-entities.html#focus-on-the-reference-entity-record-values)
 :::
 
 ### Erase a reference entity record value
@@ -871,7 +871,289 @@ You want to erase the `short_description` of the `kartell` reference entity reco
 }
 ```
 
-
 ::: info 
 Wondering how to format the `data` property in these reference entity record values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#reference-entity-record-values)
+:::
+
+
+## Update asset values
+
+Applying a PATCH on an asset containing values is also a bit different. Below we present three use cases to update these asset values.
+
+::: panel-link Don't know what an asset value is? [Check the asset value section](/concepts/asset-manager.html#focus-on-the-asset-values)
+:::
+
+### Add an asset value
+You want to add the `warning_message` of the `allie_jean_picture` asset for the `en_US` locale and `mobile` channel.
+
+**Original resource**
+```json
+{
+  "code": "allie_jean_picture",
+  "values": {
+    "alt_tag": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Allie jean, blue"
+      }
+    ]
+  }
+}
+```
+
+**PATCH request body**
+```json
+{
+  "values": {
+    "warning_message": [
+      {
+        "locale": "en_US",
+        "channel": "mobile",
+        "data": "Retouched photo."
+      }
+    ]
+  }
+}
+```
+
+**Resulting resource**
+```json
+{
+  "code": "allie_jean_picture",
+  "values": {
+    "alt_tag": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Allie jean, blue"
+      }
+    ],
+    "warning_message": [
+      {
+        "locale": "en_US",
+        "channel": "mobile",
+        "data": "Retouched photo."
+      }
+    ]
+  }
+}
+```
+
+### Modify an asset value
+
+#### First example
+You want to modify the `warning_message` of the `allie_jean_picture` asset for the `en_US` locale and the `mobile` channel.
+
+**Original resource**
+```json
+{
+  "code": "allie_jean_picture",
+  "values": {
+    "alt_tag": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Allie jean, blue"
+      }
+    ],
+    "warning_message": [
+      {
+        "locale": "en_US",
+        "channel": "mobile",
+        "data": "Retouched photo."
+      }
+    ]
+  }
+}
+```
+
+**PATCH request body**
+```json
+{
+  "values": {
+    "warning_message": [
+      {
+        "locale": "en_US",
+        "channel": "mobile",
+        "data": "Not retouched photo."
+      }
+    ]
+  }
+}
+```
+
+**Resulting resource**
+```json
+{
+  "code": "allie_jean_picture",
+  "values": {
+    "alt_tag": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Allie jean, blue"
+      }
+    ],
+    "warning_message": [
+      {
+        "locale": "en_US",
+        "channel": "mobile",
+        "data": "Not retouched photo."
+      }
+    ]
+  }
+}
+```
+
+#### Second example
+You want to modify the `alt_tag` of the `allie_jean_picture` asset for the `fr_FR` locale but the `alt_tag` on the `en_US` locale is already set.
+
+**Original resource**
+```json
+{
+  "code": "allie_jean_picture",
+  "values": {
+    "alt_tag": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Allie jean, blue"
+      },
+      {
+        "locale": "fr_FR",
+        "channel": null,
+        "data": "Veste Amor, bleu"
+      }
+    ],
+    "warning_message": [
+      {
+        "locale": "en_US",
+        "channel": "mobile",
+        "data": "Not retouched photo."
+      }
+    ]
+  }
+}
+```
+
+**PATCH request body**
+```json
+{
+  "values": {
+    "alt_tag": [
+      {
+        "locale": "fr_FR",
+        "channel": null,
+        "data": "Jean Allie, bleu"
+      }
+    ]
+  }
+}
+```
+
+**Resulting resource**
+```json
+{
+  "code": "allie_jean_picture",
+  "values": {
+    "alt_tag": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Amor jacket, blue"
+      },
+      {
+        "locale": "fr_FR",
+        "channel": null,
+        "data": "Jean Allie, bleu"
+      }
+    ],
+    "warning_message": [
+      {
+        "locale": "en_US",
+        "channel": "mobile",
+        "data": "Not retouched photo."
+      }
+    ]
+  }
+}
+```
+
+### Erase an asset value
+You want to erase the `alt_tag` of the `allie_jean_picture` asset for the `en_US` locale.
+
+**Original resource**
+```json
+{
+  "code": "allie_jean_picture",
+  "values": {
+    "alt_tag": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Amor jacket, blue"
+      },
+      {
+        "locale": "fr_FR",
+        "channel": null,
+        "data": "Jean Allie, bleu"
+      }
+    ],
+    "warning_message": [
+      {
+        "locale": "en_US",
+        "channel": "mobile",
+        "data": "Not retouched photo."
+      }
+    ]
+  }
+}
+```
+
+**PATCH request body**
+```json
+{
+  "values": {
+    "alt_tag": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": null
+      }
+    ]
+  }
+}
+```
+
+**Resulting resource**
+```json
+{
+  "code": "allie_jean_picture",
+  "values": {
+    "alt_tag": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": null
+      },
+      {
+        "locale": "fr_FR",
+        "channel": null,
+        "data": "Jean Allie, bleu"
+      }
+    ],
+    "warning_message": [
+      {
+        "locale": "en_US",
+        "channel": "mobile",
+        "data": "Not retouched photo."
+      }
+    ]
+  }
+}
+```
+
+::: info 
+Wondering how to format the `data` property in these asset values? In fact, it depends on the attribute type. [More details right here!](/concepts/asset-manager.html#focus-on-the-asset-values)
 :::
