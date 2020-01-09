@@ -2,7 +2,7 @@
 
 In the PIM, products are structured thanks to the Catalog structure entities.
 
-Each section below contains an explanation of the concept behind these resources, what is their usage in the PIM and their JSON format in order to interact with the API.
+Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API.
 
 ## Category
 ::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE

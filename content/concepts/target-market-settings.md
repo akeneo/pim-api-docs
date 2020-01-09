@@ -1,9 +1,9 @@
 # Target market settings
 
-Product information enriched in the PIM is meant to be distributed over your channels. Otherwise gathering so many information into one single source of truth would be quite useless, right? :wink:
+Product information enriched in the PIM is meant to be distributed over your channels. Otherwise gathering so much information into one single source of truth would be quite useless, right? :wink:
 
 Target market settings are here to specify those distribution channels. You can interact with these entities through the following resources.  
-Each section below contains an explanation of the concept behind these resources, what is its usage in the PIM and its JSON format in order to interact with the API. 
+Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API. 
 
 ## Locale
 A locale is a combination of a language (English, German, French...) and a country (United States, United Kingdom, France...). Examples: English UK (en_GB), English US (en_US), English AU (en_AU).
