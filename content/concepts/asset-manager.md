@@ -419,7 +419,7 @@ The following selection will select the products belonging to the `accessories` 
 }
 ```
 
-#### Selection via product categories
+#### Selection per product categories
 To associate your assets to a given set of products, you can use their categories. In this case, use the keyword `categories` as the `FIELD_NAME`.
 
 The table below summarizes the operators available when you select per categories as well as the allowed value type you can have as a `VALUE`.
