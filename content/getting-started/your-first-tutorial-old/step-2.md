@@ -1,4 +1,4 @@
-# Set up Postman
+# _Step 2_ | Set up Postman
 
 In this step, you are going to configure Postman, a tool that will allow us to easily make your very first API request. :rocket:
 
@@ -9,7 +9,7 @@ We use it internally at Akeneo. It helps us develop and test our API. If you wan
 With Postman, you can share pre-configured API requests in **collections** with whoever you want.  
 We crafted for you a very simple collection, that contains only two pre-configured requests:
 - `Your very first request`: The Graal! That's the whole goal of this tutorial: being able to launch this request and receive an answer from the PIM. More concretely, this request will in fact asks the PIM for its first 100 products.
-- `The authentication request`: Very useful, this request will allow you to authenticate yourself. Indeed, the API is protected and is only accessible to people that have app credentials. To avoid anyone to mess with your precious PIM data. :wink: 
+- `The authentication request`: Very useful, this request will allow you to authenticate yourself. Indeed, the API is protected and is only accessible to people that have API credentials. To avoid anyone to mess with your precious PIM data. :wink: 
 
 ::: tips
 If you have trouble using Postman, do not hesitate to browse their really complete [documentation](https://learning.getpostman.com/docs).
@@ -38,6 +38,6 @@ A new environment should also have been created in the dropdown in the top right
 
 That's it for this step!
 
-::: panel-link And now, let's make this request for real [The final step](/getting-started/my-first-tutorial-old/step-3.html)
+::: panel-link And now, let's make this request for real [The final step](/getting-started/your-first-tutorial-old/step-3.html)
 :::
 

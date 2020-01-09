@@ -235,9 +235,9 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             image: 'illustrations/illus--v4.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': '1. Create an app',
-                'step-2.md': '2. Set up Postman',
-                'step-3.md': '3. Make the API request'
+                'step-1.md': 'Step 1 | Create a Connection',
+                'step-2.md': 'Step 2 | Set up Postman',
+                'step-3.md': 'Step 3 | Make the API request'
             }
         },
         'your-first-tutorial-old': {
@@ -247,21 +247,33 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             image: 'illustrations/illus--old-versions.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': '1. Generate the credentials',
-                'step-2.md': '2. Set up Postman',
-                'step-3.md': '3. Make the API request'
+                'step-1.md': 'Step 1 | Generate the credentials',
+                'step-2.md': 'Step 2 | Set up Postman',
+                'step-3.md': 'Step 3 | Make the API request'
             }
         },
-        'create-a-connector-4x': {
-            gettingStartedName: 'create-a-connector',
+        'connect-the-pim-4x': {
+            gettingStartedName: 'connect-the-pim',
             pimVersion: 'v4',
-            title: 'The "Create a connector" tutorial',
+            title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': '1. Generate your credentials',
-                'step-2.md': '2. Set up Postman',
-                'step-3.md': '3. Make the API request'
+                'step-1.md': 'Step 1 | Create a Connection',
+                'step-2.md': 'Step 2 | Cook your connector',
+                'step-3.md': 'Step 3 | Identify your connector in the PIM'
+            }
+        },
+        'connect-the-pim-old': {
+            gettingStartedName: 'connect-the-pim',
+            pimVersion: 'v1.7 / v2 / v3',
+            title: 'The "Connect the PIM" tutorial',
+            image: 'illustrations/illus--v4.svg',
+            files: {
+                'welcome.md': 'Welcome',
+                'step-1.md': 'Step 1 | Cook your connector',
+                'step-2.md': 'Step 2 | Generate the credentials',
+                'step-3.md': 'Step 3 | Configure your connector'
             }
         }
     };

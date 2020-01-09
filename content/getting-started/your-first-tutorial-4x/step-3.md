@@ -1,4 +1,4 @@
-# Make the API request
+# _Step 3_ |  Make the API request
 
 Alright! You're all set now. Let's launch this request.
 
@@ -19,6 +19,6 @@ In the response area, you can see a list of 100 products in json format.
 
 ::: info
 The authentication token only lasts for one hour. This means that after one hour your token will expire. And you will receive an error message that looks like this.
-![401 token expired]()
+![401 token expired](/img/getting-started/token-expiration-in-postman.png)
 Don't panic! You just have to send the `The authentication request` again and you'll be all good. :wink:
 :::

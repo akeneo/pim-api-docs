@@ -1,4 +1,4 @@
-# Generate your credentials
+# _Step 1_ | Generate your credentials
 
 You will need a client ID and a secret if you want to be able to make API requests. So let's get those credentials!
 
@@ -88,6 +88,6 @@ Easy, right? 🙂
 
 Along with the username and the password we just created, these are your credentials to authenticate yourself when using the API.
 
-::: panel-link And now, let's configure the tool that will make the API request [The Postman set up](/getting-started/my-first-tutorial-old/step-2.html)
+::: panel-link And now, let's configure the tool that will make the API request [The Postman set up](/getting-started/your-first-tutorial-old/step-2.html)
 :::
 
