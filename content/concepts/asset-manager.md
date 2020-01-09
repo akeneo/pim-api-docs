@@ -117,7 +117,7 @@ This naming convention is defined at the [asset family](#the-asset-family) level
 The naming convention is perfect to automatically populate the asset attributes that will then be used by the [product link rule](#focus-on-the-product-link-rule). :wink:
 :::
 
-The JSON format of the naming convention is composed of several parts:
+The JSON format of the naming convention contains several parts:
 - the [`source` part](#the-source-string),
 - the [`pattern` part](#the-split-pattern),
 - a [boolean stating whether to abort the asset creation in case there was an error during the application of the naming convention](#Abortion-on-error).
