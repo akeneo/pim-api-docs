@@ -16,7 +16,7 @@ properties:
         description: Asset family label for the locale `localeCode`
   naming_convention:
     type: object
-    description: The naming convention that will be run over the asset code or the main media filename upon each asset creation, in order to automatically set different values in asset attributes. To learn more and see the format of this property, take a look at <a href='/beta/asset-manager/naming-convention-focus.html'>here</a>.
+    description: The naming convention ran over the asset code or the main media filename upon each asset creation, in order to automatically set several values in asset attributes. To learn more and see the format of this property, take a look at <a href='/beta/asset-manager/naming-convention-focus.html'>here</a>.
     x-validation-rules: To know more about the validation of this property, take a look at our naming convention format.
     default: {}
     properties:

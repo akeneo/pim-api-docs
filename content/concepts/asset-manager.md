@@ -98,15 +98,15 @@ Here is the JSON format representing an example of asset family.
 
 ## Focus on the naming convention
 
-We noticed that you, our precious customers 🥰, usually name your asset files or asset codes using precious information:
+We noticed that you, our dear customers 🥰, usually name your asset files or asset codes using precious information:
 - the SKU of the product corresponding to the asset,
 - the locale into which your user guides are translated,
-- the picture type: _Is it a frontview, backview,...?_,
+- the asset function: _Is it a frontview, backview,...?_,
 - ...
 
-The idea of the naming convention feature is to be able to extract those information and use them to automatically enrich your assets with new attributes.
+The idea of the naming convention feature is to be able to extract those pieces of information and use them to automatically enrich your assets with new attributes.
 
-By defining a naming convention, for each [asset family](#the-asset-family), the PIM will be able to split the asset code or the main media filename, in order to extract the information you want and populate asset attributes with these ones.  
+By defining a naming convention, for each [asset family](#the-asset-family), the PIM will be able to split the asset code or the main media filename, in order to extract the information you want and use it to populate asset attributes.
 This operation is done automatically by the PIM upon each asset creation.
 
 ::: info
@@ -114,7 +114,7 @@ This naming convention is defined at the [asset family](#the-asset-family) level
 :::
 
 ::: tips
-The naming convention is perfect to automatically populate the asset attributes that will be then used by the [product link rule](#focus-on-the-product-link-rule). :wink:
+The naming convention is perfect to automatically populate the asset attributes that will then be used by the [product link rule](#focus-on-the-product-link-rule). :wink:
 :::
 
 The JSON format of the naming convention is composed of several parts:
@@ -201,14 +201,14 @@ Let's take an example to make this clearer!
 ```regexp
 /(?P<product_ref>.*)-.*-(?P<attribute_ref>.*)\.jpg/
 ```
-The regexp above will split the source string in 3 parts, thanks to 2 named capture groups:
+The regexp above will split the source string into three parts, thanks to two named capture groups:
 - `(?P<product_ref>.*)` is the first capture group. It is named `product_ref`. So, the result of this capture will be sent into the `product_ref` asset attribute. The `product_ref` attribute should exist in the asset family.
-- `(?P<attribute_ref>.*)` is the second capture group. It is named `attribute_ref`. So, the result of this capture will be sent into the `attribute_ref` asset attribute. The `attribute_ref` attribute should exist in the asset family.
+- `(?P<attribute_ref>.*)` is the second capture group. It is named `attribute_ref`. So, the result of this capture will be sent to the `attribute_ref` asset attribute. The `attribute_ref` attribute should exist in the asset family.
 Let's say our source string is equal to `allie_jean-picture-packshot.png`. After the naming convention application, the `product_ref` asset attribute will contain the value "allie_jean" and the `attribute_ref` asset attribute will contain the value "packshot". 
 
 ### Abortion on error
 
-Sometimes, the application of the naming convention will fail. For example, if the regular expression did not capture any group. In this case, you can choose if you still want the corresponding asset to be created. As a result, the asset won't be created and you will be able to re-submit it with a better filename/code for example.
+Sometimes, the application of the naming convention will fail. For example, it is the case if the regular expression did not capture any group. In this case, you can choose if you still want the corresponding asset to be created. As a result, the asset won't be created and you will be able to submit it again with a better filename/code for example.
 
 To allow this behavior, set the `abort_asset_creation_on_error` to `true`.
 
@@ -689,10 +689,10 @@ As a prerequisite for this rule to work, we would need two new attributes in the
 In our example, for our `XMLD500_fr_FR_user_guide` asset, we would store the string `XMLD500` into the `product ref` attribute and `fr_FR` in the `locale` attribute.
 
 ::: tips
-To populate the `product_ref` and `locale` attributes, you have three choices:
-- enrich those information by hand in the PIM interface,
+To populate the `product_ref` and `locale` attributes, you have three options:
+- enrich that information manually in the PIM interface,
 - in the case you have a connector creating assets in the PIM, you can code this step directly in your connector,
-- or since the v4.0, you can use the naming convention feature if these information are already stored in your asset code or in the filename of your main media file. :wink: Eager to know more? Take a look at the [naming convention focus section](#focus-on-the-naming-convention).
+- or since the v4.0, you can use the naming convention feature if the information is already stored in your asset code or in the filename of your main media file. :wink: Eager to know more? Take a look at the [naming convention focus section](#focus-on-the-naming-convention).
 :::
 
 In fine, below is the JSON of our dear `XMLD500_fr_FR_user_guide` asset, once we added those new attributes.
@@ -727,7 +727,7 @@ In fine, below is the JSON of our dear `XMLD500_fr_FR_user_guide` asset, once we
 }
 ```
 
-So, now that our asset is ready, whenever the rule is launched, the PIM will automatically extrapolate the rule, by replacing the curlies reference, `{{product_ref}}` and `{{locale}}`, by their real values in the asset it's currently trying to link to products.
+So, now that our asset is ready, whenever the rule is launched, the PIM will automatically extrapolate the rule. It will replace the curlies reference, `{{product_ref}}` and `{{locale}}` by their actual values in the asset it's currently trying to link to products.
 
 The PIM, whenever it wants to link the `XMLD500_fr_FR_user_guide` asset to the right product, will interpret the rule as if it was written like this:
 ```json
