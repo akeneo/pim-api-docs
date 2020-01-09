@@ -1,11 +1,11 @@
 # Reference entities
 
-Want to manage rich data information around your products? The Reference entities are here to help you in this task.
+You want to manage rich data information around your products? The Reference entities are here to help you with this task.
 
-They are designed to store complex information that are related to products. So neat! :rocket:
+They are designed to store complex information related to products. So neat! :rocket:
 
-They are several resources available to interact with the Reference Entities feature via the API.  
-Each section below contains an explanation of the concept behind these resources, what is its usage in the PIM and its JSON format in order to interact with the API.
+There are several resources available to interact with the Reference Entities feature via the API.  
+Each section below contains an explanation of the concept behind these resources You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API. 
 
 ::: info
 The Reference Entities is an Entreprise only feature, meaning all the following resources are only available in the Entreprise Edition.

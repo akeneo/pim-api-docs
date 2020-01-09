@@ -2,8 +2,8 @@
 
 The Product is the central resource of our PIM, seems legit since we are doing Product Management. :wink:
 
-In the sections below, you will find all the different flavours of products you can meet in the PIM.  
-Each section contains an explanation of the concept behind the resource, what is its usage in the PIM and its JSON format in order to interact with the API.
+In the sections below, you will find all the different flavors of products you can find in the PIM.  
+Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API. 
 
 ## Product
 ::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE

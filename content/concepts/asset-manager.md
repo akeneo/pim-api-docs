@@ -1,7 +1,7 @@
 # Asset Manager
 The Asset Manager is a brand new and more efficient way to manage the assets linked to your products/product models inside the PIM. :rocket:
 
-The assets of the Asset Manager will be way more powerful than before. They will benefit from 3 major new features:
+The assets of the Asset Manager will be way more powerful than before. They will benefit from 4 major new features:
 - the possibility to define a flexible structure, thanks to the [asset families](#the-asset-family),
 - the possibility to automatize the link with your products, thanks to the [product link rules](#focus-on-the-product-link-rule) and the [naming convention](#focus-on-the-naming-convention),
 - the possibility to refer to both external and internal binaries, thanks to the [media link](#the-media-link-attribute) and the [media file](#the-media-file-attribute) attribute types,
@@ -29,7 +29,7 @@ Below are some examples of asset families, along with their asset attributes.
 
 ![Asset family scheme](/img/concepts/asset-family.svg)
 
-For each asset family, you can define the way the PIM will automatically link the assets of this family to your products. We called that the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the precise format of this rule.
+For each asset family, you can define the way the PIM will automatically link the assets of this family to your products. We called that the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the specific format of this rule.
 
 For each asset family, you can define several transformations for your [media file attributes](#the-media-file-attribute). Don't hesitate to read the [Transformations section](#focus-on-the-transformations) to learn more and also, find their JSON format.
 
@@ -218,7 +218,7 @@ If you want the asset to be created even if the naming convention application fa
 
 ## Focus on the product link rule
 
-The product link rule enables you to automatically link assets to products, based on assets name or attributes. This rule is defined at the [asset family](#the-asset-family) level.  
+The product link rule enables you to automatically link assets to products, based on asset names or attributes. This rule is defined at the [asset family](#the-asset-family) level.  
 
 This rule is launched by the PIM after the asset creation.
 
@@ -397,7 +397,7 @@ Here is the list of the fields you can use to select your products:
 #### Selection via product family
 To associate your assets to a given set of products, you can use their family. In this case, use the keyword `family` as the `FIELD_NAME`.
 
-The table below summarizes the operators available when you select products via family as well as the allowed value type you can have as a `VALUE`.
+The table below summarizes the operators available when you select products per family as well as the allowed value type you can have as a `VALUE`.
 
 | Operator | Allowed value type | Selection description |
 | ----------------- | -------------- | ------------------ |
@@ -422,7 +422,7 @@ The following selection will select the products belonging to the `accessories` 
 #### Selection via product categories
 To associate your assets to a given set of products, you can use their categories. In this case, use the keyword `categories` as the `FIELD_NAME`.
 
-The table below summarizes the operators available when you select via categories as well as the allowed value type you can have as a `VALUE`.
+The table below summarizes the operators available when you select per categories as well as the allowed value type you can have as a `VALUE`.
 
 | Operator | Allowed value type | Selection description |
 | ----------------- | -------------- | ------------------ |
@@ -448,7 +448,7 @@ The following selection will select the products belonging to the `bohemian_styl
 }
 ```
 
-#### Select via the product status
+#### Selection per product status
 To associate your assets to a given set of products, you can use their status. In this case, use the keyword `enabled` as the `FIELD_NAME`.
 
 The table below summarizes the operator available when you select per status as well as the allowed value type you can have as a `VALUE`.
@@ -472,11 +472,11 @@ The following selection will select the products that are enabled.
 }
 ```
 
-#### Select via identifier attribute
+#### Selection per identifier attribute
 
 To associate your assets to a given set of products, you can use their identifier. In this case, use the code of the identifier attribute you have in your product family as the `FIELD_NAME`.
 
-The table below summarizes the operators available when you select via identifier attribute as well as the allowed value type you can have as a `VALUE`.
+The table below summarizes the operators available when you select per identifier attribute as well as the allowed value type you can have as a `VALUE`.
 
 | Operator | Allowed value type | Selection description |
 | ----------------- | -------------- | ------------------ |
@@ -502,11 +502,11 @@ The following selection will select the product with the `sku_54628` SKU, knowin
 }
 ```
 
-#### Select via text attribute
+#### Selection per text attribute
 
 To associate your assets to a given set of products, you can use one of their text attributes. In this case, use the code of one of the text attributes from your product family as the `FIELD_NAME`.
 
-The table below summarizes the operators available when you select via text attribute as well as the allowed value type you can have as a `VALUE`.
+The table below summarizes the operators available when you select per text attribute as well as the allowed value type you can have as a `VALUE`.
 
 | Operator | Allowed value type | Selection description |
 | ----------------- | -------------- | ------------------ |
@@ -534,11 +534,11 @@ The following selection will select the products that have the words `bohème ch
 }
 ```
 
-#### Select via simple/multi select attribute
+#### Selection per simple/multi select attribute
 
 To associate your assets to a given set of products, you can use one of their simple select attributes or multi select attributes. In this case, use the code of one of the simple/multi select attributes from your product family as the `FIELD_NAME`.
 
-The table below summarizes the operators available when you select via simple/multi select attribute as well as the allowed value type you can have as a `VALUE`.
+The table below summarizes the operators available when you select per simple/multi select attribute as well as the allowed value type you can have as a `VALUE`.
 
 | Operator | Allowed value type | Selection description |
 | ----------------- | -------------- | ------------------ |
@@ -598,7 +598,7 @@ If the `ATTRIBUTE_CODE` is the code of an attribute that is not scopable, the `c
 :::
 
 For the `mode`, you can decide between two values:
-- `add`: this mode allows you to add the new assets inside the asset collection attribute. They will appear after all the assets already existing in the attribute.
+- `add`: this mode allows you to add the new assets to the asset collection attribute. They will appear after all the assets already existing in the attribute.
 - `replace`: this mode allows you to replace all the previously existing assets by the new ones, within the asset collection attribute.
 
 #### Example
@@ -651,7 +651,7 @@ As an example is better than 10,000 words, let's imagine this situation.
 #### An example
 You put all your user guides in the same asset family, called `user_instructions`.  
 On the one hand, you have an asset of this family, let's say the user guide for a particular TV, the `XMLD500` TV. This user guide asset has the following code: `XMLD500_fr_FR_user_guide`. It is the French version of the user guide for this TV.  
-On the other hand, you have your TV which SKU is `XMLD500`. The product sheet of this TV has an asset attribute collection called `user_guides`. It is localizable.  
+On the other hand, you have your TV with the following SKU: `XMLD500`. The product sheet of this TV has an asset attribute collection called `user_guides`. It is localizable.  
 Now, what you want is to automatically link the `XMLD500_fr_FR_user_guide` to the `XMLD500` product, in the right attribute on the right locale, ie the French locale.
 
 How do you do that? I'll tell you. You're gonna need "asset value extrapolation".
@@ -757,7 +757,7 @@ The PIM, whenever it wants to link the `XMLD500_fr_FR_user_guide` asset to the r
 }
 ```
 
-In other words, it's going to select the product which SKU is `XMLD500` and assign the asset to the `user_instructions` product attribute on the `fr_FR` locale. Exactly what we wanted. ;)
+In other words, it's going to select the product with the following  SKU: `XMLD500` and assign the asset to the `user_instructions` product attribute on the `fr_FR` locale. Exactly what we wanted. ;)
 
 #### Extrapolated properties
 
@@ -891,7 +891,7 @@ To do this, you'll use the following product link rule.
 }
 ```
 
-You can use the extrapolation mechanism in combination with strings, as you can see in the example below, in the `value` field of the `product_selections` property.  
+You can use the extrapolation mechanism in combination with strings, see below, in the `value` field of the `product_selections` property.  
 For the `amor_blue_model_picture`, the `value` field will be extrapolated to `sku_armor_blue`. For the `amor_red_model_picture`, the `value` field will be extrapolated to `sku_armor_red`.
 
 **Example 2**
@@ -940,7 +940,7 @@ Let's consider the `men_women_ambient_picture` and `children_ambient_picture` as
   }
 }
 ```
-We want these assets to be automatically linked to the products of the respective categories they refers to: the `men` and `women` categories for the `men_women_ambient_picture` and the `children` category for the `children_ambient_picture`.
+We want these assets to be automatically linked to the products of the respective categories they refer to: the `men` and `women` categories for the `men_women_ambient_picture` and the `children` category for the `children_ambient_picture`.
 
 To do this, you'll use the following product link rule.
 ```json
@@ -976,10 +976,10 @@ For each [asset family](#the-asset-family), you can define transformations. They
 Let's take an example to make it much clearer.
 
 Say we have a `packshots` asset family. In its structure, it has 2 media file attributes:
-- the `main_image` attribute in which is stored the main image of your packshot,
+- the `main_image` attribute in which the main image of your packshot is stored,
 - the `thumbnail` attribute in which you want a smaller version of the main image, stored in `main_image`.
 
-The PIM can automatically generate the thumbnail version of your main image for you, and this, thanks to the definition of a transformation!
+The PIM can automatically generate the thumbnail version of your main image for you, and this is all thanks to the definition of a transformation!
 
 ![Asset transformation example](/img/beta/asset-transformation.svg)
 
@@ -1104,7 +1104,7 @@ It will be used in error messages whenever your transformation failed to generat
 
 ### Source file
 
-The `source` property allows you to define in which attribute value is stored the media file you want to use as the source file for your transformation.
+The `source` property allows you to define in which attribute value the media file you want to use as the source file for your transformation is stored.
 
 It follows this format:
 ```json
@@ -1118,7 +1118,7 @@ It follows this format:
 ```
 
 In this formula:
- - `MEDIA_FILE_ATTRIBUTE_NAME` is the code of the asset attribute that holds the source file. This asset attribute should be defined in the asset family and of type `media_file`.
+ - `MEDIA_FILE_ATTRIBUTE_NAME` is the code of the asset attribute that holds the source file. This asset attribute should be a `media_file` attribute, defined in the asset family.
  - `SOURCE_LOCALE_CODE` is an existing locale code when `MEDIA_FILE_ATTRIBUTE_NAME` is the code of a localizable asset attribute.
  - `SOURCE_CHANNEL_CODE` is an existing channel code when `MEDIA_FILE_ATTRIBUTE_NAME` is the code of a scopable asset attribute.
 
@@ -1134,7 +1134,7 @@ There are additional business rules regarding this `target` property whenever yo
 
 ### Target file
 
-The `target` property allows you to define in which attribute value the PIM should generate the new variation.
+The `target` property allows you to define on which attribute value the PIM should generate the new variation.
 
 It follows this format:
 ```json
@@ -1148,7 +1148,7 @@ It follows this format:
 ```
 
 In this formula:
- - `MEDIA_FILE_ATTRIBUTE_NAME` is the code of the asset attribute that holds the target file. This asset attribute should be defined in the asset family and of type `media_file`.
+ - `MEDIA_FILE_ATTRIBUTE_NAME` is the code of the asset attribute that holds the target file. This asset attribute should be a `media_file` attribute, defined in the asset family.
  - `TARGET_LOCALE_CODE` is an existing locale code when `MEDIA_FILE_ATTRIBUTE_NAME` is the code of a localizable asset attribute.
  - `TARGET_CHANNEL_CODE` is an existing channel code when `MEDIA_FILE_ATTRIBUTE_NAME` is the code of a scopable asset attribute.
 
@@ -1167,8 +1167,8 @@ There are additionnal business rules regarding this `target` property whenever y
 You can give a name to the generated target file. By default, the naming is based on the filename of the source file. You can define a suffix and/or a prefix that will be concatenated to this filename and be used as the filename of the target file. 
 
 To do this, use:
-- the `filename_prefix` property, the string that will be prepend to the source filename.
-- the `filename_suffix` property, the string that will be append to the source filename.
+- the `filename_prefix` property, the string that will be prepended to the source filename.
+- the `filename_suffix` property, the string that will be appended to the source filename.
 
 You can use both properties if you want to suffix and prefix the source filename.
 
@@ -1196,7 +1196,7 @@ The `operations` property allows you to define which image transformations shoul
 
 In one single transformation, you can define one or several operations.
 
-In the case you have several operations for the same asset family, note that they will be performed in the same order than they are defined in the `operations` array. So be sure to choose the right order for what you wish to accomplish.
+If you have several operations for the same asset family, note that they will be performed in the same order as defined in the `operations` array. So be sure to choose the right order for what you wish to accomplish.
 
 ::: warning
 Defining the same operation type twice in the same transformation is forbidden as it would totally make no sense.
@@ -1240,7 +1240,7 @@ Both parameters are required.
 
 #### Scale
 
-With the `scale` type, you can resize image while keeping the width/height proportions.
+With the `scale` type, you can resize images while keeping the width/height proportions.
 
 There are 3 available parameters for this operation.
 
@@ -1258,7 +1258,7 @@ There should be at least one of the 3 parameters defined.
 
 With the `colorspace` type, you can change the image's colorspace. For example, you can turn it to black and white.
 
-There is one available parameter for this operation: `colorspace`. It allows you to choose to which colorspace you want your image to be turned into. It should be one of the following values:
+There is one available parameter for this operation: `colorspace`. It allows you to choose which colorspace you want your image to be turned into. It should be one of the following values:
 - `rgb`, 
 - `cmyk`,
 - `grey`.
@@ -1285,7 +1285,7 @@ All parameters are required.
 
 #### Resize
 
-With the `resize` type, you can resize image without keeping the width/height proportions.
+With the `resize` type, you can resize images without keeping the width/height proportions.
 
 There are 2 available parameters for this operation.
 
@@ -1300,7 +1300,7 @@ Both parameters are required.
 
 ### Dealing with several transformations
 
-As stated before, you can define up to 10 transformations by asset family. So in the case, you need several transformations for one given family, you will need to observe some business rules.
+As stated before, you can define up to 10 transformations per asset family. So if you need several transformations for one given family, you will need to observe some business rules.
 
 #### Unicity of the target value 
 In the same asset family, you cannot have two transformations with the same target, i.e. exactly the same `attribute`, `channel` and `locale` in your `target` property. 
@@ -1362,10 +1362,10 @@ This example will generate an error.
  
 In the same asset family, you can have two transformations with the same source, i.e. exactly the same `attribute`, `channel` and `locale` in your `source` property. 
 
-Indeed, it allows you generate different versions of your source file.
+Indeed, it allows you to generate different versions of your source file.
 
 **Example**  
-This example is completely valid - even if in this case we create twice exactly the same image in two different attributes, A bit useless if you ask, but still, it's valid. :wink:
+This example is completely valid - even if in this case we create the exact same image twice in two different attributes, A bit useless if you ask, but still, it works. :wink:
 ```json
 {
   "transformations": [
@@ -1630,7 +1630,7 @@ But *NOT* this one. Because the source attribute value of the first transformati
 ::: availability versions=3.2,4.0 editions=EE
 :::
 
-In an asset family, an asset attribute is a characteristic of an asset for this family. It helps to describe and qualify an asset.
+In an asset family, an asset attribute is a characteristic of an asset for this given family. It helps to describe and qualify an asset.
 An asset attribute can have a value per channel and/or per locale.
 
 ::: warning
@@ -1757,11 +1757,11 @@ And here is the JSON format of the `media_file` attribute type, for an image.
 
 ::: info
 As of the v3.2 and v4.0, you can only have images in this attribute. Indeed, the `media_type` field only accepts the `image` value.  
-In the next version, you will be able to add new types of files (like PDF).
+In the next version, you will be able to add new types of files (like PDFs).
 :::
 
 ### The `media link` attribute
-The media link attribute type comes in pretty handy whenever you want your asset to refer to an external file, not hosted inside the PIM. For example, it can be very useful whenever you already have all your assets stored in a CDN or a DAM. The illustration below gives you an idea of how this attribute type can be used in such a case.
+The media link attribute type comes in pretty handy whenever you want your asset to refer to an external file, not hosted inside the PIM. For example, it can be very useful if you already have all your assets stored in a CDN or a DAM. The illustration below gives you an idea of how this attribute type can be used in such a case.
 ![Assets stored in a DAM](/img/concepts/asset-dam-link.svg)
 
 Here are examples of several media link asset attributes.
