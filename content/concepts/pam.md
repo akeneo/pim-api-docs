@@ -140,7 +140,7 @@ Below is the JSON standard format representing asset categories. Notice how it's
 ::: panel-link Want more details about the asset category resource? [Check its endpoints here!](/api-reference.html#Assetcategory)
 :::
 
-## Asset tags
+## PAM asset tags
 ::: availability versions=2.1,2.2,2.3,3.0,3.1,3.2 editions=EE
 :::
 
@@ -167,4 +167,3 @@ Below is the JSON format representing asset tags.
 
 ::: panel-link Want more details about the asset tag resource? [Check its endpoints here!](/api-reference.html#Assettag)
 :::
-
