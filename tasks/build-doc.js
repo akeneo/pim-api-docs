@@ -360,7 +360,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
 gulp.task('build-rest-api', ['clean-dist','less'], function () {
 
     var pages = {
-        'introduction.md': 'Introduction',
+        'why-the-API.md': "Why the API?",
         'overview.md': 'Overview',
         'authentication.md': 'Authentication',
         'permissions.md': 'Permissions',
@@ -384,7 +384,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation:  true,
-                        title: 'REST API documentation',
+                        title: 'The API basics',
                         mainContent: fs.readFileSync('tmp/documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -485,7 +485,6 @@ gulp.task('create-resources-md', ['create-products-md','create-catalog-structure
 gulp.task('build-php-client', ['clean-dist','less', 'create-resources-md'], function () {
 
     var pages = {
-        'introduction.md': 'Introduction',
         'getting-started.md': 'Getting started',
         'authentication.md': 'Authentication',
         'exception.md': 'Exception handling',

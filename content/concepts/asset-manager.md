@@ -97,6 +97,7 @@ Here is the JSON format representing an example of asset family.
 :::
 
 ## Focus on the naming convention
+::: availability versions=4.0 editions=EE
 
 We noticed that you, our dear customers 🥰, usually name your asset files or asset codes using precious information:
 - the SKU of the product corresponding to the asset,
@@ -120,7 +121,7 @@ The naming convention is perfect to automatically populate the asset attributes 
 The JSON format of the naming convention contains several parts:
 - the [`source` part](#the-source-string),
 - the [`pattern` part](#the-split-pattern),
-- a [boolean stating whether to abort the asset creation in case there was an error during the application of the naming convention](#Abortion-on-error).
+- a [boolean stating whether to abort the asset creation in case there was an error during the application of the naming convention](#abortion-on-error).
 ```json
 {
   "naming_convention": {
@@ -173,10 +174,12 @@ In this formula:
  - `SOURCE_CHANNEL_CODE` is an existing channel code when `CODE_OR_ATTRIBUTE_CODE` is the code of the main media asset attribute of the family and this one is scopable.
 
 ::: warning
-The `property`, `locale` and `channel` properties are mandatory.  
+The `property`, `locale` and `channel` properties are mandatory.
+
 The `locale` property should be set to `null` if:
 - `CODE_OR_ATTRIBUTE_CODE` is equal to _"code"_,
-- `CODE_OR_ATTRIBUTE_CODE` is equal to the code of the main media attribute and this one is not localizable.  
+- `CODE_OR_ATTRIBUTE_CODE` is equal to the code of the main media attribute and this one is not localizable.
+
 The `channel` property should be set to `null` if:
 - `CODE_OR_ATTRIBUTE_CODE` is equal to _"code"_,
 - `CODE_OR_ATTRIBUTE_CODE` is equal to the code of the main media attribute and this one is not scopable.  
@@ -217,6 +220,7 @@ If you want the asset to be created even if the naming convention application fa
 
 
 ## Focus on the product link rule
+::: availability versions=3.2,4.0 editions=EE
 
 The product link rule enables you to automatically link assets to products, based on asset names or attributes. This rule is defined at the [asset family](#the-asset-family) level.  
 
@@ -970,6 +974,7 @@ As you can see above, you can use the extrapolation mechanism to refer to an arr
 For the `men_women_model_picture`, the `value` field will be extrapolated to `["men","women"]`. For the `children_ambient_picture`, the `value` field will be extrapolated to `["children"]`.
 
 ## Focus on the transformations
+::: availability versions=4.0 editions=EE
 
 For each [asset family](#the-asset-family), you can define transformations. They allow you to ask the PIM to automatically generate one or several new variations of a given media file for each asset belonging to your family.
 

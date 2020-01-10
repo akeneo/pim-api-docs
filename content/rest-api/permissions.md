@@ -27,7 +27,7 @@ Here are the simple steps to follow to configure those permissions.
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
 1. In the `Web API permissions` tab, select the permissions you want to give to your API user.
 
-::: versions id="web_api_permission" 2.x![Web API permission tab screenshot](/img/rest-api/activate_api_access.png) 1.7![Web API permission tab screenshot](/img/rest-api/v1.7/activate_api_access.png)
+::: version-screenshots id="web_api_permission" 2.x![Web API permission tab screenshot](/img/rest-api/activate_api_access.png) 1.7![Web API permission tab screenshot](/img/rest-api/v1.7/activate_api_access.png)
 :::
 
 We strongly recommend you to create **dedicated user roles** for your API users, different from the user roles that you use for your UI users. So go ahead and create one user role for every API connection you will need.

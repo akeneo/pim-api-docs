@@ -122,6 +122,6 @@ You'll need to find a way to re-play those calls for the assets than have not be
 
 ### Our skeleton
 
-As already stated in the [introduction](introduction.html#our-skeleton), we provide a skeleton from which you can take inspiration when writing your own connector.   
+As already stated in the [introduction](introduction.html#our-skeleton), we provide [a skeleton](https://github.com/akeneo/dam-connector) from which you can take inspiration when writing your own connector.   
 It is fuelled with coding best practices, so do not hesitate to have a look at it.  
 As a reminder, this skeleton is only supported in **best effort**.  
