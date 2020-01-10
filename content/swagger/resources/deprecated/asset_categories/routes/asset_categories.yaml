@@ -1,0 +1,187 @@
+get:
+  summary: Get list of PAM asset categories
+  operationId: "get_asset_categories"
+  description: This endpoint allows you to get a list of PAM asset categories. PAM asset categories are paginated and sorted by `root/left`.
+  tags:
+    - PAM asset category
+  x-versions:
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.0"
+    - "3.1"
+    - "3.2"
+  x-ee: true
+  x-deprecated: true
+  parameters:
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+  responses:
+    200:
+      description: Returns PAM asset categories paginated
+      schema:
+        title: PAM Asset Categories
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/DeprecatedAssetCategoryList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/asset-categories?page=2&limit=3"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/asset-categories?page=1&limit=3"
+          },
+          previous: {
+            href: "https://demo.akeneo.com/api/rest/v1/asset-categories?page=1&limit=3"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/asset-categories?page=3&limit=3"
+          }
+        },
+        current_page: 2,
+        _embedded: {
+          items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/asset-categories/pictures"
+                }
+              },
+              "code": "pictures",
+              "parent": null,
+              "labels": {
+                "en_US": "Pictures",
+                "fr_FR": "Images",
+                "de_DE": "Bilder"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/asset-categories/front_views"
+                }
+              },
+              "code": "front_views",
+              "parent": "pictures",
+              "labels": {
+                "en_US": "Front views",
+                "fr_FR": "Vues de face",
+                "de_DE": "Vorderansichten"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/asset-categories/side_views"
+                }
+              },
+              "code": "side_views",
+              "parent": "pictures",
+              "labels": {
+                "en_US": "Side views",
+                "fr_FR": "Vues de profil",
+                "de_DE": "Profilansichten"
+              }
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+post:
+  summary: Create a new PAM asset category
+  operationId: "post_asset_categories"
+  description: This endpoint allows you to create a new PAM asset category.
+  tags:
+    - PAM asset category
+  x-versions:
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.0"
+    - "3.1"
+    - "3.2"
+  x-ee: true
+  x-deprecated: true
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/DeprecatedAssetCategory"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
+patch:
+  summary: Update/create several PAM asset categories
+  operationId: "patch_asset_categories"
+  tags:
+    - PAM asset category
+  x-versions:
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.0"
+    - "3.1"
+    - "3.2"
+  x-ee: true
+  x-deprecated: true
+  description: This endpoint allows you to update several PAM asset categories at once.
+  x-body-by-line: Contains several lines, each line is a category in JSON standard format
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/DeprecatedAssetCategory"
+        x-examples:
+          x-example-1:
+            '{"code":"pictures","parent":null}'
+          x-example-2:
+            '{"code":"front_views","parent":"pitures"}'
+          x-example-3:
+            '{"code":"other_views","parent":"pictures"}'
+  responses:
+    200:
+      description: OK
+      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      x-no-entity: true
+      schema:
+        $ref: "#/definitions/ErrorByLine"
+      examples:
+        x-example-1:
+          '{"line":1,"code":"spring_collection","status_code":201}'
+        x-example-2:
+          '{"line":2,"code":"front_views","status_code":422,"message":"Asset category "pitures" does not exist."}'
+        x-example-3:
+          '{"line":3,"code":"other_views","status_code":204}'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"

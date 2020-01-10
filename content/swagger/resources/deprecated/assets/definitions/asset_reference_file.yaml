@@ -1,0 +1,28 @@
+type: object
+properties:
+  code:
+    type: string
+    description: Code of the PAM asset reference file
+    x-immutable: true
+  locale:
+    type: string
+    description: Locale of the PAM asset reference file, equal to `null` if the asset is not localizable
+  _link:
+    type: object
+    description: Links to get and download the reference file
+    properties:
+      download:
+        type: object
+        properties:
+          href:
+            type: string
+            description: URI to download the reference file
+example: {
+  "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_main_picture.jpg",
+  "locale": null,
+  "_link": {
+    "download": {
+      "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/reference-files/no_locale/download"
+    }
+  }
+}

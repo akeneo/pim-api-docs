@@ -1,697 +1,10 @@
 {
 	"info": {
-		"name": "Official Akeneo PIM API",
-		"_postman_id": "99160e3a-9fe8-4804-9cb6-2c353d70ac9d",
+		"name": "Official Akeneo PIM API V4.0",
 		"description": "The Akeneo API brought to you!\n\nFind out how this Postman collection works by visiting http://api.akeneo.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "Asset (>= v2.1)",
-			"item": [
-				{
-					"name": "asset (>= v2.1)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/assets/paint",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"assets",
-								"paint"
-							]
-						},
-						"description": "Assuming that the given code is the code of an existing asset"
-					},
-					"response": []
-				},
-				{
-					"name": "assets (>= v2.1)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/assets?limit=10&with_count=false",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"assets"
-							],
-							"query": [
-								{
-									"key": "limit",
-									"value": "10"
-								},
-								{
-									"key": "with_count",
-									"value": "false"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "asset (>= v2.1)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"code\": \"new_asset\",\n    \"localizable\": false,\n    \"description\": \"An amazing asset\",\n    \"end_of_use\": \"2018-05-12T00:00:00+02:00\",\n    \"tags\": [\"colored\"],\n    \"categories\": [\n        \"images\"\n    ]\n}"
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/assets",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"assets"
-							]
-						},
-						"description": "Assuming that there is no \"new_asset\" already existing"
-					},
-					"response": []
-				},
-				{
-					"name": "asset (>= v2.1)",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"code\": \"paint\",\n    \"localizable\": false,\n    \"description\": \"Photo of a paint.\",\n    \"end_of_use\": \"2006-05-12T00:00:00+02:00\",\n    \"tags\": [],\n    \"categories\": [\n        \"images\"\n    ]\n}"
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/assets/paint",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"assets",
-								"paint"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "assets (>= v2.1)",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/vnd.akeneo.collection+json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"code\": \"new_asset\", \"categories\": [\"images\"]}\n{\"code\": \"new_asset_2\"}\n{\"code\": \"paint\", \"description\": \"Update the description here\"}"
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/assets",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"assets"
-							]
-						},
-						"description": "\n"
-					},
-					"response": []
-				},
-				{
-					"name": "asset reference file (>= v2.1)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/assets/paint/reference-files/no-locale",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"assets",
-								"paint",
-								"reference-files",
-								"no-locale"
-							]
-						},
-						"description": "Assuming that the given codes are respectively the code of an existing asset and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
-					},
-					"response": []
-				},
-				{
-					"name": "asset reference file (>= v2.1)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "multipart/form-data"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "file",
-									"type": "file",
-									"src": ""
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/assets/paint/reference-files/no-locale",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"assets",
-								"paint",
-								"reference-files",
-								"no-locale"
-							]
-						},
-						"description": "Assuming that the given codes are respectively the code of an existing asset and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
-					},
-					"response": []
-				},
-				{
-					"name": "download asset reference file (>= v2.1)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/assets/paint/reference-files/no-locale/download",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"assets",
-								"paint",
-								"reference-files",
-								"no-locale",
-								"download"
-							]
-						},
-						"description": "Assuming that the given codes are respectively the code of an existing asset and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
-					},
-					"response": []
-				},
-				{
-					"name": "asset variation file (>= v2.1)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/assets/paint/variation-files/ecommerce/no-locale",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"assets",
-								"paint",
-								"variation-files",
-								"ecommerce",
-								"no-locale"
-							]
-						},
-						"description": "Assuming that the given codes are respectively the code of an existing asset, an existing channel and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
-					},
-					"response": []
-				},
-				{
-					"name": "asset variation file (>= v2.1)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "multipart/form-data"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "file",
-									"type": "file",
-									"src": ""
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/assets/paint/variation-files/ecommerce/no-locale",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"assets",
-								"paint",
-								"variation-files",
-								"ecommerce",
-								"no-locale"
-							]
-						},
-						"description": "Assuming that the given codes are respectively the code of an existing asset, an existing channel and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
-					},
-					"response": []
-				},
-				{
-					"name": "download asset variation file (>= v2.1)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/assets/paint/variation-files/ecommerce/no-locale/download",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"assets",
-								"paint",
-								"variation-files",
-								"ecommerce",
-								"no-locale",
-								"download"
-							]
-						},
-						"description": "Assuming that the given codes are respectively the code of an existing asset, an existing channel and an activated locale if the asset is localizable (it should be equal to \"no-locale\" otherwise)"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Asset category (>= v2.1)",
-			"item": [
-				{
-					"name": "asset category (>= v2.1)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/asset-categories/asset_main_catalog",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"asset-categories",
-								"asset_main_catalog"
-							]
-						},
-						"description": "Assuming that the given code is the code of an existing asset category"
-					},
-					"response": []
-				},
-				{
-					"name": "asset categories (>= v2.1)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/asset-categories?limit=10&with_count=false",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"asset-categories"
-							],
-							"query": [
-								{
-									"key": "limit",
-									"value": "10"
-								},
-								{
-									"key": "with_count",
-									"value": "false"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "asset category (>= v2.1)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"code\":\"new_asset_category\",\n  \"parent\":\"asset_main_catalog\",\n  \"labels\": {\n    \"de_DE\":\"new asset category label DE\",\n    \"en_US\":\"new asset category label US\",\n    \"fr_FR\":\"new asset category label FR\"\n  }\n}"
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/asset-categories",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"asset-categories"
-							]
-						},
-						"description": "Assuming that there is no \"new_asset_category\" already existing"
-					},
-					"response": []
-				},
-				{
-					"name": "asset category (>= v2.1)",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"code\":\"new_asset_category\",\n  \"parent\":\"asset_main_catalog\",\n  \"labels\": {\n    \"de_DE\":\"new asset category label DE\",\n    \"en_US\":\"new asset category label US\",\n    \"fr_FR\":\"new asset category label FR\"\n  }\n}"
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/asset-categories/new_asset_category",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"asset-categories",
-								"new_asset_category"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "asset categories (>= v2.1)",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/vnd.akeneo.collection+json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"code\": \"new_asset_category\", \"parent\": \"asset_main_catalog\"}\n{\"code\": \"new_asset_category_tree\"}\n{\"code\": \"images\", \"labels\":{\"fr_FR\":\"Images\"}}"
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/asset-categories",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"asset-categories"
-							]
-						},
-						"description": "\n"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Asset tag (>= v2.1)",
-			"item": [
-				{
-					"name": "asset tag (>= v2.1)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/asset-tags/colored",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"asset-tags",
-								"colored"
-							]
-						},
-						"description": "Assuming that the given code is the code of an existing asset tag"
-					},
-					"response": []
-				},
-				{
-					"name": "asset tags (>= v2.1)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/asset-tags?limit=10&with_count=false",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"asset-tags"
-							],
-							"query": [
-								{
-									"key": "limit",
-									"value": "10"
-								},
-								{
-									"key": "with_count",
-									"value": "false"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "asset tag (2.1 only)",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"code\":\"colored\"\n}"
-						},
-						"url": {
-							"raw": "{{url}}/api/rest/v1/asset-tags/colored",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"asset-tags",
-								"colored"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
 		{
 			"name": "Association type (>= v2)",
 			"item": [
@@ -705,10 +18,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/association-types/upsell",
 							"host": [
@@ -736,10 +45,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/association-types",
 							"host": [
@@ -857,7 +162,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Attribute",
@@ -872,10 +178,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attributes/auto_exposure",
 							"host": [
@@ -903,10 +205,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attributes",
 							"host": [
@@ -1024,7 +322,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Attribute option",
@@ -1039,10 +338,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attributes/main_color/options/white",
 							"host": [
@@ -1072,10 +367,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attributes/main_color/options",
 							"host": [
@@ -1202,7 +493,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Attribute groups (>= v2)",
@@ -1217,10 +509,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attribute-groups/technical",
 							"host": [
@@ -1248,10 +536,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/attribute-groups",
 							"host": [
@@ -1369,7 +653,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Category",
@@ -1384,10 +669,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/categories/master",
 							"host": [
@@ -1415,10 +696,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/categories",
 							"host": [
@@ -1536,7 +813,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Channel",
@@ -1551,10 +829,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/channels/ecommerce",
 							"host": [
@@ -1582,10 +856,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/channels",
 							"host": [
@@ -1703,7 +973,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Currency (>= v2)",
@@ -1718,10 +989,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/currencies/USD",
 							"host": [
@@ -1749,10 +1016,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/currencies",
 							"host": [
@@ -1768,7 +1031,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Family",
@@ -1783,10 +1047,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/families/camcorders",
 							"host": [
@@ -1814,10 +1074,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/families",
 							"host": [
@@ -1935,7 +1191,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Family variant (>= v2)",
@@ -1950,10 +1207,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/families/clothing/variants/clothing_colorsize",
 							"host": [
@@ -1983,10 +1236,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/families/clothing/variants",
 							"host": [
@@ -2113,7 +1362,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Locale",
@@ -2128,10 +1378,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/locales/en_US",
 							"host": [
@@ -2159,10 +1405,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/locales",
 							"host": [
@@ -2178,7 +1420,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Reference entity (>= v3 and EE only)",
@@ -2193,10 +1436,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/reference-entities/brand",
 							"host": [
@@ -2224,10 +1463,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/reference-entities",
 							"host": [
@@ -2277,7 +1512,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Reference entity attribute (>= v3 and EE only)",
@@ -2292,10 +1528,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/reference-entities/brand/attributes/description",
 							"host": [
@@ -2325,10 +1557,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/reference-entities/brand/attributes",
 							"host": [
@@ -2384,7 +1612,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Reference entity attribute option (>= v3 and EE only)",
@@ -2399,10 +1628,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/reference-entities/brand/attributes/nationality/options/french",
 							"host": [
@@ -2434,10 +1659,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/reference-entities/brand/attributes/nationality/options",
 							"host": [
@@ -2497,7 +1718,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Reference entity record (>= v3 and EE only)",
@@ -2512,10 +1734,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/reference-entities/brand/records/kartell",
 							"host": [
@@ -2545,10 +1763,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/reference-entities/brand/records",
 							"host": [
@@ -2642,7 +1856,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Reference entity media file (>= v3 and EE only)",
@@ -2657,10 +1872,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/reference-entities-media-files/c/f/9/e/cf9e5fad2fe33e326b6def8f4e433537eb7f6633_8z2q6xwlya4_test.jpg",
 							"host": [
@@ -2677,8 +1888,7 @@
 								"e",
 								"cf9e5fad2fe33e326b6def8f4e433537eb7f6633_8z2q6xwlya4_test.jpg"
 							]
-						},
-						"description": "Assuming that the first given code is the code of an existing reference entity and the second given code is the code of an existing reference entity record"
+						}
 					},
 					"response": []
 				},
@@ -2701,8 +1911,7 @@
 							"formdata": [
 								{
 									"key": "file",
-									"type": "file",
-									"src": ""
+									"type": "file"
 								}
 							]
 						},
@@ -2721,7 +1930,643 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Asset family (>= v3.2 and EE only)",
+			"item": [
+				{
+					"name": "asset family",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset family"
+					},
+					"response": []
+				},
+				{
+					"name": "asset families",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "asset family",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"model_pictures\",\n  \"labels\": {\n    \"en_US\": \"Model pictures\",\n    \"fr_FR\": \"Photos mannequin\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2ad0ebaa-9f95-46ab-a04f-9a1a13f690c5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ebe76584-1b5a-4542-be95-c3b5758c44c6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Asset attribute (>= v3.2 and EE only)",
+			"item": [
+				{
+					"name": "asset attribute",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes/warning_mention",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes",
+								"warning_mention"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family and the second given code is the code of an existing asset attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "asset attributes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset family"
+					},
+					"response": []
+				},
+				{
+					"name": "asset attribute",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"warning_mention\",\n  \"labels\": {\n    \"en_US\": \"Warning mention\"\n  },\n  \"type\": \"text\",\n  \"value_per_locale\": true,\n  \"value_per_channel\": false,\n  \"is_required_for_completeness\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes/warning_mention",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes",
+								"warning_mention"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "88b22f34-eed5-44e0-8fef-02b7db657c8f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb890627-3742-4053-94c1-8ceb959efd9a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Asset attribute option (>= v3.2 and EE only)",
+			"item": [
+				{
+					"name": "asset attribute option",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes/model_is_wearing_size/options/small",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes",
+								"model_is_wearing_size",
+								"options",
+								"small"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family, the second given code is the code of an existing asset attribute of type single or multiple options, and the third given code is the code of an existing option of this asset attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "asset attribute options",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes/model_is_wearing_size/options",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes",
+								"model_is_wearing_size",
+								"options"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset family and the second given code is the code of an existing asset attribute"
+					},
+					"response": []
+				},
+				{
+					"name": "asset attribute option",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"small\",\n  \"labels\": {\n    \"en_US\": \"S\",\n    \"fr_FR\": \"S\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/attributes/model_is_wearing_size/options/small",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"attributes",
+								"model_is_wearing_size",
+								"options",
+								"small"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family and the second given code is the code of an existing attribute for this asset family that is a single or multiple options attribute"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bb95089a-c721-466f-82cb-c626620fc702",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec7c1fc2-7506-4e83-bb31-bc545f718061",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Asset media file (>= v3.2 and EE only)",
+			"item": [
+				{
+					"name": "asset media file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-media-files/c/f/9/e/cf9e5fad2fe33e326b6def8f4e433537eb7f6633_8z2q6xwlya4_test.jpg",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-media-files",
+								"c",
+								"f",
+								"9",
+								"e",
+								"cf9e5fad2fe33e326b6def8f4e433537eb7f6633_8z2q6xwlya4_test.jpg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "asset media file",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-media-files",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-media-files"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Asset (>= v3.2 and EE only)",
+			"item": [
+				{
+					"name": "asset",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/assets/allie_jean_model_picture",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"assets",
+								"allie_jean_model_picture"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family and the second given code is the code of an existing asset"
+					},
+					"response": []
+				},
+				{
+					"name": "assets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/assets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"assets"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset family"
+					},
+					"response": []
+				},
+				{
+					"name": "asset",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"allie_jean_model_picture\",\n    \"values\": {\n    \t\"label\": [\n    \t\t{\n    \t\t\t\"locale\": \"en_US\",\n    \t\t\t\"channel\": null,\n    \t\t\t\"data\": \"Allie jean model picture\"\n    \t\t}\n    \t],\n\t    \"model_is_wearing_size\": [\n\t      {\n\t        \"locale\": null,\n\t        \"channel\": null,\n\t        \"data\": \"small\"\n\t      }\n\t    ],\n\t    \"warning_mention\": [\n\t      {\n\t        \"locale\": \"fr_FR\",\n\t        \"channel\": null,\n\t        \"data\": \"Photo retouchée.\"\n\t      },\n\t      {\n\t        \"locale\": \"en_US\",\n\t        \"channel\": null,\n\t        \"data\": \"Photo retouched.\"\n\t      }\n\t    ]\n   }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/assets/allie_jean_model_picture",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"assets",
+								"allie_jean_model_picture"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family"
+					},
+					"response": []
+				},
+				{
+					"name": "assets",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t{\n\t\t\"code\": \"allie_jean_model_picture\",\n\t\t\"values\": {\n\t\t\t\"media_link\": [\n\t\t      {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"allie_jean_model_picture.jpg\"\n\t\t      }\n\t\t    ],\n\t\t    \"model_is_wearing_size\": [\n\t\t      {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"small\"\n\t\t      }\n\t\t    ],\n\t\t    \"warning_mention\": [\n\t\t      {\n\t\t        \"locale\": \"en_US\",\n\t\t        \"channel\": null,\n\t\t        \"data\": \"Photo retouched.\"\n\t\t      }\n\t\t    ]\n\t   }\n\t},\n\t{\n\t\t\"code\": \"amy_socks_model_picture\",\n\t\t\"values\": {\n\t\t\t\"media_link\": [\n\t\t      {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"amy_socks_model_picture.jpg\"\n\t\t      }\n\t\t    ],\n\t\t    \"model_is_wearing_size\": [\n\t\t      {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"unique_size\"\n\t\t      }\n\t\t    ],\n\t\t    \"warning_mention\": [\n\t\t      {\n\t\t        \"locale\": \"en_US\",\n\t\t        \"channel\": null,\n\t\t        \"data\": \"Photo not retouched.\"\n\t\t      }\n\t\t    ]\n\t   }\n\t},\n\t{\n\t\t\"code\": \"alice_blouse_model_picture\",\n\t\t\"values\": {\n\t\t\t\"media_link\": [\n\t\t\t {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"alice_blouse_model_picture.jpg\"\n\t\t      }\n\t\t    ],\n\t\t    \"model_is_wearing_size\": [\n\t\t      {\n\t\t        \"locale\": null,\n\t\t        \"channel\": null,\n\t\t        \"data\": \"small\"\n\t\t      }\n\t\t    ],\n\t\t    \"warning_mention\": [\n\t\t      {\n\t\t        \"locale\": \"en_US\",\n\t\t        \"channel\": null,\n\t\t        \"data\": \"Photo retouched.\"\n\t\t      }\n\t\t    ]\n\t   }\n\t}\n]"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/assets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"assets"
+							]
+						},
+						"description": "Assuming that the given code is the code of an existing asset family"
+					},
+					"response": []
+				},
+				{
+					"name": "asset",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/asset-families/model_pictures/assets/allie_jean_model_picture",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"asset-families",
+								"model_pictures",
+								"assets",
+								"allie_jean_model_picture"
+							]
+						},
+						"description": "Assuming that the first given code is the code of an existing asset family and the second given code is the code of an existing asset"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ae9536c8-6808-4353-aefc-daf3fa5f58cf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "11e95331-0bcf-411b-b5d8-e3a753779ddb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Measure family (>= v2)",
@@ -2736,10 +2581,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/measure-families/area",
 							"host": [
@@ -2767,10 +2608,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/measure-families",
 							"host": [
@@ -2786,7 +2623,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Media file",
@@ -2806,10 +2644,6 @@
 								"disabled": true
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/media-files/d/d/b/6/ddb6ad393f81503b6be7380785e3b32bbd28cd08_test.png",
 							"host": [
@@ -2841,10 +2675,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/media-files",
 							"host": [
@@ -2884,8 +2714,8 @@
 								},
 								{
 									"key": "file",
-									"type": "file",
-									"src": ""
+									"value": null,
+									"type": "file"
 								}
 							]
 						},
@@ -2905,7 +2735,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Product",
@@ -2920,10 +2751,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/products/AKNSTK",
 							"host": [
@@ -2959,10 +2786,6 @@
 								"value": ""
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/products",
 							"host": [
@@ -3126,10 +2949,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/products/AKNTS_BPS/draft",
 							"host": [
@@ -3184,7 +3003,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Product model (>= v2)",
@@ -3199,10 +3019,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/product-models/amor",
 							"host": [
@@ -3234,10 +3050,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/product-models",
 							"host": [
@@ -3303,10 +3115,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"code\": \"amor\",\n    \"family_variant\": \"clothing_colorsize\",\n    \"parent\": null,\n    \"categories\": [\n        \"master_men_blazers\",\n        \"supplier_zaro\"\n    ],\n    \"values\": {\n        \"name\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"Heritage jacket navy\"\n            }\n        ],\n        \"price\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": [\n                    {\n                        \"amount\": \"999.00\",\n                        \"currency\": \"EUR\"\n                    },\n                    {\n                        \"amount\": null,\n                        \"currency\": \"USD\"\n                    }\n                ]\n            }\n        ],\n        \"erp_name\": [\n            {\n                \"locale\": \"en_US\",\n                \"scope\": null,\n                \"data\": \"Amor\"\n            }\n        ],\n        \"supplier\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"zaro\"\n            }\n        ],\n        \"collection\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": [\n                    \"summer_2016\"\n                ]\n            }\n        ],\n        \"description\": [\n            {\n                \"locale\": \"en_US\",\n                \"scope\": \"ecommerce\",\n                \"data\": \"Heritage jacket navy blue tweed suit with single breasted 2 button. 53% wool, 22% polyester, 18% acrylic, 5% nylon, 1% cotton, 1% viscose. Dry Cleaning uniquement.Le mannequin measuring 1m85 and wears UK size 40, size 50 FR\"\n            }\n        ],\n        \"wash_temperature\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"800\"\n            }\n        ]\n    },\n    \"created\": \"2017-10-19T10:22:30+02:00\",\n    \"updated\": \"2017-10-19T10:22:30+02:00\"\n}"
+							"raw": "{\n    \"code\": \"apollon_truc\",\n    \"family\": \"clothing\",\n    \"family_variant\": \"clothing_color_size\",\n    \"parent\": null,\n    \"categories\": [\n        \"master_men_blazers_deals\"\n    ],\n    \"values\": {\n        \"supplier\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"zaro\"\n            }\n        ],\n        \"collection\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": [\n                    \"winter_2016\"\n                ]\n            }\n        ],\n        \"price\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": [\n                    {\n                        \"amount\": \"2\",\n                        \"currency\": \"EUR\"\n                    }\n                ]\n            }\n        ],\n        \"name\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"Long gray suit jacket and matching pants unstructured\"\n            }\n        ],\n        \"erp_name\": [\n            {\n                \"locale\": \"en_US\",\n                \"scope\": null,\n                \"data\": \"Apollon\"\n            }\n        ],\n        \"image\": [\n            {\n                \"locale\": null,\n                \"scope\": null,\n                \"data\": \"c/1/8/4/c18427acc3ead60121d3bbeecea5ccc6d96550a9_apollon.jpg\",\n                \"_links\": {\n                    \"download\": {\n                        \"href\": \"http://test-dev-feature-10.core.akeneo.com/api/rest/v1/media-files/c/1/8/4/c18427acc3ead60121d3bbeecea5ccc6d96550a9_apollon.jpg/download\"\n                    }\n                }\n            }\n        ],\n        \"description\": [\n            {\n                \"locale\": \"en_US\",\n                \"scope\": \"ecommerce\",\n                \"data\": \"Long gray suit jacket and matching pants unstructured. 61% wool, 30% polyester, 9% ramie. Dry clean only.\"\n            }\n        ]\n    },\n    \"created\": \"2019-05-28T09:29:59+00:00\",\n    \"updated\": \"2019-05-28T15:21:18+00:00\",\n    \"associations\": {\n        \"PACK\": {\n            \"products\": [],\n            \"product_models\": [],\n            \"groups\": []\n        },\n        \"SUBSTITUTION\": {\n            \"products\": [],\n            \"product_models\": [],\n            \"groups\": []\n        },\n        \"UPSELL\": {\n            \"products\": [],\n            \"product_models\": [],\n            \"groups\": []\n        },\n        \"X_SELL\": {\n            \"products\": [],\n            \"product_models\": [],\n            \"groups\": []\n        }\n    },\n    \"metadata\": {\n        \"workflow_status\": \"working_copy\"\n    }\n}"
 						},
 						"url": {
-							"raw": "{{url}}/api/rest/v1/product-models/amor",
+							"raw": "{{url}}/api/rest/v1/product-models/apollon_truc",
 							"host": [
 								"{{url}}"
 							],
@@ -3315,7 +3127,7 @@
 								"rest",
 								"v1",
 								"product-models",
-								"amor"
+								"apollon_truc"
 							]
 						},
 						"description": "Assuming that the given code is the code of an existing product model"
@@ -3366,10 +3178,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/product-models/amor/draft",
 							"host": [
@@ -3424,7 +3232,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Published product (>= v2 and EE only)",
@@ -3443,10 +3252,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/published-products/13527420",
 							"host": [
@@ -3478,10 +3283,6 @@
 								"value": "Bearer {{token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/published-products",
 							"host": [
@@ -3498,7 +3299,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Authentification by password",
@@ -3617,5 +3419,28 @@
 			},
 			"response": []
 		}
-	]
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7385a33a-46f8-4f08-a354-9c331391a3a4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8147778c-dfd5-4ec4-ad71-91f22a0ac1b7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
 }

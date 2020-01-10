@@ -72,9 +72,8 @@ curl https://demo.akeneo.com/api/rest/v1/categories \
 ```
 
 :::info
-You are experiencing this kind of error and the examples given here did not help you?
-
-Take a look at the [authentication](/documentation/security.html#authentication-2) documentation. This might save your day!
+You are experiencing this kind of error and the examples given here did not help you?  
+Take a look at the [authentication](/documentation/authentication.html) documentation. This might save your day!
 :::
 
 ### 403 error
@@ -91,9 +90,8 @@ HTTP/1.1 403 Forbidden
 ```
 
 :::info
-You are experiencing this kind of error and you do not know how to solve it?
-
-Take a look to the [authorization](/documentation/security.html#authorization) documentation. This might save your day!
+You are experiencing this kind of error and you do not know how to solve it?  
+Take a look at the [permissions](/documentation/permissions.html) documentation. This might save your day!
 :::
 
 ### 404 error

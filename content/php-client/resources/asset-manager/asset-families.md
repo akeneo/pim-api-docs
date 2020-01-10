@@ -1,6 +1,6 @@
 ### Asset family
 
-We refer here to the asset family of the [Asset Manager](/documentation/asset-manager.html#the-asset-familyl).
+We refer here to the asset family of the [Asset Manager](/concepts/asset-manager.html#asset-family).
 
 ::: warning
 This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).

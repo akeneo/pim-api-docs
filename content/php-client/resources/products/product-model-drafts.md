@@ -35,7 +35,7 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
 $draftProduct = $client->getProductModelDraftApi()->get('rain_boots_red');
 ```
 
-You can get more information about the returned format of the product values [here](/documentation/resources.html#product-values).
+You can get more information about the returned format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
 The field `metadata` is specific to Akeneo PIM Enterprise Edition. The status of the draft is specified in this field.
 

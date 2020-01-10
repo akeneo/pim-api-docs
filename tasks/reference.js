@@ -36,11 +36,17 @@ function determineCategory(tag){
         case 'Currency':  
         case 'Measure family':
             return 'Target market settings';
-        case 'Asset category':
-        case 'Asset tag':
         case 'Asset':
-        case 'Asset reference file':
-        case 'Asset variation file':
+        case 'Asset attribute':
+        case 'Asset family':
+        case 'Asset attribute option':
+        case 'Asset media file':
+            return 'Asset Manager';
+        case 'PAM asset category':
+        case 'PAM asset tag':
+        case 'PAM asset':
+        case 'PAM asset reference file':
+        case 'PAM asset variation file':
             return 'PAM';
         case 'Reference entity record':
         case 'Reference entity':
@@ -55,7 +61,7 @@ function determineCategory(tag){
 
 gulp.task('reference', ['clean-dist', 'less'], function() {
 
-    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3', '3.0', '3.1', '3.2'];
+    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3', '3.0', '3.1', '3.2', '4.0'];
     // We construct a reference index file and a complete reference file for each PIM version: 1.7, 2.0 and 2.1.
     // When we construct the 1.7 files, we filter to not include the new 2.0 and the 2.1 endpoints.
     // Same thing when we construct the 2.0 files, we filter to not include the 2.1 endpoints.
@@ -67,14 +73,16 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                         (version === '2.2') ? 'api-reference-index-22' :
                                         (version === '2.3') ? 'api-reference-index-23' :
                                         (version === '3.0') ? 'api-reference-index-30' :
-                                        (version === '3.1') ? 'api-reference-index-31' : 'api-reference-index';
+                                        (version === '3.1') ? 'api-reference-index-31' :
+                                        (version === '3.2') ? 'api-reference-index-32' : 'api-reference-index';
         var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' :
                                     (version === '2.0') ? 'api-reference-20' :
                                     (version === '2.1') ? 'api-reference-21' :
                                     (version === '2.2') ? 'api-reference-22' :
                                     (version === '2.3') ? 'api-reference-23' :
                                     (version === '3.0') ? 'api-reference-30' : 
-                                    (version === '3.1') ? 'api-reference-31' : 'api-reference';
+                                    (version === '3.1') ? 'api-reference-31' :
+                                    (version === '3.2') ? 'api-reference-32' : 'api-reference';
 
         gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
@@ -86,14 +94,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                 _.forEach(data.paths, function(path, pathUri) {
                     _.forEach(path, function(operation, verb) {
                         // This is where we filter the endpoints depending on their availability in the PIM versions
-                        if (((version === '1.7') && (operation['x-versions'][0] === '1.7')) ||
-                             (version === '2.0' && (operation['x-versions'][0] === '2.0' || operation['x-versions'][1] === '2.0')) ||
-                             (version === '2.1' && (operation['x-versions'][0] === '2.1' || operation['x-versions'][1] === '2.1' || operation['x-versions'][2] === '2.1')) ||
-                             (version === '2.2' && (operation['x-versions'][0] === '2.2' || operation['x-versions'][1] === '2.2' || operation['x-versions'][2] === '2.2' || operation['x-versions'][3] === '2.2')) ||
-                             (version === '2.3' && (operation['x-versions'][0] === '2.3' || operation['x-versions'][1] === '2.3' || operation['x-versions'][2] === '2.3' || operation['x-versions'][3] === '2.3' || operation['x-versions'][4] === '2.3')) ||
-                             (version === '3.0' && (operation['x-versions'][0] === '3.0' || operation['x-versions'][1] === '3.0' || operation['x-versions'][2] === '3.0' || operation['x-versions'][3] === '3.0' || operation['x-versions'][4] === '3.0' || operation['x-versions'][5] === '3.0')) ||
-                             (version === '3.1' && (operation['x-versions'][0] === '3.1' || operation['x-versions'][1] === '3.1' || operation['x-versions'][2] === '3.1' || operation['x-versions'][3] === '3.1' || operation['x-versions'][4] === '3.1' || operation['x-versions'][5] === '3.1' || operation['x-versions'][6] === '3.1')) ||
-                              version === '3.2') {
+                        if (_.find(operation['x-versions'], function(o) { return o === version; })) {
                             var escapeTag = operation.tags[0].replace(/\s/g, '');
                             var category = determineCategory(operation.tags[0]);
                             escapeCategory = category.replace(/\s/g, '');
@@ -136,14 +137,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                 _.forEach(data.paths, function(path, pathUri) {
                     _.forEach(path, function(operation, verb) {
                         // This is where we filter the endpoints depending on their availability in the PIM versions
-                        if (((version === '1.7') && (operation['x-versions'][0] === '1.7')) ||
-                             (version === '2.0' && (operation['x-versions'][0] === '2.0' || operation['x-versions'][1] === '2.0')) ||
-                             (version === '2.1' && (operation['x-versions'][0] === '2.1' || operation['x-versions'][1] === '2.1' || operation['x-versions'][2] === '2.1')) ||
-                             (version === '2.2' && (operation['x-versions'][0] === '2.2' || operation['x-versions'][1] === '2.2' || operation['x-versions'][2] === '2.2' || operation['x-versions'][3] === '2.2')) ||
-                             (version === '2.3' && (operation['x-versions'][0] === '2.3' || operation['x-versions'][1] === '2.3' || operation['x-versions'][2] === '2.3' || operation['x-versions'][3] === '2.3' || operation['x-versions'][4] === '2.3')) ||
-                             (version === '3.0' && (operation['x-versions'][0] === '3.0' || operation['x-versions'][1] === '3.0' || operation['x-versions'][2] === '3.0' || operation['x-versions'][3] === '3.0' || operation['x-versions'][4] === '3.0' || operation['x-versions'][5] === '3.0')) ||
-                              (version === '3.1' && (operation['x-versions'][0] === '3.1' || operation['x-versions'][1] === '3.1' || operation['x-versions'][2] === '3.1' || operation['x-versions'][3] === '3.1' || operation['x-versions'][4] === '3.1' || operation['x-versions'][5] === '3.1' || operation['x-versions'][6] === '3.1')) ||
-                              version === '3.2') {
+                        if (_.find(operation['x-versions'], function(o) { return o === version; })) {
                             var operationId = operation.operationId;
                             var escapeTag = operation.tags[0].replace(/\s/g, '');
                             var category = determineCategory(operation.tags[0]);

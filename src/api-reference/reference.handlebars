@@ -22,7 +22,8 @@
                         <li><a href="/api-reference-23.html">2.3</a></li>
                         <li><a href="/api-reference-30.html">3.0</a></li>
                         <li><a href="/api-reference-31.html">3.1</a></li>
-                        <li><a href="/api-reference.html">3.2</a></li>
+                        <li><a href="/api-reference-32.html">3.2</a></li>
+                        <li><a href="/api-reference.html">4.0</a></li>
                     </ul>
                 </div>
             </div>
@@ -89,7 +90,7 @@
                                             </h3>
                                             <p>{{{description}}}</p>
                                             <p>
-                                                <em class="small text-info">Available in PIM versions:</em>
+                                                <em class="small text-primary">Available in PIM versions:</em>
                                                 {{#each x-versions as |version versionId|}}
                                                     <span class="label label-version">{{{version}}}</span>
                                                 {{/each}}
@@ -144,7 +145,7 @@
                                                         <p>
                                                             <code>Authorization</code>
                                                             <a href="#" data-placement="top" data-toggle="tooltip" title="Required header"> <i class="fa fa-asterisk fa-danger"></i> </a>
-                                                            <small>&bull; Equal to 'Bearer xxx', `xxx` being the authentication token, see <a href="/documentation/security.html#authentication-2">Authentication</a> section</small>
+                                                            <small>&bull; Equal to 'Bearer xxx', `xxx` being the authentication token, see <a href="/documentation/authentication.html">Authentication</a> section</small>
                                                         </p>
                                                     {{/unless}}
                                                     {{#if x-body-by-line}}
@@ -228,7 +229,7 @@
                                                                                                     {{#with items}}[{{{type}}}]{{/with}}
                                                                                                     {{#if @last}} &#125;{{else}}, {{/if}}
                                                                                                 {{/each}}
-                                                                                            <br>]
+                                                                                            ]
                                                                                             {{/with}}
                                                                                             {{#if @last}}&#125;{{else}} , {{/if}}
                                                                                         {{/each}}
@@ -524,7 +525,7 @@
                                                                                                     &bull; {{{description}}}
                                                                                                 {{/if}}
                                                                                             {{else}}
-                                                                                                &bull; {{{description}}}
+                                                                                                &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
                                                                                             {{/with}}
                                                                                         {{/if}}
                                                                                     {{/each}}
@@ -537,18 +538,7 @@
                                                                                                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                             <code>{{{@key}}}</code>
                                                                                                             <em>({{{type}}})</em>
-                                                                                                            {{#if properties}}
-                                                                                                                : { <br>
-                                                                                                                    {{#each properties}}
-                                                                                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                                                                                                        <code>{{{@key}}}</code>
-                                                                                                                        <em>({{{type}}})</em>
-                                                                                                                    {{/each}}
-                                                                                                                    <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                                                                                                } <br>
-                                                                                                            {{else}}
-                                                                                                                &bull; {{{description}}} <br>
-                                                                                                            {{/if}}
+                                                                                                            &bull; {{{description}}} <br>
                                                                                                         {{/each}}
                                                                                                     &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ]
                                                                                         {{else}}
@@ -632,7 +622,7 @@
                                                                                                                                     &bull; {{{description}}}
                                                                                                                                 {{/if}}
                                                                                                                             {{else}}
-                                                                                                                                &bull; {{{description}}}
+                                                                                                                                &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
                                                                                                                             {{/with}}
                                                                                                                         {{/if}}
                                                                                                                     {{/each}}
@@ -680,7 +670,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{> contrib-footer}}
                                 </div>
                             </div>
                         {{/each}}

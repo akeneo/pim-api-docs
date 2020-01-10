@@ -1,0 +1,54 @@
+get:
+  summary: Get an attribute of a given asset family
+  operationId: "get_asset_family_attributes__code_"
+  tags:
+    - Asset attribute
+  x-versions:
+    - "3.2"
+    - "4.0"
+  x-ee: true
+  description: This endpoint allows you to get the information about a given attribute for a given asset family.
+  parameters:
+    - $ref: '#/parameters/asset_family_code'
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the asset attribute in JSON format
+      schema:
+        $ref: ../definitions/asset_attribute.yaml
+    401:
+      $ref: "#/responses/401Error"
+    406:
+      $ref: "#/responses/406Error"
+    404:
+      $ref: "#/responses/404Error"
+patch:
+  summary: Update/create an attribute of a given asset family
+  operationId: "patch_asset_family_attributes__code_"
+  tags:
+    - Asset attribute
+  x-versions:
+    - "3.2"
+    - "4.0"
+  x-ee: true
+  description: This endpoint allows you to update a given attribute for a given asset family. Note that if the attribute does not already exist for the given asset family, it creates it.
+  parameters:
+    - $ref: '#/parameters/asset_family_code'
+    - $ref: '#/parameters/code'
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: ../definitions/asset_attribute.yaml
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    204:
+      $ref: "#/responses/NoContent"
+    401:
+      $ref: "#/responses/401Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
