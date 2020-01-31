@@ -1776,7 +1776,12 @@ And here is the JSON format of the `media_file` attribute type, for an image.
 ```
 
 ::: info
-As of the v3.2 and v4.0, you can only have images in this attribute. Indeed, the `media_type` field accepts the `image`, `youtube`, `pdf` and `other` values.
+The media type defines the type of the asset.  
+It allows the preview display of the media.
+The available media types that you can put in the `media_type` field are:
+- _"image"_,
+- _"pdf"_ (starting from the v4),
+- _"other"_.
 :::
 
 ### The `media link` attribute
@@ -1810,6 +1815,8 @@ The media type defines the type of the asset whose URL is stored in the media li
 It allows the preview display of the media link.
 The available media types that you can put in the `media_type` field are:
 - _"image"_,
+- _"pdf"_ (starting from the v4),
+- _"youtube"_ (starting from the v4),
 - _"other"_.
 :::
 
