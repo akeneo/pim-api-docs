@@ -30,7 +30,7 @@ Below are some examples of asset families, along with their asset attributes.
 ![Asset family scheme](/img/concepts/asset-family.svg)
 
 For each asset family you can:
-- define what we call a _naming convention_. Thanks to it, you can easily extract from your asset code or main media filename, important information such as the SKU of the product related to this asset. See [below](#focus-on-the-naming-convention) for more details on this feature.
+- define what we call a _naming convention_. Thanks to it, you can easily extract important information from your asset code or main media filename, such as the SKU of the product related to this asset. See [below](#focus-on-the-naming-convention) for more details on this feature.
 - define the way the PIM will automatically link the assets of this family to your products. We called that the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the specific format of this rule.
 - define several transformations for your [media file attributes](#the-media-file-attribute). Don't hesitate to read the [Transformations section](#focus-on-the-transformations) to learn more and also, find their JSON format.
 
