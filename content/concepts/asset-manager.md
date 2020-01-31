@@ -29,9 +29,10 @@ Below are some examples of asset families, along with their asset attributes.
 
 ![Asset family scheme](/img/concepts/asset-family.svg)
 
-For each asset family, you can define the way the PIM will automatically link the assets of this family to your products. We called that the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the specific format of this rule.
-
-For each asset family, you can define several transformations for your [media file attributes](#the-media-file-attribute). Don't hesitate to read the [Transformations section](#focus-on-the-transformations) to learn more and also, find their JSON format.
+For each asset family you can:
+- define what we call a _naming convention_. Thanks to it, you can easily extract from your asset code or main media filename, important information such as the SKU of the product related to this asset. See [below](#focus-on-the-naming-convention) for more details on this feature.
+- define the way the PIM will automatically link the assets of this family to your products. We called that the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the specific format of this rule.
+- define several transformations for your [media file attributes](#the-media-file-attribute). Don't hesitate to read the [Transformations section](#focus-on-the-transformations) to learn more and also, find their JSON format.
 
 Here is the JSON format representing an example of asset family.
 
@@ -42,12 +43,21 @@ Here is the JSON format representing an example of asset family.
     "en_US": "Pachskots",
     "fr_FR": "Packshots"
   },
+  "naming_convention": {
+    "source": {
+        "property": "main_asset_image",
+        "channel": null,
+        "locale": null
+    },
+    "pattern": "/(?P<product_ref>.*)\\.jpg/",
+    "abort_asset_creation_on_error": true
+  },
   "product_link_rules": [
     {
       "product_selections": [
         {
           "field": "sku",
-          "operator": "EQUALS",
+          "operator": "=",
           "value": "{{product_ref}}"
         }
       ],
@@ -141,7 +151,7 @@ The JSON format of the naming convention contains several parts:
         "channel": null,
         "locale": null
     },
-    "pattern": "/(?P<product_ref>.*)-.*-(?P<attribute_ref>.*)\.jpg/",
+    "pattern": "/(?P<product_ref>.*)-.*-(?P<attribute_ref>.*)\\.jpg/",
     "abort_asset_creation_on_error": true
   }
 }
@@ -203,7 +213,7 @@ Not comfortable with regular expressions? You can try yours [right here](https:/
 
 Let's take an example to make this clearer! 
 ```regexp
-/(?P<product_ref>.*)-.*-(?P<attribute_ref>.*)\.jpg/
+/(?P<product_ref>.*)\\_(?P<attribute_ref>.*)\\.jpg/
 ```
 The regexp above will split the source string into three parts, thanks to two named capture groups:
 - `(?P<product_ref>.*)` is the first capture group. It is named `product_ref`. So, the result of this capture will be sent into the `product_ref` asset attribute. The `product_ref` attribute should exist in the asset family.
@@ -258,7 +268,7 @@ The JSON format of the product link rules is an array of product link rules. A p
       "product_selections": [
         {
           "field": "sku",
-          "operator": "EQUALS",
+          "operator": "=",
           "value": "{{product_ref}}",
           "locale": null,
           "channel": null
@@ -1672,6 +1682,7 @@ And here is the JSON format of the `text` attribute type.
   "value_per_locale": true,
   "value_per_channel": false,
   "is_required_for_completeness": false,
+  "is_read_only": false,
   "max_characters": 50,
   "is_textarea": false,
   "is_rich_text_editor": null,
@@ -1697,7 +1708,8 @@ And here is the JSON format of the `single option` attribute type.
   "type": "single_option",
   "value_per_locale": false,
   "value_per_channel": false,
-  "is_required_for_completeness": true
+  "is_required_for_completeness": true,
+  "is_read_only": false
 }
 ```
 And here is the JSON format of the `multiple options` attribute type.
@@ -1711,7 +1723,8 @@ And here is the JSON format of the `multiple options` attribute type.
   "type": "multiple_options",
   "value_per_locale": false,
   "value_per_channel": false,
-  "is_required_for_completeness": true
+  "is_required_for_completeness": true,
+  "is_read_only": false
 }
 ```
 
@@ -1732,7 +1745,8 @@ And here is the JSON format of the `number` attribute type.
   "type": "number",
   "value_per_locale": false,
   "value_per_channel": false,
-  "is_required_for_completeness": true
+  "is_required_for_completeness": true,
+  "is_read_only": false
 }
 ```
 
@@ -1755,14 +1769,14 @@ And here is the JSON format of the `media_file` attribute type, for an image.
   "value_per_locale": false,
   "value_per_channel": false,
   "is_required_for_completeness": true,
+  "is_read_only": false,
   "allowed_extensions": ["jpg"],
   "max_file_size": "10"
 }
 ```
 
 ::: info
-As of the v3.2 and v4.0, you can only have images in this attribute. Indeed, the `media_type` field only accepts the `image` value.  
-In the next version, you will be able to add new types of files (like PDFs).
+As of the v3.2 and v4.0, you can only have images in this attribute. Indeed, the `media_type` field accepts the `image`, `youtube`, `pdf` and `other` values.
 :::
 
 ### The `media link` attribute
@@ -1784,6 +1798,7 @@ Below is the JSON format of the `media_link` attribute type.
   "value_per_locale": false,
   "value_per_channel": false,
   "is_required_for_completeness": false,
+  "is_read_only": false,
   "prefix": "dam.com/my_assets/",
   "suffix": null,
   "media_type": "image"

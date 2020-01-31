@@ -22,7 +22,7 @@ example: [
         "product_selections": [
           {
             "field": "sku",
-            "operator": "EQUALS",
+            "operator": "=",
             "value": "{{product_ref}}"
           }
         ],
@@ -56,7 +56,7 @@ example: [
         "product_selections": [
           {
             "field": "sku",
-            "operator": "EQUALS",
+            "operator": "=",
             "value": "{{product_ref}}"
           }
         ],
