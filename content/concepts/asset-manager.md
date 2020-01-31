@@ -213,7 +213,7 @@ Not comfortable with regular expressions? You can try yours [right here](https:/
 
 Let's take an example to make this clearer! 
 ```regexp
-/(?P<product_ref>.*)\\_(?P<attribute_ref>.*)\\.jpg/
+/^(?P<product_ref>.*)_(?P<attribute_ref>.*)\\.jpg$/
 ```
 The regexp above will split the source string into three parts, thanks to two named capture groups:
 - `(?P<product_ref>.*)` is the first capture group. It is named `product_ref`. So, the result of this capture will be sent into the `product_ref` asset attribute. The `product_ref` attribute should exist in the asset family.
