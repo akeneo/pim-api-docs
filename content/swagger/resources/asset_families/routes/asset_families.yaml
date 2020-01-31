@@ -57,7 +57,7 @@ get:
                   "channel": null,
                   "locale": null
                 },
-                "pattern": "/?P(<product_ref>.*)\\.jpg/",
+                "pattern": "/(?P<product_ref>.*)\\.jpg/",
                 "abort_asset_creation_on_error": true
               },
               "product_link_rules": [
