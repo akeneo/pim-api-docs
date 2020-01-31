@@ -33,6 +33,10 @@ properties:
     type: boolean
     description: Whether the attribute should be part of the record's completeness calculation
     default: false
+  is_read_only:
+    type: boolean
+    description: Whether the attribute should be in read only mode only in the UI, but you can still update it with the API
+    default: false
   max_characters:
     type: integer
     description: Maximum number of characters allowed for the value of the attribute when the attribute type is `text`
@@ -91,7 +95,7 @@ properties:
   media_type:
    type: string
    description: For the `media_link` attribute type, it is the type of the media behind the url, to allow its preview in the PIM. For the `media_file` attribute type, it is the type of the file.
-   enum: ['image', 'other']
+   enum: ['image', 'pdf', 'youtube', 'other']
    x-warning: Only required for `media_link` and `media_file` attribute types
   prefix:
    type: string

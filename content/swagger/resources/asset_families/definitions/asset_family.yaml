@@ -145,7 +145,7 @@ example: {
         "channel": null,
         "locale": null
       },
-      "pattern": "/?P(<product_ref>.*)-.*/",
+      "pattern": "/(?P<product_ref>.*)-.*/",
       "abort_asset_creation_on_error": true
     },
   "product_link_rules":
