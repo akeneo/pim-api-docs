@@ -1,0 +1,94 @@
+<svg width="370" height="431" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter x="-8.5%" y="-6.9%" width="118.4%" height="116%" filterUnits="objectBoundingBox" id="a">
+      <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0" in="shadowBlurOuter1"/>
+    </filter>
+    <filter x="-10.2%" y="-41.8%" width="122%" height="197%" filterUnits="objectBoundingBox" id="c">
+      <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0" in="shadowBlurOuter1"/>
+    </filter>
+    <filter x="-10.2%" y="-41.8%" width="122%" height="197%" filterUnits="objectBoundingBox" id="e">
+      <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0" in="shadowBlurOuter1"/>
+    </filter>
+    <filter x="-10.2%" y="-41.8%" width="122%" height="197%" filterUnits="objectBoundingBox" id="g">
+      <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0" in="shadowBlurOuter1"/>
+    </filter>
+    <rect id="b" x="0" y="0" width="316" height="362" rx="10"/>
+    <rect id="d" x="0" y="0" width="264.18" height="59.811" rx="5"/>
+    <rect id="f" x="0" y="0" width="264.18" height="59.811" rx="5"/>
+    <rect id="h" x="0" y="0" width="264.18" height="59.811" rx="5"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#F5F9F8" d="M0 0h370v431H0z"/>
+    <g transform="translate(24 33)">
+      <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+      <use fill="#FFF" xlink:href="#b"/>
+    </g>
+    <g transform="translate(44 53)">
+      <rect fill="#82549D" width="48" height="48" rx="5"/>
+      <path d="M15 16h16a1 1 0 011 1v16a1 1 0 01-1 1H15a1 1 0 01-1-1V17a1 1 0 011-1zm11 8a2 2 0 100-4 2 2 0 000 4zm-12.111 3.778l5-3.555 4.361 4.444 3.638-2.666 5 2.666M17 14h17.111v17.5" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path fill="#EADBED" d="M44 121h276v1H44z"/>
+    <text font-family="Lato-MediumItalic, Lato" font-size="13" font-style="italic" font-weight="500" fill="#8F92C7" transform="translate(24 33)">
+      <tspan x="83" y="63">Asset family</tspan>
+    </text>
+    <text font-family="Lato-MediumItalic, Lato" font-size="24" font-style="italic" font-weight="500" fill="#3A438B" transform="translate(24 33)">
+      <tspan x="83" y="46">Packshots</tspan>
+    </text>
+    <g>
+      <g transform="translate(44.322 145.644)">
+        <use fill="#000" filter="url(#c)" xlink:href="#d"/>
+        <use fill="#FFF" xlink:href="#d"/>
+      </g>
+      <g transform="translate(54.322 155.644)">
+        <rect fill="#E0F1FC" width="38" height="38" rx="5"/>
+        <path d="M12.083 11.083h13.834a1 1 0 011 1v13.834a1 1 0 01-1 1H12.083a1 1 0 01-1-1V12.083a1 1 0 011-1zm9.688 7.125a1.98 1.98 0 100-3.958 1.98 1.98 0 000 3.958zm-10.688 3.167l4.398-3.167 3.838 3.959 3.2-2.375 4.398 2.375" stroke="#4EA7DD" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text font-family="Lato-MediumItalic, Lato" font-size="13" font-style="italic" font-weight="500" fill="#8F92C7" transform="translate(44.322 145.644)">
+        <tspan x="63" y="43">Media file asset attribute</tspan>
+      </text>
+      <text font-family="Lato-MediumItalic, Lato" font-size="17" font-style="italic" font-weight="500" fill="#3A438B" transform="translate(44.322 145.644)">
+        <tspan x="63" y="26">Main image</tspan>
+      </text>
+    </g>
+    <g>
+      <g transform="translate(44.322 225.391)">
+        <use fill="#000" filter="url(#e)" xlink:href="#f"/>
+        <use fill="#FFF" xlink:href="#f"/>
+      </g>
+      <g transform="translate(54.322 235.391)">
+        <rect fill="#E0F1FC" width="38" height="38" rx="5"/>
+        <path d="M12.083 11.083h13.834a1 1 0 011 1v13.834a1 1 0 01-1 1H12.083a1 1 0 01-1-1V12.083a1 1 0 011-1zm9.688 7.125a1.98 1.98 0 100-3.958 1.98 1.98 0 000 3.958zm-10.688 3.167l4.398-3.167 3.838 3.959 3.2-2.375 4.398 2.375" stroke="#4EA7DD" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text font-family="Lato-MediumItalic, Lato" font-size="13" font-style="italic" font-weight="500" fill="#8F92C7" transform="translate(44.322 225.391)">
+        <tspan x="63" y="43">Media file asset attribute</tspan>
+      </text>
+      <text font-family="Lato-MediumItalic, Lato" font-size="17" font-style="italic" font-weight="500" fill="#3A438B" transform="translate(44.322 225.391)">
+        <tspan x="63" y="26">Thumbnail</tspan>
+      </text>
+    </g>
+    <g>
+      <g transform="translate(44 305)">
+        <use fill="#000" filter="url(#g)" xlink:href="#h"/>
+        <use fill="#FFF" xlink:href="#h"/>
+      </g>
+      <g transform="translate(54 315)">
+        <rect fill="#E0F1FC" width="38" height="38" rx="5"/>
+        <path d="M12.083 11.083h13.834a1 1 0 011 1v13.834a1 1 0 01-1 1H12.083a1 1 0 01-1-1V12.083a1 1 0 011-1zm4.542 4.75l.498 6.231 1.745-1.495 1.495 1.993.997-.747-1.495-1.894 1.994-.848-5.234-3.24zm6.333-2.375v3.167m-1.583-1.583h3.167" stroke="#4EA7DD"/>
+      </g>
+      <text font-family="Lato-MediumItalic, Lato" font-size="13" font-style="italic" font-weight="500" fill="#8F92C7" transform="translate(44 305)">
+        <tspan x="63" y="43">Mutiple options asset attribute</tspan>
+      </text>
+      <text font-family="Lato-MediumItalic, Lato" font-size="17" font-style="italic" font-weight="500" fill="#3A438B" transform="translate(44 305)">
+        <tspan x="63" y="26">Main colors</tspan>
+      </text>
+    </g>
+  </g>
+</svg>
