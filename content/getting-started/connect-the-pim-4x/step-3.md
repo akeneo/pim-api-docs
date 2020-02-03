@@ -12,6 +12,8 @@ By doing so, you will be able to easily monitor the data flows between your conn
 4. Thanks to the _copy_ icon on the left side of the table, copy each credential fields: the client id, the secret, the username and the password.
 ![Copy icon](/img/getting-started/connection-credentials-copy-icon.png)
 5. Paste them into your connector so that it will use these credentials to be authenticated over the API.
+6. In the `Permissions` section of your connection, you also need to carefully set up the permissions you want for your connection. For more information on this step, don't hesitate to browse [our help center documentation right here](https://help.akeneo.com/pim/serenity/articles/manage-your-connections.html#set-the-permissions). :wink:  
+If you want to explore what you can do thanks to those permissions, there is also a [documentation about their superpowers](/documentation/permissions.html#catalog-permissions-ee-only). Go read it!
 
 That's it! :tada:
 

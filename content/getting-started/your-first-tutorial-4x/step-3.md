@@ -17,8 +17,16 @@ In the response area, you can see a list of 100 products in json format.
 
 :tada: **You've just did your first API call!**
 
+::: warning
+The response area is showing you an empty list of products?  
+It's totally normal, it means that your are using the Entreprise edition. To view products, you need to configure the permissions linked to the connection.  
+To do so, create a user group that has view rights over your category trees and then, link this user group to your connection. :wink:
+For more details, don't hesitate to browse our [help center documentation](https://help.akeneo.com/pim/articles/manage-your-connections.html#configure-the-connection-user-group).
+:::
+
 ::: info
 The authentication token only lasts for one hour. This means that after one hour your token will expire. And you will receive an error message that looks like this.
 ![401 token expired](/img/getting-started/token-expiration-in-postman.png)
 Don't panic! You just have to send the `The authentication request` again and you'll be all good. :wink:
 :::
+
