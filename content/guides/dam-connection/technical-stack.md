@@ -122,6 +122,6 @@ You'll need to find a way to run the calls again for the assets that have not be
 
 ### Our skeleton
 
-As already stated in the [introduction](introduction.html#our-skeleton), we provide a skeleton from which you can take inspiration when writing your own connector.   
+As already stated in the [introduction](introduction.html#our-skeleton), we provide a skeleton to inspire you when writing your own connector.   
 It is fueled with coding best practices, so do not hesitate to have a look at it.  
 As a reminder, this skeleton is only supported in **best effort**.  
