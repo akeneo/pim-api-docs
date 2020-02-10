@@ -3,143 +3,64 @@ required: ["code"]
 properties:
   code:
     type: string
-    description: Asset code
+    description: Code of the asset
     x-immutable: true
-  categories:
-    type: array
-    description: Codes of the asset categories in which the asset is classified
-    x-validation-rules: Each string of the array is equal to an existing asset category code
-    items:
-      type: string
-    default: []
-  description:
-    type: string
-    description: Description of the asset
-    default: null
-  localizable:
-    type: boolean
-    description: Whether the asset is localized or not, meaning if you want to have different reference files for each of your locale
-    default: false
-    x-immutable: true
-  tags:
-    type: array
-    description: Tags of the asset
-    items:
-      type: string
-    default: []
-  end_of_use:
-    type: string
-    description: Date on which the asset expire
-    format: dateTime
-    default: null
-    x-validation-rules: The date follows the ISO 8601 format
-  variation_files:
-    type: array
-    description: Variations of the asset
-    x-read-only: true
-    items:
-      type: object
-      properties:
-        _link:
+  values:
+    type: object
+    description: "Asset attributes values, see the <a href='/concepts/asset-manager.html#focus-on-the-asset-values'>Focus on the asset values</a> section for more details."
+    x-validation-rules: Validation rules detailed in Asset attribute values section
+    properties:
+      attributeCode:
+        type: array
+        items:
           type: object
-          description: Links to get and download the variation file
           properties:
-            self:
+            channel:
+              type: string
+              description: Channel code of the asset attribute value
+            locale:
+              type: string
+              description: Locale code of the asset attribute value
+            data:
               type: object
-              properties:
-                href:
-                  type: string
-                  description: URI of the variation entity
-            download:
-              type: object
-              properties:
-                href:
-                  type: string
-                  description: URI to download the variation file
-        locale:
-          type: string
-          description: Locale code of the variation 
-        scope:
-          type: string
-          description: Channel code of the variation
-        code:
-          type: string
-          description: Code of the variation
-  reference_files:
-    type: array
-    description: Reference files of the asset
-    x-read-only: true
-    items:
-      type: object
-      properties:
-        _link:
-          type: object
-          description: Links to get and download the reference file
-          properties:
-            self:
-              type: object
-              properties:
-                href:
-                  type: string
-                  description: URI of the reference file entity
-            download:
-              type: object
-              properties:
-                href:
-                  type: string
-                  description: URI to download the reference file
-        locale:
-          type: string
-          description: Locale code of the reference file
-        code:
-          type: string
-          description: Code of the reference file
+              description: Asset attribute value
 example: {
-  "code":"tshirt_artemis_main_picture",
-  "categories": ["tshirts_assets"],
-  "description": "The main picture of the Artemis t-shirt",
-  "localizable": false,
-  "tags": ["tshirts", "red", "summer"],
-  "end_of_use": "2019-09-01T00:00:00+0200",
-  "variation_files": [
-    {
-      "_link": {
-       "download": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/ecommerce/no_locale/download"
-        },
-        "self": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/ecommerce/no_locale"
-        }
-      },
-      "locale":null,
-      "scope": "e_commerce",
-      "code": "7/5/8/e/758e39d48va7b42a55001434fd3d7b6cf3189b7f_tshirt_artemis_main_picture_ecommerce.jpg"
-    },{
-      "_link": {
-       "download": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/print/no_locale/download"
-        },
-        "self": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/variation-files/print/no_locale"
-        }
-      },
-      "locale": null,
-      "scope": "print",
-      "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_main_picture_print.jpg"
-    }
-  ],
-  "reference_files":[
-    {
-      "_link": {
-       "download": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/reference-files/no_locale/download"
-        },
-        "self": {
-         "href": "https://demo.akeneo.com/api/rest/v1/assets/tshirt_artemis_main_picture/reference-files/no_locale"
-        }
-      },
-      "locale": null,
-      "code": "7/5/8/e/759e39d48va7b42a55002434fd3d7b6cf3189b7f_tshirt_artemis_main_picture.jpg"
-    }
-  ]  
+  "code": "sku_54628_picture1",
+  "values": {
+    "media_preview": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "sku_54628_picture1.jpg"
+      }
+    ],
+    "model_wears_size": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "s"
+      }
+    ],
+    "photographer": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "ben_levy"
+      }
+    ],
+    "main_colors": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": ["red","purple"]
+      }
+    ],
+    "end_of_use_date": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "02/03/2021"
+      }
+    ]
+  }
 }

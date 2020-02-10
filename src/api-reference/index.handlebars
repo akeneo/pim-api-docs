@@ -21,7 +21,9 @@
                         <li><a href="/api-reference-index-22.html">2.2</a></li>
                         <li><a href="/api-reference-index-23.html">2.3</a></li>
                         <li><a href="/api-reference-index-30.html">3.0</a></li>
-                        <li><a href="/api-reference-index.html">3.1</a></li>
+                        <li><a href="/api-reference-index-31.html">3.1</a></li>
+                        <li><a href="/api-reference-index-32.html">3.2</a></li>
+                        <li><a href="/api-reference-index.html">4.0</a></li>
                     </ul>
                 </div>
             </div>
@@ -33,7 +35,7 @@
                         <p class="pre-nav">Browse all our endpoints</p>
                         {{#each categories as |category categoryId|}}
                             <li class="main-nav">
-                                <a href="#{{{categoryId}}}">{{{categoryName}}}</a>
+                                <a href="#{{{categoryId}}}">{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</a>
                                 <ul class="nav">
                                     {{#each category.resources as |resource resourceId|}}
                                         <li class="sub-nav">
@@ -49,12 +51,17 @@
             <div class="col-sm-9">
                 {{#each categories as |category categoryId|}}
                     <a class="anchor" id="{{{categoryId}}}"></a>
-                    <h2>{{{categoryName}}}</h2>
+                    <h2>{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</h2>
+                    {{#if categoryDeprecated}}
+                        <div class="alert alert-warning">
+                            <p>With the introduction of our brand new way to handle assets, the Asset Manager, the PAM feature will be removed from the v4.0 of the PIM. As a result, from now on, <b>all the endpoints regarding the PAM assets are deprecated</b>. They will not be available anymore starting from the v4.0.<br/>To understand why, we recommend you to read this <a href="https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804">Medium post</a>, we wrote on this special occasion.<br/>Also, don't hesitate to take a look at the <a href="/documentation/asset-manager.html">Asset Manager documentation</a> to discover this new feature and how much more efficient it will be to handle your precious assets.</p>
+                        </div>
+                    {{/if}}
                     {{#each category.resources as |resource resourceId|}}
                         <a class="anchor" id="{{{resourceId}}}"></a>
                         <h3 class="picto">
                             <img src="img/illustrations/illus--{{{resourceId}}}.svg"/>
-                            {{{resourceName}}}
+                            {{{resourceName}}}{{#if ../categoryDeprecated}}<em> - Deprecated</em>{{/if}}
                         </h3>
                         <div class="list-group">
                             {{#each resource.operations as |operation operationId|}}
@@ -79,6 +86,9 @@
                                                 {{/each}}
                                                 {{#if x-ee}}
                                                     <span class="label label-ee">EE only</span>
+                                                {{/if}}
+                                                {{#if x-deprecated}}
+                                                    <span class="label label-warning">deprecated</span>
                                                 {{/if}}
                                             </p>
                                         </div>

@@ -83,7 +83,7 @@ When you use an asynchronous method to connect, you will need to [synchronize yo
 
 ### Volumetry
 
-You should avoid having too many calls to the PIM API and process only the data you need. This is why the [DAM attribute selection](/pre-requisites.html#define-the-attributes-of-your-asset-families) is really important.
+You should avoid having too many calls to the PIM API and process only the data you need. This is why the [DAM attribute selection](pre-requisites.html#define-the-attributes-of-your-asset-families) is really important.
 
 For queuing systems and webhooks, you need to send all messages related to assets. Then, in the connector, filter them to keep only DAM assets that are related to products that you want in the PIM (see [Pre-requisites](pre-requisites.html#which-dam-assets-are-products-related)).  
 
@@ -122,6 +122,6 @@ You'll need to find a way to run the calls again for the assets that have not be
 
 ### Our skeleton
 
-As already stated in the [introduction](introduction.html#our-skeleton), we provide a skeleton to inspire you when writing your own connector.   
+As already stated in the [introduction](introduction.html#our-skeleton), we provide [a skeleton](https://github.com/akeneo/dam-connector) to inspire you when writing your own connector.   
 It is fueled with coding best practices, so do not hesitate to have a look at it.  
 As a reminder, this skeleton is only supported in **best effort**.  

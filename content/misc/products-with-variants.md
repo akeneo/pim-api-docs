@@ -109,7 +109,7 @@ You used the variant groups in a very effective way and they are really structur
  - The products inside your variant group use the same family,
  - The products inside your variant group use the same attributes.
 
-It's very good news for you! The solution is to use the new [product model](/documentation/resources.html#product-model-20-only) and [family variant](/documentation/resources.html#family-variant-20-only) entities, that were introduced in the remodeling of the products with variants for the 2.0.
+It's very good news for you! The solution is to use the new [product model](/concepts/products.html#product-model) and [family variant](/concepts/catalog-structure.html#family-variant) entities, that were introduced in the remodeling of the products with variants for the 2.0.
 
 ### A few words about the new modeling
 
@@ -125,7 +125,7 @@ All the other attributes have their value stored into standard products that we 
 
 To be much clearer, below is a diagram representing this modeling.
 
-![Modeling of the products with variants](../img/product_with_variants.png)
+![Modeling of the products with variants](../img/rest-api/product_with_variants.png)
 
 ### Example  
 In the API, you will end up with the following change in your products with variants.   

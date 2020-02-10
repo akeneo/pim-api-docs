@@ -1,0 +1,200 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Asset family code
+    x-immutable: true
+  labels:
+    type: object
+    description: Asset family labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Asset family label for the locale `localeCode`
+  naming_convention:
+    type: object
+    description: The naming convention ran over the asset code or the main media filename upon each asset creation, in order to automatically set several values in asset attributes. To learn more and see the format of this property, take a look at <a href='/concepts/asset-manager.html#focus-on-the-naming-convention'>here</a>.
+    x-validation-rules: To know more about the validation of this property, take a look at our naming convention format.
+    default: {}
+    properties:
+      source:
+        type: object
+        description: The string on which the naming convention should be applied. More details <a href='/concepts/asset-manager.html#source'>here</a>.
+      pattern:
+        type: string
+        description: The regular expression that should be applied on the source. More details <a href='/concepts/asset-manager.html#pattern'>here</a>.
+      abort_asset_creation_on_error:
+        type: boolean
+        description: Whether the asset should be created if the naming convention failed to apply. More details <a href='/concepts/asset-manager.html#abort-asset-creation-on-error'>here</a>.
+  product_link_rules:
+    type: array
+    description: The rules that will be run after the asset creation, in order to automatically link the assets of this family to a set of products. To understand the format of this property, see <a href='/concepts/asset-manager.html#focus-on-the-product-link-rule'>here</a>.
+    x-validation-rules: To know more about the validation of this property, take a look at our product link rule format.
+    default: {}
+    items:
+      type: object
+      properties:
+        product_selections:
+          type: array
+          description: The product selection to which the assets of the asset family to be automatically linked. More details <a href='/concepts/asset-manager.html#product-selection'>here</a>.
+          items:
+            type: object
+            required: ["field", "operator", "value"]
+            properties:
+              field:
+                type: string
+              operator:
+                type: string
+              value:
+                type: string
+              locale:
+                type: string
+              channel:
+                type: string
+        assign_assets_to:
+          type: array
+          description: The product value in which your assets will be assigned. More details <a href='/concepts/asset-manager.html#product-value-assignment'>here</a>.
+          items:
+            type: object
+            required: ["attribute","mode"]
+            properties:
+              attribute:
+                type: string
+              locale:
+                type: string
+              channel:
+                type: string
+              mode:
+                type: string
+  transformations:
+    type: array
+    description: The transformations to perform on source files in order to generate new files into your asset attributes (only available since v4.0). To understand the format of this property, see <a href='/concepts/asset-manager.html#focus-on-the-transformations'>here</a>.
+    x-validation-rules: To know more about the validation of this property, take a look at our transformation format.
+    default: {}
+    items:
+      type: object
+      required: ['label', 'target', 'source', 'operations']
+      properties:
+        label:
+          type: string
+          description: The name of the transformation
+        filename_suffix:
+          type: string
+          description: The suffix that will be appended to the source filename to generate the target filename. More details <a href='/concepts/asset-manager.html#target-filename'>here</a>.
+        filename_prefix:
+          type: string
+          description: The prefix that will be prepended to the source filename to generate the target filename. More details <a href='/concepts/asset-manager.html#target-filename'>here</a>.
+        source:
+          type: object
+          required: ['attribute', 'channel', 'locale']
+          description: The attribute value in which is stored the media file you want to use as the source file for your transformation. More details <a href='/concepts/asset-manager.html#source-file'>here</a>.
+          properties:
+            attribute:
+              type: string
+            channel:
+              type: string
+            locale:
+              type: string
+        target:
+          type: object
+          required: ['attribute', 'channel', 'locale']
+          description: The attribute value in which the PIM will generate the new transformed file, aka the target file. More details <a href='/concepts/asset-manager.html#target-file'>here</a>.
+          properties:
+            attribute:
+              type: string
+            channel:
+              type: string
+            locale:
+              type: string
+        operations:
+            type: object
+            description: The transformations that should be applied to your source file to generate the target file. More details <a href='/concepts/asset-manager.html#transformation-operations'>here</a>.
+            x-validation-rules: Should contain at least one operation
+            properties:
+              type:
+                type: string
+              parameters:
+                type: object
+                properties:
+                    colorspace:
+                      type: string
+                    width:
+                      type: integer
+                    height:
+                      type: integer
+                    ratio:
+                      type: integer
+                    resolution-unit:
+                      type: string
+                    resolution-x:
+                      type: integer
+                    resolution-y:
+                      type: integer
+example: {
+  "code": "model_pictures",
+  "labels": {
+    "en_US": "Model pictures",
+    "fr_FR": "Photographies en pied"
+  },
+    “naming_convention”:{
+      "source": {
+        "property": "code",
+        "channel": null,
+        "locale": null
+      },
+      "pattern": "/(?P<product_ref>.*)-.*/",
+      "abort_asset_creation_on_error": true
+    },
+  "product_link_rules":
+  [
+    {
+      "product_selections": [
+        {
+          "field": "sku",
+          "operator": "EQUALS",
+          "value": "{{product_ref}}"
+        }
+      ],
+      "assign_assets_to": [
+        {
+          "attribute": "model_pictures",
+          "mode": "replace"
+        }
+      ]
+    }
+  ],
+  "transformations": [
+    {
+      "label": "Thumbnail plus black and white transformation",
+      "filename_suffix": "_thumbnailBW",
+      "source": {
+        "attribute": "main_image",
+        "channel": null,
+        "locale": null
+      },
+      "target": {
+        "attribute": "thumbnail",
+        "channel": null,
+        "locale": null
+      },
+      "operations": [
+        {
+          "type": "thumbnail",
+          "parameters": {
+            "width": 150,
+            "height": 150
+          }
+        },
+        {
+          "type": "colorspace",
+          "parameters": {
+            "colorspace": "grey"
+          }
+        }
+      ]
+    }
+  ]
+}

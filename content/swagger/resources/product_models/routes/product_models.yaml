@@ -11,6 +11,7 @@ get:
     - "3.0"
     - "3.1"
     - "3.2"
+    - "4.0"
   description: This endpoint allows you to get a list of product models. Product models are paginated. In the Enterprise Edition, since the 2.0, permissions based on your user groups are applied to the set of products you request.
   parameters:
     - name: search
@@ -50,7 +51,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/ProductModelList'
@@ -195,6 +196,7 @@ post:
     - "3.0"
     - "3.1"
     - "3.2"
+    - "4.0"
   description: This endpoint allows you to create a new product model. In the Enterprise Edition, since the v2.3, permissions based on your user groups are applied to the product model you try to create.
   parameters:
     - name: body
@@ -225,6 +227,7 @@ patch:
     - "3.0"
     - "3.1"
     - "3.2"
+    - "4.0"
   description: This endpoint allows you to update and/or create several product models at once. Learn more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product models exists for the given code, it creates it. In the Enterprise Edition, since the v2.3, permissions based on your user groups are applied to the product models you try to update. It may result in the creation of drafts if you only have edit rights through the product model's categories.
   x-body-by-line: Contains several lines, each line is a product model in JSON standard format
   parameters:

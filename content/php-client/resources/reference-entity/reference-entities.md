@@ -30,7 +30,7 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
  * ]
  */
  $referenceEntity = $client->getReferenceEntityApi()->get('brand');
- ```
+```
  
 #### Get the list of the reference entities
 

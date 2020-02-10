@@ -4,9 +4,9 @@
     "serve": "gulp serve"
   },
   "dependencies": {
-    "jquery": "3.1.1",
+    "jquery": "3.4.0",
     "font-awesome": "4.7.0",
-    "bootstrap": "3.3.7"
+    "bootstrap": "3.4.1"
   },
   "devDependencies": {
     "del": "2.2.2",
@@ -24,13 +24,13 @@
     "gulp-replace": "0.5.4",
     "gulp-rev": "7.1.2",
     "gulp-rev-replace": "0.4.3",
-    "gulp-rsync": "0.0.7",
+    "gulp-rsync": "0.0.8",
     "gulp-swagger": "1.0.1",
     "gulp-util": "3.0.8",
     "gulp-webserver": "0.9.1",
-    "handlebars": "4.0.14",
+    "handlebars": "4.3.0",
     "highlightjs": "9.8.0",
-    "lodash": "4.17.4",
+    "lodash": "4.17.13",
     "markdown-it": "8.2.2",
     "markdown-it-container": "2.0.0",
     "markdown-it-toc-and-anchor": "4.1.1",

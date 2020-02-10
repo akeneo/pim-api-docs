@@ -13,6 +13,7 @@ get:
     - "3.0"
     - "3.1"
     - "3.2"
+    - "4.0"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -29,7 +30,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/ChannelList'
@@ -44,7 +45,7 @@ get:
         },
         current_page: 1,
         _embedded: {
-          _items: [
+          items: [
             {
               "_links": {
                 "self": {
@@ -127,6 +128,7 @@ post:
     - "3.0"
     - "3.1"
     - "3.2"
+    - "4.0"
   parameters:
     - name: body
       in: body
@@ -158,6 +160,7 @@ patch:
     - "3.0"
     - "3.1"
     - "3.2"
+    - "4.0"
   description: This endpoint allows you to update and/or create several channels at once.
   x-body-by-line: Contains several lines, each line is a channel in JSON standard format
   parameters:

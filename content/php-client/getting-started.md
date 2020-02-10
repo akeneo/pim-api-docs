@@ -14,7 +14,8 @@ Below you will find which PHP client version to use depending on your PIM versio
 | v2.0  | v1.0 | March 2019 |
 | v2.1 - v2.2 | v2.0 | March 2019 |
 | v2.3 | v3.0 | December 2019 |
-| v3.0 - v3.1 - v3.2 | v4.0 | August 2020 |
+| v3.0 - v3.1 | v4.0 | August 2020 |
+| v3.2 | v5.0 | August 2020 |
 
 ::: info
 Note that our PHP client is backward compatible.
@@ -39,23 +40,23 @@ Run the following command to require the libraries in your project:
 
 ### Community Edition 
 ```bash
-$ php composer.phar require akeneo/api-php-client php-http/guzzle6-adapter
+$ php composer.phar require akeneo/api-php-client php-http/guzzle6-adapter:^2.0 http-interop/http-factory-guzzle:^1.0
 ```
 
 ### Enterprise Edition
 ```bash
-$ php composer.phar require akeneo/api-php-client-ee php-http/guzzle6-adapter
+$ php composer.phar require akeneo/api-php-client-ee php-http/guzzle6-adapter:^2.0 http-interop/http-factory-guzzle:^1.0
 ```
 
 ::: info
 If you don't know which implementation to choose, we strongly recommend you to use Guzzle v6, as in the previous example.
 :::
 
-## Initialisation of the client
+## Initialization of the client
 
-You first need to initialise the client with your credentials client id/secret and with your user/password.
+You first need to initialize the client with your credentials (client id, secret, username and password).
 
-If you don't have any client id/secret, let's take a look at [this page](/documentation/security.html#authentication) to create it.
+If you don't have any client id/secret, let's take a look at [this page](/documentation/authentication.html#client-idsecret-generation) to create it.
 
 ### Community Edition
 

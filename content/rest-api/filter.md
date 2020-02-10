@@ -2,10 +2,6 @@
 
 When requesting a list of resources via the API, you can apply filters to get only the ones you want.
 
-::: info
-Note that all the filters available on the products are also available on the published products.
-:::
-
 ## Filter on product properties
 To filter products by one of its properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
 
@@ -37,7 +33,12 @@ You can even combine several filters on the same product properties. The example
 /api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04 10:00:00"},{"operator":"=","value":"2016-07-05 10:00:00"}]}
 ```
 
+:::info
+Filtering on product properties is also available for published products.
+:::
+
 ### On their categories
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 To filter products on their categories, use the property `categories`.
 Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
@@ -58,8 +59,12 @@ To get the products of the `winter_collection` category, you can use the followi
 /api/rest/v1/products?search={"categories":[{"operator":"IN","value":["winter_collection"]}]}
 ```
 
+:::info
+Filtering on categories is also available for published products.
+:::
 
 ### On their status
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 To filter products on their status, use the `enabled` property.
 Here are the allowed operators you can use to filter on the status as well as the corresponding type of value expected in the `search` query parameter.
@@ -75,8 +80,12 @@ To get the disabled products, you can use the following URL.
 ```
 /api/rest/v1/products?search={"enabled":[{"operator":"=","value":false}]}
 ```
+:::info
+Filtering on status is also available for published products.
+:::
 
 ### On their completeness
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 To filter products on their completeness, use the `completeness` product property. You will also need to provide a `scope` value to specify on which channel you want to filter with the completeness.
 Here are the allowed operators you can use to filter by completeness as well as the corresponding type of value expected in the `search` query parameter.
@@ -103,7 +112,12 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 /api/rest/v1/products?search={"completeness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
 ```
 
+:::info
+Filtering on completeness is also available for published products.
+:::
+
 ### On their group or family
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 To filter products on groups or families, use respectively the product property `groups` and `family`.
 Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -128,7 +142,12 @@ To get the products that are not in the `camcorders` and `digital_cameras` famil
 /api/rest/v1/products?search={"family":[{"operator":"NOT IN","value":["camcorders","digital_cameras"]}]}
 ```
 
+:::info
+Filtering on family or group is also available for published products.
+:::
+
 ### On their creation or update date
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 To filter products on creation or update date, use respectively the product property `created` and `updated`.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -159,12 +178,19 @@ To get the products that were updated during the last 4 days, you can use the fo
 ```
 /api/rest/v1/products?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
 ```
-
+:::info
+Filtering on creation or update date is also available for published products.
+:::
 
 ### On their parent
+::: availability versions=3.2,4.0 editions=CE,EE
 
 To get the variant products of a given product model, use the filter called `parent`.  
 For now, this filter only accepts one operator: `=`. It expects a code of a product model, given as a string. This product model can be either a root product model or a sub product model.
+
+::: warning
+This filter is available starting the 3.2 version of the PIM.
+:::
 
 #### Examples
 To get all the variant products of the root product model with the code `tshirt_armor`, you can use the following URL.
@@ -180,10 +206,6 @@ To get all the variant products of the sub product model with the code `tshirt_a
 ```
 
 ## Filter on product model properties
-
-::: warning
-This feature is available since the 2.3 version of the PIM.
-:::
 
 To filter product models by one of their properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
 
@@ -216,6 +238,7 @@ You can even combine several filters on the same product model properties. The e
 ```
 
 ### On categories
+::: availability versions=2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 To filter product models on their categories, use the property `categories`.
 Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
@@ -237,6 +260,7 @@ To get the product models of the `winter_collection` category, you can use the f
 ```
 
 ### On completeness
+::: availability versions=2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 To filter product models on their completeness, use the `completeness` product property. You will also need to provide a `scope` value to specify on which channel you want to filter with the completeness.
 Here are the allowed operators you can use to filter by completeness as well as the corresponding type of value expected in the `search` query parameter.
@@ -262,6 +286,7 @@ To get the product models that have at least one variant product 100% complete o
 ```
 
 ### On family
+::: availability versions=2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 To filter product models on families, use the product model property `family`.
 Here are the allowed operators you can use to filter on this property as well as the corresponding type of value expected in the `search` query parameter.
@@ -287,6 +312,7 @@ To get the product models that are not in the `camcorders` and `digital_cameras`
 ```
 
 ### On creation or update date
+::: availability versions=2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 To filter product models on creation or update date, use the product property `created` and `updated`, respectively.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -319,7 +345,7 @@ To get the product models that were updated during the last 4 days, you can use 
 ```
 
 ## Filter on product values
-To filter products, and product models since the v2.3, on its [product values](/documentation/resources.html#product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
+To filter products, and product models since the v2.3, on its [product values](/concepts/products.html#focus-on-the-products-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
 /api/rest/v1/products?search={ATTIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
@@ -369,7 +395,12 @@ You can even combine several filters on the same attribute. The example below wi
 /api/rest/v1/products?search={"description":[{"operator":"NOT EMPTY","locale":"en_US","scope":"ecommerce"},{"operator":"EMPTY","locale":"fr_FR","scope":"ecommerce"}]}
 ```
 
+:::info
+Filtering on product values is also available for published products.
+:::
+
 ### `search_locale` query parameter
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 If you need to filter on several attributes on the same locale, you can use the `search_locale` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing locale code.
 
 #### Example
@@ -381,7 +412,12 @@ is equivalent to
 /api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","scope":"ecommerce"}]}&search_locale=en_US
 ```
 
+:::info
+This query parameter is also available for the published products.
+:::
+
 ### `search_scope` query parameter
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 If you need to filter on several attributes on the same channel, you can use the `search_scope` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing channel code.
 
 #### Example
@@ -392,6 +428,10 @@ is equivalent to
 
 /api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US"}]}&search_scope=ecommerce
 ```
+
+:::info
+This query parameter is also available for the published products.
+:::
 
 ### Available operators
 As seen previously, the attribute type determines which set of operators is available to use these filters.
@@ -442,7 +482,13 @@ As seen previously, the attribute type determines which set of operators is avai
 ## Filter product values
 Thanks to the above sections, you are able to filter your products to only get those you want. In this section, you will see that you also can filter the product values to only receive those you want. 
 
+:::info
+Filtering product values via attributes, channel or locale is also available for published products.
+:::
+
 ### Via attributes
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
 If you want to receive for each product only product values about specific attributes, you can specify it thanks to the `attributes` query parameter.
 
 #### Example
@@ -457,6 +503,8 @@ You can filter product values on several attributes at the same time.
 ```
 
 ### Via locale
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
 If you want to receive for each product only product values on specific locales, as well as the product values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
 #### Example 1
@@ -555,9 +603,9 @@ You can also filter product values on several locales at the same time.
 /api/rest/v1/products?locales=en_US,fr_FR
 ```
 
-
-
 ### Via channel
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
 There is also a `scope` query parameter that will allow you to:
  - get only the selection of products that are in the tree linked to the channel you specified,
  - get only the product values for this specific channel, as well as the product values of the non scopable attributes.
@@ -577,6 +625,7 @@ When using this query parameter, you will never be able to retrieve products tha
 :::
 
 ## Filter locales
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 When requesting locales, you can use a filter to get the enabled ones.
 
@@ -587,7 +636,13 @@ When requesting locales, you can use a filter to get the enabled ones.
 
 ## Filter reference entity records
 
-### Filter records by completeness
+::: info
+All these filters are available starting the 3.0 version of the PIM.
+:::
+
+### By completeness
+::: availability versions=3.0,3.1,3.2,4.0 editions=EE
+
 You can filter the reference entity records to get only the completed ones on a given channel for given locales.
 
 #### Example
@@ -595,7 +650,8 @@ You can filter the reference entity records to get only the completed ones on a 
 /api/rest/v1/reference-entities/brands/records?search={"complete":{"operator":"=","value":true,"channel":"ecommerce","locales":["en_US"]}}
 ```
 
-### Filter records by update date
+### By update date
+::: availability versions=3.0,3.1,3.2,4.0 editions=EE
 
 You can filter the reference entity records by their update date.
 
@@ -616,7 +672,9 @@ To get the reference entity records that were updated since the 4th of July 2016
 /api/rest/v1/reference-entities/brands/records?search={"updated":[{"operator":">","value":"2018-07-04T10:00:00+00:00"}]}
 ```
 
-### Filter attribute values by locale
+### Record values by locale
+::: availability versions=3.0,3.1,3.2,4.0 editions=EE
+
 If you want to receive reference entity records of one given reference entity with only the attribute values of specific locales, as well as the attribute values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
 #### Example 1
@@ -692,8 +750,9 @@ You can also filter attribute values on several locales at the same time.
 ```
 
 
+### Record values by channel
+::: availability versions=3.0,3.1,3.2,4.0 editions=EE
 
-### Filter attribute values by channel
 There is also a `channel` query parameter that will allow you to get only the attribute values for a specific channel, as well as the attribute values of the non scopable attributes.
 
 :::warning
@@ -761,6 +820,185 @@ As a result you will receive the following answer:
       "locale": null,
       "channel":null,
       "data":"1923"
+    }
+  ]
+}
+```
+
+## Filter assets
+
+When requesting a [list of assets via the API](/api-reference.html#get_assets), you can apply filters to get only the ones you want and also the kind of information you want in them.
+
+### By update date
+::: availability versions=3.2,4.0 editions=EE
+
+You can filter the assets by their update date.
+
+Below is the operator allowed to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
+
+:::info
+Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+:::
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `>` | datetime <br> _Format: ISO 8601_ | Only returns assets that were <br> updated after the given day and hour |
+
+#### Example
+To get the assets that were updated since the 4th of July 2016 at 10am (UTC), you can use the following URL.
+
+```
+/api/rest/v1/asset-families/model_pictures/assets?search={"updated":[{"operator":">","value":"2018-07-04T10:00:00Z"}]}
+```
+
+### Asset values by locale
+::: availability versions=3.2,4.0 editions=EE
+
+If you want to receive assets with only the asset values of specific locales, as well as the attribute values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
+
+#### Example 1
+Imagine that without this filter you get these asset values:
+```json
+{
+  "warning_mention": [
+    {
+      "locale": "en_US",
+      "channel": "mobile",
+      "data": "Photo retouched."
+    },
+    {
+      "locale": "en_US",
+      "channel": "ecommerce",
+      "data": "Photo retouched. This does not necessarily reflect the reality."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "mobile",
+      "data": "Photo retouchée."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "ecommerce",
+      "data": "Photo retouchée, ne représentant pas forcément la réalité."
+    }
+  ],
+  "model_is_wearing_size":[
+    {
+      "locale": null,
+      "channel":null,
+      "data":"small"
+    }
+  ]
+}
+```
+
+To get only the asset values regarding the `en_US` locale (+ the attribute values of the non localizable attributes), you can use the following URL.
+```
+/api/rest/v1/asset-families/model_pictures/assets?locales=en_US
+```
+
+As a result you will receive the following answer:
+```json
+{
+  "warning_mention": [
+    {
+      "locale": "en_US",
+      "channel": "mobile",
+      "data": "Photo retouched."
+    },
+    {
+      "locale": "en_US",
+      "channel": "ecommerce",
+      "data": "Photo retouched. This does not necessarily reflect the reality."
+    }
+  ],
+  "model_is_wearing_size":[
+    {
+      "locale": null,
+      "channel":null,
+      "data":"small"
+    }
+  ]
+}
+```
+
+#### Example 2
+You can also filter asset values on several locales at the same time.
+```
+/api/rest/v1/asset-families/model_pictures/assets?locales=en_US,fr_FR
+```
+
+
+### Asset values by channel
+::: availability versions=3.2,4.0 editions=EE
+
+There is also a `channel` query parameter that will allow you to get only the asset values for a specific channel, as well as the asset values of the non scopable attributes.
+
+:::warning
+Note that you cannot use this filter on several channels.
+:::
+
+#### Example
+Imagine that without this filter you get these asset values:
+```json
+{
+  "warning_mention": [
+    {
+      "locale": "en_US",
+      "channel": "mobile",
+      "data": "Photo retouched."
+    },
+    {
+      "locale": "en_US",
+      "channel": "ecommerce",
+      "data": "Photo retouched. This does not necessarily reflect the reality."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "mobile",
+      "data": "Photo retouchée."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "ecommerce",
+      "data": "Photo retouchée, ne représentant pas forcément la réalité."
+    }
+  ],
+  "model_is_wearing_size":[
+    {
+      "locale": null,
+      "channel":null,
+      "data":"small"
+    }
+  ]
+}
+```
+
+To get only the attribute values regarding the `ecommerce` channel (+ the attribute values of the non scopable attributes), you can use the following URL.
+```
+/api/rest/v1/asset-families/model_pictures/assets?channel=ecommerce
+```
+
+As a result you will receive the following answer:
+```json
+{
+  "warning_mention": [
+    {
+      "locale": "en_US",
+      "channel": "ecommerce",
+      "data": "Photo retouched. This does not necessarily reflect the reality."
+    },
+    {
+      "locale": "fr_FR",
+      "channel": "ecommerce",
+      "data": "Photo retouchée, ne représentant pas forcément la réalité."
+    }
+  ],
+  "model_is_wearing_size":[
+    {
+      "locale": null,
+      "channel":null,
+      "data":"small"
     }
   ]
 }

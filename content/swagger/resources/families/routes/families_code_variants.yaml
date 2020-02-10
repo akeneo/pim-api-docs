@@ -12,6 +12,7 @@ get:
     - "3.0"
     - "3.1"
     - "3.2"
+    - "4.0"
   parameters:
     - $ref: '#/parameters/family_code'
     - $ref: '#/parameters/page'
@@ -29,7 +30,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/FamilyVariantList'
@@ -71,6 +72,7 @@ post:
     - "3.0"
     - "3.1"
     - "3.2"
+    - "4.0"
   description: This endpoint allows you to create a family variant.
   parameters:
     - $ref: '#/parameters/family_code'
@@ -104,6 +106,7 @@ patch:
     - "3.0"
     - "3.1"
     - "3.2"
+    - "4.0"
   description: This endpoint allows you to update and/or create several family variants at once, for a given family.
   x-body-by-line: Contains several lines, each line is a family in JSON standard format
   parameters:

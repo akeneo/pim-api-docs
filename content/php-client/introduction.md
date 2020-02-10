@@ -1,4 +1,5 @@
-# Introduction
+# PHP developer, you are?
+> We have a client for you!
 
 The PHP client facilitates the usage of the API in your PHP projects when building extensions and/or tools for your favorite PIM.
 
@@ -6,11 +7,12 @@ Two clients exist:
 - a **Community Edition** client, covering the API endpoints of the PIM Community Edition
 - an **Enterprise Edition** client, covering the API endpoints of both the PIM Community Edition and the PIM Enterprise Edition
 
-There are three versions of these clients:
+There are several versions of these clients:
 - The version v1.0 is compatible with the PIM 2.0.
 - The version v2.0 is compatible with the PIM 2.1 and 2.2.
 - The version v3.0 is compatible with the PIM 2.3.
-- The current and latest version v4.0 is compatible with the PIM 3.0, 3.1 and 3.2.
+- The version v4.0 is compatible with the PIM 3.0 and 3.1.
+- The current and latest version v5.0 is compatible with the PIM 3.2.
 
 ## Support & issues
 Please be aware that these PHP clients are only supported **in best effort**, whether you are an Entreprise or Community customer.

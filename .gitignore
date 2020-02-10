@@ -5,5 +5,4 @@
 .DS_Store
 /tmp/
 config.json
-package-lock.json
-yarn.lock
+.env
