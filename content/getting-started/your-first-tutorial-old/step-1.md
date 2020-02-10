@@ -59,7 +59,7 @@ And that's it! :tada:
 
 Along with the username and the password we just created, these are your credentials to authenticate yourself when using the API.
 
-::: panel-link And now, let's configure the tool that will make the API request [The Postman set up](/getting-started/my-first-tutorial-old/step-2.html)
+::: panel-link And now, let's configure the tool that will make the API request [The Postman set up](/getting-started/your-first-tutorial-old/step-2.html)
 :::
 
 ### By command line for v1.7 PIM only

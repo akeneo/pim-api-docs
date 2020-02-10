@@ -26,7 +26,7 @@ For the purpose of this tutorial, we will name your connection: `My very first c
 
 Follow these steps:
 1. Log into your 4.x PIM.  
-_Sidenote: This tutorial is dedicated to 4.x PIM. Here is the one for [older PIM version](/getting-started/my-first-tutorial-old)._
+_Sidenote: This tutorial is dedicated to 4.x PIM. Here is the one for [older PIM version](/getting-started/your-first-tutorial-old)._
 1. Click on the `System` menu.
 1. Click on the `Connections` submenu.
 1. Click on the `Create` button.
