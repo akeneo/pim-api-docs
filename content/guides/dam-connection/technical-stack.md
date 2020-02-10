@@ -41,7 +41,7 @@ It is the most common way to connect with an external application.
 ![API Schema](../../img/guides/dam_pim-connection_api.svg)
 
 APIs are great for initialization purposes. But their main drawback lays in the fact you'll need a polling mechanism in order to monitor if something changed in the application.    
-In other words, you'll need to regularly ask what were the last updated DAM assets, in order to synchronize them with the PIM.
+In other words, you'll need to regularly ask which were the last updated DAM assets, in order to synchronize them with the PIM.
 
 ### Queuing systems
 Queuing systems offer the possibility to get closer to real-time and are run asynchronously, protecting your connector from too many simultaneous requests.
