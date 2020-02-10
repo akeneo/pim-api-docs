@@ -116,7 +116,7 @@ You should handle errors on DAM and PIM sides (unavailable server, authenticatio
 Here are the [client errors](/documentation/responses.html#client-errors) that you can have on the PIM side, with our PHP client.
 
 ::: info
-If you are [creating/updating multiple assets at once](/php-client/exception.html), the API will return a list of errors for each attribute that it couldn't create or update successfully.  
+If you are [creating/updating multiple assets at once](/php-client/exception.html), the API will return a list of errors for each attribute that couldn't be created or updated successfully.  
 You'll need to find a way to run the calls again for the assets that have not been synchronized.
 :::
 
