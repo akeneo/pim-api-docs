@@ -872,7 +872,7 @@ You want to erase the `short_description` of the `kartell` reference entity reco
 ```
 
 ::: info 
-Wondering how to format the `data` property in these reference entity record values? In fact, it depends on the attribute type. [More details right here!](/documentation/resources.html#reference-entity-record-values)
+Wondering how to format the `data` property in these reference entity record values? In fact, it depends on the attribute type. [More details right here!](/concepts/reference-entities.html#focus-on-the-reference-entity-record-values)
 :::
 
 

@@ -237,7 +237,7 @@ You can get more information about the expected format of the product values [he
 
 :::warning
 If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the product you try to upsert.
-If you have edit rights but do not own the product, then it will create a [product draft](/php-client/ee-resources.html#product-draft) instead of updating the product.
+If you have edit rights but do not own the product, then it will create a [product draft](/php-client/resources.html#product-draft) instead of updating the product.
 :::
 
 #### Upsert a list of products 

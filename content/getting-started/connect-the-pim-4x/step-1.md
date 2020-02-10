@@ -25,7 +25,7 @@ As a connection corresponds to one specific connection, we will name our connect
 
 Follow these steps:
 1. Log into your 4.x PIM.  
-_Sidenote: This tutorial is dedicated to 4.x PIMs. Here is the one for [older PIM versions](/getting-started/create-a-connector-old)._
+_Sidenote: This tutorial is dedicated to 4.x PIMs. Here is the one for [older PIM versions](/getting-started/connect-the-pim-old)._
 1. Click on the `System` menu.
 1. Click on the `Connections` submenu.
 1. Click on the `Create` button.

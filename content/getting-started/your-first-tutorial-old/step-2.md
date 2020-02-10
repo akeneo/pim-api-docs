@@ -33,7 +33,7 @@ A new environment should also have been created in the dropdown in the top right
 ![Postman environment popin](/img/getting-started/postman-environment-old-popin.png)
 8. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.x PIM is hosted.
 ![Url in environment](/img/getting-started/url-environment-old.png)
-9. In the `clientId`, `secret`, `username` and `password` fields, enter the credentials you grabbed during [step 1](/getting-started/my-first-tutorial-old/step-1.html).
+9. In the `clientId`, `secret`, `username` and `password` fields, enter the credentials you grabbed during [step 1](/getting-started/your-first-tutorial-old/step-1.html).
 ![Credentials copy/pasted in Postman](/img/getting-started/copy-past-credentials-old.png)
 
 That's it for this step!

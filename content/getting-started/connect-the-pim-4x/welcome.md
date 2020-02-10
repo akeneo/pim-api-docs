@@ -20,7 +20,7 @@ And of course, you also have to make sure that you can access it from where you 
 If you do not have access to a 4.x version of Akeneo PIM, please get in touch with [Akeneo team](mailto:partners@akeneo.com) or your Channel Manager. 
 :::
 ::: info
-This tutorial is dedicated to 4.x PIMs. If you are working on a previous PIM version, we also got you covered! :wink: There is a tutorial for you right [here](/guides/getting-started/create-a-connector-old/welcome.html).
+This tutorial is dedicated to 4.x PIMs. If you are working on a previous PIM version, we also got you covered! :wink: There is a tutorial for you right [here](/getting-started/connect-the-pim-old/welcome.html).
 ::: 
 
 <i class="fa fa-check-square"></i> **You already know to which third party you want to connect your PIM.**  
