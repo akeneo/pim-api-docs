@@ -360,7 +360,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
 gulp.task('build-rest-api', ['clean-dist','less'], function () {
 
     var pages = {
-        'why-the-API.md': "Why the API?",
+        'why-the-api.md': "Why the API?",
         'overview.md': 'Overview',
         'authentication.md': 'Authentication',
         'permissions.md': 'Permissions',
