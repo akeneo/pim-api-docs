@@ -33,7 +33,7 @@ There are two main ways to connect a DAM and a PIM:
 Both have their advantages and drawbacks.
 
 For those who are not comfortable with these different ways to connect, below is a bit of literature to learn more about them.  
-For the others, you can skip this part. :wink:
+For the other ones, you can skip this part. :wink:
 
 ### API (REST/GraphQL)
 It is the most common way to connect with an external application.
