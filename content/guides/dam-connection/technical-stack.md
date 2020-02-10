@@ -53,7 +53,7 @@ Then the connector will consume these messages.
 
 ### Webhooks
 
-With webhooks, the DAM will send freshly created assets and updated assets values to your connector.
+With webhooks, the DAM will send newly created assets and updated asset values to your connector.
 It allows you to have some kind of "real-time" asset synchronization between your DAM and your PIM.
 
 ![Webhooks Schema](../../img/guides/dam_pim-connection_webhook.svg)
