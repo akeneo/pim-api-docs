@@ -1,7 +1,7 @@
 ### Published product
 
 #### Get a published product 
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -51,7 +51,7 @@ The field `product_models` in the `associations` property was added in the 2.1 v
 :::
 
 #### Get a list of published products
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=EE
 
 There are two ways of getting published products. Like for the products, you can use the [search builder](/php-client/resources.html#search-builder) to ease the construction of a research.
 

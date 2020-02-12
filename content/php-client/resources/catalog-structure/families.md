@@ -1,7 +1,7 @@
 ### Family
 
 #### Get a family 
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -27,7 +27,7 @@ $family = $client->getFamilyApi()->get('master');
 ```
 
 #### Get a list of families 
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 There are two ways of getting families. 
 
@@ -57,7 +57,7 @@ $families = $client->getFamilyApi()->all(50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Create a family 
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 If the family does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -80,7 +80,7 @@ $client->getFamilyApi()->create('caps', [
 ```
 
 #### Upsert a family 
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 If the family does not exist yet, this method creates it, otherwise it updates it.
 
@@ -103,7 +103,7 @@ $client->getFamilyApi()->upsert('cap', [
 ```
 
 #### Upsert a list of families 
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 This method allows to create or update a list of families.
 It has the same behavior as the `upsert` method for a single family, except that the code must be specified in the data of each family.

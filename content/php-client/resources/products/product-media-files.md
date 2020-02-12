@@ -1,7 +1,7 @@
 ### Product media file
 
 #### Get media file information
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -25,7 +25,7 @@ $media = $client->getProductMediaFileApi()->get('code/example');
 ```
 
 #### Download media file 
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -43,7 +43,7 @@ file_put_contents('/tmp/bridge.jpg', $product->getBody()->getContents());
 ```
 
 #### Get a list of media file information
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE 
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE 
 
 There are two ways of getting media files.
 
@@ -74,7 +74,7 @@ $mediaFiles = $client->getProductMediaFileApi()->all(50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Create a new media file 
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 When you create a media file, you can directly associate it to either a product or a product model.
 

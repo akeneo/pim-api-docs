@@ -7,7 +7,7 @@ Also, did you know that since the PIM 3.2 (or the 5.0 of the client), you can ha
 :::
 
 #### Get an asset tag
-::: availability versions=2.0,3.0,4.0,5.0 editions=EE
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -22,7 +22,7 @@ $assetTag = $client->getAssetTagApi()->get('water');
 ```
 
 #### Get a list of asset tags
-::: availability versions=2.0,3.0,4.0,5.0 editions=EE
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 There are two ways of getting asset tags.
 
@@ -51,7 +51,7 @@ $assetTags = $client->getAssetTagApi()->all(50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Upsert an asset tag
-::: availability versions=2.0,3.0,4.0,5.0 editions=EE
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 If the asset tag does not exist yet, this method creates it, otherwise it updates it.
 

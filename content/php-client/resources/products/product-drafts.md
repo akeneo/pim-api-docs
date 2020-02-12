@@ -1,7 +1,7 @@
 ### Product draft
 
 #### Get a product draft 
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -56,7 +56,7 @@ The field `product_models` in the `associations` property was added in the 2.1 v
 :::
 
 #### Submit a product draft for approval
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

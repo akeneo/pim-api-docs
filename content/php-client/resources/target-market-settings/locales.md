@@ -1,7 +1,7 @@
 ### Locale
 
 #### Get a locale
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -17,7 +17,7 @@ $locale = $client->getLocaleApi()->get('en_US');
 ```
 
 #### Get a list of locales
-::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 There are two ways of getting locales.
 
