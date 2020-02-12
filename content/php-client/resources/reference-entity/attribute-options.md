@@ -1,14 +1,7 @@
 ### Reference entity attribute option
 
-::: warning
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
-:::
-
-:::warning
-This resource is only available since the version 4.0 of the PHP API client.
-:::
-
 #### Get an attribute option for a given attribute of a given reference entity
+::: php-client-availability versions=4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -27,6 +20,7 @@ $referenceEntityAttributeOption = $client->getReferenceEntityAttributeOptionApi(
 ```
 
 #### Get the list of attribute options of a given attribute for a given reference entity
+::: php-client-availability versions=4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -35,6 +29,7 @@ $referenceEntityAttributeOptions = $client->getReferenceEntityAttributeOptionApi
 ```
 
 #### Upsert an attribute option for a given attribute of a given reference entity
+::: php-client-availability versions=4.0,5.0 editions=EE
 
 If the attribute option does not exist yet, this method creates it, otherwise it updates it.
 

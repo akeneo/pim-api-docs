@@ -1,14 +1,7 @@
 ### Reference entity attribute
 
-::: warning
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
-:::
-
-:::warning
-This resource is only available since the version 4.0 of the PHP API client.
-:::
-
 #### Get an attribute of a given reference entity
+::: php-client-availability versions=4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -36,6 +29,7 @@ $referenceEntityAttribute = $client->getReferenceEntityAttributeApi()->get('bran
 ```
 
 #### Get the list of attributes of a given reference entity
+::: php-client-availability versions=4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -44,6 +38,7 @@ $referenceEntityRecordsCursor = $client->getReferenceEntityAttributeApi()->all('
 ```
 
 #### Upsert an attribute of a given reference entity
+::: php-client-availability versions=4.0,5.0 editions=EE
 
 If the attribute does not exist yet, this method creates it, otherwise it updates it.
 

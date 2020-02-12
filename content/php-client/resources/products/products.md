@@ -1,6 +1,7 @@
 ### Product
 
 #### Get a product 
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -53,6 +54,7 @@ The field `product_models` in the `associations` property was added in the 2.1 v
 :::
 
 #### Get a list of products
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 There are two ways of getting products. Also, you have a search builder to ease the construction of a research.
 
@@ -102,7 +104,7 @@ There is a maximum limit allowed on server side for the parameter `limit`.
 :::
 
 ::: warning
-Setting the parameter `with_count`  to `true`  can drastically decrease the performance. 
+Setting the parameter `with_count`  to `true`  can drastically decrease the performance.  
 It's recommended to let this parameter with the default value `false` if the total number of products is not needed in the response.
 :::
 
@@ -140,6 +142,7 @@ You can get more information about this method [here](/php-client/list-resources
 You can get more information about the available query parameters [here](/api-reference.html#get_products).
 
 #### Create a product 
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 If the product does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -170,7 +173,7 @@ $client->getProductApi()->create('top', [
                 'data' => [
                     [
                         'amount' => '15.5',
-                        'currency => 'EUR',
+                        'currency' => 'EUR',
                     ],
                     [
                         'amount' => '15',
@@ -188,6 +191,7 @@ $client->getProductApi()->create('top', [
 You can get more information about the expected format of the product values [here](/concepts/products.html#focus-on-the-products-values).
 
 #### Upsert a product 
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 If the product does not exist yet, this method creates it, otherwise it updates it.
 
@@ -218,7 +222,7 @@ $client->getProductApi()->upsert('top', [
                 'data' => [
                     [
                         'amount' => '15.5',
-                        'currency => 'EUR',
+                        'currency' => 'EUR',
                     ],
                     [
                         'amount' => '15',
@@ -241,6 +245,7 @@ If you have edit rights but do not own the product, then it will create a [produ
 :::
 
 #### Upsert a list of products 
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 This method allows to create or update a list of products.
 It has the same behavior as the `upsert` method for a single product, except that the code must be specified in the data of each product.
@@ -297,6 +302,7 @@ There is a limit on the maximum number of products that you can upsert in one ti
 You can get a complete description of the expected format and the returned format [here](/api-reference.html#get_products__code_).
 
 #### Delete a product
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

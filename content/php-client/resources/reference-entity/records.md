@@ -1,14 +1,7 @@
 ### Reference entity record
 
-::: warning
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
-:::
-
-:::warning
-This resource is only available since the version 4.0 of the PHP API client.
-:::
-
 #### Get a record of a given reference entity
+::: php-client-availability versions=4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -58,7 +51,8 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
 $referenceEntityRecord = $client->getReferenceEntityRecordApi()->get('brand', 'kartell');
 ```
 
-#### Get the list of the records of a reference entity 
+#### Get the list of the records of a reference entity
+::: php-client-availability versions=4.0,5.0 editions=EE 
 
 Records are automatically paginated and can be filtered.
 
@@ -71,6 +65,7 @@ $referenceEntityRecordsCursor = $client->getReferenceEntityRecordApi()->all('bra
 ```
 
 #### Upsert a record of a given reference entity
+::: php-client-availability versions=4.0,5.0 editions=EE
 
 If the record does not exist yet, this method creates it, otherwise it updates it.
 
@@ -99,6 +94,7 @@ $client->getReferenceEntityRecordApi()->upsert('brand', 'kartell', [
 ```
 
 #### Upsert a list of records of a given reference entity 
+::: php-client-availability versions=4.0,5.0 editions=EE
 
 This method allows to create or update a list of records of a given reference entity.
 It has the same behavior as the `upsert` method for a single record.

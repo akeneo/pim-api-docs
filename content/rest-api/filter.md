@@ -345,7 +345,9 @@ To get the product models that were updated during the last 4 days, you can use 
 ```
 
 ## Filter on product values
-To filter products, and product models since the v2.3, on its [product values](/concepts/products.html#focus-on-the-products-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
+To filter products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-products-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
 /api/rest/v1/products?search={ATTIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
@@ -437,6 +439,7 @@ This query parameter is also available for the published products.
 As seen previously, the attribute type determines which set of operators is available to use these filters.
 
 **The `pim_catalog_identifier`, `pim_catalog_text` and `pim_catalog_textarea` attribute types**
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 | Allowed operators | Allowed value type |
 | ---------- | ---------- |
@@ -445,6 +448,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY | no value |
 
 **The `pim_catalog_number`, `pim_catalog_metric` and `pim_catalog_price_collection` attribute types**
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 | Allowed operators | Allowed value type |
 | ---------- | ---------- |
@@ -452,6 +456,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY | no value |
 
 **The `pim_catalog_simpleselect` and `pim_catalog_multiselect` attribute types**
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 | Allowed operators | Allowed value type |
 | ---------- | ---------- |
@@ -459,12 +464,14 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY | no value |
 
 **The `pim_catalog_boolean` attribute type**
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 | Allowed operators | Allowed value type |
 | ---------- | ---------- |
 | =, != | boolean |
 
 **The `pim_catalog_date` attribute type**
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 | Allowed operators | Allowed value type |
 | ---------- | ---------- |
@@ -473,6 +480,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY | no value |
 
 **The `pim_catalog_file` and `pim_catalog_image` attribute types**
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
 
 | Allowed operators | Allowed value type |
 | ---------- | ---------- |

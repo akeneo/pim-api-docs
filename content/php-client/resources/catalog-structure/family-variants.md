@@ -1,6 +1,7 @@
 ### Family variant
 
 #### Get a family variant
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -32,6 +33,7 @@ $familyVariant = $client->getFamilyVariantApi()->get('boots', 'boots_color_size'
 ```
 
 #### Create a family variant
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 If the family variant does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -58,6 +60,7 @@ $client->getFamilyVariantApi()->create('boots', 'boots_size_color', [
 ```
 
 #### Get a list of family variants
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 There are two ways of getting family variants.
 
@@ -100,6 +103,7 @@ There is a maximum limit allowed on server side for the parameter `pageSize`.
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Upsert a family variant
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 If the family variant does not exist yet, this method creates it, otherwise it updates it.
 
@@ -117,6 +121,7 @@ $client->getFamilyVariantApi()->upsert('boots', [
 ```
 
 #### Upsert a list of family variants
+::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 This method allows to create or update a list of family variants.
 It has the same behavior as the `upsert` method for a single family variant, except that the code must be specified in the data of each family variant.

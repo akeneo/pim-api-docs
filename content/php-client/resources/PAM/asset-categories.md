@@ -1,5 +1,5 @@
 ::: warning
-With the introduction of our brand new way to handle assets, the Asset Manager, the PAM feature will be removed from the v4.0 of the PIM. As a result, **from now on, all the methods regarding the PAM assets are deprecated**. They will not be available anymore starting from the v6.0 of the PHP client.   
+With the introduction of our brand new way to handle assets, the Asset Manager, the PAM feature will be removed from the v4.0 of the PIM. As a result, **from now on, all the methods regarding the PAM assets are deprecated**.   
 To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
 Also, don't hesitate to take a look at the [Asset Manager documentation](/documentation/asset-manager.html) to discover this new feature and how much more efficient it will be to handle your precious assets.
 :::
@@ -7,16 +7,13 @@ Also, don't hesitate to take a look at the [Asset Manager documentation](/docume
 ### Asset category _- Deprecated_
 
 ::: warning
-This resource is **deprecated**. It means that it will be removed in the next PHP client version, aka the 6.0. As a result, from now on, all the endpoints regarding this resource are deprecated. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
-Also, did you know that since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, categories can be modelized thanks to a [single or multiple options attribute](/documentation/asset-manager.html#the-single-and-multiple-options-attributes) in your [asset family](/documentation/asset-manager.html#the-asset-family).  
+This resource is **deprecated**. It means that it may be removed in a future version of the PHP client. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
+Also, did you know that since the PIM 3.2 (or the 5.0 of the client), you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, categories can be modelized thanks to a [single or multiple options attribute](/documentation/asset-manager.html#the-single-and-multiple-options-attributes) in your [asset family](/documentation/asset-manager.html#the-asset-family).  
 [Eager to know more about the Asset Manager? It's right here!](/documentation/asset-manager.html#concepts-resources)
 :::
 
-:::info
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/) and since the version 2.0 of the PHP API client.
-:::
-
 #### Get an asset category
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -36,6 +33,7 @@ $assetCategory = $client->getAssetCategoryApi()->get('face');
 ```
 
 #### Get a list of asset categories
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 There are two ways of getting asset categories. 
 
@@ -65,6 +63,7 @@ $assetCategories = $client->getAssetCategoryApi()->all(50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Upsert an asset category
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 If the asset category does not exist yet, this method creates it, otherwise it updates it.
 
@@ -81,6 +80,7 @@ $client->getAssetCategoryApi()->upsert('dos', [
 ```
 
 #### Upsert a list of asset categories
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 This method allows to create or update a list of asset categories.
 It has the same behavior as the `upsert` method for a single asset category, except that the code must be specified in the data of each asset category.

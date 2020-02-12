@@ -135,6 +135,28 @@ md.use(require('markdown-it-container'), 'availability', {
         return html;
     }
 });
+md.use(require('markdown-it-container'), 'php-client-availability', {
+    validate: function(params) {
+        return params.trim().match(/^php-client-availability(.*)$/);
+    },
+    render: function (tokens, idx) {
+        var versionsAndEditions = tokens[idx].info.trim().match(/^php-client-availability\sversions=(.*)\seditions=(.*)$/);
+        var html = '';
+        if(tokens[idx].nesting === 1) {
+            var versions = versionsAndEditions[1].split(',');
+            html += _.reduce(versions, function(res, version) {
+                return res + ' <span class="label label-version">' + version + '</span>';
+            }, '<p><em class="small text-primary">Available in the client versions:</em>');
+            var editions = versionsAndEditions[2].split(',');
+            html += _.reduce(editions, function(res, edition) {
+                return res + ' <span class="label label-info">' + edition + '</span>';
+            }, '<em class="small text-primary">&nbsp;&nbsp;|&nbsp;&nbsp;Available in the client editions:</em>');
+        } else {
+            html = '</p>';
+        }
+        return html;
+    }
+});
 md.use(require('markdown-it-container'), 'version-screenshots', {
     validate: function(params) {
         return params.trim().match(/^version-screenshots(.*)$/);
@@ -435,7 +457,7 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
 );
 
 gulp.task('create-products-md', function () {
-    return gulp.src(['content/php-client/resources/products/product.md','content/php-client/resources/products/*.md'])
+    return gulp.src(['content/php-client/resources/products/products.md','content/php-client/resources/products/product-models.md','content/php-client/resources/products/*.md'])
         .pipe(concat('products.md'))
         .pipe(insert.prepend('## Products\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));

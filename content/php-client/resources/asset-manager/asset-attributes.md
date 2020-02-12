@@ -1,16 +1,8 @@
 ### Asset attribute
-
 We refer here to the asset attribute option of the [Asset Manager](/concepts/asset-manager.html#asset-attribute).
 
-::: warning
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
-:::
-
-:::warning
-This resource is only available since the version 5.0 of the PHP API client.
-:::
-
 #### Get an attribute of a given asset family
+::: php-client-availability versions=5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -35,6 +27,7 @@ $client->getAssetAttributeApi()->get('user_instructions', 'label');
 ```
 
 #### Get the list of attributes of a given asset
+::: php-client-availability versions=5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -43,6 +36,7 @@ $client->getAssetAttributeApi()->all('user_instructions');
 ```
 
 #### Upsert an attribute of a given asset family
+::: php-client-availability versions=5.0 editions=EE
 
 If the attribute does not exist yet, this method creates it, otherwise it updates it.
 

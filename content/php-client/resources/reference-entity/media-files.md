@@ -1,14 +1,7 @@
 ### Reference entity media file
 
-::: warning
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
-:::
-
-:::warning
-This resource is only available since the version 4.0 of the PHP API client.
-:::
-
 #### Download the media file associated to a reference entity or a record
+::: php-client-availability versions=4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -16,9 +9,10 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
 $mediaFileResponse = $client->getReferenceEntityMediaFileApi()->download('images/kartell.png');
 ```
 
-From the response, you can retrieve the file name in the header "Content-Disposition" and the mime type in the header "Content-Type"
+From the response, you can retrieve the file name in the header "Content-Disposition" and the mime type in the header "Content-Type".
 
 #### Create a new media file for a reference entity or a record
+::: php-client-availability versions=4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

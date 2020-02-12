@@ -1,16 +1,13 @@
 ### Asset reference file _- Deprecated_
 
 ::: warning
-This resource is **deprecated**. It means that it will be removed in the next PHP client version, aka the 6.0. As a result, from now on, all the endpoints regarding this resource are deprecated. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
-Also, did you know that since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, asset reference files can be modelized thanks to [media file attributes](/documentation/asset-manager.html#the-media-file-attribute) in your [asset family](/documentation/asset-manager.html#the-asset-family).  
+This resource is **deprecated**. It means that it may be removed in a future version of the PHP client. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
+Also, did you know that since the PIM 3.2 (or the 5.0 of the client), you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, asset reference files can be modelized thanks to [media file attributes](/documentation/asset-manager.html#the-media-file-attribute) in your [asset family](/documentation/asset-manager.html#the-asset-family).  
 [Eager to know more about the Asset Manager? It's right here!](/documentation/asset-manager.html#concepts-resources)
 :::
 
-:::info
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/) and since the version 2.0 of the PHP API client.
-:::
-
 #### Get a reference file of a localizable asset
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -31,6 +28,7 @@ $product = $client->getAssetReferenceFileApi()->getFromLocalizableAsset('chicago
 ```
 
 #### Get a reference file of a not localizable asset
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -51,6 +49,7 @@ $product = $client->getAssetReferenceFileApi()->getFromNotLocalizableAsset('brid
 ```
 
 #### Download a reference file of a localizable asset
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -68,6 +67,7 @@ file_put_contents('/tmp/chicagoskyline.jpg', $product->getBody()->getContents())
 ```
 
 #### Download a reference file of a not localizable asset
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -85,6 +85,7 @@ file_put_contents('/tmp/bridge.jpg', $product->getBody()->getContents());
 ```
 
 #### Upload an asset reference file for a localizable asset
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -125,6 +126,7 @@ try {
 ```
 
 #### Upload an asset reference file for a not localizable asset
+::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

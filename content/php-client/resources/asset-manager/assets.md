@@ -2,15 +2,8 @@
 
 We refer here to the asset of the [Asset Manager](/concepts/asset-manager.html#asset).
 
-::: warning
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
-:::
-
-:::warning
-This resource is only available since the version 5.0 of the PHP API client.
-:::
-
-#### Get a asset of a given asset family
+#### Get an asset of a given asset family
+::: php-client-availability versions=5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -34,6 +27,7 @@ $client->getAssetManagerApi()->get('user_instructions', 'jeans_care_instructions
 ```
 
 #### Get the list of the assets of a asset family 
+::: php-client-availability versions=5.0 editions=EE
 
 Assets are automatically paginated and can be filtered.
 
@@ -45,7 +39,8 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
 $cursor = $client->getAssetManagerApi()->all('user_instructions');
 ```
 
-#### Upsert a asset of a given asset family
+#### Upsert an asset of a given asset family
+::: php-client-availability versions=5.0 editions=EE
 
 If the asset does not exist yet, this method creates it, otherwise it updates it.
 
@@ -62,7 +57,8 @@ $client->getAssetManagerApi()->upsert('user_instructions', 'jeans_care_instructi
 ]);
 ```
 
-#### Upsert a list of assets of a given asset family 
+#### Upsert a list of assets of a given asset family
+::: php-client-availability versions=5.0 editions=EE 
 
 This method allows to create or update a list of assets of a given asset family.
 It has the same behavior as the `upsert` method for a single asset.

@@ -190,6 +190,8 @@ Any data in non specified properties will be left untouched.
 ## Concrete use cases
 
 ### Move a category
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
 You want to move the `boot` category from the category `master` to the category `shoes`. Here is how you can achieve it.
 
 **Original resource**
@@ -224,6 +226,8 @@ You want to move the `boot` category from the category `master` to the category 
 ```
 
 ### Modify a category label
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
 For the locale `fr_FR`, you want to change the label of the category `boots` from `Bottes` to `Bottines`. Here is how you can achieve it.
 
 **Original resource**
@@ -260,6 +264,8 @@ For the locale `fr_FR`, you want to change the label of the category `boots` fro
 ```
 
 ### Place a product in a new category
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
 You want to place the product `boots-4846` in the new category `winter_collection`. Here is how you can achieve it.
 
 **Original resource**
@@ -286,6 +292,8 @@ You want to place the product `boots-4846` in the new category `winter_collectio
 ```
 
 ### Remove a product from a category
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
 You want to remove the product `boots-4846` from the category `boots`. Here is how you can achieve it.
 
 **Original resource**
@@ -312,6 +320,8 @@ You want to remove the product `boots-4846` from the category `boots`. Here is h
 ```
 
 ## Update product values
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
 
 The PATCH behavior described above is quite intuitive. However, applying a PATCH containing [product values](/concepts/products.html#focus-on-the-products-values) on a product is a bit different.
 
@@ -322,6 +332,8 @@ In the examples below only products values are represented, but usually products
 :::
 
 ### Add a product value
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
 You want to add the `description` of the product `boots-4846` for the `en_US` locale.
 
 **Original resource**
@@ -383,6 +395,8 @@ Wondering how to format the `data` property in these product values? In fact, it
 :::
 
 ### Modify a product value
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
 
 #### First example
 You want to modify the `name` of the product `boots-4846` for the `en_US` locale.
@@ -527,6 +541,8 @@ Wondering how to format the `data` property in these product values? In fact, it
 :::
 
 ### Erase a product value
+::: availability versions=1.7,2.0,2.1,2.2,2.3,3.0,3.1,3.2,4.0 editions=CE,EE
+
 You want to erase the `name` of the product `boots-4846` for the `en_US` locale.
 
 **Original resource**
@@ -590,12 +606,13 @@ You want to erase the `name` of the product `boots-4846` for the `en_US` locale.
 }
 ```
 
-
 ::: info 
 Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/concepts/products.html#focus-on-the-products-values)
 :::
 
 ## Update reference entity record values
+::: availability versions=3.0,3.1,3.2,4.0 editions=EE
+:::
 
 Applying a PATCH on a reference entity record containing values is also a bit different. Below we present three use cases to update these reference entity record values.
 
@@ -603,6 +620,8 @@ Applying a PATCH on a reference entity record containing values is also a bit di
 :::
 
 ### Add a reference entity record value
+::: availability versions=3.0,3.1,3.2,4.0 editions=EE
+:::
 You want to add the `short_description` of the reference entity record `kartell` for the `en_US` locale.
 
 **Original resource**
@@ -664,6 +683,8 @@ Wondering how to format the `data` property in these reference entity record val
 :::
 
 ### Modify a reference entity record value
+::: availability versions=3.0,3.1,3.2,4.0 editions=EE
+:::
 
 #### First example
 You want to modify the `short_description` of the `kartell` reference entity record for the `en_US` locale.
@@ -808,6 +829,8 @@ Wondering how to format the `data` property in these reference entity record val
 :::
 
 ### Erase a reference entity record value
+::: availability versions=3.0,3.1,3.2,4.0 editions=EE
+:::
 You want to erase the `short_description` of the `kartell` reference entity record for the `en_US` locale.
 
 **Original resource**
@@ -877,6 +900,8 @@ Wondering how to format the `data` property in these reference entity record val
 
 
 ## Update asset values
+::: availability versions=3.2,4.0 editions=EE
+:::
 
 Applying a PATCH on an asset containing values is also a bit different. Below we present three use cases to update these asset values.
 
@@ -941,6 +966,8 @@ You want to add the `warning_message` of the `allie_jean_picture` asset for the 
 ```
 
 ### Modify an asset value
+::: availability versions=3.2,4.0 editions=EE
+:::
 
 #### First example
 You want to modify the `warning_message` of the `allie_jean_picture` asset for the `en_US` locale and the `mobile` channel.
@@ -1081,6 +1108,8 @@ You want to modify the `alt_tag` of the `allie_jean_picture` asset for the `fr_F
 ```
 
 ### Erase an asset value
+::: availability versions=3.2,4.0 editions=EE
+:::
 You want to erase the `alt_tag` of the `allie_jean_picture` asset for the `en_US` locale.
 
 **Original resource**
