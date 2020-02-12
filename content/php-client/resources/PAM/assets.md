@@ -1,16 +1,13 @@
 ### Asset _- Deprecated_
 
 ::: warning
-This resource is **deprecated**. It means that it will be removed in the next PHP client version, aka the 6.0. As a result, from now on, all the methods regarding this resource are deprecated. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
-Also, did you know that since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM.  
+This resource is **deprecated**. It means that it may be removed in a future version of the PHP client. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
+Also, did you know that since the PIM 3.2 (or the 5.0 of the client), you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM.  
 [Eager to know more about these new assets? It's right here!](/documentation/asset-manager.html#the-asset)
 :::
 
-:::info
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/) and since the version 2.0 of the PHP API client.
-:::
-
 #### Get an asset 
+::: availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -77,6 +74,7 @@ $asset = $client->getAssetApi()->get('bridge');
 ```
 
 #### Get a list of assets 
+::: availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 There are two ways of getting assets. 
 
@@ -106,6 +104,7 @@ $assets = $client->getAssetApi()->all(50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Create an asset 
+::: availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 If the asset does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -122,6 +121,7 @@ $client->getAssetApi()->create('unicorn', [
 ```
 
 #### Upsert an asset 
+::: availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 If the asset does not exist yet, this method creates it, otherwise it updates it.
 
@@ -138,6 +138,7 @@ $client->getAssetApi()->upsert('bridge', [
 ```
 
 #### Upsert a list of assets 
+::: availability versions=2.0,3.0,4.0,5.0 editions=EE
 
 This method allows to create or update a list of assets.
 It has the same behavior as the `upsert` method for a single asset, except that the code must be specified in the data of each asset.

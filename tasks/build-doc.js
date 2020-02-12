@@ -435,7 +435,7 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
 );
 
 gulp.task('create-products-md', function () {
-    return gulp.src(['content/php-client/resources/products/product.md','content/php-client/resources/products/*.md'])
+    return gulp.src(['content/php-client/resources/products/products.md','content/php-client/resources/products/product-models.md','content/php-client/resources/products/*.md'])
         .pipe(concat('products.md'))
         .pipe(insert.prepend('## Products\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));

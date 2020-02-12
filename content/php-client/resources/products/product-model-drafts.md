@@ -1,10 +1,7 @@
 ### Product model draft
 
-::: warning
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/) and in the 3.0 version of the PHP API client.
-:::
-
 #### Get a product model draft 
+::: availability versions=3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -41,6 +38,7 @@ The field `metadata` is specific to Akeneo PIM Enterprise Edition. The status of
 
 
 #### Submit a product model draft for approval
+::: availability versions=3.0,4.0,5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

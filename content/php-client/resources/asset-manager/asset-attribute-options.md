@@ -2,15 +2,8 @@
 
 We refer here to the asset attribute option of the [Asset Manager](/concepts/asset-manager.html#asset-attribute-option).
 
-::: warning
-This resource is only available in the [Entreprise Edition](https://www.akeneo.com/enterprise-edition/).
-:::
-
-:::warning
-This resource is only available since the version 5.0 of the PHP API client.
-:::
-
 #### Get an attribute option for a given attribute of a given asset
+::: availability versions=5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -30,6 +23,7 @@ $client->getAssetAttributeOptionApi()->get('packshot', 'main_colors', 'blue);
 ```
 
 #### Get the list of attribute options of a given attribute for a given asset
+::: availability versions=5.0 editions=EE
 
 ```php
 $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -38,6 +32,7 @@ $client->getAssetAttributeOptionApi()->all('packshot', 'main_colors');
 ```
 
 #### Upsert an attribute option for a given attribute of a given asset
+::: availability versions=5.0 editions=EE
 
 If the attribute option does not exist yet, this method creates it, otherwise it updates it.
 

@@ -1,6 +1,7 @@
 ### Attribute option
 
 #### Get an attribute option
+::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -21,6 +22,7 @@ $attributeOption = $client->getAttributeOptionApi()->get('a_simple_select', 'bla
 ```
 
 #### Get a list of attribute options
+::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 There are two ways of getting attribute options. 
 
@@ -49,6 +51,7 @@ $attributes = $client->getAttributeOptionApi()->all('a_simple_select', 50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Create an attribute 
+::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 If the attribute option does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -67,6 +70,7 @@ $client->getAttributeOptionApi()->create('a_simple_select', 'black', [
 ```
 
 #### Upsert an attribute option
+::: availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
 If the attribute option does not exist yet, this method creates it, otherwise it updates it.
 
@@ -85,10 +89,7 @@ $client->getAttributeOptionApi()->upsert('a_simple_select', 'black', [
 ```
 
 #### Upsert a list of attribute options
-
-:::warning
-Only available since the version 2.0 of the PHP API client.
-:::
+::: availability versions=2.0,3.0,4.0,5.0 editions=CE,EE
 
 This method allows to create or update a list of attribute options.
 It has the same behavior as the `upsert` method for a single attribute option, except that the code and the attribute must be specified in the data of each attribute option.
