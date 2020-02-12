@@ -95,7 +95,7 @@ properties:
   media_type:
    type: string
    description: For the `media_link` attribute type, it is the type of the media behind the url, to allow its preview in the PIM. For the `media_file` attribute type, it is the type of the file.
-   enum: ['image', 'pdf', 'youtube', 'other']
+   enum: ['image', 'pdf', 'youtube', 'vimeo', 'other']
    x-warning: Only required for `media_link` and `media_file` attribute types
   prefix:
    type: string

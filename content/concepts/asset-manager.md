@@ -211,14 +211,14 @@ These asset attributes cannot be localizable neither scopable.
 Not comfortable with regular expressions? You can try yours [right here](https://regex101.com/)!
 :::
 
-Let's take an example to make this clearer! 
+Let's take an example to make this clearer!
 ```regexp
 /^(?P<product_ref>.*)_(?P<attribute_ref>.*)\\.jpg$/
 ```
 The regexp above will split the source string into three parts, thanks to two named capture groups:
 - `(?P<product_ref>.*)` is the first capture group. It is named `product_ref`. So, the result of this capture will be sent into the `product_ref` asset attribute. The `product_ref` attribute should exist in the asset family.
 - `(?P<attribute_ref>.*)` is the second capture group. It is named `attribute_ref`. So, the result of this capture will be sent to the `attribute_ref` asset attribute. The `attribute_ref` attribute should exist in the asset family.
-Let's say our source string is equal to `allie_jean-picture-packshot.png`. After the naming convention application, the `product_ref` asset attribute will contain the value "allie_jean" and the `attribute_ref` asset attribute will contain the value "packshot". 
+Let's say our source string is equal to `allie_jean-picture-packshot.png`. After the naming convention application, the `product_ref` asset attribute will contain the value "allie_jean" and the `attribute_ref` asset attribute will contain the value "packshot".
 
 ### Abortion on error
 
@@ -369,7 +369,7 @@ The `field`, `operator` and `value` properties are mandatory.
 
 ::: warning
 The `locale` and `channel` properties should not appear in your product selection, whenever you are using the following `FIELD_NAME`: `categories`, `family` and `enable`.  
-But they are mandatory when the `FIELD_NAME` is a product attribute code. 
+But they are mandatory when the `FIELD_NAME` is a product attribute code.
 If the `FIELD_NAME` is the code of an attribute that is not localizable, the `locale` property should be set to `null`.  
 If the `FIELD_NAME` is the code of an attribute that is not scopable, the `channel` property should be set to `null`.  
 :::
@@ -1011,7 +1011,7 @@ You can have up to **10** different transformations for one given asset family a
 
 The JSON format of the transformations is an array of transformations. A transformation is composed of several parts:
 - a [label](#label), to name your transformation,
-- a [filename part](#target-filename), 
+- a [filename part](#target-filename),
 - the [`source` part](#source-file),
 - the [`target` part](#target-file),
 - the [`operations` part](#transformation-operations).
@@ -1140,9 +1140,9 @@ In this formula:
  - `SOURCE_CHANNEL_CODE` is an existing channel code when `MEDIA_FILE_ATTRIBUTE_NAME` is the code of a scopable asset attribute.
 
 ::: warning
-The `attribute`, `locale` and `channel` properties are mandatory. 
+The `attribute`, `locale` and `channel` properties are mandatory.
 If the `MEDIA_FILE_ATTRIBUTE_NAME` is the code of an attribute that is not localizable, the `locale` property should be set to `null`.  
-If the `MEDIA_FILE_ATTRIBUTE_NAME` is the code of an attribute that is not scopable, the `channel` property should be set to `null`. 
+If the `MEDIA_FILE_ATTRIBUTE_NAME` is the code of an attribute that is not scopable, the `channel` property should be set to `null`.
 :::
 
 ::: info
@@ -1170,9 +1170,9 @@ In this formula:
  - `TARGET_CHANNEL_CODE` is an existing channel code when `MEDIA_FILE_ATTRIBUTE_NAME` is the code of a scopable asset attribute.
 
 ::: warning
-The `attribute`, `locale` and `channel` properties are mandatory. 
+The `attribute`, `locale` and `channel` properties are mandatory.
 If the `MEDIA_FILE_ATTRIBUTE_NAME` is the code of an attribute that is not localizable, the `locale` property should be set to `null`.  
-If the `MEDIA_FILE_ATTRIBUTE_NAME` is the code of an attribute that is not scopable, the `channel` property should be set to `null`. 
+If the `MEDIA_FILE_ATTRIBUTE_NAME` is the code of an attribute that is not scopable, the `channel` property should be set to `null`.
 :::
 
 ::: info
@@ -1181,7 +1181,7 @@ There are additionnal business rules regarding this `target` property whenever y
 
 ### Target filename
 
-You can give a name to the generated target file. By default, the naming is based on the filename of the source file. You can define a suffix and/or a prefix that will be concatenated to this filename and be used as the filename of the target file. 
+You can give a name to the generated target file. By default, the naming is based on the filename of the source file. You can define a suffix and/or a prefix that will be concatenated to this filename and be used as the filename of the target file.
 
 To do this, use:
 - the `filename_prefix` property, the string that will be prepended to the source filename.
@@ -1276,7 +1276,7 @@ There should be at least one of the 3 parameters defined.
 With the `colorspace` type, you can change the image's colorspace. For example, you can turn it to black and white.
 
 There is one available parameter for this operation: `colorspace`. It allows you to choose which colorspace you want your image to be turned into. It should be one of the following values:
-- `rgb`, 
+- `rgb`,
 - `cmyk`,
 - `grey`.
 
@@ -1319,8 +1319,8 @@ Both parameters are required.
 
 As stated before, you can define up to 10 transformations per asset family. So if you need several transformations for one given family, you will need to observe some business rules.
 
-#### Unicity of the target value 
-In the same asset family, you cannot have two transformations with the same target, i.e. exactly the same `attribute`, `channel` and `locale` in your `target` property. 
+#### Unicity of the target value
+In the same asset family, you cannot have two transformations with the same target, i.e. exactly the same `attribute`, `channel` and `locale` in your `target` property.
 
 Otherwise, your first generated target file may be erased by the next transformation.
 
@@ -1376,8 +1376,8 @@ This example will generate an error.
 ```
 
 #### Non-unicity of the source value
- 
-In the same asset family, you can have two transformations with the same source, i.e. exactly the same `attribute`, `channel` and `locale` in your `source` property. 
+
+In the same asset family, you can have two transformations with the same source, i.e. exactly the same `attribute`, `channel` and `locale` in your `source` property.
 
 Indeed, it allows you to generate different versions of your source file.
 
@@ -1819,6 +1819,7 @@ The available media types that you can put in the `media_type` field are:
 - _"image"_,
 - _"pdf"_ (starting from the v4),
 - _"youtube"_ (starting from the v4),
+- _"vimeo"_ (starting from the v4),
 - _"other"_.
 :::
 
@@ -1974,7 +1975,7 @@ The table below describes the format of the `data` property for each [asset attr
 | **Multiple options** <br> _Array[string]_ | `["leather", "cotton"]` |
 | **Number** <br> _string_ | `"1"` |
 | **Media link** <br> _string_ | `"sku_54628_picture1.jpg"` |
- 
+
 ### The `locale` and `channel` format
 
 The asset values can be localizable and/or scopable. Here are some examples to illustrate those different possibilities.
@@ -2145,7 +2146,7 @@ As a consequence, when you ask for the list of attribute options for one given a
 ::: availability versions=3.2,4.0 editions=EE
 :::
 
-Asset media files correspond to the binaries of the images that you can link to your assets. 
+Asset media files correspond to the binaries of the images that you can link to your assets.
 
 Below we illustrate an example of an asset media file linked to an asset.
 
