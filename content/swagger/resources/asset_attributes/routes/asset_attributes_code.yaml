@@ -6,6 +6,7 @@ get:
   x-versions:
     - "3.2"
     - "4.0"
+    - "Serenity"
   x-ee: true
   description: This endpoint allows you to get the information about a given attribute for a given asset family.
   parameters:
@@ -31,6 +32,7 @@ patch:
   x-versions:
     - "3.2"
     - "4.0"
+    - "Serenity"
   x-ee: true
   description: This endpoint allows you to update a given attribute for a given asset family. Note that if the attribute does not already exist for the given asset family, it creates it.
   parameters:

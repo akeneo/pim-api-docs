@@ -6,14 +6,10 @@ get:
     - Channel
   x-versions:
     - "1.7"
-    - "2.0"
-    - "2.1"
-    - "2.2"
-    - "2.3"
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "2.x"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -121,14 +117,10 @@ post:
   tags:
     - Channel
   x-versions:
-    - "2.0"
-    - "2.1"
-    - "2.2"
-    - "2.3"
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "2.x"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   parameters:
     - name: body
       in: body
@@ -153,14 +145,10 @@ patch:
   tags:
     - Channel
   x-versions:
-    - "2.0"
-    - "2.1"
-    - "2.2"
-    - "2.3"
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "2.x"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   description: This endpoint allows you to update and/or create several channels at once.
   x-body-by-line: Contains several lines, each line is a channel in JSON standard format
   parameters:

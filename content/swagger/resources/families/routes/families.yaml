@@ -6,14 +6,10 @@ get:
     - Family
   x-versions:
     - "1.7"
-    - "2.0"
-    - "2.1"
-    - "2.2"
-    - "2.3"
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "2.x"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -107,14 +103,10 @@ post:
     - Family
   x-versions:
     - "1.7"
-    - "2.0"
-    - "2.1"
-    - "2.2"
-    - "2.3"
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "2.x"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   parameters:
     - name: body
       in: body
@@ -140,14 +132,10 @@ patch:
     - Family
   x-versions:
     - "1.7"
-    - "2.0"
-    - "2.1"
-    - "2.2"
-    - "2.3"
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "2.x"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   description: This endpoint allows you to update and/or create several families at once.
   x-body-by-line: Contains several lines, each line is a family in JSON standard format
   parameters:

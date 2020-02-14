@@ -23,7 +23,8 @@
                         <li><a href="/api-reference-index-30.html">3.0</a></li>
                         <li><a href="/api-reference-index-31.html">3.1</a></li>
                         <li><a href="/api-reference-index-32.html">3.2</a></li>
-                        <li><a href="/api-reference-index.html">4.0</a></li>
+                        <li><a href="/api-reference-index-40.html">4.0</a></li>
+                        <li><a href="/api-reference-index.html">Serenity</a></li>
                     </ul>
                 </div>
             </div>
@@ -84,10 +85,13 @@
                                                 {{#each x-versions as |version versionId|}}
                                                     <span class="label label-version">{{{version}}}</span>
                                                 {{/each}}
-                                                {{#if x-ee}}
-                                                    <span class="label label-ee">EE only</span>
-                                                {{/if}}
+                                                <em class="small"> | PIM editions:</em>
+                                                {{#unless x-ee}}
+                                                    <span class="label label-ee">CE</span>
+                                                {{/unless}}
+                                                <span class="label label-ee">EE</span>
                                                 {{#if x-deprecated}}
+                                                    <em class="small"> | </em>
                                                     <span class="label label-warning">deprecated</span>
                                                 {{/if}}
                                             </p>
