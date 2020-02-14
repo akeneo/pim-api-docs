@@ -59,12 +59,10 @@ If the attribute option does not exist yet, this method creates it, otherwise it
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAttributeOptionApi()->create('a_simple_select', 'black', [
-    [
-        'sort_order' => 2,
-        'labels'     => [
-            'en_US' => 'Black',
-            'fr_FR' => 'Noir',
-        ]
+    'sort_order' => 2,
+    'labels'     => [
+        'en_US' => 'Black',
+        'fr_FR' => 'Noir',
     ]
 ]);
 ```
@@ -78,12 +76,10 @@ If the attribute option does not exist yet, this method creates it, otherwise it
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAttributeOptionApi()->upsert('a_simple_select', 'black', [
-    [
-        'sort_order' => 2,
-        'labels'     => [
-            'en_US' => 'Black',
-            'fr_FR' => 'Noir',
-        ]
+    'sort_order' => 2,
+    'labels'     => [
+        'en_US' => 'Black',
+        'fr_FR' => 'Noir',
     ]
 ]);
 ```
