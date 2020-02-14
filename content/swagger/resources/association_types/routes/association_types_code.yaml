@@ -5,14 +5,10 @@ get:
   tags:
     - Association type
   x-versions:
-    - "2.0"
-    - "2.1"
-    - "2.2"
-    - "2.3"
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "2.x"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   parameters:
     - $ref: '#/parameters/code'
   responses:
@@ -35,14 +31,10 @@ patch:
   tags:
     - Association type
   x-versions:
-    - "2.0"
-    - "2.1"
-    - "2.2"
-    - "2.3"
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "2.x"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   description: This endpoint allows you to update a given association type. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no association type exists for the given code, it creates it.
   parameters:
     - $ref: '#/parameters/code'

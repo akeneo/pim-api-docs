@@ -6,14 +6,10 @@ get:
     - Product media file
   x-versions:
     - "1.7"
-    - "2.0"
-    - "2.1"
-    - "2.2"
-    - "2.3"
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "2.x"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -129,14 +125,10 @@ post:
     - Product media file
   x-versions:
     - "1.7"
-    - "2.0"
-    - "2.1"
-    - "2.2"
-    - "2.3"
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "2.x"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   parameters:
     - name: Content-type
       in: header

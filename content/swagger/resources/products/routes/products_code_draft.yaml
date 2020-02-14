@@ -4,14 +4,10 @@ get:
   tags:
     - Product
   x-versions:
-    - "2.0"
-    - "2.1"
-    - "2.2"
-    - "2.3"
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "2.x"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   x-ee: true
   description: This endpoint allows you to get the information about a given draft.
   parameters:

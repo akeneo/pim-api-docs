@@ -7,6 +7,7 @@ post:
   x-versions:
     - "3.2"
     - "4.0"
+    - "Serenity"
   x-ee: true
   parameters:
     - name: Content-type

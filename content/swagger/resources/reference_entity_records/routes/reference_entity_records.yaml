@@ -4,10 +4,9 @@ get:
   tags:
     - Reference entity record
   x-versions:
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   x-ee: true
   description: This endpoint allows you to get a list of records of a given reference entity. Records are paginated and can be filtered.
   parameters:
@@ -200,10 +199,9 @@ patch:
   tags:
     - Reference entity record
   x-versions:
-    - "3.0"
-    - "3.1"
-    - "3.2"
+    - "3.x"
     - "4.0"
+    - "Serenity"
   x-ee: true
   description: This endpoint allows you to update and/or create several records of one given reference entity at once. Learn more about <a href="/documentation/update.html#patch-reference-entity-record-values">Update behavior</a>. Note that if the record does not already exist for the given reference entity, it creates it.
   parameters:

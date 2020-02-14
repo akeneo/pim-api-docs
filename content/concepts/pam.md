@@ -11,7 +11,7 @@ To understand why we deprecated this feature, we recommend you to read this [Med
 Also, don't hesitate to take a look at the [Asset Manager documentation](/concepts/asset-manager.html) to discover this new feature and how much more efficient it will be to handle your precious assets. :rocket:
 
 ## PAM asset
-::: availability versions=2.1,2.2,2.3,3.0,3.1,3.2 editions=EE
+::: availability versions=2.1,2.2,2.3,3.x editions=EE
 :::
 
 ::: warning
@@ -94,7 +94,7 @@ Below is the JSON standard format representing an asset, that is not localizable
 :::
 
 ## PAM asset category
-::: availability versions=2.1,2.2,2.3,3.0,3.1,3.2 editions=EE
+::: availability versions=2.1,2.2,2.3,3.x editions=EE
 :::
 
 ::: warning
@@ -141,7 +141,7 @@ Below is the JSON standard format representing asset categories. Notice how it's
 :::
 
 ## PAM asset tags
-::: availability versions=2.1,2.2,2.3,3.0,3.1,3.2 editions=EE
+::: availability versions=2.1,2.2,2.3,3.x editions=EE
 :::
 
 ::: warning
