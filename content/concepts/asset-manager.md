@@ -1292,7 +1292,7 @@ The `colorspace` parameter is required.
 :::
 
 #### Resolution
-::: availability versions=Serenity editions=EE
+::: availability versions=4.0,Serenity editions=EE
 
 With the `resolution` type, you can change the image resolution.
 
@@ -1309,6 +1309,7 @@ All parameters are required.
 :::
 
 #### Resize
+::: availability versions=4.0,Serenity editions=EE
 
 With the `resize` type, you can resize images without keeping the width/height proportions.
 
@@ -1324,6 +1325,7 @@ Both parameters are required.
 :::
 
 #### Optimize jpeg
+::: availability versions=Serenity editions=EE
 
 ::: info
 Even if you upload a .jpeg image in your asset manager, we automatically convert it into a .png for each operation, in order to avoid quality loss. If you want to convert your images back to .jpeg, you can put this operation last.
