@@ -1239,7 +1239,7 @@ The `type` and `parameters` properties are mandatory.
 :::
 
 ::: info
-To do operations on your media, we always convert them to .png first, to avoid compression related losses. As a result, this conversion can increase the size of your images. To reduce your file size, we provide an `optimize jpeg` operation to convert them back to compressed jpeg files :wink:.
+To do operations on your media, we always convert them to .png first, to avoid compression related losses. As a result, this conversion can increase the size of your images. To reduce your file size, we provide an `optimize_jpeg` operation to convert them back to compressed jpeg files :wink:.
 :::
 
 Let's now detail the available operation names as well as their corresponding parameters.
@@ -1328,16 +1328,16 @@ Both parameters are required.
 ::: availability versions=Serenity editions=EE
 
 ::: info
-Even if you upload a .jpeg image in your asset manager, we automatically convert it into a .png for each operation, in order to avoid quality loss. If you want to convert your images back to .jpeg, you can put this operation last.
+Even if you upload a jpeg image in your asset manager, we automatically convert it into a png for each operation, in order to avoid quality loss. If you want to convert your images back to jpeg, you can put this operation last.
 :::
 
-With the `optimize jpeg` type, you can convert your images to .jpeg and change their .jpeg quality.
+With the `optimize_jpeg` type, you can convert your images to jpeg and change their .jpeg quality.
 
 There is 1 available parameter for this operation.
 
 | Operator name & format | Description |
 | ----------------- | -------------- |
-| `quality` <br>_0 < integer < 100_ | The .jpeg quality of the image |
+| `quality` <br>_0 < integer < 100_ | The jpeg quality of the image |
 
 ::: info
 This parameter is required.
