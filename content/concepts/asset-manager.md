@@ -1245,6 +1245,7 @@ To do operations on your media, we always convert them to .png first, to avoid c
 Let's now detail the available operation names as well as their corresponding parameters.
 
 #### Thumbnail
+::: availability versions=4.0,Serenity editions=EE
 
 With the `thumbnail` type, you can automatically generate a thumbnail. It keeps the image proportions and crops it if needed.
 
@@ -1260,6 +1261,7 @@ Both parameters are required.
 :::
 
 #### Scale
+::: availability versions=4.0,Serenity editions=EE
 
 With the `scale` type, you can resize images while keeping the width/height proportions.
 
@@ -1276,6 +1278,7 @@ There should be at least one of the 3 parameters defined.
 :::
 
 #### Change of colorspace
+::: availability versions=4.0,Serenity editions=EE
 
 With the `colorspace` type, you can change the image's colorspace. For example, you can turn it to black and white.
 
@@ -1289,6 +1292,7 @@ The `colorspace` parameter is required.
 :::
 
 #### Resolution
+::: availability versions=Serenity editions=EE
 
 With the `resolution` type, you can change the image resolution.
 
