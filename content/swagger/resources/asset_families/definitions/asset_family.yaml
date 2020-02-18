@@ -133,6 +133,8 @@ properties:
                       type: integer
                     resolution-y:
                       type: integer
+                    quality:
+                      type: integer
 example: {
   "code": "model_pictures",
   "labels": {
