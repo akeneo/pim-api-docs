@@ -1238,9 +1238,14 @@ In this formula:
 The `type` and `parameters` properties are mandatory.
 :::
 
+::: info
+To do operations on your media, we always convert them to .png first, to avoid compression related losses. As a result, this conversion can increase the size of your images. To reduce your file size, we provide an `optimize_jpeg` operation to convert them back to compressed jpeg files :wink:.
+:::
+
 Let's now detail the available operation names as well as their corresponding parameters.
 
 #### Thumbnail
+::: availability versions=4.0,Serenity editions=EE
 
 With the `thumbnail` type, you can automatically generate a thumbnail. It keeps the image proportions and crops it if needed.
 
@@ -1256,6 +1261,7 @@ Both parameters are required.
 :::
 
 #### Scale
+::: availability versions=4.0,Serenity editions=EE
 
 With the `scale` type, you can resize images while keeping the width/height proportions.
 
@@ -1272,6 +1278,7 @@ There should be at least one of the 3 parameters defined.
 :::
 
 #### Change of colorspace
+::: availability versions=4.0,Serenity editions=EE
 
 With the `colorspace` type, you can change the image's colorspace. For example, you can turn it to black and white.
 
@@ -1285,6 +1292,7 @@ The `colorspace` parameter is required.
 :::
 
 #### Resolution
+::: availability versions=4.0,Serenity editions=EE
 
 With the `resolution` type, you can change the image resolution.
 
@@ -1301,6 +1309,7 @@ All parameters are required.
 :::
 
 #### Resize
+::: availability versions=4.0,Serenity editions=EE
 
 With the `resize` type, you can resize images without keeping the width/height proportions.
 
@@ -1314,6 +1323,26 @@ There are 2 available parameters for this operation.
 ::: info
 Both parameters are required.
 :::
+
+#### Optimize jpeg
+::: availability versions=Serenity editions=EE
+
+::: info
+Even if you upload a jpeg image in your asset manager, we automatically convert it into a png for each operation, in order to avoid quality loss. If you want to convert your images back to jpeg, you can put this operation last.
+:::
+
+With the `optimize_jpeg` type, you can convert your images to jpeg and change their .jpeg quality.
+
+There is 1 available parameter for this operation.
+
+| Operator name & format | Description |
+| ----------------- | -------------- |
+| `quality` <br>_0 < integer < 100_ | The jpeg quality of the image |
+
+::: info
+This parameter is required.
+:::
+
 
 ### Dealing with several transformations
 
