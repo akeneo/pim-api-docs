@@ -237,7 +237,7 @@ The product link rule enables you to automatically link assets to products, base
 This rule is launched by the PIM after the asset creation.
 
 ::: warning
-The product link rule is only available to link assets to products. Yet, linking assets to product models has to be done manually, for now.
+To use the product link rules on product models, you should use the "identifier" of the model in the `field` of the product selections part.
 :::
 
 ::: info
