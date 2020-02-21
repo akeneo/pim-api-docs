@@ -31,7 +31,7 @@ Below are some examples of asset families, along with their asset attributes.
 
 For each asset family you can:
 - define what we call a _naming convention_. Thanks to it, you can easily extract important information from your asset code or main media filename, such as the SKU of the product related to this asset. See [below](#focus-on-the-naming-convention) for more details on this feature.
-- define the way the PIM will automatically link the assets of this family to your products. We called that the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the specific format of this rule.
+- define the way the PIM will automatically link the assets of this family to your products/product models. We called that the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the specific format of this rule.
 - define several transformations for your [media file attributes](#the-media-file-attribute). Don't hesitate to read the [Transformations section](#focus-on-the-transformations) to learn more and also, find their JSON format.
 
 Here is the JSON format representing an example of asset family.
@@ -232,7 +232,7 @@ If you want the asset to be created even if the naming convention application fa
 ## Focus on the product link rule
 ::: availability versions=3.2,4.0,Serenity editions=EE
 
-The product link rule enables you to automatically link assets to products, based on asset names or attributes. This rule is defined at the [asset family](#the-asset-family) level.  
+The product link rule enables you to automatically link assets to products/product models, based on asset names or attributes. This rule is defined at the [asset family](#the-asset-family) level.  
 
 This rule is launched by the PIM after the asset creation.
 
