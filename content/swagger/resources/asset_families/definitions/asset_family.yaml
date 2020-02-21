@@ -141,15 +141,15 @@ example: {
     "en_US": "Model pictures",
     "fr_FR": "Photographies en pied"
   },
-    “naming_convention”:{
-      "source": {
-        "property": "code",
-        "channel": null,
-        "locale": null
-      },
-      "pattern": "/(?P<product_ref>.*)-.*/",
-      "abort_asset_creation_on_error": true
+  "naming_convention":{
+    "source": {
+      "property": "code",
+      "channel": null,
+      "locale": null
     },
+    "pattern": "/(?P<product_ref>.*)-.*/",
+    "abort_asset_creation_on_error": true
+  },
   "product_link_rules":
   [
     {
