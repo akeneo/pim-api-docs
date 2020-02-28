@@ -3,7 +3,7 @@
 Product information enriched in the PIM is meant to be distributed over your channels. Otherwise gathering so much information into one single source of truth would be quite useless, right? :wink:
 
 Target market settings are here to specify those distribution channels. You can interact with these entities through the following resources.  
-Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API. 
+Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API.
 
 ## Locale
 A locale is a combination of a language (English, German, French...) and a country (United States, United Kingdom, France...). Examples: English UK (en_GB), English US (en_US), English AU (en_AU).
@@ -144,12 +144,12 @@ Endpoints for the currencies are only available starting the 2.0 version.
 ::: panel-link Want more details about the currency resource? [Check its endpoints here!](/api-reference.html#Currency)
 :::
 
-## Measure family _(v2+)_
+## Measure family _(v2+ - Deprecated in Serenity)_
 If you want to store metrics regarding your product such as weight, height or power inside your PIM, you will need measure families. These entities will be really helpful in the case you are requesting products for a given channel and you want these metrics attributes to be converted into the units you specified in your channel.
 
 Below is an example of one of these metrics attributes.
 
-![Metrics attribute](/img/concepts/metrics_attributes_ui.png) 
+![Metrics attribute](/img/concepts/metrics_attributes_ui.png)
 
 Below is the JSON standard format representing a measure family.
 
@@ -172,8 +172,52 @@ Below is the JSON standard format representing a measure family.
 ```
 
 ::: warning
-Endpoints for the measure families are only available starting the 2.0 version.
+Endpoints for the measure families are only available starting the 2.0 version and are deprecated in the Serenity version.
+For the Serenity version, you have to use [these new endpoints](#measurement-family-serenity).
 :::
 
 ::: panel-link Want more details about the measure family resource? [Check its endpoints here!](/api-reference.html#Measurefamily)
+:::
+
+## Measurement family _(Serenity)_
+If you want to store measurement regarding your product such as weight, height or power inside your PIM, you will need measurement families. These entities will be really helpful in the case you are requesting products for a given channel and you want these measurement attributes to be converted into the units you specified in your channel.
+
+Below is an example of one of these measurement attribute.
+
+![Metrics attribute](/img/concepts/metrics_attributes_ui.png)
+
+Below is the JSON standard format representing a measurement family.
+
+```json
+{
+   "code":"AREA",
+   "labels": {"en_US": "Area", "fr_FR": "Surface"},
+   "standard":"SQUARE_METER",
+   "units":[
+     {
+       "code": "SQUARE_MILLIMETER",
+ 			 "labels": {"en_US": "Square millimeter", "fr_FR": "Millimètre carré"},
+       "convert_from_standard": [{
+         "operator": "mul",
+ 			  "value": "0.000001"
+       }],
+       "symbol": "mm²"
+     },{
+       "code": "SQUARE_CENTIMETER",
+ 			"labels": {"en_US": "Square centimeter", "fr_FR": "Centimètre carré"},
+       "convert_from_standard": [{
+         "operator": "mul",
+ 			  "value": "0.0001"
+       }],
+       "symbol": "cm²"
+      },...
+   ]
+}
+```
+
+::: warning
+New endpoints for the measurement families are only available for the Serenity version.
+:::
+
+::: panel-link Want more details about the measurement family resource? [Check its endpoints here!](/api-reference.html#Measurementfamily)
 :::
