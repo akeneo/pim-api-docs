@@ -1,0 +1,68 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Measurement family code
+    x-immutable: true
+  labels:
+    type: object
+    description: Measurement family labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Measurement family label for the locale `localeCode`
+  standard_unit_code:
+    type: string
+    description: Unit code used as the standard unit for this measurement family
+  units:
+    type: array
+    description: Family units
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Measure code
+          x-immutable: true
+        labels:
+          type: object
+          description: Unit labels for each locale
+          x-validation-rules: The `localeCode` is the code of an existing and activated locale
+          default: {}
+          properties:
+            localeCode:
+              type: string
+              description: Unit label for the locale `localeCode`
+        convert_from_standard:
+          type: array
+          description: Mathematic operation to convert the unit into the standard unit
+        symbol:
+          type: string
+          description: Measure symbol
+example: {
+   "code": "AREA",
+   "labels": {"en_US": "Area", "fr_FR": "Surface"},
+   "standard_unit_code": "SQUARE_METER",
+   "units":[
+     {
+       "code": "SQUARE_MILLIMETER",
+ 			 "labels": {"en_US": "Square millimeter", "fr_FR": "Millimètre carré"},
+       "convert_from_standard": [{
+        "operator": "mul",
+ 			  "value": "0.000001"
+       }],
+       "symbol": "mm\u00b2"
+     },{
+       "code": "SQUARE_CENTIMETER",
+ 			"labels": {"en_US": "Square centimeter", "fr_FR": "Centimètre carré"},
+       "convert_from_standard": [{
+         "operator": "mul",
+ 			   "value": "0.0001"
+       }],
+       "symbol": "cm\u00b2"
+      },
+  ]
+}

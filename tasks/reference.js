@@ -33,8 +33,9 @@ function determineCategory(tag){
             return 'Catalog structure';
         case 'Channel':
         case 'Locale':
-        case 'Currency':  
+        case 'Currency':
         case 'Measure family':
+        case 'Measurement family':
             return 'Target market settings';
         case 'Asset':
         case 'Asset attribute':
@@ -81,7 +82,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                     (version === '2.1') ? 'api-reference-21' :
                                     (version === '2.2') ? 'api-reference-22' :
                                     (version === '2.3') ? 'api-reference-23' :
-                                    (version === '3.0') ? 'api-reference-30' : 
+                                    (version === '3.0') ? 'api-reference-30' :
                                     (version === '3.1') ? 'api-reference-31' :
                                     (version === '4.0') ? 'api-reference-40' : 'api-reference';
 

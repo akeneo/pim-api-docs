@@ -1,0 +1,120 @@
+get:
+  summary: Get list of measurement families
+  operationId: "measurement_families_get_list"
+  description: This endpoint allows you to get a list of measurement families. Measurement families are paginated and sorted by code.
+  tags:
+    - Measurement family
+  x-versions:
+    - "Serenity"
+  responses:
+    200:
+      description: Return measurement families paginated
+      schema:
+        title: Measurement Families
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/MeasurementFamilyList'
+      examples: {
+        _links: {
+            "self": {
+              "href": "https://demo.akeneo.com/api/rest/v1/measurement-families?page=1&limit=1"
+            },
+            "first": {
+              "href": "https://demo.akeneo.com/api/rest/v1/measurement-families?page=1&limit=1"
+            }
+          },
+        "current_page": 1,
+        _embedded: {
+          "items": [
+            {
+              "_links": {
+                  "self": {
+                    "href": "https://demo.akeneo.com/api/rest/v1/measurement-families/Area"
+                  }
+                },
+                "code": "AREA",
+                "labels": {"en_US": "Area", "fr_FR": "Surface"},
+                "standard_unit_code": "SQUARE_METER",
+                "units":[
+                  {
+                    "code": "SQUARE_MILLIMETER",
+               			"labels": {"en_US": "Square millimeter", "fr_FR": "Millimètre carré"},
+                    "convert_from_standard": [{
+                      "operator": "mul",
+               			  "value": "0.000001"
+                    }],
+                    "symbol": "mm\u00b2"
+                   },{
+                    "code": "SQUARE_CENTIMETER",
+               			"labels": {"en_US": "Square centimeter", "fr_FR": "Centimètre carré"},
+                    "convert_from_standard": [{
+                      "operator": "mul",
+               			  "value": "0.0001"
+                    }],
+                    "symbol": "cm\u00b2"
+                  },{
+                    "code": "SQUARE_DECIMETER",
+                    "convert_from_standard": [{
+                      "operator": "mul",
+               			  "value": "0.000001"
+                    }],
+                    "symbol": "dm\u00b2"
+                  },{
+                    "code": "SQUARE_METER",
+                    "convert_from_standard": [{
+                      "operator": "mul",
+               			  "value": "1"
+                    }],
+                    "symbol": "m\u00b2"
+                  },
+                  {
+                    "code": "CENTIARE",
+                    "convert_from_standard": [{
+                      "operator": "mul",
+               			  "value": "1"
+                    }],
+                    "symbol": "ca"
+                  },
+                  {
+                    "code": "SQUARE_DEKAMETER",
+                    "convert_from_standard": [{
+                      "operator": "mul",
+               			  "value": "100"
+                    }],
+                    "symbol": "dam\u00b2"
+                  },
+                  {
+                    "code": "ARE",
+                    "convert_from_standard": [{
+                      "operator": "mul",
+               			  "value": "1"
+                    }],
+                    "symbol": "a"
+                  },
+                  {
+                    "code": "SQUARE_HECTOMETER",
+                    "convert_from_standard": [{
+                      "operator": "mul",
+               			  "value": "10000"
+                    }],
+                    "symbol": "hm\u00b2"
+                  }
+              ]
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
