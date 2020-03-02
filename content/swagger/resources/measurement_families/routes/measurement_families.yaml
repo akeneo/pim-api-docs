@@ -41,70 +41,115 @@ get:
                   }
                 },
                 "code": "AREA",
-                "labels": {"en_US": "Area", "fr_FR": "Surface"},
+                "labels": {
+                    "en_US": "Area",
+                    "fr_FR": "Surface"
+                },
                 "standard_unit_code": "SQUARE_METER",
-                "units":[
+                "units": [
                   {
                     "code": "SQUARE_MILLIMETER",
-               			"labels": {"en_US": "Square millimeter", "fr_FR": "Millimètre carré"},
-                    "convert_from_standard": [{
-                      "operator": "mul",
-               			  "value": "0.000001"
-                    }],
+                    "labels": {
+                      "en_US": "Square millimeter",
+                      "fr_FR": "Millimètre carré"
+                    },
+                    "convert_from_standard": [
+                      {
+                        "operator": "mul",
+                        "value": "0.000001"
+                      }
+                    ],
                     "symbol": "mm\u00b2"
-                   },{
+                  },{
                     "code": "SQUARE_CENTIMETER",
-               			"labels": {"en_US": "Square centimeter", "fr_FR": "Centimètre carré"},
-                    "convert_from_standard": [{
-                      "operator": "mul",
-               			  "value": "0.0001"
-                    }],
+                    "labels": {
+                      "en_US": "Square centimeter",
+                      "fr_FR": "Centimètre carré"
+                    },
+                    "convert_from_standard": [
+                      {
+                        "operator": "mul",
+                        "value": "0.0001"
+                      }
+                    ],
                     "symbol": "cm\u00b2"
                   },{
                     "code": "SQUARE_DECIMETER",
-                    "convert_from_standard": [{
-                      "operator": "mul",
-               			  "value": "0.000001"
-                    }],
+                    "labels": {
+                      "en_US": "Square decimeter",
+                      "fr_FR": "Décimètre carré"
+                    },
+                    "convert_from_standard": [
+                      {
+                        "operator": "mul",
+                        "value": "0.000001"
+                      }
+                    ],
                     "symbol": "dm\u00b2"
                   },{
                     "code": "SQUARE_METER",
-                    "convert_from_standard": [{
-                      "operator": "mul",
-               			  "value": "1"
-                    }],
+                    "labels": {
+                      "en_US": "Square meter",
+                      "fr_FR": "Mètre carré"
+                    },
+                    "convert_from_standard": [
+                      {
+                        "operator": "mul",
+                        "value": "1"
+                      }
+                    ],
                     "symbol": "m\u00b2"
-                  },
-                  {
+                  },{
                     "code": "CENTIARE",
-                    "convert_from_standard": [{
-                      "operator": "mul",
-               			  "value": "1"
-                    }],
+                    "labels": {
+                      "en_US": "Centiare",
+                      "fr_FR": "Centiare"
+                    },
+                    "convert_from_standard": [
+                      {
+                        "operator": "mul",
+                        "value": "1"
+                      }
+                    ],
                     "symbol": "ca"
-                  },
-                  {
+                  },{
                     "code": "SQUARE_DEKAMETER",
-                    "convert_from_standard": [{
-                      "operator": "mul",
-               			  "value": "100"
-                    }],
+                    "labels": {
+                      "en_US": "Square dekameter",
+                      "fr_FR": "Décamètre carré"
+                    },
+                    "convert_from_standard": [
+                      {
+                        "operator": "mul",
+                        "value": "100"
+                      }
+                    ],
                     "symbol": "dam\u00b2"
-                  },
-                  {
+                  },{
                     "code": "ARE",
-                    "convert_from_standard": [{
-                      "operator": "mul",
-               			  "value": "1"
-                    }],
+                    "labels": {
+                      "en_US": "Are",
+                      "fr_FR": "Are"
+                    },
+                    "convert_from_standard": [
+                      {
+                        "operator": "mul",
+                        "value": "1"
+                      }
+                    ],
                     "symbol": "a"
-                  },
-                  {
+                  },{
                     "code": "SQUARE_HECTOMETER",
-                    "convert_from_standard": [{
-                      "operator": "mul",
-               			  "value": "10000"
-                    }],
+                    "labels": {
+                      "en_US": "Square hectometer",
+                      "fr_FR": "Hectomètre carré"
+                    },
+                    "convert_from_standard": [
+                      {
+                        "operator": "mul",
+                        "value": "10000"
+                      }
+                    ],
                     "symbol": "hm\u00b2"
                   }
               ]
