@@ -44,25 +44,38 @@ properties:
           description: Measure symbol
 example: {
    "code": "AREA",
-   "labels": {"en_US": "Area", "fr_FR": "Surface"},
+   "labels": {
+     "en_US": "Area",
+     "fr_FR": "Surface"
+   },
    "standard_unit_code": "SQUARE_METER",
-   "units":[
-     {
-       "code": "SQUARE_MILLIMETER",
- 			 "labels": {"en_US": "Square millimeter", "fr_FR": "Millimètre carré"},
-       "convert_from_standard": [{
+   "units": [
+    {
+      "code": "SQUARE_MILLIMETER",
+      "labels": {
+        "en_US": "Square millimeter",
+        "fr_FR": "Millimètre carré"
+      },
+      "convert_from_standard": [
+        {
         "operator": "mul",
  			  "value": "0.000001"
-       }],
-       "symbol": "mm\u00b2"
+       }
+      ],
+      "symbol": "mm\u00b2"
      },{
-       "code": "SQUARE_CENTIMETER",
- 			"labels": {"en_US": "Square centimeter", "fr_FR": "Centimètre carré"},
-       "convert_from_standard": [{
-         "operator": "mul",
- 			   "value": "0.0001"
-       }],
-       "symbol": "cm\u00b2"
+      "code": "SQUARE_CENTIMETER",
+      "labels": {
+        "en_US": "Square centimeter",
+        "fr_FR": "Centimètre carré"
       },
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+          "value": "0.0001"
+        }
+      ],
+      "symbol": "cm\u00b2"
+    }
   ]
 }
