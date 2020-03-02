@@ -196,7 +196,9 @@ Below is the JSON standard format representing a measurement family.
    "units":[
      {
        "code": "SQUARE_MILLIMETER",
- 			 "labels": {"en_US": "Square millimeter", "fr_FR": "Millimètre carré"},
+ 			 "labels": {
+         "en_US": "Square millimeter",
+         "fr_FR": "Millimètre carré"},
        "convert_from_standard": [{
          "operator": "mul",
  			   "value": "0.000001"
@@ -204,7 +206,9 @@ Below is the JSON standard format representing a measurement family.
        "symbol": "mm²"
      },{
        "code": "SQUARE_CENTIMETER",
- 			"labels": {"en_US": "Square centimeter", "fr_FR": "Centimètre carré"},
+ 			"labels": {
+        "en_US": "Square centimeter",
+        "fr_FR": "Centimètre carré"},
        "convert_from_standard": [{
          "operator": "mul",
  			   "value": "0.0001"
