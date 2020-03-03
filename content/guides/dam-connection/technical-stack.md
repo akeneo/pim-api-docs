@@ -11,7 +11,7 @@ We will never repeat it enough: the API is the **most stable** way to connect to
 Also, and it is quite important to keep it in mind, the API is the **fastest way** to push and pull data from the PIM.
 
 ::: tips
-Not familiar with the Akeneo PIM API? We have a [getting started guide](/getting-started.html) to help you right here!
+Not familiar with the Akeneo PIM API? We have a [getting started guide](/getting-started/your-first-tutorial-4x/welcome.html) to help you right here!
 :::
 
 Also, if you are a PHP developer, we provide a [PHP Client](https://github.com/akeneo/api-php-client-ee) for this API. So don't hesitate to use it if need be!

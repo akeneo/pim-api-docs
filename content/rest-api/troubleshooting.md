@@ -16,7 +16,7 @@ Two problems can be the cause of the following response when authenticating to t
 ### Base 64 not correctly encoded
 
 You are not correctly encoding client and secret in base 64.
-We encourage you to use the [Postman collection](/getting-started-postman-collection.html) or the [PHP client](/php-client/introduction.html), that handle it automatically for you.
+We encourage you to use the Postman collection that you will find in this [tutorial](/getting-started/your-first-tutorial-4x/welcome.html) or the [PHP client](/php-client/introduction.html), that handle it automatically for you.
 
 If you use the command line to generate the base 64, please ensure that you do it this way:
 

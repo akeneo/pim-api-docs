@@ -315,7 +315,7 @@ When your PIM assets are ready, you can call the [patch assets](/api-reference.h
 
 ### Dealing with options
 For the single option and multiple options attributes, you may want to dynamically add new options provided by the DAM to your PIM asset attribute.  
-In this case, you should first call the [patch attribute options](api-reference.html#patch_asset_attributes__attribute_code__options__code_) endpoint, as illustrated in the diagram below. 
+In this case, you should first call the [patch attribute options](/api-reference.html#patch_asset_attributes__attribute_code__options__code_) endpoint, as illustrated in the diagram below. 
 
 ![Push assets with options](../../img/guides/dam_pim-asset-push.svg)
 
