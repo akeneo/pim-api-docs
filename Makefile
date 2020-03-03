@@ -5,7 +5,7 @@ DOCKER_RUN = docker run -it --rm -u "$${UID}":"$${GID}" -v "$${PWD}":/opt/workdi
 .DEFAULT_GOAL := build
 
 docker-build:
-	docker build -t $(DOCKER_IMAGE_TAG) .
+	docker build -t $(DOCKER_IMAGE_TAG) - < Dockerfile
 
 yarn-install: docker-build
 	$(DOCKER_RUN) $(DOCKER_IMAGE_TAG) yarn install
@@ -16,5 +16,5 @@ watch: yarn-install
 build: yarn-install
 	$(DOCKER_RUN) $(DOCKER_IMAGE_TAG) yarn gulp create-dist
 
-deploy: yarn-install
-	$(DOCKER_RUN) -e PORT -e HOSTNAME -v "$${SSH_AUTH_SOCK}":/ssh-auth.sock:ro -e SSH_AUTH_SOCK=/ssh-auth.sock $(DOCKER_IMAGE_TAG) yarn gulp deploy
+deploy: build
+	$(DOCKER_RUN) -v $${SSH_AUTH_SOCK}:/ssh-auth.sock:ro -e SSH_AUTH_SOCK=/ssh-auth.sock $(DOCKER_IMAGE_TAG) rsync --no-v -e "ssh -q -p $${PORT} -o StrictHostKeyChecking=no" -az --delete dist/ akeneo@$${HOSTNAME}:/var/www/html
