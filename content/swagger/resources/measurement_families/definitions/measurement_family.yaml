@@ -19,7 +19,7 @@ properties:
     description: Unit code used as the standard unit for this measurement family
   units:
     type: array
-    description: Family units
+    description: Measurement units for this family with their conversion operations. More details <a href='/concepts/target-market-settings.html#measurement-family'>here</a>.
     items:
       type: object
       properties:
