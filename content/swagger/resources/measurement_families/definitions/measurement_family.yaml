@@ -39,6 +39,15 @@ properties:
         convert_from_standard:
           type: array
           description: Mathematic operation to convert the unit into the standard unit
+          items:
+            type: object
+            properties:
+              operator:
+                type: string
+                x-validation-rules: The operator is one of the following values
+                enum: ['mul','div','add','sub']
+              value:
+                type: string
         symbol:
           type: string
           description: Measure symbol
