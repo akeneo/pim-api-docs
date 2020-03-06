@@ -204,30 +204,36 @@ Below is the JSON standard format representing a measurement family.
 
 ```json
 {
-   "code": "AREA",
-   "labels": {"en_US": "Area", "fr_FR": "Surface"},
-   "standard_unit_code": "SQUARE_METER",
-   "units":[
-     {
-       "code": "SQUARE_MILLIMETER",
- 			 "labels": {
-         "en_US": "Square millimeter",
-         "fr_FR": "Millimètre carré"},
-       "convert_from_standard": [{
-         "operator": "mul",
- 			   "value": "0.000001"
-       }],
-       "symbol": "mm²"
+  "code": "AREA",
+  "labels": {
+    "en_US": "Area",
+    "fr_FR": "Surface"},
+  "standard_unit_code": "SQUARE_METER",
+  "units":[
+    {
+      "code": "SQUARE_MILLIMETER",
+ 			"labels": {
+        "en_US": "Square millimeter",
+        "fr_FR": "Millimètre carré"},
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+ 			    "value": "0.000001"
+        }
+      ],
+      "symbol": "mm²"
      },{
-       "code": "SQUARE_CENTIMETER",
+      "code": "SQUARE_CENTIMETER",
  			"labels": {
         "en_US": "Square centimeter",
         "fr_FR": "Centimètre carré"},
-       "convert_from_standard": [{
-         "operator": "mul",
- 			   "value": "0.0001"
-       }],
-       "symbol": "cm²"
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+          "value": "0.0001"
+        }
+      ],
+      "symbol": "cm²"
       },...
    ]
 }
