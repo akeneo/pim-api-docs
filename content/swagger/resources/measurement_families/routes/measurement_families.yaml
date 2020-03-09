@@ -133,3 +133,46 @@ get:
       $ref: "#/responses/401Error"
     406:
       $ref: "#/responses/406Error"
+patch:
+  summary: Update/create several measurement families
+  operationId: "patch_measurement_families"
+  tags:
+    - Measurement family
+  x-versions:
+    - "Serenity"
+  description: This endpoint allows you to update and/or create several measurement families at once.
+  x-body-by-line: Contains several lines, each line is a measurement family in JSON standard format
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/MeasurementFamily"
+        x-examples:
+          x-example-1:
+            '{"code":"AREA","labels":{"de_DE": "Fläche"}}'
+          x-example-2:
+            '{"code":"AREA","standard_unit_code":"METER"}'
+          x-example-3:
+            '{"code":"AREA","unit_code":"SQUARE_CENTIMETER"}'
+  responses:
+    200:
+      description: OK
+      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      x-no-entity: true
+      schema:
+        $ref: "#/definitions/ErrorByLine"
+      examples:
+        x-example-1:
+          '{"line":1,"code":"AREA","status_code":201}'
+        x-example-2:
+          '{"line":2,"code":"AREA","status_code":422,"message":"Unit code "METER" does not exist."}'
+        x-example-3:
+          '{"line":3,"code":"AREA","status_code":204}'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"
