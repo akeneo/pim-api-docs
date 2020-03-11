@@ -83,6 +83,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                     (version === '2.3') ? 'api-reference-23' :
                                     (version === '3.0') ? 'api-reference-30' : 
                                     (version === '3.1') ? 'api-reference-31' :
+                                    (version === '3.2') ? 'api-reference-32' :
                                     (version === '4.0') ? 'api-reference-40' : 'api-reference';
 
         gulp.src('./content/swagger/akeneo-web-api.yaml')
