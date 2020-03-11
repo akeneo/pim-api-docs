@@ -1,6 +1,6 @@
 get:
   summary: Get a PAM asset
-  operationId: "get_assets__code_"
+  operationId: "get_pam_assets__code_"
   description: This endpoint allows you to get the information about a given PAM asset.
   tags:
     - PAM asset
@@ -29,7 +29,7 @@ get:
       $ref: "#/responses/406Error"
 patch:
   summary: Update/create a PAM asset
-  operationId: "patch_assets__code_"
+  operationId: "patch_pam_assets__code_"
   tags:
     - PAM asset
   x-versions:
