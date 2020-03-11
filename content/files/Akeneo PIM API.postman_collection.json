@@ -2642,7 +2642,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/rest/v1/measure-families",
+							"raw": "{{url}}/api/rest/v1/measurement-families",
 							"host": [
 								"{{url}}"
 							],
@@ -2650,7 +2650,7 @@
 								"api",
 								"rest",
 								"v1",
-								"measure-families"
+								"measurement-families"
 							]
 						}
 					},
