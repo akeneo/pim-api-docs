@@ -160,11 +160,11 @@ Below is the JSON standard format representing a measure family.
    "units":[
      {
        "code":  "ACRE",
-       "convert": {"mul": 4046.856422},
-       "symbol": "A",
+       "convert": {"mul": "4046.856422"},
+       "symbol": "A"
      },{
         "code":  "ARE",
-        "convert": {"mul":  100},
+        "convert": {"mul":  "100"},
         "symbol": "a"
       },...
    ]
