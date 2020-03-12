@@ -25,7 +25,7 @@ properties:
       properties:
         code:
           type: string
-          description: Measure code
+          description: Measurement unit code
           x-immutable: true
         labels:
           type: object
@@ -50,7 +50,7 @@ properties:
                 type: string
         symbol:
           type: string
-          description: Measure symbol
+          description: Measurement unit symbol
 example: {
    "code": "AREA",
    "labels": {
