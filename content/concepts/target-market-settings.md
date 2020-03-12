@@ -1,6 +1,6 @@
 # Target market settings
 
-Product information enriched in the PIM is meant to be distributed over your channels. Otherwise gathering so much information into one single source of truth would be quite useless, right? :wink:
+Product information enriched in the PIM is meant to be distributed across your channels. Otherwise gathering so much information into one single source of truth would be quite useless, right? :wink:
 
 Target market settings are here to specify those distribution channels. You can interact with these entities through the following resources.  
 Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API.
@@ -46,7 +46,7 @@ Below is the JSON standard format representing this set of locales.
 ::: availability versions=1.7,2.x,3.x,4.0,Serenity editions=CE,EE
 :::
 
-A channel refers to a place where your product information will be visible: for example, a website, a print catalog or a mobile application.
+A channel is a place where your product information is visible: for example, a website, a print catalog or a mobile application.
 Actually, a channel defines a selection of products and information to export.
 
 :::info
@@ -127,7 +127,7 @@ Below is the JSON standard format representing this set of channels when request
 ::: panel-link Want more details about the channel resource? [Check its endpoint here!](/api-reference.html#get_channels)
 :::
 
-## Currency _(v2+)_
+## Currency
 ::: availability versions=2.x,3.x,4.0,Serenity editions=CE,EE
 :::
 
@@ -158,12 +158,12 @@ Endpoints for the currencies are only available starting the 2.0 version.
 :::
 
 ::: warning
-For the Serenity version, we encourage you to use [these new endpoints](#measurement-family), as they are more powerful. They allow to create/update measurement families and they guarantee the order of the conversion operations.
+For the Serenity version, we encourage you to use [these new endpoints](#measurement-family), as they are more powerful. They allow you to create/update measurement families and they guarantee the order of the conversion operations.
 :::
 
 If you want to store metrics regarding your product such as weight, height or power inside your PIM, you will need measure families. These entities will be really helpful in the case you are requesting products for a given channel and you want these metrics attributes to be converted into the units you specified in your channel.
 
-Below is an example of one of these metrics attributes.
+Below is an example of one of the metrics attributes.
 
 ![Metrics attribute](/img/concepts/metrics_attributes_ui.png)
 
@@ -194,9 +194,9 @@ Below is the JSON standard format representing a measure family.
 ::: availability versions=Serenity editions=CE,EE
 :::
 
-If you want to store measurement regarding your product such as weight, height or power inside your PIM, you will need measurement families. These entities will be really helpful in the case you are requesting products for a given channel and you want these measurement attributes to be converted into the units you specified in your channel.
+If you want to store your product measurement, i.e. weight, height or power inside your PIM, you will need measurement families. These entities will be really helpful when you are requesting products for a given channel and you want these measurement attributes to be converted into the units you set in the given channel.
 
-Below is an example of one of these measurement attribute.
+Below is an example of one of these measurement attributes.
 
 ![Metrics attribute](/img/concepts/metrics_attributes_ui.png)
 
