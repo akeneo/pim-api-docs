@@ -17,6 +17,7 @@ properties:
   standard_unit_code:
     type: string
     description: Unit code used as the standard unit for this measurement family
+    x-immutable: true
   units:
     type: array
     description: Measurement units for this family with their conversion operations. More details <a href='/concepts/target-market-settings.html#measurement-family'>here</a>.
