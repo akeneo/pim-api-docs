@@ -237,6 +237,19 @@ Below is the JSON standard format representing a measurement family.
         }
       ],
       "symbol": "cm²"
+    },{
+      "code": "SQUARE_METER",
+      "labels": {
+        "en_US": "Square meter",
+        "fr_FR": "Mètre carré"
+      },
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+          "value": "1"
+        }
+      ],
+      "symbol": "m²"
     },...
   ]
 }
