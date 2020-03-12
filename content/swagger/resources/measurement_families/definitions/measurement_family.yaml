@@ -38,7 +38,7 @@ properties:
               description: Unit label for the locale `localeCode`
         convert_from_standard:
           type: array
-          description: Mathematic operation to convert the unit into the standard unit
+          description: Calculation to convert the unit into the standard unit
           items:
             type: object
             properties:

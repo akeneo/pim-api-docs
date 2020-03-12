@@ -1,45 +1,19 @@
 get:
   summary: Get list of measurement families
   operationId: "measurement_families_get_list"
-  description: This endpoint allows you to get a list of measurement families. Measurement families are paginated and sorted by code.
+  description: This endpoint allows you to get a list of measurement families.
   tags:
     - Measurement family
   x-versions:
     - "Serenity"
   responses:
     200:
-      description: Return measurement families paginated
+      description: Return the measurement families
+      x-no-entity: true
       schema:
-        title: Measurement Families
-        type: object
-        allOf:
-          - $ref: '#/definitions/Pagination'
-          - properties:
-              _embedded:
-                type: object
-                properties:
-                  items:
-                    type: array
-                    items:
-                      $ref: '#/definitions/MeasurementFamilyList'
-      examples: {
-        _links: {
-            "self": {
-              "href": "https://demo.akeneo.com/api/rest/v1/measurement-families?page=1&limit=1"
-            },
-            "first": {
-              "href": "https://demo.akeneo.com/api/rest/v1/measurement-families?page=1&limit=1"
-            }
-          },
-        "current_page": 1,
-        _embedded: {
-          "items": [
+        $ref: '#/definitions/MeasurementFamilyList'
+      x-examples: [
             {
-              "_links": {
-                  "self": {
-                    "href": "https://demo.akeneo.com/api/rest/v1/measurement-families/Area"
-                  }
-                },
                 "code": "AREA",
                 "labels": {
                     "en_US": "Area",
@@ -151,15 +125,9 @@ get:
                       }
                     ],
                     "symbol": "hm\u00b2"
-                  }
-              ]
-            }
-          ]
-        }
-      }
+         }
+      ]
     401:
       $ref: "#/responses/401Error"
-    403:
-      $ref: "#/responses/403Error"
     406:
       $ref: "#/responses/406Error"
