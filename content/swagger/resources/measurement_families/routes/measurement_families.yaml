@@ -125,8 +125,10 @@ get:
                       }
                     ],
                     "symbol": "hm\u00b2"
-         }
-      ]
+                  }
+              ]
+            }
+          ]
     401:
       $ref: "#/responses/401Error"
     406:
