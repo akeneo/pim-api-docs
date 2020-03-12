@@ -255,9 +255,5 @@ Below is the JSON standard format representing a measurement family.
 }
 ```
 
-::: warning
-New endpoints for the measurement families are only available for the Serenity version.
-:::
-
 ::: panel-link Want more details about the measurement family resource? [Check its endpoints here!](/api-reference.html#Measurementfamily)
 :::
