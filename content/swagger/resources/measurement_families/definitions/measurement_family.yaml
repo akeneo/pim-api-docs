@@ -94,7 +94,7 @@ example: {
      "convert_from_standard": [
        {
          "operator": "mul",
-         "value": "11"
+         "value": "1"
        }
      ],
      "symbol": "m\u00b2"
