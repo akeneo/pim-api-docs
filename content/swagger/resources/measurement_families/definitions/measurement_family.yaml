@@ -85,6 +85,19 @@ example: {
         }
       ],
       "symbol": "cm\u00b2"
-    }
+    },{
+     "code": "SQUARE_METER",
+     "labels": {
+       "en_US": "Square meter",
+       "fr_FR": "Mètre carré"
+     },
+     "convert_from_standard": [
+       {
+         "operator": "mul",
+         "value": "11"
+       }
+     ],
+     "symbol": "m\u00b2"
+   }
   ]
 }
