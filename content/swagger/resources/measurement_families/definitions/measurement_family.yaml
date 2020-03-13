@@ -1,5 +1,5 @@
 type: object
-required: ["code"]
+required: ["code", "standard_unit_code","units"]
 properties:
   code:
     type: string
@@ -18,19 +18,21 @@ properties:
     type: string
     description: Unit code used as the standard unit for this measurement family
     x-immutable: true
+    x-validation-rules: The unit code exists in the array of the property `units`
   units:
     type: array
-    description: Measurement units for this family with their conversion operations. More details <a href='/concepts/target-market-settings.html#measurement-family'>here</a>.
+    description: Measurement units for this family with their conversion operations. More details <a href='/concepts/target-market-settings.html#measurement-family#focus-on-the-units'>here</a>.
+    x-validation-rules: A unit can't be added when a product attribute is linked to this measurement family
     items:
       type: object
       properties:
         code:
           type: string
-          description: Measurement unit code
+          description: Measurement unit code. More details <a href='/concepts/target-market-settings.html#measurement-family#focus-on-the-units'>here</a>.
           x-immutable: true
         labels:
           type: object
-          description: Unit labels for each locale
+          description: Unit labels for each locale. More details <a href='/concepts/target-market-settings.html#measurement-family#focus-on-the-units'>here</a>.
           x-validation-rules: The `localeCode` is the code of an existing and activated locale
           default: {}
           properties:
@@ -39,19 +41,22 @@ properties:
               description: Unit label for the locale `localeCode`
         convert_from_standard:
           type: array
-          description: Calculation to convert the unit into the standard unit
+          description: Calculation to convert the unit into the standard unit. More details <a href='/concepts/target-market-settings.html#measurement-family#focus-on-the-units'>here</a>.
+          x-validation-rules: "&bull; The conversion operations can't be updated when a product attribute is linked to this measurement family &#10;&bull; One conversion operation per unit is required"
           items:
             type: object
             properties:
               operator:
                 type: string
+                description: Operator for a conversion operation to convert the unit in the standard unit
                 x-validation-rules: The operator is one of the following values
                 enum: ['mul','div','add','sub']
               value:
                 type: string
+                description: Value for a conversion operation to convert the unit in the standard unit
         symbol:
           type: string
-          description: Measurement unit symbol
+          description: Measurement unit symbol. More details <a href='/concepts/target-market-settings.html#measurement-family#focus-on-the-units'>here</a>.
 example: {
    "code": "AREA",
    "labels": {
@@ -72,7 +77,7 @@ example: {
           "value": "0.000001"
        }
       ],
-      "symbol": "mm\u00b2"
+      "symbol": "mm²"
      },{
       "code": "SQUARE_CENTIMETER",
       "labels": {
@@ -85,7 +90,7 @@ example: {
           "value": "0.0001"
         }
       ],
-      "symbol": "cm\u00b2"
+      "symbol": "cm²"
     },{
      "code": "SQUARE_METER",
      "labels": {
@@ -98,7 +103,7 @@ example: {
          "value": "1"
        }
      ],
-     "symbol": "m\u00b2"
+     "symbol": "m²"
    }
   ]
 }
