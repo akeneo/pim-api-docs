@@ -51,7 +51,7 @@ ReferenceEntityAttribute:
   $ref: ./resources/reference_entity_attributes/definitions/reference_entity_attribute.yaml
 ReferenceEntityAttributeList:
   type: array
-  items: 
+  items:
     $ref: ./resources/reference_entity_attributes/definitions/reference_entity_attribute.yaml
 
 ReferenceEntityAttributeOption:
@@ -84,6 +84,14 @@ MeasureFamilyList:
   allOf:
     - $ref:  '#/definitions/ItemList'
     - $ref: '#/definitions/MeasureFamily'
+
+MeasurementFamily:
+  $ref: ./resources/measurement_families/definitions/measurement_family.yaml
+MeasurementFamilyList:
+  type: object
+  allOf:
+    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/MeasurementFamily'
 
 Family:
   $ref: ./resources/families/definitions/family.yaml
@@ -201,9 +209,9 @@ AssetFamilyItemList:
 
 AssetAttributeList:
   type: array
-  items: 
+  items:
     $ref: ./resources/asset_attributes/definitions/asset_attribute.yaml
-    
+
 AssetAttributeOptionList:
   type: array
   items:

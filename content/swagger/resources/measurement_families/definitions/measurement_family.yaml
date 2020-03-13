@@ -1,0 +1,104 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Measurement family code
+    x-immutable: true
+  labels:
+    type: object
+    description: Measurement family labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Measurement family label for the locale `localeCode`
+  standard_unit_code:
+    type: string
+    description: Unit code used as the standard unit for this measurement family
+    x-immutable: true
+  units:
+    type: array
+    description: Measurement units for this family with their conversion operations. More details <a href='/concepts/target-market-settings.html#measurement-family'>here</a>.
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Measurement unit code
+          x-immutable: true
+        labels:
+          type: object
+          description: Unit labels for each locale
+          x-validation-rules: The `localeCode` is the code of an existing and activated locale
+          default: {}
+          properties:
+            localeCode:
+              type: string
+              description: Unit label for the locale `localeCode`
+        convert_from_standard:
+          type: array
+          description: Calculation to convert the unit into the standard unit
+          items:
+            type: object
+            properties:
+              operator:
+                type: string
+                x-validation-rules: The operator is one of the following values
+                enum: ['mul','div','add','sub']
+              value:
+                type: string
+        symbol:
+          type: string
+          description: Measurement unit symbol
+example: {
+   "code": "AREA",
+   "labels": {
+     "en_US": "Area",
+     "fr_FR": "Surface"
+   },
+   "standard_unit_code": "SQUARE_METER",
+   "units": [
+    {
+      "code": "SQUARE_MILLIMETER",
+      "labels": {
+        "en_US": "Square millimeter",
+        "fr_FR": "Millimètre carré"
+      },
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+          "value": "0.000001"
+       }
+      ],
+      "symbol": "mm\u00b2"
+     },{
+      "code": "SQUARE_CENTIMETER",
+      "labels": {
+        "en_US": "Square centimeter",
+        "fr_FR": "Centimètre carré"
+      },
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+          "value": "0.0001"
+        }
+      ],
+      "symbol": "cm\u00b2"
+    },{
+     "code": "SQUARE_METER",
+     "labels": {
+       "en_US": "Square meter",
+       "fr_FR": "Mètre carré"
+     },
+     "convert_from_standard": [
+       {
+         "operator": "mul",
+         "value": "1"
+       }
+     ],
+     "symbol": "m\u00b2"
+   }
+  ]
+}
