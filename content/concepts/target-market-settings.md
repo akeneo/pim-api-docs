@@ -254,6 +254,39 @@ Below is the JSON standard format representing a measurement family.
   ]
 }
 ```
+::: info
+You can have at max 100 measurements families and 50 units per measurement family.
+As a consequence, when you ask for the list of measurement families with their units, you'll see that the response is not paginated. It won't cause any performance issue, since you can't have more than 100 measurement families.
+:::
 
 ::: panel-link Want more details about the measurement family resource? [Check its endpoints here!](/api-reference.html#Measurementfamily)
 :::
+
+### Focus on the units
+
+For each measurement family, a unit is defined as standard and used to convert the other units using on or several conversion operations.
+
+Each unit follows the same format:
+```json
+{
+  "code": "UNIT_CODE",
+  "labels": {
+    "en_US": "UNIT_LABEL_EN_US",
+    "fr_FR": "UNIT_LABEL_FR_FR"
+  },
+  "convert_from_standard": [
+    {
+      "operator": "CONVERSION_OPERATOR",
+      "value": "CONVERSION_VALUE"
+    }
+  ],
+  "symbol": "UNIT_SYMBOL"
+}
+```
+
+In this formula:
+- `UNIT_CODE` is the code to identify a unit
+- `UNIT_LABEL_EN_US` and `UNIT_LABEL_FR_FR` are the labels of a unit in each locale
+- `CONVERSION_OPERATOR` is the operator for a conversion operation to convert a unit in the standard unit ("mul" for multiply, "div" for divide, "add" for add, "sub" for subtract).
+- `CONVERSION_VALUE` is the value for a conversion operation to convert the unit in the standard unit.
+- `UNIT_SYMBOL` is the symbol of the unit.
