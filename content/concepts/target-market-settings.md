@@ -292,7 +292,7 @@ In this formula:
 - `UNIT_SYMBOL` is the symbol of the unit.
 
 ::: info
-One conversion operation per unit is required and you can have at max 5 conversion operations per unit.
+One conversion operation per unit is required and you can have a maximum of 5 conversion operations per unit.
 :::
 
 If you have several conversion operations, the order of the conversion operations is important. For example, to convert the Fahrenheit unit in the standard unit Kelvin, you need to define 3 conversion operations:
@@ -321,7 +321,7 @@ If you have several conversion operations, the order of the conversion operation
 ```
 
 
-**With 1 conversion operation for a non standard unit**
+**With 1 conversion operation for a non-standard unit**
 ```json
 {
   "code": "CELSIUS",
@@ -339,7 +339,7 @@ If you have several conversion operations, the order of the conversion operation
 }
 ```
 
-**With 3 conversion operations for a non standard unit**
+**With 3 conversion operations for a non-standard unit**
 ```json
 {
   "code": "FAHRENHEIT",
