@@ -165,7 +165,7 @@ patch:
         x-example-1:
           '{"line":1,"code":"Illuminance","status_code":201}'
         x-example-2:
-          '{"line":2,"code":"Binary","status_code":422,"message":"The standard unit code of the "Binary" measurement family cannot be changed"}'
+          '{"line":2,"code":"Binary","status_code":422,"message":"The standard unit code of the \"Binary\" measurement family cannot be changed"}'
         x-example-3:
           '{"line":3,"code":"Area","status_code":204}'
     401:
