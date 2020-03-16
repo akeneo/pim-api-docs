@@ -151,7 +151,7 @@ patch:
           x-example-1:
             '{"code":"Illuminance","standard_unit_code":"LUX","units":[{"code": "LUX","convert_from_standard":[{"operator": "mul", "value": "1"}], "symbol": "lx"}]}'
           x-example-2:
-            '{"code":"Binary","standard_unit_code":"BIT"}'
+            '{"code":"Binary","standard_unit_code":"BIT","units":[{"code": "BIT","convert_from_standard":[{"operator": "mul", "value": "1"}], "symbol": "b"}]}'
           x-example-3:
             '{"code":"Area","units":[{"code": "ARPENT","convert_from_standard":[{"operator": "mul", "value": "3418.89"}], "symbol": "arpent"}]}'
   responses:
