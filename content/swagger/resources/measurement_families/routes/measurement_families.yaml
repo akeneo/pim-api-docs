@@ -149,11 +149,11 @@ patch:
         $ref: "#/definitions/MeasurementFamily"
         x-examples:
           x-example-1:
-            '{"code":"AREA","labels":{"de_DE": "Fläche"}}'
+            '{"code":"Illuminance","standard_unit_code":"LUX","units":[{"code": "LUX","convert_from_standard":[{"operator": "mul", "value": "1"}], "symbol": "lx"}]}'
           x-example-2:
-            '{"code":"AREA","standard_unit_code":"METER"}'
+            '{"code":"Binary","standard_unit_code":"BIT"}'
           x-example-3:
-            '{"code":"AREA","unit_code":"SQUARE_CENTIMETER"}'
+            '{"code":"Area","units":[{"code": "ARPENT","convert_from_standard":[{"operator": "mul", "value": "3418.89"}], "symbol": "arpent"}]}'
   responses:
     200:
       description: OK
@@ -163,11 +163,11 @@ patch:
         $ref: "#/definitions/ErrorByLine"
       examples:
         x-example-1:
-          '{"line":1,"code":"AREA","status_code":201}'
+          '{"line":1,"code":"Illuminance","status_code":201}'
         x-example-2:
-          '{"line":2,"code":"AREA","status_code":422,"message":"Unit code "METER" does not exist."}'
+          '{"line":2,"code":"Binary","status_code":422,"message":"The standard unit code of the "Binary" measurement family cannot be changed"}'
         x-example-3:
-          '{"line":3,"code":"AREA","status_code":204}'
+          '{"line":3,"code":"Area","status_code":204}'
     401:
       $ref: "#/responses/401Error"
     403:
