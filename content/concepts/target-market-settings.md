@@ -264,7 +264,7 @@ As a consequence, when you ask for the list of measurement families with their u
 
 ### Focus on the units
 
-For each measurement family, a unit is defined as standard and used to convert the other units using on or several conversion operations.
+For each measurement family, a unit is defined as standard and used to convert the other units using one or several conversion operations.
 
 Each unit follows the same format:
 ```json
@@ -285,8 +285,8 @@ Each unit follows the same format:
 ```
 
 In this formula:
-- `UNIT_CODE` is the code to identify a unit
-- `UNIT_LABEL_EN_US` and `UNIT_LABEL_FR_FR` are the labels of a unit in each locale
+- `UNIT_CODE` is the code to identify a unit.
+- `UNIT_LABEL_EN_US` and `UNIT_LABEL_FR_FR` are the labels of a unit in each locale.
 - `CONVERSION_OPERATOR` is the operator for a conversion operation to convert a unit in the standard unit ("mul" for multiply, "div" for divide, "add" for add, "sub" for subtract).
 - `CONVERSION_VALUE` is the value for a conversion operation to convert the unit in the standard unit.
 - `UNIT_SYMBOL` is the symbol of the unit.
