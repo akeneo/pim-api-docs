@@ -255,7 +255,7 @@ Below is the JSON standard format representing a measurement family.
 }
 ```
 ::: info
-You can have at max 100 measurements families and 50 units per measurement family.
+You can have at max 100 measurements families and 50 units per measurement family.  
 As a consequence, when you ask for the list of measurement families with their units, you'll see that the response is not paginated. It won't cause any performance issue, since you can't have more than 100 measurement families.
 :::
 
