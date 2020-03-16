@@ -141,7 +141,7 @@ patch:
   x-versions:
     - "Serenity"
   description: This endpoint allows you to update and/or create several measurement families at once.
-  x-body-by-line: Contains several lines, each line is a measurement family in JSON standard format
+  x-body-by-line: Contains a JSON array. Each element of the JSON array is a measurement family in the standard format
   parameters:
     - name: body
       in: body
