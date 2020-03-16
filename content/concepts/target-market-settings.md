@@ -287,6 +287,80 @@ Each unit follows the same format:
 In this formula:
 - `UNIT_CODE` is the code to identify a unit.
 - `UNIT_LABEL_EN_US` and `UNIT_LABEL_FR_FR` are the labels of a unit in each locale.
-- `CONVERSION_OPERATOR` is the operator for a conversion operation to convert a unit in the standard unit ("mul" for multiply, "div" for divide, "add" for add, "sub" for subtract).
+- `CONVERSION_OPERATOR` is the operator for a conversion operation to convert a unit in the standard unit.
 - `CONVERSION_VALUE` is the value for a conversion operation to convert the unit in the standard unit.
 - `UNIT_SYMBOL` is the symbol of the unit.
+
+::: info
+One conversion operation per unit is required and you can have at max 5 conversion operations per unit.
+:::
+
+If you have several conversion operations, the order of the conversion operations is important. For example, to convert the Fahrenheit unit in the standard unit Kelvin, you need to define 3 conversion operations:
+1. Subtract 32
+2. Divide by 1.8
+3. Add 273.15
+
+
+#### Examples
+**With 1 conversion operation for the standard unit**
+```json
+{
+  "code": "KELVIN",
+  "labels": {
+    "en_US": "Kelvin",
+    "fr_FR": "Kelvin"
+  },
+  "convert_from_standard": [
+    {
+      "operator": "mul",
+      "value": "1"
+    }
+  ],
+  "symbol": "°K"
+}
+```
+
+
+**With 1 conversion operation for a non standard unit**
+```json
+{
+  "code": "CELSIUS",
+  "labels": {
+    "en_US": "Celsius",
+    "fr_FR": "Celsius"
+  },
+  "convert_from_standard": [
+    {
+      "operator": "ADD",
+      "value": "273.15"
+    }
+  ],
+  "symbol": "°C"
+}
+```
+
+**With 3 conversion operations for a non standard unit**
+```json
+{
+  "code": "FAHRENHEIT",
+  "labels": {
+    "en_US": "Fahrenheit",
+    "fr_FR": "Fahrenheit"
+  },
+  "convert_from_standard": [
+    {
+      "operator": "sub",
+      "value": "32"
+    },
+    {
+      "operator": "div",
+      "value": "1.8"
+    },
+    {
+      "operator": "add",
+      "value": "273.15"
+    }
+  ],
+  "symbol": "°F"
+}
+```
