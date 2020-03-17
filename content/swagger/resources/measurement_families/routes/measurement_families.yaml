@@ -141,33 +141,35 @@ patch:
   x-versions:
     - "Serenity"
   description: This endpoint allows you to update and/or create several measurement families at once.
-  x-body-by-line: Contains a JSON array. Each element of the JSON array is a measurement family in the standard format
   parameters:
     - name: body
       in: body
       schema:
-        $ref: "#/definitions/MeasurementFamily"
-        x-examples:
-          x-example-1:
-            '{"code":"Illuminance","standard_unit_code":"LUX","units":[{"code": "LUX","convert_from_standard":[{"operator": "mul", "value": "1"}], "symbol": "lx"}]}'
-          x-example-2:
-            '{"code":"Binary","standard_unit_code":"BIT","units":[{"code": "BIT","convert_from_standard":[{"operator": "mul", "value": "1"}], "symbol": "b"}]}'
-          x-example-3:
-            '{"code":"Area","units":[{"code": "ARPENT","convert_from_standard":[{"operator": "mul", "value": "3418.89"}], "symbol": "arpent"}]}'
+        $ref: "#/definitions/MeasurementFamilies"
   responses:
     200:
       description: OK
-      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      x-details: Returns a JSON containing the status of each update or creation
       x-no-entity: true
       schema:
-        $ref: "#/definitions/ErrorByLine"
-      examples:
-        x-example-1:
-          '{"line":1,"code":"Illuminance","status_code":201}'
-        x-example-2:
-          '{"line":2,"code":"Binary","status_code":422,"message":"The standard unit code of the \"Binary\" measurement family cannot be changed"}'
-        x-example-3:
-          '{"line":3,"code":"Area","status_code":204}'
+        $ref: "#/definitions/ErrorByObject"
+      x-examples: [
+      {
+          "code": "Angle",
+          "status_code": 204,
+      },
+      {
+          "code": "Angle",
+          "status_code": 422,
+          "message": "The measurement family has data that does not comply with the business rules.",
+          "errors": [
+              {
+                  "property": "standard_unit_code",
+                  "message": "The standard unit code of the \"Angle\" measurement family cannot be changed"
+              }
+          ]
+      }
+      ]
     401:
       $ref: "#/responses/401Error"
     413:
