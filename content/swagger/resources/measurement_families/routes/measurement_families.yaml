@@ -145,7 +145,7 @@ patch:
     - name: body
       in: body
       schema:
-        $ref: "#/definitions/MeasurementFamilies"
+        $ref: ../definitions/measurement_families.yaml
   responses:
     200:
       description: OK
