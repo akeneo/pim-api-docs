@@ -170,8 +170,6 @@ patch:
           '{"line":3,"code":"Area","status_code":204}'
     401:
       $ref: "#/responses/401Error"
-    403:
-      $ref: "#/responses/403Error"
     413:
       $ref: "#/responses/413Error"
     415:
