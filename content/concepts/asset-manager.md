@@ -30,6 +30,7 @@ Below are some examples of asset families, along with their asset attributes.
 ![Asset family scheme](/img/concepts/asset-family.svg)
 
 For each asset family you can:
+- define which attribute will be used as the main media of this family: this is the `attribute_as_main_media`. We will display in the data grids (product grid, asset grid), the preview of the media stored/linked in this attribute (image, pdf, Youtube, Vimeo). By default, the attribute as main media is the first media link or media file attribute that was created in this family.
 - define what we call a _naming convention_. Thanks to it, you can easily extract important information from your asset code or main media filename, such as the SKU of the product related to this asset. See [below](#focus-on-the-naming-convention) for more details on this feature.
 - define the way the PIM will automatically link the assets of this family to your products/product models. We called that the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the specific format of this rule.
 - define several transformations for your [media file attributes](#the-media-file-attribute). Don't hesitate to read the [Transformations section](#focus-on-the-transformations) to learn more and also, find their JSON format.
@@ -43,6 +44,7 @@ Here is the JSON format representing an example of asset family.
     "en_US": "Pachskots",
     "fr_FR": "Packshots"
   },
+  "attribute_as_main_media": "main_image",
   "naming_convention": {
     "source": {
         "property": "main_asset_image",
