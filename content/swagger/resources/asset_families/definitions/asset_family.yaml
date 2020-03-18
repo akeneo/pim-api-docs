@@ -17,7 +17,7 @@ properties:
   attribute_as_main_media:
     type: string
     description: Attribute code that is used as the main media of the asset family.
-    x-validation-rules: It should be the code of an attribute that belongs to this family.
+    x-validation-rules: It should be the code of an attribute that belongs to this family, and it must be a media file or a media link attribute type.
     default: First media file or media link attribute that was created
   naming_convention:
     type: object
