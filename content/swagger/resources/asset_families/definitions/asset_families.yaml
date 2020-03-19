@@ -8,7 +8,8 @@ example: [
       "en_US": "User guides",
       "fr_FR": "Guide utilisateur"
     },
-    “naming_convention”:{
+    "attribute_as_main_media": "main_image",
+    “naming_convention”: {
       "source": {
         "property": "code",
         "channel": null,
@@ -17,7 +18,7 @@ example: [
       "pattern": "/(?P<product_ref>.*)-.*-(?P<locale>.*)/",
       "abort_asset_creation_on_error": true
     },
-    "product_link_rules":[
+    "product_link_rules": [
       {
         "product_selections": [
           {
