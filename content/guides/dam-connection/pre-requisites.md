@@ -69,7 +69,7 @@ You can either do this creation in the PIM, or you can use a script leveraging o
 To create an asset family with its attributes and its product link rules, you'll need to follow those steps:
 1. Create your asset family with its code and labels.  
 2. Add asset attributes to your family.
-3. In your asset family properties, define which of your media attributes is the main media attribute.   
+3. In your asset family properties, define which media link or media file attribute will be your [main media attribute](/concepts/asset-manager.html#asset-family).   
 4. Add the product link rules to your asset family.
 
 ::: warning
