@@ -64,7 +64,7 @@ If you answer `No` to all of these questions, it's likely that you don't need th
 ### Create the structure in the Asset Manager
 
 Once you have a better idea of the modelization of your asset families, you can create them.  
-You can either do this creation in the PIM, or you can use a script leveraging our API. You can find an example of this script in our [DAM connector skeleton](introduction.html#the-skeleton).
+You can either do it in the PIM, or you can use a script leveraging our API. You can find an example of this script in our [DAM connector skeleton](introduction.html#the-skeleton).
 
 To create an asset family with its attributes and its product link rules, you'll need to follow those steps:
 1. Create your asset family with its code and labels.  
