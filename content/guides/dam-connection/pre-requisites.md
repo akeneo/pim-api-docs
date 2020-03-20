@@ -73,7 +73,7 @@ To create an asset family with its attributes and its product link rules, you'll
 4. Add the product link rules to your asset family.
 
 ::: warning
-When creating your `media link` or `media file` attributes, please check that in these attributes properties that you have defined its `type` (image, video, pdf, youtube, other...).
+When creating your `media link` or `media file` attributes, please check that you have defined their `type` (image, video, pdf, youtube, other...) in the attributes properties.
 :::
 
 ## In your DAM
