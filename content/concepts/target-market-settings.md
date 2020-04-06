@@ -294,6 +294,12 @@ In this formula:
 - `CONVERSION_VALUE` is the value for a conversion operation to convert the unit in the standard unit.
 - `UNIT_SYMBOL` is the symbol of the unit.
 
+The conversion operators are:
+- `add` for Add
+- `sub` for Substract
+- `mul` for Multiply
+- `div` for Divide
+
 ::: info
 One conversion operation per unit is required and you can have a maximum of 5 conversion operations per unit.
 :::
