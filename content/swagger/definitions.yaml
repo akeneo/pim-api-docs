@@ -88,10 +88,7 @@ MeasureFamilyList:
 MeasurementFamily:
   $ref: ./resources/measurement_families/definitions/measurement_family.yaml
 MeasurementFamilyList:
-  type: object
-  allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/MeasurementFamily'
+  $ref: '#/definitions/MeasurementFamily'
 
 Family:
   $ref: ./resources/families/definitions/family.yaml
