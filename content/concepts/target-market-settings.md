@@ -210,8 +210,8 @@ Below is the JSON standard format representing a measurement family.
     "fr_FR": "Surface"
   },
   "standard_unit_code": "SQUARE_METER",
-  "units":[
-    {
+  "units": {
+    "SQUARE_MILLIMETER": {
       "code": "SQUARE_MILLIMETER",
       "labels": {
         "en_US": "Square millimeter",
@@ -224,7 +224,8 @@ Below is the JSON standard format representing a measurement family.
         }
       ],
       "symbol": "mm²"
-    },{
+    },
+    "SQUARE_CENTIMETER": {
       "code": "SQUARE_CENTIMETER",
       "labels": {
         "en_US": "Square centimeter",
@@ -237,7 +238,8 @@ Below is the JSON standard format representing a measurement family.
         }
       ],
       "symbol": "cm²"
-    },{
+    },
+    "SQUARE_METER": {
       "code": "SQUARE_METER",
       "labels": {
         "en_US": "Square meter",
@@ -250,8 +252,9 @@ Below is the JSON standard format representing a measurement family.
         }
       ],
       "symbol": "m²"
-    },...
-  ]
+    },
+    ...
+  }
 }
 ```
 ::: info
@@ -290,6 +293,12 @@ In this formula:
 - `CONVERSION_OPERATOR` is the operator for a conversion operation to convert a unit in the standard unit.
 - `CONVERSION_VALUE` is the value for a conversion operation to convert the unit in the standard unit.
 - `UNIT_SYMBOL` is the symbol of the unit.
+
+The conversion operators are:
+- `add` for Add
+- `sub` for Substract
+- `mul` for Multiply
+- `div` for Divide
 
 ::: info
 One conversion operation per unit is required and you can have a maximum of 5 conversion operations per unit.
@@ -331,7 +340,7 @@ If you have several conversion operations, the order of the conversion operation
   },
   "convert_from_standard": [
     {
-      "operator": "ADD",
+      "operator": "add",
       "value": "273.15"
     }
   ],
