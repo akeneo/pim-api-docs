@@ -210,8 +210,8 @@ Below is the JSON standard format representing a measurement family.
     "fr_FR": "Surface"
   },
   "standard_unit_code": "SQUARE_METER",
-  "units":[
-    {
+  "units": {
+    "SQUARE_MILLIMETER": {
       "code": "SQUARE_MILLIMETER",
       "labels": {
         "en_US": "Square millimeter",
@@ -224,7 +224,8 @@ Below is the JSON standard format representing a measurement family.
         }
       ],
       "symbol": "mm²"
-    },{
+    },
+    "SQUARE_CENTIMETER": {
       "code": "SQUARE_CENTIMETER",
       "labels": {
         "en_US": "Square centimeter",
@@ -237,7 +238,8 @@ Below is the JSON standard format representing a measurement family.
         }
       ],
       "symbol": "cm²"
-    },{
+    },
+    "SQUARE_METER": {
       "code": "SQUARE_METER",
       "labels": {
         "en_US": "Square meter",
@@ -250,8 +252,9 @@ Below is the JSON standard format representing a measurement family.
         }
       ],
       "symbol": "m²"
-    },...
-  ]
+    },
+    ...
+  }
 }
 ```
 ::: info
@@ -331,7 +334,7 @@ If you have several conversion operations, the order of the conversion operation
   },
   "convert_from_standard": [
     {
-      "operator": "ADD",
+      "operator": "add",
       "value": "273.15"
     }
   ],
