@@ -14,10 +14,17 @@ properties:
       localeCode:
         type: string
         description: Association type label for the locale `localeCode`
+  is_bidirectional:
+    type: boolean
+    description: Whether inverted association should be automatically created
+    default: false
+    x-immutable: true
+
 example: {
   "code": "upsell",
   "labels": {
     "en_US": "Upsell",
     "fr_FR": "Vente incitative"
-  }
+  },
+  "is_bidirectional": false
 }
