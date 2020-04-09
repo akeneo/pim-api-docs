@@ -52,7 +52,7 @@ get:
                 "en_US":"Cross sell",
                 "fr_FR":"Vente croisée"
               },
-              "is_bidirectional": false
+              "two_way": false
             },
             {
               "_links": {
@@ -65,7 +65,7 @@ get:
                 "en_US":"Upsell",
                 "fr_FR":"Vente incitative"
               },
-              "is_bidirectional": false
+              "two_way": false
             },
             {
               "_links": {
@@ -78,7 +78,7 @@ get:
                 "en_US":"Substitution",
                 "fr_FR":"Remplacement"
               },
-              "is_bidirectional": false
+              "two_way": false
             }
           ]
         }
@@ -141,7 +141,7 @@ patch:
           x-example-2:
             '{"code":"substitution", "type":"bar"}'
           x-example-3:
-            '{"code":"x_cross_sell", "labels": {"fr_FR":nulls}, "is_bidirectional": true}'
+            '{"code":"x_cross_sell", "labels": {"fr_FR":nulls}, "two_way": true}'
   responses:
     200:
       description: OK
