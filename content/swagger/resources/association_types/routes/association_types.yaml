@@ -141,7 +141,7 @@ patch:
           x-example-2:
             '{"code":"substitution", "type":"bar"}'
           x-example-3:
-            '{"code":"x_cross_sell", "labels": {"fr_FR":nulls}, "two_way": true}'
+            '{"code":"x_cross_sell", "two_way": true}'
   responses:
     200:
       description: OK
