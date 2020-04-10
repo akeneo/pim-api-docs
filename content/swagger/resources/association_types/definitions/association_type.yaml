@@ -16,7 +16,7 @@ properties:
         description: Association type label for the locale `localeCode`
   is_two_way:
     type: boolean
-    description: Whether inverted association should be automatically created
+    description: When true, the association is a two-way association
     default: false
     x-immutable: true
 
