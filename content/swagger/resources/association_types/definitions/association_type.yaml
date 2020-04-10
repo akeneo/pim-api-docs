@@ -14,7 +14,7 @@ properties:
       localeCode:
         type: string
         description: Association type label for the locale `localeCode`
-  two_way:
+  is_two_way:
     type: boolean
     description: Whether inverted association should be automatically created
     default: false
@@ -26,5 +26,5 @@ example: {
     "en_US": "Upsell",
     "fr_FR": "Vente incitative"
   },
-  "two_way": false
+  "is_two_way": false
 }
