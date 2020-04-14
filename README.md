@@ -30,12 +30,11 @@ Files located in the content and src directories are watched for changes, so whe
 
 ### Automatic
 
-Once you merge a PR into the `Serenity` branch, it is automatically deployed on the production server. You have nothing to do.
+Once you merge a PR into the `master` branch, it is automatically deployed on the production server. You have nothing to do.
 
 ### Manual
 
-In case you want to re deploy the Serenity documentation, [look at the latest merge in master](https://app.circleci.com/pipelines/github/akeneo/pim
--helpcenter?branch=master) and click on _Deployment_.
+In case you want to re deploy the Serenity documentation, [look at the latest merge in master](https://app.circleci.com/pipelines/github/akeneo/pim-api-docs?branch=master) and click on _Deployment_.
 
 ![List of merged PR in master](.circleci/list_workflows.jpg)
 
