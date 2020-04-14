@@ -76,7 +76,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"code\": \"new_association_type\",\n  \"labels\": {\n    \"de_DE\": \"new association type label DE\",\n    \"en_US\": \"new association type label US\",\n    \"fr_FR\": \"new association type label FR\"\n  }\n}"
+							"raw": "{\n  \"code\": \"new_association_type\",\n  \"labels\": {\n    \"de_DE\": \"new association type label DE\",\n    \"en_US\": \"new association type label US\",\n    \"fr_FR\": \"new association type label FR\"\n  },\n \"is_two_way\": false\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/association-types",
@@ -110,7 +110,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"code\": \"UPSELL\",\n  \"labels\": {\n    \"en_US\": \"Upsell\",\n    \"fr_FR\": \"Vente incitative\"\n  }\n}"
+							"raw": "{\n  \"code\": \"UPSELL\",\n  \"labels\": {\n    \"en_US\": \"Upsell\",\n    \"fr_FR\": \"Vente incitative\"\n  },\n \"is_two_way\": false\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/rest/v1/association-types/upsell",

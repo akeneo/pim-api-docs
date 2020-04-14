@@ -14,10 +14,17 @@ properties:
       localeCode:
         type: string
         description: Association type label for the locale `localeCode`
+  is_two_way:
+    type: boolean
+    description: When true, the association is a two-way association
+    default: false
+    x-immutable: true
+
 example: {
   "code": "upsell",
   "labels": {
     "en_US": "Upsell",
     "fr_FR": "Vente incitative"
-  }
+  },
+  "is_two_way": false
 }
