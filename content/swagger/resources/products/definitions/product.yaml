@@ -77,7 +77,7 @@ properties:
   quantified_associations:
     type: object
     description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available in SaaS and sincce the v5.0)
-    x-validation-rules: ""
+    x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it. &#10;&bull; Each object in the array of the property `product_models` contains the code of an existing product model and the quantity of it. &#10;&bull; Identifiers used in the object collection of the property `products` cannot be equal to the product identifier."
     properties:
       quantifiedAssociationTypeCode:
         type: object
