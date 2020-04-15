@@ -70,7 +70,7 @@ properties:
             items:
               type: object
               properties:
-                identifier:
+                code:
                   type: string
                 quantity:
                   type: string
@@ -160,7 +160,7 @@ example: {
       ],
       "product_models": [
       {
-        "identifier": "model-biker-jacket-leather",
+        "code": "model-biker-jacket-leather",
         "quantity": 2
       }
       ]

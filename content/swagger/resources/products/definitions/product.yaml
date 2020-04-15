@@ -98,7 +98,7 @@ properties:
             items:
               type: object
               properties:
-                identifier:
+                code:
                   type: string
                 quantity:
                   type: string
