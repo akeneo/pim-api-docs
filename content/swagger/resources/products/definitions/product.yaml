@@ -74,6 +74,34 @@ properties:
             description: Array of product model codes with which the product is in relation (only available since the v2.1)
             items:
               type: string
+  quantified_associations:
+    type: object
+    description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available in SaaS and sincce the v5.0)
+    x-validation-rules: ""
+    properties:
+      quantifiedAssociationTypeCode:
+        type: object
+        properties:
+          products:
+            type: array
+            description: Array of objects containing product identifiers and quantities with which the product is in relation
+            items:
+              type: object
+              properties:
+                identifier:
+                  type: string
+                quantity:
+                  type: string
+          product_models:
+            type: array
+            description: Array of objects containing product model codes and quantities with which the product is in relation
+            items:
+              type: object
+              properties:
+                identifier:
+                  type: string
+                quantity:
+                  type: string
   created:
     type: string
     description: Date of creation
@@ -173,6 +201,30 @@ example: {
     "PACK": {
       "products": ["sunglass"],
       "groups": []
+    }
+  },
+  "quantified_associations": {
+    "PACK": {
+      "products": [
+      {
+        "identifier": "cap",
+        "quantity": 2
+      },
+      {
+        "identifier": "shoes",
+        "quantity": 1
+      }
+      ],
+      "product_models": [
+      {
+        "identifier": "pm_shirt",
+        "quantity": 2
+      }
+      ]
+    },
+    "PROMO": {
+      "products": [],
+      "product_models": []
     }
   }
 }

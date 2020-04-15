@@ -153,6 +153,30 @@ get:
                   "products": ["sunglasses"],
                   "groups": []
                 },
+              },
+              "quantified_associations": {
+                "PACK": {
+                  "products": [
+                    {
+                      "identifier": "cap",
+                      "quantity": 2
+                    },
+                    {
+                      "identifier": "shoes",
+                      "quantity": 1
+                    }
+                  ],
+                  "product_models": [
+                    {
+                      "identifier": "pm_shirt",
+                      "quantity": 2
+                    }
+                  ]
+                },
+                "PROMO": {
+                  "products": [],
+                  "product_models": []
+                }
               }
             },
             {
@@ -231,7 +255,8 @@ get:
                   "products": ['sunglasses'],
                   "groups": []
                 }
-              }
+              },
+              "quantified_associations": {}
             },
             {
               "_links": {
@@ -249,7 +274,8 @@ get:
               },
               "created": "2016-06-23T11:24:44+02:00",
               "updated": "2016-06-23T11:24:44+02:00",
-              "associations": {}
+              "associations": {},
+              "quantified_associations": {}
             }
           ]
         }
