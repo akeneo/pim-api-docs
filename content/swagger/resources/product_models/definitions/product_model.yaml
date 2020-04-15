@@ -46,6 +46,34 @@ properties:
             data:
               type: object
               description: Product value
+  quantified_associations:
+    type: object
+    description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available in SaaS and sincce the v5.0)
+    x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it. &#10;&bull; Each object in the array of the property `product_models` contains the code of an existing product model and the quantity of it. &#10;&bull; Identifiers used in the object collection of the property `product_models` cannot be equal to the product model code."
+    properties:
+      quantifiedAssociationTypeCode:
+        type: object
+        properties:
+          products:
+            type: array
+            description: Array of objects containing product identifiers and quantities with which the product is in relation
+            items:
+              type: object
+              properties:
+                identifier:
+                  type: string
+                quantity:
+                  type: string
+          product_models:
+            type: array
+            description: Array of objects containing product model codes and quantities with which the product is in relation
+            items:
+              type: object
+              properties:
+                identifier:
+                  type: string
+                quantity:
+                  type: string
   created:
     type: string
     description: Date of creation
@@ -117,7 +145,31 @@ example: {
         "data": "Biker jacket"
       }
     ]
-  },
+  },,
+  "quantified_associations": {
+    "PACK": {
+      "products": [
+      {
+        "identifier": "top",
+        "quantity": 2
+      },
+      {
+        "identifier": "cap",
+        "quantity": 1
+      }
+      ],
+      "product_models": [
+      {
+        "identifier": "model-biker-jacket-leather",
+        "quantity": 2
+      }
+      ]
+    },
+    "PROMO": {
+      "products": [],
+      "product_models": []
+    }
+  }
   "created": "2017-10-02T15:03:55+02:00",
   "updated": "2017-10-02T15:03:55+02:00"
 }
