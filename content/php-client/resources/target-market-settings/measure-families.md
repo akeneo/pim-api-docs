@@ -1,5 +1,9 @@
 ### Measure family
 
+::: warning
+For the Serenity version, we encourage you to use [these new endpoints](#measurement-family), as they are more powerful. They allow you to create/update measurement families and they guarantee the order of the conversion operations.
+:::
+
 #### Get a measure family 
 ::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0 editions=CE,EE
 
