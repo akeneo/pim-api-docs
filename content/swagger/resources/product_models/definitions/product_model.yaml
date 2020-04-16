@@ -149,20 +149,20 @@ example: {
   "quantified_associations": {
     "PACK": {
       "products": [
-      {
-        "identifier": "top",
-        "quantity": 2
-      },
-      {
-        "identifier": "cap",
-        "quantity": 1
-      }
+        {
+          "identifier": "top",
+          "quantity": 2
+        },
+        {
+          "identifier": "cap",
+          "quantity": 1
+        }
       ],
       "product_models": [
-      {
-        "code": "model-biker-jacket-leather",
-        "quantity": 2
-      }
+        {
+          "code": "model-biker-jacket-leather",
+          "quantity": 2
+        }
       ]
     },
     "PROMO": {
