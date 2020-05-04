@@ -14,10 +14,17 @@ properties:
       localeCode:
         type: string
         description: Association type label for the locale `localeCode`
+  is_quantified:
+    type: boolean
+    description: When true, the association is a quantified association
+    default: false
+    x-immutable: true
+
 example: {
   "code": "upsell",
   "labels": {
     "en_US": "Upsell",
     "fr_FR": "Vente incitative"
-  }
+  },
+  "is_quantified": false
 }
