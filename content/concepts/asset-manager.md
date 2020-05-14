@@ -1965,7 +1965,7 @@ An asset can hold one or several files. This comes in pretty handy if, for insta
 
 ::: info
 When you are searching for the information of an asset on a product, if you do not know the asset familly code, you can retreive it by calling this endpoint `/api/rest/v1/attributes/YourLinkedAssetCollectionAttribute`.
-It will give you the "reference_data_name" containing the code of the family linked to your Asset Collection attribute, and therefore linked to your current asset.
+In the answer, you'll find in the `reference_data_name` property, the code of the family linked to your asset collection attribute, and therefore linked to your current asset.
 :::
 
 
