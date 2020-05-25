@@ -81,6 +81,9 @@
 /api/rest/v1/measure-families/{code}:
   $ref: ./resources/measure_families/routes/measure_families_code.yaml
 
+/api/rest/v1/measurement-families:
+  $ref: ./resources/measurement_families/routes/measurement_families.yaml
+
 /api/rest/v1/reference-entities:
   $ref: ./resources/reference_entities/routes/reference_entities.yaml
 /api/rest/v1/reference-entities/{code}:

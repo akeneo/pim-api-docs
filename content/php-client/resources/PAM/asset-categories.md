@@ -13,7 +13,7 @@ Also, did you know that since the PIM 3.2 (or the 5.0 of the client), you can ha
 :::
 
 #### Get an asset category
-::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
+::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -33,7 +33,7 @@ $assetCategory = $client->getAssetCategoryApi()->get('face');
 ```
 
 #### Get a list of asset categories
-::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
+::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 There are two ways of getting asset categories. 
 
@@ -63,7 +63,7 @@ $assetCategories = $client->getAssetCategoryApi()->all(50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Upsert an asset category
-::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
+::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 If the asset category does not exist yet, this method creates it, otherwise it updates it.
 
@@ -80,7 +80,7 @@ $client->getAssetCategoryApi()->upsert('dos', [
 ```
 
 #### Upsert a list of asset categories
-::: php-client-availability versions=2.0,3.0,4.0,5.0 editions=EE
+::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 This method allows to create or update a list of asset categories.
 It has the same behavior as the `upsert` method for a single asset category, except that the code must be specified in the data of each asset category.

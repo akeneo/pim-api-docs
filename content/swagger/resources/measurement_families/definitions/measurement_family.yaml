@@ -1,0 +1,112 @@
+type: object
+required: ["code", "standard_unit_code","units"]
+properties:
+  code:
+    type: string
+    description: Measurement family code
+    x-immutable: true
+  labels:
+    type: object
+    description: Measurement family labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Measurement family label for the locale `localeCode`
+  standard_unit_code:
+    type: string
+    description: Unit code used as the standard unit for this measurement family
+    x-immutable: true
+    x-validation-rules: The unit code exists in the list of the property `units`
+  units:
+    type: object
+    description: Measurement units for this family with their conversion operations. More details <a href='/concepts/target-market-settings.html#focus-on-the-units'>here</a>.
+    x-validation-rules: A unit can't be added when a product attribute is linked to this measurement family
+    properties:
+      unitCode:
+        type: object
+        properties:
+          code:
+            type: string
+            description: Measurement unit code. More details <a href='/concepts/target-market-settings.html#focus-on-the-units'>here</a>.
+            x-immutable: true
+          labels:
+            type: object
+            description: Unit labels for each locale. More details <a href='/concepts/target-market-settings.html#focus-on-the-units'>here</a>.
+            x-validation-rules: The `localeCode` is the code of an existing and activated locale
+            default: {}
+            properties:
+              localeCode:
+                type: string
+                description: Unit label for the locale `localeCode`
+          convert_from_standard:
+            type: array
+            description: Calculation to convert the unit into the standard unit. More details <a href='/concepts/target-market-settings.html#focus-on-the-units'>here</a>.
+            x-validation-rules: "&bull; The conversion operations can't be updated when a product attribute is linked to this measurement family &#10;&bull; At least one conversion operation per unit is required"
+            items:
+              type: object
+              properties:
+                operator:
+                  type: string
+                  description: Operator for a conversion operation to convert the unit in the standard unit
+                  x-validation-rules: The operator is one of the following values
+                  enum: ['mul','div','add','sub']
+                value:
+                  type: string
+                  description: Value for a conversion operation to convert the unit in the standard unit
+          symbol:
+            type: string
+            description: Measurement unit symbol. More details <a href='/concepts/target-market-settings.html#focus-on-the-units'>here</a>.
+example: {
+  "code": "AREA",
+  "labels": {
+    "en_US": "Area",
+    "fr_FR": "Surface"
+  },
+  "standard_unit_code": "SQUARE_METER",
+  "units": {
+    "SQUARE_MILLIMETER": {
+      "code": "SQUARE_MILLIMETER",
+      "labels": {
+        "en_US": "Square millimeter",
+        "fr_FR": "Millimètre carré"
+      },
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+          "value": "0.000001"
+        }
+      ],
+      "symbol": "mm²"
+    },
+    "SQUARE_CENTIMETER": {
+      "code": "SQUARE_CENTIMETER",
+      "labels": {
+        "en_US": "Square centimeter",
+        "fr_FR": "Centimètre carré"
+      },
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+          "value": "0.0001"
+        }
+      ],
+      "symbol": "cm²"
+    },
+    "SQUARE_METER": {
+      "code": "SQUARE_METER",
+      "labels": {
+        "en_US": "Square meter",
+        "fr_FR": "Mètre carré"
+      },
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+          "value": "1"
+        }
+      ],
+      "symbol": "m²"
+    }
+  }
+}
