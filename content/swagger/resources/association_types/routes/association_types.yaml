@@ -52,7 +52,8 @@ get:
                 "en_US":"Cross sell",
                 "fr_FR":"Vente croisée"
               },
-              "is_quantified": false
+              "is_quantified": false,
+              "is_two_way": false
             },
             {
               "_links": {
@@ -65,7 +66,8 @@ get:
                 "en_US":"Upsell",
                 "fr_FR":"Vente incitative"
               },
-              "is_quantified": false
+              "is_quantified": false,
+              "is_two_way": false
             },
             {
               "_links": {
@@ -78,7 +80,8 @@ get:
                 "en_US":"Substitution",
                 "fr_FR":"Remplacement"
               },
-              "is_quantified": false
+              "is_quantified": false,
+              "is_two_way": false
             }
           ]
         }
@@ -141,7 +144,7 @@ patch:
           x-example-2:
             '{"code":"substitution", "type":"bar"}'
           x-example-3:
-            '{"code":"x_sell", "labels": {"fr_FR":null}, "is_quantified": false}'
+            '{"code":"x_cross_sell", "is_two_way": true, "is_quantified": false}'
   responses:
     200:
       description: OK
@@ -154,7 +157,8 @@ patch:
         x-example-2:
           '{"line":2,"code":"substitution","status_code":422,"message":"Property \"type\" does not exist. Check the standard format documentation.","_links":{"documentation":{"href":"http:\/\/api.akeneo.com\/api-reference.html#patch_association_types__code_"}'
         x-example-3:
-          '{"line":3,"code":"x_sell","status_code":204}'
+          '{"line":3,"code":"x_cross_sell","status_code":204}'
+
     401:
       $ref: "#/responses/401Error"
     403:
