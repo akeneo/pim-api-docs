@@ -40,6 +40,14 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  *             'product_models' => []
  *         ],
  *     ],
+ *     'quantified_associations' => [
+ *         'PRODUCT_SET' => [
+ *             'products' => [
+ *                 ['identifier' => 'earings', 'quantity' => 2],
+ *             ],
+ *             'product_models' => [],
+ *         ],
+ *     ],
  * ]
  */
 $product = $client->getProductApi()->get('top');
@@ -51,6 +59,10 @@ In the Enterprise Edition, the response contains one more field `metadata`. Look
 
 ::: warning
 The field `product_models` in the `associations` property was added in the 2.1 version of the PIM and is therefore not present in previous versions.
+:::
+
+::: warning
+The field `quantified_associations` is only present in Serenity edition
 :::
 
 #### Get a list of products

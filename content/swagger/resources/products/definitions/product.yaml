@@ -91,7 +91,7 @@ properties:
                 identifier:
                   type: string
                 quantity:
-                  type: string
+                  type: integer
           product_models:
             type: array
             description: Array of objects containing product model codes and quantities with which the product is in relation
@@ -101,7 +101,7 @@ properties:
                 code:
                   type: string
                 quantity:
-                  type: string
+                  type: integer
   created:
     type: string
     description: Date of creation

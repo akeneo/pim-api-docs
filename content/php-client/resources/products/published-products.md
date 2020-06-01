@@ -39,6 +39,14 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
  *             'product_models' => []
  *         ],
  *     ],
+ *     'quantified_associations' => [
+ *         'PRODUCT_SET' => [
+ *             'products' => [
+ *                 ['identifier' => 'earings', 'quantity' => 10],
+ *             ],
+ *             'product_models' => [],
+ *         ],
+ *     ],
  * ]
  */
 $publishedProduct = $client->getPublishedProductApi()->get('top');
@@ -48,6 +56,10 @@ You can get more information about the returned format of the product values [he
 
 ::: warning
 The field `product_models` in the `associations` property was added in the 2.1 version of the PIM and is therefore not present in previous versions.
+:::
+
+::: warning
+The field `quantified_associations` is only present in Serenity edition
 :::
 
 #### Get a list of published products
