@@ -638,6 +638,8 @@ To finish, below is the JSON standard format representing a product model. Notic
   },
   "created": "2017-10-05T11:24:46+02:00",
   "updated": "2017-10-05T11:24:46+02:00",
+  "associations": {},
+  "quantified_associations": {},
   "metadata": {
     "workflow_status": "working_copy"
   }
