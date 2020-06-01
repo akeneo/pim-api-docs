@@ -46,10 +46,33 @@ properties:
             data:
               type: object
               description: Product value
+  associations:
+    type: object
+    description: Several associations related to groups, product and/or other product models, grouped by association types
+    x-validation-rules: "&bull; The `associationTypeCode` is the code of an existing association type. &#10;&bull; Each string in the array of the property `groups` is the code of an existing group. &#10;&bull; Each string in the array of the property `products` is the identifier of an existing product. &#10;&bull; Each string in the array of the property `product_models` is the code of an existing product model."
+    properties:
+      associationTypeCode:
+        type: object
+        properties:
+          groups:
+            type: array
+            description: Array of groups codes with which the product is in relation
+            items:
+              type: string
+          products:
+            type: array
+            description: Array of product identifiers with which the product is in relation
+            items:
+              type: string
+          product_models:
+            type: array
+            description: Array of product model codes with which the product is in relation (only available since the v2.1)
+            items:
+              type: string
   quantified_associations:
     type: object
     description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available in Serenity)
-    x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it. &#10;&bull; Each object in the array of the property `product_models` contains the code of an existing product model and the quantity of it. &#10;&bull; Identifiers used in the object collection of the property `product_models` cannot be equal to the product model code."
+    x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it. &#10;&bull; Each object in the array of the property `product_models` contains the code of an existing product model and the quantity of it."
     properties:
       quantifiedAssociationTypeCode:
         type: object
@@ -147,7 +170,7 @@ example: {
     ]
   },
   "quantified_associations": {
-    "PACK": {
+    "PRODUCT_SET": {
       "products": [
         {
           "identifier": "top",

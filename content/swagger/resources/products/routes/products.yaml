@@ -151,11 +151,12 @@ get:
               "associations": {
                 "PACK": {
                   "products": ["sunglasses"],
+                  "product_models": [],
                   "groups": []
                 },
               },
               "quantified_associations": {
-                "PACK": {
+                "PRODUCT_SET": {
                   "products": [
                     {
                       "identifier": "cap",
@@ -253,6 +254,7 @@ get:
               "associations": {
                 "PACK": {
                   "products": ['sunglasses'],
+                  "product_models": [],
                   "groups": []
                 }
               },
