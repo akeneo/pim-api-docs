@@ -108,7 +108,7 @@ Note that the `metadata` field is only available starting from the v2 and as it 
 :::
 
 ::: warning
-Note that the `quantified_associations` field is only available in Serenity edition.
+Note that the `quantified_associations` field is only available in Serenity and since the v5.0.
 :::
 
 ::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Product)
