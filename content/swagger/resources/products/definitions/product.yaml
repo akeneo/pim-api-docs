@@ -76,7 +76,7 @@ properties:
               type: string
   quantified_associations:
     type: object
-    description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available in SaaS and since the v5.0)
+    description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available in Serenity)
     x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it."
     properties:
       quantifiedAssociationTypeCode:
@@ -123,7 +123,7 @@ properties:
         description: Status of the product regarding the user permissions (only available since the v2.0 in the Enterprise Edition)
         type: string
         enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
-    
+
 example: {
   "identifier": "top",
   "enabled": true,
@@ -222,10 +222,6 @@ example: {
           "quantity": 2
         }
       ]
-    },
-    "PROMO": {
-      "products": [],
-      "product_models": []
     }
   }
 }

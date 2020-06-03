@@ -71,7 +71,7 @@ properties:
               type: string
   quantified_associations:
     type: object
-    description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available in Serenity and since the v5.0)
+    description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available in Serenity)
     x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it. &#10;&bull; Each object in the array of the property `product_models` contains the code of an existing product model and the quantity of it."
     properties:
       quantifiedAssociationTypeCode:
@@ -194,10 +194,6 @@ example: {
           "quantity": 2
         }
       ]
-    },
-    "PROMO": {
-      "products": [],
-      "product_models": []
     }
   },
   "created": "2017-10-02T15:03:55+02:00",

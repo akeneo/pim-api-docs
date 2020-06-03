@@ -122,10 +122,6 @@ get:
                       "quantity": 2
                     }
                   ]
-                },
-                "PROMO": {
-                  "products": [],
-                  "product_models": []
                 }
               },
               "created": "2017-10-04T18:04:10+02:00",

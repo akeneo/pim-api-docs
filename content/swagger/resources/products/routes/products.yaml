@@ -173,10 +173,6 @@ get:
                       "quantity": 2
                     }
                   ]
-                },
-                "PROMO": {
-                  "products": [],
-                  "product_models": []
                 }
               }
             },

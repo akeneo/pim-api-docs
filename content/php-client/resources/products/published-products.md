@@ -51,7 +51,7 @@ The field `product_models` in the `associations` property was added in the 2.1 v
 :::
 
 ::: warning
-The field `quantified_associations` is only present in Serenity and since the v5.0
+The field `quantified_associations` is only present in Serenity.
 :::
 
 #### Get a list of published products
