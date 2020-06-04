@@ -155,7 +155,8 @@ example: {
   "associations": {
     "PACK": {
       "products": ["sunglass"],
-       "groups": []
+      "product_models": [],
+      "groups": []
     }
   }
 }

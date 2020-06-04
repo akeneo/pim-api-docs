@@ -14,6 +14,8 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  *          'en_US' => 'Cross sell',
  *          'fr_FR' => 'Vente croisée',
  *      ],
+ *      'is_quantified' => false,
+ *      'is_two_way' => false,
  * ]
  */
 $associationType = $client->getAssociationTypeApi()->get('X_SELL');

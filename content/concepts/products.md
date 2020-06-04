@@ -92,6 +92,7 @@ Below is the JSON standard format representing a product.
   "created": "2017-10-05T11:25:48+02:00",
   "updated": "2017-10-05T11:25:48+02:00",
   "associations": {},
+  "quantified_associations": {},
   "metadata": {
     "workflow_status": "working_copy"
   }
@@ -104,6 +105,10 @@ Note that the `parent` field is only available starting from the v2, as this is 
 
 ::: warning
 Note that the `metadata` field is only available starting from the v2 and as it is an Enterprise Edition feature, you won't have this field on a Community Edition PIM.
+:::
+
+::: warning
+Note that the `quantified_associations` field is only available in Serenity.
 :::
 
 ::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Product)
@@ -633,6 +638,8 @@ To finish, below is the JSON standard format representing a product model. Notic
   },
   "created": "2017-10-05T11:24:46+02:00",
   "updated": "2017-10-05T11:24:46+02:00",
+  "associations": {},
+  "quantified_associations": {},
   "metadata": {
     "workflow_status": "working_copy"
   }

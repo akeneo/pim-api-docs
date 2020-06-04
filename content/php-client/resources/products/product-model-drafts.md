@@ -22,6 +22,23 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
  *             ]
  *         ],
  *     ],
+ *     'associations' => [
+ *         'PACK' => [
+ *             'products' => [
+ *                 'sunglass'
+ *             ],
+ *             'groups' => [],
+ *             'product_models' => []
+ *         ],
+ *     ],
+ *     'quantified_associations' => [
+ *         'PRODUCT_SET' => [
+ *             'products' => [
+ *                 ['identifier' => 'earings', 'quantity' => 2],
+ *             ],
+ *             'product_models' => [],
+ *         ],
+ *     ],
  *     'created' => '2017-10-17T14:12:35+00:00',
  *     'updated' => '2017-10-17T14:12:35+00:00',
  *     'metadata' => [

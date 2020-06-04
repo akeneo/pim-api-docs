@@ -50,6 +50,10 @@ You can get more information about the returned format of the product values [he
 The field `product_models` in the `associations` property was added in the 2.1 version of the PIM and is therefore not present in previous versions.
 :::
 
+::: warning
+The field `quantified_associations` is only present in Serenity.
+:::
+
 #### Get a list of published products
 ::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=EE
 
