@@ -17,6 +17,8 @@ properties:
   is_quantified:
     type: boolean
     description: When true, the association is a quantified association
+    default: false
+    x-immutable: true
   is_two_way:
     type: boolean
     description: When true, the association is a two-way association
