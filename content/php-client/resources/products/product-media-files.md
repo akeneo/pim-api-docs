@@ -32,14 +32,14 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 
 $mediaFile = $client->getProductMediaFileApi()->download('code/example');
 
-file_put_contents('/tmp/ziggy.jpg', $product->getContents());
+file_put_contents('/tmp/ziggy.jpg', $mediaFile->getContents());
 ```
 
 From the v4 of the PHP client, the response is returned instead of the content. It allows getting the filename and the MIME type from the response.
 You can get the content this way:
 
 ```php
-file_put_contents('/tmp/bridge.jpg', $product->getBody()->getContents());
+file_put_contents('/tmp/bridge.jpg', $mediaFile->getBody()->getContents());
 ```
 
 #### Get a list of media file information
