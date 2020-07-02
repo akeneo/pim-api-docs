@@ -170,8 +170,11 @@ HTTP/1.1 422 Unprocessable Entity
     "message": "Validation failed.",
     "errors": [
         {
-            "field": "code",
-            "message": "This value should not be blank."
+            "property": "values",
+            "message": "The tommh value is not in the brand attribute option list.",
+            "attribute": "brand",
+            "locale": null,
+            "scope": null
         }
     ]
 }
@@ -193,6 +196,27 @@ HTTP/1.1 422 Unprocessable Entity
     }
 }
 ```
+
+Or, sending unknown data. 
+
+#### Example
+```http
+HTTP/1.1 422 Unprocessable Entity
+
+{
+    "code": 422,
+    "message": "The sunglasses category does not exist in your PIM. Check the expected format on the API documentation.",
+    "_links": {
+        "documentation": {
+            "href": "http://api.akeneo.com/api-reference.html#post_products"
+        }
+    }
+}
+```
+
+::: tips
+When the API answers that something `does not exist`, it could also mean that the related user hasn't the permission to access it.
+:::
 
 ## Success
 
