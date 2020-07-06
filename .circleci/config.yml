@@ -17,7 +17,6 @@ jobs:
                   name: Deploy on staging server
                   command: HOSTNAME=$STAGING_HOSTNAME PORT=$STAGING_PORT make deploy
 
-
     deploy_production:
         machine:
             image: ubuntu-1604:201903-01
@@ -27,6 +26,7 @@ jobs:
             - run:
                   name: Deploy on production server
                   command: HOSTNAME=$PROD_HOSTNAME PORT=$PROD_PORT make deploy
+
 workflows:
     version: 2
     pull_request:
@@ -39,14 +39,7 @@ workflows:
 
     deployment:
         jobs:
-            - deploy_staging:
+            - deploy_production:
                   filters:
                       branches:
                           only: master
-            - approve_to_deploy_in_production:
-                  type: approval
-                  requires:
-                      - deploy_staging
-            - deploy_production:
-                  requires:
-                      - approve_to_deploy_in_production
