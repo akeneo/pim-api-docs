@@ -29,7 +29,6 @@ So she needs:
 
 ### Peter and/or Filips' needs
 
-::: info
 Peter and/or Filips needs a easy way to install, configure and maintain your connector.
 :::
 
