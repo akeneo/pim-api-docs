@@ -15,7 +15,6 @@ You will find below the main needs, associated to each user profile, in terms of
 
 ### Julia's needs
 
-::: info
 Julia needs an easy way to export her PIM data into her eCommerce solution.
 :::
 
