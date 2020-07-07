@@ -76,7 +76,7 @@ In that case, make sure that your eCommerce solution allows the use of external 
 **Key points**  
 2 possible configurations to manage media:
 * Akeneo PIM alone: the PIM manages media **as binaries**,
-* Akeneo PIM associated to a DAM/CDN: PIM manage media **as URLs** (Recommended)
+* Akeneo PIM associated to a DAM/CDN: the PIM manages media **as URLs** (recommended method).
 :::
 
 ## Conclusions
