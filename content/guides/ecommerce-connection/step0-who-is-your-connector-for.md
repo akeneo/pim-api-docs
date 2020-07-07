@@ -1,6 +1,6 @@
 # Who is your connector for?
 
-## Personnas
+## Personas
 
 You will find below user archetypes we use to help you guide your decisions about product features, interactions, and even visual design of your connector. By designing for the archetype — whose goals and behavior patterns are well understood — you can satisfy the broader group of people represented by that archetype.
 
