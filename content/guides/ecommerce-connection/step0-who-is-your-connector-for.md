@@ -44,6 +44,6 @@ It depends on your business model. If you require your client to install the con
 
 * A **connector UI or a configuration file to set up the connector** (PIM connection, mapping settings, flexible filtering capabilities, …)
 
-* An access to **Connector logs:** to have all detailed technical information to investigate errors.
+* An access to the **connector logs:** to have all detailed technical information to investigate errors.
 
 * A **documentation or a process** to know how to customize your connector compared to Julia's project (if needed).
