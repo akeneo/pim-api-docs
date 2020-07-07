@@ -38,7 +38,7 @@ For example, **up-to-date price and stock information** of a product should neve
 For price information, Akeneo PIM has the capability of storing product price information, but only for a **“reference”** price and not an **“up-to-date”** price. This **“reference” price** is for information purposes only for the teams managing Akeneo PIM (Julia) and should never be mapped to the eCommerce solution price displayed in your store.
 
 :::info
-**Key points:**
+**Key points**
 * **PIM** own only **“cold”** product information
 * **ERP** own **“hot”** product information (like price and stock)
 :::
