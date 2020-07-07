@@ -16,7 +16,7 @@ It also means that in order to guarantee the cohesion of product information, th
 
 :::info
 **Key points**
-* PIM is the reference of marketing product information
+* PIM is the reference of marketing product information.
 * No more manual product information update directly in your eCommerce platform.
 * Marketing product information flow goes from Akeneo PIM to eCommerce solution only.
 :::
