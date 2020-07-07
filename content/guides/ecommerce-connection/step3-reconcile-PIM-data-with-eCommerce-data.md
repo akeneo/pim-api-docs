@@ -40,7 +40,7 @@ Akeneo PIM manages different attribute types. Some eCommerce solutions may have 
 
 For some attribute types, the choice can be multiple (e.g. Measurement Attribute: keep only the value in the number attribute type or the value plus the unit in a text attribute?).
 
-For price attribute type, again, warning, PIM manage only a “reference” price not an “up-to-date” price.
+For price attribute type, again, warning, the PIM manages only a “reference” price not an “up-to-date” price.
 
 **What do you need to implement?**
 

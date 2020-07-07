@@ -18,7 +18,7 @@ You can also consult our [helpdesk platform](http://helpdesk.akeneo.com/) to kno
 
 ### What are Akeneo PIM editions?
 
-In order to understand our edition and its capabilities, you can consult our [dedicated page](https://www.akeneo.com/compare-editions/) on our website.
+In order to understand our edition and their capabilities, you can consult our [dedicated page](https://www.akeneo.com/compare-editions/) on our website.
 
 ### Can I have access to an Akeneo PIM platform?
 
@@ -38,10 +38,9 @@ Please note that this Akeneo PIM CE demo instance is for exploratory purposes on
 
 If you need an Akeneo PIM Enterprise Edition instance to start developing your connector, please [contact us](https://www.akeneo.com/contact/).
 
-# Understand Akeneo PIM data
-
-The purpose of this chapter is not to redo the PIM documentation but to explain where to find the information and, above all, to point out PIM features/properties to be taken into consideration in a context of developing an eCommerce connector.
-
+:::info
+The purpose of the next chapters is not to redo the PIM documentation but to explain where to find the information and, above all, to point out PIM features/properties to be taken into consideration in a context of developing an eCommerce connector.
+:::
 
 ## Product
 
@@ -79,13 +78,12 @@ Please read our [Akeneo help center](https://help.akeneo.com/pim/serenity/articl
   * Boolean (Yes/No)
 :::
 
-# Published Product
+### Published Product
 
 **What is a “published” product?**
 Please read our [Akeneo help center](https://help.akeneo.com/pim/serenity/articles/publish-workflow.htm) to know everything about “published” products.
 
 ::: info
-**Key points:**
 * A “published” product is only used by some of our customers who need to organize their PIM work by having 2 versions of the product:
   * A version in draft mode
   * A "published" version ready to be exported
