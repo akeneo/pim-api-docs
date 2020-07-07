@@ -4,12 +4,9 @@
 
 You will find below user archetypes we use to help you guide your decisions about product features, interactions, and even visual design of your connector. By designing for the archetype — whose goals and behavior patterns are well understood — you can satisfy the broader group of people represented by that archetype.
 
-|![Julia](../../img/personas/Julia.png)|![Peter](../../img/personas/Peter.png)|![Filips](../../img/personas/Filips.png)|
-|:------------------------------------:|:------------------------------------:|:----------------------------------------------:|
-|     **Julia:** Product Manager       |        **Peter:** IT Manager         |    **Filips:** Julia/Peter's Integrator |
+![Personas](../../img/guides/personas.png)
 
-
-## Personnas' needs
+## Personas' needs
 
 You will find below the main needs, associated to each user profile, in terms of process, documentation, actions related to your future eCommerce connector.
 
@@ -33,17 +30,17 @@ Peter and/or Filips needs a easy way to install, configure and maintain your con
 
 So they need:
 
-* A **download/installation process:** need an easy to follow process for downloading and installing the connector.
+* An **easy to follow download/installation process:** to retrieve and install your connector.
 It depends on your business model. If you require your client to install the connector themself, make sure you provide appropriate documentation.
 
-* A **documentation** about **the limits of the connector** in terms of **scalability** and **performance**.
+* A **full documentation** about **the limits of the connector** in terms of **scalability** and **performance**.
 
-* A **configuration process** need an easy to follow process to set up the connection between Akeneo PIM and eCommerce solution as well as parameters to configure the connector. It requires a documentation that explains the methodology on how to configure your connector compared to business needs.
+* A **easy to follow configuration process** to set up the connection between Akeneo PIM and eCommerce solution as well as parameters to configure the connector. It requires a documentation that explains the methodology on how to configure your connector compared to business needs.
 
-* An **initial import process:** need to have a simple process to perform the initial import of PIM data into the eCommerce solution.
+* An **friendly import process:** to perform the first import of PIM data into the eCommerce solution. Due to the volume of data to be imported, this may require special support from you.
 
 * A **connector UI or a configuration file to set up the connector** (PIM connection, mapping settings, flexible filtering capabilities, …)
 
 * An access to the **connector logs:** to have all detailed technical information to investigate errors.
 
-* A **documentation or a process** to know how to customize your connector compared to Julia's project (if needed).
+* A **documentation or a process** to know how to customize your connector compared to Julia's project (if needed). We know that each client project is specific and most of the time there will be a need to adapt your connector to particular contexts.

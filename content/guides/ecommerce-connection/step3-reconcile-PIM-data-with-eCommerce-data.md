@@ -14,24 +14,27 @@ For each of PIM data, you need to ask yourself the following questions:
 
 In order to help you implement the features of your connector, you will find below a list of features implemented as part of our premium eCommerce connectors:
 
-## API connection feature
+## API connection
 
 ![API connection](../../img/guides/configuration-pim.png)
 
-### What is it?
+**What is it?**
+
 In order for your connector to communicate with Akeneo PIM, it must connect with its API. So you need to provide a setting to invite the user to enter PIM API credentials.
 
-### What do you need to implement?
+**What do you need to implement?**
 
 * A UI or a “configuration file” to copy and paste Akeneo PIM API credentials (client id, secret, connection username and password).
 * If you create a UI, add a “Test” button to test this connection (in order to check that everything is well configured on this side and maybe to start retrieving some interesting information about the Akeneo PIM that has just been connected)
 * Akeneo API allows you to change the “limit” parameter. It could be useful to have this setting in your connector configuration to optimize the connection between Akeneo PIM and the eCommerce solution.
 
-## Attribute type mapping feature
+## Attribute management
+
+### Attribute type mapping
 
 ![Attribute type mapping](../../img/guides/configuration-attribute-type.png)
 
-### What is it?
+**What is it?**
 
 Akeneo PIM manages different attribute types. Some eCommerce solutions may have limitations in terms of attribute types and the mapping between Akeneo PIM attribute types and eCommerce attribute types can sometimes be quite complex. Sometimes, you will have to make some difficult choices in terms of mapping.
 
@@ -39,7 +42,7 @@ For some attribute types, the choice can be multiple (e.g. Measurement Attribute
 
 For price attribute type, again, warning, PIM manage only a “reference” price not an “up-to-date” price.
 
-### What do you need to implement?
+**What do you need to implement?**
 
 In order to bring flexibility to your connector configuration you can introduce a manual choice of the attribute type mapping.
 
@@ -47,11 +50,11 @@ For example, you can suggest a configuration to transform a PIM attribute type t
 
 This type of configuration can be very useful when you want to optimize your attribute mapping or when a new attribute type appears in the PIM and you need to define the corresponding mapping (e.g. Table Attribute bundle).
 
-## Attribute mapping feature
+### Attribute mapping
 
 ![Attribute mapping](../../img/guides/configuration-attribute.png)
 
-### What is it?
+**What is it?**
 
 By default your connector will create a new attribute in the eCommerce solution for each PIM attribute it will find.
 
@@ -59,41 +62,44 @@ This is a feature that allows you to select, in the settings, which PIM attribut
 
 This is especially useful for mapping essential attributes such as product name, SKU, description...
 
+**What do you need to implement?**
 
-### What do you need to implement?
 * A Connector configuration to map existing PIM attributes to eCommerce ones.
 
 * If you develop a UI, if possible, retrieve automatically all PIM and eCommerce attributes so that your user has only to make a defined choice through an already filled list.
 
-## Manage "localizable" attribute feature
+### "Localizable" attribute
 
 ![What is a locale](../../img/guides/what-is-a-locale.svg)
 
-### What is it?
+**What is it?**
 
 With Akeneo PIM, it is possible to define localizable attributes (attribute content that is different depending on the locale).  
 
-### What do you need to implement?
+**What do you need to implement?**
 
 Some eCommerce solutions offer the same capabilities as Akeneo PIM for localizable attributes management. Depending on the eCommerce solution, the mapping is sometimes straightforward and automatic but sometimes it requires implementing a connector configuration to map locales manually.
 
 Don't forget that you can have localizable attributes on PIM products, assets and reference entities.
 
 **Default locale**
+
 Some eCommerce solutions may have a notion of **"default locale"**.
 This default locale makes it possible, for example, to define the product translation to be displayed when a product translation for a specific locale does not exist.
 
 This notion does not exist in the PIM and it is, therefore, necessary to define this default locale at the connector configuration level.
 
 
-## Manage “scopable” attribute feature
+### “Scopable” attribute
 
 ![What is a channel](../../img/guides/what-is-a-channel.svg)
 
-### What is it?
+**What is it?**
+
 With Akeneo PIM, it is possible to define scopable attributes (attribute content differs, depending on the channel).
 
-### What do you need to implement?
+**What do you need to implement?**
+
 Compared to e-commerce features, one channel can be used:
 
 * To define the eCommerce solution itself (this means that all attributes have the same value for the eCommerce solution... even if it has several eCommerce sites). For example, if a customer has products for a mobile application, for a paper catalog and for an eCommerce solution, he will define a "Mobile" channel, a "Print" channel and an "eCommerce" channel.
@@ -105,11 +111,12 @@ You need to develop a specific configuration in your connector to specify which 
 
 Don't forget that you can have scopable attributes on PIM products, assets and reference entities.
 
-## What about attribute groups feature?
+### What about attribute groups feature?
 
 ![What is a channel](../../img/guides/what-is-an-attribute-group.svg)
 
-### What is it?
+**What is it?**
+
 Some eCommerce solutions have the capability to group attributes and you might, of course, be tempted to associate this notion of attribute group with PIM attribute group. Same name, same notion… but that could be a mistake! ;-)
 
 In the PIM, attribute groups are used only for internal purposes to:
@@ -118,7 +125,8 @@ Organize the work of the different product contributors in the Enterprise Editio
 
 In the eCommerce solution, these attribute groups most of the time, do have a very specific SEO goal.
 
-### What do you need to implement?
+**What do you need to implement?**
+
 As Akeneo PIM and eCommerce attribute groups have absolutely different purposes, we advise you to map attributes into a single eCommerce group called "Akeneo PIM".
 
 The eCommerce managers will then be able, to manually redistribute these attributes into strategic eCommerce attribute groups to optimize the SEO of their eCommerce store.
@@ -126,25 +134,31 @@ The eCommerce managers will then be able, to manually redistribute these attribu
 At the level of your connector you must, therefore, take into account that the attributes already synchronized may have been changed manually in the eCommerce solution. Your connector should therefore not change attributes that already exist in your eCommerce solution and have been moved into eCommerce attribute groups.
 
 
-## Family mapping feature?
+### Family mapping feature
 
 ![Family mapping](../../img/guides/configuration-family.png)
 
-### What is it?
+**What is it?**
+
 A family is a set of attributes that is shared by products belonging to the same family. In other words, a family can be considered as a product template.
 
-### What do you need to implement?
+**What do you need to implement?**
+
 Like Akeneo PIM, most eCommerce solutions have this capability to define a set of attributes per product type.
 
 You can, therefore, map Akeneo PIM families to the attribute sets of your eCommerce solution.
 
 At the connector settings level, you can give the possibility to manually define which family you want to import. This feature is particularly useful for an initial import and allows you to import PIM products family by family (step by step) when you are dealing with a very large catalog.
 
-## Manage image mapping
+
+## Media management
+
+### Manage image mapping
 
 ![Image mapping](../../img/guides/configuration-image.png)
 
-### What is it?
+**What is it?**
+
 A PIM can manage product images in many different ways:
 * Images can be managed as binaries or external DAM/CDN URLs.
 * Images can be stored in an “image” attribute (one image per attribute) or as assets that are linked to products, managed as an “asset collection” attribute (multiple images per attribute).
@@ -153,7 +167,8 @@ A PIM can manage product images in many different ways:
 These image metadata can be scopable and/or localizable too.
 * Asset Images can be ordered at the product level
 
-### What do you need to implement?
+**What do you need to implement?**
+
 Apart from taking into consideration all these PIM modeling capabilities (compared to your eCommerce solution). You also need to take into account some eCommerce solution specific features such as:
 
 * Define product attributes that represent images
@@ -170,9 +185,10 @@ Make sure you have all the mechanisms in your connector to optimize the performa
 For “media file” attribute, PIM API exposes a URL. As Akeneo PIM is not a CDN, this URL is not a public URL and can’t be used directly by your eCommerce solution.
 :::
 
-## Manage Video/File mapping
+### Manage Video/File mapping
 
-### What is it?
+**What is it?**
+
 As per images, you would want to enable your users to attach videos or files to your eCommerce products via Akeneo PIM.
 
 * For videos: most of the time, it’s not a media file in the PIM (too heavy). Your connector will rather have to manage videos as “media links” attribute with a URL from Youtube, Vimeo or from other video providers.
@@ -182,7 +198,8 @@ Of course, don’t forget that a video can have some metadata for SEO purposes.
 * For files: some customers will store their files in the PIM (as media files), while others will host them on a CDN and the PIM will then only contain a URL (media link).
 
 
-###  What do you need to implement?
+**What do you need to implement?**
+
 * For videos, if your eCommerce solution includes natively a video manager feature, you should allow URL mapping for videos.
 
 If your eCommerce solution does not have this feature, you will probably need to expose this URL at product level (in a product text attribute for example).
@@ -195,36 +212,13 @@ Please create a configuration at your connector level to enable the mapping of P
 For “media file” attributes, PIM API exposes a URL. As Akeneo PIM is not a CDN, this URL is not a public URL and can’t be used directly by your eCommerce solution.
 :::
 
-## Category mapping feature
+## Product management
 
-![category mapping](../../img/guides/configuration-category.png)
-
-### What is it?
-In an eCommerce solution, categories can be used for several features such as:
-Categorization of products to define their type and trigger particular actions.
-Define the navigation of a site.
-Define anchors for navigation within a page.
-
-At PIM level, the same catalog can have several navigation trees. Some category trees are only used for PIM purposes and are not intended to be exported. Other category trees can be directly exported to your eCommerce solution.
-
-The main difference between your eCommerce solution and PIM categories is, most of the time, that PIM categories are less complex than the eCommerce solution categories.
-
-Indeed, in Akeneo PIM, there is no attribute set attached to a category, only a localizable label.
-
-Another point to take into consideration is that your eCommerce solution may need different trees depending on the destination eCommerce sites: the same eCommerce solution can manage several organizations that may have themselves several eCommerce sites... in different languages.
-
-### What do you need to implement?
-As you can see, you need to give some flexibility to your users to choose which category trees are going to do what in eCommerce solution…
-
-You can then define in the configuration of your connector:
-* Which category trees or sub-trees do you want to import into the eCommerce plate-form
-* A mapping to define which organizations, eCommerce websites and features (menu,anchor…) will use this category tree or sub-tree.
-
-## Manage products
+### Manage products
 
 ![product mapping](../../img/guides/configuration-product.png)
 
-### What is it?
+**What is it?**
 You need to import products from the PIM into your eCommerce solution...
 But what products? All PIM products?
 
@@ -248,22 +242,21 @@ And sometimes, your customers will also need to import a PIM product into the eC
 
 **Conclusion:** each customer project has its own needs and it is important to implement enough flexibility in your connector settings to allow each customer to import in his eCommerce solution only product information he needs according to his criteria.
 
-### What do you need to implement?
+**What do you need to implement?**
 
 In the features of your connector configuration, you can add a “simple” and an “advanced” filter system with the capability to switch from one to the other according to the needs of your customers.
 
 The “simple” filter will include filters most used by your customers and the “advanced” filter will allow more complex configurations (based on our [PIM API filter capabilities](/documentation/filter.html)).
 
-## Manage product with variants
+### Product with variants
 
-### What is it?
+**What is it?**
 
 Products with variants are products that have similarities, they are based on the same model but differ in some aspects from one another.
 
 Please consult [our documentation](https://help.akeneo.com/pim/v3/articles/what-about-products-variants.html), to know everything about PIM product with variants:
 
 ::: info
-**Key points:**
 * PIM can manage up to 3 levels of enrichment (1 or 2 variant levels)
   * 1 or 2 levels of “product model”
   * 1 level of variant “product”
@@ -275,17 +268,25 @@ Please consult [our documentation](https://help.akeneo.com/pim/v3/articles/what-
   * Boolean (Yes/No)
 :::
 
-### What do you need to implement?
+**What do you need to implement?**
 
 Compared to your eCommerce solution, you would need to create a mapping
 between the PIM structure and eCommerce structure to manage product variants.
 
 Sometimes this mapping can be complex: not the same level of variation between the PIM and eCommerce solution, not the same number of axes per level...etc... you will then have to make choices or concatenate certain levels of variation to take into account all this information.
 
+### Enable/disable status
 
-## Manage product associations
+**What is it?**
 
-### What is it?
+A product is rarely removed. It is more often “disabled” to keep its history (In Akeneo PIM but in eCommerce solution too).
+
+**What do you need to implement?**
+Please consider relying only on the enable/disable status of the PIM product to know if a product can be activated or deactivated in your eCommerce solution.
+
+### Manage product associations
+
+**What is it?**
 In an eCommerce solution, you can have different features related to product association as:
 * Cross-sell
 * Up-sell
@@ -304,22 +305,51 @@ It is, therefore, possible to create these typical product associations:
 
 But also "custom" product association types for other needs.
 
-### What do you need to implement?
+**What do you need to implement?**
 You should need to create a specific configuration in your connector to identify which PIM association type is a “Cross-sell”, “Up-sell”, “Substitution” or “Pack” association type to be able to map these associations in your eCommerce solution.
 
-## What about PIM product groups feature?
+### What about PIM product groups feature?
 
-### What is it?
+**What is it?**
 Groups are used to bring products together.
 In Akeneo PIM, you can group all the products on a selection of products to create a theme, for example a collection of products on the same Christmas theme.
 But most of the time, this feature is for internal purpose and product group don’t have to be exported in the eCommerce solution.
 
-### What do you need to implement?
+**What do you need to implement?**
 As product groups can be used for so many different use-cases and for internal purposes most of the time, our recommendation is to not develop a mapping for this.
 
-## Manage multiple organizations/multiple store feature
+## Category management
 
-### What is it?
+![category mapping](../../img/guides/configuration-category.png)
+
+**What is it?**
+
+In an eCommerce solution, categories can be used for several features such as:
+* Categorization of products to define their type and trigger particular actions.
+* Define the navigation of a site.
+* Define anchors for navigation within a page.
+
+At PIM level, the same catalog can have several navigation trees. Some category trees are only used for PIM purposes and are not intended to be exported. Other category trees can be directly exported to your eCommerce solution.
+
+The main difference between your eCommerce solution and PIM categories is, most of the time, that PIM categories are less complex than the eCommerce solution categories.
+
+Indeed, in Akeneo PIM, there is no attribute set attached to a category, only a localizable label.
+
+Another point to take into consideration is that your eCommerce solution may need different trees depending on the destination eCommerce sites: the same eCommerce solution can manage several organizations that may have themselves several eCommerce sites... in different languages.
+
+**What do you need to implement?**
+
+As you can see, you need to give some flexibility to your users to choose which category trees are going to do what in eCommerce solution…
+
+You can then define in the configuration of your connector:
+* Which category trees or sub-trees do you want to import into the eCommerce plate-form
+* A mapping to define which organizations, eCommerce websites and features (menu,anchor…) will use this category tree or sub-tree.
+
+
+## Multiple organization/stores
+
+**What is it?**
+
 Your eCommerce solution probably has the capacity to manage multiple organizations and multiple websites.
 
 It is important to understand that the needs here can be many and diverse:
@@ -342,7 +372,8 @@ When he wants to define that a product must appear in a particular website, he u
 * **Use of locales:**
 If websites are dedicated to a specific locale, a customer will create some localizable product attributes in the PIM to define a specific localized product content for each website.  
 
-### What do you need to implement?
+**What do you need to implement?**
+
 Your connector will probably have to manage this notion Multi-organisation / Multi-sites in the eCommerce solution and choose the right PIM data to import to achieve this.
 
 Compared to your eCommerce features, you should, therefore, implement a flexible connector configuration to define:
@@ -351,21 +382,21 @@ Compared to your eCommerce features, you should, therefore, implement a flexible
 
 * Which attribute contents are going to be associated to which website (compared to its locale or its channel)
 
+## Reference Entities management
 
-## Manage Reference Entities feature
+**What is it?**
 
-### What is it?
 Please consult the introduction of [our documentation about Reference Entities](https://help.akeneo.com/pim/v3/articles/what-about-reference-entities.html) to understand how it can be used for eCommerce purposes:
 
 As you can see, Reference Entities can be used to enrich product information or to create dedicated CMS pages with product relationships.
 
 The main problem that usually occurs is that, most of the time, this notion of "Reference Entities" does not exist in the eCommerce solutions. Some solutions have CMS capabilities to manually create rich-text articles, others allow the enrichment of product information with some additional modules but most of the time there is nothing natively comparable to PIM Reference Entities.
 
-### What do you need to implement?
+**What do you need to implement?**
 
 Well, two choices are available:
 
-1. Don’t manage PIM Reference Entities in your connector:
+1. **Don’t manage PIM Reference Entities in your connector:**
 As the concept of Reference Entities does not exist most of the time in your eCommerce solution, you can then decide:
 
 * To import Reference Entities records data in your connector but not to manage it (no mapping).
@@ -373,12 +404,12 @@ As the concept of Reference Entities does not exist most of the time in your eCo
 * To indicate to your customers in your documentation that this requires a customization of your connector and the eCommerce solution to take into account these Reference Entities (customization that you can decide to develop).
 
 
-2. Expose Reference Entities at Product information level:
+2. **Expose Reference Entities at Product information level:**
 As there is no equivalent structure in your eCommerce solution, one strategy could be to transfer the data from the PIM "Reference Entities record" into eCommerce product attributes. This is not an ideal solution because for each product linked to a Reference Entity record, you will have to duplicate these data in each eCommerce product as new product attributes.
 
-# Manage Creation/Modification/Deletion of PIM data
+## Manage PIM data updates
 
-## Manage creations: Initial import
+### Manage creations: Initial import
 
 The first use-case your connector will encounter is the initial import of your user's PIM catalog.
 
@@ -400,8 +431,6 @@ Don't forget that the scalability of your connector work is also constrained by 
 :::
 
 ::: info
-**Key points:**
-
 **Think scalable from the start!**
 
 A connector must be **"scalable"**, i.e. it must be able to import any type of volume that Akeneo PIM gives it and this regardless of the import time (here we are talking about scalability and not performance).
@@ -420,7 +449,7 @@ That's why, each year we publish a new reference catalog, based on the volume of
 Please contact us if you need to have access to our **Scalability PIM** for your tests.
 :::
 
-## Manage modifications: Differential import feature
+### Manage modifications: Differential import feature
 
 Your connector will not need to process all Akeneo PIM data at each synchronization. This would not be efficient in terms of performance.
 
@@ -457,20 +486,9 @@ You will need:
 As Akeneo PIM API does not have a date filtering system on this data, your connector will need to fully import all options and all categories.
 
 ::: info
-**Key points:**
-
 **Think “performance” from the start!**
 
 * Your connector must be as high-performance as possible to synchronize with the PIM.
 
 * Your connector only needs to import the latest Akeneo PIM data modified since the previous synchronization (delta only).  You don't have to synchronize all Akeneo PIM data each time but only data that cannot be filtered by update date.
 :::
-
-
-## Manage products enable/disable state feature
-
-### What is it?
-A product is rarely removed. It is more often “disabled” to keep its history (In Akeneo PIM but in eCommerce solution too).
-
-### What do you need to implement?
-Please consider relying only on the enable/disable status of the PIM product to know if a product can be activated or deactivated in your eCommerce solution.

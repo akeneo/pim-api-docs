@@ -15,7 +15,6 @@ It means that when Akeneo PIM interacts with an eCommerce solution, marketing pr
 It also means that in order to guarantee the cohesion of product information, the flow of data information only goes **from Akeneo PIM to the eCommerce platform**.
 
 :::info
-**Key points**
 * PIM is the reference of marketing product information.
 * No more manual product information update directly in your eCommerce platform.
 * Marketing product information flow goes from Akeneo PIM to eCommerce solution only.
@@ -29,17 +28,18 @@ As seen previously, Akeneo PIM is therefore the source for product information..
 
 ### Does Akeneo PIM have all product information needed for eCommerce solution?
 
-The answer is NO because Akeneo PIM only manages **"cold" product information**. It means that Akeneo PIM only owns marketing product information that needs to be checked, organized, enriched. And “cold” product information means that this information does not change every day.
+The answer is NO (most of the time) because Akeneo PIM should only manage **"cold" product information**. It means that Akeneo PIM only owns marketing product information that needs to be checked, organized, enriched. And “cold” product information means that this information does not change every day.
 
 Concerning **“hot product information”** (i.e. product information that changes frequently: prices or stock), this information should be directly transmitted to the eCommerce solution without passing through Akeneo PIM. **“Hot product information”** flow should go directly from the ERP to the eCommerce solution (It’s the ERP's responsibility to deliver this information. Again: a PIM only manages “cold” Marketing product information).
 
+::: info
 For example, **up-to-date price and stock information** of a product should never be stored in Akeneo PIM and should be transmitted directly from the ERP into the eCommerce solution.
+:::
 
 For price information, Akeneo PIM has the capability of storing product price information, but only for a **“reference”** price and not an **“up-to-date”** price. This **“reference” price** is for information purposes only for the teams managing Akeneo PIM (Julia) and should never be mapped to the eCommerce solution price displayed in your store.
 
 :::info
-**Key points**
-* The **PIM** only owns **“cold”** product information.
+* The **PIM** should only own **“cold”** product information.
 * **ERPs** own **“hot”** product information (like prices and stocks).
 :::
 
@@ -47,7 +47,7 @@ For price information, Akeneo PIM has the capability of storing product price in
 
 ![Macro overview of the DAM connection](../../img/guides/dam-pim-connection-macro.svg)
 
-Akeneo PIM can manage product-related media.
+Akeneo PIM manages product-related media.
 
 As of version 4.0, Akeneo PIM also facilitates the connection with a DAM software thanks to its [new asset management system](/concepts/asset-manager.html).
 
@@ -72,8 +72,7 @@ Instead of binaries stored in the PIM method, the use of media URLs (and therefo
 In that case, make sure that your eCommerce solution allows the use of external URLs to manage media too.
 :::
 
-::: info
-**Key points**  
+::: info  
 2 possible configurations to manage media:
 * Akeneo PIM alone: the PIM manages media **as binaries**,
 * Akeneo PIM associated to a DAM/CDN: the PIM manages media **as URLs** (recommended method).
@@ -81,7 +80,7 @@ In that case, make sure that your eCommerce solution allows the use of external 
 
 ## Conclusions
 
-In conclusion, in relation to what has been said above, it is, therefore, necessary to consider the following possible architectures which may lead to completely different PIM catalog models.
+In conclusion, in relation to what has been said above, it is, therefore, necessary to consider the following possible architectures which may lead to completely different PIM catalog models:
 
 ### Architecture ERP / PIM / eCommerce
 
