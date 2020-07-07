@@ -1,6 +1,6 @@
 get:
   summary: Get list of PAM assets
-  operationId: "get_assets"
+  operationId: "get_pam_assets"
   description: This endpoint allows you to get a list of PAM assets. PAM assets are paginated.
   tags:
     - PAM asset
@@ -210,7 +210,7 @@ get:
       $ref: "#/responses/406Error"
 post:
   summary: Create a new PAM asset
-  operationId: "post_assets"
+  operationId: "post_pam_assets"
   description: This endpoint allows you to create a new PAM asset.
   tags:
     - PAM asset
@@ -241,7 +241,7 @@ post:
       $ref: "#/responses/422Error"
 patch:
   summary: Update/create several PAM assets
-  operationId: "patch_assets"
+  operationId: "patch_pam_assets"
   tags:
     - PAM asset
   x-versions:
