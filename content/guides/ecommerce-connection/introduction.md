@@ -18,6 +18,7 @@ We're here to help you find your way around, understand how Akeneo PIM will inte
 Understand your target user: Who will install it? Who will set it up? Who will use it? What are the needs of these stakeholders?
 2. [Who does what?](step1-who-does-what.html)  
 Understand how external stakeholders interact and synchronize their data with the PIM, and why.
-3. [Understand Akeneo PIM](step2-understand-akeneo-pim.html) Understand Akeneo PIM, its features, its data structure in order to be able to compare them with your eCommerce solution.
+3. [Understand Akeneo PIM](step2-understand-akeneo-pim.html)  
+Understand Akeneo PIM, its features, its data structure in order to be able to compare them with your eCommerce solution.
 4. [Reconcile PIM data with eCommerce data](step3-reconcile-PIM-data-with-eCommerce-data.html) Understand which PIM data can be transferred to an eCommerce platform, compare the scope of each kind of data, define the mapping to be done between PIM and eCommerce data, define how data has to be processed as well as the parameters of your future connector.
 5. [Define the compatibility of your connector](step4-define-the-compatibility.html) What version/edition of Akeneo PIM and your eCommerce platform, should your connector be compatible with?
