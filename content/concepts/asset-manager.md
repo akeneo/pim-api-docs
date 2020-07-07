@@ -1963,6 +1963,12 @@ An asset can hold one or several files. This comes in pretty handy if, for insta
 }
 ```
 
+::: info
+When you are searching for the information of an asset on a product, if you do not know the asset family code, you can retrieve it by calling this endpoint `/api/rest/v1/attributes/AssetCollectionAttributeCode`, `AssetCollectionAttributeCode` being the code of the asset collection attribute containing the asset you are interested in.  
+In the answer, you'll find in the `reference_data_name` property, the code of the family linked to your asset collection attribute, and therefore linked to your current asset.
+:::
+
+
 ::: panel-link Want more details about the asset resource? [Check its endpoints here!](/api-reference.html#Asset)
 :::
 
