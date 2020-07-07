@@ -12,7 +12,8 @@ There are several versions of these clients:
 - The version v2.0 is compatible with the PIM 2.1 and 2.2.
 - The version v3.0 is compatible with the PIM 2.3.
 - The version v4.0 is compatible with the PIM 3.0 and 3.1.
-- The current and latest version v5.0 is compatible with the PIM 3.2 and 4.0 and the Serenity version.
+- The version v5.0 is compatible with the PIM 3.2 and 4.0.
+- The current and latest version v6.0 is compatible with the Serenity version.
 
 ## Support & issues
 Please be aware that these PHP clients are only supported **in best effort**, whether you are an Entreprise or Community customer.

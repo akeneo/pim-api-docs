@@ -1,0 +1,57 @@
+type: array
+items:
+  $ref: ./measurement_family.yaml
+example: [
+{
+  "code": "AREA",
+  "labels": {
+    "en_US": "Area",
+    "fr_FR": "Surface"
+  },
+  "standard_unit_code": "SQUARE_METER",
+  "units": {
+    "SQUARE_MILLIMETER": {
+      "code": "SQUARE_MILLIMETER",
+      "labels": {
+        "en_US": "Square millimeter",
+        "fr_FR": "Millimètre carré"
+      },
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+          "value": "0.000001"
+        }
+      ],
+      "symbol": "mm²"
+    },
+    "SQUARE_CENTIMETER": {
+      "code": "SQUARE_CENTIMETER",
+      "labels": {
+        "en_US": "Square centimeter",
+        "fr_FR": "Centimètre carré"
+      },
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+          "value": "0.0001"
+        }
+      ],
+      "symbol": "cm²"
+    },
+    "SQUARE_METER": {
+      "code": "SQUARE_METER",
+      "labels": {
+        "en_US": "Square meter",
+        "fr_FR": "Mètre carré"
+      },
+      "convert_from_standard": [
+        {
+          "operator": "mul",
+          "value": "1"
+        }
+      ],
+      "symbol": "m²"
+    }
+  }
+}
+]

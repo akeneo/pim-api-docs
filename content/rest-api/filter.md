@@ -228,7 +228,7 @@ To only retrieve product models of the `winter_collection` category, you can use
 Of course, you can combine as many filters as you want. The example below will get you the product models being 100% complete on the en_US locale.
 
 ```
-/api/rest/v1/product-models?search={"enabled":[{"operator":"IN","value":["winter_collection"}],"completeness":[{"operator":"ALL COMPLETE","locale":["en_US"]}]}
+/api/rest/v1/product-models?search={"categories":[{"operator":"IN","value":["winter_collection"]}],"completeness":[{"operator":"ALL COMPLETE","locale":"en_US","scope":"ecommerce"}]}
 ```
 
 You can even combine several filters on the same product model properties. The example below will get you the product models created both the 4th and the 5th of July 2016.

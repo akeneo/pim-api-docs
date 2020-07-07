@@ -10,7 +10,7 @@ Everything begins with the creation of your asset families. You know, this reall
 Still not familiar with the asset family concept? You may need to read [this](/concepts/asset-manager.html#asset-family) carefully.
 :::
 
-To create those asset families, you'll need the help of your PIM and DAM users. By analyzing together the assets already stored in your DAM, you'll find the perfect set of asset families with the right attribute structure to optimize your asset representation in the PIM. 
+To create those asset families, you'll need the help of your PIM and DAM users. By cross-analyzing the assets already stored in your DAM, you'll find the perfect set of asset families with the right attribute structure to optimize your asset representation in the PIM.
 
 Here are some tips to help you with this task.
 
@@ -64,12 +64,17 @@ If you answer `No` to all of these questions, it's likely that you don't need th
 ### Create the structure in the Asset Manager
 
 Once you have a better idea of the modelization of your asset families, you can create them.  
-For now, you can only create them via the API. Don't worry, the corresponding UI is coming soon but in the meantime, we advise you to use a script using the API. You can find an example of this script in our [DAM connector skeleton](introduction.html#the-skeleton).
+You can either do it in the PIM, or you can use a script leveraging our API. You can find an example of this script in our [DAM connector skeleton](introduction.html#the-skeleton).
 
-To create an asset family with its attributes and its product link rules, you'll need to follow those steps: 
+To create an asset family with its attributes and its product link rules, you'll need to follow those steps:
 1. Create your asset family with its code and labels.  
-2. Add asset attributes to your family.  
-3. Add the product link rules to your asset family.
+2. Add asset attributes to your family.
+3. In your asset family properties, define which media link or media file attribute will be your [main media attribute](/concepts/asset-manager.html#asset-family).   
+4. Add the product link rules to your asset family.
+
+::: warning
+When creating your `media link` or `media file` attributes, please check that you have defined their `type` (image, video, pdf, youtube, other...) in the attributes properties.
+:::
 
 ## In your DAM
 
@@ -114,7 +119,7 @@ Depending on your DAM capabilities and also on how your DAM assets are already m
 Those are just suggestions. Don't hesitate to find the one that will best suit you and your DAM users.
 :::
 
-### To which locale do your localized DAM assets refer to? 
+### To which locale do your localized DAM assets refer to?
 
 Some of your DAM product assets will be localized. For example, you can have several versions of the same product user guides: one in French and one in English.  
 

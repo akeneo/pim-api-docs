@@ -30,9 +30,10 @@ Below are some examples of asset families, along with their asset attributes.
 ![Asset family scheme](/img/concepts/asset-family.svg)
 
 For each asset family you can:
-- define what we call a _naming convention_. Thanks to it, you can easily extract important information from your asset code or main media filename, such as the SKU of the product related to this asset. See [below](#focus-on-the-naming-convention) for more details on this feature.
-- define the way the PIM will automatically link the assets of this family to your products/product models. We called that the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the specific format of this rule.
-- define several transformations for your [media file attributes](#the-media-file-attribute). Don't hesitate to read the [Transformations section](#focus-on-the-transformations) to learn more and also, find their JSON format.
+- define which attribute will be used as the main media of this family. We call it :`attribute_as_main_media`.  In the data grids, product or asset, we will display the preview of the media stored/linked to this attribute (image, pdf, Youtube, Vimeo). By default, the attribute as main media is the first media link or media file attribute that was created in this family.
+- define what we call a _naming convention_. It enables you to easily extract important information from your asset code or main media filename, such as the SKU of the product related to this asset. See [below](#focus-on-the-naming-convention) for more details on this feature.
+- define the way the PIM will automatically link the assets of this family to your products/product models. It is the `product link rule`. [Below](#focus-on-the-product-link-rule), you'll find the specific format of this rule.
+- define several transformations for your [media file attributes](#the-media-file-attribute). Don't hesitate to read the [Transformations section](#focus-on-the-transformations) to learn more and also, discover their JSON format.
 
 Here is the JSON format representing an example of asset family.
 
@@ -43,6 +44,7 @@ Here is the JSON format representing an example of asset family.
     "en_US": "Pachskots",
     "fr_FR": "Packshots"
   },
+  "attribute_as_main_media": "main_image",
   "naming_convention": {
     "source": {
         "property": "main_asset_image",
@@ -1960,6 +1962,12 @@ An asset can hold one or several files. This comes in pretty handy if, for insta
     ]
 }
 ```
+
+::: info
+When you are searching for the information of an asset on a product, if you do not know the asset family code, you can retrieve it by calling this endpoint `/api/rest/v1/attributes/AssetCollectionAttributeCode`, `AssetCollectionAttributeCode` being the code of the asset collection attribute containing the asset you are interested in.  
+In the answer, you'll find in the `reference_data_name` property, the code of the family linked to your asset collection attribute, and therefore linked to your current asset.
+:::
+
 
 ::: panel-link Want more details about the asset resource? [Check its endpoints here!](/api-reference.html#Asset)
 :::

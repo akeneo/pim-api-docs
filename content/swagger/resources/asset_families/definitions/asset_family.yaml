@@ -14,6 +14,11 @@ properties:
       localeCode:
         type: string
         description: Asset family label for the locale `localeCode`
+  attribute_as_main_media:
+    type: string
+    description: Attribute code that is used as the main media of the asset family.
+    x-validation-rules: It should be the code of an attribute that belongs to this family, and it must be a media file or a media link attribute type.
+    default: First media file or media link attribute that was created
   naming_convention:
     type: object
     description: The naming convention ran over the asset code or the main media filename upon each asset creation, in order to automatically set several values in asset attributes. To learn more and see the format of this property, take a look at <a href='/concepts/asset-manager.html#focus-on-the-naming-convention'>here</a>.
@@ -141,15 +146,16 @@ example: {
     "en_US": "Model pictures",
     "fr_FR": "Photographies en pied"
   },
-    “naming_convention”:{
-      "source": {
-        "property": "code",
-        "channel": null,
-        "locale": null
-      },
-      "pattern": "/(?P<product_ref>.*)-.*/",
-      "abort_asset_creation_on_error": true
+  "attribute_as_main_media": "main_image",
+  "naming_convention": {
+    "source": {
+      "property": "code",
+      "channel": null,
+      "locale": null
     },
+    "pattern": "/(?P<product_ref>.*)-.*/",
+    "abort_asset_creation_on_error": true
+  },
   "product_link_rules":
   [
     {
