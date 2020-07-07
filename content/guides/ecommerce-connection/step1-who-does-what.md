@@ -52,7 +52,7 @@ Akeneo PIM can manage product-related media.
 As of version 4.0, Akeneo PIM also facilitates the connection with a DAM software thanks to its [new asset management system](/concepts/asset-manager.html).
 
 :::tips
-If you want to know how a DAM connection works don't hesitate to read our [dedicated documentation](../dam-connection/introduction.html).
+If you want to know how a DAM connection works, don't hesitate to read our [dedicated documentation](../dam-connection/introduction.html).
 :::
 
 There are different 2 ways to manage media with the PIM:
