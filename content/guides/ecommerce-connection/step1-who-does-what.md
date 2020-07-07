@@ -15,7 +15,7 @@ It means that when Akeneo PIM interacts with an eCommerce solution, marketing pr
 It also means that in order to guarantee the cohesion of product information, the flow of data information only goes **from Akeneo PIM to the eCommerce platform**.
 
 :::info
-**Key points:**
+**Key points**
 * PIM is the reference of marketing product information
 * No more manual product information update directly in your eCommerce platform.
 * Marketing product information flow goes from Akeneo PIM to eCommerce solution only.
