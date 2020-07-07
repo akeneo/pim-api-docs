@@ -40,7 +40,7 @@ For price information, Akeneo PIM has the capability of storing product price in
 :::info
 **Key points**
 * The **PIM** only owns **“cold”** product information.
-* **ERP** own **“hot”** product information (like price and stock)
+* **ERPs** own **“hot”** product information (like prices and stocks).
 :::
 
 ## Akeneo PIM and DAM
