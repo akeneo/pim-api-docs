@@ -93,6 +93,8 @@ The JSON standard format of a variant product is, in 2.0, the following:
       }
     ]
   },
+  "associations": {},
+  "quantified_associations": {},
   "created": "2017-10-05T11:25:48+02:00",
   "updated": "2017-10-05T11:25:48+02:00"
 }

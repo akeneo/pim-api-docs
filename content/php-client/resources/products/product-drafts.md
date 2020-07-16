@@ -39,6 +39,14 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
  *             'product_models' => []
  *         ],
  *     ],
+ *     'quantified_associations' => [
+ *         'PRODUCT_SET' => [
+ *             'products' => [
+ *                 ['identifier' => 'earings', 'quantity' => 2],
+ *             ],
+ *             'product_models' => [],
+ *         ],
+ *     ],
  *     'metadata' => [
  *         'workflow_status' => 'draft_in_progress',
  *     ],
@@ -53,6 +61,10 @@ The field `metadata` is specific to Akeneo PIM Enterprise Edition. The status of
 
 ::: warning
 The field `product_models` in the `associations` property was added in the 2.1 version of the PIM and is therefore not present in previous versions.
+:::
+
+::: warning
+The field `quantified_associations` is only present in Serenity.
 :::
 
 #### Submit a product draft for approval

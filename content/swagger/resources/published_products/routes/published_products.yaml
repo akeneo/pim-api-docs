@@ -150,6 +150,7 @@ get:
               "associations": {
                 "PACK": {
                   "products": ["sunglasses"],
+                  "product_models": [],
                   "groups": []
                 },
               }
@@ -227,6 +228,7 @@ get:
               "associations": {
                 "PACK": {
                   "products": ['sunglasses'],
+                  "product_models": [],
                   "groups": []
                 }
               }

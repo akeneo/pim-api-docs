@@ -14,6 +14,11 @@ properties:
       localeCode:
         type: string
         description: Association type label for the locale `localeCode`
+  is_quantified:
+    type: boolean
+    description: When true, the association is a quantified association
+    default: false
+    x-immutable: true
   is_two_way:
     type: boolean
     description: When true, the association is a two-way association
@@ -26,5 +31,6 @@ example: {
     "en_US": "Upsell",
     "fr_FR": "Vente incitative"
   },
+  "is_quantified": false,
   "is_two_way": false
 }

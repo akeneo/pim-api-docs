@@ -97,6 +97,33 @@ get:
                   }
                 ]
               },
+              "associations": {
+                "PACK": {
+                  "products": ["sunglasses"],
+                  "product_models": [],
+                  "groups": []
+                },
+              },
+              "quantified_associations": {
+                "PRODUCT_SET": {
+                  "products": [
+                    {
+                      "identifier": "cap",
+                      "quantity": 2
+                    },
+                    {
+                      "identifier": "shoes",
+                      "quantity": 1
+                    }
+                  ],
+                  "product_models": [
+                    {
+                      "identifier": "model-biker-jacket-leather",
+                      "quantity": 2
+                    }
+                  ]
+                }
+              },
               "created": "2017-10-04T18:04:10+02:00",
               "updated": "2017-10-04T18:04:10+02:00"
             },
@@ -132,6 +159,24 @@ get:
                   }
                 ]
               },
+              "associations": {
+                "PACK": {
+                  "products": ["sunglasses"],
+                  "product_models": [],
+                  "groups": []
+                },
+              },
+              "quantified_associations": {
+                "PRODUCT_SET": {
+                  "products": [
+                    {
+                      "identifier": "cap",
+                      "quantity": 2
+                    },
+                  ],
+                  "product_models": []
+                }
+              },
               "created": "2017-10-04T18:04:10+02:00",
               "updated": "2017-10-04T18:04:10+02:00"
             },
@@ -159,6 +204,14 @@ get:
                     ]
                   }
                 ],
+                "associations": {
+                  "PACK": {
+                    "products": ["sunglasses"],
+                    "product_models": [],
+                    "groups": []
+                  },
+                },
+                "quantified_associations": {},
                 "description": [
                   {
                     "locale": "en_US",

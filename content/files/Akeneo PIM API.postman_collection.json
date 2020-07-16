@@ -76,7 +76,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"code\": \"new_association_type\",\n  \"labels\": {\n    \"de_DE\": \"new association type label DE\",\n    \"en_US\": \"new association type label US\",\n    \"fr_FR\": \"new association type label FR\"\n  },\n \"is_two_way\": false\n}"
+              "raw": "{\n  \"code\": \"new_association_type\",\n  \"labels\": {\n    \"de_DE\": \"new association type label DE\",\n    \"en_US\": \"new association type label US\",\n    \"fr_FR\": \"new association type label FR\"\n  },\n  \"is_quantified\": false,\n \"is_two_way\": false\n}"
             },
             "url": {
               "raw": "{{url}}/api/rest/v1/association-types",
@@ -110,7 +110,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"code\": \"UPSELL\",\n  \"labels\": {\n    \"en_US\": \"Upsell\",\n    \"fr_FR\": \"Vente incitative\"\n  },\n \"is_two_way\": false\n}"
+              "raw": "{\n  \"code\": \"UPSELL\",\n  \"labels\": {\n    \"en_US\": \"Upsell\",\n    \"fr_FR\": \"Vente incitative\"\n  },\n \"is_quantified\": false,\n \"is_two_way\": false\n}"
             },
             "url": {
               "raw": "{{url}}/api/rest/v1/association-types/upsell",
@@ -3371,6 +3371,186 @@
             "description": "\n"
           },
           "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Quantified associations (Serenity only)",
+      "item": [
+        {
+          "name": "Product",
+          "item": [
+            {
+              "name": "Create product with quantified associations",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"identifier\": \"new_product1\",\n    \"quantified_associations\":  {\n        \"PRODUCT_SET\": {\n            \"products\": [\n                {\"identifier\": \"AKNSTK\", \"quantity\": 4}\n            ],\n            \"product_models\": [\n                {\"identifier\": \"apollon\", \"quantity\": 2}\n            ]\n        }\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/api/rest/v1/products",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "rest",
+                    "v1",
+                    "products"
+                  ]
+                },
+                "description": "Assuming that there is no \"new_product\" already existing  \nAssuming that association type \"PRODUCT_SET\" already exist and is quantified"
+              },
+              "response": []
+            },
+            {
+              "name": "Update product with quantified associations",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"identifier\": \"AKNSTK\",\n    \"quantified_associations\": {\n        \"PRODUCT_SET\": {\n            \"products\": [],\n            \"product_models\": [{\"identifier\": \"amor\", \"quantity\": 111}]\n        }\n    }\n}\n"
+                },
+                "url": {
+                  "raw": "{{url}}/api/rest/v1/products/AKNSTK",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "rest",
+                    "v1",
+                    "products",
+                    "AKNSTK"
+                  ]
+                },
+                "description": "Assuming that the given identifier is the identifier of an existing product  \nAssuming that association type \"PRODUCT_SET\" already exist and is quantified"
+              },
+              "response": []
+            }
+          ],
+          "protocolProfileBehavior": {},
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Product Model",
+          "item": [
+            {
+              "name": "Create product model with quantified associations",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"code\": \"new_product_model\",\n    \"family_variant\": \"clothing_colorsize\",\n    \"quantified_associations\":  {\n        \"PRODUCT_SET\": {\n            \"products\": [\n                {\"identifier\": \"AKNSTK\", \"quantity\": 4}\n            ],\n            \"product_models\": [\n                {\"identifier\": \"apollon\", \"quantity\": 2}\n            ]\n        }\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/api/rest/v1/product-models",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "rest",
+                    "v1",
+                    "product-models"
+                  ]
+                },
+                "description": "Assuming that there is no \"new_product_model\" already existing  \nAssuming that association type \"PRODUCT_SET\" already exist and is quantified"
+              },
+              "response": []
+            },
+            {
+              "name": "Update product model with quantified associations",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"code\": \"apollon_truc\",\n    \"family_variant\": \"clothing_colorsize\",\n    \"quantified_associations\": {\n        \"PRODUCT_SET\": {\n            \"products\": [\n                {\"identifier\": \"AKNSTK\", \"quantity\": 4}\n            ],\n            \"product_models\": [\n                {\"identifier\": \"amor\", \"quantity\": 111}\n            ]\n        }\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/api/rest/v1/product-models/apollon_truc",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "rest",
+                    "v1",
+                    "product-models",
+                    "apollon_truc"
+                  ]
+                },
+                "description": "Assuming that the given code is the code of an existing product model  \nAssuming that association type \"PRODUCT_SET\" already exist and is quantified"
+              },
+              "response": []
+            }
+          ],
+          "protocolProfileBehavior": {},
+          "_postman_isSubFolder": true
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "99a05178-0f4b-4174-84f9-3e55aaf14bd0",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "e03a8888-d542-4c44-94be-c03e2db707ef",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
         }
       ],
       "protocolProfileBehavior": {}

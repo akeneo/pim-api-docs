@@ -151,8 +151,29 @@ get:
               "associations": {
                 "PACK": {
                   "products": ["sunglasses"],
+                  "product_models": [],
                   "groups": []
                 },
+              },
+              "quantified_associations": {
+                "PRODUCT_SET": {
+                  "products": [
+                    {
+                      "identifier": "cap",
+                      "quantity": 2
+                    },
+                    {
+                      "identifier": "shoes",
+                      "quantity": 1
+                    }
+                  ],
+                  "product_models": [
+                    {
+                      "identifier": "model-biker-jacket-leather",
+                      "quantity": 2
+                    }
+                  ]
+                }
               }
             },
             {
@@ -229,9 +250,11 @@ get:
               "associations": {
                 "PACK": {
                   "products": ['sunglasses'],
+                  "product_models": [],
                   "groups": []
                 }
-              }
+              },
+              "quantified_associations": {}
             },
             {
               "_links": {
@@ -249,7 +272,8 @@ get:
               },
               "created": "2016-06-23T11:24:44+02:00",
               "updated": "2016-06-23T11:24:44+02:00",
-              "associations": {}
+              "associations": {},
+              "quantified_associations": {}
             }
           ]
         }
