@@ -1,6 +1,6 @@
 get:
   summary: Get an attribute option for a given attribute of a given asset family
-  operationId: "get_reference_entity_attributes__attribute_code__options__code_"
+  operationId: "get_asset_attributes__attribute_code__options__code_"
   description: This endpoint allows you to get the information about a given asset attribute option.
   tags:
     - Asset attribute option

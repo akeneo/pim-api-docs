@@ -32,7 +32,7 @@ function getTocMarkdown(isOnePage, pages, currentPage, baseUrl) {
                 return '::: tocLink [' + pages[page]+ '](' + baseUrl + '/' + page.replace(/\.md$/, '.html') + ")\n:::";
             }
         }).join("\n") + "\n\n::::\n\n";
-    } 
+    }
 }
 
 function highlight(str, lang) {
@@ -248,7 +248,7 @@ md.use(require('markdown-it-container'), 'panel-link', {
 
 
 gulp.task('build-getting-started', ['clean-dist','less'], function () {
-      
+
     var pages = {
         'your-first-tutorial-4x': {
             gettingStartedName: 'your-first-tutorial',
@@ -339,6 +339,17 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
                 'technical-stack.md': 'Define your technical stack',
                 'synchronize-assets.md': 'Dive into the synchronisation',
                 'glossary.md': 'Glossary'
+            }
+        },
+        'ecommerce-connection': {
+            title: 'The complete guide to connect Akeneo PIM to your eCommerce solution',
+            files: {
+                'introduction.md': 'Introduction',
+                'step0-who-is-your-connector-for.md': 'Who is your connector for?',
+                'step1-who-does-what.md': 'Who does what?',
+                'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
+                'step3-reconcile-PIM-data-with-eCommerce-data.md': 'Reconcile PIM data with eCommerce data',
+                'step4-define-the-compatibility.md': 'Define the compatibility of your connector'
             }
         },
         'dam-connection-2': {
@@ -569,4 +580,3 @@ gulp.task('build-misc-documentation', ['clean-dist','less'], function () {
         }));
     }
 );
-
