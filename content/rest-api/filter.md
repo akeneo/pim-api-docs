@@ -1013,15 +1013,34 @@ As a result you will receive the following answer:
 ```
 
 ## Filter attributes
-::: availability versions=Serenity editions=CE,EE
 
-When you need to request attributes, you can use a filter to select only the ones with specific codes.
+When requesting attributes, you can apply filters to get only the ones you want.
 
-:::info
-Filtering attributes currently only works with attribute codes and the "IN" operator.
-:::
+### By attribute codes
 
 #### Example
 ```
 /api/rest/v1/attributes?search={"code":[{"operator":"IN","value":["code1","code2"]}]}
+```
+
+### By update date
+::: availability versions=Serenity editions=CE,EE
+
+You can filter the attributes by their update date.
+
+Below is the operator allowed to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
+
+:::info
+Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+:::
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `>` | datetime <br> _Format: ISO 8601_ | Only returns attributes that were <br> updated after the given day and hour |
+
+#### Example
+To get the attributes that were updated since the 4th of July 2020 at 10am (UTC), you can use the following URL.
+
+```
+/api/rest/v1/attributes?search={"updated":[{"operator":">","value":"2020-07-04T10:00:00Z"}]}
 ```
