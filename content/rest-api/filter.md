@@ -1015,7 +1015,7 @@ As a result you will receive the following answer:
 ## Filter attributes
 ::: availability versions=Serenity editions=CE,EE
 
-When requesting attributes, you can use a filter to get only the ones with given codes.
+When you need to request attributes, you can use a filter to select only the ones with specific codes.
 
 :::info
 Filtering attributes currently only work with attribute code and "IN" operator.
