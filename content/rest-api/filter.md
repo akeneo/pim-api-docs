@@ -1018,7 +1018,7 @@ As a result you will receive the following answer:
 When you need to request attributes, you can use a filter to select only the ones with specific codes.
 
 :::info
-Filtering attributes currently only work with attribute code and "IN" operator.
+Filtering attributes currently only works with attribute codes and the "IN" operator.
 :::
 
 #### Example
