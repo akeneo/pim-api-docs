@@ -1039,7 +1039,7 @@ Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/w
 | `>` | datetime <br> _Format: ISO 8601_ | Only returns attributes that were <br> updated after the given day and hour |
 
 #### Example
-To get the attributes that were updated since the 4th of July 2020 at 10am (UTC), you can use the following URL.
+To get the attributes that have been updated since July 4th, 2020 at 10 am (UTC), you can use the following URL.
 
 ```
 /api/rest/v1/attributes?search={"updated":[{"operator":">","value":"2020-07-04T10:00:00Z"}]}
