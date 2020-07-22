@@ -1014,7 +1014,7 @@ As a result you will receive the following answer:
 
 ## Filter attributes
 
-When requesting attributes, you can apply filters to get only the ones you want.
+When you request specific attributes, you can use filters to select only the ones you want. 
 
 ### By attribute codes
 
