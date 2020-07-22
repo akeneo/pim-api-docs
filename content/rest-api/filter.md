@@ -1028,7 +1028,7 @@ When requesting attributes, you can apply filters to get only the ones you want.
 
 You can filter the attributes by their update date.
 
-Below is the operator allowed to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
+Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 :::info
 Please note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
