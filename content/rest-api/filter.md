@@ -1031,7 +1031,7 @@ You can filter the attributes by their update date.
 Below is the operator allowed to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
 
 :::info
-Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+Please note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
 :::
 
 | Operator | Allowed value type | Filter description |
