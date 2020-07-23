@@ -1011,3 +1011,17 @@ As a result you will receive the following answer:
   ]
 }
 ```
+
+## Filter attributes
+::: availability versions=Serenity editions=CE,EE
+
+When you need to request attributes, you can use a filter to select only the ones with specific codes.
+
+:::info
+Filtering attributes currently only works with attribute codes and the "IN" operator.
+:::
+
+#### Example
+```
+/api/rest/v1/attributes?search={"code":[{"operator":"IN","value":["code1","code2"]}]}
+```
