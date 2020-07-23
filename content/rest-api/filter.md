@@ -1017,6 +1017,15 @@ As a result you will receive the following answer:
 When you request specific attributes, you can use filters to select only the ones you want. 
 
 ### By attribute codes
+::: availability versions=Serenity editions=CE,EE
+
+You can filter the attributes by their code.
+
+Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `IN` | an array of existing attribute codes | Only returns attributes that are in the list |
 
 #### Example
 ```
