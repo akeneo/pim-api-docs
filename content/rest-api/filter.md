@@ -1047,6 +1047,10 @@ Please note that dates must follow one of these format _2020-07-23T15:19:32Z_, _
 | ----------------- | -------------- | ------------------ |
 | `>` | datetime <br> _Format: ISO 8601_ | Only returns attributes that were <br> updated after the given day and hour |
 
+::: warning
+For Simple select and Multiple select attribute, an option update isn't considered as an attribute update.
+:::
+
 #### Example
 To get the attributes that have been updated since July 4th, 2020 at 10 am (UTC), you can use the following URL.
 
