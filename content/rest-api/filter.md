@@ -1040,7 +1040,7 @@ You can filter the attributes by their update date.
 Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 :::info
-Please note that dates must follow one of these format _2020-07-23T15:19:32Z_, _2020-07-23T15:19:32+00:00_ from the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
 :::
 
 | Operator | Allowed value type | Filter description |
