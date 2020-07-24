@@ -1013,15 +1013,47 @@ As a result you will receive the following answer:
 ```
 
 ## Filter attributes
+
+When you request specific attributes, you can use filters to select only the ones you want. 
+
+### By attribute codes
 ::: availability versions=Serenity editions=CE,EE
 
-When you need to request attributes, you can use a filter to select only the ones with specific codes.
+You can filter the attributes by their code.
 
-:::info
-Filtering attributes currently only works with attribute codes and the "IN" operator.
-:::
+Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `IN` | an array of existing attribute codes | Only returns attributes that are in the list |
 
 #### Example
 ```
 /api/rest/v1/attributes?search={"code":[{"operator":"IN","value":["code1","code2"]}]}
+```
+
+### By update date
+::: availability versions=Serenity editions=CE,EE
+
+You can filter the attributes by their update date.
+
+Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+:::info
+Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+:::
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `>` | datetime <br> _Format: ISO 8601_ | Only returns attributes that were <br> updated after the given day and hour |
+
+::: warning
+For Simple select and Multiple select attribute, an option update isn't considered as an attribute update.
+:::
+
+#### Example
+To get the attributes that have been updated since July 4th, 2020 at 10 am (UTC), you can use the following URL.
+
+```
+/api/rest/v1/attributes?search={"updated":[{"operator":">","value":"2020-07-04T10:00:00Z"}]}
 ```
