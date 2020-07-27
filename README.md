@@ -15,7 +15,7 @@ Install [Docker Engine](https://docs.docker.com/engine/installation/).
 make build
 ```
 
-This is only building the documentation. The documentation is not available with this command, as it does not launch the HTTP server. 
+This is only building the documentation. The documentation is not available with this command, as it does not launch the HTTP server.
 
 ### Build and launch HTTP server with docker
 
@@ -46,3 +46,4 @@ Then click on _Rerun_.
 
 As our YAML Swagger spec uses references and links, it is considered as non-valid.
 During the build, we generate a valid JSON specification that is put under the `content/swagger` folder. Don't forget to version it if you made any change into the YAML Swagger spec.
+TEST
