@@ -13,7 +13,7 @@ get:
   parameters:
     - name: search
       in: query
-      description: Filter attributes, for more details see the <a href="/documentation/filter.html">Filters</a> section.
+      description: Filter attributes, for more details see the <a href="/documentation/filter.html#filter-attributes">Filters</a> section.
       required: false
       type: string
     - $ref: '#/parameters/page'

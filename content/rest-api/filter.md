@@ -1061,17 +1061,17 @@ To get the attributes that have been updated since July 4th, 2020 at 10 am (UTC)
 ### By attribute types
 ::: availability versions=Serenity editions=CE,EE
 
-You can filter the attributes by their attribute types.
+You can filter the attributes by their types.
 
 Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
-| `IN` | an array of existing attribute types | Only returns attributes that are of the given attribute types |
+| `IN` | an array of [existing attribute types](/concepts/catalog-structure.html#attribute) | Only returns the attributes of the given types |
 
 #### Example
 To get the attributes of types `pim_catalog_simpleselect` and `pim_catalog_multiselect`, you can use the following URL.
 
 ```
-/api/rest/v1/attributes?search={"attribute_type":[{"operator":"IN","value":["pim_catalog_simpleselect","pim_catalog_multiselect"]}]}
+/api/rest/v1/attributes?search={"type":[{"operator":"IN","value":["pim_catalog_simpleselect","pim_catalog_multiselect"]}]}
 ```
