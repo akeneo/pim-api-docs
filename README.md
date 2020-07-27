@@ -46,3 +46,4 @@ Then click on _Rerun_.
 
 As our YAML Swagger spec uses references and links, it is considered as non-valid.
 During the build, we generate a valid JSON specification that is put under the `content/swagger` folder. Don't forget to version it if you made any change into the YAML Swagger spec.
+test
