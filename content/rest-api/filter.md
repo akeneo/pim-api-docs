@@ -1032,7 +1032,7 @@ Below you will find the operator allowed to filter on this property, as well as 
 /api/rest/v1/attributes?search={"code":[{"operator":"IN","value":["code1","code2"]}]}
 ```
 
-### By update date
+### By updated date
 ::: availability versions=Serenity editions=CE,EE
 
 You can filter the attributes by their update date.
@@ -1056,4 +1056,22 @@ To get the attributes that have been updated since July 4th, 2020 at 10 am (UTC)
 
 ```
 /api/rest/v1/attributes?search={"updated":[{"operator":">","value":"2020-07-04T10:00:00Z"}]}
+```
+
+### By attribute types
+::: availability versions=Serenity editions=CE,EE
+
+You can filter the attributes by their types.
+
+Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `IN` | an array of [existing attribute types](/concepts/catalog-structure.html#attribute) | Only returns the attributes of the given types |
+
+#### Example
+To get the attributes of types `pim_catalog_simpleselect` and `pim_catalog_multiselect`, you can use the following URL.
+
+```
+/api/rest/v1/attributes?search={"type":[{"operator":"IN","value":["pim_catalog_simpleselect","pim_catalog_multiselect"]}]}
 ```
