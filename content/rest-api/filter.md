@@ -1075,3 +1075,23 @@ To get the attributes of types `pim_catalog_simpleselect` and `pim_catalog_multi
 ```
 /api/rest/v1/attributes?search={"type":[{"operator":"IN","value":["pim_catalog_simpleselect","pim_catalog_multiselect"]}]}
 ```
+
+## Filter categories
+
+When you request specific categories, you can use filters to select only the ones you want. 
+
+### By category codes
+::: availability versions=Serenity editions=CE,EE
+
+You can filter the category by their code.
+
+Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `IN` | an array of existing category codes | Only returns categories that are in the list |
+
+#### Example
+```
+/api/rest/v1/categories?search={"code":[{"operator":"IN","value":["category_code1","category_code2"]}]}
+```
