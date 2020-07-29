@@ -1083,7 +1083,7 @@ When you request specific categories, you can use filters to select only the one
 ### By category codes
 ::: availability versions=Serenity editions=CE,EE
 
-You can filter the category by their code.
+You can filter the categories by their code.
 
 Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
