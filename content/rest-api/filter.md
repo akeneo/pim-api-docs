@@ -1075,3 +1075,25 @@ To get the attributes of types `pim_catalog_simpleselect` and `pim_catalog_multi
 ```
 /api/rest/v1/attributes?search={"type":[{"operator":"IN","value":["pim_catalog_simpleselect","pim_catalog_multiselect"]}]}
 ```
+
+## Filter categories
+
+When you request specific categories, you can use filters to select only the ones you want. 
+
+### By categories parents
+::: availability versions=Serenity editions=CE,EE
+
+You can filter the categories by their parents.
+
+Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `IN` | an array of [existing categories parents](/concepts/catalog-structure.html#category) | Only returns the categories of the given parents |
+
+#### Example
+To get the categories of parents `categoryA` and `categoryB`, you can use the following URL.
+
+```
+/api/rest/v1/categories?search={"type":[{"operator":"IN","value":["categoryA","categoryB"]}]}
+```

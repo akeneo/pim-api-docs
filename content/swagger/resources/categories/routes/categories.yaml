@@ -11,6 +11,11 @@ get:
     - "4.0"
     - "Serenity"
   parameters:
+    - name: search
+      in: query
+      description: Filter categories, for more details see the <a href="/documentation/filter.html#filter-categories">Filters</a> section.
+      required: false
+      type: string
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
