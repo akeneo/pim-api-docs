@@ -1112,7 +1112,7 @@ Please note that you have to write dates in either of these format _2020-07-23T1
 | `>` | datetime <br> _Format: ISO 8601_ | Only returns attribute groups that were <br> updated after the given day and hour |
 
 #### Example
-To get the attribute groups that have been updated since July 4th, 2020 at 10 am (UTC), you can use the following URL.
+To get the attribute groups that have been updated since July 4th, 2020 at 10 AM (UTC), you can use the following URL.
 
 ```
 /api/rest/v1/attribute-groups?search={"updated":[{"operator":">","value":"2020-07-04T10:00:00Z"}]}
