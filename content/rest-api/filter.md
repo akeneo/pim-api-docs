@@ -1083,7 +1083,7 @@ When you request specific categories, you can use filters to select only the one
 ### By categories parents
 ::: availability versions=Serenity editions=CE,EE
 
-You can filter the categories by their parents.
+You can filter the categories on their parents. When you add a parent category in the filter, the response will contain all its child sub-categories. 
 
 Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
