@@ -1092,7 +1092,7 @@ Below you will find the operator allowed to filter on this property, as well as 
 | `IN` | an array of [existing categories parents](/concepts/catalog-structure.html#category) | Only returns the categories of the given parents |
 
 #### Example
-To get the categories of parents `categoryA` and `categoryB`, you can use the following URL.
+To get the child categories of parents `categoryA` and `categoryB`, you can use the following URL.
 
 ```
 /api/rest/v1/categories?search={"parent":[{"operator":"IN","value":["categoryA","categoryB"]}]}
