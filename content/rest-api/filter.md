@@ -1080,7 +1080,7 @@ To get the attributes of types `pim_catalog_simpleselect` and `pim_catalog_multi
 
 When you request specific categories, you can use filters to select only the ones you want. 
 
-### By categories parents
+### On parent categories
 ::: availability versions=Serenity editions=CE,EE
 
 You can filter the categories on their parents. When you add a parent category in the filter, the response will contain all its child sub-categories. 
