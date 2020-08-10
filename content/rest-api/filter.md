@@ -1095,5 +1095,5 @@ Below you will find the operator allowed to filter on this property, as well as 
 To get the categories of parents `categoryA` and `categoryB`, you can use the following URL.
 
 ```
-/api/rest/v1/categories?search={"type":[{"operator":"IN","value":["categoryA","categoryB"]}]}
+/api/rest/v1/categories?search={"parent":[{"operator":"IN","value":["categoryA","categoryB"]}]}
 ```
