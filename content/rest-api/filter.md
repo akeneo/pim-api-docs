@@ -1080,7 +1080,7 @@ To get the attributes of types `pim_catalog_simpleselect` and `pim_catalog_multi
 
 When you request specific categories, you can use filters to select only the ones you want. 
 
-### By category parent
+### By parent category
 ::: availability versions=Serenity editions=CE,EE
 
 You can filter the categories by parent.
