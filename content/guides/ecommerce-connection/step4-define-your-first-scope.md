@@ -29,8 +29,3 @@ Furthermore, to build such a complex connector as an eCommerce connector in a si
 * Interview your future potential customers about their needs
 * Set priorities based on the most generic needs
 * Develop in successive iterations
-
-And above all, never forget that your connector:
-
-* must be **scalable**: your connector must always be able to manage any volume of data (whatever the import time)
-* must be **performant**: your connector must always implement the most optimized and fastest possible methods to manage data.
