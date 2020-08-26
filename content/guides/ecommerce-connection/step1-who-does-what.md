@@ -65,7 +65,6 @@ Akeneo PIM manages product media internally (with some specific media attributes
 
 The DAM solution transfers its data to the PIM (media asset URL and its metadata) and the PIM is then responsible for linking products to media assets.
 
-
 Instead of binaries stored in the PIM method, the use of media URLs (and therefore the use of a DAM/CDN in addition to a PIM is undoubtedly the best solution to manage product images and allow them to be transferred into the eCommerce solution in a smooth and optimized way as URL information.
 
 ::: warning
@@ -75,7 +74,7 @@ In that case, make sure that your eCommerce solution allows the use of external 
 ::: info  
 2 possible configurations to manage media with the PIM:
 * Akeneo PIM alone: the PIM manages media **as binaries**,
-* Akeneo PIM associated to a DAM/CDN: the PIM manages media **as URLs** (recommended method).
+* Akeneo PIM associated to a DAM/CDN: the PIM manages media **as URLs** (recommended method for performance reasons).
 :::
 
 ## Conclusions
