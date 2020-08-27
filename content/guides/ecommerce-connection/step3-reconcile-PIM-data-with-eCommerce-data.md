@@ -360,7 +360,7 @@ Well, it depends on your eCommerce solution.
 Some eCommerces can manage automatically categories on products.  
 In that specific case, you don't have to map PIM categories with eCommerce ones.
 
-If, on the other hand, you think it's interesting to map PIM categories to eCommerce categories, you need to give some flexibility to your users to choose which category trees are going to do what in eCommerce solution…
+If, on the other hand, you think it's interesting to map PIM categories to eCommerce categories, you need to give some flexibility to your users to choose which category trees are going to do what in the eCommerce solution.
 
 You can then define in the configuration of your connector:
 * Which category trees or sub-trees do you want to import into the eCommerce plate-form
