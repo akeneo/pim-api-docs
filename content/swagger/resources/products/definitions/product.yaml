@@ -51,6 +51,9 @@ properties:
             data:
               type: object
               description: Product value
+            linked_data:
+              type: object
+              description: Object containing labels of attribute options (only when query parameter "with_attribute_options" is set to "true")
   associations:
     type: object
     description: Several associations related to groups, product models and/or other products, grouped by association types
@@ -184,14 +187,30 @@ example: {
       {
         "locale": null,
         "scope": null,
-        "data": "black"
+        "data": "black",
+        "linked_data": {
+          "attribute": "color",
+          "code": "black",
+          "labels": {
+            "en_US": "Black",
+            "fr_FR": "Noir"
+          }
+        }
       }
     ],
     "size": [
       {
         "locale": null,
         "scope": null,
-        "data": "m"
+        "data": "m",
+        "linked_data": {
+          "attribute": "size",
+          "code": "m",
+          "labels": {
+            "en_US": "M",
+            "fr_FR": "M"
+          }
+        }
       }
     ]
   },

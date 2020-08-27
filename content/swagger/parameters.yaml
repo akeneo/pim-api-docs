@@ -85,7 +85,7 @@ with_count:
   default: false
   type: boolean
   required: false
-with_attribute_option_labels:
+with_attribute_options:
   name: with_attribute_options
   in: query
   description: Return labels of attribute options in the response.
