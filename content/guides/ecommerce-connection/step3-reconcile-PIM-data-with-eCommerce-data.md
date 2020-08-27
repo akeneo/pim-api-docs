@@ -293,7 +293,7 @@ A product is rarely removed. It is more often “disabled” to keep its history
 
 Please consider relying only on the enable/disable status of the PIM product to know if a product can be activated or deactivated in your eCommerce solution.
 
-Consider also that, sometimes, a PIM doesn't work alone (e.g. if an ERP imports its data directly into the eCommerce solution).
+Consider also that, sometimes, a PIM doesn't work alone (e.g. if an ERP imports its data directly into the eCommerce solution).  
 In that case, you need to consider a configuration to set if the product needs to be activated (because your connector is the last one to import product data) or stay deactivated (because the ERP connector is the last one to import product data).
 
 ### Manage product associations
