@@ -357,7 +357,7 @@ Another point to take into consideration is that your eCommerce solution may nee
 **What do you need to implement?**
 
 Well it depends on your eCommerce solution.
-Some eCommerces can manage automatically categories on products.
+Some eCommerces can manage automatically categories on products.  
 In that specific case, you don't have to map PIM categories with eCommerce ones.
 
 If, on the other hand, you think it's interesting to map PIM categories to eCommerce categories, you need to give some flexibility to your users to choose which category trees are going to do what in eCommerce solution…
