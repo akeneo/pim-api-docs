@@ -212,6 +212,25 @@ example: {
           }
         }
       }
+    ],
+    "collection": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": [
+          "winter_2016"
+        ],
+        "linked_data": {
+          "winter_2016": {
+            "attribute": "collection",
+            "code": "winter_2016",
+            "labels": {
+              "en_US": "Winter 2016",
+              "fr_FR": "Hiver 2016"
+            }
+          }
+        }
+      }
     ]
   },
   "created": "2016-06-23T18:24:44+02:00",
