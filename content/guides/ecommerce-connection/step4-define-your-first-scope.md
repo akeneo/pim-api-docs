@@ -4,7 +4,7 @@
 
 As [mentioned before](step2-understand-akeneo-pim.html), there are [several editions](https://www.akeneo.com/compare-editions/) and several supported version of Akeneo PIM.
 
-Of course of the PIM version/edition depends on your Business but we encourage you to develop a connector that is fully compatible with our last **Serenity edition**.
+Of course of the PIM version/edition depends on your business but we encourage you to develop a connector that is fully compatible with our last **Serenity edition**.
 
 Please, [start here](https://api.akeneo.com/getting-started/connect-the-pim-4x/welcome.html) to connect the PIM with the API!
 
