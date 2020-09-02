@@ -26,7 +26,7 @@ In order for your connector to communicate with Akeneo PIM, it must connect with
 
 * A UI or a “configuration file” to copy and paste Akeneo PIM API credentials (client id, secret, connection username and password).
 * If you create a UI, add a “Test” button to test this connection (in order to check that everything is well configured on this side and maybe to start retrieving some interesting information about the Akeneo PIM that has just been connected)
-* Bonus: Akeneo API allows you to change the “limit” parameter. It could be useful to have this setting in your connector configuration to optimize the connection between Akeneo PIM and the eCommerce solution.
+* Bonus: Akeneo API allows you to change the “limit” parameter. It could be useful to have this setting in your connector configuration to optimize the connection between the Akeneo PIM and your eCommerce solution.
 
 ## Attribute management
 
