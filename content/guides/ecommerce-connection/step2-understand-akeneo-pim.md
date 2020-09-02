@@ -8,7 +8,7 @@ To know more about the different PIM versions, you can consult [this article](ht
 
 You can also consult ["what's new ?" page](https://help.akeneo.com/pim/serenity/whats-new.html) or our [release notes](https://www.akeneo.com/release-notes/) to understand the scope of each version.
 
-To finish, you'll find on our [helpdesk platform](http://helpdesk.akeneo.com/) what are our last supported PIM versions. If you don't have access to our Helpdesk platform, please [contact us](https://www.akeneo.com/contact/).
+To finish, you'll find what our last supported PIM versions are on our [helpdesk platform](http://helpdesk.akeneo.com/). If you can't access it, please [contact us](https://www.akeneo.com/contact/).
 
 Then, in order to understand our different editions and their capabilities, you can consult our [dedicated page](https://www.akeneo.com/compare-editions/) on our website.
 
