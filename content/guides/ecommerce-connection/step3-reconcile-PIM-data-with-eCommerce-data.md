@@ -251,7 +251,7 @@ In the features of your connector configuration, you can add a “simple” and 
 The “simple” filter will include filters most used by your customers and the “advanced” filter will allow more complex configurations (based on our [PIM API filter capabilities](/documentation/filter.html)).
 
 Bonus: to have the most advanced system, you can implement a specific configuration for each website of your eCommerce solution.  
-This method can bring some benefits:
+This method comes with some benefits:
 * Ability to have a large flexibility in term of configuration for each website.
 * Ability of your connector to manage websites independently.
 * Ability to manage multiple PIM for the same eCommerce solution.
