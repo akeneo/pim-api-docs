@@ -14,7 +14,7 @@ Then, in order to understand our different editions and their capabilities, you 
 
 ## Features and data model
 
-### Play with our PIM!
+Play with our PIM!
 
 It is crucial to understand the PIM features and data model in order to create a great eCommerce connector.
 
