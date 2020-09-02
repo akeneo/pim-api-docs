@@ -13,7 +13,7 @@ Please, [start here](https://api.akeneo.com/getting-started/connect-the-pim-4x/w
 It depends on your eCommerce solution and your business strategy.
 
 You have to choose these versions according to:
-* The number of potential users that have or will have this version.
+* The number of potential users owning this version.
 * The lifetime of this version (it is useless to specifically develop a version compatible with a version of your eCommerce solution if this one doesn't exist anymore in a month or two).
 
 ## What are Akeneo's recommendations regarding the scope of an initial eCommerce connector release?
