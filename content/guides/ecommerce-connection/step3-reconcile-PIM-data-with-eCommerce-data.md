@@ -110,7 +110,7 @@ Please read “Manage multiple eCommerce website” below for more information.
 
 You could develop a specific configuration in your connector to specify which channel you will take into account when retrieving data from Akeneo PIM.
 
-Don't forget that you can have scopable attributes on PIM products, assets and reference entities data.
+Don't forget that you can have scopable attributes on PIM products, assets and reference entities type of data.
 
 ### What about attribute groups feature?
 
