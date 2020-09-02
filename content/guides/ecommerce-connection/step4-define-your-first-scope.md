@@ -14,7 +14,7 @@ It depends on your eCommerce solution and your business strategy.
 
 You have to choose these versions according to:
 * The number of potential users owning this version.
-* The lifetime of this version (it is useless to specifically develop a version compatible with a version of your eCommerce solution if this one doesn't exist anymore in a month or two).
+* The lifetime of this version. It is useless to specifically develop a version compatible with a version of your eCommerce solution if this one won't exist anymore in a couple of months.
 
 ## What are Akeneo's recommendations regarding the scope of an initial eCommerce connector release?
 
