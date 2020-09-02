@@ -33,7 +33,7 @@ We advise you to take a look at our [Helpcenter](https://help.akeneo.com/pim/ind
 
 If you feel that a comprehensive training program would allow you to know everything about Akeneo PIM, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
 
-In the context of developing an eCommerce connector, here is a selection of  PIM concepts you'll need to master before developing anything:
+In the context of building an eCommerce connector, here is a selection of  PIM concepts you'll need to master before developing anything:
 - The [product](/concepts/products.html#product),
 - The [product model](/concepts/products.html#product-model),
 - The [family](/concepts/catalog-structure.html#family),
