@@ -4,7 +4,7 @@
 
 Congratulations! Now, you have a good overview of Akeneo PIM data, you need to reconcile the PIM data and your eCommerce solution data.
 
-Next step, for each of PIM data, you need to ask yourself the following questions:
+Next step, for each piece of PIM data, you need to ask yourself the following questions:
 
 1. What does your eCommerce solution need from the PIM?
 2. Is this PIM data strictly identical to the eCommerce one? (same type, same structure, same limits)
