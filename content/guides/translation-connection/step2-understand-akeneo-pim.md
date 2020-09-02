@@ -6,11 +6,9 @@ First, it is crucial for you to understand that Akeneo PIM exists in different f
 
 To know more about the different PIM versions, you can consult [this article](https://www.akeneo.com/blog/akeneo-introduces-a-simpler-product-release-cycle/) to understand our PIM release cycle.
 
-You can also consult our [release notes](https://www.akeneo.com/release-notes/) to understand the scope of each version.
+You can also consult our [release notes](https://www.akeneo.com/release-notes/) and [new key features released in our versions page](https://help.akeneo.com/pim/serenity/whats-new.html) to understand what are our last supported **versions** and the features we have added in each one.
 
-To finish, you'll find on our [helpdesk platform](http://helpdesk.akeneo.com/) what are our last supported PIM versions. If you don't have access to our Helpdesk platform, please [contact us](https://www.akeneo.com/contact/).
-
-Then, in order to understand our different editions and their capabilities, you can consult our [dedicated page](https://www.akeneo.com/compare-editions/) on our website.
+Then, in order to understand our different **editions** and their capabilities, you can consult our [dedicated page](https://www.akeneo.com/compare-editions/) on our website.
 
 ## Features and data model
 
@@ -29,7 +27,7 @@ If you need an Akeneo PIM **Enterprise Edition** instance to start developing yo
 
 ## Acquire PIM knowledge
 
-We advise you to take a look at our [Help center](https://help.akeneo.com/pim/index.html) where you'll find a lot of documentation about all our features
+We advise you to take a look at our [Help center](https://help.akeneo.com/pim/index.html) where you'll find a lot of documentation about all our features.
 
 If you feel that a comprehensive training program would allow you to know everything about Akeneo PIM, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
 
@@ -54,7 +52,7 @@ For example, a PIM product structure can be different from one product to anothe
 
 Some product attributes may be "[localizable](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values compared to PIM locales) AND/OR "[scopable](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values compared to PIM channels).
 
-To find out which Akeneo attribute types to consider, please consult first our [PIM attribute types list](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#akeneo-attribute-types).
+To find out which Akeneo product attribute types to consider, please consult first our [PIM attribute types list](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#akeneo-attribute-types).
 
 And you will find below the localizable **text** attribute type list to consider in the context of your connector :
 
@@ -65,14 +63,10 @@ And you will find below the localizable **text** attribute type list to consider
 | Simple select            | This attribute contains option IDs but theses options can be localizable |
 | Multiple select          | This attribute contains option IDs but theses options can be localizable |
 
-Some other attributes contain binaries that could be translated too (advanced feature):
-
-|  Product Attribute type  |                      Comments               |  
-| :----------------------- | :-----------------------------------------: |
-| File                     | This attribute can handle binary files as PDF...|
-
 And still other attributes contain IDs pointing to PIM data that themselves contain localizable attributes as **Assets** or **Reference entities** data.
 
-|  Product Attribute type  |                      Comments               |  
-| :----------------------- | :-----------------------------------------: |
-| Asset collection                      | This attribute can handle binary files as PDF...|
+|  Product attribute type        |                 Comments               |  
+| :----------------------------- | :------------------------------------: |
+| Asset collection               |
+| Reference entity single  link  |
+| Reference entity multiple links|
