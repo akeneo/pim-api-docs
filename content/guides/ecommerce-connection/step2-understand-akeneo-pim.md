@@ -18,7 +18,7 @@ Then, in order to understand our different editions and their capabilities, you 
 
 It is crucial to understand the PIM features and data model in order to create a great eCommerce connector.
 
-The best way to become an expert in Akeneo PIM is to play with it!  
+The best way to become an expert at Akeneo PIM is to play with it!  
 You can access our [Akeneo PIM Community Edition demo platform](https://demo.akeneo.com) (login/password: admin / admin).
 
 :::warning
