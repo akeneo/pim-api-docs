@@ -183,7 +183,7 @@ Make sure you have all the mechanisms in your connector to optimize the performa
 :::
 
 ::: warning
-For “media file” attribute, PIM API exposes a URL. As Akeneo PIM is not a CDN, this URL is **NOT a public URL** and can’t be used directly by your eCommerce solution.
+For “media file” attributes, the PIM API generates a URL. As Akeneo PIM is not a CDN, this URL is **NOT a public URL** and can’t be used directly by your eCommerce solution.
 :::
 
 ### Manage Video/File mapping
