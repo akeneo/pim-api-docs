@@ -39,7 +39,7 @@ In order for your connector to communicate with Akeneo PIM, it must connect with
 Akeneo PIM manages different attribute types. Some eCommerce solutions may have limitations in terms of attribute types and the mapping between Akeneo PIM attribute types and eCommerce attribute types can sometimes be quite complex. Sometimes, you will have to make some difficult choices in terms of mapping.
 
 For some attribute types, there are several choices.
- (e.g. Measurement Attribute: keep only the value in the number attribute type or the value plus the unit in a text attribute?).
+ e.g. For a given measurement attribute: should you keep only the value in the number attribute type or the value plus the unit in a text attribute?
 
 For price attribute type, again, warning, the PIM manages only a “reference” price not an “up-to-date” price.
 
