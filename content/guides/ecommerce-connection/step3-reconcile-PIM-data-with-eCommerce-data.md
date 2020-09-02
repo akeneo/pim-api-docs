@@ -2,7 +2,7 @@
 
 ## Main goal
 
-Congratulations! Now, you have a good overview of Akeneo PIM data, you need to reconcile PIM data and eCommerce solution data...
+Congratulations! Now, you have a good overview of Akeneo PIM data, you need to reconcile the PIM data and your eCommerce solution data.
 
 Next step, for each of PIM data, you need to ask yourself the following questions:
 
