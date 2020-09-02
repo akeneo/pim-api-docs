@@ -254,7 +254,7 @@ Bonus: to have the most advanced system, you can implement a specific configurat
 This method comes with some benefits:
 * Ability to have a large flexibility in terms of configuration for each website.
 * Ability of your connector to manage websites independently.
-* Ability to manage multiple PIM for the same eCommerce solution.
+* Ability to manage multiple PIMs for the same eCommerce solution.
 
 ### Product with variants
 
