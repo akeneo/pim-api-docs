@@ -37,7 +37,7 @@ It depends on your business model. If you require your client to install the con
 
 * An **easy to follow configuration process** to set up the connection between the Akeneo PIM and your eCommerce solution as well as parameters to configure the connector. It requires documentation to explain the methodology on how to configure your connector compared to your business needs.
 
-* A **friendly import process** to perform the first import of PIM data into the eCommerce solution. Due to the volume of data to be imported, this may require special support from you.
+* A **friendly import process** to perform the first import of the PIM data into your eCommerce solution. Due to the volume of data to be imported, this may require special support from your end.
 
 * A **connector UI or a configuration file to set up the connector** (PIM connection, mapping settings, flexible filtering capabilities, …)
 
