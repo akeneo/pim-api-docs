@@ -6,7 +6,7 @@ First, it is crucial for you to understand there are several types of PIMs at Ak
 
 To know more about the different PIM versions, you can consult [this article](https://www.akeneo.com/blog/akeneo-introduces-a-simpler-product-release-cycle/) to understand our PIM release cycle.
 
-You can also consult our [release notes](https://www.akeneo.com/release-notes/) to understand the scope of each version.
+You can also consult ["what's new ?" page](https://help.akeneo.com/pim/serenity/whats-new.html) or our [release notes](https://www.akeneo.com/release-notes/) to understand the scope of each version.
 
 To finish, you'll find on our [helpdesk platform](http://helpdesk.akeneo.com/) what are our last supported PIM versions. If you don't have access to our Helpdesk platform, please [contact us](https://www.akeneo.com/contact/).
 
