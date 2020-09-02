@@ -81,7 +81,7 @@ With Akeneo PIM, it is possible to define localizable attributes (attribute cont
 
 Some eCommerce solutions offer the same capabilities as Akeneo PIM for localizable attributes management. Depending on the eCommerce solution, the mapping is sometimes straightforward and automatic but sometimes it requires implementing a connector configuration to map locales manually.
 
-Don't forget that you can have localizable attributes on PIM products, assets and reference entities data.
+Don't forget that you can have localizable attributes on PIM products, assets and reference entities type of data.
 
 **Default locale**
 
