@@ -4,20 +4,22 @@
 
 Now that you have a good overview of Akeneo PIM data, you are probably wondering how to interact with Julia while being compatible with all of our PIM editions.
 
-The best way to do that is to develop a "[connection](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html) compliant" connector based on our API.
+The best way to do this is to develop a "[connection](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html) compliant" connector based on our API.
 
-:::info
-Please don't hesitate to read our ["4 reasons why you should use our API" page](https://api.akeneo.com/documentation/why-the-api.html#4-reasons-why-you-should-use-our-api).
+![Translation connector overview](../../img/guides/translation-connection-macro.svg)
+
+:::tips
+Please don't hesitate to read our ["4 reasons why you should use our API"](https://api.akeneo.com/documentation/why-the-api.html#4-reasons-why-you-should-use-our-api) page!
 :::
 
-The method we recommend and that allows you to use some useful existing PIM features to interact with Julia.
+We suggest to follow our method which use some useful existing PIM features to interact with Julia.
 
 This method is based on one of our Marketplace connector specifications: [GlobalLink Connect for Akeneo](https://marketplace.akeneo.com/extension/globallink-connect-akeneo) from [Translations.com](https://www.translations.com) company.
 
 ## Some pre-requisites
 
 First of all, we're going to ask Julia to do some work!
-Indeed, in order for your connector to interact with Julia, we will have to ask her to check some pre-requisites and to add some additional data in her PIM.
+Indeed, in order for your connector to interact with Julia, we will have to ask her to **check some pre-requisites** and to **add some additional data** in her PIM.
 
 ### Create a dedicated connection
 
@@ -47,9 +49,11 @@ As you may understood, your connector need to have a dedicated UI or a configura
 
 Then, in order for your connector to be able to add translations, Julia's PIM must be correctly set up for that.
 
+:::warning
 That's why you must check with Julia that in her PIM:
 * All locales required for translations have been activated.
 * All attributes requiring translation for products or product models are set to "localizable".
+:::
 
 ### Create a Translation attribute group
 
@@ -65,14 +69,14 @@ To create this attribute group:
 
 Then Julia must create 6 new attributes in this attribute group:
 
-* Translation submission name
-* Translation submitter
-* Translation queued
-* Translation locales
-* Translation due date
-* Translation status
+* `Translation submission name`
+* `Translation submitter`
+* `Translation queued`
+* `Translation locales`
+* `Translation due date`
+* `Translation status`
 
-:::tip
+:::tips
 To create an attribute:
 1. Go to `Settings > Attributes`
 2. Click on `CREATE ATTRIBUTE` at top right
@@ -81,57 +85,64 @@ To create an attribute:
 :::
 
 
-`Translation submission name`
-**Attribute type:** Text
-**Attribute code:** translationName
-**Attribute group:** Translations
-**Usable in grid:** Enabled
-**Role:** This attribute allows Julia to set a name to her translation project.
+`Translation submission name`  
+**Attribute type:** Text  
+**Attribute code:** translationName  
+**Attribute group:** Translations  
+**Usable in grid:** Enabled  
+
+This attribute allows Julia to set a name to her translation project.  
 It also allows her to easily find this project with this name in the interface of your online Translation solution.
 
-`Translation submitter`
-**Attribute type:** Simple select
-**Attribute code:** translationSubmitter
-**Attribute group:** Translations
-**Usable in grid:** Enabled
-**Role:** This simple select should contains in its `options` all possible contributor names. This attribute allows Julia to associate her name to her translation project.
+`Translation submitter`  
+**Attribute type:** Simple select  
+**Attribute code:** translationSubmitter  
+**Attribute group:** Translations  
+**Usable in grid:** Enabled  
 
-`Translation queued`
-**Attribute type:** Yes/No (Boolean)
-**Attribute code:** translationQueued
-**Attribute group:** Translations
-**Usable in grid:** Enabled
-**Role:** This attribute allows Julia to set if a product need to be translated.
+This simple select attribute should contains in its `options` all possible contributor names. This attribute allows Julia to associate her name to her translation project.
 
-`Translation locales`
-**Attribute type:** Multi select
-**Attribute code:** translationLocales
-**Attribute group:** translationLocales
-**Usable in grid:** Enabled
-**Role:** This "Multi select" attribute should contains in its `options` all destination locales Julia can use to make her translation requests. These same `locales` must of course also already exist in Akeneo PIM and in your online Translation tool.
+`Translation queued`  
+**Attribute type:** Yes/No (Boolean)  
+**Attribute code:** translationQueued  
+**Attribute group:** Translations  
+**Usable in grid:** Enabled  
+
+This attribute allows Julia to set if a product need to be translated.
+
+`Translation locales`  
+**Attribute type:** Multi select  
+**Attribute code:** translationLocales  
+**Attribute group:** translationLocales  
+**Usable in grid:** Enabled  
+
+This "Multi select" attribute should contains in its `options` all destination locales Julia can use to make her translation requests.  These same `locales` must of course also already exist in Akeneo PIM and in your online Translation tool.  
 This attribute allows Julia to choose one or more target locales for her translation project.
 
-`Translation due date`
-**Attribute type:** Date
-**Attribute code:** translationDate
-**Attribute group:** Translations
-**Usable in grid:** Enabled
-**Role:** This attribute allows Julia to indicate to translators when she would like her products to be translated.
+`Translation due date`  
+**Attribute type:** Date  
+**Attribute code:** translationDate  
+**Attribute group:** Translations  
+**Usable in grid:** Enabled  
 
-`Translation status`
-**Attribute type:** Simple select
-**Attribute code:** translationStatus
-**Attribute group:** Translations
-**Read only:** Enabled (Can only be modified via API)
-**Usable in grid:** Enabled
-**Role:** This attribute contains these options:
+This attribute allows Julia to indicate to translators when she would like her products to be translated.
+
+`Translation status`  
+**Attribute type:** Simple select  
+**Attribute code:** translationStatus  
+**Attribute group:** Translations  
+**Value per locale:** Enabled (in order to have a status for each locale)    
+**Read only:** Enabled (Can only be modified via API)   
+**Usable in grid:** Enabled    
+
+This attribute contains these options:    
 |      Code      |     Label      |
 | :------------- | :------------- |
 | INPROGRESS     | IN PROGRESS    |
 | TRANSLATED     | TRANSLATED     |
 | CANCELLED      | CANCELLED      |
 
-As this last attribute has a `Read only` property, it can't be modified by Julia. Only your connector can modify this status and set the translation project status.
+As this last attribute has a `Read only` property, it can't be modified by Julia. Only your connector can modify this status through API and set the translation project status for each desired locale.
 
 :::info
 This list of attributes is not exhaustive and may need to be adapted depending on your online Translation solution and the information required to perform a translation project.
@@ -139,8 +150,8 @@ This list of attributes is not exhaustive and may need to be adapted depending o
 
 Once the translation attribute group and attributes have been created, Julia needs to assign the `Translations` attribute group to all existing `families`.
 
-:::tip
-She can do this by using a [bulk action](https://help.akeneo.com/pim/serenity/articles/product-mass-actions.html) process:
+:::tips
+Julia can do this by using this [bulk action](https://help.akeneo.com/pim/serenity/articles/product-mass-actions.html) process:
 1. Go to `Settings > Families`
 2. Select all families
 3. Click on `BULK ACTIONS button` at bottom
@@ -149,14 +160,13 @@ She can do this by using a [bulk action](https://help.akeneo.com/pim/serenity/ar
 6. Click on `CONFIRM`
 :::
 
-That's it! Congratulations, everything is now ready to receive Julia's PIM products she wants to translate!
+>And that's it! Congratulations, everything is now ready to receive Julia's PIM products she wants to translate!
+
+## Julia's translation process
 
 As you have understood, Julia will use the previous PIM attributes to define which of her products are to be translated and how they will be processed.
 
 Now let's see how Julia will work with these new PIM translation features.
-
-
-## Julia's translation process
 
 ### Select the attributes to be translated
 
@@ -165,7 +175,7 @@ First, Julia needs to select product she wants to translate:
 2. Select the "source" `locale`
 3. Select products (and/or product models) you want to translate
 
-:::tip
+:::tips
 For this product selection, Julia can help herself by using her PIM grid [filtering](https://help.akeneo.com/pim/serenity/articles/products-grid.html#use-filters) system or by creating a [specific view](https://help.akeneo.com/pim/serenity/articles/manage-your-views.html).
 :::
 
@@ -202,7 +212,7 @@ You can do this by using our PIM [API filtering system](https://api.akeneo.com/d
 
 Then your connector need to set this attribute to `false` and change the `Translation status` attribute to `IN PROGRESS` to indicate to Julia that the translation is being processed by one of your translator.
 
-:::tip
+:::tips
 Using the previous [GET LIST OF PRODUCTS](https://api.akeneo.com/api-reference.html#get_products) API request (with the correct filter), your connector will retrieve a JSON structure of each localizable products.
 
 Then with the help of the `family code` of these products, your connector will be able to make a [GET LIST OF ATTRIBUTES](https://api.akeneo.com/api-reference.html#get_attributes) API request to retrieve the `type` of attributes that compose this product family.
@@ -228,4 +238,4 @@ As the `Translation status` has been declared as `Usable in grid`, Julia can:
 
 Of she can do the same for all the other "Translation" attributes.
 
-**As you can see, without any PIM customization and few development on your connector, Julia can build some powerful translation features in her PIM!**
+>As you can see, without any PIM customization and few development on your connector, Julia can build some powerful translation features in her PIM!

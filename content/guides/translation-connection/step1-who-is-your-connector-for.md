@@ -17,12 +17,10 @@ Julia needs an easy way to translate her product information.
 So she needs:
 
 * An **easy way** to select, in her Akeneo PIM, one or more products she wants to translate via your online Translation solution.
-
-* On the selected products, a **friendly UI** allowing her to determine:
-  * Into which language(s) the products need to be translated.
-  * With which deadline.
-  * A project name to track this translation process in your online Translation tool.
-
+* On the selected products, a **friendly UI** allowing her to choose:
+  * into which language(s) the products need to be translated.
+  * with which deadline.
+  * a project name to track this translation process in your online Translation tool.
 * An **friendly UI** to be able to track directly in the PIM if her products have been translated.
 
 ### Peter and/or Filips' needs
@@ -30,12 +28,8 @@ So she needs:
 Peter and/or Filips needs a easy way to install and configure your connector.
 
 So they need:
-
 * An **easy to follow download/installation process:** to retrieve and install your connector.
 It depends on your business model. If you require your client to install the connector themself, make sure you provide appropriate documentation.
-
 * A **full documentation** about **the limits of your connector**
-
-* A **easy to follow configuration process** to set up the connection between Akeneo PIM and your online Translation solution as well as parameters to configure the connector.
-
-* An access to **the connector logs** to have all detailed technical information to investigate errors.
+* An **easy to follow configuration process** to set up the connection between Akeneo PIM and your online Translation solution as well as parameters to configure the connector.
+* An access to **the connector logs** to have all history and be able to investigate on errors.

@@ -356,11 +356,10 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'The complete guide to connect Akeneo PIM to your online Translation solution',
             files: {
                 'introduction.md': 'Introduction',
-                'step0-who-is-your-connector-for.md': 'Who is your connector for?',
-                'step1-who-does-what.md': 'Who does what?',
+                'step1-who-is-your-connector-for.md': 'Who is your connector for?',
                 'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
-                'step3-reconcile-PIM-data-with-eCommerce-data.md': 'Reconcile PIM data with eCommerce data',
-                'step4-define-the-compatibility.md': 'Define the compatibility of your connector'
+                'step3-interact-with-julia.md': 'Interact with Julia',
+                'step4-known-limits.md': 'Known limits'
             }
         },
         'dam-connection-2': {

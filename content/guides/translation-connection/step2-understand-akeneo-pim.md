@@ -6,13 +6,13 @@ First, it is crucial for you to understand that Akeneo PIM exists in different f
 
 To know more about the different PIM versions, you can consult [this article](https://www.akeneo.com/blog/akeneo-introduces-a-simpler-product-release-cycle/) to understand our PIM release cycle.
 
-You can also consult our [release notes](https://www.akeneo.com/release-notes/) and [new key features released in our versions page](https://help.akeneo.com/pim/serenity/whats-new.html) to understand what are our last supported **versions** and the features we have added in each one.
+You can also consult our [release notes](https://www.akeneo.com/release-notes/) and our ["new key features released" page](https://help.akeneo.com/pim/serenity/whats-new.html) to understand what are our last Akeneo supported **versions** and the features we have added in each one.
 
 Then, in order to understand our different **editions** and their capabilities, you can consult our [dedicated page](https://www.akeneo.com/compare-editions/) on our website.
 
-## Features and data model
+## PIM features and data model
 
-### Play with our PIM!
+>Let's play with Akeneo PIM!
 
 It is crucial to understand the PIM features and data model in order to create a great eCommerce connector.
 
@@ -25,9 +25,9 @@ Please note that this Akeneo PIM CE demo instance is for exploratory purposes on
 
 If you need an Akeneo PIM **Enterprise Edition** instance to start developing your connector, please [contact us](https://www.akeneo.com/contact/).
 
-## Acquire PIM knowledge
+### Acquire PIM knowledge
 
-We advise you to take a look at our [Help center](https://help.akeneo.com/pim/index.html) where you'll find a lot of documentation about all our features.
+We advise you to take a look at our [Helpcenter](https://help.akeneo.com/pim/index.html) where you'll find a lot of documentation about all our features.
 
 If you feel that a comprehensive training program would allow you to know everything about Akeneo PIM, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
 
@@ -42,19 +42,21 @@ In the context of developing an online Translation connector, here is a selectio
 - The [reference entity](/concepts/reference-entities.html),
 - The [asset](/concepts/asset-manager.html).
 
-## PIM product data that can be translated
+### PIM product data that can be translated
 
-Now that you have a good overview and knowledge of Akeneo PIM data, you are probably wondering what types of PIM text data you can consider in the context of your translation service.
+Now that you have a good overview and knowledge of Akeneo PIM, you are probably wondering **what types of PIM data** you can consider in the context of your translation service.
 
-As you may have understood, Akeneo PIM is a powerful and flexible tool that can be structured to meet customer needs.
+As you may have understood, Akeneo PIM is a powerful and flexible tool that can be structured **in so different ways** to meet customer needs.
 
-For example, a PIM product structure can be different from one product to another : each type of product have its own attributes set ([family](https://help.akeneo.com/pim/serenity/articles/what-is-a-family.html#mainContent)).
+For example, a PIM product structure **can be different from one product to another** : each type of product have its own [**family**](https://help.akeneo.com/pim/serenity/articles/what-is-a-family.html#mainContent).
 
-Some product attributes may be "[localizable](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values compared to PIM locales) AND/OR "[scopable](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values compared to PIM channels).
+Some product attributes may be "[**localizable**](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values compared to PIM locales) AND/OR "[**scopable**](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values compared to PIM channels).
 
+:::info
 To find out which Akeneo product attribute types to consider, please consult first our [PIM attribute types list](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#akeneo-attribute-types).
+:::
 
-And you will find below the localizable **text** attribute type list to consider in the context of your connector :
+And you will find below the **localizable text attribute type list** you could consider in the context of your connector :
 
 |  Product attribute type  |        Comments     |  
 | :----------------------- | :-----------------: |  
@@ -62,11 +64,3 @@ And you will find below the localizable **text** attribute type list to consider
 | Text area                | This attribute can be declared as a "rich" text (with some HTML tags )     |
 | Simple select            | This attribute contains option IDs but theses options can be localizable |
 | Multiple select          | This attribute contains option IDs but theses options can be localizable |
-
-And still other attributes contain IDs pointing to PIM data that themselves contain localizable attributes as **Assets** or **Reference entities** data.
-
-|  Product attribute type        |                 Comments               |  
-| :----------------------------- | :------------------------------------: |
-| Asset collection               |
-| Reference entity single  link  |
-| Reference entity multiple links|

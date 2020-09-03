@@ -16,12 +16,9 @@ We're here to help you find your way around, understand how Akeneo PIM will inte
 
 1. [Who is your connector for?](step1-who-is-your-connector-for.html)  
 Understand your target user: Who will install it? Who will set it up? Who will use it? What are the needs of these stakeholders?
-
 2. [Understand Akeneo PIM](step2-understand-akeneo-pim.html)
 Understand Akeneo PIM product structure and what data can be translated.
-
 3. [Interact with Julia!](step3-interact-with-julia.html)
 Discover Akeneo PIM interaction capabilities to enable product data translation.
-
 4. [Known limits](step4-known-limits.html)
 Also understand the current limitations of the suggested design...
