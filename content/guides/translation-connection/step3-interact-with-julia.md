@@ -201,7 +201,7 @@ For this action, Julia have to:
     * `Translation due date`: Select the date on which you want to receive the translation.
 5. Click on `NEXT` and `CONFIRM` to launch the bulk action.
 
-After this last action, the `Bulk action` will run and Julia will be notified in the Akeneo PIM notification bar once it is successfully executed.
+After this last action, the bulk action will run and Julia will be notified in the Akeneo PIM notification bar once it is successfully executed.
 
 With the attributes of the products Julia wants to have translated now ready, your connector is ready to go!
 
