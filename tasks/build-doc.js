@@ -361,16 +361,6 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
                 'step3-interact-with-julia.md': 'Interact with Julia',
                 'step4-known-limits.md': 'Known limits'
             }
-        },
-        'dam-connection-2': {
-            title: 'Another guide man',
-            files: {
-                'introduction.md': 'Introduction',
-                'pre-requisites.md': 'Structure your DAM and your PIM',
-                'technical-stack.md': 'Define your technical stack',
-                'synchronize-assets.md': 'Dive into the synchronisation',
-                'glossary.md': 'Glossary'
-            }
         }
     };
 
