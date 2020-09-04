@@ -156,7 +156,7 @@ Julia can do this by using this [bulk action](https://help.akeneo.com/pim/sereni
 2. Select all families
 3. Click on `BULK ACTIONS button` at bottom
 4. Select `Set attributes requirements` and then click on `NEXT`
-5. Click on `ADD BY GROUPS` drop down option and `ADD` `Translations` attribute group
+5. Click on the `ADD BY GROUPS` dropdown option and `ADD` the `Translations` attribute group
 6. Click on `CONFIRM`
 :::
 
