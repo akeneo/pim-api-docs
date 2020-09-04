@@ -81,7 +81,7 @@ To create an attribute:
 1. Go to `Settings > Attributes`
 2. Click on `CREATE ATTRIBUTE` at top right
 3. Choose the correct attribute type
-4. Then set the below information
+4. Then set the following information
 :::
 
 
