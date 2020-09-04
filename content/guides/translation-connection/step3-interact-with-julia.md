@@ -18,7 +18,7 @@ This method is based on one of our Marketplace connector specifications: [Global
 
 ## Some pre-requisites
 
-First of all, we're going to ask Julia to do some work!
+First of all, we're going to ask Julia to do some work!  
 Indeed, in order for your connector to interact with Julia, we will have to ask her to **check some pre-requisites** and to **add some additional data** in her PIM.
 
 ### Create a dedicated connection
