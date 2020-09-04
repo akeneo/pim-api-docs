@@ -62,7 +62,7 @@ First, in order to not mix these new product attributes with other Julia's produ
 To create this attribute group:
 1. Go to `Settings > Attribute groups`
 2. Click on `CREATE` at top right
-3. Add a new attribute group with the code: `Translations`.
+3. Add a new attribute group with the code and label: `Translations`.
 
 
 ### Create translation attributes
