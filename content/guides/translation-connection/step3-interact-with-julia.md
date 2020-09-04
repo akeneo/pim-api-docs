@@ -1,4 +1,4 @@
-# How to build your connector?
+# Interact with Julia
 
 ## A connection compliant method
 
@@ -55,7 +55,7 @@ That's why you must check with Julia that in her PIM:
 * All attributes requiring translation for products or product models are set to "localizable".
 :::
 
-### Create a Translation attribute group
+### Create a translation attribute group
 
 First, in order to not mix these new product attributes with other Julia's product attributes, it is necessary that she creates **a specific attribute group** named `"Translations"`.
 
@@ -65,7 +65,7 @@ To create this attribute group:
 3. Add a new attribute group with the code: `Translations`.
 
 
-### Create Translation attributes
+### Create translation attributes
 
 Then Julia must create 6 new attributes in this attribute group:
 
@@ -92,7 +92,7 @@ To create an attribute:
 **Usable in grid:** Enabled  
 
 This attribute allows Julia to set a name to her translation project.  
-It also allows her to easily find this project with this name in the interface of your online Translation solution.
+It also allows her to easily find this project with this name in the interface of your online translation solution.
 
 `Translation submitter`  
 **Attribute type:** Simple select  
@@ -113,10 +113,10 @@ This attribute allows Julia to set if a product need to be translated.
 `Translation locales`  
 **Attribute type:** Multi select  
 **Attribute code:** translationLocales  
-**Attribute group:** translationLocales  
+**Attribute group:** Translations  
 **Usable in grid:** Enabled  
 
-This "Multi select" attribute should contains in its `options` all destination locales Julia can use to make her translation requests.  These same `locales` must of course also already exist in Akeneo PIM and in your online Translation tool.  
+This "Multi select" attribute should contains in its `options` all destination locales Julia can use to make her translation requests.  These same `locales` must of course also already exist in Akeneo PIM and in your online translation tool.  
 This attribute allows Julia to choose one or more target locales for her translation project.
 
 `Translation due date`  
@@ -145,7 +145,7 @@ This attribute contains these options:
 As this last attribute has a `Read only` property, it can't be modified by Julia. Only your connector can modify this status through API and set the translation project status for each desired locale.
 
 :::info
-This list of attributes is not exhaustive and may need to be adapted depending on your online Translation solution and the information required to perform a translation project.
+This list of attributes is not exhaustive and may need to be adapted depending on your online translation solution and the information required to perform a translation project.
 :::
 
 Once the translation attribute group and attributes have been created, Julia needs to assign the `Translations` attribute group to all existing `families`.
@@ -228,7 +228,7 @@ If for some reasons the translation project has been cancelled, your translator 
 To develop theses connector actions, and to understand our API please follow our [wonderful dedicated API documentation](https://api.akeneo.com)!
 :::
 
-### Check Translation status
+### Check the "Translation status"
 
 Now let's go back to Julia's side and see how she can check her translation projects status.
 

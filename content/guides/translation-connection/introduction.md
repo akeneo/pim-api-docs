@@ -10,7 +10,7 @@ You landed in the right place!
 
 In the following guide, we are going to explain how to properly connect our PIM to your online translation solution, thanks to our wonderful API.
 
-We're here to help you find your way around, understand how Akeneo PIM will interact with your existing online Translation solution and go through the steps towards that goal.
+We're here to help you find your way around, understand how Akeneo PIM will interact with your existing online translation solution and go through the steps towards that goal.
 
 ## Follow the steps!
 

@@ -2,7 +2,7 @@
 
 ## Only text attributes
 
-Our [suggested method](step3-interact-with-julia.html) allows your online Translation solution to translate only **textual** attributes of Akeneo PIM products.
+Our [suggested method](step3-interact-with-julia.html) allows your online translation solution to translate only **textual** attributes of Akeneo PIM products.
 
 Among other PIM attributes, Akeneo PIM has a `file` type attribute that allows to handle a binary file (CSV, DOC, DOCX, MP3 or PDF) associated with  the product.
 
