@@ -214,7 +214,7 @@ You can do this by using our PIM [API filtering system](https://api.akeneo.com/d
 Then your connector needs to set this attribute to `false` and change the `Translation status` attribute to `IN PROGRESS` to indicate to Julia that the translation is being processed by one of your translators.
 
 :::tips
-Using the previous [GET LIST OF PRODUCTS](https://api.akeneo.com/api-reference.html#get_products) API request (with the correct filter), your connector will retrieve a JSON structure of each localizable products.
+Using the ["get a list of products"](https://api.akeneo.com/api-reference.html#get_products) API endpoint (with the correct filter), your connector will retrieve a JSON structure of each localizable products.
 
 Then with the help of the `family code` of these products, your connector will be able to make a [GET LIST OF ATTRIBUTES](https://api.akeneo.com/api-reference.html#get_attributes) API request to retrieve the `type` of attributes that compose this product family.
 
