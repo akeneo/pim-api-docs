@@ -1,4 +1,4 @@
-# Introduction2
+# Introduction
 ![Asset family illustration](../../img/illustrations/illus--Translatedproduct.svg)
 
 > Do you want to connect your PIM to your online translation solution?
