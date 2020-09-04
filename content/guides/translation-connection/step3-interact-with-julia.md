@@ -85,64 +85,50 @@ To create an attribute:
 :::
 
 
-`Translation submission name`  
-**Attribute type:** Text  
-**Attribute code:** translationName  
-**Attribute group:** Translations  
-**Usable in grid:** Enabled  
-
-This attribute allows Julia to set a name to her translation project.  
-It also allows her to easily find this project with this name in the interface of your online translation solution.
-
-`Translation submitter`  
-**Attribute type:** Simple select  
-**Attribute code:** translationSubmitter  
-**Attribute group:** Translations  
-**Usable in grid:** Enabled  
-
-This simple select attribute should contains in its `options` all possible contributor names. This attribute allows Julia to associate her name to her translation project.
-
-`Translation queued`  
-**Attribute type:** Yes/No (Boolean)  
-**Attribute code:** translationQueued  
-**Attribute group:** Translations  
-**Usable in grid:** Enabled  
-
-This attribute allows Julia to set if a product need to be translated.
-
-`Translation locales`  
-**Attribute type:** Multi select  
-**Attribute code:** translationLocales  
-**Attribute group:** Translations  
-**Usable in grid:** Enabled  
-
-This "Multi select" attribute should contains in its `options` all destination locales Julia can use to make her translation requests.  These same `locales` must of course also already exist in Akeneo PIM and in your online translation tool.  
-This attribute allows Julia to choose one or more target locales for her translation project.
-
-`Translation due date`  
-**Attribute type:** Date  
-**Attribute code:** translationDate  
-**Attribute group:** Translations  
-**Usable in grid:** Enabled  
-
-This attribute allows Julia to indicate to translators when she would like her products to be translated.
-
-`Translation status`  
-**Attribute type:** Simple select  
-**Attribute code:** translationStatus  
-**Attribute group:** Translations  
-**Value per locale:** Enabled (in order to have a status for each locale)    
-**Read only:** Enabled (Can only be modified via API)   
-**Usable in grid:** Enabled    
-
-This attribute contains these options:    
-|      Code      |     Label      |
-| :------------- | :------------- |
-| INPROGRESS     | IN PROGRESS    |
-| TRANSLATED     | TRANSLATED     |
-| CANCELLED      | CANCELLED      |
-
-As this last attribute has a `Read only` property, it can't be modified by Julia. Only your connector can modify this status through API and set the translation project status for each desired locale.
+* `Translation submission name`: This attribute allows Julia to set a name to her translation project. It also allows her to easily find this project with this name in the interface of your online translation solution. Set up this attribute as followed:
+  - Attribute type: text
+  - Attribute code: `translationName`
+  - Attribute label: `Translation submission name`
+  - Attribute group: `Translations`
+  - Usable in grid: enabled
+* `Translation submitter`: This simple select attribute should contain in its options, all possible contributor names. This attribute allows Julia to associate her name to her translation project. Set up this attribute as followed:
+  - Attribute type: simple select  
+  - Attribute code: `translationSubmitter`
+  - Attribute label: `Translation submitter`
+  - Attribute group: `Translations`
+  - Usable in grid: enabled
+* `Translation queued`: This attribute allows Julia to set if a product need to be translated. Set up this attribute as followed:
+  - Attribute type: Yes/No (Boolean)
+  - Attribute code: `translationQueued`
+  - Attribute label: `Translation queued`
+  - Attribute group: `Translations`
+  - Usable in grid: enabled
+* `Translation locales`: This multi select attribute should contains in its `options` all destination locales Julia can use to make her translation requests. These same `locales` must of course also already exist in Akeneo PIM and in your online Translation tool. This attribute allows Julia to choose one or more target locales for her translation project. Set up this attribute as followed:
+  - Attribute type: multi select
+  - Attribute code: `translationLocales`
+  - Attribute label: `Translation locales`
+  - Attribute group: `Translations`
+  - Usable in grid: enabled
+* `Translation due date`: This attribute allows Julia to indicate to translators when she would like her products to be translated. Set up this attribute as followed:
+  - Attribute type: date
+  - Attribute code: `translationDate`
+  - Attribute label: `Translation due date`
+  - Attribute group: `Translations`
+  - Usable in grid: enabled  
+* `Translation status`: This attribute allows your translator to give a status about the translation project to Julia. As this last attribute has a `Read only` property, it can't be modified by Julia. Only your connector can modify this status through API and set the translation project status for each desired locale. This attribute contains these options:    
+  |      Code      |     Label      |
+  | :------------- | :------------- |
+  | INPROGRESS     | In progress    |
+  | TRANSLATED     | Translated     |
+  | CANCELLED      | Cancelled      |
+  Then, set up this attribute as followed:
+  - Attribute type: simple select  
+  - Attribute code: `translationStatus`
+  - Attribute label: `Translation status`
+  - Attribute group: `Translations`  
+  - Value per locale: enabled (in order to have a status for each locale)    
+  - Read only: enabled (can only be modified via API)   
+  - Usable in grid: enabled
 
 :::info
 This list of attributes is not exhaustive and may need to be adapted depending on your online translation solution and the information required to perform a translation project.
