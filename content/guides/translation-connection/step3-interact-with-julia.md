@@ -207,7 +207,7 @@ With the attributes of the products Julia wants to have translated now ready, yo
 
 ### Translation process
 
-At regular intervals, your connector will need to retrieve products where `Translation queued` attribute has been set to Enable (set to `true`).
+At regular intervals, your connector will need to retrieve products where the `Translation queued` attribute has been set to enable (set to `true`).
 
 You can do this by using our PIM [API filtering system](https://api.akeneo.com/documentation/filter.html#filter-on-product-values) on product attribute value.
 
