@@ -180,7 +180,7 @@ First, Julia needs to select product she wants to translate:
 For this product selection, Julia can help herself by using her PIM grid [filtering](https://help.akeneo.com/pim/serenity/articles/products-grid.html#use-filters) system or by creating a [specific view](https://help.akeneo.com/pim/serenity/articles/manage-your-views.html).
 :::
 
-### Perform a "Bulk action"
+### Perform a "bulk action"
 
 Then, she needs to perform a [bulk action](https://help.akeneo.com/pim/serenity/articles/product-mass-actions.html) on these products.
 
