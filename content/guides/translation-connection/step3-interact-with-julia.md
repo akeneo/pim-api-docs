@@ -57,7 +57,7 @@ That's why you must check with Julia that in her PIM:
 
 ### Create a translation attribute group
 
-First, in order to not mix these new product attributes with other Julia's product attributes, it is necessary that she creates **a specific attribute group** named `"Translations"`.
+First, in order to not mix these new product attributes with other Julia's product attributes, it is necessary that she creates **a specific attribute group** named `Translations`.
 
 To create this attribute group:
 1. Go to `Settings > Attribute groups`
