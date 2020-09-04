@@ -353,7 +353,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             }
         },
         'translation-connection': {
-            title: 'The complete guide to connect Akeneo PIM to your online Translation solution',
+            title: 'The complete guide to connect Akeneo PIM to your online translation solution',
             files: {
                 'introduction.md': 'Introduction',
                 'step1-who-is-your-connector-for.md': 'Who is your connector for?',
