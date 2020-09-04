@@ -197,7 +197,7 @@ For this action, Julia have to:
     * `Translation name`: enter the desired name for the translation project,
    * `Translations submitter`: select her name,
     * `Translation queued`: enable the attribute by sliding the toggle button towards `Yes`,
-  * `Translation locales`: select the desired target locales for translation.
+    * `Translation locales`: select the desired target locales for translation,
   * `Translations due date`: Select the date on which you want to receive the translation.
 5. Click on `NEXT` and `CONFIRM` the operation.
 
