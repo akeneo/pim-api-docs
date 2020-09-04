@@ -235,7 +235,7 @@ Now let's go back to Julia's side and see how she can check her translation proj
 
 As the `Translation status` has been declared as `Usable in grid`, Julia can:
 * [Customise her grid](https://help.akeneo.com/pim/serenity/articles/products-grid.html#customise-the-grid) to add the `Translation status` attribute: this will allow her to sort her products according to their translation status.
-* Add the `Translation status` attribute in her [grid filter](https://help.akeneo.com/pim/serenity/articles/products-grid.html#use-filters): this will allow her to filter only product with a specific translation status and create a dedicated [view](https://help.akeneo.com/pim/serenity/articles/manage-your-views.html#work-with-the-views) for this feature.
+* Add the `Translation status` attribute in her [grid filters](https://help.akeneo.com/pim/serenity/articles/products-grid.html#use-filters): this will allow her to filter only products with a specific translation status and create a dedicated [view](https://help.akeneo.com/pim/serenity/articles/manage-your-views.html#work-with-the-views) for this feature.
 
 Of she can do the same for all the other "Translation" attributes.
 
