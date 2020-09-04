@@ -216,7 +216,7 @@ Then your connector needs to set this attribute to `false` and change the `Trans
 :::tips
 Using the ["get a list of products"](https://api.akeneo.com/api-reference.html#get_products) API endpoint (with the correct filter), your connector will retrieve a JSON structure of each localizable products.
 
-Then with the help of the `family code` of these products, your connector will be able to make a [GET LIST OF ATTRIBUTES](https://api.akeneo.com/api-reference.html#get_attributes) API request to retrieve the `type` of attributes that compose this product family.
+Then with the help of the family code of these products, your connector will be able to call the ["get the list of attributes"](https://api.akeneo.com/api-reference.html#get_attributes) API endpoint to retrieve the type of each attributes that compose this product family.
 
 By analyzing these types, you will be able to define for your translator which are the textual attributes he needs to translate.
 :::
