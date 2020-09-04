@@ -1,4 +1,4 @@
-# Interact with Julia
+# How to build your connector?
 
 ## A connection compliant method
 
