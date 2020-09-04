@@ -148,7 +148,7 @@ As this last attribute has a `Read only` property, it can't be modified by Julia
 This list of attributes is not exhaustive and may need to be adapted depending on your online translation solution and the information required to perform a translation project.
 :::
 
-Once the translation attribute group and attributes have been created, Julia needs to assign the `Translations` attribute group to all existing `families`.
+Once the `Translation` attribute group and its attributes have been created, Julia needs to assign the `Translations` attribute group to all existing families.
 
 :::tips
 Julia can do this by using this [bulk action](https://help.akeneo.com/pim/serenity/articles/product-mass-actions.html) process:
