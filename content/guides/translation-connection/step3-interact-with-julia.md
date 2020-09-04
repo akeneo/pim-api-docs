@@ -172,7 +172,7 @@ Now let's see how Julia will work with these new PIM translation features.
 ### Select the attributes to be translated
 
 First, Julia needs to select product she wants to translate:
-1. Go to `Products` menu
+1. Go to the `Products` menu
 2. Select the "source" `locale`
 3. Select products (and/or product models) you want to translate
 
