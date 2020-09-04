@@ -182,7 +182,7 @@ For this product selection, Julia can help herself by using her PIM grid [filter
 
 ### Perform a "Bulk action"
 
-Then, she needs to perform a [Bulk action](https://help.akeneo.com/pim/serenity/articles/product-mass-actions.html) on these products.
+Then, she needs to perform a [bulk action](https://help.akeneo.com/pim/serenity/articles/product-mass-actions.html) on these products.
 
 For this action, Julia have to:
 1. Click on `BULK ACTIONS` button at bottom
