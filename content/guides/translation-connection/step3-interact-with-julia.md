@@ -160,7 +160,8 @@ Julia can do this by using this [bulk action](https://help.akeneo.com/pim/sereni
 6. Click on `CONFIRM`
 :::
 
->And that's it! Congratulations, everything is now ready to receive Julia's PIM products she wants to translate!
+And that's it! Congratulations! 🎉  
+Everything is now ready to receive Julia's PIM products she wants to translate!
 
 ## Julia's translation process
 
