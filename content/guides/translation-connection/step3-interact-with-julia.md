@@ -239,4 +239,4 @@ As the `Translation status` has been declared as `Usable in grid`, Julia can:
 
 Of course, she can do the same for all the other "Translation" attributes.
 
->As you can see, without any PIM customization and few development on your connector, Julia can build some powerful translation features in her PIM!
+As you can see, without any PIM customization and with a few developments on your connector, Julia can build some powerful translation features in her PIM!
