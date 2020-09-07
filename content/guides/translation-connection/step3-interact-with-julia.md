@@ -76,15 +76,6 @@ Then Julia must create 6 new attributes in this attribute group:
 * `Translation due date`
 * `Translation status`
 
-:::tips
-To create an attribute:
-1. Go to `Settings > Attributes`
-2. Click on `CREATE ATTRIBUTE` at top right
-3. Choose the correct attribute type
-4. Then set the following information
-:::
-
-
 * `Translation submission name`: This attribute allows Julia to set a name to her translation project. It also allows her to easily find this project with this name in the interface of your online translation solution. Set up this attribute as followed:
   - Attribute type: text
   - Attribute code: `translationName`
@@ -129,6 +120,13 @@ To create an attribute:
   - Value per locale: enabled (in order to have a status for each locale)    
   - Read only: enabled (can only be modified via API)   
   - Usable in grid: enabled
+  
+:::tips
+To create an attribute:
+1. Go to `Settings > Attributes`
+2. Click on `CREATE ATTRIBUTE` at top right
+3. Choose the correct attribute type and set all attribute properties
+:::
 
 :::info
 This list of attributes is not exhaustive and may need to be adapted depending on your online translation solution and the information required to perform a translation project.
