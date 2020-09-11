@@ -24,6 +24,16 @@ properties:
     type: string
     description: Attribute group
     x-validation-rules: It is the code of an existing group
+  group_labels:
+    type: object
+    description: Group labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    x-read-only: true
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Group label for the locale `localeCode`
   sort_order:
     type: integer
     description: Order of the attribute in its group
@@ -128,6 +138,10 @@ example: {
   "code": "release_date",
   "type": "pim_catalog_date",
   "group": "marketing",
+  "group_labels": {
+    "en_US": "Marketing",
+    "fr_FR": "Marketing"
+  },
   "unique": false,
   "useable_as_grid_filter": true,
   "allowed_extensions": [],
