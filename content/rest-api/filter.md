@@ -1139,3 +1139,19 @@ To get the child categories of the parent category `categoryA`, you can use the 
 ```
 /api/rest/v1/categories?search={"parent":[{"operator":"=","value":"categoryA"}]}
 ```
+
+### By category codes
+::: availability versions=Serenity editions=CE,EE
+
+You can filter the categories by their code.
+
+Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `IN` | an array of existing category codes | Only returns categories that are in the list |
+
+#### Example
+```
+/api/rest/v1/categories?search={"code":[{"operator":"IN","value":["category_code1","category_code2"]}]}
+```
