@@ -1076,6 +1076,48 @@ To get the attributes of types `pim_catalog_simpleselect` and `pim_catalog_multi
 /api/rest/v1/attributes?search={"type":[{"operator":"IN","value":["pim_catalog_simpleselect","pim_catalog_multiselect"]}]}
 ```
 
+## Filter attribute groups
+
+When you request specific attribute groups, you can use filters to select only the ones you want. 
+
+### By attribute group codes
+::: availability versions=Serenity editions=CE,EE
+
+You can filter the attribute groups by their code.
+
+Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `IN` | an array of existing attribute group codes | Only returns attribute groups that are in the list |
+
+#### Example
+```
+/api/rest/v1/attribute-groups?search={"code":[{"operator":"IN","value":["marketing","technical"]}]}
+```
+
+### By updated date
+::: availability versions=Serenity editions=CE,EE
+
+You can filter the attribute groups by their update date.
+
+Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+:::info
+Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+:::
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `>` | datetime <br> _Format: ISO 8601_ | Only returns attribute groups that were <br> updated after the given day and hour |
+
+#### Example
+To get the attribute groups that have been updated since July 4th, 2020 at 10 AM (UTC), you can use the following URL.
+
+```
+/api/rest/v1/attribute-groups?search={"updated":[{"operator":">","value":"2020-07-04T10:00:00Z"}]}
+```
+
 ## Filter families
 
 When you request specific families, you can use filters to select only the ones you want.
