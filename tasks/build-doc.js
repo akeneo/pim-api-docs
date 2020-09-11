@@ -349,7 +349,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
                 'step1-who-does-what.md': 'Who does what?',
                 'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
                 'step3-reconcile-PIM-data-with-eCommerce-data.md': 'Reconcile PIM data with eCommerce data',
-                'step4-define-the-compatibility.md': 'Define the compatibility of your connector'
+                'step4-define-your-first-scope.md': 'Define the first scope of your connector'
             }
         },
         'dam-connection-2': {
