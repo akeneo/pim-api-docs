@@ -32,4 +32,4 @@ So they need:
 It actually depends on your business model. If you expect your client to install the connector themselves, make sure you provide appropriate documentation.
 * A **full documentation** about **the limits of your connector**
 * An **easy to follow configuration process** to set up the connection between Akeneo PIM and your online translation solution as well as parameters to configure the connector.
-* An access to **the connector logs** to have all history and be able to investigate on errors.
+* An access to **the connector logs** to check the whole history and to be able to investigate errors.
