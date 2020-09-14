@@ -97,6 +97,11 @@ Below is the JSON standard format representing this attribute.
   "code": "auto_exposure",
   "type": "pim_catalog_boolean",
   "group": "technical",
+  "group_labels": {
+    "de_DE": "Technische",
+    "en_US": "Technical",
+    "fr_FR": "Technique"
+  },
   "localizable": false,
   "scopable": false,
   "labels": {
