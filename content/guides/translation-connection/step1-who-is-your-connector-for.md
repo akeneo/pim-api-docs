@@ -21,7 +21,7 @@ So she needs:
   * into which language(s) the products need to be translated.
   * the deadline.
   * a project name to track this translation process in her online translation tool.
-* An **friendly UI** to be able to track directly in the PIM if her products have been translated.
+* An **friendly UI** to be able to track directly in the PIM if the products have been translated.
 
 ### Peter and/or Filips' needs
 
