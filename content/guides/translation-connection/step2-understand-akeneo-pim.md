@@ -31,7 +31,7 @@ First of all, we advise you to take a look at our [Helpcenter](https://help.aken
 
 Then, if you feel like it wasn't enough, we designed a comprehensive training program to share everything we know about Akeneo PIM. As you can see, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
 
-In the context of developing an online translation connector, here is a selection of PIM concepts you'll need to master before developing anything:
+Before you actually start coding to develop your online translation connector, here is a selection of PIM concepts you'll need to master:
 - The [product](/concepts/products.html#product),
 - The [product model](/concepts/products.html#product-model),
 - The [family](/concepts/catalog-structure.html#family),
