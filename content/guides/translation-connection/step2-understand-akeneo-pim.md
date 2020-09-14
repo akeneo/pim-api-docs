@@ -63,4 +63,4 @@ In order to help you, here is the **localizable text attribute type list** we re
 | Text                     |                     |
 | Text area                | This attribute can be declared as a "rich" text (with some HTML tags )     |
 | Simple select            | This attribute contains option IDs but these options can be localizable |
-| Multiple select          | This attribute contains option IDs but theses options can be localizable |
+| Multiple select          | This attribute contains option IDs but these options can be localizable |
