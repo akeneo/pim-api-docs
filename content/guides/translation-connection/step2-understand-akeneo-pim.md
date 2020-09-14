@@ -1,5 +1,7 @@
 # Understand Akeneo PIM
 
+To become an Akeneo PIM master, we have many different tools to help you!
+
 ## Versions and editions
 
 First, it is crucial for you to understand that Akeneo PIM comes in all shapes and sizes, depending on its version and edition.
