@@ -47,7 +47,7 @@ As you may understand, your connector needs to have a dedicated UI or a configur
 
 ### Check Julia's PIM data
 
-Then, in order for your connector to be able to add translations, Julia's PIM must be correctly set up for that.
+Then, in order for your connector to be able to add translations, Julia's PIM must be correctly set up.
 
 :::warning
 That's why you must check with Julia that in her PIM:
@@ -57,11 +57,11 @@ That's why you must check with Julia that in her PIM:
 
 ### Create a translation attribute group
 
-First, in order to not mix these new product attributes with other Julia's product attributes, it is necessary that she creates **a specific attribute group** named `Translations`.
+First, in order not to confuse these new product attributes with some of her other product attributes, it is necessary for Julia to create **a specific attribute group** named `Translations`.
 
 To create this attribute group:
 1. Go to `Settings > Attribute groups`
-2. Click on `CREATE` at top right
+2. Click on `CREATE` in the top-right corner
 3. Add a new attribute group with the code and label: `Translations`.
 
 
