@@ -56,7 +56,7 @@ Some product attributes may be "[**localizable**](https://help.akeneo.com/pim/se
 To find out which Akeneo product attribute types to take into account, please consult first our [PIM attribute types list](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#akeneo-attribute-types).
 :::
 
-And you will find below the **localizable text attribute type list** you could consider in the context of your connector :
+In order to help you, here is the **localizable text attribute type list** we recommend you to use:
 
 |  Product attribute type  |        Comments     |  
 | :----------------------- | :-----------------: |  
