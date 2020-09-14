@@ -25,7 +25,7 @@ So she needs:
 
 ### Peter and/or Filips' needs
 
-Peter and/or Filips needs a easy way to install and configure your connector.
+Peter and/or Filips need an easy way to install and configure your connector.
 
 So they need:
 * An **easy to follow download/installation process:** to retrieve and install your connector.
