@@ -50,7 +50,7 @@ It is now crystal clear for you that, Akeneo PIM is a powerful and flexible tool
 
 For example, a PIM product structure **can be different from one product to another**: each type of product has its own [**family**](https://help.akeneo.com/pim/serenity/articles/what-is-a-family.html#mainContent).
 
-Some product attributes may be "[**localizable**](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values compared to PIM locales) AND/OR "[**scopable**](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values compared to PIM channels).
+Some product attributes may be "[**localizable**](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values for each PIM locale) AND/OR "[**scopable**](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values for each PIM channel).
 
 :::info
 To find out which Akeneo product attribute types to consider, please consult first our [PIM attribute types list](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#akeneo-attribute-types).
