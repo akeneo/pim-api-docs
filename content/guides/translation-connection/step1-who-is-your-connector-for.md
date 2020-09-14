@@ -29,7 +29,7 @@ Peter and/or Filips need an easy way to install and configure your connector.
 
 So they need:
 * An **easy to follow download/installation process:** to retrieve and install your connector.
-It depends on your business model. If you require your client to install the connector themself, make sure you provide appropriate documentation.
+It actually depends on your business model. If you expect your client to install the connector themselves, make sure you provide appropriate documentation.
 * A **full documentation** about **the limits of your connector**
 * An **easy to follow configuration process** to set up the connection between Akeneo PIM and your online translation solution as well as parameters to configure the connector.
 * An access to **the connector logs** to have all history and be able to investigate on errors.
