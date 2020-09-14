@@ -19,7 +19,7 @@ So she needs:
 * An **easy way** to select, in her Akeneo PIM, the products she wants to translate via her online translation solution.
 * For the selected products, a **friendly UI** allowing her to choose:
   * into which language(s) the products need to be translated.
-  * with which deadline.
+  * the deadline.
   * a project name to track this translation process in your online translation tool.
 * An **friendly UI** to be able to track directly in the PIM if her products have been translated.
 
