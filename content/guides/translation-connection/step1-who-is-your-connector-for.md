@@ -16,7 +16,7 @@ Julia needs an easy way to translate her product information.
 
 So she needs:
 
-* An **easy way** to select, in her Akeneo PIM, one or more products she wants to translate via your online translation solution.
+* An **easy way** to select, in her Akeneo PIM, the products she wants to translate via her online translation solution.
 * On the selected products, a **friendly UI** allowing her to choose:
   * into which language(s) the products need to be translated.
   * with which deadline.
