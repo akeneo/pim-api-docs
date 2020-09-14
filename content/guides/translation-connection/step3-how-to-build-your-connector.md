@@ -43,7 +43,7 @@ These API credentials consist of 4 different information:
 Don't forget to set the [permissions](https://help.akeneo.com/pim/serenity/articles/manage-your-connections.html#set-the-permissions) of this connection!
 :::
 
-As you may understood, your connector need to have a dedicated UI or a configuration file in order to manage these PIM API credentials.
+As you may understand, your connector needs to have a dedicated UI or a configuration file in order to manage these PIM API credentials.
 
 ### Check Julia's PIM data
 
