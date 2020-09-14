@@ -15,7 +15,7 @@ We're here to help you find your way around, understand how Akeneo PIM will inte
 ## Follow the steps!
 
 1. [Who is your connector for?](step1-who-is-your-connector-for.html)  
-Understand your target user: Who will install it? Who will set it up? Who will use it? What are the needs of these stakeholders?
+Understand your target user: Who will install it? Who will set it up? Who will use it? What are their needs?
 2. [Understand Akeneo PIM](step2-understand-akeneo-pim.html)
 Understand Akeneo PIM product structure and what data can be translated.
 3. [How to build your connector?](step3-how-to-build-your-connector.html)
