@@ -2,9 +2,9 @@
 
 ## A connection compliant method
 
-Now that you have a good overview of Akeneo PIM data, you are probably wondering how to interact with Julia while being compatible with all of our PIM editions.
+Now that you have a good overview of Akeneo PIM data, you are probably wondering how your online translation connector will interact with Julia while being compatible with all of our PIM editions.
 
-The best way to do this is to develop a "[connection](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html) compliant" connector based on our API.
+The best way to do this is to develop a "[connection-compliant](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html)" connector based on our API.
 
 ![Translation connector overview](../../img/guides/translation-connection-macro.svg)
 
@@ -12,9 +12,9 @@ The best way to do this is to develop a "[connection](https://help.akeneo.com/pi
 Please don't hesitate to read our ["4 reasons why you should use our API"](https://api.akeneo.com/documentation/why-the-api.html#4-reasons-why-you-should-use-our-api) page!
 :::
 
-We suggest to follow our method which use some useful existing PIM features to interact with Julia.
+We suggest following our method which leans on some useful existing PIM features to interact with Julia.
 
-This method is based on one of our Marketplace connector specifications: [GlobalLink Connect for Akeneo](https://marketplace.akeneo.com/extension/globallink-connect-akeneo) from [Translations.com](https://www.translations.com) company.
+This method is based on one of our Marketplace connector specifications: [GlobalLink Connect for Akeneo](https://marketplace.akeneo.com/extension/globallink-connect-akeneo) from the [Translations.com](https://www.translations.com) company.
 
 ## Some pre-requisites
 
@@ -25,15 +25,15 @@ Indeed, in order for your connector to interact with Julia, we will have to ask 
 
 First, in order to communicate with your connector and obtain API credentials, Julia needs to create a dedicated [connection](https://help.akeneo.com/pim/serenity/articles/manage-your-connections.html) for your connector.
 
-To do so:
+To do so she will need to:
 1. Go to the `System` menu and then, on the `Connections` submenu
-2. Click on the `Create` button
+2. Click on `Create`
 3. In the `Label` field, enter the name of your connector.
 4. Choose the `Other` flow type
 
 Whenever you create a connection, the PIM automatically generates a set of credentials for you.
 
-These API credentials consist of 4 different information:
+These API credentials consist of 4 items:
 * the `client id`,
 * the `secret`,
 * the connection `username`,
