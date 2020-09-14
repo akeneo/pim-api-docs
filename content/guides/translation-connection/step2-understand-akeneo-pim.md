@@ -53,7 +53,7 @@ For example, a PIM product structure **can be different from one product to anot
 Some product attributes may be "[**localizable**](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values for each PIM locale) AND/OR "[**scopable**](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#specific-properties-of-attributes)" (different attribute values for each PIM channel).
 
 :::info
-To find out which Akeneo product attribute types to consider, please consult first our [PIM attribute types list](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#akeneo-attribute-types).
+To find out which Akeneo product attribute types to take into account, please consult first our [PIM attribute types list](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#akeneo-attribute-types).
 :::
 
 And you will find below the **localizable text attribute type list** you could consider in the context of your connector :
