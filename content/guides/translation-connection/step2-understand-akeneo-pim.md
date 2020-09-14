@@ -29,7 +29,7 @@ If you need an Akeneo PIM **Enterprise Edition** instance to start developing yo
 
 First of all, we advise you to take a look at our [Helpcenter](https://help.akeneo.com/pim/index.html) where you'll find a lot of documentation about all our features.
 
-If you feel that a comprehensive training program would allow you to know everything about Akeneo PIM, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
+Then, if you feel like it wasn't enough, we designed a comprehensive training program to share everything we know about Akeneo PIM. As you can see, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
 
 In the context of developing an online translation connector, here is a selection of PIM concepts you'll need to master before developing anything:
 - The [product](/concepts/products.html#product),
