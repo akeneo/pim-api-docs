@@ -2,7 +2,7 @@
 
 ## Versions and editions
 
-First, it is crucial for you to understand that Akeneo PIM exists in different flavours, depending on its version and edition.
+First, it is crucial for you to understand that Akeneo PIM comes in all shapes and sizes, depending on its version and edition.
 
 To know more about the different PIM versions, you can consult [this article](https://www.akeneo.com/blog/akeneo-introduces-a-simpler-product-release-cycle/) to understand our PIM release cycle.
 
