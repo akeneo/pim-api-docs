@@ -2,7 +2,7 @@
 
 ## Personas
 
-You will find below user archetypes we use to help you guide your decisions about product features, interactions, and even visual design of your connector. By designing for the archetype — whose goals and behavior patterns are well understood — you can satisfy the broader group of people represented by that archetype.
+Below, you will find the user archetypes we use to help you guide your decisions about product features, interactions, and even the visual design of your connector. Designing for the archetype — whose goals and behavior patterns are well understood — allows you to satisfy the broader group of people represented by that archetype.
 
 ![Personas](../../img/guides/personas.png)
 
