@@ -1,7 +1,7 @@
 # Introduction
 ![Asset family illustration](../../img/illustrations/illus--Translatedproduct.svg)
 
-> Do you want to connect your PIM to your online translation solution?
+> You want to connect your PIM to your online translation solution?
 > You want to implement a product translation feature and you don't know where to start?
 
 You landed in the right place!
