@@ -8,7 +8,7 @@ Below, you will find the user archetypes we use to help you guide your decisions
 
 ## Personas' needs
 
-You will find below the main needs, associated to each user profile, in terms of process, documentation, actions related to your future online translation connector.
+Below, you will find the main needs, associated with each user profile, in terms of process, documentation, actions related to your future online translation connector.
 
 ### Julia's needs
 
