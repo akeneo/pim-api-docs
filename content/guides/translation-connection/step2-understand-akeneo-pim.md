@@ -44,7 +44,7 @@ Before you actually start coding to develop your online translation connector, h
 
 ### PIM product data that can be translated
 
-Now that you have a good overview and knowledge of Akeneo PIM, you are probably wondering **what types of PIM data** you can consider in the context of your translation service.
+Now that you have a good overview and knowledge of Akeneo PIM, you are probably wondering **what types of PIM data** you can take into account here. 
 
 As you may have understood, Akeneo PIM is a powerful and flexible tool that can be structured **in so different ways** to meet customer needs.
 
