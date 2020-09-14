@@ -46,7 +46,7 @@ Before you actually start coding to develop your online translation connector, h
 
 Now that you have a good overview and knowledge of Akeneo PIM, you are probably wondering **what types of PIM data** you can take into account here. 
 
-As you may have understood, Akeneo PIM is a powerful and flexible tool that can be structured **in so different ways** to meet customer needs.
+It is now crystal clear for you that, Akeneo PIM is a powerful and flexible tool that can be structured **in so many different ways** to meet customer needs.
 
 For example, a PIM product structure **can be different from one product to another** : each type of product have its own [**family**](https://help.akeneo.com/pim/serenity/articles/what-is-a-family.html#mainContent).
 
