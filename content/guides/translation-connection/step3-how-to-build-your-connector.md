@@ -87,7 +87,7 @@ Then, Julia must create 6 new attributes in this attribute group:
   - Attribute label: `Translation queued`
   - Attribute group: `Translations`
   - Usable in grid: enabled
-* `Translation locales`: This multi select attribute should contains in its `options` all destination locales Julia can use to make her translation requests. These same `locales` must of course also already exist in Akeneo PIM and in your online Translation tool. This attribute allows Julia to choose one or more target locales for her translation project. Set up this attribute as followed:
+* `Translation locales`: This attribute allows Julia to choose one or more target locales for her translation project. This multi-select attribute should contain, in its `options`, all the possible destination locales Julia can use for her translation requests. These same `locales` must already exist in Akeneo PIM and in your online translation tool. Set up this attribute as followed:
   - Attribute type: multi select
   - Attribute code: `translationLocales`
   - Attribute label: `Translation locales`
