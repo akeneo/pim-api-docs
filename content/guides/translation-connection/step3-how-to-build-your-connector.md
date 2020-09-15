@@ -179,7 +179,7 @@ For this action, Julia has to:
 
 After this last action, the bulk action will run and Julia will be notified in the Akeneo PIM notification bar once it is successfully executed.
 
-With these new attributes, your connector is now ready to go!
+With these new attributes, your connector is now ready to go! Let's see how it'll behave on the other side of the connector. 
 
 ### How it works with your connector?
 
