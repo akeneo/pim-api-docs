@@ -48,7 +48,7 @@ Don't hesitate to [join us on Github](https://github.com/akeneo/pim-api-docs) if
 
 Reference entity records also have localizable attributes and your connector, just like for assets, could be legitimate to offer an associated translation service to Julia.
 
-But for the same reasons as for assets (there are no bulk actions for reference entities and a reference entity record can be associated to several products), it is complicated to build this feature for Julia.
+But for the same reasons as for assets (there are no bulk actions for reference entities and a reference entity record can be associated with several products), it is complicated to build this feature for Julia.
 
 :::info
 Again, don't hesitate to [join us on Github](https://github.com/akeneo/pim-api-docs) if you find a workaround for this limit, we will add it to this guide!
