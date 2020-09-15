@@ -28,7 +28,7 @@ You need to know that PIM assets can be used in 2 different ways:
 
 In the first case, assets are usually translated **directly in the DAM** software. As a result, **Julia doesn't need to translate her PIM assets** because it has already been done by the DAM teams.
 
-In the second case, it makes more sense: like products, the metadata of the assets could have been created in a source locale and **Julia might want to translate them into other locales**.
+In the second case, it makes more sense: like products, the metadata of the assets may have originally been created in a source locale and **Julia might want to translate them into other locales**.
 
 The main problem is that with the method we suggested, Julia can only indicate products that are to be translated (and not assets).
 
