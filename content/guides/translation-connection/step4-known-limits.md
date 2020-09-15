@@ -41,7 +41,7 @@ Of course, by retrieving Julia's PIM products, you could also retrieve the infor
 Moreover, since a same asset can be used in several products, it could lead to the translation of assets that have already been translated.
 
 :::info
-Don't hesitate to [join us on Github](https://github.com/akeneo/pim-api-docs) if you find a workaround for this limit, we will add it to this guide!
+Don't hesitate to [join us on Github](https://github.com/akeneo/pim-api-docs) if you find a workaround, we will add it to this guide!
 :::
 
 ### Reference entities
