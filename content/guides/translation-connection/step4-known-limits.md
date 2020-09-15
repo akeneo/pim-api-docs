@@ -10,7 +10,7 @@ A possible improvement of your connector could be also to take into account some
 
 ## Assets and Reference Entities
 
-In the Akeneo PIM attribute type list, some specific attributes are used to associate data structures with PIM products and that themselves contain attributes that can be translated:
+In the Akeneo PIM attribute type list, some specific attributes are used to associate data structures with PIM products. They also contain attributes that can be translated:
 * [Assets](https://help.akeneo.com/pim/serenity/articles/what-about-assets.html) (Asset collection attributes)
 * [Reference Entities](https://help.akeneo.com/pim/serenity/articles/what-about-reference-entities.html) (Reference Entity single or multiple links attributes)
 
