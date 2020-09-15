@@ -26,7 +26,7 @@ You need to know that PIM assets can be used in 2 different ways:
 * either **by associating the PIM with a DAM solution**: assets then come from this external solution,
 * or by creating these assets **directly in the PIM**.
 
-In the first case, assets are usually translated **directly in the DAM** software. As a result, **Julia doesn't need to translate her PIM assets** because this have already been done by the DAM teams.
+In the first case, assets are usually translated **directly in the DAM** software. As a result, **Julia doesn't need to translate her PIM assets** because it has already been done by the DAM teams.
 
 In the second case, it makes more sense: like products, the metadata of the assets could have been created in a source locale and **Julia might want to translate them into other locales**.
 
