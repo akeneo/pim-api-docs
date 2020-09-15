@@ -194,7 +194,7 @@ Using the ["get a list of products"](https://api.akeneo.com/api-reference.html#g
 
 Then, with the help of the family code of these products, your connector will be able to call the ["get the list of attributes"](https://api.akeneo.com/api-reference.html#get_attributes) API endpoint to retrieve each attribute type that composes this product family.
 
-By analyzing these types, you will be able to define for your translator which are the textual attributes he needs to translate.
+By analyzing these types, you will be able to define for your translator which are the textual attributes they need to translate.
 :::
 
 When the translation is finished, your translator needs to set the `Translation status` attribute to `TRANSLATED` and import all translated product data back in the PIM.
