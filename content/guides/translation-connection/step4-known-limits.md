@@ -20,7 +20,7 @@ Let's talk about PIM assets first.
 
 An asset can contain **a media** (an image, a video or a file) and can also contain **some metadata**.
 
-It would be interesting to propose to Julia to translate these **metadata asset attributes** and why not... some media.
+It would be interesting to offer Julia to translate these **metadata asset attributes** and why not... some media.
 
 You need to know that PIM assets can be used in 2 different ways:
 * either **by associating the PIM with a DAM solution**: assets then come from this external solution,
