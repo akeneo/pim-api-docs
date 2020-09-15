@@ -99,7 +99,7 @@ Then, Julia must create 6 new attributes in this attribute group:
   - Attribute label: `Translation due date`
   - Attribute group: `Translations`
   - Usable in grid: enabled  
-* `Translation status`: This attribute allows your translator to give a status about the translation project to Julia. As this last attribute has a `Read only` property, it can't be modified by Julia. Only your connector can modify this status through API and set the translation project status for each desired locale. This attribute contains these options:    
+* `Translation status`: This attribute allows your translator to give a status about the translation project to Julia. As this attribute has a `Read only` property, it can't be modified by Julia. This status can only be modified by your connector through the API and set the translation project status for each desired locale. This attribute contains these options:    
   |      Code      |     Label      |
   | :------------- | :------------- |
   | INPROGRESS     | In progress    |
