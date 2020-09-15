@@ -18,7 +18,7 @@ In the Akeneo PIM attribute type list, some specific attributes are used to asso
 
 Let's talk about PIM assets first.
 
-An asset can contain **a media** (an image, a video or a file) and can have **some metadata** too.
+An asset can contain **a media** (an image, a video or a file) and can also contain **some metadata**.
 
 It would be interesting to propose to Julia to translate these **metadata asset attributes** and why not... some media.
 
