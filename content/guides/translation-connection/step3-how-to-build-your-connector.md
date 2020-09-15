@@ -197,7 +197,7 @@ Then, with the help of the family code of these products, your connector will be
 By analyzing these types, you will be able to define for your translator which are the textual attributes they need to translate.
 :::
 
-When the translation is finished, your translator needs to set the `Translation status` attribute to `TRANSLATED` and import all translated product data back in the PIM.
+When the translation is finished, your translator needs to set the `Translation status` attribute to `TRANSLATED` and to send all the translated product data back in the PIM.
 
 If for some reason the translation project has been canceled, your translator needs to set the `Translation status` attribute to `CANCELLED` and import this product data back into the PIM.
 
