@@ -36,7 +36,7 @@ The main problem is that with the method we suggested, Julia can only indicate p
 This is due to the fact that bulk actions aren't available on assets for now.
 :::
 
-Of course, by retrieving Julia's PIM products, you could also retrieve the information from the associated assets but this will not be very convenient for Julia.
+Of course, by retrieving Julia's PIM products, you could also retrieve the information from the associated assets but this would not be very convenient for Julia.
 
 Moreover, since a same asset can be used in several products, it could lead to the translation of assets that have already been translated.
 
