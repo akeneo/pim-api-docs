@@ -81,7 +81,7 @@ Then, Julia must create 6 new attributes in this attribute group:
   - Attribute label: `Translation submitter`
   - Attribute group: `Translations`
   - Usable in grid: enabled
-* `Translation queued`: This attribute allows Julia to set if a product need to be translated. Set up this attribute as followed:
+* `Translation queued`: This attribute allows Julia to define if a product needs to be translated. Set up this attribute as followed:
   - Attribute type: Yes/No (Boolean)
   - Attribute code: `translationQueued`
   - Attribute label: `Translation queued`
