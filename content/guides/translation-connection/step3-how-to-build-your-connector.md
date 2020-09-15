@@ -163,7 +163,7 @@ Then, she needs to perform a [bulk action](https://help.akeneo.com/pim/serenity/
 For this action, Julia has to:
 1. Click on `BULK ACTIONS` at the bottom of the page
 2. Select `Edit attributes values` and click on `NEXT`
-3. In the `SELECT ATTRIBUTES` dropdown, search and select these 5 translation attributes and click on `ADD`:
+3. In `SELECT ATTRIBUTES`, search and select these 5 translation attributes and click on `ADD`:
     * Translation submission name
     * Translation submitter
     * Translation queued
