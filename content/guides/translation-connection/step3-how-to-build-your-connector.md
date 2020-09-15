@@ -171,7 +171,7 @@ For this action, Julia has to:
     * Translation due date
 4. Now set the translation attributes:
     * `Translation name`: Enter the desired name for the translation project,
-   * `Translations submitter`: select her name,
+    * `Translations submitter`: select Julia's name,
     * `Translation queued`: enable the attribute by sliding the toggle button towards `Yes`,
     * `Translation locales`: select the desired target locales for translation,
     * `Translation due date`: Select the date on which you want to receive the translation.
