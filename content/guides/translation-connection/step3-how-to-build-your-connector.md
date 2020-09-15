@@ -202,7 +202,7 @@ When the translation is finished, your translator needs to set the `Translation 
 If, for some reason, the translation project has been canceled, your translator needs to set the `Translation status` attribute to `CANCELLED` and to send this product data back into the PIM.
 
 :::info
-To develop theses connector actions, and to understand our API please follow our [wonderful dedicated API documentation](https://api.akeneo.com)!
+To develop these connector actions, and to understand our API please follow our [wonderful dedicated API documentation](https://api.akeneo.com)!
 :::
 
 ### Check the "Translation status"
