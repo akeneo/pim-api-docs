@@ -69,7 +69,7 @@ To create this attribute group:
 
 Then, Julia must create 6 new attributes in this attribute group:
 
-* `Translation submission name`: This attribute allows Julia to set a name to her translation project. It also allows her to easily find this project with this name in the interface of your online translation solution. Set up this attribute as followed:
+* `Translation submission name`: This attribute allows Julia to set a name for her translation project. It'll also allow her to easily find the project in the interface of your online translation solution. Set up this attribute as followed:
   - Attribute type: text
   - Attribute code: `translationName`
   - Attribute label: `Translation submission name`
