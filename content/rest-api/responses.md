@@ -1,10 +1,10 @@
 # Response codes
 
-_All the responses you can get when requesting via the API_
+_All the responses you can get when requesting via the REST API_
 
 ## Client errors
 
-There are several types of errors when requesting via the API.
+There are several types of errors when requesting via the REST API.
 
 ### 400 error
 Sending malformed data results in a `400 Bad Request` response.
@@ -47,7 +47,7 @@ Below is the good format. Just perfect. Don't move a single comma. ;)
 ```
 
 ### 401 error
-Trying to access to the API without authentication results in a `401 Unauthorized` response.
+Trying to access to the REST API without authentication results in a `401 Unauthorized` response.
 
 #### Example
 ```http
@@ -215,12 +215,12 @@ HTTP/1.1 422 Unprocessable Entity
 ```
 
 ::: tips
-When the API answers that something `does not exist`, it could also mean that the related user hasn't the permission to access it.
+When the REST API answers that something `does not exist`, it could also mean that the related user hasn't the permission to access it.
 :::
 
 ## Success
 
-There are 3 types of client success when requesting via the API.
+There are 3 types of client success when requesting via the REST API.
 
 ### 200 success
 Getting a resource or a collection resources results in a `200 OK` response.

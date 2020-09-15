@@ -1,13 +1,13 @@
 # Permissions
 
-In some connector use cases, you will need to restrict the access to the API.
-There are two ways to handle this in the API, depending on the wanted result:
-- if you want to restrict the access to some API endpoints, use [the ACLs authorizations](#endpoint-access-restrictions).
+In some connector use cases, you will need to restrict the access to the REST API.
+There are two ways to handle this in the REST API, depending on the wanted result:
+- if you want to restrict the access to some REST API endpoints, use [the ACLs authorizations](#endpoint-access-restrictions).
 - if you want to restrict the access to certain parts of your product catalog, use the [Entreprise Edition permissions](#catalog-permissions-ee-only) _(only available in the Entreprise Edition)_.
 
 Please see below for more details about both permission systems. 
 
-Before diving into those sections, here is one key piece of information you need: those permissions are enforced thanks to the API user you use [whenever you ask for a token](/documentation/authentication.html#token-generation). All the API calls launched with the generated token afterwards will then benefit from the permissions defined by the user group and the user role of this API user.  
+Before diving into those sections, here is one key piece of information you need: those permissions are enforced thanks to the API user you use [whenever you ask for a token](/documentation/authentication.html#token-generation). All the REST API calls launched with the generated token afterwards will then benefit from the permissions defined by the user group and the user role of this API user.  
 In other words, you will need to define for your API user:
 - a role, if you want to use the ACLs permissions, 
 - and a group if you want to use the EE permissions.
@@ -38,9 +38,9 @@ Do not give any UI permissions to your API user roles.
 
 ### Overall access
 
-The first ACL `Overall Web API access` means that if enabled, each user under that role will have access to the Web API.
+The first ACL `Overall Web API access` means that if enabled, each user under that role will have access to the REST API.
 
-You will need to give at least this ACL to all the API user roles you created before for them to be able to call the API.
+You will need to give at least this ACL to all the API user roles you created before for them to be able to call the REST API.
 
 ::: warning
 Do not give this permission to your UI user role as it makes no sense to give API access to UI users.
@@ -80,10 +80,10 @@ You can fine-tune even more this permission by restricting or allowing access to
 
 The Entreprise Edition permissions based on the user groups are also enforced in the API.
 
-Those permissions are really powerful and make it possible to create great workflows around product enrichment with the API. There are 3 ways to benefit from those permissions. They are detailed in the following sections.
+Those permissions are really powerful and make it possible to create great workflows around product enrichment with the REST API. There are 3 ways to benefit from those permissions. They are detailed in the following sections.
 
 ::: warning
-Those permissions were introduced in the API starting from the 2.0 version.
+Those permissions were introduced in the REST API starting from the 2.0 version.
 :::
 
 ::: info
@@ -111,14 +111,14 @@ To enable these powers:
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
 ![API user in the user group](/img/rest-api/my-erp-user-in-group.png)
 1. Then, navigate to the `Settings/Categories` menu, if you want to benefit from permissions on categories, otherwise jump to step 9.
-1. For each category you want to hide from your API calls, enter the `Permissions` tab.
+1. For each category you want to hide from your REST API calls, enter the `Permissions` tab.
 1.  Remove the group you just created from the `Allowed to view products`, `Allowed to edit products` and `Allowed to own products` inputs. Don't forget to click on the `Save` button.
 ![Permissions for hide mode](/img/rest-api/hide-permission-mode.png)
 1. Then, navigate to the `Settings/Locales` menu, if you want to benefit from permissions on locales, otherwise jump to step 10.
-1. For each locale you want to hide from your API calls, enter the `Permissions` tab.
+1. For each locale you want to hide from your REST API calls, enter the `Permissions` tab.
 1.  Remove the group you just created from the `Allowed to view information` and `Allowed to edit information` inputs. Don't forget to click on the `Save` button.
 1. Then, navigate to the `Settings/Attribute groups` menu.
-1. For each locale you want to hide from your API calls, enter the `Permissions` tab.
+1. For each locale you want to hide from your REST API calls, enter the `Permissions` tab.
 1.  Remove the group you just created from the `Allowed to view attributes` and `Allowed to edit attributes` inputs. Don't forget to click on the `Save` button.
 
 That's it! :tada:
@@ -159,7 +159,7 @@ Don't hesitate to test your configuration by calling the [PATCH product endpoint
 
 ### Proposals of product information updates
 
-The second power of these permissions is that for some **given categories**, you can define that the PATCH API endpoints will only be able to suggest modifications on your product values, instead of automatically updating them.  
+The second power of these permissions is that for some **given categories**, you can define that the PATCH REST API endpoints will only be able to suggest modifications on your product values, instead of automatically updating them.  
 Your PIM users will then be able to validate or reject them directly in the PIM UI. This is perfect if you want to easily control the product information that is pushed into your product catalog. :wink:
 
 To enable this possibility:
@@ -180,10 +180,10 @@ To enable this possibility:
 That's it! :tada:
 
 Don't hesitate to test your configuration by calling the [PATCH product endpoint](/api-reference.html#patch_products__code_) with an update in the body of your product. A draft of your product will be created.  
-You will then need to send your draft for approval by using [this API endpoint](/api-reference.html#post_proposal).  
+You will then need to send your draft for approval by using [this REST API endpoint](/api-reference.html#post_proposal).  
 If it works correctly, the owners of the categories where this product is classified will receive a new proposal in their Proposals screen. Below, you can see an example of the generated proposal. 
 
-![Proposal generated by the API](/img/rest-api/proposal-by-api.png)
+![Proposal generated by the REST API](/img/rest-api/proposal-by-api.png)
 
 ::: info
 Proposals can be created only on product updates, not on product creations. :wink:
@@ -191,6 +191,6 @@ Proposals can be created only on product updates, not on product creations. :win
 
 ::: tips
 Having trouble creating proposals on one given product?   
-As soon as your product is at least owned in one category by your API user group, the API will directly apply the updates, instead of creating a draft and then a proposal.  
+As soon as your product is at least owned in one category by your API user group, the REST API will directly apply the updates, instead of creating a draft and then a proposal.  
 So make sure your product is only classified in categories that are not owned by your API user group. 
 :::

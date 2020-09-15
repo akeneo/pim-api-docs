@@ -4,8 +4,8 @@ You want to manage rich data information around your products? The Reference ent
 
 They are designed to store complex information related to products. So neat! :rocket:
 
-There are several resources available to interact with the Reference Entities feature via the API.  
-Each section below contains an explanation of the concept behind these resources You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API. 
+There are several resources available to interact with the Reference Entities feature via the REST API.  
+Each section below contains an explanation of the concept behind these resources You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API. 
 
 ::: info
 The Reference Entities is an Entreprise only feature, meaning all the following resources are only available in the Entreprise Edition.
@@ -306,7 +306,7 @@ Below is the JSON standard format representing a reference entity record.
 
 Reference entity record values hold all the information of a reference entity record. In concrete terms, it is the values of the attributes you will find in the record of a reference entity.
 
-In the API, the reference entity record values are in the property `values` of the reference entity record.
+In the REST API, the reference entity record values are in the property `values` of the reference entity record.
 
 ### The global format
 

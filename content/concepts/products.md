@@ -3,7 +3,7 @@
 The **Product** is the central resource of our PIM and, when you think about it, it makes perfect sense since what we are doing is Product Management. :wink:
 
 In the sections below, you will find all the different flavors of products you can find in the PIM.  
-Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API. 
+Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API. 
 
 ## Product
 ::: availability versions=1.7,2.x,3.x,4.0,Serenity editions=CE,EE
@@ -118,7 +118,7 @@ Note that the `quantified_associations` field is only available in Serenity.
 
 Product values hold all the information of the product. They are part of the [Product resource](#product). In concrete terms, it is the values of the product attributes.
 
-In the API, the product values are in the property `values` of the product entity.
+In the REST API, the product values are in the property `values` of the product entity.
 
 ### The global format
 

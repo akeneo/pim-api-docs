@@ -4,10 +4,10 @@ You will need a client ID and a secret if you want to be able to make API reques
 
 ## Create an API user
 
-To use the API, you need an API user. Create it in the PIM. You can call it `myAPIuser`. You will be asked for a password: enter `myAPIuserPassword`.
+To use the REST API, you need an API user. Create it in the PIM. You can call it `myAPIuser`. You will be asked for a password: enter `myAPIuserPassword`.
 
 ::: info
-_Best practice:_ Always create a dedicated user when you want to use it to make your API calls. Do not re-use real users.
+_Best practice:_ Always create a dedicated user when you want to use it to make your REST API calls. Do not re-use real users.
 :::
 
 ## Create an API user role
@@ -42,7 +42,7 @@ If you are using a v1.7, [launch a command line](#by-command-line-for-v17-pim-on
 You will then need a client ID and a secret. To do so, we will create an API connection. We will call it, for the purpose of this example: `My very first API connection`
 
 ::: warning
-This feature is only available since the 2.0 version. If you are trying to use the API on a 1.7 PIM, please have a look to the [second method below](#get-your-credentials-via-command-line-).
+This feature is only available since the 2.0 version. If you are trying to use the REST API on a 1.7 PIM, please have a look to the [second method below](#get-your-credentials-via-command-line-).
 :::
 
 1. Click on the `System` menu.
@@ -57,9 +57,9 @@ You API connection appears in the API connections table and should look like thi
 
 And that's it! :tada:
 
-Along with the username and the password we just created, these are your credentials to authenticate yourself when using the API.
+Along with the username and the password we just created, these are your credentials to authenticate yourself when using the REST API.
 
-::: panel-link And now, let's configure the tool that will make the API request [The Postman set up](/getting-started/your-first-tutorial-old/step-2.html)
+::: panel-link And now, let's configure the tool that will make the REST API request [The Postman set up](/getting-started/your-first-tutorial-old/step-2.html)
 :::
 
 ### By command line for v1.7 PIM only
@@ -86,8 +86,8 @@ label: My very first API connection
 
 Easy, right? 🙂
 
-Along with the username and the password we just created, these are your credentials to authenticate yourself when using the API.
+Along with the username and the password we just created, these are your credentials to authenticate yourself when using the REST API.
 
-::: panel-link And now, let's configure the tool that will make the API request [The Postman set up](/getting-started/your-first-tutorial-old/step-2.html)
+::: panel-link And now, let's configure the tool that will make the REST API request [The Postman set up](/getting-started/your-first-tutorial-old/step-2.html)
 :::
 

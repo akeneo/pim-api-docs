@@ -259,7 +259,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'welcome.md': 'Welcome',
                 'step-1.md': 'Step 1 | Create a Connection',
                 'step-2.md': 'Step 2 | Set up Postman',
-                'step-3.md': 'Step 3 | Make the API request'
+                'step-3.md': 'Step 3 | Make the REST API request'
             }
         },
         'your-first-tutorial-old': {
@@ -271,7 +271,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'welcome.md': 'Welcome',
                 'step-1.md': 'Step 1 | Generate the credentials',
                 'step-2.md': 'Step 2 | Set up Postman',
-                'step-3.md': 'Step 3 | Make the API request'
+                'step-3.md': 'Step 3 | Make the REST API request'
             }
         },
         'connect-the-pim-4x': {
@@ -413,7 +413,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
 gulp.task('build-rest-api', ['clean-dist','less'], function () {
 
     var pages = {
-        'why-the-api.md': "Why the API?",
+        'why-the-api.md': "Why the REST API?",
         'overview.md': 'Overview',
         'authentication.md': 'Authentication',
         'permissions.md': 'Permissions',
@@ -437,7 +437,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation:  true,
-                        title: 'The API basics',
+                        title: 'The REST API basics',
                         mainContent: fs.readFileSync('tmp/documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -560,7 +560,7 @@ gulp.task('build-php-client', ['clean-dist','less', 'create-resources-md'], func
                 return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation: true,
-                        title: 'PHP API client documentation',
+                        title: 'PHP REST API client documentation',
                         image: 'illustrations/illus--php-client.svg',
                         mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {

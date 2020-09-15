@@ -1,13 +1,13 @@
 # 👋 Welcome in this guide!
 
 This tutorial will teach you:
-> How to connect the PIM with the API on a 4.x PIM
+> How to connect the PIM with the REST API on a 4.x PIM
 
 ## Goal
 At the end of this tutorial, you will know what are the primary steps to properly connect the PIM.
 
 ::: tips
-Connections will be achieved with the help of the API, as the API is the best way to connect the PIM. Wondering why? Discover the reasons [here](/documentation/introduction.html#why-should-you-use-our-api)!
+Connections will be achieved with the help of the REST API, as the API is the best way to connect the PIM. Wondering why? Discover the reasons [here](/documentation/introduction.html#why-should-you-use-our-api)!
 :::
 
 ## Prerequisites
