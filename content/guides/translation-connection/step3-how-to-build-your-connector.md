@@ -150,7 +150,7 @@ Now let's see how Julia will work with these new PIM translation features.
 First, Julia needs to select the product she wants to translate:
 1. Go to `Products`
 2. Select the "source" locale
-3. Select products (and/or product models) you want to translate
+3. Select the products (and/or product models) you want to translate
 
 :::tips
 For this product selection, Julia can help herself by using her PIM grid [filtering](https://help.akeneo.com/pim/serenity/articles/products-grid.html#use-filters) system or by creating a [specific view](https://help.akeneo.com/pim/serenity/articles/manage-your-views.html).
