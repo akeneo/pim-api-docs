@@ -170,7 +170,7 @@ For this action, Julia has to:
     * Translation locales
     * Translation due date
 4. Now set the translation attributes:
-    * `Translation name`: enter the desired name for the translation project,
+    * `Translation name`: Enter the desired name for the translation project,
    * `Translations submitter`: select her name,
     * `Translation queued`: enable the attribute by sliding the toggle button towards `Yes`,
     * `Translation locales`: select the desired target locales for translation,
