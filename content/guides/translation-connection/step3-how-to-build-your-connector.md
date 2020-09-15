@@ -117,7 +117,7 @@ Then, Julia must create 6 new attributes in this attribute group:
 ::: tips
 To create an attribute:
 1. Go to `Settings > Attributes`
-2. Click on `CREATE ATTRIBUTE` at the top right corner of the screen
+2. Click on `CREATE ATTRIBUTE` in the top-right corner of the screen
 :::
 
 :::info
