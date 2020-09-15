@@ -4,7 +4,7 @@
 
 Our [suggested method](step3-how-to-build-your-connector.html) allows your online translation solution to translate only **textual** attributes of Akeneo PIM products.
 
-Among other PIM attributes, Akeneo PIM has a `file` type attribute that allows to handle a binary file (CSV, DOC, DOCX, MP3 or PDF) associated with  the product.
+Among other PIM attributes, Akeneo PIM has a `file` attribute type that allows handling a binary file (CSV, DOC, DOCX, MP3 or PDF) associated with the product.
 
 A possible improvements of your connector could be also to take into account some of these files in order to translate them.
 
