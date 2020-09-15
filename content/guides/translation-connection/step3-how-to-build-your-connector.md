@@ -153,7 +153,7 @@ First, Julia needs to select the product she wants to translate:
 3. Select the products (and/or product models) you want to translate
 
 :::tips
-For this product selection, Julia can help herself by using her PIM grid [filtering](https://help.akeneo.com/pim/serenity/articles/products-grid.html#use-filters) system or by creating a [specific view](https://help.akeneo.com/pim/serenity/articles/manage-your-views.html).
+For a seamless product selection, Julia can use her PIM grid [filtering](https://help.akeneo.com/pim/serenity/articles/products-grid.html#use-filters) system or create a [specific view](https://help.akeneo.com/pim/serenity/articles/manage-your-views.html).
 :::
 
 ### Perform a "bulk action"
