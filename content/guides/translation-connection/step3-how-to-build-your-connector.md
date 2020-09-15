@@ -207,7 +207,7 @@ To develop these connector actions, and to understand our API please follow our 
 
 ### Check the "Translation status"
 
-Now let's go back to Julia's side and see how she can check her translation projects status.
+Now let's go back to Julia's side and see how she can check her translation project status.
 
 As the `Translation status` has been declared as `Usable in grid`, Julia can:
 * [Customise her grid](https://help.akeneo.com/pim/serenity/articles/products-grid.html#customise-the-grid) to add the `Translation status` attribute: this will allow her to sort her products according to their translation status.
