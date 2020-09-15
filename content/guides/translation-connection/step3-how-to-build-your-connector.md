@@ -75,7 +75,7 @@ Then, Julia must create 6 new attributes in this attribute group:
   - Attribute label: `Translation submission name`
   - Attribute group: `Translations`
   - Usable in grid: enabled
-* `Translation submitter`: This simple select attribute should contain in its options, all possible contributor names. This attribute allows Julia to associate her name to her translation project. Set up this attribute as followed:
+* `Translation submitter`: This attribute allows Julia to associate her name with her translation project. Among its options, this simple select attribute should list all the possible contributor names. Set up this attribute as followed:
   - Attribute type: simple select  
   - Attribute code: `translationSubmitter`
   - Attribute label: `Translation submitter`
