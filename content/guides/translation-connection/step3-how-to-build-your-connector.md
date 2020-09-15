@@ -93,7 +93,7 @@ Then, Julia must create 6 new attributes in this attribute group:
   - Attribute label: `Translation locales`
   - Attribute group: `Translations`
   - Usable in grid: enabled
-* `Translation due date`: This attribute allows Julia to indicate to translators when she would like her products to be translated. Set up this attribute as followed:
+* `Translation due date`: This attribute allows Julia to indicate when she would like her products to be translated. Set up this attribute as followed:
   - Attribute type: date
   - Attribute code: `translationDate`
   - Attribute label: `Translation due date`
