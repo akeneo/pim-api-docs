@@ -187,7 +187,7 @@ At regular intervals, your connector will need to retrieve products where the `T
 
 You can do this by using our PIM [API filtering system](https://api.akeneo.com/documentation/filter.html#filter-on-product-values) on product attribute value.
 
-Then your connector needs to set this attribute to `false` and change the `Translation status` attribute to `IN PROGRESS` to indicate to Julia that the translation is being processed by one of your translators.
+Then, your connector needs to set this attribute to `false` and change the `Translation status` attribute to `IN PROGRESS` to indicate Julia that the translation is being processed by one of your translators.
 
 :::tips
 Using the ["get a list of products"](https://api.akeneo.com/api-reference.html#get_products) API endpoint (with the correct filter), your connector will retrieve a JSON structure of each localizable products.
