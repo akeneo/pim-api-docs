@@ -199,7 +199,7 @@ By analyzing these types, you will be able to define for your translator which a
 
 When the translation is finished, your translator needs to set the `Translation status` attribute to `TRANSLATED` and to send all the translated product data back in the PIM.
 
-If for some reason the translation project has been canceled, your translator needs to set the `Translation status` attribute to `CANCELLED` and import this product data back into the PIM.
+If, for some reason, the translation project has been canceled, your translator needs to set the `Translation status` attribute to `CANCELLED` and to send this product data back into the PIM.
 
 :::info
 To develop theses connector actions, and to understand our API please follow our [wonderful dedicated API documentation](https://api.akeneo.com)!
