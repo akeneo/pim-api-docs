@@ -33,7 +33,7 @@ In the second case, it makes more sense: like products, the metadata of the asse
 The main problem is that with the method we suggested, Julia can only indicate products that are to be translated (and not assets).
 
 :::warning
-This is due to the fact that there are not yet bulk actions on assets.
+This is due to the fact that bulk actions aren't available on assets for now.
 :::
 
 Of course, by retrieving Julia's PIM products, you could also retrieve the information from the associated assets but this will not be very convenient for Julia.
