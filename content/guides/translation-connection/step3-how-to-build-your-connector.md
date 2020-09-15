@@ -174,7 +174,7 @@ For this action, Julia has to:
     * `Translations submitter`: select Julia's name,
     * `Translation queued`: Select `Yes` to enable the attribute,
     * `Translation locales`: select the desired target locales for translation,
-    * `Translation due date`: Select the date on which you want to receive the translation.
+    * `Translation due date`: select the translation deadline.
 5. Click on `NEXT` and `CONFIRM` to launch the bulk action.
 
 After this last action, the bulk action will run and Julia will be notified in the Akeneo PIM notification bar once it is successfully executed.
