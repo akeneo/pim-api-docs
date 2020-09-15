@@ -160,7 +160,7 @@ For a seamless product selection, Julia can use her PIM grid [filtering](https:/
 
 Then, she needs to perform a [bulk action](https://help.akeneo.com/pim/serenity/articles/product-mass-actions.html) on these products.
 
-For this action, Julia have to:
+For this action, Julia has to:
 1. Click on the `BULK ACTIONS` button at the bottom of the page
 2. Select `Edit attributes values` and click on `NEXT`
 3. In the `SELECT ATTRIBUTES` dropdown, search and select these 5 translation attributes and click on `ADD`:
