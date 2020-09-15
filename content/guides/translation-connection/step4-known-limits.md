@@ -51,5 +51,5 @@ Reference entity records also have localizable attributes and your connector, ju
 But for the same reasons as for assets (there are no bulk actions for reference entities and a reference entity record can be associated with several products), it is complicated to build this feature for Julia.
 
 :::info
-Again, don't hesitate to [join us on Github](https://github.com/akeneo/pim-api-docs) if you find a workaround for this limit, we will add it to this guide!
+Again, don't hesitate to [join us on Github](https://github.com/akeneo/pim-api-docs) if you find a workaround, we will add it to this guide!
 :::
