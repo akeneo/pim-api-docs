@@ -137,7 +137,7 @@ Julia can do this by using this [bulk action](https://help.akeneo.com/pim/sereni
 :::
 
 And that's it! Congratulations! 🎉  
-Everything is now ready to receive Julia's PIM products she wants to translate!
+Everything is now ready for Julia to receive the PIM products she wants to translate!
 
 ## Julia's translation process
 
