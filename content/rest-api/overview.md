@@ -92,7 +92,7 @@ HTTP/1.1 406 Not Acceptable
 For each new PIM versions, we add more and more resources to our REST API scope.  
 For a detailed presentation as well as the format of each of these resources, take a look to the [Concepts & resources](/concepts/introduction.html) documentation.
 
-Also, you will find the complete reference of the endpoints available for each of these resources in the [reference REST API](/api-reference-index.html). You can also get the list of these endpoints by request, see [List of available endpoints](/documentation/overview.html#list-of-available-endpoints).
+Also, you will find the complete reference of the endpoints available for each of these resources in the [REST API Reference](/api-reference-index.html). You can also get the list of these endpoints by request, see [List of available endpoints](/documentation/overview.html#list-of-available-endpoints).
 
 ## List of available endpoints
 

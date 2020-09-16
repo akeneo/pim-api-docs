@@ -42,8 +42,12 @@
                         <li><a href="/php-client/introduction.html">The PHP REST API client</a></li>
                     </ul>
                 </li>
-                <li class="{{#if active_api_reference}}active{{/if}}">
-                    <a href="/api-reference-index.html">Reference</a>
+                <li class="dropdown{{#if active_api_reference}} active{{/if}}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">References <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-title">References</li>
+                        <li><a href="/api-reference-index.html">REST API Reference</a></li>
+                    </ul>
                 </li>
             </ul>
             <form class="navbar-form navbar-right">
