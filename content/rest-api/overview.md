@@ -153,7 +153,7 @@ You do not need to be authenticated to access this route.
 
 _You want to dig deeper and know every inch of the REST API?_
 
-We have crafted a complete reference of our REST PI. So feel free to browse it.
+We have crafted a complete reference of our REST API. So feel free to browse it.
 
 There, you will find for each available endpoint, a description of what it does, what are the expected parameters in the request and what are the different responses you will be able to get, being successes or errors.
 
