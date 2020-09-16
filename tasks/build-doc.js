@@ -352,14 +352,14 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
                 'step4-define-your-first-scope.md': 'Define the first scope of your connector'
             }
         },
-        'dam-connection-2': {
-            title: 'Another guide man',
+        'translation-connection': {
+            title: 'The complete guide to connect Akeneo PIM to your online translation solution',
             files: {
                 'introduction.md': 'Introduction',
-                'pre-requisites.md': 'Structure your DAM and your PIM',
-                'technical-stack.md': 'Define your technical stack',
-                'synchronize-assets.md': 'Dive into the synchronisation',
-                'glossary.md': 'Glossary'
+                'step1-who-is-your-connector-for.md': 'Who is your connector for?',
+                'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
+                'step3-how-to-build-your-connector.md': 'How to build your connector?',
+                'step4-known-limits.md': 'Known limits'
             }
         }
     };

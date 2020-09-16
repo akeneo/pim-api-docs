@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="259px" height="198px" viewBox="0 0 259 198" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>illus--translation-connection 2</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="illus--translation-connection" transform="translate(2.000000, 1.000000)">
+            <path d="M27,192.6 C27,135.4 73.4,89 130.6,89 C187.8,89 234.2,135.4 234.2,192.6 L27,192.6 Z" id="Path" fill="#E1F2FF" fill-rule="nonzero"></path>
+            <path d="M22,184 L58,184 M64,184 L240.9,184 M248,184 L255,184 M5,184 L14,184 M97,194 L164.2,194 M173,194 L182.1,194 M89,193 L84,193.1" id="Shape" stroke="#5E63B6" stroke-width="3" fill="#FFFFFF" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M44.7,152.7 L44.7,156.6 M46.7,154.6 L42.8,154.6" id="Shape" stroke="#5E63B6" stroke-linecap="round"></path>
+            <path d="M219.7,92.7 L219.7,96.6 M221.7,94.6 L217.8,94.6" id="Shape" stroke="#5E63B6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M28.4,91.3 L28.4,99.4 M32.5,95.3 L24.4,95.3" id="Shape" stroke="#5E63B6" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero" stroke-linecap="round"></path>
+            <path d="M219,32.4 L219,39.4 M222.5,35.9 L215.5,35.9" id="Shape" stroke="#5E63B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M82.1,0.6 L82.1,7.6 M85.6,4.1 L78.6,4.1" id="Shape" stroke="#5E63B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M45.7,56.7 L45.7,60.6 M47.7,58.7 L43.8,58.7" id="Shape" stroke="#5E63B6" stroke-linecap="round"></path>
+            <path d="M176.4,88.7 L220.1,88.7 L244,60 L200.3,60 L176.4,88.7 Z M176.4,88.7 L89,88.7 L65,60 L152.4,60 L176.4,88.7 Z" id="Shape" stroke="#5563B6" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <g id="Group" transform="translate(157.000676, 45.473838) rotate(3.000000) translate(-157.000676, -45.473838) translate(129.000676, 6.973838)" fill-rule="nonzero">
+                <path d="M8.1,0.3 L54,3.9 C55.2,4 56.1,5.1 56,6.3 L50.7,74.7 C50.6,75.9 49.5,76.9 48.3,76.8 L2.5,73.2 C1.3,73.1 0.3,72 0.4,70.8 L5.7,2.4 C5.8,1.2 6.9,0.2 8.1,0.3 Z" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF"></path>
+                <polygon id="Path" fill="#E1F2FF" points="4.9 65 48 71.4 52.8 9.8 9.1 4.4"></polygon>
+                <polygon id="Path" fill="#9ACDED" points="19.6 16.9 18.5 15.6 15.1 18.5 13.3 16.4 12 17.5 14.9 20.9 14.9 20.9 14.9 20.9"></polygon>
+                <line x1="22.2" y1="18.6" x2="47.1" y2="20.5" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                <polygon id="Path" fill="#9ACDED" points="19 24.5 17.9 23.3 14.5 26.2 12.7 24.1 11.5 25.2 14.4 28.6 14.4 28.6 14.4 28.6"></polygon>
+                <line x1="21.6" y1="26.7" x2="46.5" y2="28.6" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                <polygon id="Path" fill="#9ACDED" points="18.4 32.2 17.3 31 13.9 33.9 12.1 31.8 10.9 32.9 13.8 36.3 13.8 36.3 13.8 36.3"></polygon>
+                <line x1="20.9" y1="35" x2="45.8" y2="36.9" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+            </g>
+            <g id="Group" transform="translate(115.039686, 71.695412) rotate(-23.000000) translate(-115.039686, -71.695412) translate(87.039686, 33.195412)" fill-rule="nonzero">
+                <path d="M8.1,0.3 L54,3.9 C55.2,4 56.1,5.1 56,6.3 L50.7,74.7 C50.6,75.9 49.5,76.9 48.3,76.8 L2.5,73.2 C1.3,73.1 0.3,72 0.4,70.8 L5.7,2.4 C5.8,1.2 6.9,0.2 8.1,0.3 Z" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF"></path>
+                <polygon id="Path" fill="#E1F2FF" points="4.9 65 48 71.4 52.8 9.8 9.1 4.4"></polygon>
+                <polygon id="Path" fill="#9ACDED" points="19.6 16.9 18.5 15.6 15.1 18.5 13.3 16.4 12 17.5 14.9 20.9 14.9 20.9 14.9 20.9"></polygon>
+                <line x1="22.2" y1="18.6" x2="47.1" y2="20.5" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                <polygon id="Path" fill="#9ACDED" points="19 24.5 17.9 23.3 14.5 26.2 12.7 24.1 11.5 25.2 14.4 28.6 14.4 28.6 14.4 28.6"></polygon>
+                <line x1="21.6" y1="26.7" x2="46.5" y2="28.6" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                <polygon id="Path" fill="#9ACDED" points="18.4 32.2 17.3 30.9 13.9 33.8 12.1 31.7 10.9 32.8 13.8 36.2 13.8 36.2 13.8 36.2"></polygon>
+                <line x1="20.9" y1="35" x2="45.8" y2="36.9" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+            </g>
+            <g id="Group" transform="translate(193.012724, 86.387681) rotate(13.000000) translate(-193.012724, -86.387681) translate(165.012724, 47.887681)" fill-rule="nonzero">
+                <path d="M8.1,0.3 L54,3.9 C55.2,4 56.1,5.1 56,6.3 L50.7,74.7 C50.6,75.9 49.5,76.9 48.3,76.8 L2.5,73.2 C1.3,73.1 0.3,72 0.4,70.8 L5.7,2.4 C5.8,1.2 6.9,0.2 8.1,0.3 Z" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF"></path>
+                <polygon id="Path" fill="#E1F2FF" points="4.9 65 48 71.4 52.8 9.8 9.1 4.4"></polygon>
+                <polygon id="Path" fill="#9ACDED" points="19.6 16.9 18.5 15.6 15.1 18.5 13.3 16.4 12 17.5 14.9 20.9 14.9 20.9 14.9 20.9"></polygon>
+                <line x1="22.2" y1="18.6" x2="47.1" y2="20.5" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                <polygon id="Path" fill="#9ACDED" points="19 24.5 17.9 23.3 14.5 26.2 12.7 24.1 11.5 25.2 14.4 28.6 14.4 28.6 14.4 28.6"></polygon>
+                <line x1="21.6" y1="26.7" x2="46.5" y2="28.6" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                <polygon id="Path" fill="#9ACDED" points="18.4 32.2 17.3 30.9 13.9 33.8 12.1 31.7 10.8 32.8 13.7 36.2 13.7 36.2 13.7 36.2"></polygon>
+                <line x1="20.9" y1="35" x2="45.8" y2="36.9" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+            </g>
+            <g id="Group" transform="translate(117.000000, 51.000000)" fill-rule="nonzero">
+                <path d="M8.1,0.3 L54,3.9 C55.2,4 56.1,5.1 56,6.3 L50.7,74.7 C50.6,75.9 49.5,76.9 48.3,76.8 L2.5,73.2 C1.3,73.1 0.3,72 0.4,70.8 L5.7,2.4 C5.8,1.2 6.9,0.2 8.1,0.3 Z" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF"></path>
+                <polygon id="Path" fill="#E1F2FF" points="4.9 65 48 71.4 52.8 9.8 9.1 4.4"></polygon>
+                <polygon id="Path" fill="#9ACDED" points="19.6 16.9 18.5 15.6 15.1 18.5 13.3 16.4 12 17.5 14.9 20.9 14.9 20.9 14.9 20.9"></polygon>
+                <line x1="22.2" y1="18.6" x2="47.1" y2="20.5" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                <polygon id="Path" fill="#9ACDED" points="19 24.5 17.9 23.3 14.5 26.2 12.7 24.1 11.5 25.2 14.4 28.6 14.4 28.6 14.4 28.6"></polygon>
+                <line x1="21.6" y1="26.7" x2="46.5" y2="28.6" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                <polygon id="Path" fill="#9ACDED" points="18.4 32.2 17.3 31 13.9 33.9 12.1 31.8 10.9 32.9 13.8 36.3 13.8 36.3 13.8 36.3"></polygon>
+                <line x1="20.9" y1="35" x2="45.8" y2="36.9" id="Path" stroke="#9ACDED" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+            </g>
+            <polygon id="Path" stroke="#5563B6" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero" points="132.7 88.6 220.1 88.6 220.1 182.8 132.7 182.8"></polygon>
+            <polygon id="Path" fill="#E1F2FF" fill-rule="nonzero" points="219.1 142.7 132.6 103 132.7 88.6 219.1 88.6"></polygon>
+            <polygon id="Path" stroke="#5563B6" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero" points="88.9 88.7 132.6 88.7 132.6 182.9 88.9 182.9"></polygon>
+            <path d="M132.6,88.7 L88.9,88.7 L65,117.3 L108.7,117.3 L132.6,88.7 Z M132.6,88.7 L220,88.7 L244,117.4 L156.6,117.4 L132.6,88.7 Z" id="Shape" stroke="#5563B6" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path d="M231.1,112.1 L210.7,112.1 M88.8,112.1 L75.4,112.1" id="Shape" stroke="#E1F2FF" stroke-width="2" stroke-linecap="round"></path>
+            <g id="Group" transform="translate(68.500000, 108.000000) scale(-1, 1) translate(-68.500000, -108.000000) translate(0.000000, 21.000000)">
+                <path d="M100.4,12.2 L96.1,12.2 C85.2,12.2 80.2,28 80.2,45.5 L80.2,101 C80.2,126.1 58.1,121.9 53.4,121.9" id="Path" stroke="#5E63B6" stroke-width="4"></path>
+                <g></g>
+                <path d="M124,9 L115.5,9 L115.5,6 L124,6 C124.6,6 125,6.5 125,7 L125,7.9 C125,8.5 124.5,9 124,9 Z M124,18 L115.5,18 L115.5,15 L124,15 C124.6,15 125,15.5 125,16 L125,16.9 C125,17.5 124.5,18 124,18 Z" id="Shape" stroke="#5E63B6" stroke-width="2" fill="#5E63B6"></path>
+            </g>
+            <circle id="Oval" stroke="#5E63B6" stroke-width="3" fill="#FFFFFF" fill-rule="nonzero" cx="106.3" cy="143.9" r="22.7"></circle>
+            <circle id="Oval" stroke="#5E63B6" stroke-width="1.5463" fill="#FFFFFF" fill-rule="nonzero" cx="106.3" cy="143.9" r="11.7"></circle>
+            <path d="M109.7,149.1 C109.7,148.9 109.6,148.4 109.7,147.6 C109.7,147.2 109.9,146.8 109.9,146.4 C110.1,145.7 110.5,145 110.9,144.4 C111.2,143.7 111.6,143.1 111.7,142.4 C111.9,141.4 111.1,140.4 110.6,139.8 C109.8,138.8 108.8,138 107.8,137.3 C107.9,138.2 108,139.2 107.9,140.2 C107.8,141.1 107.7,142 107.3,142.8 C107.1,143.3 107,143.7 106.7,144.2 C106.6,144.4 106.6,144.4 106.5,144.4 C106.4,144.4 106.3,144.4 106.2,144.4 C106,144.4 105.7,144.3 105.5,144.3 C104.6,144.1 103.7,143.9 102.9,143.6 C101.9,143.2 101,142.6 100.2,142 C100.3,143 100.4,143.9 100.8,144.8 C101,145.6 101.4,146.5 101.9,147.2 C102.1,147.5 102.5,147.9 103,148 C103.4,148.2 103.8,148.2 104.1,148.2 C104.9,148.3 105.8,148.2 106.6,148.4 C107.7,148 108.8,148.4 109.7,149.1" id="Path" fill="#9452BA" fill-rule="nonzero"></path>
+            <path d="M33,44.9 L21.6,44.9 L21.6,20.9 L33,20.9 C35.1,20.9 36.7,22.6 36.7,24.6 L36.7,41.2 C36.7,43.2 35,44.9 33,44.9 Z" id="Path" fill="#5E63B6" fill-rule="nonzero"></path>
+        </g>
+        <text id="online-Translation" font-family="Lato-Bold, Lato" font-size="14" font-weight="bold" fill="#5563B6">
+            <tspan x="144" y="148">online</tspan>
+            <tspan x="144" y="165">translation</tspan>
+        </text>
+    </g>
+</svg>
