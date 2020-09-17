@@ -12,6 +12,7 @@ get:
   description: This endpoint allows you to get the information about a given product. In the Entreprise Edition, since the v2.0, permissions based on your user groups are applied to the product you request.
   parameters:
     - $ref: '#/parameters/code'
+    - $ref: '#/parameters/with_attribute_options'
   responses:
     200:
       description: OK

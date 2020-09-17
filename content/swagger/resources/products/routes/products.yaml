@@ -36,6 +36,7 @@ get:
     - $ref: '#/parameters/search_after'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
+    - $ref: '#/parameters/with_attribute_options'
   responses:
     200:
       description: Return products paginated
@@ -135,14 +136,49 @@ get:
                   {
                     "locale": null,
                     "scope": null,
-                     "data": "black"
+                     "data": "black",
+                    "linked_data": {
+                      "attribute": "color",
+                      "code": "black",
+                      "labels": {
+                        "en_US": "Black",
+                        "fr_FR": "Noir"
+                      }
+                    }
                   }
                 ],
                 "size": [
                   {
                     "locale": null,
                     "scope": null,
-                    "data": "m"
+                    "data": "m",
+                    "linked_data": {
+                      "attribute": "size",
+                      "code": "m",
+                      "labels": {
+                        "en_US": "M",
+                        "fr_FR": "M"
+                      }
+                    }
+                  }
+                ],
+                "collection": [
+                {
+                    "locale": null,
+                    "scope": null,
+                    "data": [
+                      "winter_2016"
+                    ],
+                    "linked_data": {
+                      "winter_2016": {
+                        "attribute": "collection",
+                        "code": "winter_2016",
+                        "labels": {
+                          "en_US": "Winter 2016",
+                          "fr_FR": "Hiver 2016"
+                        }
+                      }
+                    }
                   }
                 ]
               },
@@ -241,7 +277,15 @@ get:
                   {
                     "locale": null,
                     "scope": null,
-                     "data": "black"
+                     "data": "black",
+                    "linked_data": {
+                      "attribute": "color",
+                      "code": "black",
+                      "labels": {
+                        "en_US": "Black",
+                        "fr_FR": "Noir"
+                      }
+                    }
                   }
                 ]
               },
