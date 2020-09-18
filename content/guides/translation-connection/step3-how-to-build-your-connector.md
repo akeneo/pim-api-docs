@@ -113,7 +113,7 @@ Then, Julia must create 6 new attributes in this attribute group:
   - Value per locale: enabled (in order to have a status for each locale)    
   - Read only: enabled (can only be modified via API)   
   - Usable in grid: enabled
-  
+
 ::: tips
 To create an attribute:
 1. Go to `Settings > Attributes`
@@ -145,7 +145,7 @@ As you have understood, Julia will use the previous PIM attributes to define whi
 
 Now let's see how Julia will work with these new PIM translation features.
 
-### Select the attributes to be translated
+### Select the products to be translated
 
 First, Julia needs to select the product she wants to translate:
 1. Go to `Products`
@@ -179,15 +179,30 @@ For this action, Julia has to:
 
 After this last action, the bulk action will run and Julia will be notified in the Akeneo PIM notification bar once it is successfully executed.
 
-With these new attributes, your connector is now ready to go! Let's see how it'll behave on the other side of the connector. 
+With these new attributes, your connector is now ready to go! Let's see how it'll behave on the other side of the connector.
 
 ### How it works with your connector?
+
+**Find products with the enabled "translation queued" status**
 
 At regular intervals, your connector will need to retrieve products where the `Translation queued` attribute has been set to enable (set to `true`).
 
 You can do this by using our PIM [API filtering system](https://api.akeneo.com/documentation/filter.html#filter-on-product-values) on product attribute value.
 
+**Tell Julia that her translation project is "in progress"**
+
 Then, your connector needs to set this attribute to `false` and change the `Translation status` attribute to `IN PROGRESS` to indicate Julia that the translation is being processed by one of your translators.
+
+**Retrieve "text" product attributes**
+
+You have 2 possibilities to develop this action:
+
+* The simplest but less automatic way is that, in your connector configuration, Julia and Peter have previously declared the exhaustive list of text attributes to be translated (by product family). Then, your connector has to consult this list according to the family.
+* The other way is that your connector can analyze the PIM product families to determine which attributes have a "text" type and can be translated (check that the attribute is "localizable" too).
+
+:::info
+We suggest that you develop the first solution during a first iteration of your connector and then, if you encounter Julias with a large number of product families with many attributes to translate, you can then upgrade your connector with the second solution.
+:::
 
 :::tips
 Using the ["get a list of products"](https://api.akeneo.com/api-reference.html#get_products) API endpoint (with the correct filter), your connector will retrieve a JSON structure of each localizable products.
@@ -197,12 +212,28 @@ Then, with the help of the family code of these products, your connector will be
 By analyzing these types, you will be able to define for your translator which are the textual attributes they need to translate.
 :::
 
+**What about simple and multi select attribute type?**
+
+We mentioned [earlier](step2-understand-akeneo-pim.html#pim-product-data-that-can-be-translated) that it would be interesting for your connector to offer translation of "simple" or "multi select" type attributes.
+
+To do this, Julia and Peter can declare the exhaustive list of "simple" or "multi select" attributes in your connector configuration, just as they do for "text" attributes.
+
+When Julia requests the translation of a product, your connector can then take the opportunity to translate the "options" of these "simple" or "multi select" attributes that have not yet been translated.  
+
+:::tips
+To perform this action, your connector can use the ["get list of attribute options"](https://api.akeneo.com/api-reference.html#get_attributes__attribute_code__options) API endpoint.
+:::
+
+**Tell Julia that her translation project is finished...**
+
 When the translation is finished, your translator needs to set the `Translation status` attribute to `TRANSLATED` and to send all the translated product data back in the PIM.
+
+**...or has been cancelled.**
 
 If, for some reason, the translation project has been canceled, your translator needs to set the `Translation status` attribute to `CANCELLED` and to send this product data back into the PIM.
 
 :::info
-To develop these connector actions, and to understand our API please follow our [wonderful dedicated API documentation](https://api.akeneo.com)!
+To develop these connector actions, and to understand our API, please follow our [wonderful dedicated API documentation](https://api.akeneo.com)!
 :::
 
 ### Check the "Translation status"
@@ -216,3 +247,15 @@ As the `Translation status` has been declared as `Usable in grid`, Julia can:
 Of course, she can do the same for all the other "Translation" attributes.
 
 As you can see, without any PIM customization and with a few developments on your connector, Julia can build some powerful translation features in her PIM!
+
+## How to start?
+
+**Our recommendation: always listen to your customer's needs first!**
+
+We are aware that it is difficult and expensive in terms of investment to achieve a 100% complete online translation connector that is flexible enough to adapt to any Julia's project.
+
+**Our advice: adopt an Agile approach!**
+
+* Interview your future potential customers about their needs
+* Set priorities based on the most generic needs
+* Develop in successive iterations
