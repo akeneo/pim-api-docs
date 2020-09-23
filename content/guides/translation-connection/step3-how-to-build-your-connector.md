@@ -191,7 +191,7 @@ You can do this by using our PIM [API filtering system](https://api.akeneo.com/d
 
 **Tell Julia that her translation project is "in progress"**
 
-Then, your connector needs to set this attribute to `false` and change the `Translation status` attribute to `IN PROGRESS` to indicate Julia that the translation is being processed by one of your translators.
+Then, your connector needs to set the "translation queued" attribute to `false` (To prevent the product from being reprocessed by the connector) and change the `Translation status` attribute to `IN PROGRESS` to indicate Julia that the translation is being processed by one of your translators.
 
 **Retrieve "text" product attributes**
 
