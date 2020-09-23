@@ -201,7 +201,7 @@ You have 2 possibilities to develop this action:
 * The other way is that your connector can analyze the PIM product families to determine which attributes have a "text" type and, therefore, can be translated. It must also check that the attribute is "localizable".
 
 :::info
-We suggest that you develop the first solution during a first iteration of your connector and then, if you encounter Julias with a large number of product families with many attributes to translate, you can then upgrade your connector with the second solution.
+We suggest that you develop the first solution during the first iteration of your connector. If in your projects Julia handles a large number of product families with many attributes to translate, you can then upgrade your connector with the second solution.
 :::
 
 :::tips
