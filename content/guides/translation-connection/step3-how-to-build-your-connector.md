@@ -212,7 +212,7 @@ Then, with the help of the family code of these products, your connector will be
 By analyzing these types, you will be able to define for your translator which are the textual attributes they need to translate.
 :::
 
-**What about simple and multi select attribute type?**
+**What about simple and multi select attribute types?**
 
 We mentioned [earlier](step2-understand-akeneo-pim.html#pim-product-data-that-can-be-translated) that it would be interesting for your connector to offer translation of "simple" or "multi select" type attributes.
 
