@@ -197,7 +197,7 @@ Then, your connector needs to set this attribute to `false` and change the `Tran
 
 You have 2 possibilities to develop this action:
 
-* The simplest but less automatic way is that, in your connector configuration, Julia and Peter have previously declared the exhaustive list of text attributes to be translated (by product family). Then, your connector has to consult this list according to the family.
+* The simplest but less automatic way is that, directly in your connector configuration, Julia and Peter declare the exhaustive list of text attributes to be translated (by product family). Then, your connector has to consult this list one family at a time.
 * The other way is that your connector can analyze the PIM product families to determine which attributes have a "text" type and can be translated (check that the attribute is "localizable" too).
 
 :::info
