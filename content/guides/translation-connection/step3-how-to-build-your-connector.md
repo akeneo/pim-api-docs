@@ -218,7 +218,7 @@ We mentioned [earlier](step2-understand-akeneo-pim.html#pim-product-data-that-ca
 
 To do so, Julia and Peter can declare the exhaustive list of "simple" or "multi select" attributes in your connector configuration, just as they do for "text" attributes.
 
-When Julia requests the translation of a product, your connector can then take the opportunity to translate the "options" of these "simple" or "multi select" attributes that have not yet been translated.  
+When Julia requests the translation of a product, your connector will then automatically translate the "options" of the "simple" or "multi select" attributes that have not been translated yet.  
 
 :::tips
 To perform this action, your connector can use the ["get list of attribute options"](https://api.akeneo.com/api-reference.html#get_attributes__attribute_code__options) API endpoint.
