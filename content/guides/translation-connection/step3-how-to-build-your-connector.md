@@ -183,7 +183,7 @@ With these new attributes, your connector is now ready to go! Let's see how it'l
 
 ### How it works with your connector?
 
-**Find products with the enabled "translation queued" status**
+**Find products with the "translation queued" status enabled**
 
 At regular intervals, your connector will need to retrieve products where the `Translation queued` attribute has been set to enable (set to `true`).
 
