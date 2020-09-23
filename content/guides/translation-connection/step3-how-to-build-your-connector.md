@@ -224,7 +224,7 @@ When Julia requests the translation of a product, your connector will then autom
 To perform this action, your connector can use the ["get list of attribute options"](https://api.akeneo.com/api-reference.html#get_attributes__attribute_code__options) API endpoint.
 :::
 
-**Tell Julia that her translation project is finished...**
+**Tell Julia that her translation project is either finished...**
 
 When the translation is finished, your translator needs to set the `Translation status` attribute to `TRANSLATED` and to send all the translated product data back in the PIM.
 
