@@ -216,7 +216,7 @@ By analyzing these types, you will be able to define for your translator which a
 
 We mentioned [earlier](step2-understand-akeneo-pim.html#pim-product-data-that-can-be-translated) that it would be interesting for your connector to allow the translation of "simple" or "multi select" type attributes.
 
-To do this, Julia and Peter can declare the exhaustive list of "simple" or "multi select" attributes in your connector configuration, just as they do for "text" attributes.
+To do so, Julia and Peter can declare the exhaustive list of "simple" or "multi select" attributes in your connector configuration, just as they do for "text" attributes.
 
 When Julia requests the translation of a product, your connector can then take the opportunity to translate the "options" of these "simple" or "multi select" attributes that have not yet been translated.  
 
