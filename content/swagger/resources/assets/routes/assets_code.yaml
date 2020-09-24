@@ -8,7 +8,7 @@ get:
     - "4.0"
     - "Serenity"
   x-ee: true
-  description: This endpoint allows you to get the information about a given asset for a given asset family.
+  description: This endpoint allows you to get the information about a given asset for a given asset family. This endpoint is case sensitive on the asset family code.
   parameters:
     - $ref: '#/parameters/asset_family_code'
     - $ref: '#/parameters/code'
@@ -34,7 +34,7 @@ patch:
     - "4.0"
     - "Serenity"
   x-ee: true
-  description: This endpoint allows you to update a given asset of a given asset family. Learn more about the <a href="/documentation/update.html#patch-asset-attribute-values">Update behavior</a>. Note that if the asset does not already exist for the given asset family, it creates it.
+  description: This endpoint allows you to update a given asset of a given asset family. Learn more about the <a href="/documentation/update.html#patch-asset-attribute-values">Update behavior</a>. Note that if the asset does not already exist for the given asset family, it creates it. This endpoint is case sensitive on the asset family code.
   parameters:
     - $ref: '#/parameters/asset_family_code'
     - $ref: '#/parameters/code'
@@ -66,7 +66,7 @@ delete:
     - "4.0"
     - "Serenity"
   x-ee: true
-  description: This endpoint allows you to delete a given asset.
+  description: This endpoint allows you to delete a given asset. This endpoint is case sensitive on the asset family code.
   parameters:
     - $ref: '#/parameters/asset_family_code'
     - $ref: '#/parameters/code'
