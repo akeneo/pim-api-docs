@@ -88,7 +88,7 @@ with_count:
 with_attribute_options:
   name: with_attribute_options
   in: query
-  description: Return labels of attribute options in the response.
+  description: Return labels of attribute options in the response. (Only available in the PIM Serenity version.)
   default: false
   type: boolean
   required: false
