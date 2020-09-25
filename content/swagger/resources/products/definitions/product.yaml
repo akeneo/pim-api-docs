@@ -53,7 +53,7 @@ properties:
               description: Product value
             linked_data:
               type: object
-              description: Object containing labels of attribute options (only when query parameter "with_attribute_options" is set to "true")
+              description: Object containing labels of attribute options (only available in Serenity and when query parameter "with_attribute_options" is set to "true")
   associations:
     type: object
     description: Several associations related to groups, product models and/or other products, grouped by association types
