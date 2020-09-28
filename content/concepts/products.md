@@ -618,7 +618,7 @@ Whenever the attribute type is `pim_catalog_simpleselect`, the `linked_data` fie
 ```
 
 #### Multi select attribute
-Whenever the attribute's type is `pim_catalog_multiselect`, the `linked_data` field should contain an array.
+Whenever the attribute type is `pim_catalog_multiselect`, the `linked_data` field must contain an array.
 
 **Example**
 ```json
