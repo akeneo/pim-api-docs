@@ -594,7 +594,7 @@ Note that the `locale` and `scope` properties are all set to `null` in this case
 The sections below describe the format of the `linked_data` property for `pim_catalog_simpleselect` and `pim_catalog_multiselect` types.
 
 #### Simple select attribute
-Whenever the attribute's type is `pim_catalog_simpleselect`, the `linked_data` field should contain an array.
+Whenever the attribute type is `pim_catalog_simpleselect`, the `linked_data` field must contain an array.
 
 **Example**
 ```json
