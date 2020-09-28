@@ -54,7 +54,7 @@ properties:
             linked_data:
               type: object
               x-read-only: true
-              description: Object containing labels of attribute options (only available in Serenity and when query parameter "with_attribute_options" is set to "true")
+              description: Object containing labels of attribute options (only available in Serenity and when query parameter "with_attribute_options" is set to "true"). See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
               properties:
                 attribute:
                   type: string
