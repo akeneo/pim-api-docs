@@ -142,7 +142,7 @@ In this formula:
  - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
- - `LINKED_DATA` containing the attribute option labels if the attribute is a simple or multi select. [Check some examples here.](#the-linked_data-format) This property if for now, only available in Serenity.
+ - `LINKED_DATA` containing the attribute option labels if the attribute is a simple or multi select. [Check some examples here.](#the-linked_data-format) This property is for now, only available in Serenity.
  
 ### The `data` format
 The sections below describe the format of the `data` property for each [product attribute](/concepts/catalog-structure.html#attribute) type.
