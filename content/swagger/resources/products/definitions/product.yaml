@@ -53,6 +53,7 @@ properties:
               description: Product value
             linked_data:
               type: object
+              x-read-only: true
               description: Object containing labels of attribute options (only available in Serenity and when query parameter "with_attribute_options" is set to "true")
   associations:
     type: object

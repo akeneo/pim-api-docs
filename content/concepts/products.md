@@ -142,7 +142,7 @@ In this formula:
  - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
- - `LINKED_DATA` containing labels if the attribute is an attribute option (only available in Serenity). [Check some examples here.](#the-linked_data-format)
+ - `LINKED_DATA` containing the attribute option labels if the attribute is a simple or multi select. [Check some examples here.](#the-linked_data-format) This property if for now, only available in Serenity.
  
 ### The `data` format
 The sections below describe the format of the `data` property for each [product attribute](/concepts/catalog-structure.html#attribute) type.
@@ -589,12 +589,14 @@ Note that the `locale` and `scope` properties are all set to `null` in this case
 
 ### The `linked_data` format
 ::: availability versions=Serenity editions=CE,EE
+:::info
+Note that this property is in read-only. You won't be able to patch or post it.
 :::
 
 The sections below describe the format of the `linked_data` property for `pim_catalog_simpleselect` and `pim_catalog_multiselect` types.
 
 #### Simple select attribute
-Whenever the attribute type is `pim_catalog_simpleselect`, the `linked_data` field must contain an array.
+Whenever the attribute type is `pim_catalog_simpleselect`, the `linked_data` field will contain an object.
 
 **Example**
 ```json
@@ -618,7 +620,7 @@ Whenever the attribute type is `pim_catalog_simpleselect`, the `linked_data` fie
 ```
 
 #### Multi select attribute
-Whenever the attribute type is `pim_catalog_multiselect`, the `linked_data` field must contain an array.
+Whenever the attribute type is `pim_catalog_multiselect`, the `linked_data` field will contain an object.
 
 **Example**
 ```json
