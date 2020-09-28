@@ -130,7 +130,8 @@ A product value follows this format:
       {
         "locale": LOCALE_CODE,
         "scope": CHANNEL_CODE,
-        "data": DATA_INFORMATION
+        "data": DATA_INFORMATION,
+        "linked_data": LINKED_DATA
       }
     ]
   }
@@ -141,7 +142,8 @@ In this formula:
  - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
-
+ - `LINKED_DATA` containing the attribute option labels if the attribute is a simple or multi select. [Check some examples here.](#the-linked_data-format) This property is for now, only available in Serenity.
+ 
 ### The `data` format
 The sections below describe the format of the `data` property for each [product attribute](/concepts/catalog-structure.html#attribute) type.
 
@@ -585,6 +587,67 @@ Note that the `locale` and `scope` properties are all set to `null` in this case
 ::: panel-link Want to update product values? [Here you go!](/documentation/update.html#update-product-values)
 :::
 
+### The `linked_data` format
+::: availability versions=Serenity editions=CE,EE
+:::info
+Note that this property is in read-only. You won't be able to patch or post it.
+:::
+
+The sections below describe the format of the `linked_data` property for `pim_catalog_simpleselect` and `pim_catalog_multiselect` types.
+
+#### Simple select attribute
+Whenever the attribute type is `pim_catalog_simpleselect`, the `linked_data` field will contain an object.
+
+**Example**
+```json
+{
+  "values": {
+    "main_color": [
+      {
+        "data": "black",
+        "linked_data": {
+          "attribute": "color",
+          "code": "black",
+          "labels": {
+            "en_US": "Black",
+            "fr_FR": "Noir"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+#### Multi select attribute
+Whenever the attribute type is `pim_catalog_multiselect`, the `linked_data` field will contain an object.
+
+**Example**
+```json
+{
+  "values": {
+    "collection": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": [
+          "winter_2016"
+        ],
+        "linked_data": {
+          "winter_2016": {
+            "attribute": "collection",
+            "code": "winter_2016",
+            "labels": {
+              "en_US": "Winter 2016",
+              "fr_FR": "Hiver 2016"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+```
 
 ## Product model
 ::: availability versions=2.x,3.x,4.0,Serenity editions=CE,EE
