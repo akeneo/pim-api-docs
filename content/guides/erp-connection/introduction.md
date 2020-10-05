@@ -16,7 +16,7 @@ We're here to help you find your way around, understand how your ERP solution wi
 
 If you are using this guide with the goal of building a **generic** connector for our Marketplace, you should know that each ERP solution has different capabilities and above all, each project has its own specificities due to the product modeling done in the ERP.
 
-It is therefore very complex to build a connector that fits any Julia's needs...
+It is therefore very complex to build a connector that fits all end-users' needs...
 
 That's why, from our experience, this guide will only guide you on the main use-cases and classical architectures.
 
@@ -24,12 +24,12 @@ That's why, from our experience, this guide will only guide you on the main use-
 
 Before starting this guide, you need to understand that Akeneo PIM should only manage **"cold" product information**. It means that Akeneo PIM only owns marketing product information that needs to be checked, organized, enriched. And “cold” product information means that this information does not change every day.
 
-Concerning **“hot product information”** (i.e. product information that changes frequently: prices or stock), this information should be directly transmitted from your ERP solution to the eCommerce solution without passing through Akeneo PIM.
+Concerning **“hot product information”** (i.e. product information that changes frequently: as prices or stock data), this information should be directly transmitted from your ERP solution to the eCommerce solution without passing through Akeneo PIM.
 
 For example, **up-to-date price and stock information** of a product should never be stored in Akeneo PIM and should be transmitted directly from the ERP into the eCommerce solution.
 
 :::info
-For price information, Akeneo PIM has the capability of storing product price information, but only for a **“reference price”** and not an **“up-to-date”** price. This **reference price** is only used by Julia for information purposes and is therefore normally never exported from the PIM to a final solution.
+For price information, Akeneo PIM has the capability of storing product price information, but only for a **“reference price”** and not an **“up-to-date”** price. This **reference price** is only used by PIM users for information purposes and is therefore normally never exported from the PIM to a final solution.
 :::
 
 Ok... now that this product data dispatch from your ERP solution is crystal clear, let's start! 🚀

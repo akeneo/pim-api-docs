@@ -29,7 +29,7 @@ If you need an Akeneo PIM **Enterprise Edition** instance to start developing yo
 
 ## Documentation
 
-First of all, we advise you to take a look at our [Helpcenter](https://help.akeneo.com/pim/index.html) where you'll find a lot of documentation about all our features and how to use it.
+First of all, for the documentation part, we advise you to take a look at our [Helpcenter](https://help.akeneo.com/pim/index.html) where you'll find a lot of documentation about all our features and how to use it.
 
 Then, if you feel like it wasn't enough, we designed a comprehensive training program to share everything we know about Akeneo PIM. As you can see, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
 
