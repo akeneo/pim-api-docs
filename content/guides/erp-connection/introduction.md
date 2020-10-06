@@ -24,7 +24,7 @@ That's why, from our experience, this guide will only address the most common us
 
 Before starting this guide, you need to understand that Akeneo PIM should only manage **"cold" product information**. It means that Akeneo PIM only owns marketing product information that needs to be checked, organized, enriched. And “cold” product information means that this information does not change every day.
 
-Concerning **“hot product information”** (i.e. product information that changes frequently: as prices or stock data), this information should be directly transmitted from your ERP solution to the eCommerce solution without passing through Akeneo PIM.
+Concerning **“hot product information”** (i.e. product information that changes frequently: such as prices or stock data), this information should be directly transmitted from your ERP solution to the eCommerce solution without going through Akeneo PIM.
 
 For example, **up-to-date price and stock information** of a product should never be stored in Akeneo PIM and should be transmitted directly from the ERP into the eCommerce solution.
 
