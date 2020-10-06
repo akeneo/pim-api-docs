@@ -12,7 +12,7 @@ In the following guide, we are going to explain how to properly connect an ERP t
 
 We're here to help you find your way around, understand how your ERP solution will interact with our PIM and guide you through the steps to reach that goal.
 
-## Building a generic solution?
+## Building a one-size-fits-all solution?
 
 If you are using this guide with the goal of building a **generic** connector for our Marketplace, you should know that each ERP solution has different capabilities and above all, each project has its own specificities due to the product modeling done in the ERP.
 
