@@ -51,7 +51,7 @@ Below, you will find the main needs, associated with each user profile, in terms
 
 **If the product is initially created in the PIM**
 
-Julia needs an easy way to create the product in her PIM, and exchanges product information with the ERP solution.
+Julia needs an easy way to create the product in her PIM, and exchange product information with the ERP solution.
 
 So she needs:
 
