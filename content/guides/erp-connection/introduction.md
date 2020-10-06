@@ -42,5 +42,5 @@ Understand your target user: Who will install it? Who will set it up? Who will u
 Understand the product information that should flow between your ERP and the PIM.
 3. [Understand Akeneo PIM](step3-understand-akeneo-pim.html)
 Understand Akeneo PIM, its features, its data structure in order to be able to compare them with your ERP solution.
-4. [How to build your connector?](step3-how-to-build-your-connector.html)
+4. [How to build your connector?](step4-how-to-build-your-connector.html)
 Ready to start? Some last recommendations on how to interact with our PIM...
