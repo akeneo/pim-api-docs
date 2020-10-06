@@ -85,7 +85,7 @@ Peter and/or Filips need an easy way to install, configure and maintain your con
 
 So they need:
 
-* An **easy to follow download/installation process:** to retrieve and install your connector.
+* An **easy to follow download/installation process:** depending on your business needs.
 It depends on your business model. If you require your client to install the connector themself, make sure you provide appropriate documentation.
 
 * A **full documentation** about **the limits of the connector** in terms of **scalability** and **performance** (your connector limits).
