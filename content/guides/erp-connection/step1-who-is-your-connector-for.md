@@ -39,7 +39,7 @@ The initial PIM action to create new products in the PIM requires Julia to have 
 :::
 
 :::info
-In the PIM, product information that comes from the ERP are usually stored in dedicated **read only** attributes and in a specific **attribute group**.
+In the PIM, product information that comes from the ERP is usually stored in dedicated **read-only** attributes and in a specific **attribute group**.
 This allows Julia to have the information at her fingertips without the risk of mixing it with her own PIM product information.
 :::
 
