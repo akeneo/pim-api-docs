@@ -16,7 +16,7 @@ But the desire to facilitate the mapping rules should not make you forget that *
 
 That's why our recommendation will always be:
 1. To first optimize the catalog structure in the PIM to allow Julia to work in optimal conditions.
-2. To bring together the PIM product structure builded with the ERP one in order to define the mapping and conversion rules.
+2. To bring together the PIM product structure built with the ERP one in order to define the mapping and conversion rules.
 
 A few examples of data mapping usually encounter:
 * Categories in the ERP becoming product families (data structures) in the PIM
