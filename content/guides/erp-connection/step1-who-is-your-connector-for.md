@@ -49,6 +49,18 @@ Below, you will find the main needs, associated with each user profile, in terms
 
 ### Julia's needs
 
+**If the product is initially created in the ERP:**
+
+Julia needs an easy way import product information from the ERP solution to her PIM.
+
+So she needs:
+
+* A **smooth process** to import automatically ERP product data into her PIM.
+
+* An **easy to follow strategy** to define the periodicity of this automatic import process.
+
+* Perhaps also a **friendly Connector UI** to trigger and to log manually all processes (import/export) if needed (full or partial imports). She also needs a notification system to be alerted when something goes wrong.
+
 **If the product is initially created in the PIM**
 
 Julia needs an easy way to create the product in her PIM, and exchange product information with the ERP solution.
@@ -64,20 +76,6 @@ So she needs:
 * A **strategy** to define the periodicity of these automatic import/export processes
 
 * Perhaps also a **friendly Connector UI** to trigger and to log manually all processes (import/export) if needed (full or partial imports). She also needs a notification system to be alerted when something goes wrong.
-
-
-**If the product is initially created in the ERP:**
-
-Julia needs an easy way import product information from the ERP solution to her PIM.
-
-So she needs:
-
-* A **smooth process** to import automatically ERP product data into her PIM.
-
-* An **easy to follow strategy** to define the periodicity of this automatic import process.
-
-* Perhaps also a **friendly Connector UI** to trigger and to log manually all processes (import/export) if needed (full or partial imports). She also needs a notification system to be alerted when something goes wrong.
-
 
 ### Peter and/or Filips' needs
 
