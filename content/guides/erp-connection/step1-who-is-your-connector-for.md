@@ -20,7 +20,7 @@ As an image is worth a thousand words, here's an example of a product workflow w
 Julia's needs will be to:
 1. Retrieve product information from the ERP
 2. Organize, enrich, translate product information in her PIM
-3. Export these PIM data to different final solutions (channels) such as an e-commerce website, a print solution, a mobile application...
+3. Export these PIM data to different channels such as an e-commerce website, a print solution, a mobile application...
 
 ### The product is initially created in the PIM
 
