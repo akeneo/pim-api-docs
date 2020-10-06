@@ -27,7 +27,7 @@ Julia's needs will be to:
 In this organization variation, the product workflow is slightly different: this time, the product is initially created by Julia (and no longer by the ERP teams):
 ![Products initially in the PIM](../../img/guides/pim-erp-ecommerce-flow.svg)
 
-Julia's needs will be:
+Julia's needs will be to:
 1. Create the product in her PIM with a SKU and some basic marketing information (such as the product name, short description)
 2. Export this product information from her PIM to the ERP solution to empower ERP teams to add technical product information (such as price, stock information, automatic categorization...)
 3. Some ERP product information (ERP data that need to be enriched or used by Julia) is re-imported in her PIM
