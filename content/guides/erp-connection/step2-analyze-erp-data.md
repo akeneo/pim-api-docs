@@ -6,7 +6,7 @@ In a regular "ERP to PIM" project, not all the ERP data structures or implementa
 
 From the products that are already in your ERP solution, only a portion of data needs to be imported into the PIM. It’s usually not necessary to replicate the ERP content into the PIM. What drives the choice to import such a portion of the existing data structure is Julia's needs: retrieving product identifiers, names, descriptions, etc.
 
-As we have seen together in the [introduction of this guide](introduction.html), hot product information like prices, stock level, supply-chain specific data, etc. : In most of cases, these pieces of information do not need to be imported in a PIM.
+As we have seen together in the [introduction of this guide](introduction.html), hot product information like prices, stock levels, supply-chain specific data, etc. : In most cases, these pieces of information do not need to be imported in a PIM.
 
 ## Minimizing the need for mapping
 
