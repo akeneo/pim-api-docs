@@ -78,7 +78,6 @@ So she needs:
 
 * Perhaps also a **friendly Connector UI** to trigger and to log manually all processes (import/export) if needed (full or partial imports). She also needs a notification system to be alerted when something goes wrong.
 
-* A **friendly UI** to log all automatic and manual import processes and a notification system to be alerted when something goes wrong.
 
 ### Peter and/or Filips' needs
 
