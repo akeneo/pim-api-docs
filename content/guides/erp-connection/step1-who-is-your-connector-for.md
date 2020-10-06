@@ -90,7 +90,7 @@ It depends on your business model. If you expect your client to install the conn
 
 * A **full documentation** about **the limits of the connector** in terms of **scalability** and **performance**.
 
-* An **easy to follow configuration process** to set up the connection between the ERP Solution and Akeneo PIM as well as parameters to configure the connector. It requires documentation to explain the methodology on how to configure your connector compared to your business needs.
+* A **smooth configuration process** to set up the connection between the ERP Solution and Akeneo PIM as well as parameters to configure the connector. It requires documentation to explain the methodology on how to configure your connector compared to your business needs.
 
 * Sometime, a **friendly import process** to perform the first import of product data: due to the volume of data usually imported, this may require special support from your end.
 
