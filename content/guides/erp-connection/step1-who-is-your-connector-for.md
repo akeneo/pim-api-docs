@@ -81,7 +81,7 @@ So she needs:
 
 ### Peter and/or Filips' needs
 
-Peter and/or Filips needs a easy way to install, configure and maintain your connector.
+Peter and/or Filips need an easy way to install, configure and maintain your connector.
 
 So they need:
 
