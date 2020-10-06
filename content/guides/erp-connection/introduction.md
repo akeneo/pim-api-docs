@@ -29,7 +29,7 @@ Concerning **“hot product information”** (i.e. product information that chan
 For example, the **up-to-date price and stock information** of a given product should never be stored in Akeneo PIM and should be transmitted directly from the ERP to the eCommerce solution.
 
 :::info
-For price information, Akeneo PIM has the capability of storing product price information, but only for a **“reference price”** and not an **“up-to-date”** price. This **reference price** is only used by PIM users for information purposes and is therefore normally never exported from the PIM to a final solution.
+As far as prices are concerned, Akeneo PIM can store product price information, but only for  **“reference prices”** and not **“up-to-date”** ones. This **reference price** may exist to help PIM users in their daily work, and therefore is not meant to be exported.  
 :::
 
 Ok... now that this product data dispatch from your ERP solution is crystal clear, let's start! 🚀
