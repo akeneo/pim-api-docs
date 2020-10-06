@@ -66,7 +66,7 @@ So she needs:
 * Perhaps also a **friendly Connector UI** to trigger and to log manually all processes (import/export) if needed (full or partial imports). She also needs a notification system to be alerted when something goes wrong.
 
 
-**If the product is initially created in the ERP, she needs:**
+**If the product is initially created in the ERP:**
 
 Julia needs an easy way import product information from the ERP solution to her PIM.
 
