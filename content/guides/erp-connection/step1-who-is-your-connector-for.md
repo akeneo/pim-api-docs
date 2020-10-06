@@ -35,7 +35,7 @@ Julia's needs will be to:
 5. Export these PIM data to different channels such as an e-commerce website, a print solution, a mobile application...
 
 :::warning
-This initial PIM action to create new product in the PIM requires Julia to have a process to **automatically** generate a product SKU directly in the PIM.
+The initial PIM action to create new products in the PIM requires Julia to have a process to **automatically** generate products SKU directly in the PIM.
 :::
 
 :::info
