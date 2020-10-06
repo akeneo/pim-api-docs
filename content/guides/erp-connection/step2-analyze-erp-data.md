@@ -12,7 +12,7 @@ As we have seen together in the [introduction of this guide](introduction.html),
 
 A good practice consists in using the same attribute codes from the ERP to the PIM. That is done when setting up the PIM attributes definition. If most ERP attributes can be imported as is then the chances are good that mapping becomes useless.
 
-But the desire to facilitate the mapping rules should not make you forget that **Julia's needs must come before the technical facilities** of mapping between the ERP and the PIM... 😉
+But the desire to facilitate the mapping rules should not make you forget that **Julia's needs must come before the technical short-cuts** of mapping between the ERP and the PIM... 😉
 
 That's why our recommendation will always be:
 1. To first optimize the catalog structure in the PIM to allow Julia to work in optimal conditions.
