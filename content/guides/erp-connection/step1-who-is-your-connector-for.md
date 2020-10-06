@@ -30,7 +30,7 @@ In this organization variation, the product workflow is slightly different: this
 Julia's needs will be to:
 1. Create the product in her PIM with a SKU and some basic marketing information (such as the product name, short description)
 2. Export this product information from her PIM to the ERP solution to allow the ERP teams to add technical product information (such as price, stock information, automatic categorization...)
-3. Some ERP product information (ERP data that need to be enriched or used by Julia) is re-imported in her PIM
+3. Import again part of the ERP product information (ERP data that need to be enriched or used by Julia)
 4. Finalize the product marketing information in her PIM
 5. Export these PIM data to different final solutions (channels) such as an e-commerce website, a print solution, a mobile application...
 
