@@ -88,7 +88,7 @@ So they need:
 * An **easy to follow download/installation process:** depending on your business needs.
 It depends on your business model. If you expect your client to install the connector themself, make sure you provide appropriate documentation.
 
-* A **full documentation** about **the limits of the connector** in terms of **scalability** and **performance** (your connector limits).
+* A **full documentation** about **the limits of the connector** in terms of **scalability** and **performance**.
 
 * An **easy to follow configuration process** to set up the connection between the ERP Solution and Akeneo PIM as well as parameters to configure the connector. It requires documentation to explain the methodology on how to configure your connector compared to your business needs.
 
