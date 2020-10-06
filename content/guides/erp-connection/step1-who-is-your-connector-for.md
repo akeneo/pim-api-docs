@@ -59,7 +59,7 @@ So she needs:
 
 * An **easy way** to tag her new product so that your ERP connector can automatically export the corresponding product data from her PIM to the ERP solution
 
-* A **friendly other process** to retrieve ERP product information she needs in return
+* A **smooth process** to retrieve ERP product information she needs in return
 
 * A **strategy** to define the periodicity of these automatic import/export processes
 
