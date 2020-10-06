@@ -45,7 +45,7 @@ This allows Julia to have the information at her fingertips without the risk of 
 
 ## Personas' needs
 
-Below, you will find the main needs, associated with each user profile, in terms of processes, documentations, actions related to your future ERP connector.
+Below, you will find the main needs, associated with each user profile, in terms of processes, documentation, actions related to your future ERP connector.
 
 ### Julia's needs
 
