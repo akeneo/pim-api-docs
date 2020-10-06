@@ -32,7 +32,7 @@ Julia's needs will be to:
 2. Export this product information from her PIM to the ERP solution to allow the ERP teams to add technical product information (such as price, stock information, automatic categorization...)
 3. Import again part of the ERP product information (ERP data that need to be enriched or used by Julia)
 4. Finalize the product marketing information in her PIM
-5. Export these PIM data to different final solutions (channels) such as an e-commerce website, a print solution, a mobile application...
+5. Export these PIM data to different channels such as an e-commerce website, a print solution, a mobile application...
 
 :::warning
 This initial PIM action to create new product in the PIM requires Julia to have a process to **automatically** generate a product SKU directly in the PIM.
