@@ -61,6 +61,10 @@ get:
               "code": "sku",
               "type": "pim_catalog_identifier",
               "group": "other",
+              "group_labels": {
+                "en_US": "Other",
+                "fr_FR": "Autre"
+              },
               "unique": true,
               "useable_as_grid_filter": true,
               "allowed_extensions": [],
