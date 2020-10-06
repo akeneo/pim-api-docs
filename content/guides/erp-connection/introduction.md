@@ -32,7 +32,7 @@ For example, the **up-to-date price and stock information** of a given product s
 As far as prices are concerned, Akeneo PIM can store product price information, but only for  **“reference prices”** and not **“up-to-date”** ones. This **reference price** may exist to help PIM users in their daily work, and therefore is not meant to be exported.  
 :::
 
-Ok... now that this product data dispatch from your ERP solution is crystal clear, let's start! 🚀
+Now that this product data dispatch from your ERP solution is crystal clear, let's start! 🚀
 
 ## Follow the steps!
 
