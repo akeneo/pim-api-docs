@@ -18,7 +18,7 @@ If you are using this guide in order to build a **one-size-fits-all** connector 
 
 It is therefore very complex to build a connector that fits all end-users' needs...
 
-That's why, from our experience, this guide will only guide you on the main use-cases and classical architectures.
+That's why, from our experience, this guide will only address the most common use-cases and classical architectures.
 
 ## ERP vs PIM product data
 
