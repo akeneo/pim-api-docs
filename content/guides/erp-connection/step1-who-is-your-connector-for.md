@@ -96,4 +96,4 @@ It depends on your business model. If you expect your client to install the conn
 
 * A **connector UI or a configuration file to set up the connector** (PIM/ERP connection, mapping settings, filtering capabilities, …)
 
-* An access to the **connector logs** to have all detailed technical information to investigate errors.
+* An access to the **connector logs** to centralize all detailed technical information to investigate errors.
