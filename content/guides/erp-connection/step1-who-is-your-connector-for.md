@@ -17,7 +17,7 @@ With this organization, the product is initially created by ERP teams, so it con
 As an image is worth a thousand words, here's an example of a product workflow with the ERP, Akeneo PIM and an eCommerce solution:
 ![Products initially created in the ERP](../../img/guides/erp-pim-ecommerce-flow.svg)
 
-Julia's needs will be:
+Julia's needs will be to:
 1. Retrieve product information from the ERP
 2. Organize, enrich, translate product information in her PIM
 3. Export these PIM data to different final solutions (channels) such as an e-commerce website, a print solution, a mobile application...
