@@ -76,7 +76,7 @@ So she needs:
 
 * An **easy to follow strategy** to define the periodicity of this automatic import process.
 
-* Perhaps also a **friendly Connector UI** to trigger manually the import process if needed (full or partial imports)
+* Perhaps also a **friendly Connector UI** to trigger and to log manually all processes (import/export) if needed (full or partial imports). She also needs a notification system to be alerted when something goes wrong.
 
 * A **friendly UI** to log all automatic and manual import processes and a notification system to be alerted when something goes wrong.
 
