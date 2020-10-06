@@ -72,7 +72,7 @@ Julia needs an easy way import product information from the ERP solution to her 
 
 So she needs:
 
-* An **easy to follow process** to import automatically ERP product data into her PIM.
+* A **smooth process** to import automatically ERP product data into her PIM.
 
 * An **easy to follow strategy** to define the periodicity of this automatic import process.
 
