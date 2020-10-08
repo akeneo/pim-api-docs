@@ -1017,7 +1017,7 @@ As a result you will receive the following answer:
 When you request specific attributes, you can use filters to select only the ones you want. 
 
 ### By attribute codes
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=4.0,Serenity editions=CE,EE
 
 You can filter the attributes by their code.
 
@@ -1033,7 +1033,7 @@ Below you will find the operator allowed to filter on this property, as well as 
 ```
 
 ### By updated date
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=4.0,Serenity editions=CE,EE
 
 You can filter the attributes by their updated date.
 
@@ -1059,7 +1059,7 @@ To get the attributes that have been updated since July 4th, 2020 at 10 am (UTC)
 ```
 
 ### By attribute types
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=4.0,Serenity editions=CE,EE
 
 You can filter the attributes by their types.
 
@@ -1081,7 +1081,7 @@ To get the attributes of types `pim_catalog_simpleselect` and `pim_catalog_multi
 When you request specific attribute groups, you can use filters to select only the ones you want. 
 
 ### By attribute group codes
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=4.0,Serenity editions=CE,EE
 
 You can filter the attribute groups by their code.
 
@@ -1097,7 +1097,7 @@ Below you will find the operator allowed to filter on this property, as well as 
 ```
 
 ### By updated date
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=4.0,Serenity editions=CE,EE
 
 You can filter the attribute groups by their update date.
 
@@ -1123,7 +1123,7 @@ To get the attribute groups that have been updated since July 4th, 2020 at 10 AM
 When you request specific families, you can use filters to select only the ones you want.
 
 ### By family codes
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=4.0,Serenity editions=CE,EE
 
 You can filter the families by their code.
 
@@ -1139,7 +1139,7 @@ Below you will find the operator allowed to filter on this property, as well as 
 ```
 
 ### By updated date
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=4.0,Serenity editions=CE,EE
 
 You can filter the families by their updated date.
 
@@ -1165,7 +1165,7 @@ To get the families that have been updated since July 4th, 2020 at 10 am (UTC), 
 When you request specific categories, you can use filters to select only the ones you want. 
 
 ### By parent category
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=4.0,Serenity editions=CE,EE
 
 You can filter the categories by parent.
 
@@ -1183,7 +1183,7 @@ To get the child categories of the parent category `categoryA`, you can use the 
 ```
 
 ### By category codes
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=4.0,Serenity editions=CE,EE
 
 You can filter the categories by their code.
 
