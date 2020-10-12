@@ -5,7 +5,7 @@ Here are some of our recommendations!
 
 ## A "Connection-compliant" connector
 
-The best way to interact with Julia's PIM is to develop a "[connection-compliant](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html)" connector (based on our API).
+The best way to interact with Julia's PIM is to develop a "[Connection-compliant](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html)" connector (based on our API).
 
 :::tips
 Why?
