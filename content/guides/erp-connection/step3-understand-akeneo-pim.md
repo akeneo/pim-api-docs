@@ -8,7 +8,7 @@ First, it is crucial for you to understand that Akeneo PIM comes in all shapes a
 
 To know more about the different PIM versions, don't hesitate to consult our blog on our [PIM release cycle](https://www.akeneo.com/blog/akeneo-introduces-a-simpler-product-release-cycle/).
 
-You can also consult our [release notes](https://www.akeneo.com/release-notes/) and our ["new key features released" page](https://help.akeneo.com/pim/serenity/whats-new.html) to understand what are our latest Akeneo supported **versions** and their brand new features.
+You can also consult our [release notes](https://www.akeneo.com/release-notes/) and our ["new key features released" page](https://help.akeneo.com/pim/serenity/whats-new.html) to understand what our latest Akeneo supported **versions** and their brand new features are.
 
 Then, in order to understand our different **editions** and their capabilities, you can consult our [compare editions page](https://www.akeneo.com/compare-editions/) on our website.
 
