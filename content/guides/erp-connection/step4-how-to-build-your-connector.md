@@ -18,7 +18,7 @@ All you need to know to interact with our PIM through our API can be found in ou
 
 ## Step by step
 
-**Our recommendation: always listen to your customer's needs first!**
+**Our recommendation: always listen to your customer's needs first.**
 
 We are aware that it is almost difficult to develop a 100% complete connector that fit all your customer needs immediately.
 
