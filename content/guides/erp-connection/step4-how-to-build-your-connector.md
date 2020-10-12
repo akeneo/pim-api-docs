@@ -26,6 +26,6 @@ Once you are comfortable with your customer's needs, our recommendation is to fo
 
 **To conclude: adopt an Agile approach**
 
-* Interview Julia and ERP team about their needs
+* Interview Julia and the ERP team to learn about their needs
 * Set priorities with them
 * Develop in successive iterations
