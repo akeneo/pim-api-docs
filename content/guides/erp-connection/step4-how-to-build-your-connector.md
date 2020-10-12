@@ -9,7 +9,7 @@ The best way to interact with Julia's PIM is to develop a "[Connection-compliant
 
 :::tips
 Why?
-Please don't hesitate to read our ["4 reasons why you should use our API"](https://api.akeneo.com/documentation/why-the-api.html#4-reasons-why-you-should-use-our-api) page!
+Please don't hesitate to read our ["4 reasons why you should use our API"](https://api.akeneo.com/documentation/why-the-api.html#4-reasons-why-you-should-use-our-api) page.
 :::
 
 ## Follow the guide!
