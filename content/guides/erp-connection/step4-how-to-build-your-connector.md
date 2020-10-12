@@ -16,7 +16,7 @@ Please don't hesitate to read our ["4 reasons why you should use our API"](https
 
 All you need to know to interact with our PIM through our API can be found in our [dedicated tutorial](https://api.akeneo.com/getting-started/connect-the-pim-4x/welcome.html).
 
-## Step by step...
+## Step by step
 
 **Our recommendation: always listen to your customer's needs first!**
 
