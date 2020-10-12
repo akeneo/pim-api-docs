@@ -24,7 +24,7 @@ We are aware that it is quite difficult to develop a 100% complete connector tha
 
 Once you are comfortable with your customer's needs, our recommendation is to follow the steps we describe and to iterate in order not to miss any important feature. Building an ERP connector is a complex task that requires a dedicated focus every step of the way.  
 
-**Our last advice: adopt an Agile approach!**
+**To conclude: adopt an Agile approach**
 
 * Interview Julia and ERP team about their needs
 * Set priorities with them
