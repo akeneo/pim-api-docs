@@ -1,7 +1,7 @@
 # How to build your connector?
 
 Now that you have a good overview of your connector data flows and Akeneo PIM data and features, you are probably wondering how to build your connector.
-Here are some of our recommendations to do this!
+Here are some of our recommendations!
 
 ## A "connection compliant" connector
 
