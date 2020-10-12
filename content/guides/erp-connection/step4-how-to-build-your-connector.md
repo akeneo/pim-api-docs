@@ -3,7 +3,7 @@
 Now that you have a good overview of your connector data flows and Akeneo PIM data and features, you are probably wondering how to build your connector.
 Here are some of our recommendations!
 
-## A "connection compliant" connector
+## A "Connection-compliant" connector
 
 The best way to interact with Julia's PIM is to develop a "[connection-compliant](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html)" connector (based on our API).
 
