@@ -22,7 +22,7 @@ All you need to know to interact with our PIM through our API can be found in ou
 
 We are aware that it is quite difficult to develop a 100% complete connector that fits all your customer's needs immediately.
 
-Furthermore, to build such a complex connector as an ERP connector in a single iteration would undoubtedly be complex and you risk missing important features.
+Once you are comfortable with your customer's needs, our recommendation is to follow the steps we describe and to iterate in order not to miss any important feature. Building an ERP connector is a complex task that requires a dedicated focus every step of the way.  
 
 **Our last advice: adopt an Agile approach!**
 
