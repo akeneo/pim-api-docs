@@ -20,7 +20,7 @@ All you need to know to interact with our PIM through our API can be found in ou
 
 **Our recommendation: always listen to your customer's needs first.**
 
-We are aware that it is almost difficult to develop a 100% complete connector that fit all your customer needs immediately.
+We are aware that it is quite difficult to develop a 100% complete connector that fits all your customer's needs immediately.
 
 Furthermore, to build such a complex connector as an ERP connector in a single iteration would undoubtedly be complex and you risk missing important features.
 
