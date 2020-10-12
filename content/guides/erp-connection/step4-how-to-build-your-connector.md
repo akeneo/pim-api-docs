@@ -14,7 +14,7 @@ Please don't hesitate to read our ["4 reasons why you should use our API"](https
 
 ## Follow the guide!
 
-All you need to know to interact with our PIM through our API can be find in our [dedicated tutorial](https://api.akeneo.com/getting-started/connect-the-pim-4x/welcome.html).
+All you need to know to interact with our PIM through our API can be found in our [dedicated tutorial](https://api.akeneo.com/getting-started/connect-the-pim-4x/welcome.html).
 
 ## Step by step...
 
