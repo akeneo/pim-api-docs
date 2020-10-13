@@ -361,6 +361,16 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
                 'step3-how-to-build-your-connector.md': 'How to build your connector?',
                 'step4-known-limits.md': 'Known limits'
             }
+        },
+        'erp-connection': {
+            title: 'The complete guide to connect your ERP solution to Akeneo PIM',
+            files: {
+                'introduction.md': 'Introduction',
+                'step1-who-is-your-connector-for.md': 'Who is your connector for?',
+                'step2-analyze-erp-data.md': 'Analyze your ERP data',
+                'step3-understand-akeneo-pim.md': 'Understand Akeneo PIM',
+                'step4-how-to-build-your-connector.md': 'How to build your connector'
+            }
         }
     };
 
