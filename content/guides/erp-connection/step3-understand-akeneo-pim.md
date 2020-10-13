@@ -8,7 +8,7 @@ First, it is crucial for you to understand that Akeneo PIM comes in all shapes a
 
 To know more about the different PIM versions, don't hesitate to consult our blog on our [PIM release cycle](https://www.akeneo.com/blog/akeneo-introduces-a-simpler-product-release-cycle/).
 
-You can also consult our [release notes](https://www.akeneo.com/release-notes/) and our ["new key features released" page](https://help.akeneo.com/pim/serenity/whats-new.html) to understand what are our latest Akeneo supported **versions** and their brand new features.
+You can also consult our [release notes](https://www.akeneo.com/release-notes/) and our ["new key features released" page](https://help.akeneo.com/pim/serenity/whats-new.html) to understand what our latest Akeneo supported **versions** and their brand new features are.
 
 Then, in order to understand our different **editions** and their capabilities, you can consult our [compare editions page](https://www.akeneo.com/compare-editions/) on our website.
 
@@ -29,9 +29,9 @@ If you need an Akeneo PIM **Enterprise Edition** instance to start developing yo
 
 ## Documentation
 
-First of all, for the documentation part, we advise you to take a look at our [Helpcenter](https://help.akeneo.com/pim/index.html) where you'll find a lot of documentation about all our features and how to use it.
+First of all, we advise you to take a look at our [Helpcenter documentation](https://help.akeneo.com/pim/index.html) about all our features and how to use them.
 
-Then, if you feel like it wasn't enough, we designed a comprehensive training program to share everything we know about Akeneo PIM. As you can see, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
+Then, if you feel like you need more, we designed a comprehensive training program to share everything we know about Akeneo PIM. As you can see, we also got you covered our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
 
 And before you actually start coding to develop your connector, here is a selection of PIM concepts you'll need to master:
 - The [product](/concepts/products.html#product),

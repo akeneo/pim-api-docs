@@ -1,31 +1,31 @@
 # How to build your connector?
 
-Now that you have a good overview of your connector data flows and Akeneo PIM data and features, you are probably wondering how to build your connector...
-Here are some of our recommendations to do this!
+Now that you have a good overview of your connector data flows and Akeneo PIM data and features, you are probably wondering how to build your connector.
+Here are some of our recommendations!
 
-## A "connection compliant" connector
+## A "Connection-compliant" connector
 
-The best way to interact with Julia's PIM is to develop a "[connection-compliant](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html)" connector (based on our API).
+The best way to interact with Julia's PIM is to develop a "[Connection-compliant](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html)" connector (based on our API).
 
 :::tips
 Why?
-Please don't hesitate to read our ["4 reasons why you should use our API"](https://api.akeneo.com/documentation/why-the-api.html#4-reasons-why-you-should-use-our-api) page!
+Please don't hesitate to read our ["4 reasons why you should use our API"](https://api.akeneo.com/documentation/why-the-api.html#4-reasons-why-you-should-use-our-api) page.
 :::
 
 ## Follow the guide!
 
-All you need to know to interact with our PIM through our API can be find in our [dedicated tutorial](https://api.akeneo.com/getting-started/connect-the-pim-4x/welcome.html).
+All you need to know to interact with our PIM through our API can be found in our [dedicated tutorial](https://api.akeneo.com/getting-started/connect-the-pim-4x/welcome.html).
 
-## Step by step...
+## Step by step
 
-**Our recommendation: always listen to your customer's needs first!**
+**Our recommendation: always listen to your customer's needs first.**
 
-We are aware that it is almost difficult to develop a 100% complete connector that fit all your customer needs immediately.
+We are aware that it is quite difficult to develop a 100% complete connector that fits all your customer's needs immediately.
 
-Furthermore, to build such a complex connector as an ERP connector in a single iteration would undoubtedly be complex and you risk missing important features.
+Once you are comfortable with your customer's needs, our recommendation is to follow the steps we describe and to iterate in order not to miss any important feature. Building an ERP connector is a complex task that requires a dedicated focus every step of the way.  
 
-**Our last advice: adopt an Agile approach!**
+**To conclude: adopt an Agile approach**
 
-* Interview Julia and ERP team about their needs
+* Interview Julia and the ERP team to learn about their needs
 * Set priorities with them
 * Develop in successive iterations
