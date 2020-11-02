@@ -22,7 +22,7 @@ An asset can contain **a media** (an image, a video or a file) and can also cont
 
 It would be interesting to offer Julia to translate these **metadata asset attributes** and why not... some media.
 
-You need to know that PIM assets can be used in 2 different ways:
+You need to know that PIM assets can be used in 2 different ways with Akeneo PIM:
 * either **by associating the PIM with a DAM solution**: assets then come from this external solution,
 * or by creating these assets **directly in the PIM**.
 
@@ -36,20 +36,16 @@ The main problem is that with the method we suggested, Julia can only indicate p
 This is due to the fact that bulk actions aren't available on assets for now.
 :::
 
-Of course, by retrieving Julia's PIM products, you could also retrieve the information from the associated assets but this would not be very convenient for Julia.
+A workaround would be to manage the translation of asset metadata as you manage [the single or multiselect attribute options](step3-how-to-build-your-connector.html#how-it-works-with-your-connector).
+
+By retrieving Julia's PIM products, you could also retrieve the information from the associated assets via asset collection attributes.
 
 Moreover, since a given asset can be used for several products, it could lead to the translation of assets that have already been translated.
-
-:::info
-Don't hesitate to [join us on Github](https://github.com/akeneo/pim-api-docs) if you find a workaround, we will add it to this guide!
-:::
 
 ### Reference entities
 
 Reference entity records also have localizable attributes and your connector, just like for assets, could be legitimate to offer an associated translation service to Julia.
 
-But for the same reasons as for assets (there are no bulk actions for reference entities and a reference entity record can be associated with several products), it is complicated to build this feature for Julia.
+But for the same reasons as for assets, there is no bulk actions for reference entities / reference entity records.
 
-:::info
-Again, don't hesitate to [join us on Github](https://github.com/akeneo/pim-api-docs) if you find a workaround, we will add it to this guide!
-:::
+You can therefore use the same workaround as for assets by translating all reference entities record related to the products Julia will indicate.
