@@ -136,18 +136,15 @@ The JSON format of the naming convention contains several parts:
 - a [boolean stating whether to abort the asset creation in case there was an error during the application of the naming convention](#abortion-on-error).
 ```json
 {
-  "naming_convention": {
     "source": {...},
     "pattern": A_REGEXP,
     "abort_asset_creation_on_error": A_BOOLEAN
-  }
 }
 ```
 
 #### Examples
 ```json
 {
-  "naming_convention": {
     "source": {
         "property": "main_asset_image",
         "channel": null,
@@ -155,7 +152,6 @@ The JSON format of the naming convention contains several parts:
     },
     "pattern": "/(?P<product_ref>.*)-.*-(?P<attribute_ref>.*)\\.jpg/",
     "abort_asset_creation_on_error": true
-  }
 }
 ```
 
