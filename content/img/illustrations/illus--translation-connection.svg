@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="259px" height="198px" viewBox="0 0 259 198" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="259px" height="256px" viewBox="0 -25 259 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>illus--translation-connection 2</title>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="illus--translation-connection" transform="translate(2.000000, 1.000000)">
@@ -67,7 +67,7 @@
             <path d="M109.7,149.1 C109.7,148.9 109.6,148.4 109.7,147.6 C109.7,147.2 109.9,146.8 109.9,146.4 C110.1,145.7 110.5,145 110.9,144.4 C111.2,143.7 111.6,143.1 111.7,142.4 C111.9,141.4 111.1,140.4 110.6,139.8 C109.8,138.8 108.8,138 107.8,137.3 C107.9,138.2 108,139.2 107.9,140.2 C107.8,141.1 107.7,142 107.3,142.8 C107.1,143.3 107,143.7 106.7,144.2 C106.6,144.4 106.6,144.4 106.5,144.4 C106.4,144.4 106.3,144.4 106.2,144.4 C106,144.4 105.7,144.3 105.5,144.3 C104.6,144.1 103.7,143.9 102.9,143.6 C101.9,143.2 101,142.6 100.2,142 C100.3,143 100.4,143.9 100.8,144.8 C101,145.6 101.4,146.5 101.9,147.2 C102.1,147.5 102.5,147.9 103,148 C103.4,148.2 103.8,148.2 104.1,148.2 C104.9,148.3 105.8,148.2 106.6,148.4 C107.7,148 108.8,148.4 109.7,149.1" id="Path" fill="#9452BA" fill-rule="nonzero"></path>
             <path d="M33,44.9 L21.6,44.9 L21.6,20.9 L33,20.9 C35.1,20.9 36.7,22.6 36.7,24.6 L36.7,41.2 C36.7,43.2 35,44.9 33,44.9 Z" id="Path" fill="#5E63B6" fill-rule="nonzero"></path>
         </g>
-        <text id="online-Translation" font-family="Lato-Bold, Lato" font-size="14" font-weight="bold" fill="#5563B6">
+        <text id="Online-Translation" font-family="Lato-Bold, Lato" font-size="14" font-weight="bold" fill="#5563B6">
             <tspan x="144" y="148">online</tspan>
             <tspan x="144" y="165">translation</tspan>
         </text>
