@@ -634,7 +634,7 @@ You can provide multiple actions in one single rule. Let's take an example. Say 
 
 ```json
 {
-  "main_image": [
+  "assign_assets_to": [
     {
       "mode": "replace",
       "attribute": "main_image",
