@@ -15,9 +15,9 @@ As [mentioned before](step2-understand-akeneo-pim.html), there are [several edit
 
 Of course, the choice of the PIM version/edition depends on your business but we strongly encourage you to develop a connector that is fully compatible with our latest **Serenity edition**.
 
-To know more about the different PIM versions, don't hesitate to consult our blog on our [PIM release cycle](https://www.akeneo.com/blog/akeneo-introduces-a-simpler-product-release-cycle/).
+To know more about the different PIM versions, don't hesitate to consult our blog section on our [PIM release cycle](https://www.akeneo.com/blog/akeneo-introduces-a-simpler-product-release-cycle/).
 
-You can also consult our [release notes](https://www.akeneo.com/release-notes/) and our ["new key features released" page](https://help.akeneo.com/pim/serenity/whats-new.html) to understand what our latest Akeneo supported **versions** and their brand new features are.
+You can also consult our [release notes](https://www.akeneo.com/release-notes/) and our ["new key features released" page](https://help.akeneo.com/pim/serenity/whats-new.html) to understand more about the latest Akeneo supported **versions** and their brand new features.
 
 Well, now you can [start here](https://api.akeneo.com/getting-started/connect-the-pim-4x/welcome.html) to connect your syndication solution with our API! 🚀
 
