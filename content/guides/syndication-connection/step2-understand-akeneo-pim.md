@@ -48,7 +48,7 @@ In the context of building a syndication connector, here is a selection of  PIM 
 - The [asset](/concepts/asset-manager.html).
 
 :::info
-If you need to go deeper, the purpose of the next chapters is not to redo the PIM documentation but to explain where to find the information and, above all, to point out PIM features/properties to be taken into consideration **in a context of developing an eCommerce connector**.
+If you need to go deeper, the purpose of the next chapters is not to redo the PIM documentation but to explain where to find the information and, above all, to point out PIM features/properties to be taken into consideration **in a context of developing an syndication connector**.
 :::
 
 ## Product
@@ -183,7 +183,7 @@ Please read our [Akeneo help center](https://help.akeneo.com/pim/serenity/articl
 Please read our [Akeneo help center](https://help.akeneo.com/pim/serenity/articles/what-is-a-channel.html) to know everything about channels.
 
 ::: info
-* A channel (scope) defines a selection of products and information to export for a specific destination (like eCommerce).
+* A channel (scope) defines a selection of products and information to export for a specific destination (like syndication).
 
 It works like a filter on the product catalog and has the following properties:
 
