@@ -371,6 +371,16 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
                 'step3-understand-akeneo-pim.md': 'Understand Akeneo PIM',
                 'step4-how-to-build-your-connector.md': 'How to build your connector'
             }
+        },
+        'syndication-connection': {
+            title: 'The complete guide to connect Akeneo PIM to your syndication solution',
+            files: {
+              'introduction.md': 'Introduction',
+              'step0-who-is-your-connector-for.md': 'Who is your connector for?',
+              'step1-who-does-what.md': 'Who does what?',
+              'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
+              'step3-define-your-first-scope.md': 'How to build your connector'
+            }
         }
     };
 

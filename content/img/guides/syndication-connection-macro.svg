@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 1028 469" style="enable-background:new 0 0 1028 469;" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#F5F9F8;}
+	.st1{filter:url(#d);}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st4{fill-rule:evenodd;clip-rule:evenodd;fill:#4EA7DD;}
+	.st5{fill-rule:evenodd;clip-rule:evenodd;fill:#E0F1FC;}
+	.st6{enable-background:new    ;}
+	.st7{fill:#3A438B;}
+	.st8{font-family:'Lato-Italic';}
+	.st9{font-size:24px;}
+	.st10{fill-rule:evenodd;clip-rule:evenodd;fill:#8F92C7;}
+	.st11{filter:url(#i);}
+	.st12{fill-rule:evenodd;clip-rule:evenodd;fill:#5D63AA;}
+	.st13{fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;}
+	.st14{fill:#8F92C7;}
+	.st15{font-size:13px;}
+	.st16{font-size:17px;}
+	.st17{fill:none;stroke:#8F92C7;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2,6;}
+	.st18{filter:url(#k);}
+	.st19{fill-rule:evenodd;clip-rule:evenodd;fill:#82549D;}
+	.st20{fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9FB;}
+	.st21{fill:#FFFFFF;}
+	.st22{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;stroke:#B9A7C9;stroke-miterlimit:10;}
+	.st23{fill-rule:evenodd;clip-rule:evenodd;fill:#B9A7C9;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st24{fill:#FFFFFF;stroke:#B9A7C9;stroke-miterlimit:10;}
+	.st25{fill:none;stroke:#B9A7C9;stroke-miterlimit:10;}
+	.st26{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;stroke:#B1D9E8;stroke-miterlimit:10;}
+	.st27{fill-rule:evenodd;clip-rule:evenodd;fill:#B1D9E8;}
+	.st28{fill:none;stroke:#B1D9E8;stroke-miterlimit:10;}
+</style>
+ </defs>
+ <filter filterUnits="objectBoundingBox" height="114.7%" id="d" width="123.4%" x="-10.9%" y="-6.3%">
+  <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+  <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="9"/>
+  <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0"/>
+ </filter>
+ <filter filterUnits="objectBoundingBox" height="177.3%" id="i" width="124.5%" x="-11.4%" y="-33.3%">
+  <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+  <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="9"/>
+  <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0"/>
+ </filter>
+ <filter filterUnits="objectBoundingBox" height="114.7%" id="k" width="117.7%" x="-8.2%" y="-6.3%">
+  <feOffset dx="2" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+  <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="9"/>
+  <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0352941176 0 0 0 0 0.117647059 0 0 0 0 0.258823529 0 0 0 0.14 0"/>
+ </filter>
+ <path class="st0" d="M0,0h1028v469H0V0z"/>
+ <g transform="matrix(1, 0, 0, 1, 43, 34)">
+  <g class="st1">
+   <path id="e_2_" class="st2" d="M699,107h228c5.5,0,10,2.4,10,5.3v197.5c0,2.9-4.5,5.3-10,5.3H699c-5.5,0-10-2.4-10-5.3V112.2 C689,109.3,693.5,107,699,107z"/>
+  </g>
+  <g>
+   <path id="e_1_" class="st3" d="M699,107h228c5.5,0,10,2.4,10,5.3v197.5c0,2.9-4.5,5.3-10,5.3H699c-5.5,0-10-2.4-10-5.3V112.2 C689,109.3,693.5,107,699,107z"/>
+  </g>
+ </g>
+ <path class="st5" d="M752,218h208v1H752V218z"/>
+ <text class="st6" style="white-space: pre;" x="801.001" y="169.969"><tspan x="801.001" y="169.969" class="st7 st8 st9" style="font-size: 24px; word-spacing: 0px;">Your Syndication</tspan><tspan x="801.001" y="198.769" class="st7 st8 st9" style="font-size: 24px; word-spacing: 0px;">Solution</tspan></text>
+ <path class="st10" d="M390.5,261.4v-10.8c0-1.2,0.9-2.1,2-2.1c0.5,0,1,0.2,1.4,0.6l5,5.4c0.8,0.8,0.8,2.2,0,3l-5,5.4 c-0.7,0.8-1.9,0.8-2.7,0.1c0,0-0.1-0.1-0.1-0.1C390.7,262.5,390.5,261.9,390.5,261.4L390.5,261.4z"/>
+ <g transform="matrix(1, 0, 0, 1, 347, 219)">
+  <g class="st11">
+   <path id="j_2_" class="st2" d="M58.4,0h246.2c3,0,5.4,2.2,5.4,5v65c0,2.8-2.4,5-5.4,5H58.4c-3,0-5.4-2.2-5.4-5V5 C53,2.2,55.4,0,58.4,0z"/>
+  </g>
+  <g>
+   <path id="j_1_" class="st3" d="M58.4,0h246.2c3,0,5.4,2.2,5.4,5v65c0,2.8-2.4,5-5.4,5H58.4c-3,0-5.4-2.2-5.4-5V5 C53,2.2,55.4,0,58.4,0z"/>
+  </g>
+ </g>
+ <g transform="matrix(1, 0, 0, 1, 357, 229)">
+  <path class="st12" d="M57,0h28c2.8,0,5,2.2,5,5v28c0,2.8-2.2,5-5,5H57c-2.8,0-5-2.2-5-5V5C52,2.2,54.2,0,57,0z"/>
+  <path class="st13" d="M67.7,12.7c-2.3,1.3-3.9,3.6-3.9,6.3c0,2.7,1.6,5.1,4,6.4 M69.4,24.9l2.4,2v-4L69.4,24.9L69.4,24.9z M73.5,12.7c2.3,1.3,3.9,3.6,3.9,6.3c0,2.7-1.6,5.1-4,6.4 M71.8,13.1l-2.4,2v-4L71.8,13.1z"/>
+ </g>
+ <text class="st14 st8 st15" style="white-space: pre; font-size: 13px;" x="457" y="262">The piece of software you are </text>
+ <text class="st14 st8 st15" style="white-space: pre; font-size: 13px;" x="458" y="278">going to write</text>
+ <text class="st7 st8 st16" style="white-space: pre; font-size: 17px;" x="458" y="245">PIM/Syndication connector</text>
+ <g>
+  <path class="st17" d="M662,256.5h65"/>
+  <circle class="st10" cx="662.5" cy="256.5" r="5.5"/>
+  <path class="st10" d="M723,261.9v-10.8c0-1.2,0.9-2.1,2-2.1c0.5,0,1,0.2,1.4,0.6l5,5.4c0.8,0.8,0.8,2.2,0,3l-5,5.4 c-0.7,0.8-1.9,0.8-2.7,0.1c0,0-0.1-0.1-0.1-0.1C723.2,263,723,262.4,723,261.9L723,261.9z"/>
+ </g>
+ <g transform="matrix(1, 0, 0, 1, 654, 34)">
+  <g class="st18">
+   <path id="l_2_" class="st2" d="M-605,107h278c5,0,9,2.4,9,5.3v197.5c0,2.9-4,5.3-9,5.3h-278c-5,0-9-2.4-9-5.3V112.2 C-614,109.3-610,107-605,107z"/>
+  </g>
+  <g>
+   <path id="l_1_" class="st3" d="M-605,107h278c5,0,9,2.4,9,5.3v197.5c0,2.9-4,5.3-9,5.3h-278c-5,0-9-2.4-9-5.3V112.2 C-614,109.3-610,107-605,107z"/>
+  </g>
+ </g>
+ <g transform="matrix(1, 0, 0, 1, 674, 54)">
+  <path class="st19" d="M-609,94h38c2.8,0,5,2.2,5,5v38c0,2.8-2.2,5-5,5h-38c-2.8,0-5-2.2-5-5V99C-614,96.2-611.8,94-609,94z"/>
+  <path class="st20" d="M-579.3,117.3c0-0.1,0-0.1,0-0.2c0-0.1,0.1-0.2,0.1-0.3c0.2-1.1-0.2-2.3-1-3.7c-0.1-0.1-0.2-0.2-0.2-0.4 c-0.1-0.2-0.3-0.4-0.4-0.6c0,0,0,0-0.1-0.1c0-0.1-0.1-0.1-0.1-0.2c0-0.1-0.1-0.1-0.1-0.2c0-0.1-0.1-0.1-0.1-0.2 c-0.1-0.1-0.1-0.1-0.1-0.2c0,0-0.1-0.1-0.1-0.1c-1.3-1.6-2.9-3.1-4.6-4.4c0.2,2.2,0.1,4.4-0.1,6.1c-0.3,2.1-1.2,4.5-2.3,6.7 c-2.5-0.3-4.9-0.9-6.9-1.8c-1.6-0.8-3.4-1.9-5.2-3.3l0.1,0.5c0,0.1,0,0.1,0,0.2c0,0.1,0,0.3,0,0.4c0,0.1,0,0.1,0,0.2 c0,0.1,0,0.3,0.1,0.4c0,0.1,0,0.1,0,0.2c0,0.2,0,0.3,0.1,0.5c0,0.2,0.1,0.4,0.1,0.6c0,0.2,0.1,0.4,0.1,0.5c0,0,0,0.1,0,0.1 c0,0.2,0.1,0.3,0.1,0.5c0,0,0,0.1,0,0.1c0.1,0.7,0.3,1.4,0.5,2.1c0.3,0.9,0.6,1.7,0.9,2.3c0.1,0.1,0.1,0.2,0.2,0.3 c0.1,0.1,0.1,0.2,0.1,0.3c0.1,0.1,0.1,0.2,0.2,0.3c0.1,0.1,0.2,0.2,0.2,0.4c0,0.1,0,0.1,0.1,0.1c0.1,0.1,0.2,0.2,0.3,0.3 c0.1,0.1,0.1,0.1,0.2,0.2l0.1,0.1c0,0,0.1,0.1,0.1,0.1l0.1,0.1c0,0,0.1,0.1,0.1,0.1c0,0,0.1,0.1,0.1,0.1c0,0,0.1,0.1,0.1,0.1 c0,0,0.1,0,0.1,0.1c0,0,0.1,0.1,0.1,0.1c0,0,0.1,0,0.1,0.1c0.1,0,0.1,0.1,0.2,0.1c0,0,0.1,0,0.1,0c0.1,0,0.2,0.1,0.2,0.1 c0.1,0,0.1,0,0.1,0.1c3.9,1.1,7.8-0.3,12.4,3.2C-583.9,123.4-580.5,121.1-579.3,117.3L-579.3,117.3z"/>
+ </g>
+ <path class="st5" d="M58,216H318v1H58V216z"/>
+ <text transform="matrix(1, 0, 0, 1, 123, 191)" class="st14 st8 st15" style="white-space: pre;">The master of your products</text>
+ <text transform="matrix(1, 0, 0, 1, 123, 174)" class="st7 st8 st9" style="white-space: pre;">Akeneo PIM</text>
+ <path class="st17" d="M337.5,256h51"/>
+ <circle class="st10" cx="338" cy="256" r="5.5"/>
+ <g>
+  <rect x="92.4" y="226.8" class="st22" width="61.1" height="80.4"/>
+  <rect x="98" y="232.8" class="st23" width="11.9" height="21"/>
+  <line class="st24" x1="117.9" y1="237.8" x2="142" y2="237.8"/>
+  <line class="st24" x1="117.9" y1="245.8" x2="142" y2="245.8"/>
+  <line class="st25" x1="100" y1="262" x2="144" y2="262"/>
+  <line class="st25" x1="100" y1="272.3" x2="144" y2="272.3"/>
+  <line class="st25" x1="100" y1="284.3" x2="144" y2="284.3"/>
+ </g>
+ <g>
+  <rect x="134.4" y="240.1" class="st22" width="61.1" height="80.4"/>
+  <rect x="140" y="246.1" class="st23" width="11.9" height="21"/>
+  <line class="st24" x1="159.9" y1="251.1" x2="184" y2="251.1"/>
+  <line class="st24" x1="159.9" y1="259.1" x2="184" y2="259.1"/>
+  <line class="st25" x1="142" y1="275.3" x2="186" y2="275.3"/>
+  <line class="st25" x1="142" y1="285.6" x2="186" y2="285.6"/>
+  <line class="st25" x1="142" y1="297.6" x2="186" y2="297.6"/>
+ </g>
+ <g>
+  <rect x="186" y="249.4" class="st22" width="61.1" height="80.4"/>
+  <rect x="191.6" y="255.4" class="st23" width="11.9" height="21"/>
+  <line class="st24" x1="211.4" y1="260.4" x2="235.6" y2="260.4"/>
+  <line class="st24" x1="211.4" y1="268.4" x2="235.6" y2="268.4"/>
+  <line class="st25" x1="193.6" y1="284.6" x2="237.6" y2="284.6"/>
+  <line class="st25" x1="193.6" y1="294.9" x2="237.6" y2="294.9"/>
+  <line class="st25" x1="193.6" y1="306.9" x2="237.6" y2="306.9"/>
+ </g>
+ <path class="st35" d="M 750.661 153.508 L 788.661 153.508 C 791.461 153.508 793.661 155.57 793.661 158.194 L 793.661 193.815 C 793.661 196.439 791.461 198.501 788.661 198.501 L 750.661 198.501 C 747.861 198.501 745.661 196.439 745.661 193.815 L 745.661 158.194 C 745.661 155.664 747.861 153.508 750.661 153.508 Z" style="fill: rgb(255, 103, 255); clip-rule: evenodd; fill-rule: evenodd;"/>
+ <path d="M 784.951 174.53 C 784.232 174.53 783.622 174.911 783.401 175.482 L 776.643 175.482 L 776.643 171.003 L 775.203 169.765 L 781.462 164.38 C 781.683 164.476 781.906 164.524 782.182 164.524 C 783.124 164.524 783.844 163.904 783.844 163.095 C 783.844 162.284 783.124 161.665 782.182 161.665 C 781.241 161.665 780.521 162.284 780.521 163.095 C 780.521 163.333 780.576 163.523 780.686 163.714 L 774.427 169.098 L 772.988 167.859 L 769.996 167.859 L 769.996 164.428 C 770.661 164.238 771.103 163.714 771.103 163.095 C 771.103 162.284 770.384 161.665 769.442 161.665 C 768.5 161.665 767.781 162.284 767.781 163.095 C 767.781 163.714 768.223 164.238 768.888 164.428 L 768.888 167.859 L 763.017 167.859 L 758.198 163.714 C 758.308 163.523 758.364 163.333 758.364 163.095 C 758.364 162.284 757.644 161.665 756.702 161.665 C 755.761 161.665 755.04 162.284 755.04 163.095 C 755.04 163.904 755.761 164.524 756.702 164.524 C 756.979 164.524 757.201 164.476 757.422 164.38 L 762.241 168.527 L 762.241 175.482 L 756.037 175.482 C 755.816 174.911 755.207 174.53 754.487 174.53 C 753.545 174.53 752.825 175.149 752.825 175.959 C 752.825 176.77 753.545 177.388 754.487 177.388 C 755.207 177.388 755.816 177.008 756.037 176.435 L 762.241 176.435 L 762.241 183.392 L 757.422 187.538 C 757.201 187.443 756.979 187.395 756.702 187.395 C 755.761 187.395 755.04 188.014 755.04 188.824 C 755.04 189.634 755.761 190.254 756.702 190.254 C 757.644 190.254 758.364 189.634 758.364 188.824 C 758.364 188.586 758.308 188.396 758.198 188.205 L 763.017 184.059 L 768.888 184.059 L 768.888 187.491 C 768.223 187.681 767.781 188.205 767.781 188.824 C 767.781 189.634 768.5 190.254 769.442 190.254 C 770.384 190.254 771.103 189.634 771.103 188.824 C 771.103 188.205 770.661 187.681 769.996 187.491 L 769.996 184.059 L 775.868 184.059 L 780.686 188.205 C 780.576 188.396 780.521 188.586 780.521 188.824 C 780.521 189.634 781.241 190.254 782.182 190.254 C 783.124 190.254 783.844 189.634 783.844 188.824 C 783.844 188.014 783.124 187.395 782.182 187.395 C 781.906 187.395 781.683 187.443 781.462 187.538 L 776.643 183.392 L 776.643 176.435 L 783.401 176.435 C 783.622 177.008 784.232 177.388 784.951 177.388 C 785.894 177.388 786.613 176.77 786.613 175.959 C 786.613 175.149 785.894 174.53 784.951 174.53 Z M 782.182 162.618 C 782.515 162.618 782.736 162.808 782.736 163.095 C 782.736 163.381 782.515 163.571 782.182 163.571 C 781.85 163.571 781.628 163.381 781.628 163.095 C 781.628 162.808 781.85 162.618 782.182 162.618 Z M 769.442 162.618 C 769.774 162.618 769.996 162.808 769.996 163.095 C 769.996 163.381 769.774 163.571 769.442 163.571 C 769.11 163.571 768.888 163.381 768.888 163.095 C 768.888 162.808 769.11 162.618 769.442 162.618 Z M 754.487 176.435 C 754.154 176.435 753.933 176.245 753.933 175.959 C 753.933 175.674 754.154 175.482 754.487 175.482 C 754.819 175.482 755.04 175.674 755.04 175.959 C 755.04 176.245 754.819 176.435 754.487 176.435 Z M 769.442 189.3 C 769.11 189.3 768.888 189.11 768.888 188.824 C 768.888 188.538 769.11 188.348 769.442 188.348 C 769.774 188.348 769.996 188.538 769.996 188.824 C 769.996 189.11 769.774 189.3 769.442 189.3 Z M 773.32 169.479 L 774.759 170.718 L 773.32 170.718 L 773.32 169.479 Z M 756.149 163.095 C 756.149 162.808 756.37 162.618 756.702 162.618 C 757.035 162.618 757.257 162.808 757.257 163.095 C 757.257 163.381 757.035 163.571 756.702 163.571 C 756.37 163.571 756.149 163.381 756.149 163.095 Z M 756.702 189.3 C 756.37 189.3 756.149 189.11 756.149 188.824 C 756.149 188.538 756.37 188.348 756.702 188.348 C 757.035 188.348 757.257 188.538 757.257 188.824 C 757.257 189.11 757.035 189.3 756.702 189.3 Z M 763.349 183.106 L 763.349 168.813 L 772.212 168.813 L 772.212 171.672 L 775.535 171.672 L 775.535 183.106 L 763.349 183.106 Z M 782.736 188.824 C 782.736 189.11 782.515 189.3 782.182 189.3 C 781.85 189.3 781.628 189.11 781.628 188.824 C 781.628 188.538 781.85 188.348 782.182 188.348 C 782.515 188.348 782.736 188.538 782.736 188.824 Z M 784.951 176.435 C 784.619 176.435 784.398 176.245 784.398 175.959 C 784.398 175.674 784.619 175.482 784.951 175.482 C 785.284 175.482 785.506 175.674 785.506 175.959 C 785.506 176.245 785.284 176.435 784.951 176.435 Z" style="fill: rgb(255, 255, 255);"/>
+ <rect x="777.052" y="229.097" class="st37" width="61.1" height="82.21" style="stroke: rgb(232, 177, 221); clip-rule: evenodd; fill: rgb(255, 255, 255); fill-rule: evenodd; stroke-miterlimit: 10;"/>
+ <rect x="782.653" y="234.12" class="st38" width="11.9" height="17.58" style="stroke: rgb(232, 177, 221); fill: rgb(232, 177, 221); clip-rule: evenodd; fill-rule: evenodd;"/>
+ <line class="st39" x1="802.552" y1="238.305" x2="826.653" y2="238.305" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="802.552" y1="246.002" x2="826.653" y2="246.002" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="784.653" y1="258.565" x2="828.653" y2="258.565" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="784.653" y1="269.752" x2="828.653" y2="269.752" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="784.653" y1="280.621" x2="828.653" y2="280.621" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <rect x="826.653" y="239.979" class="st37" width="61.1" height="82.21" style="stroke: rgb(232, 177, 221); clip-rule: evenodd; fill: rgb(255, 255, 255); fill-rule: evenodd; stroke-miterlimit: 10;"/>
+ <rect x="832.252" y="244.416" class="st38" width="11.9" height="17.58" style="stroke: rgb(232, 177, 221); fill: rgb(232, 177, 221); clip-rule: evenodd; fill-rule: evenodd;"/>
+ <line class="st39" x1="852.052" y1="248.603" x2="876.252" y2="248.603" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="852.052" y1="256.299" x2="876.252" y2="256.299" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="834.252" y1="270.729" x2="878.252" y2="270.729" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="834.252" y1="280.917" x2="878.252" y2="280.917" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="834.252" y1="292.786" x2="878.252" y2="292.786" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <rect x="876.252" y="248.769" class="st37" width="61.1" height="82.21" style="stroke: rgb(232, 177, 221); clip-rule: evenodd; fill: rgb(255, 255, 255); fill-rule: evenodd; stroke-miterlimit: 10;"/>
+ <rect x="881.852" y="253.625" class="st38" width="11.9" height="17.58" style="stroke: rgb(232, 177, 221); fill: rgb(232, 177, 221); clip-rule: evenodd; fill-rule: evenodd;"/>
+ <line class="st39" x1="901.653" y1="257.811" x2="925.852" y2="257.811" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="901.653" y1="265.508" x2="925.852" y2="265.508" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="883.852" y1="280.611" x2="927.852" y2="280.611" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="883.852" y1="291.797" x2="927.852" y2="291.797" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+ <line class="st39" x1="883.852" y1="303.665" x2="927.852" y2="303.665" style="stroke: rgb(232, 177, 221); fill: none; stroke-miterlimit: 10;"/>
+</svg>
