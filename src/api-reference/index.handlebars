@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1>REST API reference cheat sheet</h1>
+                <h1 class="rest">REST API reference cheat sheet</h1>
             </div>
             <div class="col-xs-12 col-sm-9">
                 <p><em>All our available endpoints. Just for you.</em></p>
@@ -33,7 +33,7 @@
             <div id="navbar" class="col-sm-3 hidden-xs">
                 <nav role="tablist" data-spy="affix" data-offset-top="80">
                     <ul class="nav nav-stacked">
-                        <p class="pre-nav">Browse all our endpoints</p>
+                        <p class="pre-nav rest"><img src="/img/icons/icon--swagger.svg"> REST API endpoints</p>
                         {{#each categories as |category categoryId|}}
                             <li class="main-nav">
                                 <a href="#{{{categoryId}}}">{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</a>
