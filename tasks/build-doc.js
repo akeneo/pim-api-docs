@@ -450,6 +450,39 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
   }
 );
 
+gulp.task('build-events-api', ['clean-dist','less'], function () {
+
+    var pages = {
+        'introduction.md': 'Introduction',
+        'overview.md': 'Overview'
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/events-api/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/events-api/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/events-documentation') + "\n"))
+              .pipe(gulpMarkdownIt(md))
+              .pipe(gulp.dest('tmp/events-documentation/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/events-documentation.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_documentation:  true,
+                        title: 'The Events API basics',
+                        mainContent: fs.readFileSync('tmp/events-documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/events-documentation'));
+              })
+        }));
+  }
+);
+
 gulp.task('build-concepts', ['clean-dist','less'], function () {
 
     var pages = {

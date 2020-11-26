@@ -1,0 +1,18 @@
+{{!-- Shared template for the documentation page and guide pages, as well as the PHP client doc --}}
+{{#> layout title=title }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-xs-9">
+                <h1>{{{title}}}</h1>
+            </div>
+            {{#if image}}
+                <div class="col-md-2 col-xs-3">
+                    <img class="img-responsive" style="margin-top: 20px;" src="../../img/{{image}}"/>
+                </div>
+            {{/if}}
+        </div>
+        <div class="row">
+            {{{mainContent}}}
+        </div>
+    </div>
+{{/layout}}
