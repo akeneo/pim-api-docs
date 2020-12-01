@@ -58,7 +58,7 @@ There are two ways of getting product models.
 **Search builder**
 
 ::: warning
-This feature is only available since the version 3.0 of the PHP REST API client.
+This feature is only available since the version 3.0 of the PHP API client.
 Also it was added in the 2.3 version of the PIM and is therefore not present in previous versions.
 :::
 

@@ -593,7 +593,7 @@ gulp.task('build-php-client', ['clean-dist','less', 'create-resources-md'], func
                 return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation: true,
-                        title: 'PHP REST API client documentation',
+                        title: 'PHP API Client documentation',
                         image: 'illustrations/illus--php-client.svg',
                         mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
