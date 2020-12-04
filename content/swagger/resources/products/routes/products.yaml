@@ -37,6 +37,7 @@ get:
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
     - $ref: '#/parameters/with_attribute_options'
+    - $ref: '#/parameters/with_quality_scores'
   responses:
     200:
       description: Return products paginated
@@ -210,6 +211,20 @@ get:
                     }
                   ]
                 }
+              },
+              "quality_scores": {
+                "print": {
+                  "en_US": "A",
+                  "fr_FR": "B"
+                },
+                "mobile": {
+                  "en_US": "C",
+                  "fr_FR": "D"
+                },
+                "ecommerce": {
+                  "en_US": "A",
+                  "fr_FR": "E"
+                }
               }
             },
             {
@@ -298,7 +313,21 @@ get:
                   "groups": []
                 }
               },
-              "quantified_associations": {}
+              "quantified_associations": {},
+              "quality_scores": {
+                "print": {
+                  "en_US": "A",
+                  "fr_FR": "B"
+                },
+                "mobile": {
+                  "en_US": "C",
+                  "fr_FR": "D"
+                },
+                "ecommerce": {
+                  "en_US": "A",
+                  "fr_FR": "E"
+                }
+              }
             },
             {
               "_links": {
@@ -317,7 +346,8 @@ get:
               "created": "2016-06-23T11:24:44+02:00",
               "updated": "2016-06-23T11:24:44+02:00",
               "associations": {},
-              "quantified_associations": {}
+              "quantified_associations": {},
+              "quality_scores": {}
             }
           ]
         }

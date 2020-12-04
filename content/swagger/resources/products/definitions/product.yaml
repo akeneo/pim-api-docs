@@ -134,6 +134,9 @@ properties:
         description: Status of the product regarding the user permissions (only available since the v2.0 in the Enterprise Edition)
         type: string
         enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
+  quality_scores:
+    type: object
+    description: Only available when query parameter "with_quality_scores" is set to "true"
 
 example: {
   "identifier": "top",
@@ -268,6 +271,20 @@ example: {
           "quantity": 2
         }
       ]
+    }
+  },
+  "quality_scores": {
+    "print": {
+      "en_US": "A",
+      "fr_FR": "B"
+    },
+    "mobile": {
+      "en_US": "C",
+      "fr_FR": "D"
+    },
+    "ecommerce": {
+      "en_US": "A",
+      "fr_FR": "E"
     }
   }
 }
