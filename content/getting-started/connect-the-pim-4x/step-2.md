@@ -11,7 +11,7 @@ Indeed, we have a marketplace on which our dear ecosystem publishes its own tool
 So, we definitely recommend you to take a look at it and try to find a connector that can suit your use case. It will save you a lot of time!
 
 1. Navigate to the [marketplace](https://marketplace.akeneo.com/extensions?edition=all&version=all&api_use=1&sort=date) website.  
-The results are already filtered to show you the API-based connectors only.
+The results are already filtered to show you the REST API-based connectors only.
 1. In this list of connectors, try to find the one that can fit your use case best.
 
 You found what you were looking for? Great! You can now install your connector and go directly to the [third step of this tutorial](/getting-started/connect-the-pim-4x/step-3.html).
@@ -28,7 +28,7 @@ Below are the macro steps to successfully go through this development.
 1. Have your connection use case in mind
 2. Find out what are the third-party connection possibilities
 3. Choose your integration frequency
-4. Explore our API reference
+4. Explore our REST API reference
 5. Think about your architecture
 6. Orchestrate your global connector
 
@@ -54,8 +54,8 @@ Define how often you want your connector to integrate data into the PIM or retri
 #### In this tutorial
 _In our example, as stated above, we know that every day, new products are created in the ERP. So we define that our connector will integrate new products, once a day at midnight, outside working hours, to lower  the PIM load as much as possible._
 
-### 4- Explore our API reference
-In this step, you will need to find in our [API reference](/api-reference-index.html) the endpoints you need to achieve such a connection. 
+### 4- Explore our REST API reference
+In this step, you will need to find in our [REST API reference](/api-reference-index.html) the endpoints you need to achieve such a connection. 
 
 #### In this tutorial
 _For our example, you will need to create and update products in the PIM so we will mainly need this endpoint: [Patch](/api-reference.html#patch_products) on products._
@@ -77,7 +77,7 @@ _For our example, we choose the second option as there are little chances that y
 A crucial step. In most cases, you will need to manually map some PIM information with the data sent or received in or from the software you want to connect.
 
 #### In this tutorial
-_For our example, here is the global orchestration of our connector. First, every evening, you will extract the list of products that were created/updated during the day, in an XML file. Then, your connector reads this file. ERP products are then transformed into PIM products, by mapping the ERP information with the right PIM attributes. Lastly, the connector sends the PIM products by using the [patch](/api-reference.html#patch_products) endpoint of our API._
+_For our example, here is the global orchestration of our connector. First, every evening, you will extract the list of products that were created/updated during the day, in an XML file. Then, your connector reads this file. ERP products are then transformed into PIM products, by mapping the ERP information with the right PIM attributes. Lastly, the connector sends the PIM products by using the [patch](/api-reference.html#patch_products) endpoint of our REST API._
 
 ## Some pro tips
 
@@ -106,7 +106,7 @@ To help you in this task, here are examples of questions you can ask yourself:
 - _"How many [products](/concepts/products.html#product), [product models](/concepts/products.html#product-model), [assets](/concepts/asset-manager.html), [reference entity records](/concepts/reference-entities.html#reference-entity-record) or [options](/concepts/catalog-structure.html#attribute-option) your connector will handle?"_
 - _"How big are your products, product models, assets or reference entities in terms of number of attributes completed?"_
 
-Also, don't forget to think about the fact that every API call you are doing has an impact on the **PIM load**. Always keep in mind that your connector won't be the only one connected to the PIM. Try to keep your load as low as possible. To do so, you can use caches for example.
+Also, don't forget to think about the fact that every REST API call you are doing has an impact on the **PIM load**. Always keep in mind that your connector won't be the only one connected to the PIM. Try to keep your load as low as possible. To do so, you can use caches for example.
 
 ### Test, test and test
 

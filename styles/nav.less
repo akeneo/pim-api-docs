@@ -82,9 +82,16 @@ nav {
 ul.nav.nav-stacked {
     padding: 30px 20px 0 0;
     width: 285px;
+    
+    p.rest {
+        color: @api-rest;
+    }
+    p.events {
+        color: @api-events;
+    }
+
     p.pre-nav {
-        color: @gray-light;
-        padding-left: 10px;
+        font-weight: bold;
     }
     @media (max-width: @screen-md-max) {
         width: 200px;
@@ -105,10 +112,24 @@ ul.nav.nav-stacked {
             left: -2px;
             top: 0;
             z-index: 100;
+
+            .rest &{
+                color: @api-rest;
+            }
+            .events &{
+                color: @api-events;
+            }
         }
         &.active > a {
-           color: @brand-info;
+            .rest &{
+                color: @api-rest;
+            }
+            .events &{
+                color: @api-events;
+            }
+            color: @brand-info;
         }
+        
         > ul li {
             display: none;
             position: relative;
@@ -128,6 +149,12 @@ ul.nav.nav-stacked {
                 top: -3px;
             }
             &.active > a {
+                .rest &{
+                    color: @api-rest;
+                }
+                .events &{
+                    color: @api-events;
+                }
                 color: @brand-info;
             }
         }

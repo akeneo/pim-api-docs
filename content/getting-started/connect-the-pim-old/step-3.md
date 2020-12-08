@@ -11,7 +11,7 @@ Let's now configure your connection with the credentials!
 
 ## Step by step
 Give this set of credentials to the connector you cooked in step 1.  
-They will authenticate all its API calls.
+They will authenticate all its REST API calls.
 
 You can now use your connector for real and test the entire workflow, from the product creation in your ERP to their creation into the PIM, for our tutorial example.
 

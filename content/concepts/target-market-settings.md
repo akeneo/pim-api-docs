@@ -3,7 +3,7 @@
 Product information enriched in the PIM is meant to be distributed across your channels. Otherwise gathering so much information into one single source of truth would be quite useless, right? :wink:
 
 Target market settings are here to specify those distribution channels. You can interact with these entities through the following resources.  
-Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API.
+Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API.
 
 ## Locale
 ::: availability versions=1.7,2.x,3.x,4.0,Serenity editions=CE,EE
@@ -58,7 +58,7 @@ In the Akeneo UI, you can find them in the `Settings`/`Channels` menu.
 ::: version-screenshots id="channels" 2.x![Channels in the Akeneo UI](/img/concepts/channels_ui.png) 1.7![Channels in the Akeneo UI](/img/concepts/v1.7/channels_ui.png)
 :::
 
-Below is the JSON standard format representing this set of channels when requested through the API.
+Below is the JSON standard format representing this set of channels when requested through the REST API.
 
 ```json
 {

@@ -421,10 +421,10 @@
       </g>
     </g>
     <text font-family="Lato-Medium, Lato" font-size="15" font-weight="400" fill="#8F92C7">
-      <tspan x="333.456" y="277">Send via API</tspan>
+      <tspan x="333.456" y="277">Send via REST API</tspan>
     </text>
     <text font-family="Lato-Medium, Lato" font-size="15" font-weight="400" fill="#8F92C7">
-      <tspan x="333.456" y="471">Send via API</tspan>
+      <tspan x="333.456" y="471">Send via REST API</tspan>
     </text>
     <g>
       <path d="M892.5 537.312V534.5c0-11.046-8.954-20-20-20h-80.583" stroke="#8F92C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2,6"/>
@@ -461,7 +461,7 @@
       <circle cx="5.5" cy="7.5" r="5.5" transform="translate(232 398)" fill="#8F92C7"/>
     </g>
     <text font-family="Lato-Medium, Lato" font-size="15" font-weight="400" fill="#8F92C7">
-      <tspan x="333.456" y="652">Send via API</tspan>
+      <tspan x="333.456" y="652">Send via REST API</tspan>
     </text>
     <g>
       <path d="M371.5 659.678V681.5c0 11.046 8.954 20 20 20h122" stroke="#8F92C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2,6"/>
@@ -472,7 +472,7 @@
       <circle cx="5.5" cy="7.5" r="5.5" transform="translate(211 579)" fill="#8F92C7"/>
     </g>
     <text font-family="Lato-Medium, Lato" font-size="15" font-weight="400" fill="#8F92C7">
-      <tspan x="333.456" y="768">Send via API</tspan>
+      <tspan x="333.456" y="768">Send via REST API</tspan>
     </text>
     <g>
       <path d="M371.5 747.965V738.5c0-11.046 8.954-20 20-20h122" stroke="#8F92C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2,6"/>

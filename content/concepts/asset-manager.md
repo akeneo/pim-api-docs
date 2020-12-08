@@ -11,7 +11,7 @@ Below, you'll find an illustration of this wonderful new feature.
 
 ![Asset manager schema](/img/concepts/asset-manager.svg)
 
-This part of the documentation introduces all the API resources our team created to interact with the Asset Manager.
+This part of the documentation introduces all the REST API resources our team created to interact with the Asset Manager.
 
 ::: info
 The Asset Manager is an Entreprise only feature, meaning all the following resources are only available in the Entreprise Edition.
@@ -1972,7 +1972,7 @@ In the answer, you'll find in the `reference_data_name` property, the code of th
 
 Asset values hold all the information of an asset. More specifically, they are the values of the attributes you will find in a given asset.
 
-In the API, the asset values are in the `values` property of the asset.
+In the REST API, the asset values are in the `values` property of the asset.
 
 ### The global format
 

@@ -259,7 +259,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'welcome.md': 'Welcome',
                 'step-1.md': 'Step 1 | Create a Connection',
                 'step-2.md': 'Step 2 | Set up Postman',
-                'step-3.md': 'Step 3 | Make the API request'
+                'step-3.md': 'Step 3 | Make the REST API request'
             }
         },
         'your-first-tutorial-old': {
@@ -271,7 +271,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'welcome.md': 'Welcome',
                 'step-1.md': 'Step 1 | Generate the credentials',
                 'step-2.md': 'Step 2 | Set up Postman',
-                'step-3.md': 'Step 3 | Make the API request'
+                'step-3.md': 'Step 3 | Make the REST API request'
             }
         },
         'connect-the-pim-4x': {
@@ -413,7 +413,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
 gulp.task('build-rest-api', ['clean-dist','less'], function () {
 
     var pages = {
-        'why-the-api.md': "Why the API?",
+        'why-the-api.md': "Why the REST API?",
         'overview.md': 'Overview',
         'authentication.md': 'Authentication',
         'permissions.md': 'Permissions',
@@ -437,7 +437,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation:  true,
-                        title: 'The API basics',
+                        title: 'The REST API basics',
                         mainContent: fs.readFileSync('tmp/documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -445,6 +445,39 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
                     .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
                     .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                     .pipe(gulp.dest('./dist/documentation'));
+              })
+        }));
+  }
+);
+
+gulp.task('build-events-api', ['clean-dist','less'], function () {
+
+    var pages = {
+        'introduction.md': 'Introduction',
+        'overview.md': 'Overview'
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/events-api/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/events-api/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/events-documentation') + "\n"))
+              .pipe(gulpMarkdownIt(md))
+              .pipe(gulp.dest('tmp/events-documentation/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/events-documentation.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_documentation:  true,
+                        title: 'The Events API basics',
+                        mainContent: fs.readFileSync('tmp/events-documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/events-documentation'));
               })
         }));
   }
@@ -560,7 +593,7 @@ gulp.task('build-php-client', ['clean-dist','less', 'create-resources-md'], func
                 return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation: true,
-                        title: 'PHP API client documentation',
+                        title: 'PHP API Client documentation',
                         image: 'illustrations/illus--php-client.svg',
                         mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
