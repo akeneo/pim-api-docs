@@ -212,20 +212,28 @@ get:
                   ]
                 }
               },
-              "quality_scores": {
-                "print": {
-                  "en_US": "A",
-                  "fr_FR": "B"
-                },
-                "mobile": {
-                  "en_US": "C",
-                  "fr_FR": "D"
-                },
-                "ecommerce": {
-                  "en_US": "A",
-                  "fr_FR": "E"
-                }
-              }
+              "quality_scores": [
+                  {
+                      "scope": "ecommerce",
+                      "locale": "en_US",
+                      "data": "A",
+                  },
+                  {
+                      "scope": "ecommerce",
+                      "locale": "fr_FR",
+                      "data": "B",
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "en_US",
+                      "data": "D",
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "fr_FR",
+                      "data": "E",
+                  },
+              ]
             },
             {
               "_links": {
@@ -314,20 +322,28 @@ get:
                 }
               },
               "quantified_associations": {},
-              "quality_scores": {
-                "print": {
-                  "en_US": "A",
-                  "fr_FR": "B"
-                },
-                "mobile": {
-                  "en_US": "C",
-                  "fr_FR": "D"
-                },
-                "ecommerce": {
-                  "en_US": "A",
-                  "fr_FR": "E"
-                }
-              }
+              "quality_scores": [
+                  {
+                      "scope": "ecommerce",
+                      "locale": "en_US",
+                      "data": "A",
+                  },
+                  {
+                      "scope": "ecommerce",
+                      "locale": "fr_FR",
+                      "data": "B",
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "en_US",
+                      "data": "C",
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "fr_FR",
+                      "data": "D",
+                  },
+              ]
             },
             {
               "_links": {

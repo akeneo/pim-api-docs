@@ -273,18 +273,26 @@ example: {
       ]
     }
   },
-  "quality_scores": {
-    "print": {
-      "en_US": "A",
-      "fr_FR": "B"
+  "quality_scores": [
+    {
+      "scope": "ecommerce",
+      "locale": "en_US",
+      "data": "A",
     },
-    "mobile": {
-      "en_US": "C",
-      "fr_FR": "D"
+    {
+      "scope": "ecommerce",
+      "locale": "fr_FR",
+      "data": "B",
     },
-    "ecommerce": {
-      "en_US": "A",
-      "fr_FR": "E"
-    }
-  }
+    {
+      "scope": "tablet",
+      "locale": "en_US",
+      "data": "D",
+    },
+    {
+      "scope": "tablet",
+      "locale": "fr_FR",
+      "data": "E",
+    },
+  ]
 }
