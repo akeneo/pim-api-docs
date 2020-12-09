@@ -216,23 +216,23 @@ get:
                   {
                       "scope": "ecommerce",
                       "locale": "en_US",
-                      "data": "A",
+                      "data": "A"
                   },
                   {
                       "scope": "ecommerce",
                       "locale": "fr_FR",
-                      "data": "B",
+                      "data": "B"
                   },
                   {
                       "scope": "tablet",
                       "locale": "en_US",
-                      "data": "D",
+                      "data": "D"
                   },
                   {
                       "scope": "tablet",
                       "locale": "fr_FR",
-                      "data": "E",
-                  },
+                      "data": "E"
+                  }
               ]
             },
             {
@@ -326,23 +326,23 @@ get:
                   {
                       "scope": "ecommerce",
                       "locale": "en_US",
-                      "data": "A",
+                      "data": "A"
                   },
                   {
                       "scope": "ecommerce",
                       "locale": "fr_FR",
-                      "data": "B",
+                      "data": "B"
                   },
                   {
                       "scope": "tablet",
                       "locale": "en_US",
-                      "data": "C",
+                      "data": "C"
                   },
                   {
                       "scope": "tablet",
                       "locale": "fr_FR",
-                      "data": "D",
-                  },
+                      "data": "D"
+                  }
               ]
             },
             {
