@@ -137,6 +137,8 @@ properties:
   quality_scores:
     type: object
     description: Only available when query parameter "with_quality_scores" is set to "true" (only available in Serenity)
+    x-immutable: true
+    x-read-only: true
 
 example: {
   "identifier": "top",
