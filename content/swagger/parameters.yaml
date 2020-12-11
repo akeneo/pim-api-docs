@@ -95,7 +95,7 @@ with_attribute_options:
 with_quality_scores:
   name: with_quality_scores
   in: query
-  description: Return product's quality scores in the response.
+  description: Return product quality scores in the response.
   default: false
   type: boolean
   required: false
