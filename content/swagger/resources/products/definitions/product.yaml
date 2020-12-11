@@ -136,7 +136,7 @@ properties:
         enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
   quality_scores:
     type: object
-    description: Only available when query parameter "with_quality_scores" is set to "true"
+    description: Only available when query parameter "with_quality_scores" is set to "true" (only available in Serenity)
 
 example: {
   "identifier": "top",
