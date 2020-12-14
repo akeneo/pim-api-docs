@@ -119,7 +119,7 @@ Note that the `quantified_associations` field is only available in Serenity.
 :::
 
 ::: warning
-Note that the `quality_scores` field is only available in Serenity and when the "with_quality_scores" query parameter is set to "true".
+Note that the `quality_scores` field is only available in Serenity and when the `with_quality_scores` query parameter is set to `true`.
 :::
 
 ::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Product)
