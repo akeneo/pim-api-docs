@@ -134,6 +134,10 @@ properties:
     description: Reference entity code when the attribute type is `akeneo_reference_entity` or `akeneo_reference_entity_collection` OR Asset family code when the attribute type is `pim_catalog_asset_collection`
     x-validation-rules: Required only for `akeneo_reference_entity` or `akeneo_reference_entity_collection` or `pim_catalog_asset_collection` attribute types
     x-warning: Only for `akeneo_reference_entity` or `akeneo_reference_entity_collection` or `pim_catalog_asset_collection` attribute types
+  default_value:
+    type: boolean
+    description: Default value for a Yes/No attribute, applied when creating a new product or product model (only available in Serenity)
+    x-warning: Only for `pim_catalog_boolean` attribute type
 example: {
   "code": "release_date",
   "type": "pim_catalog_date",
@@ -164,6 +168,7 @@ example: {
   "sort_order": 1,
   "localizable": false,
   "scopable": false,
+  "default_value": null,
   "labels": {
     "en_US": "Sale date",
     "fr_FR": "Date des soldes"
