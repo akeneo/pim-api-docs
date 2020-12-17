@@ -1,18 +1,26 @@
 {{#*inline "properties"}}
 {{#each properties}}
-<p class="def-key">
-    <code>{{{@key}}}</code>
+<li class="def-key">
+    <code>{{@key}}</code>
     <em>({{{type}}})</em>
 
-    {{#each this.properties}}
-    {{#if properties}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; { <br>
-    {{> properties properties=this }}
-    &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ]
-    {{else}}
-    &bull; {{{../description}}}
+    {{#if this.description}}
+    &bull; {{{description}}}
     {{/if}}
+
+    {{#if this.properties}}
+    : { <ul>{{> properties properties=this.properties }}</ul> }
+    {{/if}}
+
+    {{!-- {{#if this.items}}
+    : [
+    {{#each this.items}}
+    { <ul>{{> properties properties=this }}</ul> }
     {{/each}}
-</p>
+    ]
+    {{/if}} --}}
+
+</li>
 {{/each}}
 {{/inline}}
 
@@ -20,41 +28,8 @@
     <div class="col-xs-12">
         <div class="def">
             <p class="def-key">{</p>
-            {{> properties }}
+            <ul>{{> properties }}</ul>
             <p class="def-key">}</p>
         </div>
     </div>
 </div>
-
-{{!-- <em>
-    ({{{type}}}
-    {{#with items}}[{{{type}}}]{{/with}}
-    {{#each properties}}
-    {{#if @first}}&#123;{{/if}}
-    {{{@key}}} : {{{type}}}
-    {{#each properties}}
-    {{#if @first}}&#123;{{/if}}
-    {{{@key}}} : {{{type}}}
-    {{#with items}}[{{{type}}}]{{/with}}
-    {{#if @last}} &#125;{{else}} , {{/if}}
-    {{/each}}
-    {{#with items}}
-    [
-    {{{type}}}
-    {{#each properties}}
-    {{#if @first}}&#123;{{/if}}
-    {{{@key}}} : {{{type}}}
-    {{#with items}}[{{{type}}}]{{/with}}
-    {{#if @last}} &#125;{{else}}, {{/if}}
-    {{/each}}
-    ]
-    {{/with}}
-    {{#if @last}}&#125;{{else}} , {{/if}}
-    {{/each}}
-</em>
-{{#if properties}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; { <br>
-{{> properties }}
-&nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ]
-{{else}}
-&bull; {{{../description}}}
-{{/if}} --}}
