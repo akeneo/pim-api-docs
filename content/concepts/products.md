@@ -125,6 +125,13 @@ Note that the `quality_scores` field is only available in Serenity and when the 
 ::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Product)
 :::
 
+### Convert a variant product to a simple product
+::: availability versions=Serenity editions=CE,EE
+:::
+
+A variant product, which has a product model as parent, can be converted to a simple product by removing its parent. To perform this action through the API, you just have to update the `parent` field to `null`. 
+By default all the former values, categories and associations (included those defined at the parent level) will be kept if they are not specified in the PATCH request.
+
 ## Focus on the product values
 
 Product values hold all the information of the product. They are part of the [Product resource](#product). In concrete terms, it is the values of the product attributes.
