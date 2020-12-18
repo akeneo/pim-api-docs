@@ -24,7 +24,6 @@ properties:
     description: Code of the parent product model when the product is a variant (only available since the 2.0). This parent can be modified since the 2.3.
   values:
     type: object
-    description: "Product attributes values, see <a href='/concepts/products.html#focus-on-the-products-values'>Product values</a> section for more details"
     properties:
       attributeCode:
         type: array

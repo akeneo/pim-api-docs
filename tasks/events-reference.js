@@ -22,6 +22,12 @@ var jsonTransform = require('gulp-json-transform');
 var _ = require('lodash');
 var yaml = require('js-yaml');
 
+
+hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+});
+
+
 function getTocMarkdown(isOnePage, pages, currentPage, baseUrl) {
     if(isOnePage){
         return "\n\n:::: toc\n@[toc]\n\n::::\n\n";
