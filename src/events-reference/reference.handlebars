@@ -4,20 +4,22 @@
 
     <code>{{@key}}</code>
 
-    {{#if this.items}}
+    {{#ifEquals this.type "array"}}
          <em>({{{type}}}[{{{this.items.type}}}])</em>
     {{else}}
         <em>({{{type}}})</em>
-    {{/if}}
+    {{/ifEquals}}
 
     {{#if this.description}}
         &bull; {{{description}}}
     {{/if}}
 
+    {{! the current line  defines an object with properties}}
     {{#if this.properties}}
     : { <ul>{{> properties properties=this.properties }}</ul> }
     {{/if}}
 
+    {{! the current line defines an array with items}}
     {{#if this.items}}
         {{#ifEquals this.items.type "object"}}
             : [
@@ -28,11 +30,7 @@
                 }
             ]
         {{/ifEquals}}
-
-
-
     {{/if}}
-
 
 </li>
 {{/each}}
