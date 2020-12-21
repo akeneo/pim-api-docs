@@ -38,7 +38,7 @@ A product updated event follows this format:
                                 "locale": null,
                                 "scope": null,
                                 "data": [
-                                    "summer_2017"
+                                    "winter_2020"
                                 ]
                             }
                         ],
