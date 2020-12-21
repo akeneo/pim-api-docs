@@ -7,7 +7,7 @@ properties:
       properties:
         action:
           type: string
-          description: Action that triggered the event
+          description: Event type
         event_id:
           type: string
           description: Event identifier
