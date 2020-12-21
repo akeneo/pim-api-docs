@@ -10,7 +10,7 @@ properties:
           description: Event type
         event_id:
           type: string
-          description: Event identifier
+          description: Unique event identifier
         event_date:
           type: string
           description: Event datetime
