@@ -8,7 +8,8 @@ TODO
 
 ### Format
 A product updated event follows this format:
-TODO
+::: event_api_reference content/events-reference/events-reference-serenity/resources/product-updated.yml
+:::
 
 ### Example
 ```json
