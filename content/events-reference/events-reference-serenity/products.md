@@ -120,6 +120,3 @@ A product updated event follows this format:
     ]
 }
 ```
-
-## Product removed
-TODO
