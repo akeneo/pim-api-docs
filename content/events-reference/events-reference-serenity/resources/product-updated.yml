@@ -121,7 +121,7 @@ properties:
               format: dateTime
             updated:
               type: string
-              description: Date of the last update
+              description: Date of the last product update
               format: dateTime
             metadata:
               type: object
