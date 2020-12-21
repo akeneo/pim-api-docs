@@ -22,7 +22,7 @@ properties:
           description: Type of the author "ui" or "api"
         pim_source:
           type: string
-          description: Pim source
+          description: URL of the PIM that sends the event
         data:
           type: object
           properties:
