@@ -125,7 +125,7 @@ properties:
               format: dateTime
             metadata:
               type: object
-              description: More information around the product (only available since the v2.0 in the Enterprise Edition)
+              description: More information around the product (only available in the Enterprise Edition)
               properties:
                 workflow_status:
                   description: Status of the product regarding the user permissions (only available in the Enterprise Edition)
