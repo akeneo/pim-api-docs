@@ -117,7 +117,7 @@ properties:
                             type: integer
             created:
               type: string
-              description: Date of creation
+              description: Product creation date
               format: dateTime
             updated:
               type: string
