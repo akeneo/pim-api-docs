@@ -76,7 +76,7 @@ properties:
                   properties:
                     groups:
                       type: array
-                      description: Array of groups codes with which the product is in relation
+                      description: Array of group codes with which the product is in relation
                       items:
                         type: string
                     products:
