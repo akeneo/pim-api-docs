@@ -37,6 +37,7 @@ get:
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
     - $ref: '#/parameters/with_attribute_options'
+    - $ref: '#/parameters/with_quality_scores'
   responses:
     200:
       description: Return products paginated
@@ -210,7 +211,29 @@ get:
                     }
                   ]
                 }
-              }
+              },
+              "quality_scores": [
+                  {
+                      "scope": "ecommerce",
+                      "locale": "en_US",
+                      "data": "A"
+                  },
+                  {
+                      "scope": "ecommerce",
+                      "locale": "fr_FR",
+                      "data": "B"
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "en_US",
+                      "data": "D"
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "fr_FR",
+                      "data": "E"
+                  }
+              ]
             },
             {
               "_links": {
@@ -298,7 +321,29 @@ get:
                   "groups": []
                 }
               },
-              "quantified_associations": {}
+              "quantified_associations": {},
+              "quality_scores": [
+                  {
+                      "scope": "ecommerce",
+                      "locale": "en_US",
+                      "data": "A"
+                  },
+                  {
+                      "scope": "ecommerce",
+                      "locale": "fr_FR",
+                      "data": "B"
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "en_US",
+                      "data": "C"
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "fr_FR",
+                      "data": "D"
+                  }
+              ]
             },
             {
               "_links": {
@@ -317,7 +362,8 @@ get:
               "created": "2016-06-23T11:24:44+02:00",
               "updated": "2016-06-23T11:24:44+02:00",
               "associations": {},
-              "quantified_associations": {}
+              "quantified_associations": {},
+              "quality_scores": {}
             }
           ]
         }
