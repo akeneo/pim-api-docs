@@ -232,16 +232,16 @@ md.use(require('markdown-it-container'), 'panel-link', {
     }
 });
 
-md.use(require("markdown-it-container"), "reference", {
+md.use(require("markdown-it-container"), "event_api_reference", {
     validate: function (params) {
-        return params.trim().match(/^reference(.*)$/);
+        return params.trim().match(/^event_api_reference(.*)$/);
     },
     render: function (tokens, idx) {
         if (tokens[idx].nesting !== 1) {
             return '';
         }
         
-        const m = tokens[idx].info.trim().match(/^reference(.*)$/);
+        const m = tokens[idx].info.trim().match(/^event_api_reference(.*)$/);
         const referenceFilePath = m[1].trim();
 
         const data = yaml.safeLoad(
