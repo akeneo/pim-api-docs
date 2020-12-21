@@ -67,7 +67,7 @@ properties:
                         description: Product value
                       linked_data:
                         type: object
-                        description: Object containing labels of attribute options (only available in Serenity and when query parameter "with_attribute_options" is set to "true"). See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
+                        description: Object containing labels of attribute options. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
             associations:
               type: object
               properties:
