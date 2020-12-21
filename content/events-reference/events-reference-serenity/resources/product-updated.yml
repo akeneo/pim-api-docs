@@ -86,7 +86,7 @@ properties:
                         type: string
                     product_models:
                       type: array
-                      description: Array of product model codes with which the product is in relation (only available since the v2.1)
+                      description: Array of product model codes with which the product is in relation.
                       items:
                         type: string
             quantified_associations:
