@@ -92,3 +92,10 @@ with_attribute_options:
   default: false
   type: boolean
   required: false
+with_quality_scores:
+  name: with_quality_scores
+  in: query
+  description: Return product quality scores in the response. (Only available in the PIM Serenity version.)
+  default: false
+  type: boolean
+  required: false
