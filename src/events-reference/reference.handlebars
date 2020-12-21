@@ -2,21 +2,23 @@
     {{#each properties}}
         <li class="def-key">
             <code>{{@key}}</code>
-            {{! display the type of the propertie}}
+
             {{#ifEquals this.type "array"}}
                  <em>({{{type}}}[{{{this.items.type}}}])</em>
             {{else}}
                 <em>({{{type}}})</em>
             {{/ifEquals}}
-            {{! display the description of the propertie}}
+
             {{#if this.description}}
                 &bull; {{{description}}}
             {{/if}}
-            {{! the current line  defines an object with properties}}
+
+            {{! the current propertie defines an object}}
             {{#if this.properties}}
             : { <ul>{{> properties properties=this.properties }}</ul> }
             {{/if}}
-            {{! the current line defines an array with items}}
+
+            {{! the current propertie defines an array}}
             {{#if this.items}}
                 {{#ifEquals this.items.type "object"}}:
                 [
