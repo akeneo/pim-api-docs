@@ -49,7 +49,7 @@ A product updated event follows this format:
                                 "data": "9/9/c/c/99cc83f105199c667505cfa8ec1458c8be4f0814_sunglasses.jpg",
                                 "_links": {
                                     "download": {
-                                        "href": "http://localhost/api/rest/v1/media-files/9/9/c/c/99cc83f105199c667505cfa8ec1458c8be4f0814_sunglasses.jpg/download"
+                                        "href": "http://demo.akeneo.com/api/rest/v1/media-files/9/9/c/c/99cc83f105199c667505cfa8ec1458c8be4f0814_sunglasses.jpg/download"
                                     }
                                 }
                             }
