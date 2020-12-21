@@ -65,9 +65,6 @@ properties:
                       data:
                         type: object
                         description: Product value
-                      linked_data:
-                        type: object
-                        description: Object containing labels of attribute options. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
             associations:
               type: object
               properties:
