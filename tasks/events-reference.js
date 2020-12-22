@@ -20,6 +20,11 @@ var revReplace = require('gulp-rev-replace');
 var swagger = require('gulp-swagger');
 var jsonTransform = require('gulp-json-transform');
 var _ = require('lodash');
+var yaml = require('js-yaml');
+
+hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+});
 
 function getTocMarkdown(isOnePage, pages, currentPage, baseUrl) {
     if(isOnePage){
@@ -223,6 +228,30 @@ md.use(require('markdown-it-container'), 'panel-link', {
             return '</div></a></div></div></div>\n';
         }
     }
+});
+
+md.use(require("markdown-it-container"), "event_api_reference", {
+    validate: function (params) {
+        return params.trim().match(/^event_api_reference(.*)$/);
+    },
+    render: function (tokens, idx) {
+        if (tokens[idx].nesting !== 1) {
+            return '';
+        }
+        
+        const m = tokens[idx].info.trim().match(/^event_api_reference(.*)$/);
+        const referenceFilePath = m[1].trim();
+
+        const data = yaml.safeLoad(
+            fs.readFileSync(referenceFilePath, "utf8")
+        );
+
+        const template = hbs.compile(
+            fs.readFileSync("src/events-reference/reference.handlebars", "utf8")
+        );
+
+        return template(data);
+    },
 });
 
 gulp.task('build-events-reference-page', ['clean-dist','less'], function () {
