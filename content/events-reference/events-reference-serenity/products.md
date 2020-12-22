@@ -20,7 +20,8 @@ A product updated event follows this format:
             "event_id": "c306e088-fb76-479c-bbc0-18fef19da75d",
             "event_date": "2020-10-20T09:13:59+00:00",
             "author": "peter",
-            "pim_source": "https://pimci-pr-9739.dev.cloud.akeneo.com",
+            "author_type": "ui",
+            "pim_source": "https://demo.akeneo.com",
             "data": {
                 "resource": {
                     "identifier": "1111111304",
@@ -38,7 +39,7 @@ A product updated event follows this format:
                                 "locale": null,
                                 "scope": null,
                                 "data": [
-                                    "summer_2017"
+                                    "winter_2020"
                                 ]
                             }
                         ],
@@ -49,7 +50,7 @@ A product updated event follows this format:
                                 "data": "9/9/c/c/99cc83f105199c667505cfa8ec1458c8be4f0814_sunglasses.jpg",
                                 "_links": {
                                     "download": {
-                                        "href": "http://localhost/api/rest/v1/media-files/9/9/c/c/99cc83f105199c667505cfa8ec1458c8be4f0814_sunglasses.jpg/download"
+                                        "href": "http://demo.akeneo.com/api/rest/v1/media-files/9/9/c/c/99cc83f105199c667505cfa8ec1458c8be4f0814_sunglasses.jpg/download"
                                     }
                                 }
                             }
@@ -120,3 +121,6 @@ A product updated event follows this format:
     ]
 }
 ```
+
+## Product removed
+TODO
