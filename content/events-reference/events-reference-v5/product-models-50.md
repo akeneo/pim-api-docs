@@ -11,7 +11,7 @@ TODO
 
 ### Format
 A product model removed event follows this format:
-::: event_api_reference content/events-reference/events-reference-serenity/resources/product-model-removed.yml
+::: event_api_reference content/events-reference/events-reference-v5/resources/product-model-removed-50.yml
 :::
 
 ### Example
