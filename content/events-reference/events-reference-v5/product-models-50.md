@@ -8,7 +8,7 @@ TODO
 
 ### Format
 A product model updated event follows this format:
-::: event_api_reference content/events-reference/events-reference-serenity/resources/product-model-updated.yml
+::: event_api_reference content/events-reference/events-reference-v5/resources/product-model-updated-50.yml
 :::
 
 ### Example
