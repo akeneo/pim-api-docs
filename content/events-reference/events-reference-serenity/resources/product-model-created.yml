@@ -34,7 +34,7 @@ properties:
               description: Whether the product model is enable
             family:
               type: string
-              description: Family code from which the product model inherits its attributes and attributes requirements
+              description: Family code from which the product model inherits its attributes and attribute requirements
             family_variant:
               type: string
               description: Family variant code from which the product model inherits its attributes and attribute requirements
