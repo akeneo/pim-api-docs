@@ -1,5 +1,4 @@
 # Product models
-TODO
 
 ## Product model created
 

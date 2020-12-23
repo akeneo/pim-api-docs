@@ -1,5 +1,4 @@
 # Products
-TODO
 
 ## Product created
 
