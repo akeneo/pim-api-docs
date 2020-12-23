@@ -5,7 +5,7 @@ TODO
 
 ### Format
 A product model created event follows this format:
-::: event_api_reference content/events-reference/events-reference-serenity/resources/product-model-created.yml
+::: event_api_reference content/events-reference/events-reference-v5/resources/product-model-created-50.yml
 :::
 
 ### Example
