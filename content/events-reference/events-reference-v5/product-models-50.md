@@ -84,7 +84,7 @@ A product model created event follows this format:
                             }
                         ]
                     },
-                    "created": "2020-10-20T08:30:28+00:00",
+                    "created": "2020-10-20T09:13:59+00:00",
                     "updated": "2020-10-20T09:13:59+00:00",
                     "associations": {
                         "PACK": {
