@@ -454,7 +454,10 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
 
     var pages = {
         'introduction.md': 'Introduction',
-        'overview.md': 'Overview'
+        'overview.md': 'Overview', 
+        'subscription.md': 'Subscribing to events',
+        'receiving-events.md': 'Receiving Events',
+        'more-about-events.md': 'More about events'
     };
 
     var isOnePage = false;
