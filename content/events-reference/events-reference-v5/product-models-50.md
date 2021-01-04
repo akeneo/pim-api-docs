@@ -14,7 +14,7 @@ A product model created event follows this format:
         {
             "action": "product_model.created",
             "event_id": "c306e088-fb76-479c-bbc0-18fef19da75d",
-            "event_date": "2020-10-20T09:13:59+00:00",
+            "event_datetime": "2020-10-20T09:13:59+00:00",
             "author": "erp",
             "author_type": "api",
             "pim_source": "https://demo.akeneo.com",
@@ -132,7 +132,7 @@ A product model updated event follows this format:
         {
             "action": "product_model.updated",
             "event_id": "c306e088-fb76-479c-bbc0-18fef19da75d",
-            "event_date": "2020-10-20T09:13:59+00:00",
+            "event_datetime": "2020-10-20T09:13:59+00:00",
             "author": "peter",
             "author_type": "ui",
             "pim_source": "https://demo.akeneo.com",
@@ -250,7 +250,7 @@ A product model removed event follows this format:
         {
             "action": "product_model.removed",
             "event_id": "c306e088-fb76-479c-bbc0-18fef19da75d",
-            "event_date": "2020-10-20T09:13:59+00:00",
+            "event_datetime": "2020-10-20T09:13:59+00:00",
             "author": "peter",
             "author_type": "ui",
             "pim_source": "https://demo.akeneo.com",

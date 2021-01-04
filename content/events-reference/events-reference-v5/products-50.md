@@ -14,7 +14,7 @@ A product created event follows this format:
         {
             "action": "product.created",
             "event_id": "c306e088-fb76-479c-bbc0-18fef19da75d",
-            "event_date": "2020-10-20T09:13:59+00:00",
+            "event_datetime": "2020-10-20T09:13:59+00:00",
             "author": "peter",
             "author_type": "ui",
             "pim_source": "https://demo.akeneo.com",
@@ -132,7 +132,7 @@ A product updated event follows this format:
         {
             "action": "product.updated",
             "event_id": "c306e088-fb76-479c-bbc0-18fef19da75d",
-            "event_date": "2020-10-20T09:13:59+00:00",
+            "event_datetime": "2020-10-20T09:13:59+00:00",
             "author": "peter",
             "author_type": "ui",
             "pim_source": "https://demo.akeneo.com",
@@ -250,7 +250,7 @@ A product removed event follows this format:
         {
             "action": "product.removed",
             "event_id": "c306e088-fb76-479c-bbc0-18fef19da75d",
-            "event_date": "2020-10-20T09:13:59+00:00",
+            "event_datetime": "2020-10-20T09:13:59+00:00",
             "author": "peter",
             "author_type": "ui",
             "pim_source": "https://demo.akeneo.com",
