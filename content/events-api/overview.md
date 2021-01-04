@@ -39,7 +39,7 @@ The event will be in the `Content-Type: application/json` format:
 
 | Name | Description | Example | Format |
 | ---- | ----------- | ------- | ------ |
-| action | The action attribute helps you identify the event type you received, which action has been done in the PIM. | `product.created` | `[resource_name].[event_name]` |
+| action | The action property helps you identify the API event type you received, which action has been done in the PIM. | `product.created` | `[resource_name].[event_name]` |
 | event_id | The event_id is the unique identifier of the event. It allows you to be sure that you received the same event only one time. | `6ad821d8-2468-4632-89d2-92e442c72313` | UUID V4|
 | event_date | The event_date contains the date and time of the event. | 2020-01-01T00:00:00+00:00 | Format ISO 8601 |
 | author | The author attribute tells you who performed the action. | `julia` or `magento_0000` | |
