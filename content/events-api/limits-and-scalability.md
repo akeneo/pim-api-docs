@@ -27,7 +27,7 @@ By default, Pubsub keeps messages for 2 hours.
 
 ## Extension side limits
 
-If you're having trouble receiving messages, consider increasing the limit size of request body of your server
+If you're having trouble receiving messages, consider increasing the limit size of the request body of your server:
 
 * [Apache](https://httpd.apache.org/docs/current/mod/core.html#limitrequestbody)
 * [Nginx](http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size)
