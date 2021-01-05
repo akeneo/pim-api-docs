@@ -10,7 +10,7 @@ By default, you can only subscribe to `3` events. To change this behavior update
 
 ### Limit of event API requests per hour
 
-By default the amount of event API requests per hour is `4000`, to change this behavior update the value of the parameter `webhook_requests_limit` in `config/services/pim_parameters.yml` file
+By default, the amount of event API requests per hour is `4000`. To change this behavior update the value of the parameter `webhook_requests_limit` in the `config/services/pim_parameters.yml` file.
 
 ### Event API Batch size
 
