@@ -14,7 +14,7 @@ By default the amount of event API requests per hour is `4000`, to change this b
 
 ### Event API Batch size
 
-By default each event API request contain `10` events, to change this behavior update the value of the parameter `webhook_max_bulk_size` in `config/services/pim_parameters.yml` file
+By default, each event API request contains `10` events. To change this behavior update the value of the parameter `webhook_max_bulk_size` in the `config/services/pim_parameters.yml` file.
 
 ### Request timeout
 
