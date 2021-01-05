@@ -22,7 +22,7 @@ By default each event API request have a timeout of `0.5` seconds, to change thi
 
 ### Pubsub message retention duration
 
-By default Pubsub keep messages 2 hours
+By default, Pubsub keeps messages for 2 hours.
 
 
 ## Extension side limits
