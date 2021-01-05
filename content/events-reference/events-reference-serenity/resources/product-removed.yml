@@ -11,7 +11,7 @@ properties:
         event_id:
           type: string
           description: Unique event identifier
-        event_date:
+        event_datetime:
           type: string
           description: Event datetime
         author:
