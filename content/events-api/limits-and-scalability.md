@@ -18,7 +18,7 @@ By default, each event API request contains `10` events. To change this behavior
 
 ### Request timeout
 
-By default each event API request have a timeout of `0.5` seconds, to change this behavior update the value of the parameter `webhook_timeout` in `config/services/pim_parameters.yml` file
+By default, each event API request has a timeout of `0.5` seconds. To change this behavior update the value of the parameter `webhook_timeout` in the `config/services/pim_parameters.yml` file.
 
 ### Pubsub message retention duration
 
