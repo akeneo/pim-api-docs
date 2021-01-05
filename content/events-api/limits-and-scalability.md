@@ -2,7 +2,7 @@
 
 ## PIM side limits
 
-In order not to degrade the performance of the PIM there are certain limitations, they can still be configured.
+To not degrade the performance of the PIM certain limitations can be configured.
 
 ### Number of event subscriptions
 
