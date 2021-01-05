@@ -6,7 +6,7 @@ To not degrade the performance of the PIM certain limitations can be configured.
 
 ### Number of event subscriptions
 
-By default you can only subscribe to `3` events, to change this behavior update the value of the parameter `webhook_active_event_subscriptions_limit` in `config/services/pim_parameters.yml` file
+By default, you can only subscribe to `3` events. To change this behavior update the value of the parameter `webhook_active_event_subscriptions_limit` in the `config/services/pim_parameters.yml` file.
 
 ### Limit of event API requests per hour
 
