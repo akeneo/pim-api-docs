@@ -1,2 +1,2 @@
-# Limites and Scalability
+# Limits and Scalability
 // TODO
