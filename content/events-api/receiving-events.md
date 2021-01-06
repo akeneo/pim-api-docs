@@ -12,10 +12,9 @@ Be careful as some events can be sent in the wrong order, more than once, or get
 
 Request URL receives an HTTP POST containing data in response to activity.
 
-In the Events API, your Events API Request URL is the target location. Akeneo PIM will deliver all the events, regardless of the event type, to this location
+In the Events API, your Events API Request URL is the target location. Akeneo PIM will deliver all the events, regardless of the event type, to this location.
 
 Since your connected application will have only one Request URL, maybe you'll need to do an additional dispatch or routing server-side after receiving event data.
 
 Your Request URL will receive JSON-based payloads containing wrapped event types.
-
 
