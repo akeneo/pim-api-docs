@@ -297,6 +297,15 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'step-2.md': 'Step 2 | Generate the credentials',
                 'step-3.md': 'Step 3 | Configure your connector'
             }
+        },
+        'quick-start-my-first-webhook': {
+            gettingStartedName: 'quick-start-my-first-webhook',
+            pimVersion: 'v5',
+            title: 'Quick start my first webhook',
+            files: {
+                'welcome.md': 'Welcome',
+                'step-1.md': 'Step 1 | Receive my first set of data'
+            }
         }
     };
     var isOnePage = false;
@@ -454,9 +463,11 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
 
     var pages = {
         'introduction.md': 'Introduction',
-        'overview.md': 'Overview', 
+        'overview.md': 'Overview',
         'subscription.md': 'Subscribing to events',
         'receiving-events.md': 'Receiving Events',
+        'manage-the-event-subscription.md': 'Manage the event subscription',
+        'limits-and-scalability.md': 'Limits and scalibility',
         'more-about-events.md': 'More about events'
     };
 
