@@ -9,7 +9,7 @@ Go to [mockbin.org/bin/create](http://mockbin.org/bin/create) to create your Bin
 
 ![Create Bin on Mockbin](/img/getting-started/quick-start-my-first-webhook/create-mockbin.png)
 
-Then click on "Create Bin" and go to the history of your Bin.
+Then click on `Create Bin` and go to the history of your Bin.
 Alright! Mockbin is ready to receive our first piece of data from PIM webhooks.
 
 ## Send data to Mockbin
