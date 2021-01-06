@@ -15,7 +15,11 @@ Alright! Mockbin is ready to receive our first piece of data from PIM webhooks.
 ## Send data to Mockbin
 
 Now, log into your 5.x or Serenity PIM and go to the event subscriptions page of the connection you created before.
-Fill in the URL field with the URL of your Bin and click on the test button. :warning: Don't forget to save your configuration before leaving the page.
+Fill in the URL field with the URL of your Bin and click on the `Test` button. 
+
+::: warn
+Don't forget to save your configuration before leaving the page.
+:::
 
 ![Event subscriptions configuration](/img/getting-started/quick-start-my-first-webhook/event-subscription-configuration.png)
 
