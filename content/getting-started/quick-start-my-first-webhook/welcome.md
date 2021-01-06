@@ -6,6 +6,7 @@ This tutorial will teach you:
 ## Goal
 This is the very first tutorial to follow. At the end, you will:
 - be sure that the PIM is well configured to push data from PIM event subscriptions to your app. :mailbox_with_mail:
+- display event subscriptions data in the console of a Symfony app. 
 
 ## Prerequisite
 

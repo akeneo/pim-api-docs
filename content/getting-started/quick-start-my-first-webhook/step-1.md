@@ -43,3 +43,6 @@ In the details of your Mockbin Bin, you will find the curl command you need to r
 :::
 
 ![Product created details](/img/getting-started/quick-start-my-first-webhook/product-created-details.png)
+
+::: panel-link Let's move on the second step of this tutorial [Create your own Symfony app to display event subscriptions data](/getting-started/quick-start-my-first-webhook/step-2.html)
+:::
