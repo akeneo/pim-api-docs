@@ -31,7 +31,7 @@ A new environment should also have been created in the dropdown in the top right
 6. Click on the gear wheel in the top right corner, and then select `Manage environments`.
 7. In the pop-in that just opened, select the environment called `Akeneo 4.x PIM API environment`.
 ![Postman environment popin](/img/getting-started/postman-environment-old-popin.png)
-8. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.x PIM is hosted.
+8. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.x or newer PIM is hosted.
 ![Url in environment](/img/getting-started/url-environment-old.png)
 9. In the `clientId`, `secret`, `username` and `password` fields, enter the credentials you grabbed during [step 1](/getting-started/your-first-tutorial-old/step-1.html).
 ![Credentials copy/pasted in Postman](/img/getting-started/copy-past-credentials-old.png)

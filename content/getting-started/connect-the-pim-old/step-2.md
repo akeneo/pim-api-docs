@@ -7,7 +7,7 @@ Indeed, you will need an API user, a password, a client ID and a secret if you w
 ::: info
 _Best practice_  
 We strongly advise you to create **one set of credentials** for each of your connectors.  
-Indeed, it will make your migration to the v4 PIM a lot easier, in case you are looking into it.
+Indeed, it will make your migration to the PIM v4 or newer a lot easier, in case you are looking into it.
 :::
 
 ## Create an API user
