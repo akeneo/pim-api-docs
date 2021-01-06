@@ -31,7 +31,7 @@ A new environment should also have been created in the dropdown in the top right
 4. Click on the gear wheel in the top right corner, and then select `Manage environments`.
 5. In the pop-in that just opened, select the environment called `Akeneo 4.x PIM REST API environment`.
 ![Postman environment popin](/img/getting-started/postman-environment-4x-popin.png)
-6. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.x PIM is hosted.
+6. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.x PIM or newer is hosted.
 ![Url in environment](/img/getting-started/url-environment-4x.png)
 7. Back in the PIM, go to `System`/`Connections` and select your `My very first connection` connection.
 8. On the right side of the screen, there are your connection credentials to connect to the REST API.
