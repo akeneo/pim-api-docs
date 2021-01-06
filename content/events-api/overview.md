@@ -3,7 +3,7 @@
 _All the essential things you need to know._
 
 By using the Akeneo Events API, you will receive events on: product creation, product update, and product deletion. 
-The feature is working on simple products and product models and variants. 
+The feature is working as well on simple products than on product models and variants.
 
 Simple products and product variants have similar event formats, but events related to product models are a bit different that is why we detailed each event type format in our [Events API Reference](../events-reference/events-reference-serenity/product-models.html)
 
