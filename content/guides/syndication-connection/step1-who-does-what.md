@@ -38,7 +38,7 @@ For price information, Akeneo PIM has the capability of storing product price in
 
 Akeneo PIM manages product-related media.
 
-As of PIM version 4.0, Akeneo also facilitates the connection with a DAM software thanks to its [new asset management system](/concepts/asset-manager.html).
+Since the 4.0 version , Akeneo also facilitates the connection with a DAM software thanks to its [new asset management system](/concepts/asset-manager.html).
 
 :::tips
 If you want to know how a DAM connection works, don't hesitate to read our [dedicated documentation](../dam-connection/introduction.html).
