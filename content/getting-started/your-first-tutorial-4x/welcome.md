@@ -15,7 +15,7 @@ This is the very first tutorial to follow. At the end, you will have:
 This can seem pretty obvious. But yeah! You will need a PIM if you want to make any REST API requests.  
 And of course, you also have to make sure that you can access it from where you are requesting.
 ::: info
-This tutorial is dedicated to 4.x PIM. If you are working on a previous PIM version, we also got you covered! :wink: There is a tutorial for you right [here](/getting-started/your-first-tutorial-old/welcome.html).
+This tutorial is dedicated to 4.x or newer PIM. If you are working on a previous PIM version, we also got you covered! :wink: There is a tutorial for you right [here](/getting-started/your-first-tutorial-old/welcome.html).
 ::: 
 
 That's it! :tada:
