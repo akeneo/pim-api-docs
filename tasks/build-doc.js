@@ -464,9 +464,7 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
     var pages = {
         'introduction.md': 'Introduction',
         'overview.md': 'Overview',
-        'subscription.md': 'Subscribing to events',
-        'receiving-events.md': 'Receiving Events',
-        'manage-the-event-subscription.md': 'Manage the event subscription',
+        'subscription.md': 'Subscribe and receive events',
         'limits-and-scalability.md': 'Limits and scalibility',
         'more-about-events.md': 'More about events'
     };
