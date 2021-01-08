@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-First of all, you'll need a new Symfony microservice app. To do so, you can follow [the Symfony guide](https://symfony.com/doc/current/setup.html) and run `$ symfony new display_webhook` command.
+First of all, you'll need a new Symfony microservice app. To do so, you can follow [the Symfony guide](https://symfony.com/doc/current/setup.html) and run the `$ symfony new display_webhook` command.
 
 ## Step by step
 
