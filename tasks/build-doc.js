@@ -465,6 +465,7 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
         'introduction.md': 'Introduction',
         'overview.md': 'Overview',
         'subscription.md': 'Subscribe and receive events',
+        'security.md': 'Security',
         'limits-and-scalability.md': 'Limits and scalibility',
         'more-about-events.md': 'More about events'
     };
