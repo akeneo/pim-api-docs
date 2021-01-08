@@ -28,15 +28,15 @@ As a result, you will see a new collection in the Collection tab, on the left si
 ![Collection in Postman](/img/getting-started/very-first-request-collection-in-postman.png)
 A new environment should also have been created in the dropdown in the top right corner.
 ![Environment in Postman](/img/getting-started/postman-environment-4x.png)
-6. Click on the gear wheel in the top right corner, and then select `Manage environments`.
-7. In the pop-in that just opened, select the environment called `Akeneo 4.x PIM API environment`.
+4. Click on the gear wheel in the top right corner, and then select `Manage environments`.
+5. In the pop-in that just opened, select the environment called `Akeneo 4.x PIM API environment`.
 ![Postman environment popin](/img/getting-started/postman-environment-4x-popin.png)
-8. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.x PIM is hosted.
+6. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.x PIM is hosted.
 ![Url in environment](/img/getting-started/url-environment-4x.png)
-9. Back in the PIM, go to `System`/`Connections` and select your `My very first connection` connection.
-5. In the right side of the screen, there are your connection credentials to connect to the API.
+7. Back in the PIM, go to `System`/`Connections` and select your `My very first connection` connection.
+8. On the right side of the screen, there are your connection credentials to connect to the API.
 ![Credentials in the PIM](/img/getting-started/credentials-in-the-pim.png)
-6. Copy those information and paste them into the corresponding field in the Postman popin. _Pro tips: there is a copy icon on the right side of each credential in the PIM to copy/paste even faster! :rocket:_
+9. Copy that information and paste it into the corresponding field in the Postman popin. _Pro tips: there is a copy icon on the right side of each credential in the PIM to copy/paste even faster! :rocket:_
 ![Credentials in Postman](/img/getting-started/credentials-in-postman.png)
 
 That's it for this step!
