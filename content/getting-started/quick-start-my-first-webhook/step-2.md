@@ -8,7 +8,7 @@ First of all, you'll need a new Symfony microservice app. To do so, you can foll
 
 ## Step by step
 
-1. Add the route in the `config/routes.yaml` file:
+1. Add the route to the `config/routes.yaml` file:
 
 ```yaml
 app_webhook:
