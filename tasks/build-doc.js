@@ -304,7 +304,8 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             title: 'Quick start my first webhook',
             files: {
                 'welcome.md': 'Welcome',
-                'step-1.md': 'Step 1 | Receive my first set of data'
+                'step-1.md': 'Step 1 | Receive my first set of data',
+                'step-2.md': 'Step 2 | Create your own Symfony app to display event subscriptions data'
             }
         }
     };
