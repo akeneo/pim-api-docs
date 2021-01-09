@@ -297,6 +297,16 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'step-2.md': 'Step 2 | Generate the credentials',
                 'step-3.md': 'Step 3 | Configure your connector'
             }
+        },
+        'quick-start-my-first-webhook': {
+            gettingStartedName: 'quick-start-my-first-webhook',
+            pimVersion: 'v5',
+            title: 'Quick start my first webhook',
+            files: {
+                'welcome.md': 'Welcome',
+                'step-1.md': 'Step 1 | Receive my first set of data',
+                'step-2.md': 'Step 2 | Create your own Symfony app to display event subscriptions data'
+            }
         }
     };
     var isOnePage = false;
@@ -455,8 +465,10 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
     var pages = {
         'introduction.md': 'Introduction',
         'overview.md': 'Overview',
-        'manage-the-event-subscription.md': 'Manage the event subscription',
+        'subscription.md': 'Subscribe and receive events',
+        'security.md': 'Security',
         'limits-and-scalability.md': 'Limits and scalibility',
+        'more-about-events.md': 'More about events'
     };
 
     var isOnePage = false;

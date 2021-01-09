@@ -33,5 +33,4 @@ If you're having trouble receiving messages, consider increasing the limit size 
 * [Nginx](http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size)
 
 ## Problems and resolution
-
 // TODO
