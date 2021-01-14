@@ -1,11 +1,11 @@
 # PHP developer, you are?
 > We have a client for you!
 
-The PHP client facilitates the usage of the API in your PHP projects when building extensions and/or tools for your favorite PIM.
+The PHP client facilitates the usage of the REST API in your PHP projects when building extensions and/or tools for your favorite PIM.
 
 Two clients exist: 
-- a **Community Edition** client, covering the API endpoints of the PIM Community Edition
-- an **Enterprise Edition** client, covering the API endpoints of both the PIM Community Edition and the PIM Enterprise Edition
+- a **Community Edition** client, covering the REST API endpoints of the PIM Community Edition
+- an **Enterprise Edition** client, covering the REST API endpoints of both the PIM Community Edition and the PIM Enterprise Edition
 
 There are several versions of these clients:
 - The version v1.0 is compatible with the PIM 2.0.

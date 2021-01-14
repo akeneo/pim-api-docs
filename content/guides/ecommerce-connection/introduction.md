@@ -8,7 +8,7 @@ You landed in the right place!
 
 ## Goal of this guide
 
-In the following guide, we are going to explain how to properly connect our PIM to your eCommerce solution, thanks to our wonderful API.
+In the following guide, we are going to explain how to properly connect our PIM to your eCommerce solution, thanks to our wonderful REST API.
 
 We're here to help you find your way around, understand how Akeneo PIM will interact with your existing eCommerce solution and go through the steps towards that goal.
 

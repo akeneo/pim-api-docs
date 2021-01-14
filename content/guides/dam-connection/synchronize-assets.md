@@ -34,7 +34,7 @@ Depending on your DAM capabilities, there are multiple ways to do it (API calls,
 See the [Define your technical stack](technical-stack.html) part of this documentation to have an idea of the different possibilities and their main constraints.
 
 To collect those assets, first, you'll need to fetch the codes of the PIM asset families that you defined earlier in the [PIM structuration](pre-requisites.html#in-the-pim) step. To do so, you can either:
-- call the PIM API [asset family GET endpoint](/api-reference.html#get_asset_families),
+- call the PIM REST API [asset family GET endpoint](/api-reference.html#get_asset_families),
 - write directly the codes of your asset families in a configuration file, the way we did in our [skeleton](https://github.com/akeneo/dam-connector/blob/master/config/resources/dam-example/mapping.yaml).
 
 Thanks to the asset family codes, now, you'll be able to ask the DAM only for the assets that belong to those families. This is thanks to the upstream work you operated on the DAM side by [adding the asset family information on each of your assets](pre-requisites.html#which-asset-family-your-dam-product-assets-belong-to). It will avoid requesting the entire DAM data, which would be really useless and counterproductive. :wink:
@@ -54,7 +54,7 @@ And that is absolutely fine, by the way! DAM and PIM softwares do not serve the 
 
 Your connector will need to run some transformations on your DAM assets in order to turn them into PIM assets. This is the goal of this step. You'll see it's a pretty big one, but don't worry we're here to guide you so you don't get lost somewhere along the way. :wink:
 
-As we are in a more technical section, let's show some code! Below you'll find an example of a DAM asset, in JSON format, as it can be extracted thanks to the DAM API:
+As we are in a more technical section, let's show some code! Below you'll find an example of a DAM asset, in JSON format, as it can be extracted thanks to the DAM REST API:
 
 `GET /assets`
 ```json
@@ -223,7 +223,7 @@ Here are the different steps to follow:
 1. Fetching the information for the `dam_url` PIM attribute will tell you that:
     - This attribute is a **media link** attribute. So the `data` field of its asset attribute value expects a string.
     - This attribute is **not localizable**. So you should put `null` in the `locale` field.
-1. Knowing this, you can generate the attribute value expected by the API:
+1. Knowing this, you can generate the attribute value expected by the REST API:
     ```json
     "dam_url": [
         {
@@ -247,7 +247,7 @@ Here are the different steps to follow:
     - This attribute is a **multiple options** attribute. Therefore the `data` field of its asset attribute value expects an array filled with `main_colors` option codes.
     - This attribute is **not localizable**. So you should put `null` in the `locale` field.
 1. Then you have to transform the DAM asset value, which is a comma-separated list of colors, into an array of color options for the PIM asset value. _Nota: Be sure you first create your color options in the PIM, if they don't already exist. See [here](#dealing-with-options), for more information._
-1. Finally, you can generate the asset value expected by the API:
+1. Finally, you can generate the asset value expected by the REST API:
     ```json
     "main_colors": [
         {
@@ -297,7 +297,7 @@ It's also a very important attribute for our use case because it will receive th
     "filename": "allie-jean_1_model-picture.png"
     ```
     By using a simple regexp, you can extract this SKU.
-1. Finally, you can generate the asset attribute value expected by the API:
+1. Finally, you can generate the asset attribute value expected by the REST API:
     ```json
     "product_ref": [
         {

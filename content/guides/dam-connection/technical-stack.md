@@ -4,17 +4,17 @@ Now that your PIM and your DAM are [well prepared](pre-requisites.html) for thei
 
 ## On the PIM side
 
-That's the easy part. At Akeneo, we recommend using our API, whenever you want to connect your PIM to whatever third-party. So here you go! Use the API! :rocket: :wink:
+That's the easy part. At Akeneo, we recommend using our REST API, whenever you want to connect your PIM to whatever third-party. So here you go! Use the REST API! :rocket: :wink:
 
 _But why?_  
-We will never repeat it enough: the API is the **most stable** way to connect to the PIM. You won't suffer from migrations from a PIM version to another, as we guarantee we won't introduce any BC breaks in our API.  
-Also, and it is quite important to keep it in mind, the API is the **fastest way** to push and pull data from the PIM.
+We will never repeat it enough: the REST API is the **most stable** way to connect to the PIM. You won't suffer from migrations from a PIM version to another, as we guarantee we won't introduce any BC breaks in our REST API.  
+Also, and it is quite important to keep it in mind, the REST API is the **fastest way** to push and pull data from the PIM.
 
 ::: tips
-Not familiar with the Akeneo PIM API? We have a [getting started guide](/getting-started/your-first-tutorial-4x/welcome.html) to help you right here!
+Not familiar with the Akeneo PIM REST API? We have a [getting started guide](/getting-started/your-first-tutorial-4x/welcome.html) to help you right here!
 :::
 
-Also, if you are a PHP developer, we provide a [PHP Client](https://github.com/akeneo/api-php-client-ee) for this API. So don't hesitate to use it if need be!
+Also, if you are a PHP developer, we provide a [PHP Client](https://github.com/akeneo/api-php-client-ee) for this REST API. So don't hesitate to use it if need be!
 
 
 ## On the DAM side
@@ -83,7 +83,7 @@ When you use an asynchronous method to connect, you will need to [synchronize yo
 
 ### Volumetry
 
-You should avoid having too many calls to the PIM API and process only the data you need. This is why the [DAM attribute selection](pre-requisites.html#define-the-attributes-of-your-asset-families) is really important.
+You should avoid having too many calls to the PIM REST API and process only the data you need. This is why the [DAM attribute selection](pre-requisites.html#define-the-attributes-of-your-asset-families) is really important.
 
 For queuing systems and webhooks, you need to send all messages related to assets. Then, in the connector, filter them to keep only DAM assets that are related to products that you want in the PIM (see [Pre-requisites](pre-requisites.html#which-dam-assets-are-products-related)).  
 
@@ -104,8 +104,8 @@ If the memory is not stable (meaning it returns to a base after each batch call)
 
 One of the best ways to enhance your connector performance is to limit the number of I/O calls to your infrastructure (HTTP requests to the API, database queries, etc...).
 
-For example, it is better to patch assets using bulk requests than using multiple single patches. It will limit the number of API calls.  
-You can also implement a cache system for the PIM asset structure (asset family and asset attribute) to avoid using an API call each time you need it.
+For example, it is better to patch assets using bulk requests than using multiple single patches. It will limit the number of REST API calls.  
+You can also implement a cache system for the PIM asset structure (asset family and asset attribute) to avoid using an REST API call each time you need it.
 
 Keep in mind that one of the most efficient ways to enhance your connector performance is to be able to scale (see above).
 
@@ -116,7 +116,7 @@ You should handle errors on DAM and PIM sides (unavailable server, authenticatio
 Here are the [client errors](/documentation/responses.html#client-errors) that you can have on the PIM side, with our PHP client.
 
 ::: info
-If you are [creating/updating multiple assets at once](/php-client/exception.html), the API will return a list of errors for each attribute that couldn't be created or updated successfully.  
+If you are [creating/updating multiple assets at once](/php-client/exception.html), the REST API will return a list of errors for each attribute that couldn't be created or updated successfully.  
 You'll need to find a way to run the calls again for the assets that have not been synchronized.
 :::
 

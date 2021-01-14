@@ -1,6 +1,6 @@
 # Filters
 
-When requesting a list of resources via the API, you can apply filters to get only the ones you want.
+When requesting a list of resources via the REST API, you can apply filters to get only the ones you want.
 
 ## Filter on product properties
 To filter products by one of its properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
@@ -836,7 +836,7 @@ As a result you will receive the following answer:
 
 ## Filter assets
 
-When requesting a [list of assets via the API](/api-reference.html#get_assets), you can apply filters to get only the ones you want and also the kind of information you want in them.
+When requesting a [list of assets via the REST API](/api-reference.html#get_assets), you can apply filters to get only the ones you want and also the kind of information you want in them.
 
 ### By update date
 ::: availability versions=3.2,4.0,Serenity editions=EE
