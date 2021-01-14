@@ -31,6 +31,3 @@ If you're having trouble receiving messages, consider increasing the limit size 
 
 * [Apache](https://httpd.apache.org/docs/current/mod/core.html#limitrequestbody)
 * [Nginx](http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size)
-
-## Problems and resolution
-// TODO
