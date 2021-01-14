@@ -6,7 +6,7 @@ Let me explain you the reason behind this change.
 
 ## A little bit of history
 
-With the 1.7 version of the PIM, we decided to introduced the first step toward a great API by releasing a set of endpoints for the most used entities inside the PIM, such as the products and the families for example.
+With the 1.7 version of the PIM, we decided to introduced the first step toward a great REST API by releasing a set of endpoints for the most used entities inside the PIM, such as the products and the families for example.
 
 At this time, we already knew that we were going to make a big change in the way we manage the product with variants. So we knew that the notion of **variant groups might disappear**. That's why we decided to avoid developing the endpoints for this entity.
 
@@ -130,7 +130,7 @@ To be much clearer, below is a diagram representing this modeling.
 ![Modeling of the products with variants](../img/rest-api/product_with_variants.png)
 
 ### Example  
-In the API, you will end up with the following change in your products with variants.   
+In the REST API, you will end up with the following change in your products with variants.   
 Before in 1.7
 ```json
 {

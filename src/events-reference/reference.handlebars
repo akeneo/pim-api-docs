@@ -1,0 +1,47 @@
+{{#*inline "properties"}}
+    {{#each properties}}
+        <li class="def-key">
+            <code>{{@key}}</code>
+
+            {{#ifEquals this.type "array"}}
+                 <em>({{{type}}}[{{{this.items.type}}}])</em>
+            {{else}}
+                <em>({{{type}}})</em>
+            {{/ifEquals}}
+
+            {{#if this.description}}
+                &bull; {{{description}}}
+            {{/if}}
+
+            {{! the current propertie defines an object}}
+            {{#if this.properties}}
+            : { <ul>{{> properties properties=this.properties }}</ul> }
+            {{/if}}
+
+            {{! the current propertie defines an array}}
+            {{#if this.items}}
+                {{#ifEquals this.items.type "object"}}:
+                [
+                    <ul>
+                        <li>{</li>
+                        <li>
+                            {{#each this.items}} <ul>{{> properties properties=this }}</ul>{{/each}}
+                        </li>
+                        <li>}</li>
+                    </ul>
+                ]
+                {{/ifEquals}}
+            {{/if}}
+        </li>
+    {{/each}}
+{{/inline}}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="def">
+            <p class="def-key">{</p>
+            <ul>{{> properties }}</ul>
+            <p class="def-key">}</p>
+        </div>
+    </div>
+</div>

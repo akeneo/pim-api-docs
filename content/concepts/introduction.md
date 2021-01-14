@@ -2,14 +2,14 @@
 
 This is where your journey begins! :airplane:  
 
-Here you will be able to become a PIM master by learning all the key concepts you will use to interact with the API.
+Here you will be able to become a PIM master by learning all the key concepts you will use to interact with the REST API.
 
-In this documentation, you will find a small presentation of each entity accessible through the API and their associated standard JSON format.  
+In this documentation, you will find a small presentation of each entity accessible through the REST API and their associated standard JSON format.  
 For each resources, we defined a JSON standard format which is used to retrieve, create and update data in the PIM.
 
-You will also be able to find all the business rules associated with all these resources. So whenever you get 422 errors when playing with the API, don't hesitate to check this documentation to find out why. :wink:
+You will also be able to find all the business rules associated with all these resources. So whenever you get 422 errors when playing with the REST API, don't hesitate to check this documentation to find out why. :wink:
 
-So here you go. We categorized the API resources by main PIM domain/feature. Don't hesitate to browse:
+So here you go. We categorized the REST API resources by main PIM domain/feature. Don't hesitate to browse:
 - the [Products](/concepts/products.html),
 - the [Catalog structure](/concepts/catalog-structure.html),
 - the [Target market settings](/concepts/target-market-settings.html),

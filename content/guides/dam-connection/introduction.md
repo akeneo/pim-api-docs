@@ -8,7 +8,7 @@ You landed in the right place!
 
 ## Goal of this guide
 
-In the following guide, we are going to explain how to properly connect a DAM to our PIM, thanks to our wonderful API.
+In the following guide, we are going to explain how to properly connect a DAM to our PIM, thanks to our wonderful REST API.
 
 ::: warning
 The connection described in this guide is based on our brand new way to manage assets: the **Asset Manager**. This feature was introduced in the 3.2 version.  
@@ -22,7 +22,7 @@ As an image is worth a thousand words, here's a small diagram to help you get th
 ![Macro overview of the DAM connection](../../img/guides/dam-connection-macro.svg)
 
 In this guide, we consider the DAM as the master of the product assets. It means that assets are sent from the DAM to the PIM, and not the other way around.  
-First, photographers or marketers upload their new product assets into the DAM. Then, thanks to the connector we're going to build in this guide, these assets are sent via the API to the Asset Manager of our PIM.  
+First, photographers or marketers upload their new product assets into the DAM. Then, thanks to the connector we're going to build in this guide, these assets are sent via the REST API to the Asset Manager of our PIM.  
 
 Once the assets are in the Asset Manager, there are two ways to link them to the right product:
 - _Manually_: marketers manually assign the imported assets to the right products,

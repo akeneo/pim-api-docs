@@ -14,19 +14,19 @@ Next step, for each piece of PIM data, you need to ask yourself the following qu
 
 In order to help you implement the features of your connector, you will find below a list of features implemented as part of our premium eCommerce connectors:
 
-## API connection
+## REST API connection
 
 ![API connection](../../img/guides/configuration-pim.png)
 
 **What is it?**
 
-In order for your connector to communicate with Akeneo PIM, it must connect with its API. So you need to provide a setting to invite the user to enter PIM API credentials.
+In order for your connector to communicate with Akeneo PIM, it must connect with its REST API. So you need to provide a setting to invite the user to enter PIM API credentials.
 
 **What do you need to implement?**
 
 * A UI or a “configuration file” to copy and paste Akeneo PIM API credentials (client id, secret, connection username and password).
 * If you create a UI, add a “Test” button to test this connection (in order to check that everything is well configured on this side and maybe to start retrieving some interesting information about the Akeneo PIM that has just been connected)
-* Bonus: Akeneo API allows you to change the “limit” parameter. It could be useful to have this setting in your connector configuration to optimize the connection between the Akeneo PIM and your eCommerce solution.
+* Bonus: Akeneo REST API allows you to change the “limit” parameter. It could be useful to have this setting in your connector configuration to optimize the connection between the Akeneo PIM and your eCommerce solution.
 
 ## Attribute management
 
@@ -248,7 +248,7 @@ And sometimes, your customers will also need to import a PIM product into the eC
 
 In the features of your connector configuration, you can add a “simple” and an “advanced” filter system with the capability to switch from one to the other according to the needs of your customers.
 
-The “simple” filter will include filters most used by your customers and the “advanced” filter will allow more complex configurations (based on our [PIM API filter capabilities](/documentation/filter.html)).
+The “simple” filter will include filters most used by your customers and the “advanced” filter will allow more complex configurations (based on our [PIM REST API filter capabilities](/documentation/filter.html)).
 
 Bonus: to have the most advanced system, you can implement a specific configuration for each website of your eCommerce solution.  
 This method comes with some benefits:
@@ -480,7 +480,7 @@ Your users will push you to have immediate synchronisation between Akeneo PIM an
 
 **Why?**
 * Because product data must be fully prepared (notion of completeness) before being synchronized with your eCommerce solution.
-* Because Akeneo PIM API does not yet have a push event system to determine whether data has been modified or deleted.
+* Because the Akeneo PIM does not yet have a push event system to determine whether data has been modified or deleted.
 
 Please, consider a regular synchronisation solution (the recurrence will be configured by your customers according to their needs) which will only retrieve data that has changed since the last synchronisation of your connector.
 
@@ -504,7 +504,7 @@ You will need:
 * For each modified asset/reference entity, to retrieve the associated products/product models to update them.
 
 **What about “options” and “categories”?**
-As Akeneo PIM API does not have a date filtering system on this data, your connector will need to fully import all options and all categories.
+As Akeneo PIM REST API does not have a date filtering system on this data, your connector will need to fully import all options and all categories.
 
 ::: info
 **Think “performance” from the start!**

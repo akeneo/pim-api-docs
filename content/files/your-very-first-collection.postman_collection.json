@@ -1,7 +1,7 @@
 {
 	"info": {
 		"name": "Your very first collection",
-		"description": "This is the collection for the very first tutorial to learn how to use the Akeneo PIM API.",
+		"description": "This is the collection for the very first tutorial to learn how to use the Akeneo PIM REST API.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -35,7 +35,7 @@
 						"products"
 					]
 				},
-				"description": "This API request asks the PIM for its 100 first products."
+				"description": "This REST API request asks the PIM for its 100 first products."
 			},
 			"response": []
 		},

@@ -1,7 +1,7 @@
 # Authentication
 
-For security reasons, to access the API, you will need to be authenticated.
-To authenticate your API calls, the PIM will provide you a pair of client ID and secret. [See here to discover how](#client-idsecret-generation).
+For security reasons, to access the REST API, you will need to be authenticated.
+To authenticate your REST API calls, the PIM will provide you a pair of client ID and secret. [See here to discover how](#client-idsecret-generation).
 
 Client IDs allow two things:
 - to ask for a token for a specific API user,
@@ -9,7 +9,7 @@ Client IDs allow two things:
 
 This means that you will also need to [create an API user](#api-user-creation) in order to get this token. 
 
-Once you get its username and password, together with the client ID and the secret, you will eventually be able to generate a token for the API. This is the _key_ to finally access the API. See [here for more details](#token-generation).
+Once you get its username and password, together with the client ID and the secret, you will eventually be able to generate a token for the REST API. This is the _key_ to finally access the REST API. See [here for more details](#token-generation).
 
 ## Client ID/secret generation
 
@@ -128,7 +128,7 @@ In previous versions of the PIM, you need to navigate to the `System/Users` menu
 
 ## Token generation
 
-You now have a client ID, a secret, a username and a password. The last information needed to use the API is the token.
+You now have a client ID, a secret, a username and a password. The last information needed to use the REST API is the token.
 
 First, you will have to encode the client ID and the secret, in base64, with a `:` in between.
 
@@ -189,14 +189,14 @@ HTTP/1.1 200 OK
 ```
 
 Detail of the information given in the response:
-- `access_token` must be included in every request to the API for the client application to be authorized (see the example below).
+- `access_token` must be included in every request to the REST API for the client application to be authorized (see the example below).
 - `expires_in` is the token lifespan (in seconds). By default, it lasts 1 hour.
 - `refresh_token` is a special token used only to refresh your `access_token` after it expired.
 
 
 ## Access a resource
 
-Use the token that you just got for every request to the API.
+Use the token that you just got for every request to the REST API.
 
 #### Example
 
@@ -207,14 +207,14 @@ curl https://demo.akeneo.com/api/rest/v1/categories \
 
 :::info
 There are only 2 routes that do not require authentication:
- - the root of the API, that lists all the available endpoints. See [this section](/documentation/overview.html#list-of-available-endpoints) for more info.
+ - the root of the REST API, that lists all the available endpoints. See [this section](/documentation/overview.html#list-of-available-endpoints) for more info.
  - and of course, the route to get tokens. Pretty logic, isn't it!
 :::
 
 
 ## Refresh an expired token
 
-For security reasons, access tokens have a certain lifespan. A client application using an expired token will be unable to request the API.
+For security reasons, access tokens have a certain lifespan. A client application using an expired token will be unable to request the REST API.
 
 After a token has expired, the client application can ask for a new token by calling:
 
@@ -250,4 +250,4 @@ HTTP/1.1 200 OK
 }
 ```
 
-The response is the same as when asking for the initial token, except that it contains a new `access_token` and a new `refresh_token`. You can then use this `access_token` for every API request you do within an hour.
+The response is the same as when asking for the initial token, except that it contains a new `access_token` and a new `refresh_token`. You can then use this `access_token` for every REST API request you do within an hour.

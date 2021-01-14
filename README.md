@@ -1,5 +1,5 @@
-# Akeneo Web API documentation
-This repository holds the sources for the documentation of the web API that was released in 1.7.
+# Akeneo API documentation
+This repository holds the sources for the documentation of the REST API that was released in 1.7.
 
 The API documentation can be found here: [api.akeneo.com](http://api.akeneo.com).
 
@@ -23,7 +23,7 @@ This is only building the documentation. The documentation is not available with
 make watch
 ```
 
-The API documentation site is then available on `localhost:8000`.
+The REST API documentation site is then available on `localhost:8000`.
 Files located in the content and src directories are watched for changes, so when developing you do not need to launch any other task.
 
 ## Deployment

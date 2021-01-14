@@ -43,10 +43,12 @@ gulp.task('create-dist', [
   'landings',
   'build-concepts',
   'build-rest-api',
+  'build-events-api',
   'build-php-client',
   'build-misc-documentation',
   'build-guides',
-  'build-getting-started'
+  'build-getting-started',
+  'build-events-reference-page'
 ]);
 
 // Main task that should be used for development purpose

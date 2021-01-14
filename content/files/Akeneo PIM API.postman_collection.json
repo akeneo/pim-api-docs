@@ -1,7 +1,7 @@
 {
   "info": {
-    "name": "Official Akeneo PIM API Serenity",
-    "description": "The Akeneo API brought to you!\n\nFind out how this Postman collection works by visiting http://api.akeneo.com",
+    "name": "Official Akeneo PIM REST API Serenity",
+    "description": "The Akeneo REST API brought to you!\n\nFind out how this Postman collection works by visiting http://api.akeneo.com",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
