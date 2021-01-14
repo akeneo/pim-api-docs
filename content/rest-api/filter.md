@@ -469,6 +469,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | Allowed operators | Allowed value type |
 | ---------- | ---------- |
 | =, != | boolean |
+| EMPTY, NOT EMPTY | no value  (only on Serenity version)|
 
 **The `pim_catalog_date` attribute type**
 ::: availability versions=1.7,2.x,3.x,4.0,Serenity editions=CE,EE
