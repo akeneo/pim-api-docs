@@ -257,16 +257,6 @@ md.use(require("markdown-it-container"), "event_api_reference", {
 gulp.task('build-events-reference-page', ['clean-dist','less'], function () {
 
     var pages = {
-        'events-reference-v5': {
-            gettingStartedName: 'events-api-reference',
-            pimVersion: 'v5',
-            title: 'Events API reference',
-            image: 'illustrations/illus--v5.svg',
-            files: {
-                'products-50.md': 'Products',
-                'product-models-50.md': 'Product models'
-            }
-        },
         'events-reference-serenity': {
             gettingStartedName: 'events-api-reference',
             pimVersion: 'Serenity',
