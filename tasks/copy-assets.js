@@ -7,7 +7,17 @@ var merge = require('merge-stream');
 gulp.task('copy-assets', ['clean-dist'], function(){
     var fa = gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
         .pipe(gulp.dest('dist/css/'));
-    var font = gulp.src('node_modules/font-awesome/fonts/*')
+    var fonts = gulp.src(['node_modules/typeface-comfortaa/files/*',
+              'node_modules/lato-font/fonts/lato-light/*',
+              'node_modules/lato-font/fonts/lato-light-italic/*',
+              'node_modules/lato-font/fonts/lato-normal/*',
+              'node_modules/lato-font/fonts/lato-normal-italic/*',
+              'node_modules/lato-font/fonts/lato-medium/*',
+              'node_modules/lato-font/fonts/lato-medium-italic/*',
+              'node_modules/lato-font/fonts/lato-semibold/*',
+              'node_modules/lato-font/fonts/lato-semibold-italic/*',
+              'node_modules/lato-font/fonts/lato-bold/*',
+              'node_modules/lato-font/fonts/lato-bold-italic/*'])
         .pipe(gulp.dest('dist/fonts/'));
     var lib = gulp.src([
             'node_modules/jquery/dist/jquery.min.js',
@@ -19,5 +29,5 @@ gulp.task('copy-assets', ['clean-dist'], function(){
     var files = gulp.src('content/files/*')
         .pipe(gulp.dest('dist/files/'));
 
-    return merge(fa, font, lib, img);
+    return merge(fa, fonts, lib, img);
 });
