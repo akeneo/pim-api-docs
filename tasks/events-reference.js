@@ -168,7 +168,7 @@ md.use(require('markdown-it-container'), 'toc', {
     },
     render: function (tokens, idx) {
         return (tokens[idx].nesting === 1) ? '<div id="navbar" class="col-sm-3 hidden-xs sticky">' +
-        '<nav role="tablist" id="navbar-nav"><ul class="nav nav-stacked" style="counter-increment: step-counter;"><p class="pre-nav events"><img src="/img/icons/icon--swagger.svg"> Events API reference</p>' :
+        '<nav role="tablist" id="navbar-nav"><ul class="nav nav-stacked" style="counter-increment: step-counter;"><p class="pre-nav events"><img class="pull-left" style="margin-right: 5px; height: 27px;" src="/img/icons/icon--webhook.svg"> Events API reference</p>' :
                   "</ul></nav></div>\n";
             }
 });
