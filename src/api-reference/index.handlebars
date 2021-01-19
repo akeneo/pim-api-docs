@@ -32,8 +32,8 @@
         <div class="row rest">
             <div id="navbar" class="col-sm-3 hidden-xs">
                 <nav role="tablist" data-spy="affix" data-offset-top="80">
-                    <ul class="nav nav-stacked">
-                        <p class="pre-nav rest"><img src="/img/icons/icon--swagger.svg"> REST API endpoints</p>
+                    <ul class="nav nav-stacked"> 
+                        <p class="pre-nav rest"> <img class="pull-left" style="margin-right: 5px; height: 27px;" src="/img/icons/icon--rest.svg"> REST API endpoints</p>
                         {{#each categories as |category categoryId|}}
                             <li class="main-nav">
                                 <a href="#{{{categoryId}}}">{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</a>
