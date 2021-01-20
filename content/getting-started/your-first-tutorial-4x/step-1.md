@@ -25,8 +25,8 @@ Want to dig a bit deeper into the connection notion? Visit the dedicated help ce
 For the purpose of this tutorial, we will name your connection: `My very first connection`.
 
 Follow these steps:
-1. Log into your 4.x or newer PIM.  
-_Sidenote: This tutorial is dedicated to 4.x or newer PIM. Here is the one for [older PIM version](/getting-started/your-first-tutorial-old/welcome.html)._
+1. Log into your 4.0 or newer PIM.  
+_Sidenote: This tutorial is dedicated to 4.0 or newer PIM. Here is the one for [older PIM version](/getting-started/your-first-tutorial-old/welcome.html)._
 1. Click on the `System` menu.
 1. Click on the `Connections` submenu.
 1. Click on the `Create` button.
