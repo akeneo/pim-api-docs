@@ -1671,7 +1671,7 @@ But *NOT* this one. Because the source attribute value of the first transformati
 ```
 
 ## Asset attribute
-::: availability versions=3.2,4.x,5.xSerenity editions=EE
+::: availability versions=3.2,4.x,5.x,Serenity editions=EE
 :::
 
 In an asset family, an asset attribute is a characteristic of an asset for this given family. It helps to describe and qualify an asset.
