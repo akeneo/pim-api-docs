@@ -29,7 +29,7 @@ As a result, you will see a new collection in the Collection tab, on the left si
 A new environment should also have been created in the dropdown in the top right corner.
 ![Environment in Postman](/img/getting-started/postman-environment-old.png)
 6. Click on the gear wheel in the top right corner, and then select `Manage environments`.
-7. In the pop-in that just opened, select the environment called `Akeneo 0 or newer PIM API environment`.
+7. In the pop-in that just opened, select the environment called `Akeneo 4.0 or newer PIM API environment`.
 ![Postman environment popin](/img/getting-started/postman-environment-old-popin.png)
 8. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.0 or newer PIM is hosted.
 ![Url in environment](/img/getting-started/url-environment-old.png)
