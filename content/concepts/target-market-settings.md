@@ -6,7 +6,7 @@ Target market settings are here to specify those distribution channels. You can 
 Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API.
 
 ## Locale
-::: availability versions=1.7,2.x,3.x,4.x,5.x,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
 A locale is a combination of a language (English, German, French...) and a country (United States, United Kingdom, France...). Examples: English UK (en_GB), English US (en_US), English AU (en_AU).
@@ -43,7 +43,7 @@ Below is the JSON standard format representing this set of locales.
 :::
 
 ## Channel
-::: availability versions=1.7,2.x,3.x,4.x,5.x,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
 A channel is a place where your product information is visible: for example, a website, a print catalog or a mobile application.
@@ -128,7 +128,7 @@ Below is the JSON standard format representing this set of channels when request
 :::
 
 ## Currency
-::: availability versions=2.x,3.x,4.x,5.x,Serenity editions=CE,EE
+::: availability versions=2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
 If you want to store price information inside your PIM, you will need currencies.
@@ -154,7 +154,7 @@ Endpoints for the currencies are only available starting the 2.0 version.
 :::
 
 ## Measure family
-::: availability versions=2.x,3.x,4.x,5.x,Serenity editions=CE,EE
+::: availability versions=2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
 ::: warning
