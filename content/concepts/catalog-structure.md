@@ -133,7 +133,7 @@ Below is the JSON standard format representing this attribute.
 ```
 
 ::: warning
-Note that the `group_labels` field is only available in Serenity.
+The `group_labels` field is only available since the 5.0.
 :::
 
 ::: panel-link Want more details about the attribute resource? [Check its endpoints here!](/api-reference.html#Attribute)

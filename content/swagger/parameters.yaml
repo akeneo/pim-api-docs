@@ -88,14 +88,14 @@ with_count:
 with_attribute_options:
   name: with_attribute_options
   in: query
-  description: Return labels of attribute options in the response. (Only available in the PIM Serenity version.)
+  description: Return labels of attribute options in the response. (Only available since the 5.0 version)
   default: false
   type: boolean
   required: false
 with_quality_scores:
   name: with_quality_scores
   in: query
-  description: Return product quality scores in the response. (Only available in the PIM Serenity version.)
+  description: Return product quality scores in the response. (Only available since the 5.0 version)
   default: false
   type: boolean
   required: false
