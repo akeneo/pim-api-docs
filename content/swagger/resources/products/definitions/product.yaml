@@ -54,7 +54,7 @@ properties:
             linked_data:
               type: object
               x-read-only: true
-              description: Object containing labels of attribute options (only available in Serenity and when query parameter "with_attribute_options" is set to "true"). See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
+              description: Object containing labels of attribute options (only available since the 5.0 and when query parameter "with_attribute_options" is set to "true"). See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
               properties:
                 attribute:
                   type: string
@@ -87,7 +87,7 @@ properties:
               type: string
   quantified_associations:
     type: object
-    description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available in Serenity)
+    description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available since the 5.0)
     x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it."
     properties:
       quantifiedAssociationTypeCode:
@@ -136,7 +136,7 @@ properties:
         enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
   quality_scores:
     type: object
-    description: Product quality scores for each channel/locale combination (only available in Serenity and when the "with_quality_scores" query parameter is set to "true")
+    description: Product quality scores for each channel/locale combination (only available since the 5.0 and when the "with_quality_scores" query parameter is set to "true")
     x-immutable: true
     x-read-only: true
 

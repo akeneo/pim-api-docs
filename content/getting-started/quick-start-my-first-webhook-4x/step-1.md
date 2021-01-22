@@ -17,8 +17,7 @@ Then click on `Create Bin` and go to the history of your Bin.
 Alright! Mockbin is ready to receive our first piece of data from PIM webhooks.
 
 ## Send data to Mockbin
-
-Now, log into your Serenity PIM and go to the event subscriptions page of the connection you created before.
+Now, log into your 5.0 or Serenity PIM and go to the event subscriptions page of the connection you created before.
 Fill in the URL field with the URL of your Bin and click on the `Test` button. 
 
 ::: warning

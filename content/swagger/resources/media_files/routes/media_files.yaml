@@ -9,6 +9,7 @@ get:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   parameters:
     - $ref: '#/parameters/page'
@@ -128,6 +129,7 @@ post:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   parameters:
     - name: Content-type

@@ -173,7 +173,7 @@ Please read our [Akeneo help center](https://help.akeneo.com/pim/serenity/articl
 ::: info
 * Akeneo PIM have different type of association (Cross-sell, up-sell, substitution, pack…) but a customer can also build “custom” association types.
 * A product “association” can be at product level and/or at product model level.
-* New: on Akeneo PIM Serenity Edition, we now have quantity for association. Please consult this [dedicated documentation](https://help.akeneo.com/pim/serenity/updates/2020-07.html#new-association-type-with-quantities).
+* New: since the 5.0, we have quantity for association. Please consult this [dedicated documentation](https://help.akeneo.com/pim/serenity/updates/2020-07.html#new-association-type-with-quantities).
 :::
 
 ## Target marketing settings
