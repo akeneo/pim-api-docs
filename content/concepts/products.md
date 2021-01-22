@@ -115,11 +115,11 @@ Note that the `metadata` field is only available starting from the v2 and as it 
 :::
 
 ::: warning
-Note that the `quantified_associations` field is only available in Serenity.
+The `quantified_associations` field is only available since the 5.0.
 :::
 
 ::: warning
-Note that the `quality_scores` field is only available in Serenity and when the `with_quality_scores` query parameter is set to `true`.
+Note that the `quality_scores` field is only available since the 5.0 and when the `with_quality_scores` query parameter is set to `true`.
 :::
 
 ::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Product)
@@ -160,7 +160,7 @@ In this formula:
  - `LOCALE_CODE` is the code of a locale when the attribute is localizable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
- - `LINKED_DATA` containing the attribute option labels if the attribute is a simple or multi select. [Check some examples here.](#the-linked_data-format) This property is for now, only available in Serenity.
+ - `LINKED_DATA` containing the attribute option labels if the attribute is a simple or multi select. [Check some examples here.](#the-linked_data-format) This property is only available since the 5.0.
  
 ### The `data` format
 The sections below describe the format of the `data` property for each [product attribute](/concepts/catalog-structure.html#attribute) type.

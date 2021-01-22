@@ -191,7 +191,7 @@ Below is the JSON standard format representing a measure family.
 :::
 
 ## Measurement family
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=5.0,Serenity editions=CE,EE
 :::
 
 If you want to store your product measurement, i.e. weight, height or power inside your PIM, you will need measurement families. These entities will be really helpful when you are requesting products for a given channel and you want these measurement attributes to be converted into the units you set in the given channel.
