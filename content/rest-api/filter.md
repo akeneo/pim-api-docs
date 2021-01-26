@@ -212,7 +212,7 @@ To filter products on their quality score, use the `quality_score` product prope
 For now, this filter only accepts one operator: `IN`. It expects one or several scores, given as a list of letters. The possible values for the quality score are "A", "B", "C", "D" and "E".
 
 #### Examples
-To get the products that have a quality score "D" the `ecommerce` channel and `en_US` locale, you can use the following URL.
+To get the products that have a quality score "D" for the `ecommerce` channel and `en_US` locale, you can use the following URL.
 
 ```
 /api/rest/v1/products?search={"quality_score":[{"operator":"IN","value":["D"],"scope":"ecommerce","locale":"en_US"}]}
