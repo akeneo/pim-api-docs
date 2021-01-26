@@ -26,5 +26,8 @@ properties:
         data:
           type: object
           properties:
-            identifier:
-              type: string
+            resource:
+              type: object
+              properties:
+                identifier:
+                  type: string
