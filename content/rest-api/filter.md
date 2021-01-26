@@ -206,7 +206,7 @@ To get all the variant products of the sub product model with the code `tshirt_a
 ```
 
 ### On their quality score
-::: availability versions=6.0,Serenity editions=CE,EE
+::: availability versions=Serenity editions=CE,EE
 
 To filter products on their quality score, use the `quality_score` product property. You will also need to provide a `scope` and `locale` value to specify on which channel and locale you want to filter with the quality score.
 For now, this filter only accepts one operator: `IN`. It expects one or several scores, given as a list of letters. The possible values for the quality score are "A", "B", "C", "D" and "E".
