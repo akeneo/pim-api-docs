@@ -8,7 +8,7 @@ You can verify the signature by following these steps:
 
 1. Get the original signature and timestamp from the request headers:
    `X-Akeneo-Request-Signature` and `X-Akeneo-Request-Timestamp`.
-2. Prepare the event payload by concatenating the timestamp and the request body with a dot.
+2. Prepare the event payload by concatenating the timestamp and the request body with a dot `.`.
 3. Generate a hash signature (HMAC SHA256) of the event payload with the help of the _secret_.
 4. Compare the original and generated signature.
 
