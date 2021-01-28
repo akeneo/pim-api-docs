@@ -396,7 +396,8 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'The complete guide to connect Akeneo PIM with events API',
             files: {
                 'introduction.md': 'Introduction',
-                'help-to-setup.md': 'Help to setup?'
+                'help-to-setup.md': 'Help to setup?',
+                'warning.md': 'Warning',
             }
         }
     };
