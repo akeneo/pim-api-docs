@@ -315,6 +315,14 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             files: {
                 'welcome.md': 'Welcome'
             }
+        },
+        'events-api-best-practices': {
+            gettingStartedName: 'events-api-best-practices',
+            pimVersion: 'v4 or Serenity',
+            title: 'Events API best practices',
+            files: {
+                'best-practices.md': 'Best practices',
+            }
         }
     };
     var isOnePage = false;
