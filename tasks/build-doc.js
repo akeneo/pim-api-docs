@@ -391,6 +391,13 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
               'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
               'step3-define-your-first-scope.md': 'How to build your connector'
             }
+        },
+        'events-api-connection': {
+            title: 'The complete guide to connect Akeneo PIM with events API',
+            files: {
+                'introduction.md': 'Introduction',
+                'help-to-setup.md': 'Help to setup?'
+            }
         }
     };
 
