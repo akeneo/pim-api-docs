@@ -92,10 +92,10 @@ Here are the allowed operators you can use to filter by completeness as well as 
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
-| `<` or `<=` | integer | Only returns products that have a completeness lower than (or equal to) the given value on the given channel |
-| `>` or `>=`  | integer | Only returns products that have a completeness greater than (or equal to) the given value on the given channel |
-| `=` | integer | Only returns products that have a completeness equal to the given value on the given channel |
-| `!=` | integer | Only returns products that have a completeness different from the given value on the given channel |
+| `<` or `<=` | integer | Only returns products that have a completeness lower than (or equal to) the given value on the given channel independently of locales. |
+| `>` or `>=`  | integer | Only returns products that have a completeness greater than (or equal to) the given value on the given channel independently of locales. |
+| `=` | integer | Only returns products that have completeness equal to the given value on the given channel independently of locales. |
+| `!=` | integer | Only returns products that have a completeness different from the given value on the given channel independently of locales. |
 | `GREATER THAN ON ALL LOCALES` or `GREATER OR EQUALS THAN ON ALL LOCALES` | integer | Only returns products that have a completeness on all locales that is greater than (or equal to) the given value on the given channel for the given set of locales |
 | `LOWER THAN ON ALL LOCALES` or `LOWER OR EQUALS THAN ON ALL LOCALES` | integer |  Only returns products that have a completeness on all locales that is lower than (or equal to) the given value on the given channel for the given set of locales |
 
