@@ -43,13 +43,3 @@ You are encouraged to use a string comparison function that is safe to timing at
 :::
 
 You can also use the `X-Akeneo-Request-Timestamp` to validate that the event request is not too old.
-
-```php
-
-// X-Akeneo-Request-Timestamp
-$timestamp = "1602565368";
-
-if (time() - (int) $timestamp > 300) {
-  throw new \Exception("Request is too old (> 5min)");
-}
-```
