@@ -51,8 +51,8 @@ $client->getReferenceEntityAttributeApi()->upsert('brand', 'description', [
         'en_US' => 'Description'
     ],
     'type' => 'text',
-    'localizable' => true,
-    'scopable' => true,
+    'value_per_locale' => true,
+    'value_per_channel' => true,
     'is_required_for_completeness' => false
 ]);
 ```
