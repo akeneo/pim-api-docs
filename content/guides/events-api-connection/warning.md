@@ -8,7 +8,7 @@ Unfortunately, we don’t have such a retry mechanism in our event API connectio
 This means that if a message is not published, no mechanism will try to do it again, and the message will be forever lost...
 
 ## Requests limitation
-For some performance issues, the number of requests is limited to 4000 per hour.
+For some scalability issues and to avoid overflowing the endpoint, the number of requests is limited to 4000 per hour.
 
 ## No 100% uptime
 Since event API delivery is not always guaranteed, don't blindly trust it and consider implementing a job which periodically fetch data from the PIM.
