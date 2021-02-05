@@ -389,7 +389,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
               'step0-who-is-your-connector-for.md': 'Who is your connector for?',
               'step1-who-does-what.md': 'Who does what?',
               'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
-              'step3-reconcile-PIM-data-with-print-data.md': 'Reconcile PIM data with print capabilities',
+              'step3-reconcile-PIM-data-with-print-features.md': 'Reconcile PIM data with print capabilities',
               'step4-define-your-first-scope.md': 'How to build your connector'
             }
         }

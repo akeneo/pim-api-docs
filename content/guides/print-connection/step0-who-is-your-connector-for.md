@@ -12,22 +12,24 @@ You will find below the main needs, associated to each user profile, in terms of
 
 Let's already address 2 different needs:
 1. The need to create a complete print catalog from PIM information.
-2. The ability to create a PDF or product brochure on demand from one or more PIM products.
+2. The ability to create a PDF, a product brochure, a paper label or flyers on demand from one or more PIM products.
 
 
 ### Julia's needs
 
-Julia needs an easy way to export her PIM data into your print solution (sometimes associated to Adobe InDesign / Adobe Illustrator).
+**For a print catalog:**
 
-After import, the PIM product information is formatted either automatically through a template or manually by the print team.
+Julia needs an easy way to export her PIM data into your print solution (Probably associated with a software such as **Adobe InDesign** or **Adobe Illustrator**).
 
 So she needs:
 
-* An **easy to follow process** to import automatically her PIM data into the print solution.
+* An **easy to follow process** to define what PIM data will be managed by your print solution.
 
-* A **friendly Connector UI** to trigger manually the connector on demand.
+* A **friendly connector UI** to select and import PIM data into your print solution.
 
-* A **friendly UI** to log all automatic and manual import processes and a notification system to be alerted when something goes wrong.
+* A **complete documentation** on how to use your connector.
+
+* A **documentation** about the limits in terms of PIM data your connector manages.
 
 ### Peter and/or Filips' needs
 
@@ -37,13 +39,9 @@ So they need:
 
 * If needed, an **easy to follow download/installation process:** to retrieve and install your connector.
 
-* A **full documentation** about **the limits of the connector** in terms of **scalability** and **performance**.
-
 * An **easy to follow configuration process** to set up the connection between the Akeneo PIM and your print solution as well as parameters to configure the connector. It requires documentation to explain the methodology on how to configure your connector compared to your business needs.
 
-* A **friendly import process** to perform the first import of the PIM data into your print solution. Due to the volume of data to be imported, this may require special support from your end.
-
-* A **connector UI or a configuration file to set up the connector** (PIM connection, flexible filtering capabilities, …)
+* A **connector UI or a configuration file to set up the connector** (PIM connection, select "print" channel, flexible filtering capabilities, …)
 
 * An access to the **connector logs** to have all detailed technical information to investigate errors.
 

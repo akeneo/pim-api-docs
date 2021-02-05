@@ -20,8 +20,7 @@ Understand your target user: Who will install it? Who will set it up? Who will u
 Understand how external stakeholders interact and synchronize their data with the PIM, and why.
 3. [Understand Akeneo PIM](step2-understand-akeneo-pim.html)  
 Understand Akeneo PIM, its features, its data structure in order to be able to manage these data in your print solution.
-
-NEW ONE ?
-
-4. [Starting your first version](step3-define-your-first-scope.html)  
+4. [Reconcile PIM data with print capabilities](step3-reconcile-PIM-data-with-print-features.html)
+Discover how you can use PIM data on paper products.
+5. [Starting your first version](step4-define-your-first-scope.html)  
 What are Akeneo's recommendations for starting the first version of a print connector?

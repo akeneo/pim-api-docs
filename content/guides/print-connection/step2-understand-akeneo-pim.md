@@ -29,11 +29,11 @@ If you need an Akeneo PIM **Enterprise Edition** instance to start developing yo
 
 ## Acquire PIM knowledge
 
-We advise you to take a look at our [Helpcenter](https://help.akeneo.com/pim/index.html) where you'll find a lot of documentation about all our features
+We advise you to take a look at our [Helpcenter](https://help.akeneo.com/pim/index.html) where you'll find a lot of documentation about all our features.
 
 If you feel that a comprehensive training program would allow you to know everything about Akeneo PIM, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
 
-In the context of building a print connector, here is a selection of  PIM concepts you'll need to master before developing anything:
+In the context of building a print connector, here is a selection of PIM concepts you'll need to master before developing anything:
 - The [product](/concepts/products.html#product),
 - The [product model](/concepts/products.html#product-model),
 - The [family](/concepts/catalog-structure.html#family),
@@ -48,7 +48,7 @@ In the context of building a print connector, here is a selection of  PIM concep
 - The [asset](/concepts/asset-manager.html).
 
 :::info
-If you need to go deeper, the purpose of the next chapters is not to redo the PIM documentation but to explain where to find the information and, above all, to point out PIM features/properties to be taken into consideration **in a context of developing a print connector**.
+If you need to go deeper, the purpose of the next chapters is not to redo the PIM documentation but to explain where to find the information and, above all, to point out PIM features/properties to be taken into consideration.
 :::
 
 ## Product
