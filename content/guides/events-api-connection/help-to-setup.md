@@ -33,28 +33,13 @@
 
 ## Keep synchronizing your data with the PIM
 
-- il n’y a pas de retry des events (si l'extension n'est pas joignable, ou si l'extension retourne une erreur)
+In our events API connection, we don’t have a retry mechanism: if a message is not published — for example, the extension is temporally unreachable —, it will be forever lost…
+Besides, our events API comes with a limitation on the number of requests per hour (see https://api.akeneo.com/events-documentation/limits-and-scalability.html#limit-of-event-api-requests-per-hour). Again, additional messages will be lost.
+Keep also in mind that your extension would probably not have 100% uptime, add the fact that we don’t handle HTTP Too Many Requests, and you have a bunch of reasons to lose messages! 
+So, despite events API is trustworthy, you should not rely solely on it and continue to fetch data from the PIM.
 
-  - events peuvent être perdu
-  - extension & 3rd party would probably not have 100% uptime
-    - on ne support par le code http 409 too many request
+## Ignore not relevant API events
 
-- il y a une limite sur le nombre d’event api requests
-
-  - https://api.akeneo.com/events-documentation/limits-and-scalability.html#limit-of-event-api-requests-per-hour
-  - events are lost if the limit is reached
-
-- webhook delivery is not always guaranted
-
-- conclusion: synchronization is still necessary
-
-  > (doc example from 3rd party) Your app should not rely solely on receiving data from Shopify webhooks. Since webhook delivery is not always guaranteed, you should implement reconciliation jobs to periodically fetch data from Shopify. Most query endpoints support both the created_at_min and updated_at_min filter parameters. These filters can be used to build a job that fetches all resources that have been created or updated since the last time the job ran
-
-## Ignore the API events that are not relevant to you
-
-- the events order may not be the right one
-
-  - (Technical limitation of the events api)
-  - for example, ignore a product updated date older than the one you have
-
-  > (doc example from 3rd party) Ordering of different products - There is no webhook delivery ordering guarantee for different products. For example, you may get a webhook for a change to product ABC before product XYZ even if product XYZ was updated first.
+For some technical limitations, we don’t guarantee the message ordering delivery. 
+Consequently, you may receive two update events on the same product but not in the chronological order (the oldest one arrives after the newest).
+So, don’t trust the on-the-flow order and treat your messages wisely: in this case, simply ignore the outdated event.
