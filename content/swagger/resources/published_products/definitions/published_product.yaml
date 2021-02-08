@@ -69,6 +69,9 @@ properties:
             description: Array of product model codes with which the product is in relation (only available since the v2.1)
             items:
               type: string
+  quantified_associations:
+    type: object
+    description: Warning: associations with quantities aren't compatible with the published products. The response will always be empty.
   created:
     type: string
     description: Date of creation
