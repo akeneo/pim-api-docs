@@ -7,7 +7,7 @@ Here, you will connect an event subscription to a fake endpoint and receive your
 [Mockbin](http://mockbin.org/) allows you to generate custom endpoints to test, mock, and track HTTP requests & responses between libraries, sockets and APIs.
 Go to [mockbin.org/bin/create](http://mockbin.org/bin/create) to create your Bin and if needed change the configuration to respond with a 200 status.
 
-![Create Bin on Mockbin](/img/getting-started/quick-start-my-first-webhook/create-mockbin.png)
+![Create Bin on Mockbin](/img/getting-started/quick-start-my-first-webhook-4x/create-mockbin.png)
 
 Then click on `Create Bin` and go to the history of your Bin.
 Alright! Mockbin is ready to receive our first piece of data from PIM webhooks.
@@ -21,7 +21,7 @@ Fill in the URL field with the URL of your Bin and click on the `Test` button.
 Don't forget to save your configuration before leaving the page.
 :::
 
-![Event subscriptions configuration](/img/getting-started/quick-start-my-first-webhook/event-subscription-configuration.png)
+![Event subscriptions configuration](/img/getting-started/quick-start-my-first-webhook-4x/event-subscription-configuration.png)
 
 You should see that the response of Mockbin is 200! :tada:
 
@@ -30,7 +30,7 @@ You should see that the response of Mockbin is 200! :tada:
 Go back to your Bin history, refresh it and let's see how the magic happens!
 You are going to be amazed by the first piece of data you just received. Click on details and tada :tada:
 
-![Mockbin test details](/img/getting-started/quick-start-my-first-webhook/mockbin-test-details.png)
+![Mockbin test details](/img/getting-started/quick-start-my-first-webhook-4x/mockbin-test-details.png)
 
 Now you can play with the API and update a product to receive the event in your Bin! If you don't know how to run an API call follow this guide: [Your first tutorial](/getting-started/your-first-tutorial-4x/welcome.html).
 
@@ -42,7 +42,7 @@ If it's not a permission issue, you may want to make sure your server is able to
 In the details of your Mockbin Bin, you will find the curl command you need to run!
 :::
 
-![Product created details](/img/getting-started/quick-start-my-first-webhook/product-created-details.png)
+![Product created details](/img/getting-started/quick-start-my-first-webhook-4x/product-created-details.png)
 
-::: panel-link Let's move on the second step of this tutorial [Create your own Symfony app to display event subscriptions data](/getting-started/quick-start-my-first-webhook/step-2.html)
+::: panel-link Let's move on the second step of this tutorial [Create your own Symfony app to display event subscriptions data](/getting-started/quick-start-my-first-webhook-4x/step-2.html)
 :::

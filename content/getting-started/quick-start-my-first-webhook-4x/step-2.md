@@ -75,7 +75,7 @@ class WebhookController
 
 3. Launch your local webserver with `$ symfony serve --port=8000`. 
 
-![Server running](/img/getting-started/quick-start-my-first-webhook/server-running.png)
+![Server running](/img/getting-started/quick-start-my-first-webhook-4x/server-running.png)
 
 ::: info
 For the need of this quick start, I'm using Docker, that's why I map and expose the `8000` port. My Symfony binary is located in `bin`.
@@ -83,11 +83,11 @@ For the need of this quick start, I'm using Docker, that's why I map and expose 
 
 4. Almost done! Go back to your PIM and configure the connection event subscriptions by replacing the Mockbin URL with your new URL. Then save and test it. Here is mine:
 
-![Server running](/img/getting-started/quick-start-my-first-webhook/event-subscription-configuration-sf-project.png)
+![Server running](/img/getting-started/quick-start-my-first-webhook-4x/event-subscription-configuration-sf-project.png)
 
 5. Finally, update a product with the API and here is the result:
 
-![Log result](/img/getting-started/quick-start-my-first-webhook/log-result.png)
+![Log result](/img/getting-started/quick-start-my-first-webhook-4x/log-result.png)
 
 ```json
 {
