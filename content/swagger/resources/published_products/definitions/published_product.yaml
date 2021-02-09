@@ -71,7 +71,7 @@ properties:
               type: string
   quantified_associations:
     type: object
-    description: Warning: associations with quantities are not compatible with the published products. The response will always be empty.
+    description: "Warning: associations with quantities are not compatible with the published products. The response will always be empty.
   created:
     type: string
     description: Date of creation
