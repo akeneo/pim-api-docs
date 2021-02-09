@@ -252,7 +252,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
     var pages = {
         'your-first-tutorial-4x': {
             gettingStartedName: 'your-first-tutorial',
-            pimVersion: 'v4',
+            pimVersion: 'v4 or Serenity',
             title: 'Your very first tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -276,7 +276,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         },
         'connect-the-pim-4x': {
             gettingStartedName: 'connect-the-pim',
-            pimVersion: 'v4',
+            pimVersion: 'v4 or Serenity',
             title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -298,14 +298,22 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'step-3.md': 'Step 3 | Configure your connector'
             }
         },
-        'quick-start-my-first-webhook': {
+        'quick-start-my-first-webhook-4x': {
             gettingStartedName: 'quick-start-my-first-webhook',
-            pimVersion: 'v5',
+            pimVersion: 'v4 or Serenity',
             title: 'Quick start my first webhook',
             files: {
                 'welcome.md': 'Welcome',
                 'step-1.md': 'Step 1 | Receive my first set of data',
                 'step-2.md': 'Step 2 | Create your own Symfony app to display event subscriptions data'
+            }
+        },
+        'quick-start-my-first-webhook-old': {
+            gettingStartedName: 'quick-start-my-first-webhook',
+            pimVersion: 'v1.7 / v2 / v3',
+            title: 'Quick start my first webhook',
+            files: {
+                'welcome.md': 'Welcome'
             }
         }
     };
