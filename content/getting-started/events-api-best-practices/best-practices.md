@@ -4,15 +4,22 @@ This page presents best practices and recommendations you might need while imple
 
 First, if you need help setting up a connector to use the Events API, look at the [Quick start my first webhook](/getting-started/quick-start-my-first-webhook/welcome.html) guide.
 
-<!--
 ## Configure your server
 
-TODO
+Setup the server and the domain of your connector to be reachable from Akeneo PIM (Firewall, DNS, …).
 
-- reco devops (voir avec Pierre-Yves)
-  - DNS, Firewall, TLS certificate (+lib TLS)
-  - https://api.akeneo.com/events-documentation/limits-and-scalability.html#extension-side-limits
--->
+You can verify the connectivity with the help of a `Test` button [available on the event subscription configuration page](https://help.akeneo.com/pim/serenity/articles/manage-event-subscription.html#request-url-configuration-verification).
+
+### HTTPS endpoint
+
+Your endpoint should expose a valid HTTPS certificate and use an up-to-date TLS implementation, to make sure the information is transmitted securely.
+
+### Extension side limits
+
+If you're having trouble receiving messages, consider increasing the limit size of the request body of your server:
+
+- [Apache](https://httpd.apache.org/docs/current/mod/core.html#limitrequestbody)
+- [Nginx](http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size)
 
 ## Handle API events asynchronously
 
@@ -56,15 +63,19 @@ An important point of the Events API is that you should not rely solely on it to
 
 ### Events delivery
 
-Akeneo PIM Events API has no retry mechanism, so you may not receive some events:
+Akeneo PIM Events API has no retry mechanism:
 
 - If the connector is unreachable or returns an error to an event request, the PIM will not try to re-send it.
 
 - The Events API comes with a limitation on the number of requests sent per hour (see the paragraph about the [limits of Events API requests](/events-documentation/limits-and-scalability.html#limit-of-event-api-requests-per-hour)).
-  If this quota is reached, some events won't be sent until the quota is reset.
+
+  If this quota is reached, events transmission will be delayed until the quota is reset.
 
 - In the same way, your connector might be limiting the number of incoming requests (maybe with a _429 Too Many Requests_ status code).
-  Unfortunately, the Events API doesn't handle this scenario and will keep trying to send you event API requests.
+
+  Unfortunately, the Events API doesn't handle this scenario yet and will keep trying to send you event API requests.
+
+  Keep in mind that events older than 2 hours will be discarded by the Events API.
 
 With all of this in mind, it's easy to see that your connector must still be able to synchronize its data periodically with the PIM (via the Rest API).
 
