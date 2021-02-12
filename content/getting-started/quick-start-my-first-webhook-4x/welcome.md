@@ -22,5 +22,5 @@ It explains how to setup the PIM and the connection.
 
 That's it! :tada:
 
-::: panel-link Let's move on the first step of this tutorial [Receive my first data](/getting-started/quick-start-my-first-webhook/step-1.html)
+::: panel-link Let's move on the first step of this tutorial [Receive my first data](/getting-started/quick-start-my-first-webhook-4x/step-1.html)
 :::
