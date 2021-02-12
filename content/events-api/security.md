@@ -24,7 +24,8 @@ $originalSignature =
 // X-Akeneo-Request-Timestamp
 $timestamp = "1602565368";
 
-$requestBody = '{"action":"product.updated", ...}';
+// The whole request body.
+$requestBody = '{"events":[{"action": "product.created", ...}]}';
 
 // Prepare the event payload.
 $signedPayload = $timestamp . "." . $requestBody;
