@@ -1,5 +1,9 @@
 # _Step 1_ | Receive my first set of data
 
+::: warning
+The Events API is only available on **Serenity Edition**.
+:::
+
 Here, you will connect an event subscription to a fake endpoint and receive your first data. :rocket:
 
 ## Create a Bin on Mockbin

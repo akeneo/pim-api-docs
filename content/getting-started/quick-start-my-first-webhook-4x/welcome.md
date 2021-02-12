@@ -1,5 +1,9 @@
 # 👋 Welcome to this tutorial!
 
+::: warning
+The Events API is only available on **Serenity Edition**.
+:::
+
 This tutorial will teach you:
 > How to connect a PIM event subscription to your own app
 
