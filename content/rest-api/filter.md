@@ -205,6 +205,25 @@ To get all the variant products of the sub product model with the code `tshirt_a
 /api/rest/v1/products?search={"parent":[{"operator":"=","value":"tshirt_armor_blue"}]}
 ```
 
+### On their quality score
+::: availability versions=Serenity editions=CE,EE
+
+To filter products on their quality score, use the `quality_score` product property. You will also need to provide a `scope` and `locale` value to specify on which channel and locale you want to filter the quality score on.
+This filter accepts one operator: IN. It expects one or several scores, given as a list of letters. The possible values for the quality score are "A", "B", "C", "D" and "E".
+
+#### Examples
+To get the products with a "D" for the `ecommerce` channel and `en_US` locale, you can use the following URL.
+
+```
+/api/rest/v1/products?search={"quality_score":[{"operator":"IN","value":["D"],"scope":"ecommerce","locale":"en_US"}]}
+```
+
+To get the products with an "A" or "B" for the `mobile` channel and `en_GB` locale, you can use the following URL.
+
+```
+/api/rest/v1/products?search={"quality_score":[{"operator":"IN","value":["A","B"],"scope":"mobile","locale":"en_GB"}]}
+```
+
 ## Filter on product model properties
 
 To filter product models by one of their properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
