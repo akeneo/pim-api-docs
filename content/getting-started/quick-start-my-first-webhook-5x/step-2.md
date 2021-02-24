@@ -1,9 +1,5 @@
 # _Step 2_ | Create your own Symfony app to display event subscriptions data 
 
-::: warning
-The Events API is only available on **Serenity Edition**.
-:::
-
 [//]: <> (Hey Akeneo colleagues, here is a repo with the working code if you need to test https://github.com/akeneo/events-api-app.)
 
 ## Prerequisites

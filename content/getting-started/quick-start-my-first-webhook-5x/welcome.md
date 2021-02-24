@@ -1,9 +1,5 @@
 # 👋 Welcome to this tutorial!
 
-::: warning
-The Events API is only available on **Serenity Edition**.
-:::
-
 This tutorial will teach you:
 > How to connect a PIM event subscription to your own app
 
@@ -26,5 +22,5 @@ It explains how to setup the PIM and the connection.
 
 That's it! :tada:
 
-::: panel-link Let's move on the first step of this tutorial [Receive my first data](/getting-started/quick-start-my-first-webhook-4x/step-1.html)
+::: panel-link Let's move on the first step of this tutorial [Receive my first data](/getting-started/quick-start-my-first-webhook-5x/step-1.html) 
 :::

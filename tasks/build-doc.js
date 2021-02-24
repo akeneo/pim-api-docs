@@ -252,7 +252,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
     var pages = {
         'your-first-tutorial-4x': {
             gettingStartedName: 'your-first-tutorial',
-            pimVersion: 'v4 / v5 or Serenity',
+            pimVersion: 'v4 / v5 / Serenity',
             title: 'Your very first tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -260,6 +260,12 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'step-1.md': 'Step 1 | Create a Connection',
                 'step-2.md': 'Step 2 | Set up Postman',
                 'step-3.md': 'Step 3 | Make the REST API request'
+            },
+            availability: {
+                serenity: "4x",
+                v5: "4x",
+                v4: "4x",
+                old: "old"
             }
         },
         'your-first-tutorial-old': {
@@ -272,11 +278,17 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'step-1.md': 'Step 1 | Generate the credentials',
                 'step-2.md': 'Step 2 | Set up Postman',
                 'step-3.md': 'Step 3 | Make the REST API request'
+            },
+            availability: {
+                serenity: "4x",
+                v5: "4x",
+                v4: "4x",
+                old: "old"
             }
         },
         'connect-the-pim-4x': {
             gettingStartedName: 'connect-the-pim',
-            pimVersion: 'v4 / v5 or Serenity',
+            pimVersion: 'v4 / v5 / Serenity',
             title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -284,6 +296,12 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'step-1.md': 'Step 1 | Create a Connection',
                 'step-2.md': 'Step 2 | Cook your connector',
                 'step-3.md': 'Step 3 | Identify your connector in the PIM'
+            },
+            availability: {
+                serenity: "4x",
+                v5: "4x",
+                v4: "4x",
+                old: "old"
             }
         },
         'connect-the-pim-old': {
@@ -296,40 +314,38 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'step-1.md': 'Step 1 | Cook your connector',
                 'step-2.md': 'Step 2 | Generate the credentials',
                 'step-3.md': 'Step 3 | Configure your connector'
+            },
+            availability: {
+                serenity: "4x",
+                v5: "4x",
+                v4: "4x",
+                old: "old"
             }
         },
-        'quick-start-my-first-webhook-4x': {
+        'quick-start-my-first-webhook-5x': {
             gettingStartedName: 'quick-start-my-first-webhook',
-            pimVersion: 'v4 or Serenity',
+            pimVersion: 'v5 / Serenity',
             title: 'Quick start my first webhook',
             files: {
                 'welcome.md': 'Welcome',
                 'step-1.md': 'Step 1 | Receive my first set of data',
                 'step-2.md': 'Step 2 | Create your own Symfony app to display event subscriptions data'
+            },
+            availability: {
+                serenity: "5x",
+                v5: "5x"
             }
         },
-        'quick-start-my-first-webhook-old': {
-            gettingStartedName: 'quick-start-my-first-webhook',
-            pimVersion: 'v1.7 / v2 / v3',
-            title: 'Quick start my first webhook',
-            files: {
-                'welcome.md': 'Welcome'
-            }
-        },
-        'events-api-best-practices-4x': {
+        'events-api-best-practices-5x': {
             gettingStartedName: 'events-api-best-practices',
-            pimVersion: 'v4 or Serenity',
+            pimVersion: 'v5 / Serenity',
             title: 'Events API best practices',
             files: {
                 'welcome.md': 'Best practices',
-            }
-        },
-        'events-api-best-practices-old': {
-            gettingStartedName: 'events-api-best-practices',
-            pimVersion: 'v1.7 / v2 / v3',
-            title: 'Events API best practices',
-            files: {
-                'welcome.md': 'Best practices',
+            },
+            availability: {
+                serenity: "5x",
+                v5: "5x"
             }
         }
     };
@@ -350,6 +366,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                         image: pages[path.basename(path.dirname(file.path))].image,
                         gettingStartedName: pages[path.basename(path.dirname(file.path))].gettingStartedName,
                         pimVersion: pages[path.basename(path.dirname(file.path))].pimVersion,
+                        availability: pages[path.basename(path.dirname(file.path))].availability,
                         mainContent: fs.readFileSync('tmp/getting-started/' + path.basename(path.dirname(file.path)) + '/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
