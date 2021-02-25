@@ -167,7 +167,7 @@ md.use(require('markdown-it-container'), 'version-screenshots', {
         var source_v17 = tokens[idx].info.trim().match(/^version-screenshots\sid=".*"\s2\.x.*\s1\.7(.*)$/);
         return (tokens[idx].nesting === 1) ? '<div>' +
                     '<ul class="nav nav-tabs nav-tabs-versions" role="tablist">' +
-                        '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">v2 / v3 / v4 / v5</a></li>' +
+                        '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">Since v2</a></li>' +
                         '<li role="presentation"><a href="#v17_' + id[1] + '" aria-controls="v17_' + id[1] + '" role="tab" data-toggle="tab">v1.7</a></li>' +
                     '</ul>' +
                     '<div class="panel panel-default">' +

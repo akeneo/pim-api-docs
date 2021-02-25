@@ -18,8 +18,8 @@ Depending on your PIM version, there are two different ways to generate these cl
 - Using a PIM v2.x or v3.x? [Follow the instructions right here.](#with-a-v2x-and-3x-pim)
 - Still using the v1.7? [Here you go!](#with-a-17-pim)
 
-### Starting from the v4 of the PIM
-Starting from the v4 of the PIM, there is now one unique and streamlined way to generate your client ID and secret. See by yourself!
+### Since the PIM v4
+Since the PIM v4, there is one unique and streamlined way to generate your client ID and secret. See by yourself!
 
 1. Log into your favorite PIM.
 1. Navigate to the `System/Connections` menu.
@@ -115,9 +115,9 @@ You will get this answer.
 
 You now have a client ID and a secret.  But the request to get this token needs a username and a password.
 
-### Starting from the v4 of the PIM
+### Since the PIM v4
 
-In v4 or newer PIM, this username and password are automatically generated whenever you create a connection in the UI. Navigate to `System/Connections`, click on your connection and find your username and password in the `Credentials` section.
+Since the PIM v4, this username and password are automatically generated whenever you create a connection in the UI. Navigate to `System/Connections`, click on your connection and find your username and password in the `Credentials` section.
 
 You may need to regenerate a password if you haven't saved it anywhere. Indeed, for security reasons, the PIM can only show it to you once, after the connection is created. There is a `Regenerate` button close to the hidden password if needed. :wink:
 
