@@ -2,8 +2,6 @@
 
 ## PIM side limits
 
-To not degrade the performance of the PIM certain limitations can be configured.
-
 ### Number of event subscriptions
 
 By default, you can only subscribe to `3` events. To change this behavior update the value of the parameter `webhook_active_event_subscriptions_limit` in the `config/services/pim_parameters.yml` file.
@@ -20,6 +18,3 @@ By default, each event API request contains `10` events. To change this behavior
 
 By default, each event API request has a timeout of `0.5` seconds. To change this behavior update the value of the parameter `webhook_timeout` in the `config/services/pim_parameters.yml` file.
 
-### Pubsub message retention duration
-
-By default, Pubsub keeps messages for 2 hours.
