@@ -152,6 +152,7 @@ In Akeneo PIM, you can group a selection of products to create a theme, for exam
 But most of the time, this feature is for internal purpose and product groups don’t have to be exported to your print solution.
 
 **What do you need to implement?**
+
 As product groups can be used for so many different use-cases and for internal purposes most of the time, we don't recommend that you manage this PIM feature (but, once again, do not hesitate to discuss this with your customers in order to evaluate their needs).
 
 ## Category management
