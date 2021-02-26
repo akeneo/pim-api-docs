@@ -19,7 +19,7 @@ Let's already address 2 different needs:
 
 **For a print catalog:**
 
-Julia needs an easy way to export her PIM data into your print solution (Probably associated with a software such as **Adobe InDesign** or **Adobe Illustrator**).
+Julia needs an easy way to export her PIM data into your print solution (probably associated with software such as **Adobe InDesign** or **Adobe Illustrator**).
 
 So she needs:
 
