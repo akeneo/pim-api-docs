@@ -31,6 +31,7 @@ In order for your connector to communicate with Akeneo PIM, you need to provide 
 ![product mapping](../../img/guides/configuration-product.png)
 
 **What is it?**
+
 You need to import products from the PIM into your print solution...
 But which products? All products that are in the PIM?
 
