@@ -127,6 +127,7 @@ Make sure you have all the mechanisms in your connector to optimize the performa
 ### Manage product associations
 
 **What is it?**
+
 In a PIM, you can manage different types of associations such as:
 * Cross-sell
 * Up-sell
