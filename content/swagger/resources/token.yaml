@@ -9,6 +9,7 @@ post:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   x-no-token: true
   parameters:

@@ -2,19 +2,32 @@
 {{#> layout title=title }}
     <div class="container">
         <div class="row">
-            <div class="col-xs-9 col-md-10">
+            <div class="col-xs-12">
                 <h1>{{{title}}}</h1>
+                <div class="label-version">
+                    <p>Compatible versions: <strong>{{{pimVersion}}}</strong></p>
+                </div>
             </div>
             <div class="col-xs-12">
                 <div class="dropdown pull-right">
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Your PIM version: <strong>{{{pimVersion}}}</strong>
+                        Choose another PIM version
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                         <li class="dropdown-title">Choose your PIM version</li>
-                        <li><a href="/getting-started/{{gettingStartedName}}-4x/welcome.html">v4 or Serenity</a></li>
-                        <li><a href="/getting-started/{{gettingStartedName}}-old/welcome.html">v1.7 / v2 / v3</a></li>
+                        {{#if availability.serenity}}
+                            <li><a href="/getting-started/{{gettingStartedName}}-{{availability.serenity}}/welcome.html">Serenity</a></li>
+                        {{/if}}
+                        {{#if availability.v5}}
+                            <li><a href="/getting-started/{{gettingStartedName}}-{{availability.v5}}/welcome.html">v5</a></li>
+                        {{/if}}
+                        {{#if availability.v4}}
+                            <li><a href="/getting-started/{{gettingStartedName}}-{{availability.v4}}/welcome.html">v4</a></li>
+                        {{/if}}
+                        {{#if availability.old}}
+                            <li><a href="/getting-started/{{gettingStartedName}}-{{availability.old}}/welcome.html">v1.7 / v2 / v3</a></li>
+                        {{/if}}
                     </ul>
                 </div>
             </div>

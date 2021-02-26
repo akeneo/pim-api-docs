@@ -1,9 +1,5 @@
 # Best practices to use the Events API with your connector
 
-::: warning
-The Events API is only available on **Serenity Edition**.
-:::
-
 This page presents best practices and recommendations you might need while implementing the Events API inside an API based connector.
 
 First, if you need help setting up a connector to use the Events API, look at the [Quick start my first webhook](/getting-started/quick-start-my-first-webhook/welcome.html) guide.

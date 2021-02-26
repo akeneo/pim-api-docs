@@ -1,9 +1,5 @@
 # _Step 1_ | Receive my first set of data
 
-::: warning
-The Events API is only available on **Serenity Edition**.
-:::
-
 Here, you will connect an event subscription to a fake endpoint and receive your first data. :rocket:
 
 ## Create a Bin on Mockbin
@@ -17,8 +13,7 @@ Then click on `Create Bin` and go to the history of your Bin.
 Alright! Mockbin is ready to receive our first piece of data from PIM webhooks.
 
 ## Send data to Mockbin
-
-Now, log into your Serenity PIM and go to the event subscriptions page of the connection you created before.
+Now, log into your 5.0 or Serenity PIM and go to the event subscriptions page of the connection you created before.
 Fill in the URL field with the URL of your Bin and click on the `Test` button. 
 
 ::: warning
@@ -48,5 +43,5 @@ In the details of your Mockbin Bin, you will find the curl command you need to r
 
 ![Product created details](/img/getting-started/quick-start-my-first-webhook/product-created-details.png)
 
-::: panel-link Let's move on the second step of this tutorial [Create your own Symfony app to display event subscriptions data](/getting-started/quick-start-my-first-webhook-4x/step-2.html)
+::: panel-link Let's move on the second step of this tutorial [Create your own Symfony app to display event subscriptions data](/getting-started/quick-start-my-first-webhook-5x/step-2.html) 
 :::

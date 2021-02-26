@@ -136,7 +136,7 @@ properties:
     x-warning: Only for `akeneo_reference_entity` or `akeneo_reference_entity_collection` or `pim_catalog_asset_collection` attribute types
   default_value:
     type: boolean
-    description: Default value for a Yes/No attribute, applied when creating a new product or product model (only available in Serenity)
+    description: Default value for a Yes/No attribute, applied when creating a new product or product model (only available since the 5.0)
     x-warning: Only for `pim_catalog_boolean` attribute type
 example: {
   "code": "release_date",
