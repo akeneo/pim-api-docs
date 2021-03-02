@@ -233,9 +233,9 @@ curl -X POST http://your-host/api/oauth/v1/token \
 **Request**
 ```bash
 curl --location --request POST 'http://my-favorite-pim.com/api/oauth/v1/token' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic M18xc3duZzU0ZHY2ODB3MG84Z2N3Y3d3ODRzd2tvYzA0NG9jc2c0b2N3azRjYzAwY2swdzozc3VhaHhlODhsaWNvdzAwZzBvODBnY2NnZ2d3OGNza2c0d2NvOHdvb293dzQ4ODBzbw==' \
---data-raw '{
+-H 'Content-Type: application/json' \
+-H 'Authorization: Basic M18xc3duZzU0ZHY2ODB3MG84Z2N3Y3d3ODRzd2tvYzA0NG9jc2c0b2N3azRjYzAwY2swdzozc3VhaHhlODhsaWNvdzAwZzBvODBnY2NnZ2d3OGNza2c0d2NvOHdvb293dzQ4ODBzbw==' \
+-d '{
     "refresh_token" : "OTI5MDE4ZjBiNjUyNWEyOTA5ZWQxNjE0ZDJiZTAzZTIwZjQ5ZDJmMDlhYzk4OTdjNzgzMTVkZDlmNTlmZjY3OQ",
     "grant_type": "refresh_token"
  }'
