@@ -219,22 +219,26 @@ For security reasons, access tokens have a certain lifespan. A client applicatio
 After a token has expired, the client application can ask for a new token by calling:
 
 ```bash
-curl -X POST http://your-host/api/oauth/v1/token\
+curl -X POST http://your-host/api/oauth/v1/token \
     -H "Content-Type: application/json" \
     -H "Authorization: Basic YOUR_BASE_64_CLIENT_ID_AND_SECRET" \
-    -d "grant_type"=refresh_token \
-    -d "refresh_token"=REFRESH_TOKEN
+    -d '{
+        "refresh_token" : "REFRESH_TOKEN",
+        "grant_type": "refresh_token"
+    }'
 ```
 
 #### Example
 
 **Request**
 ```bash
-curl -X POST http://your-host/api/oauth/v1/token \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Basic M2UyaXFpbHEyeWd3azBjY2dvZ2tjd2NvOG9vc2Nra2trNGdrb2MwazRzOHMwNDR3c3M6NDRlY3Rlbm11ZHVzOGc4OHc0d2t3czg0MDQ0Y2t3MGs0dzRrZzBzb2tvc3M4NG9rbzg=" \
-    -d "grant_type"=refresh_token \
-    -d "refresh_token"=MDk2ZmIwODBkYmE3YjNjZWQ4ZTk2NTk2N2JmNjkyZDQ4NzA3YzhiZDQzMjJjODI5MmQ4ZmYxZjlkZmU1ZDNkMQ 
+curl --location --request POST 'http://my-favorite-pim.com/api/oauth/v1/token' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Basic M18xc3duZzU0ZHY2ODB3MG84Z2N3Y3d3ODRzd2tvYzA0NG9jc2c0b2N3azRjYzAwY2swdzozc3VhaHhlODhsaWNvdzAwZzBvODBnY2NnZ2d3OGNza2c0d2NvOHdvb293dzQ4ODBzbw==' \
+-d '{
+    "refresh_token" : "OTI5MDE4ZjBiNjUyNWEyOTA5ZWQxNjE0ZDJiZTAzZTIwZjQ5ZDJmMDlhYzk4OTdjNzgzMTVkZDlmNTlmZjY3OQ",
+    "grant_type": "refresh_token"
+ }'
 ```
 
 **Response**
