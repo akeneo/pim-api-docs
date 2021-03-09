@@ -33,6 +33,26 @@ a.btn {
             background-color: lighten(@brand-primary, 50%);
         }
     }
+    &.btn-ghost.btn-primary.btn-rest{
+        .button-variant(@api-rest;
+        transparent;
+        @api-rest);
+        border: 2px solid;
+        &:hover{
+            background-color: lighten(@api-rest, 50%);
+        }
+        width: fit-content
+    }
+    &.btn-ghost.btn-primary.btn-events{
+        .button-variant(@api-events;
+        transparent;
+        @api-events);
+        border: 2px solid;
+        &:hover{
+            background-color: lighten(@api-events, 50%);
+        }
+        width: fit-content
+    }
     +a.btn.pull-right {
         margin-right: 10px;
     }

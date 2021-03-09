@@ -5,7 +5,7 @@ In the PIM, products are structured thanks to the Catalog structure entities.
 Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API.
 
 ## Category
-::: availability versions=1.7,2.x,3.x,4.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
 A category is a way of classifying products. Categories constitute category trees and in Akeneo, you can have multiple category trees with an unlimited number of levels (categories, subcategories, subsubcategories..).
@@ -50,7 +50,7 @@ Below is the JSON standard format representing a set of categories.
 :::
 
 ## Attribute
-::: availability versions=1.7,2.x,3.x,4.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
 An attribute is a characteristic of a product. Each product is composed of a variety of attributes.
@@ -133,14 +133,14 @@ Below is the JSON standard format representing this attribute.
 ```
 
 ::: warning
-Note that the `group_labels` field is only available in Serenity.
+The `group_labels` field is only available since the 5.0.
 :::
 
 ::: panel-link Want more details about the attribute resource? [Check its endpoints here!](/api-reference.html#Attribute)
 :::
 
 ## Attribute option
-::: availability versions=1.7,2.x,3.x,4.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
 Some type of attributes offers list of choices. These available choices are attribute options.
@@ -183,7 +183,7 @@ Below is the JSON standard format representing these attribute options.
 :::
 
 ## Family
-::: availability versions=1.7,2.x,3.x,4.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
 A family is a set of attributes that are shared by products belonging to this family. In other words, a family can be considered as a template for products. A product family can use all of the attributes available in the PIM. Several families of products can use the same attributes. 
@@ -262,7 +262,7 @@ Below is the JSON standard format representing this family.
 :::
 
 ## Family variant
-::: availability versions=2.x,3.x,4.0,Serenity editions=CE,EE
+::: availability versions=2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
 The family variant is the entity used to modelize the products with variants.
@@ -361,7 +361,7 @@ Endpoints for the attribute groups are only available starting the 2.0 version.
 :::
 
 ## Association type
-::: availability versions=2.x,3.x,4.0,Serenity editions=CE,EE
+::: availability versions=2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
 In the PIM, a product can be associated to another. You can create an association type to specify what is the nature of this association.

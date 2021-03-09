@@ -323,7 +323,7 @@ Well, again, it depends on your customers needs.
 
 If your customers don't manage associations directly in the eCommerce solution and want to manage them manually in the PIM, you can create a specific configuration in your connector. It will allow you to identify which PIM association type is a “Cross-sell”, “Up-sell”, “Substitution” or “Pack” association type to be able to map these associations in your eCommerce solution.
 
-Also, don't forget our new Serenity feature that adds [quantities on PIM associations](https://help.akeneo.com/pim/serenity/updates/2020-07.html#new-association-type-with-quantities).
+Also, don't forget our feature that adds [quantities on PIM associations](https://help.akeneo.com/pim/serenity/updates/2020-07.html#new-association-type-with-quantities).
 
 ### What about PIM product groups feature?
 
