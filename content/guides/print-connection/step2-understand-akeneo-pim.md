@@ -19,7 +19,7 @@ Play with our PIM!
 It is crucial to understand the PIM features and data model in order to create a great print connector.
 
 The best way to become an expert at Akeneo PIM is to play with it!  
-Here, you can access our [Akeneo PIM Community Edition demo platform](https://demo.akeneo.com) (login/password: admin / admin).
+Here, you can access our [Akeneo PIM Community Edition demo platform](http://demo.akeneo.com) (login/password: admin / admin).
 
 :::warning
 Please note that this Akeneo PIM CE demo instance is for exploratory purposes only and will only allow you to start getting familiar with Akeneo PIM. This instance is reset frequently and is therefore not intended to be used to build a connector.
