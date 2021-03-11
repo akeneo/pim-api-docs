@@ -46,7 +46,7 @@ Here are some examples of filters we believe are relevant:
 * Completeness: A PIM product can be exported if it is complete in terms of data content, translation (localizable attribute), or information specific to the channels you are going to use (attribute with a value per channel).
 * Enabled/Disabled status: Each PIM product has an enable/disable status. You can set your connector to only export products that are `enabled`.
 
-And sometimes, your customers may also need to import a PIM product into the print solution based on the following parameters:
+And sometimes, your customers may also need to export a PIM product to the print solution based on the following parameters:
 
 * Published product: some PIM customers can use this feature to work on different versions of the product. In the PIM, you can manage two different versions of a very same product: one “published” version that can be exported (using a published product export profile) and another version that is used to prepare the next product collection or season, for example. This is handled by the Akeneo PIM “Publication” feature.
 
