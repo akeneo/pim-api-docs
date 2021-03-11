@@ -67,7 +67,7 @@ In the features of your connector configuration page, in order to be able to cov
 
 Products with variants are products that have similarities, they are based on the same model but differ in some aspects from one another.
 
-Please consult [our documentation](https://help.akeneo.com/pim/v3/articles/what-about-products-variants.html), to learn everything about PIM product with variants:
+Please consult [our documentation](https://help.akeneo.com/pim/v3/articles/what-about-products-variants.html), to learn everything about PIM products with variants:
 
 ::: info
 * PIM can manage up to 3 levels of enrichment (1 or 2 variant levels)
