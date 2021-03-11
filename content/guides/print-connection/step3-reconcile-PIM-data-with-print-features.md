@@ -83,7 +83,7 @@ Please consult [our documentation](https://help.akeneo.com/pim/v3/articles/what-
 
 **What do you need to implement?**
 
-Compared to your print solution and your end-user needs, you could offer a UI that allows your users to define how these variants will be displayed on the paper catalog page.
+Compared to your print solution and your end-users' needs, you could offer a UI that allows your users to define how these variants will be displayed on the paper catalog page.
 
 
 ### Enabled/disabled status
