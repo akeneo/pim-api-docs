@@ -1,4 +1,4 @@
-# _Step 3_ | Make the API request
+# _Step 3_ | Make the REST API request
 
 Alright! You're all set now. Let's launch this request.
 
@@ -15,7 +15,7 @@ In the response area, you should get an answer similar to the one below.
 6. Are you ready? Hit the blue `Send` button.
 In the response area, you can see a list of 100 products in json format.
 
-:tada: **You've just did your first API call!**
+:tada: **You've just did your first REST API call!**
 
 ::: info
 The authentication token only lasts for one hour. This means that after one hour your token will expire. And you will receive an error message that looks like this.

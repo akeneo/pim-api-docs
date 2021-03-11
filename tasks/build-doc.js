@@ -167,7 +167,7 @@ md.use(require('markdown-it-container'), 'version-screenshots', {
         var source_v17 = tokens[idx].info.trim().match(/^version-screenshots\sid=".*"\s2\.x.*\s1\.7(.*)$/);
         return (tokens[idx].nesting === 1) ? '<div>' +
                     '<ul class="nav nav-tabs nav-tabs-versions" role="tablist">' +
-                        '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">v2 / v3 / v4</a></li>' +
+                        '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">Since v2</a></li>' +
                         '<li role="presentation"><a href="#v17_' + id[1] + '" aria-controls="v17_' + id[1] + '" role="tab" data-toggle="tab">v1.7</a></li>' +
                     '</ul>' +
                     '<div class="panel panel-default">' +
@@ -252,14 +252,20 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
     var pages = {
         'your-first-tutorial-4x': {
             gettingStartedName: 'your-first-tutorial',
-            pimVersion: 'v4',
+            pimVersion: 'v4 / v5 / Serenity',
             title: 'Your very first tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
                 'welcome.md': 'Welcome',
                 'step-1.md': 'Step 1 | Create a Connection',
                 'step-2.md': 'Step 2 | Set up Postman',
-                'step-3.md': 'Step 3 | Make the API request'
+                'step-3.md': 'Step 3 | Make the REST API request'
+            },
+            availability: {
+                serenity: "4x",
+                v5: "4x",
+                v4: "4x",
+                old: "old"
             }
         },
         'your-first-tutorial-old': {
@@ -271,12 +277,18 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'welcome.md': 'Welcome',
                 'step-1.md': 'Step 1 | Generate the credentials',
                 'step-2.md': 'Step 2 | Set up Postman',
-                'step-3.md': 'Step 3 | Make the API request'
+                'step-3.md': 'Step 3 | Make the REST API request'
+            },
+            availability: {
+                serenity: "4x",
+                v5: "4x",
+                v4: "4x",
+                old: "old"
             }
         },
         'connect-the-pim-4x': {
             gettingStartedName: 'connect-the-pim',
-            pimVersion: 'v4',
+            pimVersion: 'v4 / v5 / Serenity',
             title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -284,6 +296,12 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'step-1.md': 'Step 1 | Create a Connection',
                 'step-2.md': 'Step 2 | Cook your connector',
                 'step-3.md': 'Step 3 | Identify your connector in the PIM'
+            },
+            availability: {
+                serenity: "4x",
+                v5: "4x",
+                v4: "4x",
+                old: "old"
             }
         },
         'connect-the-pim-old': {
@@ -296,6 +314,38 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 'step-1.md': 'Step 1 | Cook your connector',
                 'step-2.md': 'Step 2 | Generate the credentials',
                 'step-3.md': 'Step 3 | Configure your connector'
+            },
+            availability: {
+                serenity: "4x",
+                v5: "4x",
+                v4: "4x",
+                old: "old"
+            }
+        },
+        'quick-start-my-first-webhook-5x': {
+            gettingStartedName: 'quick-start-my-first-webhook',
+            pimVersion: 'v5 / Serenity',
+            title: 'Quick start my first webhook',
+            files: {
+                'welcome.md': 'Welcome',
+                'step-1.md': 'Step 1 | Receive my first set of data',
+                'step-2.md': 'Step 2 | Create your own Symfony app to display event subscriptions data'
+            },
+            availability: {
+                serenity: "5x",
+                v5: "5x"
+            }
+        },
+        'events-api-best-practices-5x': {
+            gettingStartedName: 'events-api-best-practices',
+            pimVersion: 'v5 / Serenity',
+            title: 'Events API best practices',
+            files: {
+                'welcome.md': 'Best practices',
+            },
+            availability: {
+                serenity: "5x",
+                v5: "5x"
             }
         }
     };
@@ -316,6 +366,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                         image: pages[path.basename(path.dirname(file.path))].image,
                         gettingStartedName: pages[path.basename(path.dirname(file.path))].gettingStartedName,
                         pimVersion: pages[path.basename(path.dirname(file.path))].pimVersion,
+                        availability: pages[path.basename(path.dirname(file.path))].availability,
                         mainContent: fs.readFileSync('tmp/getting-started/' + path.basename(path.dirname(file.path)) + '/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -424,7 +475,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
 gulp.task('build-rest-api', ['clean-dist','less'], function () {
 
     var pages = {
-        'why-the-api.md': "Why the API?",
+        'why-the-api.md': "Why the REST API?",
         'overview.md': 'Overview',
         'authentication.md': 'Authentication',
         'permissions.md': 'Permissions',
@@ -448,7 +499,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation:  true,
-                        title: 'The API basics',
+                        title: 'The REST API basics',
                         mainContent: fs.readFileSync('tmp/documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -456,6 +507,43 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
                     .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
                     .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                     .pipe(gulp.dest('./dist/documentation'));
+              })
+        }));
+  }
+);
+
+gulp.task('build-events-api', ['clean-dist','less'], function () {
+
+    var pages = {
+        'introduction.md': 'Introduction',
+        'overview.md': 'Overview',
+        'subscription.md': 'Subscribe and receive events',
+        'security.md': 'Security',
+        'limits-and-scalability.md': 'Limits and scalibility',
+        'more-about-events.md': 'More about events'
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/events-api/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/events-api/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/events-documentation') + "\n"))
+              .pipe(gulpMarkdownIt(md))
+              .pipe(gulp.dest('tmp/events-documentation/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/events-documentation.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_documentation:  true,
+                        title: 'The Events API basics',
+                        mainContent: fs.readFileSync('tmp/events-documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/events-documentation'));
               })
         }));
   }
@@ -571,7 +659,7 @@ gulp.task('build-php-client', ['clean-dist','less', 'create-resources-md'], func
                 return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation: true,
-                        title: 'PHP API client documentation',
+                        title: 'PHP API Client documentation',
                         image: 'illustrations/illus--php-client.svg',
                         mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {

@@ -54,7 +54,7 @@ properties:
             linked_data:
               type: object
               x-read-only: true
-              description: Object containing labels of attribute options (only available in Serenity and when query parameter "with_attribute_options" is set to "true"). See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
+              description: Object containing labels of attribute options (only available since the 5.0 and when query parameter "with_attribute_options" is set to "true"). See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
               properties:
                 attribute:
                   type: string
@@ -87,7 +87,7 @@ properties:
               type: string
   quantified_associations:
     type: object
-    description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available in Serenity)
+    description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available since the 5.0)
     x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it."
     properties:
       quantifiedAssociationTypeCode:
@@ -134,6 +134,11 @@ properties:
         description: Status of the product regarding the user permissions (only available since the v2.0 in the Enterprise Edition)
         type: string
         enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
+  quality_scores:
+    type: object
+    description: Product quality scores for each channel/locale combination (only available since the 5.0 and when the "with_quality_scores" query parameter is set to "true")
+    x-immutable: true
+    x-read-only: true
 
 example: {
   "identifier": "top",
@@ -269,5 +274,27 @@ example: {
         }
       ]
     }
-  }
+  },
+  "quality_scores": [
+    {
+      "scope": "ecommerce",
+      "locale": "en_US",
+      "data": "A"
+    },
+    {
+      "scope": "ecommerce",
+      "locale": "fr_FR",
+      "data": "B"
+    },
+    {
+      "scope": "tablet",
+      "locale": "en_US",
+      "data": "D"
+    },
+    {
+      "scope": "tablet",
+      "locale": "fr_FR",
+      "data": "E"
+    }
+  ]
 }

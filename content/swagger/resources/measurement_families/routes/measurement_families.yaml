@@ -5,6 +5,7 @@ get:
   tags:
     - Measurement family
   x-versions:
+    - "5.0"
     - "Serenity"
   responses:
     200:
@@ -76,6 +77,7 @@ patch:
   tags:
     - Measurement family
   x-versions:
+    - "5.0"
     - "Serenity"
   description: This endpoint allows you to update and/or create several measurement families at once.
   parameters:

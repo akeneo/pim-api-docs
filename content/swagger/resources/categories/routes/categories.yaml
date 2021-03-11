@@ -9,6 +9,7 @@ get:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   parameters:
     - name: search
@@ -143,6 +144,7 @@ post:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   parameters:
     - name: body
@@ -172,6 +174,7 @@ patch:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   description: This endpoint allows you to update several categories at once.
   x-body-by-line: Contains several lines, each line is a category in JSON standard format

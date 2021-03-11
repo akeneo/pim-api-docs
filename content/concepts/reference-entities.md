@@ -4,15 +4,15 @@ You want to manage rich data information around your products? The Reference ent
 
 They are designed to store complex information related to products. So neat! :rocket:
 
-There are several resources available to interact with the Reference Entities feature via the API.  
-Each section below contains an explanation of the concept behind these resources You will find out more about their usage in the PIM and their JSON format in order for them to interact with the API. 
+There are several resources available to interact with the Reference Entities feature via the REST API.  
+Each section below contains an explanation of the concept behind these resources You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API. 
 
 ::: info
 The Reference Entities is an Entreprise only feature, meaning all the following resources are only available in the Entreprise Edition.
 :::
 
 ## Reference entity
-::: availability versions=3.x,4.0,Serenity editions=EE
+::: availability versions=3.x,4.0,5.0,Serenity editions=EE
 :::
 
 Reference entities are objects that are related to products but have their own attributes and lifecycle. A reference entity can be for example the brands, the ranges, the manufacturers, the colors, the materials or the care instructions... And so many other entities.
@@ -38,7 +38,7 @@ Below is the JSON format representing a reference entity.
 :::
 
 ## Reference entity attribute
-::: availability versions=3.x,4.0,Serenity editions=EE
+::: availability versions=3.x,4.0,5.0,Serenity editions=EE
 :::
 
 Reference entities have attributes that allow to describe their [records](#reference-entity-record).
@@ -175,7 +175,7 @@ As a consequence, when you ask for the list of attributes of one given reference
 :::
 
 ## Reference entity attribute option
-::: availability versions=3.x,4.0,Serenity editions=EE
+::: availability versions=3.x,4.0,5.0,Serenity editions=EE
 :::
 
 Some type of attributes of reference entities can offer a list of choices. These available choices are reference entity attribute options.
@@ -222,7 +222,7 @@ As a consequence of this limit, when you ask for the list of attribute options o
 :::
 
 ## Reference entity record
-::: availability versions=3.x,4.0,Serenity editions=EE
+::: availability versions=3.x,4.0,5.0,Serenity editions=EE
 :::
 
 Reference entities have been introduced in the PIM in the 3.0 version.
@@ -306,7 +306,7 @@ Below is the JSON standard format representing a reference entity record.
 
 Reference entity record values hold all the information of a reference entity record. In concrete terms, it is the values of the attributes you will find in the record of a reference entity.
 
-In the API, the reference entity record values are in the property `values` of the reference entity record.
+In the REST API, the reference entity record values are in the property `values` of the reference entity record.
 
 ### The global format
 
@@ -450,7 +450,7 @@ Note that the `locale` and `channel` properties are all set to `null` in this ca
 :::
 
 ## Reference entity media file
-::: availability versions=3.x,4.0,Serenity editions=EE
+::: availability versions=3.x,4.0,5.0,Serenity editions=EE
 :::
 
 Reference entity media files corresponds to the images that you can link to the records of your reference entities and also, to the images that you can direclty link to your reference entities.

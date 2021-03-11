@@ -1,15 +1,15 @@
 # _Step 2_ | Set up Postman
 
-In this step, you are going to configure Postman, a tool that will allow us to easily make your very first API request. :rocket:
+In this step, you are going to configure Postman, a tool that will allow us to easily make your very first REST API request. :rocket:
 
 ## But first, what is Postman?
-Postman is a free client application that allows making calls to any API very easily. What's great is that you don't need any code skills to use this tool.  
-We use it internally at Akeneo. It helps us develop and test our API. If you want more details, do not hesitate to browse their [website](https://www.getpostman.com/).
+Postman is a free client application that allows making calls to any REST API very easily. What's great is that you don't need any code skills to use this tool.  
+We use it internally at Akeneo. It helps us develop and test our REST API. If you want more details, do not hesitate to browse their [website](https://www.getpostman.com/).
 
-With Postman, you can share pre-configured API requests in **collections** with whoever you want.  
+With Postman, you can share pre-configured REST API requests in **collections** with whoever you want.  
 We crafted for you a very simple collection, that contains only two pre-configured requests:
 - `Your very first request`: The Graal! That's the whole goal of this tutorial: being able to launch this request and receive an answer from the PIM. More concretely, this request will in fact asks the PIM for its first 100 products.
-- `The authentication request`: Very useful, this request will allow you to authenticate yourself. Indeed, the API is protected and is only accessible to people that have API credentials. To avoid anyone to mess with your precious PIM data. :wink: 
+- `The authentication request`: Very useful, this request will allow you to authenticate yourself. Indeed, the REST API is protected and is only accessible to people that have API credentials. To avoid anyone to mess with your precious PIM data. :wink: 
 
 ::: tips
 If you have trouble using Postman, do not hesitate to browse their really complete [documentation](https://learning.getpostman.com/docs).
@@ -29,9 +29,9 @@ As a result, you will see a new collection in the Collection tab, on the left si
 A new environment should also have been created in the dropdown in the top right corner.
 ![Environment in Postman](/img/getting-started/postman-environment-old.png)
 6. Click on the gear wheel in the top right corner, and then select `Manage environments`.
-7. In the pop-in that just opened, select the environment called `Akeneo 4.x PIM API environment`.
+7. In the pop-in that just opened, select the environment called `Akeneo 4.0 or newer PIM API environment`.
 ![Postman environment popin](/img/getting-started/postman-environment-old-popin.png)
-8. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.x PIM is hosted.
+8. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.0 or newer PIM is hosted.
 ![Url in environment](/img/getting-started/url-environment-old.png)
 9. In the `clientId`, `secret`, `username` and `password` fields, enter the credentials you grabbed during [step 1](/getting-started/your-first-tutorial-old/step-1.html).
 ![Credentials copy/pasted in Postman](/img/getting-started/copy-past-credentials-old.png)

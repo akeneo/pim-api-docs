@@ -16,12 +16,12 @@ properties:
         description: Association type label for the locale `localeCode`
   is_quantified:
     type: boolean
-    description: When true, the association is a quantified association
+    description: When true, the association is a quantified association (Only available in the PIM Serenity version.)
     default: false
     x-immutable: true
   is_two_way:
     type: boolean
-    description: When true, the association is a two-way association
+    description: When true, the association is a two-way association (Only available in the PIM Serenity version.)
     default: false
     x-immutable: true
 

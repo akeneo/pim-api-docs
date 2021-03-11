@@ -9,6 +9,7 @@ get:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   parameters:
     - name: search
@@ -88,6 +89,7 @@ get:
               "sort_order": 1,
               "localizable": false,
               "scopable": false,
+              "default_value": null,
               "labels": {
                 "en_US": "Identifier",
                 "fr_FR": "Identifiant"
@@ -124,6 +126,7 @@ get:
               "sort_order": 1,
               "localizable": false,
               "scopable": false,
+              "default_value": null,
               "labels": {
                 "en_US": "Sale date",
                 "fr_FR": "Date des soldes"
@@ -149,6 +152,7 @@ post:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   parameters:
     - name: body
@@ -178,6 +182,7 @@ patch:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   description: This endpoint allows you to update and/or create several attributes at once.
   x-body-by-line: Contains several lines, each line is an attribute in JSON standard format

@@ -1,8 +1,8 @@
-{{#> layout title="API reference" active_api_reference=true }}
+{{#> layout title="REST API reference" active_api_reference=true }}
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1>API reference cheat sheet</h1>
+                <h1 class="rest">REST API reference cheat sheet</h1>
             </div>
             <div class="col-xs-12 col-sm-9">
                 <p><em>All our available endpoints. Just for you.</em></p>
@@ -24,16 +24,17 @@
                         <li><a href="/api-reference-index-31.html">3.1</a></li>
                         <li><a href="/api-reference-index-32.html">3.2</a></li>
                         <li><a href="/api-reference-index-40.html">4.0</a></li>
+                        <li><a href="/api-reference-index-50.html">5.0</a></li>
                         <li><a href="/api-reference-index.html">Serenity</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row rest">
             <div id="navbar" class="col-sm-3 hidden-xs">
                 <nav role="tablist" data-spy="affix" data-offset-top="80">
-                    <ul class="nav nav-stacked">
-                        <p class="pre-nav">Browse all our endpoints</p>
+                    <ul class="nav nav-stacked"> 
+                        <p class="pre-nav rest"> <img class="pull-left" style="margin-right: 5px; height: 27px;" src="/img/icons/icon--rest.svg"> REST API endpoints</p>
                         {{#each categories as |category categoryId|}}
                             <li class="main-nav">
                                 <a href="#{{{categoryId}}}">{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</a>
@@ -55,7 +56,7 @@
                     <h2>{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</h2>
                     {{#if categoryDeprecated}}
                         <div class="alert alert-warning">
-                            <p>With the introduction of our brand new way to handle assets, the Asset Manager, the PAM feature will be removed from the v4.0 of the PIM. As a result, from now on, <b>all the endpoints regarding the PAM assets are deprecated</b>. They will not be available anymore starting from the v4.0.<br/>To understand why, we recommend you to read this <a href="https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804">Medium post</a>, we wrote on this special occasion.<br/>Also, don't hesitate to take a look at the <a href="/documentation/asset-manager.html">Asset Manager documentation</a> to discover this new feature and how much more efficient it will be to handle your precious assets.</p>
+                            <p>With the introduction of our new way to handle assets, the Asset Manager, the PAM feature will be removed from the v4.0 of the PIM. As a result, from now on, <b>all the endpoints regarding the PAM assets are deprecated</b>. They will not be available anymore starting from the v4.0.<br/>To understand why, we recommend you to read this <a href="https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804">Medium post</a>, we wrote on this special occasion.<br/>Also, don't hesitate to take a look at the <a href="/documentation/asset-manager.html">Asset Manager documentation</a> to discover this new feature and how much more efficient it will be to handle your precious assets.</p>
                         </div>
                     {{/if}}
                     {{#each category.resources as |resource resourceId|}}

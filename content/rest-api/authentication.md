@@ -1,7 +1,7 @@
 # Authentication
 
-For security reasons, to access the API, you will need to be authenticated.
-To authenticate your API calls, the PIM will provide you a pair of client ID and secret. [See here to discover how](#client-idsecret-generation).
+For security reasons, to access the REST API, you will need to be authenticated.
+To authenticate your REST API calls, the PIM will provide you a pair of client ID and secret. [See here to discover how](#client-idsecret-generation).
 
 Client IDs allow two things:
 - to ask for a token for a specific API user,
@@ -9,17 +9,17 @@ Client IDs allow two things:
 
 This means that you will also need to [create an API user](#api-user-creation) in order to get this token. 
 
-Once you get its username and password, together with the client ID and the secret, you will eventually be able to generate a token for the API. This is the _key_ to finally access the API. See [here for more details](#token-generation).
+Once you get its username and password, together with the client ID and the secret, you will eventually be able to generate a token for the REST API. This is the _key_ to finally access the REST API. See [here for more details](#token-generation).
 
 ## Client ID/secret generation
 
 Depending on your PIM version, there are two different ways to generate these client IDs/secrets:
-- Proud user of a v4 PIM, you can follow [these simple steps](#starting-from-the-v4-of-the-pim).
+- User of a v4 or newer PIM, you can follow [these simple steps](#starting-from-the-v4-of-the-pim).
 - Using a PIM v2.x or v3.x? [Follow the instructions right here.](#with-a-v2x-and-3x-pim)
 - Still using the v1.7? [Here you go!](#with-a-17-pim)
 
-### Starting from the v4 of the PIM
-Starting from the v4 of the PIM, there is now one unique and streamlined way to generate your client ID and secret. See by yourself!
+### Since the PIM v4
+Since the PIM v4, there is one unique and streamlined way to generate your client ID and secret. See by yourself!
 
 1. Log into your favorite PIM.
 1. Navigate to the `System/Connections` menu.
@@ -115,9 +115,9 @@ You will get this answer.
 
 You now have a client ID and a secret.  But the request to get this token needs a username and a password.
 
-### Starting from the v4 of the PIM
+### Since the PIM v4
 
-In v4 PIM, this username and password are automatically generated whenever you create a connection in the UI. Navigate to `System/Connections`, click on your connection and find your username and password in the `Credentials` section.
+Since the PIM v4, this username and password are automatically generated whenever you create a connection in the UI. Navigate to `System/Connections`, click on your connection and find your username and password in the `Credentials` section.
 
 You may need to regenerate a password if you haven't saved it anywhere. Indeed, for security reasons, the PIM can only show it to you once, after the connection is created. There is a `Regenerate` button close to the hidden password if needed. :wink:
 
@@ -128,7 +128,7 @@ In previous versions of the PIM, you need to navigate to the `System/Users` menu
 
 ## Token generation
 
-You now have a client ID, a secret, a username and a password. The last information needed to use the API is the token.
+You now have a client ID, a secret, a username and a password. The last information needed to use the REST API is the token.
 
 First, you will have to encode the client ID and the secret, in base64, with a `:` in between.
 
@@ -189,14 +189,14 @@ HTTP/1.1 200 OK
 ```
 
 Detail of the information given in the response:
-- `access_token` must be included in every request to the API for the client application to be authorized (see the example below).
+- `access_token` must be included in every request to the REST API for the client application to be authorized (see the example below).
 - `expires_in` is the token lifespan (in seconds). By default, it lasts 1 hour.
 - `refresh_token` is a special token used only to refresh your `access_token` after it expired.
 
 
 ## Access a resource
 
-Use the token that you just got for every request to the API.
+Use the token that you just got for every request to the REST API.
 
 #### Example
 
@@ -207,34 +207,38 @@ curl https://demo.akeneo.com/api/rest/v1/categories \
 
 :::info
 There are only 2 routes that do not require authentication:
- - the root of the API, that lists all the available endpoints. See [this section](/documentation/overview.html#list-of-available-endpoints) for more info.
+ - the root of the REST API, that lists all the available endpoints. See [this section](/documentation/overview.html#list-of-available-endpoints) for more info.
  - and of course, the route to get tokens. Pretty logic, isn't it!
 :::
 
 
 ## Refresh an expired token
 
-For security reasons, access tokens have a certain lifespan. A client application using an expired token will be unable to request the API.
+For security reasons, access tokens have a certain lifespan. A client application using an expired token will be unable to request the REST API.
 
 After a token has expired, the client application can ask for a new token by calling:
 
 ```bash
-curl -X POST http://your-host/api/oauth/v1/token\
+curl -X POST http://your-host/api/oauth/v1/token \
     -H "Content-Type: application/json" \
     -H "Authorization: Basic YOUR_BASE_64_CLIENT_ID_AND_SECRET" \
-    -d "grant_type"=refresh_token \
-    -d "refresh_token"=REFRESH_TOKEN
+    -d '{
+        "refresh_token" : "REFRESH_TOKEN",
+        "grant_type": "refresh_token"
+    }'
 ```
 
 #### Example
 
 **Request**
 ```bash
-curl -X POST http://your-host/api/oauth/v1/token \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Basic M2UyaXFpbHEyeWd3azBjY2dvZ2tjd2NvOG9vc2Nra2trNGdrb2MwazRzOHMwNDR3c3M6NDRlY3Rlbm11ZHVzOGc4OHc0d2t3czg0MDQ0Y2t3MGs0dzRrZzBzb2tvc3M4NG9rbzg=" \
-    -d "grant_type"=refresh_token \
-    -d "refresh_token"=MDk2ZmIwODBkYmE3YjNjZWQ4ZTk2NTk2N2JmNjkyZDQ4NzA3YzhiZDQzMjJjODI5MmQ4ZmYxZjlkZmU1ZDNkMQ 
+curl --location --request POST 'http://my-favorite-pim.com/api/oauth/v1/token' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Basic M18xc3duZzU0ZHY2ODB3MG84Z2N3Y3d3ODRzd2tvYzA0NG9jc2c0b2N3azRjYzAwY2swdzozc3VhaHhlODhsaWNvdzAwZzBvODBnY2NnZ2d3OGNza2c0d2NvOHdvb293dzQ4ODBzbw==' \
+-d '{
+    "refresh_token" : "OTI5MDE4ZjBiNjUyNWEyOTA5ZWQxNjE0ZDJiZTAzZTIwZjQ5ZDJmMDlhYzk4OTdjNzgzMTVkZDlmNTlmZjY3OQ",
+    "grant_type": "refresh_token"
+ }'
 ```
 
 **Response**
@@ -250,4 +254,4 @@ HTTP/1.1 200 OK
 }
 ```
 
-The response is the same as when asking for the initial token, except that it contains a new `access_token` and a new `refresh_token`. You can then use this `access_token` for every API request you do within an hour.
+The response is the same as when asking for the initial token, except that it contains a new `access_token` and a new `refresh_token`. You can then use this `access_token` for every REST API request you do within an hour.

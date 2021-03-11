@@ -2323,6 +2323,14 @@ js-beautify@^1.5.1:
     mkdirp "~0.5.1"
     nopt "~4.0.1"
 
+js-yaml@^3.0.0:
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.1.tgz#dae812fdb3825fa306609a8717383c50c36a0537"
+  integrity sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
 js-yaml@^3.10.0, js-yaml@^3.13.0, js-yaml@^3.3.1, js-yaml@^3.4.6:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
@@ -2442,6 +2450,11 @@ latest-version@^3.0.0:
   integrity sha1-ogU4P+oyKzO1rjsYq+4NwvNW7hU=
   dependencies:
     package-json "^4.0.0"
+
+lato-font@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/lato-font/-/lato-font-3.0.0.tgz#91b837e2374b668fb7331d44c894d37a2d9f8e11"
+  integrity sha1-kbg34jdLZo+3Mx1EyJTTei2fjhE=
 
 lazy-cache@^1.0.3:
   version "1.0.4"

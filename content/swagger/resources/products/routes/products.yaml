@@ -8,6 +8,7 @@ get:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered. In the Enterprise Edition, since the 2.0, permissions based on your user groups are applied to the set of products you request.
   parameters:
@@ -19,12 +20,12 @@ get:
     - name: scope
       in: query
       type: string
-      description: Filter product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
+      description: Filter product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#via-channel">Filter product values via channel</a> section
       required: false
     - name: locales
       in: query
       type: string
-      description: Filter product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
+      description: Filter product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#via-locale">Filter product values via locale</a> section
       required: false
     - name: attributes
       in: query
@@ -37,6 +38,7 @@ get:
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
     - $ref: '#/parameters/with_attribute_options'
+    - $ref: '#/parameters/with_quality_scores'
   responses:
     200:
       description: Return products paginated
@@ -210,7 +212,29 @@ get:
                     }
                   ]
                 }
-              }
+              },
+              "quality_scores": [
+                  {
+                      "scope": "ecommerce",
+                      "locale": "en_US",
+                      "data": "A"
+                  },
+                  {
+                      "scope": "ecommerce",
+                      "locale": "fr_FR",
+                      "data": "B"
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "en_US",
+                      "data": "D"
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "fr_FR",
+                      "data": "E"
+                  }
+              ]
             },
             {
               "_links": {
@@ -298,7 +322,29 @@ get:
                   "groups": []
                 }
               },
-              "quantified_associations": {}
+              "quantified_associations": {},
+              "quality_scores": [
+                  {
+                      "scope": "ecommerce",
+                      "locale": "en_US",
+                      "data": "A"
+                  },
+                  {
+                      "scope": "ecommerce",
+                      "locale": "fr_FR",
+                      "data": "B"
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "en_US",
+                      "data": "C"
+                  },
+                  {
+                      "scope": "tablet",
+                      "locale": "fr_FR",
+                      "data": "D"
+                  }
+              ]
             },
             {
               "_links": {
@@ -317,7 +363,8 @@ get:
               "created": "2016-06-23T11:24:44+02:00",
               "updated": "2016-06-23T11:24:44+02:00",
               "associations": {},
-              "quantified_associations": {}
+              "quantified_associations": {},
+              "quality_scores": {}
             }
           ]
         }
@@ -340,6 +387,7 @@ post:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   description: This endpoint allows you to create a new product. In the Enterprise Edition, since the v2.0, permissions based on your user groups are applied to the product you try to create.
   parameters:
@@ -370,6 +418,7 @@ patch:
     - "2.x"
     - "3.x"
     - "4.0"
+    - "5.0"
     - "Serenity"
   description: This endpoint allows you to update and/or create several products at once. Learn more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it. In the Enterprise Edition, since the v2.0, permissions based on your user groups are applied to the products you try to update. It may result in the creation of drafts if you only have edit rights through the product's categories.
   x-body-by-line: Contains several lines, each line is a product in JSON standard format

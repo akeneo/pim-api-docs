@@ -1,13 +1,13 @@
 # 👋 Welcome in this guide!
 
 This tutorial will teach you:
-> How to connect the PIM with the API on a v1.7, v2 or v3 PIM
+> How to connect the PIM with the REST API on a v1.7, v2 or v3 PIM
 
 ## Goal
 At the end of this tutorial, you will know what the primary steps to properly connect the PIM are.
 
 ::: tips
-Connections will be achieved with the help of the API, as the API is the best way to connect the PIM. Wondering why? Discover the reasons [here](/documentation/introduction.html#why-should-you-use-our-api)!
+Connections will be achieved with the help of the REST API, as the REST API is the best way to connect the PIM. Wondering why? Discover the reasons [here](/documentation/introduction.html#why-should-you-use-our-api)!
 :::
 
 ## Prerequisites
@@ -16,7 +16,7 @@ Connections will be achieved with the help of the API, as the API is the best wa
 This can seem pretty obvious. But yeah! You will need a PIM if you want to connect it to any third parties.  
 And of course, you also have to make sure that you can access it from where you are requesting.
 ::: info
-This tutorial is dedicated to version of the PIM older than the v4. If you are working on a v4 PIM, we also got you covered! :wink: There is a tutorial for you right [here](/getting-started/connect-the-pim-4x/welcome.html).
+This tutorial is dedicated to version of the PIM older than the v4. If you are working on a PIM v4 or newer, we also got you covered! :wink: There is a tutorial for you right [here](/getting-started/connect-the-pim-4x/welcome.html).
 ::: 
 
 <i class="fa fa-check-square"></i> **You already know to which third party you want to connect your PIM.**  

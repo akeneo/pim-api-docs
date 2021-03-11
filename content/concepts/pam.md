@@ -3,7 +3,7 @@
 PAM stands for Product Asset Management. It's the way to handle your product assets in older versions of the PIM (from v1.7 to v3.2).
 
 ::: warning
-With the introduction of our brand new way to handle assets, the [Asset Manager](/concepts/asset-manager.html), the PAM feature will be removed from the v4.0 of the PIM. As a result, **from now on, all the API resources regarding the PAM assets are deprecated**. They are not available anymore starting from the v4.0. 
+With the introduction of our brand new way to handle assets, the [Asset Manager](/concepts/asset-manager.html), the PAM feature will be removed from the v4.0 of the PIM. As a result, **from now on, all the REST API resources regarding the PAM assets are deprecated**. They are not available anymore starting from the v4.0. 
 :::
 
 To understand why we deprecated this feature, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
@@ -15,7 +15,7 @@ Also, don't hesitate to take a look at the [Asset Manager documentation](/concep
 :::
 
 ::: warning
-This resource is **deprecated** and is removed from the API since the 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
+This resource is **deprecated** and is removed from the REST API since the 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
 Also, did you know that since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM.  
 [Eager to know more about these new assets? It's right here!](/concepts/asset-manager.html#asset)
 :::
@@ -98,7 +98,7 @@ Below is the JSON standard format representing an asset, that is not localizable
 :::
 
 ::: warning
-This resource is **deprecated** and is removed from the API since the 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
+This resource is **deprecated** and is removed from the REST API since the 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
 Also, did you know that since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, categories can be modelized thanks to a [single or multiple options attribute](/concepts/asset-manager.html#the-single-and-multiple-options-attributes) in your [asset family](/concepts/asset-manager.html#asset-family).  
 [Eager to know more about the Asset Manager? It's right here!](/concepts/asset-manager.html#concepts-resources)
 :::
@@ -145,7 +145,7 @@ Below is the JSON standard format representing asset categories. Notice how it's
 :::
 
 ::: warning
-This resource is **deprecated** and is removed from the API since the 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated. To understand why, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
+This resource is **deprecated** and is removed from the REST API since 4.0. As a result, from now on, all the endpoints regarding this resource are deprecated. To understand why we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
 Also, did you know that since the 3.2, you can handle your assets thanks to the Asset Manager, the brand new efficient way to manage your product assets within the PIM. In the Asset Manager, tags can be modelized thanks to a [single or multiple options attribute](/concepts/asset-manager.html#the-single-and-multiple-options-attributes) in your [asset family](/concepts/asset-manager.html#asset-family).  
 [Eager to know more about the Asset Manager? It's right here!](/concepts/asset-manager.html#concepts-resources)
 :::
