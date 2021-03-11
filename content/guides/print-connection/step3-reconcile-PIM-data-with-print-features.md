@@ -32,7 +32,7 @@ In order for your connector to communicate with Akeneo PIM, you need to provide 
 
 **What is it?**
 
-You need to import products from the PIM into your print solution...
+You need to import products from the PIM into your print solution.
 But which products? All products that are in the PIM?
 
 Products are prepared in Akeneo PIM but not all of them are intended to be exported to your print platform.
