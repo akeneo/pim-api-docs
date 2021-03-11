@@ -2,7 +2,7 @@
 
 ## Main goal
 
-Congratulations! Now, you have a good overview of Akeneo PIM data, you need to reconcile the PIM data with your print solution capabilities.
+Congratulations! Now that you have a good overview of Akeneo PIM data, you need to reconcile it with your print solution capabilities.
 
 Next step, for each piece of PIM data, you need to ask yourself the following questions:
 
