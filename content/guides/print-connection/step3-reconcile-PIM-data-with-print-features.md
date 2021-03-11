@@ -55,7 +55,7 @@ And sometimes, your customers may also need to export a PIM product to the print
 * A category tree or a subcategory tree
 * ...
 
-**Conclusion:** each customer project has its own needs and it is important to implement enough flexibility in your connector settings to allow each customer to import only the product information he needs according to his criteria.
+**Conclusion:** each customer project has its own requirements and it is important to offer enough flexibility in your connector settings to allow each customer to import only the product information they need according to their own criteria.
 
 **What do you need to implement?**
 
