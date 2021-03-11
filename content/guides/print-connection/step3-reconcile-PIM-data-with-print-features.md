@@ -7,7 +7,8 @@ Congratulations! Now that you have a good overview of Akeneo PIM data, you need 
 Next step, for each piece of PIM data, you need to ask yourself the following questions:
 
 1. What data does my print solution need from the PIM?
-2. Do I need to implement a configuration UI on my connector to fit to any of my end users' needs, and adapt to any catalog type created with the PIM?
+2. How will the configuration UI of my connector fulfill all of my end users' needs?  
+3. How flexible does my connector need to be to adapt to any catalog structure created with the PIM?
 3. Documentation: What do I need to document? (Data processing, feature limits, possible settings...)   
 
 In order to help you implement your connector features, you will find below a few useful tips to implement in your print connector.
