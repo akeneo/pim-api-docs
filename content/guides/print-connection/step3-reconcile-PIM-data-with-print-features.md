@@ -37,7 +37,7 @@ But which products? All of them?
 
 Products are enriched in Akeneo PIM but not all of them are meant to be exported to your print platform.
 
-Because the PIM is multi-channels, multi-languages and offers the capability to model a catalog for different needs, you should allow your end-users to define which PIM data they want to import via an advanced filter system.
+You should allow your end-users to define which PIM data they want to import via an advanced filter system. based on PIM structural elements such as channels, locales, attribute groups, you name it!
 
 Here are some examples of filters you should implement:
 
