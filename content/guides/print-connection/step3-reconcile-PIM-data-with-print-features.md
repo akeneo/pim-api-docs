@@ -61,7 +61,7 @@ And sometimes, your customers may also need to export a PIM product to the print
 
 In the features of your connector configuration page, in order to be able to cover all of your customers' needs, you can choose to have one of the two filter systems. Either a “simple” one for straightforward use cases or an “advanced” one for the most specific requirements. 
 
-### Product with variants
+### Products with variants
 
 **What is it?**
 
