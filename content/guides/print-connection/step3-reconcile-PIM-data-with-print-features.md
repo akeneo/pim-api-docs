@@ -22,7 +22,7 @@ In order for your connector to communicate with Akeneo PIM, you need to provide 
 **What do you need to implement?**
 
 * A UI or a “configuration file” to copy and paste Akeneo PIM API credentials (client id, secret, connection username and password).
-* If you create a UI, add a “Test” button to test the connection (in order to check that everything is correctly configured on this side, and maybe to start retrieving some interesting information from Akeneo PIM)
+* If you create a UI, you should add a “Test” button to test the connection (in order to check that everything is correctly configured on this side, and to start retrieving some configuration information from Akeneo PIM)
 
 
 ## Product management
