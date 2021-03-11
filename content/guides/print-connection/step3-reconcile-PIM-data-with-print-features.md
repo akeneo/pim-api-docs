@@ -74,7 +74,7 @@ Please consult [our documentation](https://help.akeneo.com/pim/v3/articles/what-
   * 1 or 2 levels of `product model`
   * 1 level of variant `product`
 * Akeneo PIM can have up to 5 attributes used as variant axes for each level
-* PIM variant axes can be:
+* The variant axes can be:
   * Simple select
   * Reference entity single link (EE only)
   * Measurement
