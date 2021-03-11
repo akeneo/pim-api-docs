@@ -96,7 +96,7 @@ A product is rarely removed. It is more often “disabled” to keep its history
 
 Please consider relying only on the enabled/disabled status of the PIM product to know if a product can be used with your paper catalog or not.
 
-## Media management
+## Asset management
 
 ### Manage image
 
