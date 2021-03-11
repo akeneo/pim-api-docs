@@ -107,7 +107,7 @@ A PIM can manage product images in many different ways:
 * Images can be stored in an “image” attribute (one image per attribute) or as assets linked to products that are  managed as an “asset collection” attribute (multiple images per attribute).
 * Image attributes are localizable (different images for each locale) and/or scopable (different assets for each channel).
 * Image can have metadata (assets with a corresponding set of text attributes)
-These image metadata are scopable and/or localizable.
+Each of those metadata attributes can have its own value per locale and/or per channel.
 * Asset Images can be ordered at the product level
 
 **What do you need to implement?**
