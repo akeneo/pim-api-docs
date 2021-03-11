@@ -98,7 +98,7 @@ Please consider relying only on the enabled/disabled status of the PIM product t
 
 ## Asset management
 
-### Manage image
+### Manage images
 
 **What is it?**
 
