@@ -85,17 +85,6 @@ Please consult [our documentation](https://help.akeneo.com/pim/v3/articles/what-
 
 Compared to your print solution and your end-users' needs, you could offer a UI that allows your users to define how these variants will be displayed on the paper catalog page.
 
-
-### Enabled/disabled status
-
-**What is it?**
-
-A product is rarely removed. It is more often “disabled” to keep its history.
-
-**What do you need to implement?**
-
-Please consider relying only on the enabled/disabled status of the PIM product to know if a product can be used with your paper catalog or not.
-
 ## Asset management
 
 ### Manage images
