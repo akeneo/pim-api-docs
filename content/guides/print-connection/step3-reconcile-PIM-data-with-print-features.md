@@ -73,7 +73,7 @@ Please consult [our documentation](https://help.akeneo.com/pim/v3/articles/what-
 * Akeneo PIM can manage up to 3 levels of enrichment (1 or 2 variant levels)
   * 1 or 2 levels of `product model`
   * 1 level of variant “product”
-* PIM can have up to 5 attributes as variant axes for each level
+* Akeneo PIM can have up to 5 attributes used as variant axes for each level
 * PIM variant axes can be:
   * Simple select
   * Reference entity single link (EE only)
