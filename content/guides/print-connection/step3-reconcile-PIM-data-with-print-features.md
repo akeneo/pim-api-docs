@@ -48,7 +48,7 @@ Here are some examples of filters we believe are relevant:
 
 And sometimes, your customers may also need to export a PIM product to the print solution based on the following parameters:
 
-* Published product: some PIM customers can use this feature to work on different versions of the product. In the PIM, you can manage two different versions of a very same product: one “published” version that can be exported (using a published product export profile) and another version that is used to prepare the next product collection or season, for example. This is handled by the Akeneo PIM “Publication” feature.
+* Published product:  In the PIM, you can choose to manage two different versions of the very same product: one “published” version that can be exported (using a published product export profile) and another version that is used to prepare the next product collection or launch, for example. This is handled by the Akeneo PIM “Publication” feature.
 
 * The value of a specific attribute
 
