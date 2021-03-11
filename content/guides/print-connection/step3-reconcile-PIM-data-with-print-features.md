@@ -11,7 +11,7 @@ Next step, for each piece of PIM data, you need to ask yourself the following qu
 3. How flexible does my connector need to be to adapt to any catalog structure created with the PIM?
 4. Documentation: What do I need to document? (Data processing, feature limits, possible settings...)   
 
-In order to help you implement your connector features, you will find below a few useful tips to implement in your print connector.
+In order to help you develop your connector features, here are some useful features you can use. 
 
 ## API connection configuration
 
