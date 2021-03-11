@@ -106,7 +106,7 @@ A PIM can manage product images in many different ways:
 * Images can be managed as binaries or external DAM/CDN URLs.
 * Images can be stored as an “image” attribute (one image per attribute) or as an “asset collection” attribute (multiple images per attribute).
 * Image attributes can have a different value per locale and/or per channel.
-* Image can have metadata (assets with a corresponding set of text attributes)
+* Images can have metadata (assets with a corresponding set of text attributes)
 Each of those metadata attributes can have its own value per locale and/or per channel.
 * Asset Images can be ordered at the product level
 
