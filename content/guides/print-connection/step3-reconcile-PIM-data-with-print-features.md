@@ -35,7 +35,7 @@ In order for your connector to communicate with Akeneo PIM, you need to provide 
 You need to import products from the PIM into your print solution.
 But which products? All of them?
 
-Products are prepared in Akeneo PIM but not all of them are intended to be exported to your print platform.
+Products are enriched in Akeneo PIM but not all of them are meant to be exported to your print platform.
 
 Because the PIM is multi-channels, multi-languages and offers the capability to model a catalog for different needs, you should allow your end-users to define which PIM data they want to import via an advanced filter system.
 
