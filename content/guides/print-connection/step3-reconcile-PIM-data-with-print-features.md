@@ -70,7 +70,7 @@ Products with variants are products that have similarities, they are based on th
 Please consult [our documentation](https://help.akeneo.com/pim/v3/articles/what-about-products-variants.html), to learn everything about PIM products with variants:
 
 ::: info
-* PIM can manage up to 3 levels of enrichment (1 or 2 variant levels)
+* Akeneo PIM can manage up to 3 levels of enrichment (1 or 2 variant levels)
   * 1 or 2 levels of “product model”
   * 1 level of variant “product”
 * PIM can have up to 5 attributes as variant axes for each level
