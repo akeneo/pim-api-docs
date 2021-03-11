@@ -59,7 +59,7 @@ And sometimes, your customers may also need to export a PIM product to the print
 
 **What do you need to implement?**
 
-In the features of your connector configuration, you can add a “simple” and an “advanced” filter system to toggle from one to the other according to your customers' needs.
+In the features of your connector configuration page, in order to be able to cover all of your customers' needs, you can choose to have one of the two filter systems. Either a “simple” one for straightforward use cases or an “advanced” one for the most specific requirements. 
 
 ### Product with variants
 
