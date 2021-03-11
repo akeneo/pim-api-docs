@@ -29,7 +29,6 @@ In order for your connector to communicate with Akeneo PIM, you need to provide 
 
 ### Manage products
 
-![product mapping](../../img/guides/configuration-product.png)
 
 **What is it?**
 
