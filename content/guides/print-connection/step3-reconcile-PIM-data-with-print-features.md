@@ -41,7 +41,7 @@ You should allow your end-users to define which PIM data they want to import via
 
 Here are some examples of filters we believe are relevant:
 
-* Channel: Only import product date related to the selected channel (most of the time a "print" channel).
+* Channel: Only import product data related to the selected channel (most of the time a "print" channel).
 * Locale: Only import product data related to the selected locale.
 * Completeness: A PIM product can be exported if it is complete in terms of data contents, translation (localizable attribute) and information specific to the channels you are going to use (scopable attribute).
 * Enabled/Disabled status: Each PIM product has an enable/disable status. A PIM product can be exported if it has an enabled status only.
