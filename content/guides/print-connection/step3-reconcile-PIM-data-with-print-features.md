@@ -43,7 +43,7 @@ Here are some examples of filters we believe are relevant:
 
 * Channel: Only import product data related to the selected channel (most of the time a "print" channel).
 * Locale: Only import product data related to the selected locale.
-* Completeness: A PIM product can be exported if it is complete in terms of data contents, translation (localizable attribute) and information specific to the channels you are going to use (scopable attribute).
+* Completeness: A PIM product can be exported if it is complete in terms of data content, translation (localizable attribute), or information specific to the channels you are going to use (attribute with a value per channel).
 * Enabled/Disabled status: Each PIM product has an enable/disable status. A PIM product can be exported if it has an enabled status only.
 
 And sometimes, your customers may also need to import a PIM product into the print solution based on the following parameters:
