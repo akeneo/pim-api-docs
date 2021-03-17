@@ -40,7 +40,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  *     ],
  *     'descriptions'           => [
  *         'en_US' => 'The release date for the summer sale 2017',
- *         'fr_FR' => 'Date des soldes pour lété 2017',
+ *         'fr_FR' => 'Date des soldes pour l\'été 2017',
  *     ]
  * ]
  */
@@ -117,7 +117,7 @@ $client->getAttributeApi()->create('release_date', [
     ],
     'descriptions'           => [
         'en_US' => 'The release date for the summer sale 2017',
-        'fr_FR' => 'Date des soldes pour lété 2017',
+        'fr_FR' => 'Date des soldes pour l\'été 2017',
     ],
 ]);
 ```
@@ -161,7 +161,7 @@ $client->getAttributeApi()->upsert('release_date', [
     ],
     'descriptions'           => [
         'en_US' => 'The release date for the summer sale 2017',
-        'fr_FR' => 'Date des soldes pour lété 2017',
+        'fr_FR' => 'Date des soldes pour l\'été 2017',
     ],
 ]);
 ```
@@ -209,7 +209,7 @@ $client->getAttributeApi()->upsertList([
         ],
         'descriptions'           => [
             'en_US' => 'The release date for the summer sale 2017',
-            'fr_FR' => 'Date des soldes pour lété 2017',
+            'fr_FR' => 'Date des soldes pour l\'été 2017',
         ],
     ],
     [
