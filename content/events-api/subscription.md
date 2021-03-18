@@ -82,26 +82,18 @@ This request is JSON-based (`Content-Type: application/json`) and contains wrapp
 
 ![Download logs button](../img/events-api/connection-download-logs-button.png)
 
-### Log levels
-As you can read on our Help center page [Subscribe and manage **events**](https://help.akeneo.com/pim/serenity/articles/manage-event-subscription.html#debug), the log file gives you access to 4 log levels: 
-- **Error** logs show you when something went wrong with the connected application. 
-- **Warning** logs alert you when your PIM reached the maximum number of events we can send per hour.
-- **Notice** logs tell you why an event hasn't been sent to your connected application. 
-- **Info** logs inform you when a bunch of events has been sent to your connected application. 
-
-::: warning
-Please, note that we store **errors and warnings for the past 72 hours**, and only the **last 100 notices and info logs**.
-:::
-
-### Log types 
-
-For now, the PIM gives you access to 5 log types:
+### Log types
+As you can read on our Help center page [Subscribe and manage **events**](https://help.akeneo.com/pim/serenity/articles/manage-event-subscription.html#debug), the log file gives you access to 4 log levels ang 5 log types: 
 - `ERROR The endpoint returned an error.` In that case, the connected app received the event request, but something went wrong, and it answered with an error. 
 - `ERROR The endpoint failed to answer under 500 ms.` This error means that the connected application did not answer quickly enough. 
 - `WARNING The maximum number of requests per hour has been reached.` If you have this warning log, you could be interested in this article's limit and scalability paragraph. ;) 
 - `NOTICE The event was not sent because it was raised by the same connection.` In that case, your connected application raised an event in the PIM through the REST API, so we chose not to send this event to avoid an endless loop between the PIM and your app.
 - `NOTICE The event was not sent because the product does not exist or the connection does not have the required permissions.` When the PIM doesn't send an event because of a lack of permission, it can be normal. You set up the connection permission to not receive events on products that don't interest your app. If you think you should have received this event, please look at our [permission configuration paragraph](https://help.akeneo.com/pim/serenity/articles/manage-event-subscription.html#manage-your-permissions). 
 - `INFO The API event request was sent.` Information logs are here to inform you that an event request has been sent to your connected app. It can be useful when you test if everything works fine! 
+
+::: warning
+Please, note that we store **errors and warnings for the past 72 hours**, and only the **last 100 notices and info logs**.
+:::
 
 
 ### Example of a log file
