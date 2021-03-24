@@ -2,9 +2,13 @@ get:
   summary: Get a published product
   operationId: "get_published_products__code_"
   tags:
-    - Published products
+    - Published product
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   x-ee: true
   description: This endpoint allows you to get the information about a given published product.
   parameters:

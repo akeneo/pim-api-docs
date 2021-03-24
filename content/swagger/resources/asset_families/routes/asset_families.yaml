@@ -1,0 +1,180 @@
+get:
+  summary: Get list of asset families
+  operationId: "get_asset_families"
+  description: This endpoint allows you to get a list of asset families. Asset families are paginated.
+  tags:
+    - Asset family
+  x-versions:
+    - "3.2"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
+  x-ee: true
+  parameters:
+    - $ref: '#/parameters/search_after'
+  responses:
+    200:
+      description: Return asset families paginated
+      schema:
+        title: Asset families
+        type: object
+        allOf:
+          - $ref: '#/definitions/SearchAfterPagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/AssetFamilyList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/asset-families"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/asset-families"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/asset-families?search_after=2x055w%3D%3D"
+          }
+        },
+        _embedded: {
+          _items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/asset-families/packshots"
+                }
+              },
+              "code": "packshots",
+              "labels": {
+                "en_US": "Packshots",
+                "fr_FR": "Plans produit"
+              },
+              “naming_convention”:{
+                "source": {
+                  "property": "code",
+                  "channel": null,
+                  "locale": null
+                },
+                "pattern": "/(?P<product_ref>.*)\\.jpg/",
+                "abort_asset_creation_on_error": true
+              },
+              "product_link_rules": [
+                {
+                  "product_selections": [
+                    {
+                      "field": "sku",
+                      "operator": "=",
+                      "value": "{{product_ref}}"
+                    }
+                  ],
+                  "assign_assets_to": [
+                    {
+                      "attribute": "{{my_product_attribute}}",
+                      "mode": "add"
+                    }
+                  ]
+                }
+              ],
+              "transformations": [
+                {
+                  "label": "My transformation",
+                  "filename_suffix": "_thumbnailBW",
+                  "source": {
+                    "attribute": "main_image",
+                    "locale": null,
+                    "channel": null
+                  },
+                  "target": {
+                    "attribute": "thumbnail",
+                    "locale": null,
+                    "channel": null
+                  },
+                  "operations": [
+                    {
+                      "type": "thumbnail",
+                      "parameters": {
+                        "width": 150,
+                        "height": 150
+                      }
+                    },
+                    {
+                      "type": "colorspace",
+                      "parameters": {
+                        "colorspace": "grey"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/asset-families/videos"
+                }
+              },
+              "code": "videos",
+              "labels": {
+                "en_US": "Videos",
+                "fr_FR": "Vidéos"
+              },
+              "product_link_rules": [
+                {
+                  "product_selections": [
+                    {
+                      "field": "categories",
+                      "operator": "IN",
+                      "value": ["{{category}}"]
+                    }
+                  ],
+                  "assign_assets_to": [
+                    {
+                      "attribute": "presentation_video",
+                      "locale": "{{locale}}",
+                      "mode": "replace"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/asset-families/user_guides"
+                }
+              },
+              "code": "user_guides",
+              "labels": {
+                "en_US": "User guides",
+                "fr_FR": "Guides utilisateur"
+              },
+              "product_link_rules":[
+                {
+                  "product_selections": [
+                    {
+                      "field": "sku",
+                      "operator": "=",
+                      "value": "{{product_ref}}"
+                    }
+                  ],
+                  "assign_assets_to": [
+                    {
+                      "attribute": "user_instructions",
+                      "locale": "{{locale}}",
+                      "mode": "replace"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    406:
+      $ref: "#/responses/406Error"

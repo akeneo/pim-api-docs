@@ -1,0 +1,48 @@
+get:
+  summary: Get a list of attribute options of a given attribute for a given asset family
+  operationId: "get_asset_family_attributes__attribute_code__options"
+  description: This endpoint allows you to get a list of attribute options for a given asset family.
+  tags:
+    - Asset attribute option
+  x-versions:
+    - "3.2"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
+  x-ee: true
+  parameters:
+    - $ref: '#/parameters/asset_family_code'
+    - $ref: '#/parameters/attribute_code'
+  responses:
+    200:
+      description: Return the options of the given attribute of the given asset family
+      x-no-entity: true
+      schema:
+        $ref: '#/definitions/AssetAttributeOptionList'
+      x-examples: [
+        {
+          "code": "unique_size",
+          "labels": {
+            "en_US": "Unique size",
+            "fr_FR": "Taille unique"
+          }
+        },
+        {
+          "code": "size_27",
+          "labels": {
+            "en_US": "Size 27",
+            "fr_FR": "Taille 36"
+          }
+        },
+        {
+          "code": "small",
+          "labels": {
+            "en_US": "S",
+            "fr_FR": "S"
+          }
+        }
+      ]
+    401:
+      $ref: "#/responses/401Error"
+    406:
+      $ref: "#/responses/406Error"

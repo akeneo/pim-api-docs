@@ -1,0 +1,64 @@
+get:
+  summary: Get a PAM asset tag
+  operationId: "get_asset_tags__code_"
+  description: This endpoint allows you to get the information about a given PAM asset tag.
+  tags:
+    - PAM asset tag
+  x-versions:
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.x"
+  x-ee: true
+  x-deprecated: true
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the asset tag in JSON format
+      schema:
+        $ref: '#/definitions/DeprecatedAssetTag'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    406:
+      $ref: "#/responses/406Error"
+patch:
+  summary: Update/create a PAM asset tag
+  operationId: "patch_asset_tags__code_"
+  tags:
+    - PAM asset tag
+  x-versions:
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.x"
+  x-ee: true
+  x-deprecated: true
+  description: This endpoint allows you to update a given PAM asset tag. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no tag exists for the given code, it creates it.
+  parameters:
+    - $ref: '#/parameters/code'
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: "#/definitions/DeprecatedAssetTag"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    204:
+      $ref: "#/responses/NoContent"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"

@@ -1,0 +1,76 @@
+get:
+  summary: Get a reference file
+  operationId: "get_reference_files__locale_code_"
+  description: This endpoint allows you to get the information about a reference file of a given PAM asset.
+  tags:
+    - PAM asset reference file
+  x-versions:
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.x"
+  x-ee: true
+  x-deprecated: true
+  parameters:
+    - $ref: '#/parameters/asset_code'
+    - $ref: '#/parameters/locale_code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the reference file in JSON format
+      schema:
+        $ref: '#/definitions/DeprecatedAssetReferenceFile'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    406:
+      $ref: "#/responses/406Error"
+post:
+  summary: Upload a new reference file
+  operationId: "post_reference_files__locale_code_"
+  description: This endpoint allows you to upload a new reference file for a given PAM asset and locale. It will also automatically generate all the variation files corresponding to this reference file.
+  tags:
+    - PAM asset reference file
+  x-versions:
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.x"
+  x-ee: true
+  x-deprecated: true
+  parameters:
+    - $ref: '#/parameters/asset_code'
+    - $ref: '#/parameters/locale_code'
+    - name: Content-type
+      in: header
+      type: string
+      description: Equal to 'multipart/form-data', no other value allowed
+      required: true
+    - name: body
+      in: body
+      x-form-data: true
+      schema:
+        required: ["file"]
+        properties:
+          file:
+            type: string
+            description: The binaries of the file
+            format: binary
+  responses:
+    201:
+      $ref: "#/responses/DeprecatedAssetReferenceFileUploaded"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    415:
+      $ref: "#/responses/415ErrorMultipart"
+    422:
+      $ref: "#/responses/422Error"

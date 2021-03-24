@@ -11,8 +11,8 @@ properties:
     x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes` &#10;&bull; The type of this attribute is either `pim_catalog_identifier` or `pim_catalog_text`"
   attribute_as_image:
     type: string
-    description: Attribute code used as the main picture in the user interface
-    x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes` &#10;&bull; The type of this attribute is `pim_catalog_image`"
+    description: Attribute code used as the main picture in the user interface (only since v2.0)
+    x-validation-rules: "&bull; It is equal to an existing attribute code &#10;&bull; This attribute code is in the array of the property `attributes` &#10;&bull; The type of this attribute is `pim_catalog_image`. Since v2.1, you can also use a `pim_assets_collection` attribute type"
     default: "null"
   attributes:
     type: array

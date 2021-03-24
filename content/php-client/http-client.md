@@ -43,6 +43,6 @@ $ php composer.phar require akeneo/api-php-client php-http/curl-client slim/slim
 Then, when creating the client, the HTTP client to use will be automatically detected:
  
  ```
-$clientBuilder = new \Akeneo\Pim\AkeneoPimClientBuilder('http://localhost/');
+$clientBuilder = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://localhost/');
 $client = $clientBuilder->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 ```

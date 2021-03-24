@@ -36,10 +36,40 @@ code:
   description: Code of the resource
   required: true
   type: string
+reference_entity_code:
+  name: reference_entity_code
+  in: path
+  description: Code of the reference entity
+  required: true
+  type: string
+asset_family_code:
+  name: asset_family_code
+  in: path
+  description: Code of the asset family
+  required: true
+  type: string
 attribute_code:
   name: attribute_code
   in: path
   description: Code of the attribute
+  required: true
+  type: string
+asset_code:
+  name: asset_code
+  in: path
+  description: Code of the asset
+  required: true
+  type: string
+channel_code:
+  name: channel_code
+  in: path
+  description: Code of the channel
+  required: true
+  type: string
+locale_code:
+  name: locale_code
+  in: path
+  description: Code of the locale if the asset is localizable or equal to `no-locale` if the asset is not localizable
   required: true
   type: string
 family_code:
@@ -52,6 +82,20 @@ with_count:
   name: with_count
   in: query
   description: Return the count of products in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way
+  default: false
+  type: boolean
+  required: false
+with_attribute_options:
+  name: with_attribute_options
+  in: query
+  description: Return labels of attribute options in the response. (Only available since the 5.0 version)
+  default: false
+  type: boolean
+  required: false
+with_quality_scores:
+  name: with_quality_scores
+  in: query
+  description: Return product quality scores in the response. (Only available since the 5.0 version)
   default: false
   type: boolean
   required: false

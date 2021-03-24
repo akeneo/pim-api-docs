@@ -1,10 +1,10 @@
 # Troubleshooting guide
 
-This guide describes the most common errors you can experience when using the API and the solutions to fix them.
+This guide describes the most common errors you can experience when using the REST API and the solutions to fix them.
 
 ## Missing client id
 
-Two problems can be the cause of the following response when authenticating to the API:
+Two problems can be the cause of the following response when authenticating to the REST API:
 
 ```json
 {
@@ -16,7 +16,7 @@ Two problems can be the cause of the following response when authenticating to t
 ### Base 64 not correctly encoded
 
 You are not correctly encoding client and secret in base 64.
-We encourage you to use the [Postman collection](/getting-started-postman-collection.html) or the [PHP client](/php-client/introduction.html), that handle it automatically for you.
+We encourage you to use the Postman collection that you will find in this [tutorial](/getting-started/your-first-tutorial-4x/welcome.html) or the [PHP client](/php-client/introduction.html), that handle it automatically for you.
 
 If you use the command line to generate the base 64, please ensure that you do it this way:
 
@@ -41,13 +41,13 @@ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 
 ## Redirection on connection page
 
-When requesting the API, you are redirected to the API, with any endpoints.
+When requesting the REST API, you are redirected to the REST API, with any endpoints.
 
 This problem occurs when the project has been updated from version 1.6.  
 It is coming from the security file `app/config/security.yml` in the PIM project.
 
 The declaration order of the keys is important in this file.  
-If the key `security.firewalls.main` is before the keys `security.firewalls.token`, `security.firewalls.api_index` and `security.firewalls.api`, you will be redirected on requesting page when using the API.
+If the key `security.firewalls.main` is before the keys `security.firewalls.token`, `security.firewalls.api_index` and `security.firewalls.api`, you will be redirected on requesting page when using the REST API.
 
 Please check that the keys under `security.firewalls` are in this following order:
 ```

@@ -1,0 +1,80 @@
+get:
+  summary: Get the list of attributes of a given reference entity
+  operationId: "get_reference_entities__code__attributes"
+  description: This endpoint allows you to get the list of attributes of a given reference entity.
+  tags:
+    - Reference entity attribute
+  x-versions:
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
+  x-ee: true
+  parameters:
+    - $ref: '#/parameters/reference_entity_code'
+  responses:
+    200:
+      description: Return the attributes of the given reference entity
+      x-no-entity: true
+      schema:
+        $ref: '#/definitions/ReferenceEntityAttributeList'
+      x-examples: [
+        {
+          "code": "description",
+          "labels": {
+            "en_US": "Description",
+            "fr_FR": "Description"
+          },
+          "type": "text",
+          "value_per_locale": true,
+          "value_per_channel": false,
+          "is_required_for_completeness": true,
+          "max_characters": null,
+          "is_textarea": true,
+          "is_rich_text_editor": true,
+          "validation_rule": "none",
+          "validation_regexp": null
+        },
+        {
+          "code": "country",
+          "labels": {
+            "en_US": "Country",
+            "fr_FR": "Pays"
+          },
+          "type": "text",
+          "value_per_locale": false,
+          "value_per_channel": false,
+          "is_required_for_completeness": false
+        },
+        {
+          "code": "creation_year",
+          "labels": {
+            "en_US": "Creation year",
+            "fr_FR": "Année de création"
+          },
+          "type": "number",
+          "value_per_locale": false,
+          "value_per_channel": false,
+          "is_required_for_completeness": false,
+          "decimals_allowed": false,
+          "min_value": "1800",
+          "max_value": "2100"
+        },
+        {
+          "code": "collection_overview",
+          "labels": {
+            "en_US": "Collection overview",
+            "fr_FR": "Aperçu de la collection"
+          },
+          "type": "image",
+          "value_per_locale": true,
+          "value_per_channel": false,
+          "is_required_for_completeness": true,
+          "allowed_extensions": ["png"],
+          "max_file_size": "1000"
+        }
+      ]
+    401:
+      $ref: "#/responses/401Error"
+    406:
+      $ref: "#/responses/406Error"

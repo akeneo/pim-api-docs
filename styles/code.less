@@ -15,11 +15,15 @@
             margin-left: 12px;
         }
     }
+    ul {
+        list-style-type: none;
+        padding-left: 1.5em;
+    }
 }
 
 code {
     color: @brand-info;
-    background-color: lighten(@brand-info, 42%);
+    background-color: lighten(@brand-info, 36%);
 }
 
 .hljs {
@@ -54,6 +58,7 @@ code {
 .hljs-template-variable,
 .hljs-regexp {
     color: #c678dd;
+    font-weight: bold;
 }
 
 .hljs-comment,
@@ -72,7 +77,7 @@ code {
 .hljs-strong,
 .hljs-number,
 .hljs-keyword {
-    color: @brand-print-yellow;
+    color: @brand-warning;
     font-weight: bold;
 }
 

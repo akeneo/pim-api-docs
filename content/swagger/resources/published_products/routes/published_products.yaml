@@ -3,9 +3,13 @@ get:
   operationId: "get_published_products"
   description: This endpoint allows you to get a list of published products. Published products are paginated and they can be filtered.
   tags:
-    - Published products
+    - Published product
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   x-ee: true
   parameters:
     - name: search
@@ -45,7 +49,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/PublishedProductList'
@@ -66,7 +70,7 @@ get:
         },
         current_page: 3,
         _embedded: {
-          _items: [
+          items: [
             {
               "_links": {
                 "self": {
@@ -147,6 +151,7 @@ get:
               "associations": {
                 "PACK": {
                   "products": ["sunglasses"],
+                  "product_models": [],
                   "groups": []
                 },
               }
@@ -224,6 +229,7 @@ get:
               "associations": {
                 "PACK": {
                   "products": ['sunglasses'],
+                  "product_models": [],
                   "groups": []
                 }
               }

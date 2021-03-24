@@ -3,9 +3,13 @@ get:
   operationId: "measure_families_get_list"
   description: This endpoint allows you to get a list of measure families. Measure families are paginated and sorted by code.
   tags:
-    - Measure families
+    - Measure family
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   responses:
     200:
       description: Return measure families paginated
@@ -18,7 +22,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/MeasureFamilyList'

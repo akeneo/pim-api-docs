@@ -9,7 +9,7 @@ properties:
     type: string
     description: Attribute type
     x-validation-rules: The type is one of the following values
-    enum: ['pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price', 'pim_catalog_boolean']
+    enum: ['pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price_collection', 'pim_catalog_boolean', 'akeneo_reference_entity', 'akeneo_reference_entity_collection', 'pim_catalog_asset_collection']
     x-immutable: true
   labels:
     type: object
@@ -24,6 +24,16 @@ properties:
     type: string
     description: Attribute group
     x-validation-rules: It is the code of an existing group
+  group_labels:
+    type: object
+    description: Group labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    x-read-only: true
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Group label for the locale `localeCode`
   sort_order:
     type: integer
     description: Order of the attribute in its group
@@ -73,15 +83,15 @@ properties:
   number_min:
     type: string
     description: Minimum integer value allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
-    x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
+    x-warning: Only for `pim_catalog_metric`, `pim_catalog_price_collection` or `pim_catalog_number` attribute types
   number_max:
     type: string
-    description: Minimum integer value allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
-    x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
+    description: Maximum integer value allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
+    x-warning: Only for `pim_catalog_metric`, `pim_catalog_price_collection` or `pim_catalog_number` attribute types
   decimals_allowed:
     type: boolean
     description: Whether decimals are allowed when the attribute type is `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number`
-    x-warning: Only for `pim_catalog_metric`, `pim_catalog_price` or `pim_catalog_number` attribute types
+    x-warning: Only for `pim_catalog_metric`, `pim_catalog_price_collection` or `pim_catalog_number` attribute types
   negative_allowed:
     type: boolean
     description: Whether negative values are allowed when the attribute type is `pim_catalog_metric` or `pim_catalog_number`
@@ -117,12 +127,25 @@ properties:
       type: string
   max_file_size:
     type: string
-    description: Max file size when the attribute type is `pim_catalog_file` or `pim_catalog_image`
+    description: Max file size in MB when the attribute type is `pim_catalog_file` or `pim_catalog_image`
     x-warning: Only for `pim_catalog_file` or `pim_catalog_image` attribute types
+  reference_data_name:
+    type: string
+    description: Reference entity code when the attribute type is `akeneo_reference_entity` or `akeneo_reference_entity_collection` OR Asset family code when the attribute type is `pim_catalog_asset_collection`
+    x-validation-rules: Required only for `akeneo_reference_entity` or `akeneo_reference_entity_collection` or `pim_catalog_asset_collection` attribute types
+    x-warning: Only for `akeneo_reference_entity` or `akeneo_reference_entity_collection` or `pim_catalog_asset_collection` attribute types
+  default_value:
+    type: boolean
+    description: Default value for a Yes/No attribute, applied when creating a new product or product model (only available since the 5.0)
+    x-warning: Only for `pim_catalog_boolean` attribute type
 example: {
   "code": "release_date",
   "type": "pim_catalog_date",
   "group": "marketing",
+  "group_labels": {
+    "en_US": "Marketing",
+    "fr_FR": "Marketing"
+  },
   "unique": false,
   "useable_as_grid_filter": true,
   "allowed_extensions": [],
@@ -145,6 +168,7 @@ example: {
   "sort_order": 1,
   "localizable": false,
   "scopable": false,
+  "default_value": null,
   "labels": {
     "en_US": "Sale date",
     "fr_FR": "Date des soldes"

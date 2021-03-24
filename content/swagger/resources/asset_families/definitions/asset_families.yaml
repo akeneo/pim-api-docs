@@ -1,0 +1,138 @@
+type: array
+items:
+  $ref: ../definitions/asset_family.yaml
+example: [
+  {
+    "code": "user_guides",
+    "labels": {
+      "en_US": "User guides",
+      "fr_FR": "Guide utilisateur"
+    },
+    "attribute_as_main_media": "main_image",
+    “naming_convention”: {
+      "source": {
+        "property": "code",
+        "channel": null,
+        "locale": null
+      },
+      "pattern": "/(?P<product_ref>.*)-.*-(?P<locale>.*)/",
+      "abort_asset_creation_on_error": true
+    },
+    "product_link_rules": [
+      {
+        "product_selections": [
+          {
+            "field": "sku",
+            "operator": "=",
+            "value": "{{product_ref}}"
+          }
+        ],
+        "assign_assets_to": [
+          {
+            "attribute": "user_instructions",
+            "locale": "{{locale}}",
+            "mode": "replace"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "packshots",
+    "labels": {
+      "en_US": "Packshots",
+      "fr_FR": "Plans produit"
+    },
+    “naming_convention”:{
+      "source": {
+        "property": "code",
+        "channel": null,
+        "locale": null
+      },
+      "pattern": "/(?P<product_ref>.*)-.*-(?P<my_product_attribute>.*)/",
+      "abort_asset_creation_on_error": true
+    },
+    "product_link_rules": [
+      {
+        "product_selections": [
+          {
+            "field": "sku",
+            "operator": "=",
+            "value": "{{product_ref}}"
+          }
+        ],
+        "assign_assets_to": [
+          {
+            "attribute": "{{my_product_attribute}}",
+            "mode": "add"
+          }
+        ]
+      }
+    ],
+    "transformations": [
+      {
+        "label": "Thumbnail plus black and white transformation",
+        "filename_suffix": "_thumbnailBW",
+        "source": {
+          "attribute": "main_image",
+          "channel": null,
+          "locale": null
+        },
+        "target": {
+          "attribute": "thumbnail",
+          "channel": null,
+          "locale": null
+        },
+        "operations": [
+          {
+            "type": "thumbnail",
+            "parameters": {
+              "width": 150,
+              "height": 150
+            }
+          },
+          {
+            "type": "colorspace",
+            "parameters": {
+              "colorspace": "grey"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "videos",
+    "labels": {
+      "en_US": "Videos",
+      "fr_FR": "Vidéos"
+    },
+    “naming_convention”:{
+      "source": {
+        "property": "code",
+        "channel": null,
+        "locale": null
+      },
+      "pattern": "/.*-(?P<category>.*)-(?P<locale>.*)/",
+      "abort_asset_creation_on_error": true
+    },
+    "product_link_rules": [
+      {
+        "product_selections": [
+          {
+            "field": "categories",
+            "operator": "IN",
+            "value": ["{{category}}"]
+          }
+        ],
+        "assign_assets_to": [
+          {
+            "attribute": "presentation_video",
+            "locale": "{{locale}}",
+            "mode": "replace"
+          }
+        ]
+      }
+    ]
+  }
+]

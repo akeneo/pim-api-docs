@@ -17,6 +17,7 @@ gulp.task('watch', ['create-dist'], function() {
   gulp.watch('content/**/*.md', ['create-dist']);
   gulp.watch('content/img/**/*', ['create-dist']);
   gulp.watch('content/swagger/**/*.yaml', ['create-dist']);
+  gulp.watch('content/beta/**/*.yaml', ['create-dist']);
   gulp.watch('styles/**/*.less', ['create-dist']);
   gulp.watch('src/**/*.handlebars', ['create-dist']);
 });
@@ -26,6 +27,7 @@ gulp.task('watch', ['create-dist'], function() {
 gulp.task('launch-webserver', ['create-dist'], function() {
   return gulp.src('dist')
     .pipe(webserver({
+      host: '0.0.0.0',
       livereload: true,
       directoryListing: false,
       open: true
@@ -39,9 +41,14 @@ gulp.task('create-dist', [
   'copy-assets',
   'reference',
   'landings',
-  'documentation',
-  'client-documentation',
-  'misc-documentation'
+  'build-concepts',
+  'build-rest-api',
+  'build-events-api',
+  'build-php-client',
+  'build-misc-documentation',
+  'build-guides',
+  'build-getting-started',
+  'build-events-reference-page'
 ]);
 
 // Main task that should be used for development purpose

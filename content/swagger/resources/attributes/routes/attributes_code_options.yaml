@@ -3,10 +3,14 @@ get:
   operationId: "get_attributes__attribute_code__options"
   description: This endpoint allows you to get a list of attribute options. Attribute options are paginated and sorted by code.
   tags:
-    - Attribute options
+    - Attribute option
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
     - $ref: '#/parameters/attribute_code'
     - $ref: '#/parameters/page'
@@ -24,7 +28,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/AttributeOptionList'
@@ -45,7 +49,7 @@ get:
         },
         current_page: 3,
         _embedded: {
-          _items: [
+          items: [
             {
               "_links": {
                 "self": {
@@ -102,10 +106,14 @@ post:
   operationId: "post_attributes__attribute_code__options"
   description: This endpoint allows you to create a new attribute option.
   tags:
-    - Attribute options
+    - Attribute option
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
     - $ref: '#/parameters/attribute_code'
     - name: body
@@ -125,3 +133,53 @@ post:
       $ref: "#/responses/415Error"
     422:
       $ref: "#/responses/422Error"
+patch:
+  summary: Update/create several attribute options
+  operationId: "patch_attributes__attribute_code__options"
+  tags:
+    - Attribute option
+  x-versions:
+    - "2.1"
+    - "2.2"
+    - "2.3"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
+  description: This endpoint allows you to update several attribute options at once.
+  x-body-by-line: Contains several lines, each line is an attribute option in JSON standard format
+  parameters:
+    - $ref: '#/parameters/attribute_code'
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/AttributeOption"
+        x-examples:
+          x-example-1:
+            '{"code":"black", "attribute":"a_simple_select", "labels":{"en_US": "Black","fr_FR": "Noir"}}'
+          x-example-2:
+            '{"code":"red", "label":{"en_US": "Red","fr_FR": "Rouge"}}'
+          x-example-3:
+            '{"code":"yellow", "labels":{"en_US": "Yellow","fr_FR": "Jaune"}}'
+  responses:
+    200:
+      description: OK
+      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      x-no-entity: true
+      schema:
+        $ref: "#/definitions/ErrorByLine"
+      examples:
+        x-example-1:
+          '{"line":1,"code":"black","status_code":201}'
+        x-example-2:
+          '{"line":2,"code":"red","status_code":422,"message":"Property "label" does not exist. Check the API format documentation."}'
+        x-example-3:
+          '{"line":3,"code":"yellow","status_code":204}'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"

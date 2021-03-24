@@ -1,12 +1,16 @@
 get:
-  summary: Get a list of media files
+  summary: Get a list of product media files
   operationId: "get_media_files"
-  description: This endpoint allows you to get a list of media files.
+  description: This endpoint allows you to get a list of media files that are used as attribute values in products or product models.
   tags:
-    - Media files
+    - Product media file
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -23,7 +27,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/MediaFileList'
@@ -44,7 +48,7 @@ get:
         },
         current_page: 2,
         _embedded: {
-          _items: [
+          items: [
             {
               "_links": {
                 "self": {
@@ -115,14 +119,18 @@ get:
     406:
       $ref: "#/responses/406Error"
 post:
-  summary: Create a new media file
+  summary: Create a new product media file
   operationId: "post_media_files"
-  description: This endpoint allows you to create a new media file and associate it to the product value of a given product.
+  description: This endpoint allows you to create a new media file and associate it to an attribute value of a given product or product model.
   tags:
-    - Media files
+    - Product media file
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
     - name: Content-type
       in: header
@@ -133,10 +141,14 @@ post:
       in: body
       x-form-data: true
       schema:
+        required: ["file"]
         properties:
           product:
             type: string
-            description: The product to which the media file will be associated. It is a JSON string that follows this formula '{"identifier":"product_identifier", "attribute":"attribute_code", "scope":"channel_code","locale":"locale_code"}'
+            description: The product to which the media file will be associated. It is a JSON string that follows this format '{"identifier":"product_identifier", "attribute":"attribute_code", "scope":"channel_code","locale":"locale_code"}'. You have to either use this field or the `product_model` field, but not both at the same time.
+          product_model:
+            type: string
+            description: The product model to which the media file will be associated. It is a JSON string that follows this format '{"code":"product_model_code", "attribute":"attribute_code", "scope":"channel_code","locale":"locale_code"}'. You have to either use this field or the `product` field, but not both at the same time.
           file:
             type: string
             description: The binaries of the file

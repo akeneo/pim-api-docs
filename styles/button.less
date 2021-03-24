@@ -1,9 +1,61 @@
 button.btn,
 a.btn {
     border-radius: 100px;
-    border: none;
+    border-width: 2px;
     padding: 5px 16px;
     text-transform: uppercase;
+
+    &.btn-bottom-fixed{
+        position: fixed;
+        bottom: 10px;
+        right: 15px;
+        display: none;
+    }
+    &.btn-navup{
+        color: @gray;
+        border: 1px @gray-light solid;
+        background-color: white;
+        padding-bottom: 10px;
+        &:active{
+            background-color: @gray-lighter;
+            border-color: @gray;
+        }
+    }
+    &.btn-default{
+        border: 1px solid @gray-lighter;
+    }
+    &.btn-ghost.btn-primary{
+        .button-variant(@brand-primary;
+        transparent;
+        @brand-primary);
+        border: 2px solid;
+        &:hover{
+            background-color: lighten(@brand-primary, 50%);
+        }
+    }
+    &.btn-ghost.btn-primary.btn-rest{
+        .button-variant(@api-rest;
+        transparent;
+        @api-rest);
+        border: 2px solid;
+        &:hover{
+            background-color: lighten(@api-rest, 50%);
+        }
+        width: fit-content
+    }
+    &.btn-ghost.btn-primary.btn-events{
+        .button-variant(@api-events;
+        transparent;
+        @api-events);
+        border: 2px solid;
+        &:hover{
+            background-color: lighten(@api-events, 50%);
+        }
+        width: fit-content
+    }
+    +a.btn.pull-right {
+        margin-right: 10px;
+    }
 }
 
 .btn-akeneo {

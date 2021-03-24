@@ -1,9 +1,3 @@
-/api/rest/v1:
-  $ref: ./resources/list_endpoints.yaml
-
-/api/oauth/v1/token:
-  $ref: ./resources/token.yaml
-
 /api/rest/v1/products:
   $ref: ./resources/products/routes/products.yaml
 /api/rest/v1/products/{code}:
@@ -17,16 +11,22 @@
   $ref: ./resources/product_models/routes/product_models.yaml
 /api/rest/v1/product-models/{code}:
   $ref: ./resources/product_models/routes/product_models_code.yaml
+/api/rest/v1/product-models/{code}/proposal:
+  $ref: ./resources/product_models/routes/product_models_code_proposal.yaml
+/api/rest/v1/product-models/{code}/draft:
+  $ref: ./resources/product_models/routes/product_models_code_draft.yaml
 
 /api/rest/v1/published-products:
   $ref: ./resources/published_products/routes/published_products.yaml
 /api/rest/v1/published-products/{code}:
   $ref: ./resources/published_products/routes/published_products_code.yaml
 
-/api/rest/v1/categories:
-  $ref: ./resources/categories/routes/categories.yaml
-/api/rest/v1/categories/{code}:
-  $ref: ./resources/categories/routes/categories_code.yaml
+/api/rest/v1/media-files:
+  $ref: ./resources/media_files/routes/media_files.yaml
+/api/rest/v1/media-files/{code}:
+  $ref: ./resources/media_files/routes/media_files_code.yaml
+/api/rest/v1/media-files/{code}/download:
+  $ref: ./resources/media_files/routes/media_files_code_download.yaml
 
 /api/rest/v1/families:
   $ref: ./resources/families/routes/families.yaml
@@ -50,22 +50,26 @@
   $ref: ./resources/attribute_groups/routes/attribute_groups.yaml
 /api/rest/v1/attribute-groups/{code}:
   $ref: ./resources/attribute_groups/routes/attribute_groups_code.yaml
-/api/rest/v1/media-files:
-  $ref: ./resources/media_files/routes/media_files.yaml
-/api/rest/v1/media-files/{code}:
-  $ref: ./resources/media_files/routes/media_files_code.yaml
-/api/rest/v1/media-files/{code}/download:
-  $ref: ./resources/media_files/routes/media_files_code_download.yaml
+
+/api/rest/v1/association-types:
+  $ref: ./resources/association_types/routes/association_types.yaml
+/api/rest/v1/association-types/{code}:
+  $ref: ./resources/association_types/routes/association_types_code.yaml
+
+/api/rest/v1/channels:
+  $ref: ./resources/channels/routes/channels.yaml
+/api/rest/v1/channels/{code}:
+  $ref: ./resources/channels/routes/channels_code.yaml
 
 /api/rest/v1/locales:
   $ref: ./resources/locales/routes/locales.yaml
 /api/rest/v1/locales/{code}:
   $ref: ./resources/locales/routes/locales_code.yaml
 
-/api/rest/v1/channels:
-  $ref: ./resources/channels/routes/channels.yaml
-/api/rest/v1/channels/{code}:
-  $ref: ./resources/channels/routes/channels_code.yaml
+/api/rest/v1/categories:
+  $ref: ./resources/categories/routes/categories.yaml
+/api/rest/v1/categories/{code}:
+  $ref: ./resources/categories/routes/categories_code.yaml
 
 /api/rest/v1/currencies:
   $ref: ./resources/currencies/routes/currencies.yaml
@@ -77,7 +81,79 @@
 /api/rest/v1/measure-families/{code}:
   $ref: ./resources/measure_families/routes/measure_families_code.yaml
 
-/api/rest/v1/association-types:
-  $ref: ./resources/association_types/routes/association_types.yaml
-/api/rest/v1/association-types/{code}:
-  $ref: ./resources/association_types/routes/association_types_code.yaml
+/api/rest/v1/measurement-families:
+  $ref: ./resources/measurement_families/routes/measurement_families.yaml
+
+/api/rest/v1/reference-entities:
+  $ref: ./resources/reference_entities/routes/reference_entities.yaml
+/api/rest/v1/reference-entities/{code}:
+  $ref: ./resources/reference_entities/routes/reference_entities_code.yaml
+
+/api/rest/v1/reference-entities/{reference_entity_code}/attributes:
+  $ref: ./resources/reference_entity_attributes/routes/reference_entity_attributes.yaml
+/api/rest/v1/reference-entities/{reference_entity_code}/attributes/{code}:
+  $ref: ./resources/reference_entity_attributes/routes/reference_entity_attributes_code.yaml
+/api/rest/v1/reference-entities/{reference_entity_code}/attributes/{attribute_code}/options:
+  $ref: ./resources/reference_entity_attributes/routes/reference_entity_attributes_code_options.yaml
+/api/rest/v1/reference-entities/{reference_entity_code}/attributes/{attribute_code}/options/{code}:
+  $ref: ./resources/reference_entity_attributes/routes/reference_entity_attributes_code_options_code.yaml
+
+/api/rest/v1/reference-entities/{reference_entity_code}/records:
+  $ref: ./resources/reference_entity_records/routes/reference_entity_records.yaml
+/api/rest/v1/reference-entities/{reference_entity_code}/records/{code}:
+  $ref: ./resources/reference_entity_records/routes/reference_entity_records_code.yaml
+
+/api/rest/v1/reference-entities-media-files:
+  $ref: ./resources/reference_entity_media_files/routes/reference_entity_media_files.yaml
+/api/rest/v1/reference-entities-media-files/{code}:
+  $ref: ./resources/reference_entity_media_files/routes/reference_entity_media_files_code.yaml
+
+/api/rest/v1/asset-families:
+  $ref: ./resources/asset_families/routes/asset_families.yaml
+/api/rest/v1/asset-families/{code}:
+  $ref: ./resources/asset_families/routes/asset_families_code.yaml
+/api/rest/v1/asset-families/{asset_family_code}/attributes:
+  $ref: ./resources/asset_attributes/routes/asset_attributes.yaml
+/api/rest/v1/asset-families/{asset_family_code}/attributes/{code}:
+  $ref: ./resources/asset_attributes/routes/asset_attributes_code.yaml
+/api/rest/v1/asset-families/{asset_family_code}/attributes/{attribute_code}/options:
+  $ref: ./resources/asset_attributes/routes/asset_attributes_code_options.yaml
+/api/rest/v1/asset-families/{asset_family_code}/attributes/{attribute_code}/options/{code}:
+  $ref: ./resources/asset_attributes/routes/asset_attributes_code_options_code.yaml
+
+/api/rest/v1/asset-media-files:
+  $ref: ./resources/asset_media_files/routes/asset_media_files.yaml
+/api/rest/v1/asset-media-files/{code}:
+  $ref: ./resources/asset_media_files/routes/asset_media_files_code.yaml
+
+/api/rest/v1/asset-families/{asset_family_code}/assets:
+  $ref: ./resources/assets/routes/assets.yaml
+/api/rest/v1/asset-families/{asset_family_code}/assets/{code}:
+  $ref: ./resources/assets/routes/assets_code.yaml
+
+/api/rest/v1/assets:
+  $ref: ./resources/deprecated/assets/routes/assets.yaml
+/api/rest/v1/assets/{code}:
+  $ref: ./resources/deprecated/assets/routes/assets_code.yaml
+/api/rest/v1/assets/{asset_code}/reference-files/{locale_code}:
+  $ref: ./resources/deprecated/assets/routes/assets_code_reference_files_channel_code_locale_code.yaml
+/api/rest/v1/assets/{asset_code}/reference-files/{locale_code}/download:
+  $ref: ./resources/deprecated/assets/routes/assets_code_reference_files_channel_code_locale_code_download.yaml
+/api/rest/v1/assets/{asset_code}/variation-files/{channel_code}/{locale_code}:
+  $ref: ./resources/deprecated/assets/routes/assets_code_variation_files_channel_code_locale_code.yaml
+/api/rest/v1/assets/{asset_code}/variation-files/{channel_code}/{locale_code}/download:
+  $ref: ./resources/deprecated/assets/routes/assets_code_variation_files_channel_code_locale_code_download.yaml
+/api/rest/v1/asset-categories:
+  $ref: ./resources/deprecated/asset_categories/routes/asset_categories.yaml
+/api/rest/v1/asset-categories/{code}:
+  $ref: ./resources/deprecated/asset_categories/routes/asset_categories_code.yaml
+/api/rest/v1/asset-tags:
+  $ref: ./resources/deprecated/asset_tags/routes/asset_tags.yaml
+/api/rest/v1/asset-tags/{code}:
+  $ref: ./resources/deprecated/asset_tags/routes/asset_tags_code.yaml
+
+/api/rest/v1:
+  $ref: ./resources/list_endpoints.yaml
+
+/api/oauth/v1/token:
+  $ref: ./resources/token.yaml

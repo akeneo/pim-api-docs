@@ -1,10 +1,10 @@
 # Response codes
 
-_All the responses you can get when requesting via the API_
+_All the responses you can get when requesting via the REST API_
 
 ## Client errors
 
-There are several types of errors when requesting via the API.
+There are several types of errors when requesting via the REST API.
 
 ### 400 error
 Sending malformed data results in a `400 Bad Request` response.
@@ -47,7 +47,7 @@ Below is the good format. Just perfect. Don't move a single comma. ;)
 ```
 
 ### 401 error
-Trying to access to the API without authentication results in a `401 Unauthorized` response.
+Trying to access to the REST API without authentication results in a `401 Unauthorized` response.
 
 #### Example
 ```http
@@ -72,9 +72,8 @@ curl https://demo.akeneo.com/api/rest/v1/categories \
 ```
 
 :::info
-You are experiencing this kind of error and the examples given here did not help you?
-
-Take a look at the [authentication](/documentation/security.html#authentication-2) documentation. This might save your day!
+You are experiencing this kind of error and the examples given here did not help you?  
+Take a look at the [authentication](/documentation/authentication.html) documentation. This might save your day!
 :::
 
 ### 403 error
@@ -91,9 +90,8 @@ HTTP/1.1 403 Forbidden
 ```
 
 :::info
-You are experiencing this kind of error and you do not know how to solve it?
-
-Take a look to the [authorization](/documentation/security.html#authorization) documentation. This might save your day!
+You are experiencing this kind of error and you do not know how to solve it?  
+Take a look at the [permissions](/documentation/permissions.html) documentation. This might save your day!
 :::
 
 ### 404 error
@@ -172,8 +170,11 @@ HTTP/1.1 422 Unprocessable Entity
     "message": "Validation failed.",
     "errors": [
         {
-            "field": "code",
-            "message": "This value should not be blank."
+            "property": "values",
+            "message": "The tommh value is not in the brand attribute option list.",
+            "attribute": "brand",
+            "locale": null,
+            "scope": null
         }
     ]
 }
@@ -196,9 +197,30 @@ HTTP/1.1 422 Unprocessable Entity
 }
 ```
 
+Or, sending unknown data. 
+
+#### Example
+```http
+HTTP/1.1 422 Unprocessable Entity
+
+{
+    "code": 422,
+    "message": "The sunglasses category does not exist in your PIM. Check the expected format on the API documentation.",
+    "_links": {
+        "documentation": {
+            "href": "http://api.akeneo.com/api-reference.html#post_products"
+        }
+    }
+}
+```
+
+::: tips
+When the REST API answers that something `does not exist`, it could also mean that the related user hasn't the permission to access it.
+:::
+
 ## Success
 
-There are 3 types of client success when requesting via the API.
+There are 3 types of client success when requesting via the REST API.
 
 ### 200 success
 Getting a resource or a collection resources results in a `200 OK` response.

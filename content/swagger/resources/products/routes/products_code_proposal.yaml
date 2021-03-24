@@ -2,9 +2,13 @@ post:
   summary: Submit a draft for approval
   operationId: "post_proposal"
   tags:
-    - Products
+    - Product
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   x-ee: true
   description: This endpoint allows you to submit a draft for approval.
   parameters:

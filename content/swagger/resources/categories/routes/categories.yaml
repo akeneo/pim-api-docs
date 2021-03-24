@@ -3,11 +3,20 @@ get:
   operationId: "get_categories"
   description: This endpoint allows you to get a list of categories. Categories are paginated and sorted by `root/left`.
   tags:
-    - Categories
+    - Category
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
+    - name: search
+      in: query
+      description: Filter categories, for more details see the <a href="/documentation/filter.html#filter-categories">Filters</a> section.
+      required: false
+      type: string
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
@@ -23,7 +32,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/CategoryList'
@@ -44,7 +53,7 @@ get:
         },
         current_page: 2,
         _embedded: {
-          _items: [
+          items: [
             {
               "_links": {
                 "self": {
@@ -129,10 +138,14 @@ post:
   operationId: "post_categories"
   description: This endpoint allows you to create a new category.
   tags:
-    - Categories
+    - Category
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
     - name: body
       in: body
@@ -155,10 +168,14 @@ patch:
   summary: Update/create several categories
   operationId: "patch_categories"
   tags:
-    - Categories
+    - Category
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   description: This endpoint allows you to update several categories at once.
   x-body-by-line: Contains several lines, each line is a category in JSON standard format
   parameters:

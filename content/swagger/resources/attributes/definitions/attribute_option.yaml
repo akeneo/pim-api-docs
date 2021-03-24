@@ -1,4 +1,5 @@
 type: object
+required: ["code"]
 properties:
   code:
     type: string
@@ -6,9 +7,11 @@ properties:
   attribute:
     type: string
     description: Code of attribute related to the attribute option
+    x-validation-rules: It is the same attribute code as the one given as path parameter
   sort_order:
     type: integer
     description: Order of attribute option
+    x-validation-rules: It is a positive integer
   labels:
     type: object
     description: Attribute option labels for each locale

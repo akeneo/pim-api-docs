@@ -5,8 +5,12 @@ get:
   tags:
     - Overview
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   x-no-token: true
   responses:
     200:

@@ -3,10 +3,14 @@ get:
   operationId: "get_locales"
   description: This endpoint allows you to get a list of locales. Locales are paginated and sorted by code.
   tags:
-    - Locales
+    - Locale
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -23,7 +27,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/LocaleList'
@@ -44,7 +48,7 @@ get:
         },
         current_page: 2,
         _embedded: {
-          _items: [
+          items: [
             {
               "_links": {
                 "self": {

@@ -12,6 +12,10 @@
     .label-variant(@brand-primary);
 }
 
+.label-beta {
+    .label-variant(@brand-warning);
+}
+
 .rotated-label {
     padding-right: 25px;
     .label-beta {
@@ -36,4 +40,16 @@
     &.label-delete {
         .label-danger();
     }
+}
+
+.label-version {
+    color: @brand-info;
+    border: none;
+    text-align: right;
+    font-size: 14px;
+}
+
+.label-version p {
+    margin-bottom: 0px;
+    margin-right: 16px;
 }

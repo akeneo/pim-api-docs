@@ -3,9 +3,13 @@ get:
   operationId: "currencies_get"
   description: This endpoint allows you to get the information about a given currency.
   tags:
-    - Currencies
+    - Currency
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
     - $ref: '#/parameters/code'
   responses:

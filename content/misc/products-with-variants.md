@@ -6,7 +6,7 @@ Let me explain you the reason behind this change.
 
 ## A little bit of history
 
-With the 1.7 version of the PIM, we decided to introduced the first step toward a great API by releasing a set of endpoints for the most used entities inside the PIM, such as the products and the families for example.
+With the 1.7 version of the PIM, we decided to introduced the first step toward a great REST API by releasing a set of endpoints for the most used entities inside the PIM, such as the products and the families for example.
 
 At this time, we already knew that we were going to make a big change in the way we manage the product with variants. So we knew that the notion of **variant groups might disappear**. That's why we decided to avoid developing the endpoints for this entity.
 
@@ -93,6 +93,8 @@ The JSON standard format of a variant product is, in 2.0, the following:
       }
     ]
   },
+  "associations": {},
+  "quantified_associations": {},
   "created": "2017-10-05T11:25:48+02:00",
   "updated": "2017-10-05T11:25:48+02:00"
 }
@@ -109,7 +111,7 @@ You used the variant groups in a very effective way and they are really structur
  - The products inside your variant group use the same family,
  - The products inside your variant group use the same attributes.
 
-It's very good news for you! The solution is to use the new [product model](/documentation/resources.html#product-model-20-only) and [family variant](/documentation/resources.html#family-variant-20-only) entities, that were introduced in the remodeling of the products with variants for the 2.0.
+It's very good news for you! The solution is to use the new [product model](/concepts/products.html#product-model) and [family variant](/concepts/catalog-structure.html#family-variant) entities, that were introduced in the remodeling of the products with variants for the 2.0.
 
 ### A few words about the new modeling
 
@@ -125,10 +127,10 @@ All the other attributes have their value stored into standard products that we 
 
 To be much clearer, below is a diagram representing this modeling.
 
-![Modeling of the products with variants](../img/product_with_variants.png)
+![Modeling of the products with variants](../img/rest-api/product_with_variants.png)
 
 ### Example  
-In the API, you will end up with the following change in your products with variants.   
+In the REST API, you will end up with the following change in your products with variants.   
 Before in 1.7
 ```json
 {

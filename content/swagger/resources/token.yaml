@@ -5,8 +5,12 @@ post:
   tags:
     - Authentication
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   x-no-token: true
   parameters:
     - name: Content-type
@@ -18,12 +22,13 @@ post:
       in: header
       type: string
       required: true
-      description: Equal to 'Basic xx', where 'xx' is the base 64 encoding of the client id and secret. Find out how to generate them in the <a href="/documentation/security.html#create-an-oauth-client">Create an OAuth client</a> section.
+      description: Equal to 'Basic xx', where 'xx' is the base 64 encoding of the client id and secret. Find out how to generate them in the <a href="/documentation/authentication.html#client-idsecret-generation">Client ID/secret generation</a> section.
     - name: body
       in: body
       x-form-data: true
       schema:
         type: object
+        required: ["username", "password", "grant_type"]
         properties:
           username:
             type: string
@@ -61,7 +66,7 @@ post:
             description: Unused, always equal to "null"
           refresh_token:
             type: string
-            description: Use this token when your access token has expired. See <a href="/documentation/security.html#refresh-an-expired-token">Refresh an expired token</a> section for more details.
+            description: Use this token when your access token has expired. See <a href="/documentation/authentication.html#refresh-an-expired-token">Refresh an expired token</a> section for more details.
       examples: {
         "access_token": "ZTZmYjU4ZmQxZWNmMzk1M2NlYzA5NmFhNmIzVjExMzE4NmJmODBkZGIyYTliYmQyNjk2ZDQwZThmNjdiZDQzOQ",
         "expires_in": 3600,

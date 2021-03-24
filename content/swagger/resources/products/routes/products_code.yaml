@@ -2,13 +2,19 @@ get:
   summary: Get a product
   operationId: "get_products__code_"
   tags:
-    - Products
+    - Product
   x-versions:
-    - 1.7
-    - 2.0
-  description: This endpoint allows you to get the information about a given product. If you are using a v2.0 Enterprise Edition PIM, permissions based on your user groups are applied to the product you request.
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
+  description: This endpoint allows you to get the information about a given product. In the Entreprise Edition, since the v2.0, permissions based on your user groups are applied to the product you request.
   parameters:
     - $ref: '#/parameters/code'
+    - $ref: '#/parameters/with_attribute_options'
+    - $ref: '#/parameters/with_quality_scores'
   responses:
     200:
       description: OK
@@ -27,11 +33,15 @@ patch:
   summary: Update/create a product
   operationId: "patch_products__code_"
   tags:
-    - Products
+    - Product
   x-versions:
-    - 1.7
-    - 2.0
-  description: This endpoint allows you to update a given product. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it. If you are using a v2.0 Enterprise Edition PIM, permissions based on your user groups are applied to the product you try to update. It may result in the creation of a draft if you only have edit rights through the product's categories.
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
+  description: This endpoint allows you to update a given product. Learn more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it. In the Entreprise Edition, since the v2.0, permissions based on your user groups are applied to the product you try to update. It may result in the creation of a draft if you only have edit rights through the product's categories.
   parameters:
     - $ref: '#/parameters/code'
     - name: body
@@ -56,11 +66,15 @@ delete:
   summary: Delete a product
   operationId: "delete_products__code_"
   tags:
-    - Products
+    - Product
   x-versions:
-    - 1.7
-    - 2.0
-  description: This endpoint allows you to delete a given product. If you are using a v2.0 Enterprise Edition PIM, permissions based on your user groups are applied to the product you try to delete.
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
+  description: This endpoint allows you to delete a given product. In the Enterprise Edition, since the 2.0, permissions based on your user groups are applied to the product you try to delete.
   parameters:
     - $ref: '#/parameters/code'
   responses:

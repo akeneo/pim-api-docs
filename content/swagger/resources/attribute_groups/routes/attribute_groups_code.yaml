@@ -3,9 +3,13 @@ get:
   operationId: "attribute_groups_get"
   description: This endpoint allows you to get the information about a given attribute group.
   tags:
-    - Attribute groups
+    - Attribute group
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
     - $ref: '#/parameters/code'
   responses:
@@ -26,9 +30,13 @@ patch:
   summary: Update/create an attribute group
   operationId: "attribute_groups_patch"
   tags:
-    - Attribute groups
+    - Attribute group
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   description: This endpoint allows you to update a given attribute group. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute group exists for the given code, it creates it.
   parameters:
     - $ref: '#/parameters/code'

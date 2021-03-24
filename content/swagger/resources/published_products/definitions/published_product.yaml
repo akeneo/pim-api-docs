@@ -29,7 +29,7 @@ properties:
     default: []
   values:
     type: object
-    description: "Published product attributes values, see <a href='/documentation/resources.html#product-values'>Product values</a> section for more details"
+    description: "Published product attributes values, see <a href='/concepts/products.html#focus-on-the-products-values'>Product values</a> section for more details"
     x-validation-rules: Validation rules detailed in Product values section
     properties:
       attributeCode:
@@ -64,6 +64,14 @@ properties:
             description: Array of published product identifiers with which the published product is in relation
             items:
               type: string
+          product_models:
+            type: array
+            description: Array of product model codes with which the product is in relation (only available since the v2.1)
+            items:
+              type: string
+  quantified_associations:
+    type: object
+    description: "Warning: associations with quantities are not compatible with the published products. The response will always be empty."
   created:
     type: string
     description: Date of creation
@@ -150,7 +158,8 @@ example: {
   "associations": {
     "PACK": {
       "products": ["sunglass"],
-       "groups": []
+      "product_models": [],
+      "groups": []
     }
   }
 }

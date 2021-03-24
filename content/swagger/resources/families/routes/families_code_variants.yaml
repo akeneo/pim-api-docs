@@ -3,9 +3,13 @@ get:
   operationId: "get_families__family_code__variants"
   description: This endpoint allows you to get a list of family variants. Family variants are paginated and sorted by code.
   tags:
-    - Families
+    - Family variant
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
     - $ref: '#/parameters/family_code'
     - $ref: '#/parameters/page'
@@ -23,7 +27,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/FamilyVariantList'
@@ -56,9 +60,13 @@ post:
   summary: Create a new family variant
   operationId: "post_families__family_code__variants"
   tags:
-    - Families
+    - Family
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   description: This endpoint allows you to create a family variant.
   parameters:
     - $ref: '#/parameters/family_code'
@@ -83,9 +91,13 @@ patch:
   summary: Update/create several family variants
   operationId: "patch_families__family_code__variants"
   tags:
-    - Families
+    - Family variant
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   description: This endpoint allows you to update and/or create several family variants at once, for a given family.
   x-body-by-line: Contains several lines, each line is a family in JSON standard format
   parameters:

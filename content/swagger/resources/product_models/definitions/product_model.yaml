@@ -5,17 +5,21 @@ properties:
     type: string
     description: Product model code
     x-immutable: true
+  family:
+    type: string
+    description: Family code  from which the product inherits its attributes and attributes requirements (since the 3.2)
+    x-validation-rules: It is equal to an existing family code
+    x-immutable: true
   family_variant:
     type: string
     description: Family variant code from which the product model inherits its attributes and variant attributes
-    x-validation-rules: It is equal to an existing family variant code
+    x-validation-rules: It is equal to an existing family variant code that belong to the family given in the `family` field
     x-immutable: true
   parent:
     type: string
-    description: Code of the parent product model
+    description: Code of the parent product model. This parent can be modified since the 2.3.
     x-validation-rules: "&bull; It is equal to an existing product model code&#10;&bull; This product model has the same family variant as the one given in the `family_variant field`"
     default: "null"
-    x-immutable: true
   categories:
     type: array
     description: Codes of the categories in which the product model is categorized
@@ -25,7 +29,7 @@ properties:
     default: []
   values:
     type: object
-    description: "Product model attributes values, see <a href='/documentation/resources.html#product-values'>Product values</a> section for more details"
+    description: "Product model attributes values, see <a href='/concepts/products.html#focus-on-the-products-values'>Product values</a> section for more details"
     x-validation-rules: Validation rules detailed in Product values section
     properties:
       attributeCode:
@@ -42,6 +46,57 @@ properties:
             data:
               type: object
               description: Product value
+  associations:
+    type: object
+    description: Several associations related to groups, product and/or other product models, grouped by association types
+    x-validation-rules: "&bull; The `associationTypeCode` is the code of an existing association type. &#10;&bull; Each string in the array of the property `groups` is the code of an existing group. &#10;&bull; Each string in the array of the property `products` is the identifier of an existing product. &#10;&bull; Each string in the array of the property `product_models` is the code of an existing product model."
+    properties:
+      associationTypeCode:
+        type: object
+        properties:
+          groups:
+            type: array
+            description: Array of groups codes with which the product is in relation
+            items:
+              type: string
+          products:
+            type: array
+            description: Array of product identifiers with which the product is in relation
+            items:
+              type: string
+          product_models:
+            type: array
+            description: Array of product model codes with which the product is in relation (only available since the v2.1)
+            items:
+              type: string
+  quantified_associations:
+    type: object
+    description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available since the 5.0)
+    x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it. &#10;&bull; Each object in the array of the property `product_models` contains the code of an existing product model and the quantity of it."
+    properties:
+      quantifiedAssociationTypeCode:
+        type: object
+        properties:
+          products:
+            type: array
+            description: Array of objects containing product identifiers and quantities with which the product model is in relation
+            items:
+              type: object
+              properties:
+                identifier:
+                  type: string
+                quantity:
+                  type: integer
+          product_models:
+            type: array
+            description: Array of objects containing product model codes and quantities with which the product model is in relation
+            items:
+              type: object
+              properties:
+                code:
+                  type: string
+                quantity:
+                  type: integer
   created:
     type: string
     description: Date of creation
@@ -53,8 +108,20 @@ properties:
     description: Date of the last update
     format: dateTime
     x-read-only: true
+  metadata:
+    type: object
+    description: More information around the product model (only available since the v2.3 in the Enterprise Edition)
+    x-immutable: true
+    x-read-only: true
+    properties:
+      workflow_status:
+        description: Status of the product model regarding the user permissions (only available since the v2.3 in the Enterprise Edition)
+        type: string
+        enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
+
 example: {
   "code": "model-biker-jacket-leather",
+  "family": "clothing",
   "family_variant": "clothing_material_size",
   "parent": "model-biker-jacket",
   "categories": ["summer_collection"],
@@ -101,6 +168,33 @@ example: {
         "data": "Biker jacket"
       }
     ]
+  },
+  "associations": {
+    "PACK": {
+      "products": ["sunglass"],
+      "product_models": [],
+      "groups": []
+    }
+  },
+  "quantified_associations": {
+    "PRODUCT_SET": {
+      "products": [
+        {
+          "identifier": "top",
+          "quantity": 2
+        },
+        {
+          "identifier": "cap",
+          "quantity": 1
+        }
+      ],
+      "product_models": [
+        {
+          "code": "model-biker-jacket-leather",
+          "quantity": 2
+        }
+      ]
+    }
   },
   "created": "2017-10-02T15:03:55+02:00",
   "updated": "2017-10-02T15:03:55+02:00"

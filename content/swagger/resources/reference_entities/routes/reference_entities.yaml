@@ -1,0 +1,93 @@
+get:
+  summary: Get list of reference entities
+  operationId: "get_reference_entities"
+  description: This endpoint allows you to get a list of reference entities. Reference entities are paginated.
+  tags:
+    - Reference entity
+  x-versions:
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
+  x-ee: true
+  parameters:
+    - $ref: '#/parameters/search_after'
+  responses:
+    200:
+      description: Return reference entities paginated
+      schema:
+        title: Reference Entities
+        type: object
+        allOf:
+          - $ref: '#/definitions/SearchAfterPagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/ReferenceEntityList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities?search_after=2x055w%3D%3D"
+          }
+        },
+        _embedded: {
+          items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands"
+                },
+                "image_download": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities-media-files/0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
+                }
+              },
+              "code": "brands",
+              "labels": {
+                "en_US": "Brands",
+                "fr_FR": "Marque"
+              },
+              "image": "0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/designers"
+                }
+              },
+              "code": "designers",
+              "labels": {
+                "en_US": "Designers",
+                "fr_FR": "Designers"
+              },
+              "image": null
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/colors"
+                }
+              },
+              "code": "colors",
+              "labels": {
+                "en_US": "Colors",
+                "fr_FR": "Couleurs"
+              },
+              "image": null
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    406:
+      $ref: "#/responses/406Error"

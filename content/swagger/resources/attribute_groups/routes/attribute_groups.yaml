@@ -3,10 +3,19 @@ get:
   operationId: "attribute_groups_get_list"
   description: This endpoint allows you to get a list of attribute groups. Attribute groups are paginated and sorted by code.
   tags:
-    - Attribute groups
+    - Attribute group
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
+    - name: search
+      in: query
+      description: Filter attribute groups, for more details see the <a href="/documentation/filter.html#filter-attribute-groups">Filters</a> section.
+      required: false
+      type: string
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
@@ -22,7 +31,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/AttributeGroupList'
@@ -43,7 +52,7 @@ get:
         },
         current_page: 3,
         _embedded: {
-          _items: [
+          items: [
             {
               "_links":{
                  "self":{
@@ -103,9 +112,13 @@ post:
   operationId: "attribute_groups_post"
   description: This endpoint allows you to create a new attribute group.
   tags:
-    - Attribute groups
+    - Attribute group
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
     - name: body
       in: body
@@ -128,9 +141,13 @@ patch:
   summary: Update/create several attribute groups
   operationId: "several_attribute_groups_patch"
   tags:
-    - Attribute groups
+    - Attribute group
   x-versions:
-    - 2.0
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   description: This endpoint allows you to update and/or create several attribute groups at once.
   x-body-by-line: Contains several lines, each line is an attribute group in JSON standard format
   parameters:

@@ -1,0 +1,78 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Code of the record
+    x-immutable: true
+  values:
+    type: object
+    description: "Record attributes values, see <a href='/concepts/reference-entities.html#focus-on-the-reference-entity-record-values'>Reference entity record values</a> section for more details"
+    x-validation-rules: Validation rules detailed in Reference entity record values section
+    properties:
+      attributeCode:
+        type: array
+        items:
+          type: object
+          properties:
+            channel:
+              type: string
+              description: Channel code of the reference entity record value
+            locale:
+              type: string
+              description: Locale code of the reference entity record value
+            data:
+              type: object
+              description: Reference entity record value
+example: {
+  "code": "kartell",
+  "values": {
+    "label": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell"
+      }
+    ],
+    "image": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg"
+      }
+    ],
+    "description": [
+      {
+        "locale": "en_US",
+        "channel": null,
+        "data": "Kartell, the Italian furniture company that sells modern and remarkable pieces of furnitures."
+      },
+      {
+        "locale": "fr_FR",
+        "channel": null,
+        "data": "Kartell, l'éditeur de meuble italien spécialisé dans la signature de belle pièces au design contemporain."
+      }
+    ],
+    "country": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "italy"
+      }
+    ],
+    "collection_overview":[
+      {
+        "locale": null,
+        "channel": null,
+        "data": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"
+      }
+    ],
+    "creation_year":[
+      {
+        "locale": null,
+        "channel": null,
+        "data": "1949"
+      }
+    ]
+  }
+}

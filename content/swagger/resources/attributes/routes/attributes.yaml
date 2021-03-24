@@ -3,11 +3,20 @@ get:
   operationId: "get_attributes"
   description: This endpoint allows you to get a list of attributes. Attributes are paginated and sorted by code.
   tags:
-    - Attributes
+    - Attribute
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
+    - name: search
+      in: query
+      description: Filter attributes, for more details see the <a href="/documentation/filter.html#filter-attributes">Filters</a> section.
+      required: false
+      type: string
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
@@ -23,7 +32,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/AttributeList'
@@ -44,7 +53,7 @@ get:
         },
         current_page: 3,
         _embedded: {
-          _items: [
+          items: [
             {
               "_links": {
                 "self": {
@@ -54,6 +63,10 @@ get:
               "code": "sku",
               "type": "pim_catalog_identifier",
               "group": "other",
+              "group_labels": {
+                "en_US": "Other",
+                "fr_FR": "Autre"
+              },
               "unique": true,
               "useable_as_grid_filter": true,
               "allowed_extensions": [],
@@ -76,6 +89,7 @@ get:
               "sort_order": 1,
               "localizable": false,
               "scopable": false,
+              "default_value": null,
               "labels": {
                 "en_US": "Identifier",
                 "fr_FR": "Identifiant"
@@ -112,6 +126,7 @@ get:
               "sort_order": 1,
               "localizable": false,
               "scopable": false,
+              "default_value": null,
               "labels": {
                 "en_US": "Sale date",
                 "fr_FR": "Date des soldes"
@@ -131,10 +146,14 @@ post:
   operationId: "post_attributes"
   description: This endpoint allows you to create a new attribute.
   tags:
-    - Attributes
+    - Attribute
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   parameters:
     - name: body
       in: body
@@ -157,10 +176,14 @@ patch:
   summary: Update/create several attributes
   operationId: "patch_attributes"
   tags:
-    - Attributes
+    - Attribute
   x-versions:
-    - 1.7
-    - 2.0
+    - "1.7"
+    - "2.x"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
   description: This endpoint allows you to update and/or create several attributes at once.
   x-body-by-line: Contains several lines, each line is an attribute in JSON standard format
   parameters:

@@ -1,0 +1,29 @@
+get:
+  summary: Get a draft
+  operationId: "get_product_model_draft__code_"
+  tags:
+    - Product model
+  x-versions:
+    - "2.3"
+    - "3.x"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
+  x-ee: true
+  description: This endpoint allows you to get the information about a given product model draft.
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the draft in JSON standard format
+      schema:
+        $ref: '#/definitions/ProductModel'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+    404:
+      $ref: "#/responses/404Error"

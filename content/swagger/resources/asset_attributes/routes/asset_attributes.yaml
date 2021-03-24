@@ -1,0 +1,65 @@
+get:
+  summary: Get the list of attributes of a given asset family
+  operationId: "get_asset_families__code__attributes"
+  description: This endpoint allows you to get the list of attributes of a given asset family.
+  tags:
+    - Asset attribute
+  x-versions:
+    - "3.2"
+    - "4.0"
+    - "5.0"
+    - "Serenity"
+  x-ee: true
+  parameters:
+    - $ref: '#/parameters/asset_family_code'
+  responses:
+    200:
+      description: Return the attributes of the given asset family
+      x-no-entity: true
+      schema:
+        $ref: '#/definitions/AssetAttributeList'
+      x-examples: [
+        {
+          "code": "model_is_wearing_size",
+          "labels": {
+            "en_US": "Model is wearing size",
+            "fr_FR": "Le mannequin porte la taille"
+          },
+          "type": "single_option",
+          "value_per_locale": false,
+          "value_per_channel": false,
+          "is_required_for_completeness": true
+        },{
+          "code": "media_link",
+          "labels": {
+            "en_US": "Media link",
+            "fr_FR": "Lien vers le média"
+          },
+          "type": "media_link",
+          "value_per_locale": false,
+          "value_per_channel": false,
+          "is_required_for_completeness": true,
+          "prefix": "https://my-dam.com/",
+          "suffix": "?height=630&width=485",
+          "media_type": "image"
+        },{
+          "code": "warning_mention",
+          "labels": {
+            "en_US": "Warning mention",
+            "fr_FR": "Phrase d'avertissement"
+          },
+          "type": "text",
+          "value_per_locale": true,
+          "value_per_channel": false,
+          "is_required_for_completeness": false,
+          "max_characters": "50",
+          "is_textarea": false,
+          "is_rich_text_editor": false,
+          "validation_rule": "none",
+          "validation_regexp": null
+}
+      ]
+    401:
+      $ref: "#/responses/401Error"
+    406:
+      $ref: "#/responses/406Error"
