@@ -80,10 +80,20 @@ This request is JSON-based (`Content-Type: application/json`) and contains wrapp
 
 ## Debugging events
 
-![Download logs button](../img/events-api/connection-download-logs-button.png)
+::: warning
+The following features are only available for **Serenity** customers
+::: 
+
+As you can read on our help center page [Subscribe and manage **events**](https://help.akeneo.com/pim/serenity/articles/manage-event-subscription.html#debug), we give you two ways to consult the logs related to all the event requests sent to a connection: 
+- the log table in the `Event logs` page, 
+- and a `.txt` file you can download by clicking on the `Download logs` button. 
+
+
+![Event logs UI](../img/events-api/event-log-ui.gif)
+
 
 ### Log types
-As you can read on our help center page [Subscribe and manage **events**](https://help.akeneo.com/pim/serenity/articles/manage-event-subscription.html#debug), the log file gives you access to 4 log levels and 5 log types: 
+This screen and the log file give you access to 4 log levels and 5 log types: 
 - `ERROR The endpoint returned an error.` In that case, the connected app received the event request, but something went wrong, and it answered with an error. 
 - `ERROR The endpoint failed to answer under 500 ms.` This error means that the connected application did not answer quickly enough. 
 - `WARNING The maximum number of requests per hour has been reached.` If you have this warning log, you might be interested in the limit and scalability section below. ;) 
@@ -91,7 +101,7 @@ As you can read on our help center page [Subscribe and manage **events**](https:
 - `NOTICE The event was not sent because the product does not exist or the connection does not have the required permissions.` When the PIM doesn't send an event because of a lack of permission, it can be normal. For instance, if you previously set up the connection permission to not receive events on products that are irrelevant for this particular app. If you think you should have received this event, please look at our [permission configuration section](https://help.akeneo.com/pim/serenity/articles/manage-event-subscription.html#manage-your-permissions). 
 - `INFO The API event request was sent.` Information logs are here to inform you that an event request has been sent to your connected app. It can be useful when you are testing if everything works well! 
 
-::: warning
+::: info
 Please, note that we store **errors and warnings for the past 72 hours**, and only the **latest 100 notices and info logs**.
 :::
 
