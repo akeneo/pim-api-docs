@@ -38,10 +38,10 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  *         'en_US' => 'Sale date',
  *         'fr_FR' => 'Date des soldes',
  *     ],
- *     'descriptions'           => [
- *         'en_US' => 'The release date for the summer sale 2017',
- *         'fr_FR' => 'Date des soldes pour l\'été 2017',
- *     ]
+ *     'guidelines'             => [
+ *         'en_US' => 'Fill the release date for the summer sale 2017',
+ *         'fr_FR' => 'Renseigner la date des soldes pour l\'été 2017',
+ *     ],
  * ]
  */
 $attribute = $client->getAttributeApi()->get('release_date');
@@ -115,9 +115,9 @@ $client->getAttributeApi()->create('release_date', [
         'en_US' => 'Sale date',
         'fr_FR' => 'Date des soldes',
     ],
-    'descriptions'           => [
-        'en_US' => 'The release date for the summer sale 2017',
-        'fr_FR' => 'Date des soldes pour l\'été 2017',
+    'guidelines'             => [
+        'en_US' => 'Fill the release date for the summer sale 2017',
+        'fr_FR' => 'Renseigner la date des soldes pour l\'été 2017',
     ],
 ]);
 ```
@@ -159,9 +159,9 @@ $client->getAttributeApi()->upsert('release_date', [
         'en_US' => 'Sale date',
         'fr_FR' => 'Date des soldes',
     ],
-    'descriptions'           => [
-        'en_US' => 'The release date for the summer sale 2017',
-        'fr_FR' => 'Date des soldes pour l\'été 2017',
+    'guidelines'             => [
+        'en_US' => 'Fill the release date for the summer sale 2017',
+        'fr_FR' => 'Renseigner la date des soldes pour l\'été 2017',
     ],
 ]);
 ```
@@ -207,9 +207,9 @@ $client->getAttributeApi()->upsertList([
             'en_US' => 'Sale date',
             'fr_FR' => 'Date des soldes',
         ],
-        'descriptions'           => [
-            'en_US' => 'The release date for the summer sale 2017',
-            'fr_FR' => 'Date des soldes pour l\'été 2017',
+        'guidelines'             => [
+            'en_US' => 'Fill the release date for the summer sale 2017',
+            'fr_FR' => 'Renseigner la date des soldes pour l\'été 2017',
         ],
     ],
     [
