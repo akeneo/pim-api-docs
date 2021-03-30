@@ -168,7 +168,7 @@ Then with this category tree, your end-users:
 
 **What is it?**
 
-Please consult the introduction of [our documentation on Reference Entities](https://help.akeneo.com/pim/v3/articles/what-about-reference-entities.html) to understand how this can be used for print catalog purposes:
+The introduction of [our documentation on Reference Entities](https://help.akeneo.com/pim/v3/articles/what-about-reference-entities.html) will help you understand how they can be used for print catalog purposes:
 
 As you can see, Reference Entities can be used to enrich product information or to create dedicated pages with product relationships.
 
