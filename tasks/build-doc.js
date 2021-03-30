@@ -434,7 +434,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             }
         },
         'print-connection': {
-            title: 'The complete guide to connect Akeneo PIM to your print solution',
+            title: 'A high-level guide to connecting Akeneo PIM to your print solution',
             files: {
               'introduction.md': 'Introduction',
               'step0-who-is-your-connector-for.md': 'Who is your connector for?',
