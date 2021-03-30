@@ -132,7 +132,7 @@ Here, it depends on your customers' needs.
 
 Also, don't forget our new feature that makes it possible to add [quantities to PIM associations](https://help.akeneo.com/pim/serenity/updates/2020-07.html#new-association-type-with-quantities).
 
-### What about PIM product groups feature?
+### What about the PIM product groups feature?
 
 **What is it?**
 
