@@ -138,7 +138,7 @@ Also, don't forget our new feature that makes it possible to add [quantities to 
 
 Groups are used to bring products together.
 In Akeneo PIM, you can group a selection of products to create a theme, for example a collection of products for Christmas.
-But most of the time, this feature is for internal purpose and product groups don’t have to be exported to your print solution.
+But most of the time, this feature is for internal purposes and product groups don’t usually have to be exported to your print solution.
 
 **What do you need to implement?**
 
