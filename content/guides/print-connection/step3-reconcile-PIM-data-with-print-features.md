@@ -180,7 +180,7 @@ Here are the two most common use-cases:
 
 1. **Manage Reference Entities as a specific print page for a set of products**
 
-As an entity reference can represent a product "universe" (ie: dedicated editorial content for a brand or a designer), you could enable your users:
+As a reference entity can be used to add additional contextualized information around a given product (ie: dedicated editorial content for a brand or a designer), you could enable your users:
 * to organize their products according to these reference entities
 * to create a specific header page to present this "universe" for a brand, a designer...
 
