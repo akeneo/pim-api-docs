@@ -182,7 +182,7 @@ Here are the two most common use-cases:
 
 As a reference entity can be used to add additional contextualized information around a given product (ie: dedicated editorial content for a brand or a designer), you could enable your users:
 * to organize their products according to these reference entities
-* to create a specific header page to present this "universe" for a brand, a designer...
+* to create a specific introduction page to present this "universe" for a brand, a designer, etc.
 
 
 2. **Manage Reference Entities as rich information around a specific product attribute**
