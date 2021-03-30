@@ -117,7 +117,7 @@ Make sure you have all the mechanisms in your connector to optimize the performa
 
 **What is it?**
 
-In a PIM, you can manage different types of associations such as:
+In the PIM, you can manage different types of associations such as:
 * Cross-sell
 * Up-sell
 * Substitutions
