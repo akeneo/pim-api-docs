@@ -172,7 +172,7 @@ The introduction of [our documentation on Reference Entities](https://help.akene
 
 As you can see, Reference Entities can be used to enrich product information or to create dedicated pages with product relationships.
 
-The main problem here is that Julia can use "Reference Entities" for a wide variety of needs.
+Keep in mind that Julia can use "Reference Entities" for a wide variety of needs, you might have to adapt accordingly. 
 
 **What do you need to implement?**
 
