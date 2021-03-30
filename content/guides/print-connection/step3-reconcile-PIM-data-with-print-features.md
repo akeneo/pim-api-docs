@@ -162,7 +162,6 @@ Remember that for each PIM channel, Julia can associate a category tree: your us
 Then with this category tree, your end-users:
 * can define how the products are organized in the paper catalog
 * can create navigation tabs for their print catalog
-* ...
 
 
 ## What about Reference Entities?
