@@ -188,5 +188,5 @@ As a reference entity can be used to add additional contextualized information a
 2. **Manage Reference Entities as rich information around a specific product attribute**
 
 Because a reference entity can be related to a specific attribute (ie: details of a color, a material...), you could enable your users:
-* to display this information at product level
+* to display this information at the product level
 * to feature this information on a dedicated page
