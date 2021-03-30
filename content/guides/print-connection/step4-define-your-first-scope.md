@@ -27,7 +27,7 @@ Well, now you can [start here](https://api.akeneo.com/getting-started/connect-th
 
 We are aware that it is difficult and expensive in terms of investment to achieve a 100% complete print connector that is flexible enough to adapt to any customer project.
 
-Furthermore, to build such a complex connector as a print connector in a single iteration would undoubtedly be too complex to specify.
+Furthermore, to build such a complex connector as a print connector in a single iteration would undoubtedly be too complex to design from scratch.
 
 **Our advice: adopt an Agile approach!**
 
