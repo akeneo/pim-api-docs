@@ -152,7 +152,7 @@ As product groups can be used for so many different use-cases and for internal p
 
 In a print solution, categories can be used to define how to organize your products in your print catalog.
 
-At PIM level, the same catalog can have several navigation trees. Some category trees are only used for PIM purposes and are not intended to be exported. Other category trees can be directly used by your print solution.
+At the PIM level, the same catalog can have several navigation trees. Some category trees are only used for PIM purposes and are not intended to be exported. Other category trees can be directly used by your print solution.
 
 
 **What do you need to implement?**
