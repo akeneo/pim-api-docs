@@ -130,7 +130,7 @@ Some of your customers may want to use these associations for their print catalo
 
 Here, it depends on your customers' needs.
 
-Also, don't forget our new feature that adds [quantities to PIM associations](https://help.akeneo.com/pim/serenity/updates/2020-07.html#new-association-type-with-quantities).
+Also, don't forget our new feature that makes it possible to add [quantities to PIM associations](https://help.akeneo.com/pim/serenity/updates/2020-07.html#new-association-type-with-quantities).
 
 ### What about PIM product groups feature?
 
