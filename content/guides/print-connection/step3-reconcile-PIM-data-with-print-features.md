@@ -159,7 +159,7 @@ At the PIM level, the same catalog can have several navigation trees. Some categ
 
 Remember that for each PIM channel, Julia can associate a category tree: your users only need to see the category tree associated to the "Print" channel.
 
-Then with this category tree, your end-users :
+Then with this category tree, your end-users:
 * can define how the products are organized in the paper catalog
 * can create navigation tabs for their print catalog
 * ...
