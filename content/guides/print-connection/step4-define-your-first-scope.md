@@ -32,5 +32,5 @@ Furthermore, to build such a complex connector as a print connector in a single 
 **Our advice: adopt an Agile approach!**
 
 * Interview your future potential customers about their needs
-* Set priorities based on the most generic needs
+* Set priorities based on the most common ones
 * Develop in successive iterations
