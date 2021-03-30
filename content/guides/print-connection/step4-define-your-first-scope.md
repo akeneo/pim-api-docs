@@ -11,7 +11,7 @@ Please don't hesitate to read our ["4 reasons why you should use our API"](https
 
 ## Follow the guide!
 
-As [mentioned before](step2-understand-akeneo-pim.html), there are [several editions](https://www.akeneo.com/compare-editions/) and several supported version of Akeneo PIM.
+As [mentioned before](step2-understand-akeneo-pim.html), there are [several editions](https://www.akeneo.com/compare-editions/) and several supported versions of Akeneo PIM.
 
 Of course, the choice of the PIM version/edition depends on your business but we strongly encourage you to develop a connector that is fully compatible with our latest **Serenity edition**.
 
