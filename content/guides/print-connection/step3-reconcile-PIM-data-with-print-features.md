@@ -176,7 +176,7 @@ Keep in mind that Julia can use "Reference Entities" for a wide variety of needs
 
 **What do you need to implement?**
 
-Well, two main use-cases here:
+Here are the two most common use-cases:
 
 1. **Manage Reference Entities as a specific print page for a set of products**
 
