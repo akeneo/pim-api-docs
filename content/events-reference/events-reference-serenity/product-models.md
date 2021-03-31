@@ -118,7 +118,7 @@ A product model created event follows this format:
 }
 ```
 
-## Product model udpated
+## Product model updated
 
 ### Format
 A product model updated event follows this format:

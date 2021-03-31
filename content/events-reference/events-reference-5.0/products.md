@@ -118,7 +118,7 @@ A product created event follows this format:
 }
 ```
 
-## Product udpated
+## Product updated
 
 ### Format
 A product updated event follows this format:
