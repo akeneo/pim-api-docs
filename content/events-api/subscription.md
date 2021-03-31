@@ -85,7 +85,7 @@ The following features are only available for **Serenity** customers.
 ::: 
 
 As you can read on our help center page [Subscribe and manage **events**](https://help.akeneo.com/pim/serenity/articles/manage-event-subscription.html#debug), we give you two ways to consult the logs related to all the event requests sent to a connection: 
-- the log table in the `Event logs` page with a filter on log levels and a search bar, 
+- the log table in the `Event logs` page with filters on log data (level and/or date and time) and a search bar, 
 - and a `.txt` file you can download by clicking on the `Download logs` button. 
 
 
