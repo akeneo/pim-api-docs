@@ -85,7 +85,7 @@ HTTP/1.1 200 OK
       "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&limit=20"
     },
     "next": {
-      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_type=qaXbcdedsfeF&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_after=qaXbcdedsfeF&limit=20"
     }
   },
   "_embedded": {
