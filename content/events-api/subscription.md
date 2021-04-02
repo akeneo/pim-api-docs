@@ -20,7 +20,7 @@ Since your connected application will have only one Request URL, maybe you'll ne
 Your Request URL will receive JSON-based payloads containing wrapped event types.
 
 
-## Receiving Events
+## Receive Events
 
 Your Event API Request URL will receive events matching your subscriptions. The message which delivers these events can contain up to `10` events.
 
