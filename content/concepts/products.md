@@ -374,10 +374,12 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
   "values": {
     "recommended_price": [
       {
-        "data": {
-          "amount":200,
-          "unit": "USD"
-        }
+        "data": [
+          {
+            "amount":200,
+            "currency": "USD"
+          }
+        ]
       }
     ]
   }
@@ -388,10 +390,12 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
   "values": {
     "price": [
       {
-        "data": {
-          "amount":"25.50",
-          "unit": "EUR"
-        }
+        "data": [
+          {
+            "amount":"25.50",
+            "currency": "EUR"
+          }
+        ]
       }
     ]
   }
