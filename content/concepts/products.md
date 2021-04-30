@@ -215,7 +215,7 @@ Whenever the attribute's type is `pim_catalog_date`, the `data` field should con
   "values": {
     "packshot": [
       {
-        "data": "f/2/e/6/f2e6674e0766acdc70f814_myFile.pdf"
+        "data": "2021-04-29T08:58:00.101Z"
       }
     ]
   }
@@ -326,9 +326,9 @@ Whenever the attribute's type is `pim_catalog_number`, the `data` field should c
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
-Whenever the attribute's type is `pim_catalog_metric`, the `data` field should contain:
-- an integer, whenever the `decimals_allowed` property of the attribute is set to `false`.
-- a string representing a number, whenever the `decimals_allowed` property of the attribute is set to `true`.
+Whenever the attribute's type is `pim_catalog_metric`, the `data` field should contain an object with following fields:
+- `amount`: a string representing a number if the `decimals_allowed` property of the attribute is set to `true`, otherwise an integer, containing amount value
+- `unit`: a string representing the metric unit for the specified amount 
 
 ##### Examples
 ```json
@@ -364,9 +364,9 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
 :::
 
-Whenever the attribute's type is `pim_catalog_price`, the `data` field should contain:
-- an integer, whenever the `decimals_allowed` property of the attribute is set to `false`.
-- a string representing a number, whenever the `decimals_allowed` property of the attribute is set to `true`.
+Whenever the attribute's type is `pim_catalog_price`, the `data` field should contain an array of price objects, each containing:
+- `amount`: a string representing a number if the `decimals_allowed` property of the attribute is set to `true`, otherwise an integer, containing amount value
+- `currency`: a string representing the price currency for the specified amount
 
 ##### Examples
 ```json
@@ -374,10 +374,12 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
   "values": {
     "recommended_price": [
       {
-        "data": {
-          "amount":200,
-          "unit": "USD"
-        }
+        "data": [
+          {
+            "amount":200,
+            "currency": "USD"
+          }
+        ]
       }
     ]
   }
@@ -388,10 +390,12 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
   "values": {
     "price": [
       {
-        "data": {
-          "amount":"25.50",
-          "unit": "EUR"
-        }
+        "data": [
+          {
+            "amount":"25.50",
+            "currency": "EUR"
+          }
+        ]
       }
     ]
   }
