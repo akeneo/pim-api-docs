@@ -1217,3 +1217,19 @@ Below you will find the operator allowed to filter on this property, as well as 
 ```
 /api/rest/v1/categories?search={"code":[{"operator":"IN","value":["category_code1","category_code2"]}]}
 ```
+
+### By root category
+::: availability versions=Serenity editions=CE,EE
+
+You can filter the categories to get only root categories or non-root categories.
+
+Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `=` | boolean | Only returns categories that are root (`true`) or non-root (`false`) |
+
+#### Example
+```
+/api/rest/v1/categories?search={"IS_ROOT":[{"operator":"=","value":true}]}
+```
