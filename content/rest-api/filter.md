@@ -1221,7 +1221,7 @@ Below you will find the operator allowed to filter on this property, as well as 
 ### By root category
 ::: availability versions=Serenity editions=CE,EE
 
-You can filter the categories to get only root categories or non-root categories.
+You can filter the categories to get only root categories or non-root categories. Root categories can also be called Category trees. 
 
 Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
