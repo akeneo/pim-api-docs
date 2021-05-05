@@ -1231,7 +1231,7 @@ You can combine the `is_root` filter with any other filter available on categori
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
-| `=` | boolean | Only returns categories that are root (`true`) or non-root (`false`) |
+| `=` | boolean | When `true`, only returns categories that are root. When `false`, returns any other categories. |
 
 #### Example
 ```
