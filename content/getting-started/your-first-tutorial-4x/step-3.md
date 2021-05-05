@@ -3,7 +3,7 @@
 Alright! You're all set now. Let's launch this request.
 
 1. In Postman, in the `Collections` panel, click on `Your very first collection`.
-2. Click on the `The authentication request` request.
+2. Click on `The authentication request`.
 ![Authent request in the postman collection](/img/getting-started/very-first-request-collection-in-postman.png)
 3. Hit the blue `Send` button.
 ![Send authent request](/img/getting-started/send-authent-request.png)

@@ -14,6 +14,10 @@ So, we definitely recommend you to take a look at it and try to find a connector
 The results are already filtered to show you the REST API-based connectors only.
 1. In this list of connectors, try to find the one that can fit your use case best.
 
+::: tips
+For SaaS users, you can also go to `Connect` inside your Akeneo PIM, then click on `Marketplace`, and access the Marketplace directly from the link `Here you go`. You will access a filtered list of all the extensions compatible with your PIM edition. 
+:::
+
 You found what you were looking for? Great! You can now install your connector and go directly to the [third step of this tutorial](/getting-started/connect-the-pim-4x/step-3.html).
 
 Couldn't find any connector that suits you?  
