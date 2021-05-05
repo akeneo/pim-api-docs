@@ -259,7 +259,7 @@ gulp.task('build-events-reference-page', ['clean-dist','less'], function () {
     var pages = {
         'events-reference-serenity': {
             gettingStartedName: 'events-api-reference',
-            pimVersion: 'Serenity',
+            pimVersion: 'SaaS',
             title: 'Events API reference',
             image: 'illustrations/illus--serenity.svg',
             files: {
