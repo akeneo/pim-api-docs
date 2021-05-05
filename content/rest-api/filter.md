@@ -1225,6 +1225,10 @@ You can filter the categories to get only root categories or non-root categories
 
 Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
+::: tips
+You can combine the `is_root` filter with any other filter available on categories.
+:::
+
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
 | `=` | boolean | Only returns categories that are root (`true`) or non-root (`false`) |
