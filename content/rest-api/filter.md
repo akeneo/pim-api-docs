@@ -1231,5 +1231,5 @@ Below you will find the operator allowed to filter on this property, as well as 
 
 #### Example
 ```
-/api/rest/v1/categories?search={"IS_ROOT":[{"operator":"=","value":true}]}
+/api/rest/v1/categories?search={"is_root":[{"operator":"=","value":true}]}
 ```
