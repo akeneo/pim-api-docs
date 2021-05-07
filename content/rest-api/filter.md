@@ -862,7 +862,7 @@ When requesting a [list of assets via the REST API](/api-reference.html#get_asse
 
 You can filter the assets by their update date.
 
-Below is the operator allowed to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
+Below is the operator to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
 
 :::info
 Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
@@ -1041,7 +1041,7 @@ When you request specific attributes, you can use filters to select only the one
 
 You can filter the attributes by their code.
 
-Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
@@ -1057,7 +1057,7 @@ Below you will find the operator allowed to filter on this property, as well as 
 
 You can filter the attributes by their updated date.
 
-Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 :::info
 Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
@@ -1083,7 +1083,7 @@ To get the attributes that have been updated since July 4th, 2020 at 10 am (UTC)
 
 You can filter the attributes by their types.
 
-Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
@@ -1105,7 +1105,7 @@ When you request specific attribute groups, you can use filters to select only t
 
 You can filter the attribute groups by their code.
 
-Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
@@ -1121,7 +1121,7 @@ Below you will find the operator allowed to filter on this property, as well as 
 
 You can filter the attribute groups by their update date.
 
-Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 :::info
 Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
@@ -1147,7 +1147,7 @@ When you request specific families, you can use filters to select only the ones 
 
 You can filter the families by their code.
 
-Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
@@ -1163,7 +1163,7 @@ Below you will find the operator allowed to filter on this property, as well as 
 
 You can filter the families by their updated date.
 
-Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 :::info
 Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
@@ -1184,12 +1184,33 @@ To get the families that have been updated since July 4th, 2020 at 10 am (UTC), 
 
 When you request specific categories, you can use filters to select only the ones you want. 
 
+### By category level: root
+::: availability versions=SaaS editions=CE,EE
+
+You can filter the categories to get only root categories.
+
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+::: tips
+You can combine the `is_root` filter with any other filter available on categories.
+:::
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `=` | boolean | When `true`, only returns categories that are root. When `false`, returns any other categories. |
+
+#### Example
+```
+/api/rest/v1/categories?search={"is_root":[{"operator":"=","value":true}]}
+```
+
+
 ### By parent category
 ::: availability versions=4.0,5.0,Serenity editions=CE,EE
 
 You can filter the categories by parent.
 
-Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
@@ -1207,7 +1228,7 @@ To get the child categories of the parent category `categoryA`, you can use the 
 
 You can filter the categories by their code.
 
-Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
@@ -1218,22 +1239,3 @@ Below you will find the operator allowed to filter on this property, as well as 
 /api/rest/v1/categories?search={"code":[{"operator":"IN","value":["category_code1","category_code2"]}]}
 ```
 
-### By root category
-::: availability versions=Serenity editions=CE,EE
-
-You can filter the categories to get only root categories or non-root categories. Root categories can also be called Category trees. 
-
-Below you will find the operator allowed to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
-
-::: tips
-You can combine the `is_root` filter with any other filter available on categories.
-:::
-
-| Operator | Allowed value type | Filter description |
-| ----------------- | -------------- | ------------------ |
-| `=` | boolean | When `true`, only returns categories that are root. When `false`, returns any other categories. |
-
-#### Example
-```
-/api/rest/v1/categories?search={"is_root":[{"operator":"=","value":true}]}
-```
