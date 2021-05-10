@@ -27,7 +27,7 @@ Then, we are going to create a dedicated user role. We will name it `My API user
 1. Click on `Save`.
 
 ::: info
-_Best practice:_ Do not - under any condition :wink: - re-use a user role that is assigned to real users. Indeed, we highly recommend you to create a dedicated user role for your API user.
+_Best practice:_ Do not re-use a user role that is assigned to real users. Indeed, we highly recommend you create a dedicated user role for your API user.
 :::
 
 ## Get you client ID and secret
@@ -90,4 +90,3 @@ Along with the username and the password we just created, these are your credent
 
 ::: panel-link And now, let's configure the tool that will make the REST API request [The Postman set up](/getting-started/your-first-tutorial-old/step-2.html)
 :::
-
