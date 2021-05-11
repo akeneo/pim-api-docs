@@ -196,7 +196,7 @@ Here are the allowed operators you can use to filter by parent as well as the co
 | `NOT EMPTY` | no value | Only returns variant products |
 
 ::: warning
-The `IN`, `EMPTY` and `NOT EMPTY` operators are only available starting the Serenity version
+The `IN`, `EMPTY` and `NOT EMPTY` operators are only available for SaaS customers
 :::
 
 #### Examples
