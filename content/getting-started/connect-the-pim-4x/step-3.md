@@ -17,7 +17,7 @@ If you want to explore what you can do thanks to those permissions, there is als
 
 That's it! :tada:
 
-Whenever your connector will start making REST API calls, you will be able to check whether your connector is actually working. Indeed, we got you covered with the **Data flows dashboard**.  
+Whenever your connector starts making REST API calls, you will be able to monitor your connection's data flows. Indeed, we got you covered with the **Data flows dashboard**.  
 To access this screen, click on `Connect`, then on `Data flows`.
 
 Here, you can follow the number of products that were updated or created in the past seven days. In our tutorial, it's perfect, because we are updating/creating products coming from our ERP. So we can verify that products are actually created/updated by our connector. 😊
