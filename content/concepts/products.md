@@ -102,6 +102,18 @@ Below is the JSON standard format representing a product.
           "locale": "en_US",
           "data": "A"
       }
+  ],
+  "completenesses": [
+    {
+      "scope": "ecommerce",
+      "locale": "en_US",
+      "data": 45
+    },
+    {
+      "scope": "ecommerce",
+      "locale": "fr_FR",
+      "data": 90
+    }
   ]
 }
 ```
@@ -120,6 +132,10 @@ The `quantified_associations` field is only available since the 5.0.
 
 ::: warning
 Note that the `quality_scores` field is only available since the 5.0 and when the `with_quality_scores` query parameter is set to `true`.
+:::
+
+::: warning
+Note that the `completenesses` field is only available on SaaS platforms, and when the `with_completenesses` query parameter is set to `true`.
 :::
 
 ::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Product)

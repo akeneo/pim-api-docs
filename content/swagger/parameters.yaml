@@ -99,3 +99,10 @@ with_quality_scores:
   default: false
   type: boolean
   required: false
+with_completenesses:
+  name: with_completenesses
+  in: query
+  description: Return product completenesses in the response. (Only available on SaaS platforms)
+  default: false
+  type: boolean
+  required: false

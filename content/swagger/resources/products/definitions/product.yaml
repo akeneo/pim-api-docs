@@ -139,6 +139,11 @@ properties:
     description: Product quality scores for each channel/locale combination (only available since the 5.0 and when the "with_quality_scores" query parameter is set to "true")
     x-immutable: true
     x-read-only: true
+  completenesses:
+    type: object
+    description: Product completenesses for each channel/locale combination (only available on SaaS platforms, and when the "with_completenesses" query parameter is set to "true")
+    x-immutable: true
+    x-read-only: true
 
 example: {
   "identifier": "top",
@@ -295,6 +300,28 @@ example: {
       "scope": "tablet",
       "locale": "fr_FR",
       "data": "E"
+    }
+  ],
+  "completenesses": [
+    {
+      "scope": "ecommerce",
+      "locale": "en_US",
+      "data": 10
+    },
+    {
+      "scope": "ecommerce",
+      "locale": "fr_FR",
+      "data": 20
+    },
+    {
+      "scope": "tablet",
+      "locale": "en_US",
+      "data": 30
+    },
+    {
+      "scope": "tablet",
+      "locale": "fr_FR",
+      "data": 40
     }
   ]
 }
