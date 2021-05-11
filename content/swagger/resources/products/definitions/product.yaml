@@ -6,7 +6,7 @@ properties:
     description: Product identifier, i.e. the value of the only `pim_catalog_identifier` attribute
   enabled:
     type: boolean
-    description: Whether the product is enable
+    description: Whether the product is enabled
     default: true
   family:
     type: string
