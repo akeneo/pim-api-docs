@@ -190,8 +190,8 @@ Here are the allowed operators you can use to filter by parent as well as the co
 
 | Operator | Allowed value type | Filter description |
 | ----------------- | -------------- | ------------------ |
-| `=`  | valid product model code | Returns products that are descendants of the provided product model. For legacy reasons, this product model can be either a root product model or a sub product model |
-| `IN` | array of valid product model codes | Only returns products that are direct children of the provided product models |
+| `=`  | valid product model code | Returns products that are descendants of the provided product model. The product model can be either a root product model or a sub product model. |
+| `IN` | array of valid product model codes | Only returns products that are **direct** children of the provided product models |
 | `EMPTY` | no value | Only returns simple products |
 | `NOT EMPTY` | no value | Only returns variant products |
 
@@ -215,7 +215,7 @@ To get all the variant products of the sub product models with the codes `tshirt
 To get all the variant products, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"parent":[{"operator":"NOT EMPTY","value":null}]}
+/api/rest/v1/products?search={"parent":[{"operator":"NOT EMPTY"}]}
 ```
 
 ### On their quality score
@@ -378,7 +378,7 @@ To get the product models that were updated during the last 4 days, you can use 
 
 ### On their parent
 
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=SaaS editions=CE,EE
 
 To filter product models on their parent, use the `parent` product model property.
 Here are the allowed operators you can use to filter by parent as well as the corresponding type of value expected in the `search` query parameter.
@@ -389,13 +389,10 @@ Here are the allowed operators you can use to filter by parent as well as the co
 | `EMPTY` | no value | Only returns root product models |
 | `NOT EMPTY` | no value | Only returns sub product models |
 
-::: warning
-This filter is available starting the Serenity version of the PIM.
-:::
 
 #### Examples
 
-To get all the sub product models of the root product model with the code `tshirt_armor`, you can use the following URL.
+To get all the sub-product models of the root product model with the code `tshirt_armor`, you can use the following URL.
 
 ```
 /api/rest/v1/products?search={"parent":[{"operator":"IN","value":["tshirt_armor"]}]}
@@ -1282,4 +1279,3 @@ Below you will find the operator to filter on this property, as well as the corr
 ```
 /api/rest/v1/categories?search={"code":[{"operator":"IN","value":["category_code1","category_code2"]}]}
 ```
-
