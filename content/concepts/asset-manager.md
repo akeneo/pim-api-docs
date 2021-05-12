@@ -18,7 +18,7 @@ The Asset Manager is an Entreprise only feature, meaning all the following resou
 :::
 
 ## Asset family
-::: availability versions=3.2,4.0,5.0,Serenity editions=EE
+::: availability versions=3.2,4.0,5.0,SaaS editions=EE
 :::
 
 An asset family gathers a number of assets that share a common attribute structure. In other words, an asset family can be considered as a template for its assets.
@@ -109,7 +109,7 @@ Here is the JSON format representing an example of asset family.
 :::
 
 ## Focus on the naming convention
-::: availability versions=4.0,5.0,Serenity editions=EE
+::: availability versions=4.0,5.0,SaaS editions=EE
 
 We noticed that you, our dear customers 🥰, usually name your asset files or asset codes using precious information:
 - the SKU of the product corresponding to the asset,
@@ -228,7 +228,7 @@ If you want the asset to be created even if the naming convention application fa
 
 
 ## Focus on the product link rule
-::: availability versions=3.2,4.0,5.0,Serenity editions=EE
+::: availability versions=3.2,4.0,5.0,SaaS editions=EE
 
 The product link rule enables you to automatically link assets to products/product models, based on asset names or attributes. This rule is defined at the [asset family](#the-asset-family) level.  
 
@@ -982,7 +982,7 @@ As you can see above, you can use the extrapolation mechanism to refer to an arr
 For the `men_women_model_picture`, the `value` field will be extrapolated to `["men","women"]`. For the `children_ambient_picture`, the `value` field will be extrapolated to `["children"]`.
 
 ## Focus on the transformations
-::: availability versions=4.0,5.0,Serenity editions=EE
+::: availability versions=4.0,5.0,SaaS editions=EE
 
 For each [asset family](#the-asset-family), you can define transformations. They allow you to ask the PIM to automatically generate one or several new variations of a given media file for each asset belonging to your family.
 
@@ -1243,7 +1243,7 @@ To do operations on your media, we always convert them to .png first, to avoid c
 Let's now detail the available operation names as well as their corresponding parameters.
 
 #### Thumbnail
-::: availability versions=4.0,5.0,Serenity editions=EE
+::: availability versions=4.0,5.0,SaaS editions=EE
 
 With the `thumbnail` type, you can automatically generate a thumbnail. It keeps the image proportions and crops it if needed.
 
@@ -1259,7 +1259,7 @@ Both parameters are required.
 :::
 
 #### Scale
-::: availability versions=4.0,5.0,Serenity editions=EE
+::: availability versions=4.0,5.0,SaaS editions=EE
 
 With the `scale` type, you can resize images while keeping the width/height proportions.
 
@@ -1276,7 +1276,7 @@ There should be at least one of the 3 parameters defined.
 :::
 
 #### Change of colorspace
-::: availability versions=4.0,5.0,Serenity editions=EE
+::: availability versions=4.0,5.0,SaaS editions=EE
 
 With the `colorspace` type, you can change the image's colorspace. For example, you can turn it to black and white.
 
@@ -1290,7 +1290,7 @@ The `colorspace` parameter is required.
 :::
 
 #### Resolution
-::: availability versions=4.0,5.0,Serenity editions=EE
+::: availability versions=4.0,5.0,SaaS editions=EE
 
 With the `resolution` type, you can change the image resolution.
 
@@ -1307,7 +1307,7 @@ All parameters are required.
 :::
 
 #### Resize
-::: availability versions=4.0,5.0,Serenity editions=EE
+::: availability versions=4.0,5.0,SaaS editions=EE
 
 With the `resize` type, you can resize images without keeping the width/height proportions.
 
@@ -1323,7 +1323,7 @@ Both parameters are required.
 :::
 
 #### Optimize jpeg
-::: availability versions=Serenity editions=EE
+::: availability versions=SaaS editions=EE
 
 ::: info
 Even if you upload a jpeg image in your asset manager, we automatically convert it into a png for each operation, in order to avoid quality loss. If you want to convert your images back to jpeg, you can put this operation last.
@@ -1671,7 +1671,7 @@ But *NOT* this one. Because the source attribute value of the first transformati
 ```
 
 ## Asset attribute
-::: availability versions=3.2,4.0,5.0,Serenity editions=EE
+::: availability versions=3.2,4.0,5.0,SaaS editions=EE
 :::
 
 In an asset family, an asset attribute is a characteristic of an asset for this given family. It helps to describe and qualify an asset.
@@ -1854,7 +1854,7 @@ The available media types that you can put in the `media_type` field are:
 :::
 
 ## Asset
-::: availability versions=3.2,4.0,5.0,Serenity editions=EE
+::: availability versions=3.2,4.0,5.0,SaaS editions=EE
 :::
 
 An asset is a flexible object that makes it possible to enrich products with images, videos, documents…
@@ -2113,7 +2113,7 @@ Note that the `locale` and `channel` properties are both set to `null` in this c
 :::
 
 ## Asset attribute option
-::: availability versions=3.2,4.0,5.0,Serenity editions=EE
+::: availability versions=3.2,4.0,5.0,SaaS editions=EE
 :::
 
 Some types of asset attributes can offer a list of choices. These available choices are asset attribute options.
@@ -2176,7 +2176,7 @@ As a consequence, when you ask for the list of attribute options for one given a
 
 
 ## Asset media file
-::: availability versions=3.2,4.0,5.0,Serenity editions=EE
+::: availability versions=3.2,4.0,5.0,SaaS editions=EE
 :::
 
 Asset media files correspond to the binaries of the images that you can link to your assets.

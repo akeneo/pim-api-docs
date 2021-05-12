@@ -26,8 +26,8 @@ We also strongly recommend you not to use a real user, as a UI user will never d
 
 Then, we are going to create a dedicated user role for your connector. We will name it `My ERP connector role`, for our tutorial example. 
 
-1. Click on `System` menu.
-1. Click on the `Role` submenu. 
+1. Click on `System`.
+1. Click on `Role`. 
 1. From here, you should be able to create a role, click on `Create role`.
 ![Role creation](/img/getting-started/role-creation.png)
 1. Once in the role form, give a name to the role you are creating: `My ERP connector role`.
@@ -38,7 +38,7 @@ Then, we are going to create a dedicated user role for your connector. We will n
 _In the case of our ERP example, we don't need to activate other permissions, as the connector will only create products and this permission is already granted by the `Overall Web API access` above._
 1. Click on the `Users` tab and tick the box next to the `myERPuser` to associate your API user to this new role.
 ![Permission assignation](/img/getting-started/permission-assignation-my-erp-user.png)
-1. Click on the `Save` button.
+1. Click on `Save`.
 
 ::: info
 _Best practice_  
@@ -69,13 +69,13 @@ We will create an API connection. We will call it `ERP` for the purpose of this 
 This feature is only available since the 2.0 version. If you are trying to use the API on a 1.7 PIM, please take a look at the [second method below](#get-your-credentials-via-command-line-).
 :::
 
-1. Click on the `System` menu.
-1. Click on the `API connections` submenu.
-1. Click on the `Create` button.
+1. Click on `System`.
+1. Click on `API connections`.
+1. Then on `Create`.
 ![API connections empty screen](/img/getting-started/api-connections-empty-screen.png)
 The following popin should be then displayed.
 ![API connection creation popin](/img/getting-started/api-connection-creation-popin.png)
-1. Enter `ERP` in the label field and click on the `Save` button.  
+1. Enter `ERP` in the label field and click on `Save`.  
 Your API connection appears in the API connection table and should look like this:
 ![My very first API connection](/img/getting-started/my-erp-connection.png)
 

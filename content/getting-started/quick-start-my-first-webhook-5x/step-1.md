@@ -13,8 +13,9 @@ Then click on `Create Bin` and go to the history of your Bin.
 Alright! Mockbin is ready to receive our first piece of data from PIM webhooks.
 
 ## Send data to Mockbin
-Now, log into your 5.0 or Serenity PIM and go to the event subscriptions page of the connection you created before.
-Fill in the URL field with the URL of your Bin and click on the `Test` button. 
+Now, log into your 5.0 or SaaS Akeneo PIM then go to the `Event subscriptions` page of the connection you created before.
+Fill in the URL field with the URL of your bin and click on `Test`. 
+_To access your connection settings, click on `Connect`, then on `Connection settings`._
 
 ::: warning
 Don't forget to save your configuration before leaving the page.
@@ -33,9 +34,8 @@ You are going to be amazed by the first piece of data you just received. Click o
 
 Now you can play with the API and update a product to receive the event in your Bin! If you don't know how to run an API call follow this guide: [Your first tutorial](/getting-started/your-first-tutorial-4x/welcome.html).
 
-::: info
-If it's not the case :disappointed: don't burst out in tears just yet and let me help you. There are several ways for you to find out what went wrong.  
-If you're in a Serenity or Flexibility environment, your server is correctly configured by us. :rocket: So it must be a permission problem!  
+::: tips
+If you're in a SaaS or a Flexibility environment, your server is correctly configured by us. :rocket: So it must be a permission problem!  
 If you are on an Enterprise Edition, you may want to take a look at your permissions. To do so, follow check out our [What is an event subscription?](https://help.akeneo.com/pim/serenity/articles/what-is-an-event-subscription.html) page to find out more about the configuration.  
 If it's not a permission issue, you may want to make sure your server is able to send data. You can check by using a curl on the Bin URL from your server.    
 In the details of your Mockbin Bin, you will find the curl command you need to run!

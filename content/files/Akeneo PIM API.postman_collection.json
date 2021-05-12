@@ -2629,10 +2629,10 @@
       "protocolProfileBehavior": {}
     },
     {
-      "name": "Measurement family (Serenity only)",
+      "name": "Measurement family (SaaS only)",
       "item": [
         {
-          "name": "measurement families (Serenity only)",
+          "name": "measurement families (SaaS only)",
           "request": {
             "method": "GET",
             "header": [
@@ -2657,7 +2657,7 @@
           "response": []
         },
         {
-          "name": "measurement families (Serenity only)",
+          "name": "measurement families (SaaS only)",
           "request": {
             "method": "PATCH",
             "header": [
