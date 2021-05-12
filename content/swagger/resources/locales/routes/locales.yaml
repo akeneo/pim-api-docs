@@ -10,7 +10,7 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "SaaS"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'

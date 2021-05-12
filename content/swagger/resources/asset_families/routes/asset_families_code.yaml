@@ -7,7 +7,7 @@ get:
     - "3.2"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "SaaS"
   x-ee: true
   description: This endpoint allows you to get the information about a given asset family.
   parameters:
@@ -33,7 +33,7 @@ patch:
     - "3.2"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "SaaS"
   x-ee: true
   description: This endpoint allows you to update a given asset family. Note that if the asset family does not already exist, it creates it.
   parameters:

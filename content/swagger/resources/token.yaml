@@ -10,7 +10,7 @@ post:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "SaaS"
   x-no-token: true
   parameters:
     - name: Content-type
