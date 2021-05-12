@@ -22,7 +22,7 @@ Here are the simple steps to follow to configure those permissions.
 
 1. Log into your favorite PIM.
 1. Navigate to the `System/Roles` menu.
-1. Click on the `Create role` button.
+1. Click on `Create role`.
 1. Input a new name for the user role you are creating, `ERP connection user role` for example.
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
 1. In the `Web API permissions` tab, select the permissions you want to give to your API user.
@@ -106,20 +106,20 @@ _For example, you are a reseller and you provide an API connection to one of you
 
 To enable these powers:
 1. Log into your favorite PIM and navigate to the `System/User groups` menu.
-1. Click on the `Create group` button and input a new name for the user group you are creating, `ERP connection user group` for example.
+1. Click on `Create group` and input a new name for the user group you are creating, `ERP connection user group` for example.
 ![New ERP connection user group](/img/rest-api/erp-connection-user-group.png)
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
 ![API user in the user group](/img/rest-api/my-erp-user-in-group.png)
 1. Then, navigate to the `Settings/Categories` menu, if you want to benefit from permissions on categories, otherwise jump to step 9.
 1. For each category you want to hide from your REST API calls, enter the `Permissions` tab.
-1.  Remove the group you just created from the `Allowed to view products`, `Allowed to edit products` and `Allowed to own products` inputs. Don't forget to click on the `Save` button.
+1.  Remove the group you just created from the `Allowed to view products`, `Allowed to edit products` and `Allowed to own products` inputs. Don't forget to click on `Save`.
 ![Permissions for hide mode](/img/rest-api/hide-permission-mode.png)
 1. Then, navigate to the `Settings/Locales` menu, if you want to benefit from permissions on locales, otherwise jump to step 10.
 1. For each locale you want to hide from your REST API calls, enter the `Permissions` tab.
-1.  Remove the group you just created from the `Allowed to view information` and `Allowed to edit information` inputs. Don't forget to click on the `Save` button.
+1.  Remove the group you just created from the `Allowed to view information` and `Allowed to edit information` inputs. Don't forget to click on `Save`.
 1. Then, navigate to the `Settings/Attribute groups` menu.
 1. For each locale you want to hide from your REST API calls, enter the `Permissions` tab.
-1.  Remove the group you just created from the `Allowed to view attributes` and `Allowed to edit attributes` inputs. Don't forget to click on the `Save` button.
+1.  Remove the group you just created from the `Allowed to view attributes` and `Allowed to edit attributes` inputs. Don't forget to click on `Save`.
 
 That's it! :tada:
 
@@ -141,7 +141,7 @@ This can be pretty useful whenever you only want to share your catalog in a read
 To enable this possibility:
 1. Log into your favorite PIM.
 1. Navigate to the `System/User groups` menu.
-1. Click on the `Create group` button.
+1. Click on `Create group`.
 1. Input a new name for the user group you are creating, `ERP connection user group` for example.
 ![New ERP connection user group](/img/rest-api/erp-connection-user-group.png)
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
@@ -151,7 +151,7 @@ To enable this possibility:
 1. Add the group you just created into the `Allowed to view products` input.
 1. If your user group is already set into the `Allowed to own products` and `Allowed to edit products` inputs, remove it. 
 ![Permissions for read-only mode](/img/rest-api/read-only-permission-mode.png)
-1. Don't forget to click on the `Save` button.
+1. Don't forget to click on `Save`.
 
 That's it! :tada:
 
@@ -165,7 +165,7 @@ Your PIM users will then be able to validate or reject them directly in the PIM 
 To enable this possibility:
 1. Log into your favorite PIM.
 1. Navigate to the `System/User groups` menu.
-1. Click on the `Create group` button.
+1. Click on `Create group`.
 1. Input a new name for the user group you are creating, `ERP connection user group` for example.
 ![New ERP connection user group](/img/rest-api/erp-connection-user-group.png)
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
@@ -175,7 +175,7 @@ To enable this possibility:
 1.  Add the group you just created into the `Allowed to view products` and `Allowed to edit products` inputs.
 1. If your user group is already set into the `Allowed to own products` input, remove it. 
 ![Permissions for proposals](/img/rest-api/proposal-permission-mode.png)
-1. Don't forget to click on the `Save` button.
+1. Don't forget to click on `Save`.
 
 That's it! :tada:
 

@@ -23,10 +23,10 @@ Since the PIM v4, there is one unique and streamlined way to generate your clien
 
 1. Log into your favorite PIM.
 1. Navigate to the `System/Connections` menu.
-1. Click on the `Create` button.
+1. Click on `Create`.
 1. Input a label for your connection, `ERP` for example.
 1. Select a type flow. [_Don't know what it is? More info here._](https://help.akeneo.com/pim/articles/manage-your-connections.html#choose-your-flow-type)
-1. Click on the `Save` button.
+1. Click on `Save`.
 
 Congrats! You officially created your very first connection to the PIM. :tada:
 
@@ -44,9 +44,9 @@ In 2.x or 3.X, you will need to create what we called an `API connection`.
 
 1. Log into your favorite PIM.
 1. Navigate to the `System/API connections` menu. 
-1. Click on the `Create` button. 
+1. Click on `Create`. 
 1. Input a label for your connection, `ERP connection` for example.
-1. Click on the `Save` button.
+1. Click on `Save`.
 
 The PIM automatically generates a client ID and secret, that you will find in the API connections grid.
 

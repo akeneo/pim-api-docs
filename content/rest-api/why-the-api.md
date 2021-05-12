@@ -43,8 +43,8 @@ As the REST API is a standard REST API, you can use the language you want to imp
 
 Be innovative! Offer value to our common end-users! They will love it.
 
-## The only way for Serenity users
+## The only way for SaaS users
 
-For our Serenity users, the REST API is the **only way** to connect their PIM. 
+For our SaaS users, the REST API is the **only way** to connect their PIM. 
 
 Indeed, in this case, as the PIM is provided to you as a service, you cannot customize any part of its code. The REST API is your only way out when it comes to integrating it into your IT infrastructure.

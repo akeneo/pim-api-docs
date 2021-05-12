@@ -33,7 +33,7 @@ A new environment should also have been created in the dropdown in the top right
 ![Postman environment popin](/img/getting-started/postman-environment-4x-popin.png)
 6. In the `Initial value` field and in the `Current value` field of the `url`, enter the url where your 4.0 PIM or newer is hosted.
 ![Url in environment](/img/getting-started/url-environment-4x.png)
-7. Back in the PIM, go to `System`/`Connections` and select your `My very first connection` connection.
+7. Back in the PIM, go to `Connect`/`Connection settings` and select your `My very first connection` connection.
 8. On the right side of the screen, there are your connection credentials to connect to the REST API.
 ![Credentials in the PIM](/img/getting-started/credentials-in-the-pim.png)
 9. Copy that information and paste it into the corresponding field in the Postman popin. _Pro tips: there is a copy icon on the right side of each credential in the PIM to copy/paste even faster! :rocket:_

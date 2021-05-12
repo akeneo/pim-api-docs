@@ -3,9 +3,9 @@
 Alright! You're all set now. Let's launch this request.
 
 1. In Postman, in the `Collections` panel, click on `Your very first collection`.
-2. Click on the `The authentication request` request.
+2. Click on `The authentication request`.
 ![Authent request in the postman collection](/img/getting-started/very-first-request-collection-in-postman.png)
-3. Hit the blue `Send` button.
+3. Click on the blue `Send` button.
 ![Send authent request](/img/getting-started/send-authent-request.png)
 In the response area, you should get an answer similar to the one below.
 ![Response area for authent request](/img/getting-started/authentication-response.png)
@@ -29,4 +29,3 @@ The authentication token only lasts for one hour. This means that after one hour
 ![401 token expired](/img/getting-started/token-expiration-in-postman.png)
 Don't panic! You just have to send the `The authentication request` again and you'll be all good. :wink:
 :::
-
