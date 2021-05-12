@@ -62,7 +62,7 @@ function determineCategory(tag){
 
 gulp.task('reference', ['clean-dist', 'less'], function() {
 
-    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3', '3.0', '3.1', '3.2', '4.0', '5.0', 'Serenity'];
+    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3', '3.0', '3.1', '3.2', '4.0', '5.0', 'SaaS'];
     // We construct a reference index file and a complete reference file for each PIM version: 1.7, 2.0 and 2.1.
     // When we construct the 1.7 files, we filter to not include the new 2.0 and the 2.1 endpoints.
     // Same thing when we construct the 2.0 files, we filter to not include the 2.1 endpoints.

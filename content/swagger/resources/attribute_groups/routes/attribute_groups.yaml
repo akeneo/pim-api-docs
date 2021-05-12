@@ -9,7 +9,7 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "SaaS"
   parameters:
     - name: search
       in: query
@@ -118,7 +118,7 @@ post:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "SaaS"
   parameters:
     - name: body
       in: body
@@ -147,7 +147,7 @@ patch:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "SaaS"
   description: This endpoint allows you to update and/or create several attribute groups at once.
   x-body-by-line: Contains several lines, each line is an attribute group in JSON standard format
   parameters:

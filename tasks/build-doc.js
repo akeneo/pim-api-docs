@@ -252,7 +252,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
     var pages = {
         'your-first-tutorial-4x': {
             gettingStartedName: 'your-first-tutorial',
-            pimVersion: 'v4 / v5 / Serenity',
+            pimVersion: 'v4 / v5 / SaaS',
             title: 'Your very first tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -288,7 +288,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         },
         'connect-the-pim-4x': {
             gettingStartedName: 'connect-the-pim',
-            pimVersion: 'v4 / v5 / Serenity',
+            pimVersion: 'v4 / v5 / SaaS',
             title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -324,7 +324,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         },
         'quick-start-my-first-webhook-5x': {
             gettingStartedName: 'quick-start-my-first-webhook',
-            pimVersion: 'v5 / Serenity',
+            pimVersion: 'v5 / SaaS',
             title: 'Quick start my first webhook',
             files: {
                 'welcome.md': 'Welcome',
@@ -338,7 +338,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         },
         'events-api-best-practices-5x': {
             gettingStartedName: 'events-api-best-practices',
-            pimVersion: 'v5 / Serenity',
+            pimVersion: 'v5 / SaaS',
             title: 'Events API best practices',
             files: {
                 'welcome.md': 'Best practices',
