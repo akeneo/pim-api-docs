@@ -15,6 +15,7 @@ get:
     - $ref: '#/parameters/code'
     - $ref: '#/parameters/with_attribute_options'
     - $ref: '#/parameters/with_quality_scores'
+    - $ref: '#/parameters/with_completenesses'
   responses:
     200:
       description: OK

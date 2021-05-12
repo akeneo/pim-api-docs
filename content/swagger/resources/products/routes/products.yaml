@@ -39,6 +39,7 @@ get:
     - $ref: '#/parameters/with_count'
     - $ref: '#/parameters/with_attribute_options'
     - $ref: '#/parameters/with_quality_scores'
+    - $ref: '#/parameters/with_completenesses'
   responses:
     200:
       description: Return products paginated
@@ -58,16 +59,16 @@ get:
       examples: {
         _links: {
           self: {
-            href: "https://demo.akeneo.com/api/rest/v1/products?page=3&limit=3"
+            href: "https://demo.akeneo.com/api/rest/v1/products?page=3&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
           },
           first: {
-            href: "https://demo.akeneo.com/api/rest/v1/products?page=1&limit=3"
+            href: "https://demo.akeneo.com/api/rest/v1/products?page=1&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
           },
           previous: {
-            href: "https://demo.akeneo.com/api/rest/v1/products?page=2&limit=3"
+            href: "https://demo.akeneo.com/api/rest/v1/products?page=2&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
           },
           next: {
-            href: "https://demo.akeneo.com/api/rest/v1/products?page=4&limit=3"
+            href: "https://demo.akeneo.com/api/rest/v1/products?page=4&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
           }
         },
         current_page: 3,
@@ -214,26 +215,48 @@ get:
                 }
               },
               "quality_scores": [
-                  {
-                      "scope": "ecommerce",
-                      "locale": "en_US",
-                      "data": "A"
-                  },
-                  {
-                      "scope": "ecommerce",
-                      "locale": "fr_FR",
-                      "data": "B"
-                  },
-                  {
-                      "scope": "tablet",
-                      "locale": "en_US",
-                      "data": "D"
-                  },
-                  {
-                      "scope": "tablet",
-                      "locale": "fr_FR",
-                      "data": "E"
-                  }
+                {
+                  "scope": "ecommerce",
+                  "locale": "en_US",
+                  "data": "A"
+                },
+                {
+                  "scope": "ecommerce",
+                  "locale": "fr_FR",
+                  "data": "B"
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "en_US",
+                  "data": "D"
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "fr_FR",
+                  "data": "E"
+                }
+              ],
+              "completenesses": [
+                {
+                  "scope": "ecommerce",
+                  "locale": "en_US",
+                  "data": 20
+                },
+                {
+                  "scope": "ecommerce",
+                  "locale": "fr_FR",
+                  "data": 30
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "en_US",
+                  "data": 55
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "fr_FR",
+                  "data": 70
+                }
               ]
             },
             {
@@ -324,26 +347,48 @@ get:
               },
               "quantified_associations": {},
               "quality_scores": [
-                  {
-                      "scope": "ecommerce",
-                      "locale": "en_US",
-                      "data": "A"
-                  },
-                  {
-                      "scope": "ecommerce",
-                      "locale": "fr_FR",
-                      "data": "B"
-                  },
-                  {
-                      "scope": "tablet",
-                      "locale": "en_US",
-                      "data": "C"
-                  },
-                  {
-                      "scope": "tablet",
-                      "locale": "fr_FR",
-                      "data": "D"
-                  }
+                {
+                  "scope": "ecommerce",
+                  "locale": "en_US",
+                  "data": "A"
+                },
+                {
+                  "scope": "ecommerce",
+                  "locale": "fr_FR",
+                  "data": "B"
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "en_US",
+                  "data": "D"
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "fr_FR",
+                  "data": "E"
+                }
+              ],
+              "completenesses": [
+                {
+                  "scope": "ecommerce",
+                  "locale": "en_US",
+                  "data": 20
+                },
+                {
+                  "scope": "ecommerce",
+                  "locale": "fr_FR",
+                  "data": 30
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "en_US",
+                  "data": 55
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "fr_FR",
+                  "data": 70
+                }
               ]
             },
             {
@@ -364,7 +409,8 @@ get:
               "updated": "2016-06-23T11:24:44+02:00",
               "associations": {},
               "quantified_associations": {},
-              "quality_scores": {}
+              "quality_scores": {},
+              "completenesses": {}
             }
           ]
         }
