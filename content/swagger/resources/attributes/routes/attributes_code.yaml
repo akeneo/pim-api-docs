@@ -10,7 +10,7 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "SaaS"
   parameters:
     - $ref: '#/parameters/code'
   responses:
@@ -38,7 +38,7 @@ patch:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "SaaS"
   description: This endpoint allows you to update a given attribute. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no attribute exists for the given code, it creates it.
   parameters:
     - $ref: '#/parameters/code'
