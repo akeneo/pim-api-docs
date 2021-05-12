@@ -200,10 +200,11 @@ The `IN`, `EMPTY` and `NOT EMPTY` operators are only available for SaaS customer
 :::
 
 #### Examples
-To get all the variant products of the root product model with the code `tshirt_armor`, you can use the following URL.
+
+To get all the variant products of the `apollon` root product model without having to filter on all its sub-product models, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"parent":[{"operator":"=","value":"tshirt_armor"}]}
+/api/rest/v1/products?search={"parent":[{"operator":"=","value":"apollon"}]}
 ```
 
 To get all the variant products of the sub product models with the codes `tshirt_armor_blue` and `tshirt_armor_red`, you can use the following URL.
@@ -216,6 +217,12 @@ To get all the variant products, you can use the following URL.
 
 ```
 /api/rest/v1/products?search={"parent":[{"operator":"NOT EMPTY"}]}
+```
+
+To get all the simple products, you can use the following URL.
+
+```
+/api/rest/v1/products?search={"parent":[{"operator":"EMPTY"}]}
 ```
 
 ### On their quality score
@@ -401,7 +408,13 @@ To get all the sub-product models of the root product model with the code `tshir
 To get all the root product models, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"parent":[{"operator":"EMPTY","value":null}]}
+/api/rest/v1/products?search={"parent":[{"operator":"EMPTY"}]}
+```
+
+To get all the sub-product models, you can use the following URL.
+
+```
+/api/rest/v1/products?search={"parent":[{"operator":"NOT EMPTY"}]}
 ```
 
 ## Filter on product values
