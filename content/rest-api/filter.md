@@ -402,19 +402,19 @@ Here are the allowed operators you can use to filter by parent as well as the co
 To get all the sub-product models of the root product model with the code `tshirt_armor`, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"parent":[{"operator":"IN","value":["tshirt_armor"]}]}
+/api/rest/v1/product-models?search={"parent":[{"operator":"IN","value":["tshirt_armor"]}]}
 ```
 
 To get all the root product models, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"parent":[{"operator":"EMPTY"}]}
+/api/rest/v1/product-models?search={"parent":[{"operator":"EMPTY"}]}
 ```
 
 To get all the sub-product models, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"parent":[{"operator":"NOT EMPTY"}]}
+/api/rest/v1/product-models?search={"parent":[{"operator":"NOT EMPTY"}]}
 ```
 
 ## Filter on product values
