@@ -25,24 +25,26 @@ Below is the JSON standard format representing a set of categories.
 // A root category
 {
   "code":"master",
+  "parent":null,
+  "updated": "2021-04-21T10:41:02+02:00",
   "labels":{
     "en_US": "Master catalog",
     "de_DE": "Hauptkatalog",
     "fr_FR": "Catalogue principal"
-   },
-  "parent":null
+   }
 }
 ```
 ```json
 // A subcategory
 {
   "code":"tvs_projectors",
+  "parent":"master",
+  "updated": "2021-04-21T10:22:02+02:00",
   "labels":{
     "en_US": "TVs and projectors",
     "de_DE": "TVs und projectoren",
     "fr_FR": "Téléviseurs et projecteurs"
-   },
-  "parent":"master"
+   }
 }
 ```
 
