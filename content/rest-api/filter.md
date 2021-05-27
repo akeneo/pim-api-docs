@@ -1239,3 +1239,24 @@ Below you will find the operator to filter on this property, as well as the corr
 /api/rest/v1/categories?search={"code":[{"operator":"IN","value":["category_code1","category_code2"]}]}
 ```
 
+### By updated date
+::: availability versions=SaaS editions=CE,EE
+
+You can filter the categories by their updated date.
+
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+:::info
+Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+:::
+
+| Operator | Allowed value type | Filter description |
+| ----------------- | -------------- | ------------------ |
+| `>` | datetime <br> _Format: ISO 8601_ | Only returns categories that were <br> updated after the given day and hour |
+
+#### Example
+To get the categories that have been updated since May 17th, 2021 at 10 am (UTC), you can use the following URL.
+
+```
+/api/rest/v1/categories?search={"updated":[{"operator":">","value":"2021-05-17T10:00:00Z"}]}
+```
