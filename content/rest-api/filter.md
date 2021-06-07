@@ -985,8 +985,6 @@ When requesting a [list of assets via the REST API](/api-reference.html#get_asse
 
 ### By update date
 
-::: availability versions=3.2,4.0,5.0,SaaS editions=EE
-
 You can filter the assets by their update date.
 
 Below is the operator to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
@@ -995,35 +993,42 @@ Below is the operator to filter on this property, as well as the corresponding t
 Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
 :::
 
+::: availability versions=3.2,4.0,5.0,SaaS editions=EE
+
+| Operator            | Allowed value type                         | Filter description                                                                         |
+| ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `>`                 | datetime <br> _Format: ISO 8601_           | Only returns assets that were <br> updated after the given day and hour                    |
+
+::: availability versions=SaaS editions=EE
+
 | Operator            | Allowed value type                         | Filter description                                                                         |
 | ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
 | `<`                 | datetime <br> _Format: ISO 8601_           | Only returns assets that were <br> updated before the given day and hour                   |
-| `>`                 | datetime <br> _Format: ISO 8601_           | Only returns assets that were <br> updated after the given day and hour                    |
 | `BETWEEN`           | array of datetimes <br> _Format: ISO 8601_ | Only returns assets that were <br> updated between the two given dates                     |
 | `NOT BETWEEN`       | array of datetimes <br> _Format: ISO 8601_ | Only returns assets that were <br> not updated between the two given dates                 |
 | `SINCE LAST N DAYS` | integer                                    | Only returns assets that were <br> updated during the last n days, n being the given value |
 
 #### Example
 
-To get the assets that were updated since the 4th of July 2016 at 10am (UTC), you can use the following URL.
+To get the assets that were updated since the 4th of July 2018 at 10am (UTC), you can use the following URL.
 
 ```
 /api/rest/v1/asset-families/model_pictures/assets?search={"updated":[{"operator":">","value":"2018-07-04T10:00:00Z"}]}
 ```
 
-You can combine operators.
+You can also combine operators.
 
 ```
 /api/rest/v1/asset-families/model_pictures/assets?search={"updated":[{"operator":">","value":"2018-07-04T10:00:00Z"},{"operator":"<","value":"2018-08-04T10:00:00Z"}]}
 ```
 
-`BETWEEN` and `NOT BETWEEN` operators.
+To get the assets that were updated over a period of time, you can use the `BETWEEN` and `NOT BETWEEN` operators.
 
 ```
 /api/rest/v1/asset-families/model_pictures/assets?search={"updated":[{"operator":"NOT BETWEEN","value":["2018-07-04T10:00:00Z","2018-08-04T10:00:00Z"]}]}
 ```
 
-`SINCE LAST N DAYS` operator.
+Finally, if you want to get the assets updated in the last 4 days, you can use the `SINCE LAST N DAYS` operator.
 
 ```
 /api/rest/v1/asset-families/model_pictures/assets?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
