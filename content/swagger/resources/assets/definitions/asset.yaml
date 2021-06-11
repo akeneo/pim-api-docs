@@ -24,6 +24,17 @@ properties:
             data:
               type: object
               description: Asset attribute value
+  created:
+    type: string
+    description: Date of creation
+    format: dateTime
+    x-immutable: true
+    x-read-only: true
+  updated:
+    type: string
+    description: Date of the last update
+    format: dateTime
+    x-read-only: true
 example: {
   "code": "sku_54628_picture1",
   "values": {
@@ -62,5 +73,7 @@ example: {
         "data": "02/03/2021"
       }
     ]
-  }
+  },
+  "created": "2021-05-31T09:23:34+00:00",
+  "updated": "2021-05-31T09:23:34+00:00"
 }
