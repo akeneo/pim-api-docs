@@ -19,7 +19,7 @@ Play with our PIM!
 It is crucial to understand the PIM features and data model in order to create a great eCommerce connector.
 
 The best way to become an expert at Akeneo PIM is to play with it!  
-Here, you can access our [Akeneo PIM Community Edition demo platform](https://demo.akeneo.com) (login/password: admin / admin).
+Here, you can access our [Akeneo PIM Community Edition demo platform](http://demo.akeneo.com) (login/password: admin / admin).
 
 :::warning
 Please note that this Akeneo PIM CE demo instance is for exploratory purposes only and will only allow you to start getting familiar with Akeneo PIM. This instance is reset frequently and is therefore not intended to be used to build a connector.
@@ -90,7 +90,7 @@ Please read our [Akeneo help center](https://help.akeneo.com/pim/serenity/articl
 ### Published Product
 
 **What is a “published” product?**
-Please read our [Akeneo help center](https://help.akeneo.com/pim/serenity/articles/publish-workflow.htm) to know everything about “published” products.
+Please read our [Akeneo help center](https://help.akeneo.com/pim/serenity/articles/how-to-manage-my-publications.html#publish-products) to know everything about “published” products.
 
 ::: info
 * A “published” product is only used by some of our customers who need to organize their PIM work by having 2 versions of the product:

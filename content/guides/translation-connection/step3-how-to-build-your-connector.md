@@ -183,11 +183,20 @@ With these new attributes, your connector is now ready to go! Let's see how it'l
 
 ### How it works with your connector?
 
+**Pull or Push PIM information data?**
+
+Now that everything is ready in your PIM, your connector is now ready to retrieve the PIM data to be translated.
+
+From this point, you have 2 possibilities:
+* Query the PIM via its API at regular intervals to see if there is any new data to translate.
+* Use the [new Events API (Webhook)](https://api.akeneo.com/getting-started/quick-start-my-first-webhook-5x/welcome.html) to be informed when new PIM data to translate is available.
+
+Before choosing either of these solutions, please read our documentation on the [Events API](https://api.akeneo.com/events-documentation/introduction.html) and its current capabilities. Read also our [recommendations](https://api.akeneo.com/getting-started/events-api-best-practices-5x/welcome.html) about this subject.
+
+
 **Find products with the "translation queued" status enabled**
 
-At regular intervals, your connector will need to retrieve products where the `Translation queued` attribute has been set to enable (set to `true`).
-
-You can do this by using our PIM [API filtering system](https://api.akeneo.com/documentation/filter.html#filter-on-product-values) on product attribute value.
+Your connector will need to retrieve products where the `Translation queued` attribute has been set to enable (set to `true`).
 
 **Tell Julia that her translation project is "in progress"**
 
