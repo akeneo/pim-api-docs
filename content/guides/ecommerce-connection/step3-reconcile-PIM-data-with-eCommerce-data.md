@@ -41,8 +41,6 @@ Akeneo PIM manages different attribute types. Some eCommerce solutions may have 
 For some attribute types, there are several choices.
  e.g. For a given measurement attribute: should you keep only the value in the number attribute type or the value plus the unit in a text attribute?
 
-For price attribute type, again, warning, the PIM manages only a “reference” price not an “up-to-date” price.
-
 **What do you need to implement?**
 
 In order to bring flexibility to your connector configuration you can introduce a manual choice of the attribute type mapping.
@@ -63,9 +61,13 @@ This is a feature that allows you to select, in the settings, which PIM attribut
 
 This is especially useful for mapping essential attributes such as product name, SKU, description...
 
+For price attribute type, again, warning, the PIM manages only a “reference” price not an “up-to-date” price. So, most of the time, the product price is managed directly by the ERP (The ERP then have an eCommerce connector to import price and stock information directly in the eCommerce solution). But sometimes, the customer only manages a **static** price for products and then manages this price information in his PIM.
+
 **What do you need to implement?**
 
 * A Connector configuration to map existing PIM attributes to eCommerce ones.
+
+* For price attribute, don't map this attribute automatically. But plan to have a manual configuration in case of a mapping between a PIM product **static** price and the eCommerce product price.
 
 * If you develop a UI, if possible, retrieve automatically all PIM and eCommerce attributes so that your user has only to make a defined choice through an already filled list.
 
