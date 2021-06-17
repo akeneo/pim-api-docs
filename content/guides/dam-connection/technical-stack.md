@@ -18,9 +18,9 @@ Also, if you are a PHP developer, we provide a [PHP Client](https://github.com/a
 
 ## What about the PIM Events API (Webhook)?
 
-If you have looked at our API documentation, you may have noticed that PIM also has a webhook mechanism called "Events API".
+You may have notices that since the 5.0, Akeneo PIM also has a new way to connect: Events API, this new webhook mechanism allow you to retrieve information from the PIM via events.
 
-After associating assets with PIM products, you may be wanted to dynamically retrieve information from these products (like their name, description, etc.) in your DAM and store it as asset metadata.
+In relation to your DAM connector and after associating assets with PIM products, you may be wanted to dynamically retrieve information from these products (like their name, description, etc.) in your DAM and store it as asset metadata.
 
 This metadata can be very useful for DAM users to search for assets from PIM product data.
 
