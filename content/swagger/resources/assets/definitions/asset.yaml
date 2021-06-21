@@ -26,13 +26,13 @@ properties:
               description: Asset attribute value
   created:
     type: string
-    description: Date of creation
+    description: Date of creation (Only available on SaaS versions)
     format: dateTime
     x-immutable: true
     x-read-only: true
   updated:
     type: string
-    description: Date of the last update
+    description: Date of the last update (Only available on SaaS versions)
     format: dateTime
     x-read-only: true
 example: {
