@@ -1919,7 +1919,9 @@ Below is the JSON format representing an example of an asset of the Asset Manage
         "data": "02/03/2021"
       }
     ]
-  }
+  },
+  "created": "2021-05-31T09:23:34+00:00",
+  "updated": "2021-05-31T09:23:34+00:00"
 }
 ```
 
@@ -1956,6 +1958,9 @@ An asset can hold one or several files. This comes in pretty handy if, for insta
         "data": "user_instructions_TV_2948430_fr.pdf"
       }
     ]
+  },
+  "created": "2021-05-31T09:23:34+00:00",
+  "updated": "2021-05-31T09:23:34+00:00"
 }
 ```
 
