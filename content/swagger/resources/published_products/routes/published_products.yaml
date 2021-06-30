@@ -41,7 +41,7 @@ get:
     200:
       description: Return published products paginated
       schema:
-        title: Products
+        title: Published products
         type: object
         allOf:
           - $ref: '#/definitions/Pagination'
