@@ -53,7 +53,7 @@ post:
             description: Edition of the PIM
       examples: {
         "version": "20210521041041",
-        "edition": "serenity",
+        "edition": "Serenity"
       }
     406:
       $ref: "#/responses/406Error"
