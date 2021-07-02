@@ -1919,7 +1919,9 @@ Below is the JSON format representing an example of an asset of the Asset Manage
         "data": "02/03/2021"
       }
     ]
-  }
+  },
+  "created": "2021-05-31T09:23:34+00:00",
+  "updated": "2021-05-31T09:23:34+00:00"
 }
 ```
 
@@ -1956,12 +1958,19 @@ An asset can hold one or several files. This comes in pretty handy if, for insta
         "data": "user_instructions_TV_2948430_fr.pdf"
       }
     ]
+  },
+  "created": "2021-05-31T09:23:34+00:00",
+  "updated": "2021-05-31T09:23:34+00:00"
 }
 ```
 
 ::: info
 When you are searching for the information of an asset on a product, if you do not know the asset family code, you can retrieve it by calling this endpoint `/api/rest/v1/attributes/AssetCollectionAttributeCode`, `AssetCollectionAttributeCode` being the code of the asset collection attribute containing the asset you are interested in.  
 In the answer, you'll find in the `reference_data_name` property, the code of the family linked to your asset collection attribute, and therefore linked to your current asset.
+:::
+
+::: warning
+`created` and `updated` properties are only available on **SaaS** versions. 
 :::
 
 

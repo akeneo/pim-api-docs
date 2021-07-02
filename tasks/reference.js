@@ -19,10 +19,11 @@ var revReplace = require('gulp-rev-replace');
 function determineCategory(tag){
     switch(tag){
         case 'Product':
-        case 'Published product':
         case 'Product model':
         case 'Product media file':
             return 'Products';
+        case 'Published product':
+            return 'Published products';
         case 'Family':
         case 'Family variant':
         case 'Attribute':
