@@ -139,7 +139,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $searchBuilder = new \Akeneo\Pim\ApiClient\Search\SearchBuilder();
 $searchBuilder
     ->addFilter('completeness', '>', 70, ['scope' => 'ecommerce'])
-    ->addFilter('completeness', '8', 85, ['scope' => 'ecommerce']);
+    ->addFilter('completeness', '<', 85, ['scope' => 'ecommerce']);
 $searchFilters = $searchBuilder->getFilters();
 
 // get a cursor with a page size of 50, apply a research
