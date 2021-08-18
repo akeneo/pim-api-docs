@@ -150,7 +150,7 @@ You do not need to be authenticated to access this route.
 
 ## Rate Limit
 
-The PIM API is protected by rate limit to protect the global PIM usage from an over sollicitation.
+The PIM API is protected by a rate-limiting to ensure the global PIM platform stability even with an over sollicitation.
 
 As the author of an Akeneo PIM integration and Rest API consumer, your API call might be rate limited, in this case it will receive an HTTP status code 429. The response will be completed with a Retry-After HTTP header which will indicate the delay to wait before retrying an API call.
 
