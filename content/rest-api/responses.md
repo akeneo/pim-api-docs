@@ -216,7 +216,7 @@ HTTP/1.1 422 Unprocessable Entity
 
 ### 429 error
 Abusing the API will result in `429 Too Many Requests` response.
-A Retry-After header is added to the response indicating the time to wait before retrying
+A Retry-After header is added to the response indicating the time to wait in seconds before retrying.
 
 #### Example
 ```http
