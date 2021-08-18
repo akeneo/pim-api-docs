@@ -214,6 +214,16 @@ HTTP/1.1 422 Unprocessable Entity
 }
 ```
 
+### 429 error
+Over solliciting the API results in a `429 Too Many Requests` response.
+A Retry-After header is set in the response to indicate the time to wait before the next retry.
+
+#### Example
+```http
+HTTP/1.1 429 Too Many Requests
+Retry-After: 15
+```
+
 ::: tips
 When the REST API answers that something `does not exist`, it could also mean that the related user hasn't the permission to access it.
 :::

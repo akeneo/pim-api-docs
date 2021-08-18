@@ -148,6 +148,13 @@ HTTP/1.1 200 OK
 You do not need to be authenticated to access this route.
 :::
 
+## Rate Limiting
+
+The PIM API is protected by rate limiting measures to ensure the stability of the system.
+
+As the author of an API integration with Akeneo PIM, your integration should expect to be throttled, and should be able to gracefully handle failure. There are different protections and limits in place for different parts of the API. In particular, we protect our API against sudden large bursts of traffic, and we protect against sustained high volumes of requests, for example, frequent polling.
+
+For HTTP APIs, when a request is throttled, you will receive HTTP status code 429. If your integration requires that a throttled request is completed, then you should retry these requests after a delay, using an exponential backoff. In most cases, the HTTP 429 response code will be accompanied by the Retry-After HTTP header. When this header is present, your integration should wait for the period of time specified by the header value before retrying a request.
 
 ## Introducing the REST API reference
 
