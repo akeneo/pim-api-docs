@@ -3,7 +3,7 @@
 The **Product** is the central resource of our PIM and, when you think about it, it makes perfect sense since what we are doing is Product Management. :wink:
 
 In the sections below, you will find all the different flavors of products you can find in the PIM.  
-Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API. 
+Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API.
 
 ## Product
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
@@ -145,7 +145,7 @@ Note that the `completenesses` field is only available on SaaS platforms, and wh
 ::: availability versions=SaaS editions=CE,EE
 :::
 
-A variant product, which has a product model as parent, can be converted to a simple product by removing its parent. To perform this action through the API, you just have to update the `parent` field to `null`. 
+A variant product, which has a product model as parent, can be converted to a simple product by removing its parent. To perform this action through the API, you just have to update the `parent` field to `null`.
 By default all the former values, categories and associations (included those defined at the parent level) will be kept if they are not specified in the PATCH request.
 
 ## Focus on the product values
@@ -177,7 +177,7 @@ In this formula:
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
  - `LINKED_DATA` containing the attribute option labels if the attribute is a simple or multi select. [Check some examples here.](#the-linked_data-format) This property is only available since the 5.0.
- 
+
 ### The `data` format
 The sections below describe the format of the `data` property for each [product attribute](/concepts/catalog-structure.html#attribute) type.
 
@@ -344,7 +344,7 @@ Whenever the attribute's type is `pim_catalog_number`, the `data` field should c
 
 Whenever the attribute's type is `pim_catalog_metric`, the `data` field should contain an object with following fields:
 - `amount`: a string representing a number if the `decimals_allowed` property of the attribute is set to `true`, otherwise an integer, containing amount value
-- `unit`: a string representing the metric unit for the specified amount 
+- `unit`: a string representing the metric unit for the specified amount
 
 ##### Examples
 ```json
@@ -508,6 +508,47 @@ Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` fiel
   }
 }
 ```
+
+#### Table attribute
+::: availability version=SaaS editions=EE,CE
+:::
+
+Whenever the attribute's type is `pim_catalog_table`, the `data` field should contain an array of rows, where each row is a key-value object, the key being the `column` code, and the value being the cell value.
+
+##### Example
+```json
+{
+  "values": {
+    "nutrition": [
+      {
+        "data": [
+          {
+              "average_nutritional_value": "energy",
+              "per_100g": "248",
+              "per_serving_x_grams": "215"
+          },
+          {
+              "average_nutritional_value": "fat",
+              "per_100g": "8",
+              "per_serving_x_grams": "6"
+          },
+          {
+              "average_nutritional_value": "saturated_fat",
+              "per_100g": "2",
+              "per_serving_x_grams": "1"
+          },
+          {
+              "average_nutritional_value": "carbohydrate",
+              "per_100g": "22",
+              "per_serving_x_grams": "19"
+          }
+      ]
+  }
+        ],
+  }
+}
+```
+
 
 ### The `locale` and `scope` format
 
