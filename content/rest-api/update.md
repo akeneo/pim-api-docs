@@ -136,7 +136,7 @@ For non-scalar values (objects and arrays) data types must match.
 ```json
 {
   "code": "boots",
-  "parent": "clothes",
+  "parent": "master",
   "labels": {
     "en_US": "Boots",
     "fr_FR": "Bottes"
