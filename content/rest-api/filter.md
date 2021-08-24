@@ -827,18 +827,6 @@ To get the products of the `winter_collection` category, you can use the followi
 Filtering on categories is also available for published products.
 :::
 
-### On their status
-
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
-
-To filter products on their status, use the `enabled` property.
-Here are the allowed operators you can use to filter on the status as well as the corresponding type of value expected in the `search` query parameter.
-
-| Operator | Allowed value type | Filter description                                                    |
-| -------- | ------------------ | --------------------------------------------------------------------- |
-| `=`      | boolean            | Only returns products that are enabled (`true`) or disabled (`false`) |
-| `!=`     | boolean            | Only returns products that are enabled (`false`) or disabled (`true`) |
-
 #### Example
 
 To get the disabled products, you can use the following URL.
