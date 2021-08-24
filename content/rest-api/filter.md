@@ -958,50 +958,6 @@ To get the products that were updated during the last 4 days, you can use the fo
 Filtering on creation or update date is also available for published products.
 :::
 
-### On their parent
-
-::: availability versions=3.2,4.0,5.0,SaaS editions=CE,EE
-
-To filter products on their parent, use the `parent` product property.
-Here are the allowed operators you can use to filter by parent as well as the corresponding type of value expected in the `search` query parameter.
-
-| Operator    | Allowed value type                 | Filter description                                                                                                                                |
-| ----------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `=`         | valid product model code           | Returns products that are descendants of the provided product model. The product model can be either a root product model or a sub product model. |
-| `IN`        | array of valid product model codes | Only returns products that are **direct** children of the provided product models                                                                 |
-| `EMPTY`     | no value                           | Only returns simple products                                                                                                                      |
-| `NOT EMPTY` | no value                           | Only returns variant products                                                                                                                     |
-
-::: warning
-The `IN`, `EMPTY` and `NOT EMPTY` operators are only available for SaaS customers
-:::
-
-#### Examples
-
-To get all the variant products of the `apollon` root product model without having to filter on all its sub-product models, you can use the following URL.
-
-```
-/api/rest/v1/products?search={"parent":[{"operator":"=","value":"apollon"}]}
-```
-
-To get all the variant products of the sub product models with the codes `tshirt_armor_blue` and `tshirt_armor_red`, you can use the following URL.
-
-```
-/api/rest/v1/products?search={"parent":[{"operator":"IN","value":["tshirt_armor_blue","tshirt_armor_red"]}]}
-```
-
-To get all the variant products, you can use the following URL.
-
-```
-/api/rest/v1/products?search={"parent":[{"operator":"NOT EMPTY"}]}
-```
-
-To get all the simple products, you can use the following URL.
-
-```
-/api/rest/v1/products?search={"parent":[{"operator":"EMPTY"}]}
-```
-
 ### On their quality score
 
 ::: availability versions=SaaS editions=CE,EE
