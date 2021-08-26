@@ -36,10 +36,6 @@ You can even combine several filters on the same product properties. The example
 /api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04 10:00:00"},{"operator":"=","value":"2016-07-05 10:00:00"}]}
 ```
 
-:::info
-Filtering on product properties is also available for published products.
-:::
-
 ### On their categories
 
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
@@ -64,10 +60,6 @@ To get the products of the `winter_collection` category, you can use the followi
 /api/rest/v1/products?search={"categories":[{"operator":"IN","value":["winter_collection"]}]}
 ```
 
-:::info
-Filtering on categories is also available for published products.
-:::
-
 ### On their status
 
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
@@ -87,10 +79,6 @@ To get the disabled products, you can use the following URL.
 ```
 /api/rest/v1/products?search={"enabled":[{"operator":"=","value":false}]}
 ```
-
-:::info
-Filtering on status is also available for published products.
-:::
 
 ### On their completeness
 
@@ -122,10 +110,6 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 /api/rest/v1/products?search={"completeness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
 ```
 
-:::info
-Filtering on completeness is also available for published products.
-:::
-
 ### On their group or family
 
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
@@ -153,10 +137,6 @@ To get the products that are not in the `camcorders` and `digital_cameras` famil
 ```
 /api/rest/v1/products?search={"family":[{"operator":"NOT IN","value":["camcorders","digital_cameras"]}]}
 ```
-
-:::info
-Filtering on family or group is also available for published products.
-:::
 
 ### On their creation or update date
 
@@ -194,10 +174,6 @@ To get the products that were updated during the last 4 days, you can use the fo
 ```
 /api/rest/v1/products?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
 ```
-
-:::info
-Filtering on creation or update date is also available for published products.
-:::
 
 ### On their parent
 
