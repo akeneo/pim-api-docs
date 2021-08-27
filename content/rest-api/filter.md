@@ -1193,7 +1193,7 @@ There is also a `scope` query parameter that will allow you to:
 
 #### Example
 
-To get products from the tree linked to the `ecommerce` channel with only product values regarding the `ecommerce` channel (+ the product values of the non scopable attributes), you can use the following URL.
+To get published products from the tree linked to the `ecommerce` channel with only product values regarding the `ecommerce` channel (+ the product values of the non-scopable attributes), you can use the following URL.
 
 ```
 /api/rest/v1/published-products?scope=ecommerce
