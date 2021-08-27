@@ -20,12 +20,12 @@ get:
     - name: scope
       in: query
       type: string
-      description: Filter published product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on published product values</a> section
+      description: Filter published product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-published-product-values">Filter on published product values</a> section
       required: false
     - name: locales
       in: query
       type: string
-      description: Filter published product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on published product values</a> section
+      description: Filter published product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-published-product-values">Filter on published product values</a> section
       required: false
     - name: attributes
       in: query
