@@ -1204,7 +1204,7 @@ Note that you cannot use this filter on several channels.
 :::
 
 :::info
-When using this query parameter, you will never be able to retrieve products that are not categorized. This is due to the fact that we only return the selection of products that are in the tree linked to the given channel. In other words, if a given product is not categorized in this tree, you won't receive it.
+When using this query parameter, you will never be able to retrieve published products that are not categorized. This is due to the fact that we only return the selection of products that are in the tree linked to the given channel. In other words, if a given product is not categorized in this tree, you won't receive it.
 :::
 
 ## Filter locales
