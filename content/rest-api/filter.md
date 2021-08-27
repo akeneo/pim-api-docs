@@ -939,7 +939,7 @@ To get published products that are purple, purple being an option of the simple 
 To get published products having a description begining with `Amazing` on the `en_US` locale, the `short_description` attribute being localizable but not scopable, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"short_description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}]}
+/api/rest/v1/published-products?search={"short_description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}]}
 ```
 
 To get published products that have a release date due after the 4th of July 2016 for the `ecommerce` channel, the `release_date` attribute being scopable but not localizable, you can use the following URL.
