@@ -805,7 +805,7 @@ Here are the allowed operators you can use to filter on the status as well as th
 | Operator | Allowed value type | Filter description                                                              |
 | -------- | ------------------ | ------------------------------------------------------------------------------- |
 | `=`      | boolean            | Only returns published products that are enabled (`true`) or disabled (`false`) |
-| `!=`     | boolean            | Only return published products that are enabled (`false`) or disabled (`true`) |
+| `!=`     | boolean            | Only returns published products that are enabled (`false`) or disabled (`true`) |
 
 #### Example
 
