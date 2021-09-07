@@ -30,10 +30,10 @@ Of course, you can combine as many filters as you want. The example below will g
 /api/rest/v1/products?search={"enabled":[{"operator":"=","value":true}],"completeness":[{"operator":">","value":70,"scope":"ecommerce"}]}
 ```
 
-You can even combine several filters on the same product properties. The example below will get you the products created both the 4th and the 5th of July 2016.
+You can even combine several filters on the same product properties. The example below will get you the products categorized on the Winter Collection category and that are not categorized on the Accessories category.
 
 ```
-/api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04 10:00:00"},{"operator":"=","value":"2016-07-05 10:00:00"}]}
+/api/rest/v1/products?search={"categories":[{"operator":"IN","value":["winter_collection"]},{"operator":"NOT IN","value":["accessories"]}]}
 ```
 
 ### On their categories
