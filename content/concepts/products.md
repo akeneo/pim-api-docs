@@ -542,9 +542,9 @@ Whenever the attribute's type is `pim_catalog_table`, the `data` field should co
               "per_100g": "22",
               "per_serving_x_grams": "19"
           }
-      ]
-  }
-        ],
+        ]
+      }
+    ],
   }
 }
 ```
