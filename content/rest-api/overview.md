@@ -148,11 +148,11 @@ HTTP/1.1 200 OK
 You do not need to be authenticated to access this route.
 :::
 
-## Rate Limit
+## Abusive Usage Protection
 
-A rate-limiting feature prevents the PIM API from receiving too many calls that would alter PIM stability and responsiveness.
+An abusive usage protection feature prevents the PIM API from receiving too many calls that would alter PIM stability and responsiveness.
 
-As the author of an Akeneo PIM integration and Rest API consumer, your API call might be rate-limited. In this case, it will receive an HTTP status code 429. The response will be completed with a Retry-After HTTP header, indicating the delay to wait before retrying an API call.
+As the author of an Akeneo PIM integration and Rest API consumer, your API call might be identified as abusive if you send too many requests per seconds. In this case, it will receive an HTTP status code 429. The response will be completed with a Retry-After HTTP header, indicating the delay to wait before retrying an API call.
 
 ## Introducing the REST API reference
 
