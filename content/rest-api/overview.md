@@ -148,11 +148,17 @@ HTTP/1.1 200 OK
 You do not need to be authenticated to access this route.
 :::
 
-## Abusive Usage Protection
+## API Fair-usage protection
 
-An abusive usage protection feature prevents the PIM API from receiving too many calls that would alter PIM stability and responsiveness.
+Our API is provided to connect Akeneo PIM and external systems but not for live applications. Please make sure you are using our API accordingly to our fair usage policy.
 
-As the author of an Akeneo PIM integration and Rest API consumer, your API call might be identified as abusive if you send too many requests per seconds. In this case, it will receive an HTTP status code 429. The response will be completed with a Retry-After HTTP header, indicating the delay to wait before retrying an API call.
+Our usage recommendations are 10 parallel API calls on a PIM instance and 4 parallel API calls per connection (this can help you in synchronizing many 3rd parties at the same time).
+
+The Akeneo PIM API has no rate-limited based on API requests per-unit-of-time or per-IP currently because it has not been needed so far. However, we suffer sometimes from intensive API usage on our platform when our guidelines have not been followed.
+It leads to a bad user experience and even worst with infrastructure instability as we can reach their physical limits.
+
+As the author of API integration and REST API consumer, you have to keep in mind that your integration with Akeneo PIM should expect to be throttled and able to handle failures.
+When an API request is throttled, we will return an [HTTP status code 429](/documentation/responses.html#429-error) with a Retry-After header. The retry after indicates the delay in seconds you have to wait before your next API request.
 
 ## Introducing the REST API reference
 
