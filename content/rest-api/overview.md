@@ -148,7 +148,7 @@ HTTP/1.1 200 OK
 You do not need to be authenticated to access this route.
 :::
 
-## API Fair-usage protection
+## Fair-usage protection
 
 Our API is provided to connect Akeneo PIM and external systems but not for live applications. Please make sure you are using our API accordingly to our fair usage policy.
 
