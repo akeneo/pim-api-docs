@@ -152,7 +152,7 @@ You do not need to be authenticated to access this route.
 
 Our API is provided to connect Akeneo PIM and external systems but not for live applications. Please make sure you are using our API accordingly to our fair usage policy.
 
-Our usage recommendations are 10 parallel API calls on a PIM instance and 4 parallel API calls per connection (this can help you in synchronizing many 3rd parties at the same time).
+Our usage recommendations are 10 concurrent API calls on a PIM instance and 4 concurrent API calls per connection (this can help you in synchronizing many 3rd parties at the same time).
 
 The Akeneo PIM API has no rate-limited based on API requests per-unit-of-time or per-IP currently because it has not been needed so far. However, we suffer sometimes from intensive API usage on our platform when our guidelines have not been followed.
 It leads to a bad user experience and even worst with infrastructure instability as we can reach their physical limits.
