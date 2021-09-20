@@ -521,25 +521,27 @@ Whenever the attribute's type is `pim_catalog_table`, the `data` field should co
   "values": {
     "nutrition": [
       {
+        "locale": null,
+        "scope": null,
         "data": [
           {
               "average_nutritional_value": "energy",
-              "per_100g": "248",
+              "per_100g": 248,
               "per_serving_x_grams": "215"
           },
           {
               "average_nutritional_value": "fat",
-              "per_100g": "8",
+              "per_100g": 8,
               "per_serving_x_grams": "6"
           },
           {
               "average_nutritional_value": "saturated_fat",
-              "per_100g": "2",
+              "per_100g": 2,
               "per_serving_x_grams": "1"
           },
           {
               "average_nutritional_value": "carbohydrate",
-              "per_100g": "22",
+              "per_100g": 22,
               "per_serving_x_grams": "19"
           }
         ]
