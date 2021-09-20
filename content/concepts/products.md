@@ -510,7 +510,7 @@ Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` fiel
 ```
 
 #### Table attribute
-::: availability version=SaaS editions=EE,GE
+::: availability versions=SaaS editions=EE,GE
 :::
 
 Whenever the attribute's type is `pim_catalog_table`, the `data` field should contain an array of rows, where each row is a key-value object, the key being the `column` code, and the value being the cell value.
