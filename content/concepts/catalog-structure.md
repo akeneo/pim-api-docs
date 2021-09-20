@@ -86,7 +86,7 @@ Below is the list of attribute types and their description:
 | Reference entity multiple links (Enterprise Edition only) | akeneo_reference_entity_collection | the same as above but allowing you to manage multiple links |
 | Reference data simple select | pim_reference_data_simpleselect | allows you to manage any kind of data that has its own properties, as a single-choice select. |
 | Reference data multi select | pim_reference_data_multiselect | allows you to manage any kind of data that has its own properties, as a multi-choice select. |
-| Table (Growth and Enterprise editions only) | pim_catalog_table | allows you to manage multi-dimensional data under the form of a table |
+| Table (Growth and Enterprise editions only) | pim_catalog_table | allows you to manage multi-dimensional data in the form of a table |
 
 In the Akeneo UI, you can find the attributes in the `Settings`/`Attributes` menu. Below is an example of one attribute in the UI.
 
