@@ -150,15 +150,24 @@ You do not need to be authenticated to access this route.
 
 ## Fair-usage protection
 
-Our API is provided to connect Akeneo PIM and external systems but not for live applications. Please make sure you are using our API accordingly to our fair usage policy.
+Our API is provided to connect Akeneo Serenity and Growth Edition to external systems.
 
-Our usage recommendations are 10 concurrent API calls on a PIM instance and 4 concurrent API calls per connection (this can help you in synchronizing many 3rd parties at the same time).
+Our recommendations on maximum usage are:
 
-The Akeneo PIM API has no rate-limited based on API requests per-unit-of-time or per-IP currently because it has not been needed so far. However, we suffer sometimes from intensive API usage on our platform when our guidelines have not been followed.
-It leads to a bad user experience and even worst with infrastructure instability as we can reach their physical limits.
+- not more than 4 concurrent API calls per PIM Connection
+- not more than 10 concurrent API calls in total on a PIM instance
+
+Our PIM Cloud service has currently no rate limit based on API requests per unit of time or per IP. 
+
+However, our platform is protected through a number of preservation mechanisms to avoid impacting the user experience and platform stability in case of over-usage.
+
+When these protection mechanisms are triggered, we will return an [HTTP status code 429](https://api.akeneo.com/documentation/responses.html#429-error) with a Retry-After header. The retry after indicates the delay in seconds you have to wait before your next API request.
 
 As the author of API integration and REST API consumer, you have to keep in mind that your integration with Akeneo PIM should expect to be throttled and able to handle failures.
-When an API request is throttled, we will return an [HTTP status code 429](/documentation/responses.html#429-error) with a Retry-After header. The retry after indicates the delay in seconds you have to wait before your next API request.
+
+This API protection is typically triggered above 100 API requests per second per PIM instance, but it depends as well on the duration of the over-usage.
+
+That is to say, bursts are allowed, but continuous over-usage will trigger the protection sooner.
 
 ## Introducing the REST API reference
 
