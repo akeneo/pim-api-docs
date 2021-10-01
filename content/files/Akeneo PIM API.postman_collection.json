@@ -3242,6 +3242,33 @@
           "response": []
         },
         {
+          "name": "product model (SaaS only)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/api/rest/v1/product-models/amor",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "product-models",
+                "amor"
+              ]
+            },
+            "description": "Assuming that the given code is the code of an existing product model"
+          },
+          "response": []
+        },
+        {
           "name": "product model draft (>= v2 and EE only)",
           "request": {
             "method": "GET",
