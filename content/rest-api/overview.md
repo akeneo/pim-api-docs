@@ -148,11 +148,26 @@ HTTP/1.1 200 OK
 You do not need to be authenticated to access this route.
 :::
 
-## Rate Limit
+## Fair-usage protection
 
-A rate-limiting feature prevents the PIM API from receiving too many calls that would alter PIM stability and responsiveness.
+Our API is provided to connect Akeneo Serenity and Growth Edition to external systems.
 
-As the author of an Akeneo PIM integration and Rest API consumer, your API call might be rate-limited. In this case, it will receive an HTTP status code 429. The response will be completed with a Retry-After HTTP header, indicating the delay to wait before retrying an API call.
+Our recommendations on maximum usage are:
+
+- not more than 4 concurrent API calls per PIM Connection
+- not more than 10 concurrent API calls in total on a PIM instance
+
+Our PIM Cloud service has currently no rate limit based on API requests per unit of time or per IP. 
+
+However, our platform is protected through a number of preservation mechanisms to avoid impacting the user experience and platform stability in case of over-usage.
+
+When these protection mechanisms are triggered, we will return an [HTTP status code 429](https://api.akeneo.com/documentation/responses.html#429-error) with a Retry-After header. The retry after indicates the delay in seconds you have to wait before your next API request.
+
+As the author of API integration and REST API consumer, you have to keep in mind that your integration with Akeneo PIM should expect to be throttled and able to handle failures.
+
+This API protection is typically triggered above 100 API requests per second per PIM instance, but it depends as well on the duration of the over-usage.
+
+That is to say, bursts are allowed, but continuous over-usage will trigger the protection sooner.
 
 ## Introducing the REST API reference
 
