@@ -47,8 +47,11 @@ Do not give this permission to your UI user role as it makes no sense to give AP
 :::
 
 :::info
-Note that if a role has `Overall Web API` access, then it means that all the users under that role will be able to make requests on products, product models and published products.  
-There is no way to only restrict access to products, except if you are using a 2.x Enterprise Edition. In this case, the EE permissions based on user groups are applied to the API for the products and the published products.
+**Up to the 5.0 version**, users with `Overall Web API` were able to make requests on products and product models without additional permission.
+
+On SaaS and newer versions, new ACLs were introduced: `Create and update products`, `List products` and `Delete products`.
+
+Moreover, in the Enterprise Edition, the [Catalog Permissions](/documentation/permissions.html#catalog-permissions-ee-only) are still applied on the products and product models, on addition to those ACLs.
 :::
 
 ### Catalog structure access
@@ -67,6 +70,7 @@ You can fine-tune even more this permission by restricting or allowing access to
 | List channels | GET on `/channels` and on `/channels/{channel_code}` |
 | List locales | GET on `/locales` and on `/locales/{locale_code}` |
 | List currencies *(2.x only)*  | GET on `/currencies` and on `/currencies/{currency_code}` |
+| List products *(SaaS only)*  | GET on `/products`, `/products/{code}`, `/product-models` and `/product-models/{code}` |
 | Create and update categories | POST and PATCH on `/categories/{category_code}` <br/> PATCH on `/categories` |
 | Create and update families | POST and PATCH on `/families/{family_code}` <br/> PATCH on `/families` |
 | Create and update family variants *(2.x only)* | POST and PATCH on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
@@ -75,6 +79,8 @@ You can fine-tune even more this permission by restricting or allowing access to
 | Create and update attribute groups *(2.x only)* | POST and PATCH on `/attribute-groups/{attribute_group_code}` <br/> PATCH on `/attribute-groups` |
 | Create and update association types *(2.x only)* | POST and PATCH on `/association-types/{association_type_code}` <br/> PATCH on `/association-types` |
 | Create and update channels *(2.x only)* | POST and PATCH on `/channels/{channel_code}` <br/> PATCH on `/channels` |
+| Create and update products *(SaaS only)* | POST and PATCH on `/products`, `/products/{code}`, `/product-models` and `/product-models/{code}` |
+| Delete products *(SaaS only)* | DELETE on `/products/{code}` and `/product-models/{code}` |
 
 ## Catalog permissions _(EE only)_
 
