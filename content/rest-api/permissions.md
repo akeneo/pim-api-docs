@@ -51,7 +51,7 @@ Do not give this permission to your UI user role as it makes no sense to give AP
 
 On SaaS and newer versions, new ACLs were introduced: `Create and update products`, `List products` and `Delete products`.
 
-Moreover, in the Enterprise Edition, the [Catalog Permissions](/documentation/permissions.html#catalog-permissions-ee-only) are still applied on the products and product models, on addition to those ACLs.
+Moreover, in the Enterprise Edition, the [Catalog Permissions](/documentation/permissions.html#catalog-permissions-ee-only) are still applied on the products and product models, in addition to those ACLs.
 :::
 
 ### Catalog structure access
