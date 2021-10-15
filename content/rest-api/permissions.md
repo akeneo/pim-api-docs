@@ -47,7 +47,7 @@ Do not give this permission to your UI user role as it makes no sense to give AP
 :::
 
 :::info
-**Up to the 5.0 version**, users with `Overall Web API` were able to make requests on products and product models without additional permission.
+**Until the 5.0 version**, users with `Overall Web API` were able to make requests on products and product models without additional permissions.
 
 On SaaS and newer versions, new ACLs were introduced: `Create and update products`, `List products` and `Delete products`.
 
