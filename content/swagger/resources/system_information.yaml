@@ -1,4 +1,4 @@
-post:
+get:
   summary: Get system information
   operationId: "get_system_information"
   description: This endpoint allows you to get the version and the edition of the PIM. Example of what you can get
