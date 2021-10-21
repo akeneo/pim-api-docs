@@ -107,6 +107,10 @@ This screen and the log file give you access to 4 log levels and 5 log types:
 - `INFO The API event request was sent.` Information logs are here to inform you that an event request has been sent to your connected app. It can be helpful when you are testing if everything works well! 
 
 
+::: warning
+You may have noticed that the UI and the log file only display the product identifier. This is only for a clarity matter. Your extension will receive all the product data as it is documented in our [Events API reference](/events-reference/events-reference-serenity/products.html).
+:::
+
 ### Example of a log file
 
 Here is an example of what you can download: 
