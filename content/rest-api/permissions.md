@@ -33,25 +33,28 @@ Here are the simple steps to follow to configure those permissions.
 We strongly recommend you to create **dedicated user roles** for your API users, different from the user roles that you use for your UI users. So go ahead and create one user role for every API connection you will need.
 
 ::: warning
-Do not give any UI permissions to your API user roles.
+Grant UI permissions to your API user roles doesn't make sense. Your API user should never be used to access the PIM UI. 
 :::
 
 ### Overall access
 
 The first ACL `Overall Web API access` means that if enabled, each user under that role will have access to the REST API.
-
 You will need to give at least this ACL to all the API user roles you created before for them to be able to call the REST API.
 
 ::: warning
-Do not give this permission to your UI user role as it makes no sense to give API access to UI users.
+Grant Web API permissions to a UI user role doesn't make sense. Your UI users should never be used to call the REST API.
 :::
 
-:::info
-**Until the 5.0 version**, users with `Overall Web API` were able to make requests on products and product models without additional permissions.
+::: warning
+**Until the 5.0 version**, users with `Overall Web API` were able to make requests on products and product models without additional permissions. 
 
-On SaaS and newer versions, new ACLs were introduced: `Create and update products`, `List products` and `Delete products`.
+For more security, we introduced the following ACLs on **Akeneo SaaS versions**: `Create and update products`, `List products` and `Delete products`. 
 
-Moreover, in the Enterprise Edition, the [Catalog Permissions](/documentation/permissions.html#catalog-permissions-ee-only) are still applied on the products and product models, in addition to those ACLs.
+Please note that these new ACLs are only used to secure access to products and product models.
+:::
+
+::: info
+In the Enterprise Edition, the [Catalog Permissions](/documentation/permissions.html#catalog-permissions-ee-only) are applied in addition to those ACLs.
 :::
 
 ### Catalog structure access
@@ -93,7 +96,7 @@ Those permissions were introduced in the REST API starting from the 2.0 version.
 :::
 
 ::: info
-All the permissions described here, apply to both product and product model updates.
+Permissions described here apply to all product types: products, product models, and published products.
 :::
 
 ### Hide a part of your catalog
