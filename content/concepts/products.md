@@ -562,7 +562,7 @@ Whenever the attribute type is `pim_catalog_table`, the `data` field should cont
 ```
 
 :::warning
-Please note that we have defined some limits in order to guarantee that the PIM is functional and runs smoothly.
+Please note that we have defined some limits in order to ensure the PIM is functional and runs smoothly.
 - The maximum number of rows in a table is set to **100**.
 - The maximum number of table attributes within the PIM is set to **50**.
 - The maximum number of cells per product is set to **8000** (it includes the total number of product values + the table attributes content).
