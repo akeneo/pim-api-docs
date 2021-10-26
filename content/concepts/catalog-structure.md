@@ -86,7 +86,7 @@ Below is the list of attribute types and their description:
 | Reference entity multiple links (Enterprise Edition only) | akeneo_reference_entity_collection | the same as above but allowing you to manage multiple links |
 | Reference data simple select | pim_reference_data_simpleselect | allows you to manage any kind of data that has its own properties, as a single-choice select. |
 | Reference data multi select | pim_reference_data_multiselect | allows you to manage any kind of data that has its own properties, as a multi-choice select. |
-| Table (Growth and Enterprise editions only) | pim_catalog_table | allows you to manage multi-dimensional data in the form of a table |
+| Table (Growth and Enterprise editions only) | pim_catalog_table | allows you to manage multidimensional data in the form of a table |
 
 In the Akeneo UI, you can find the attributes in the `Settings`/`Attributes` menu. Below is an example of one attribute in the UI.
 
@@ -144,10 +144,10 @@ _Focus on the table attribute configuration_
 
 The structure of a table attribute is defined in a specific `table_configuration` field, which describes the columns of the table.
 Each column is defined by a data type (select, text, boolean, number), and a unique code. It can hold a collection of labels,
-and user-defined validation constraints based on the column data type. A table configuration must define at least two columns, and the first one has to have a `select` data type.
+and user-defined validation constraints based on the column data type. A table configuration must define at least two columns, and the first one has to be a `select` data type.
 In order to ensure that the PIM will still be running, we have defined some limits.  
 - You can create up to **10 columns** in a single table.
-- You can create up to **200000 options** within a Select column.
+- You can create up to **200000 options** for a select column.
 :::
 
 ::: panel-link Want more details about the attribute resource? [Check its endpoints here!](/api-reference.html#Attribute)
