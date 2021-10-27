@@ -54,3 +54,23 @@ patch:
       $ref: "#/responses/415Error"
     422:
       $ref: "#/responses/422Error"
+delete:
+  summary: Delete a product model
+  operationId: "delete_product_models__code_"
+  tags:
+    - Product model
+  x-versions:
+    - "SaaS"
+  description: This endpoint allows you to delete a given product model. All its children, product models and variant products, will be also deleted. In the Enterprise Edition, the permissions based on your connection user group are applied to the product model you try to delete.
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    204:
+      description: No content to return
+      x-details: Means that the deletion was successful
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
