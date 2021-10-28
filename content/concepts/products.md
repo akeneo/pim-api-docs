@@ -3,7 +3,7 @@
 The **Product** is the central resource of our PIM and, when you think about it, it makes perfect sense since what we are doing is Product Management. :wink:
 
 In the sections below, you will find all the different flavors of products you can find in the PIM.  
-Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API. 
+Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API.
 
 ## Product
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
@@ -145,7 +145,7 @@ Note that the `completenesses` field is only available on SaaS platforms, and wh
 ::: availability versions=SaaS editions=CE,EE
 :::
 
-A variant product, which has a product model as parent, can be converted to a simple product by removing its parent. To perform this action through the API, you just have to update the `parent` field to `null`. 
+A variant product, which has a product model as parent, can be converted to a simple product by removing its parent. To perform this action through the API, you just have to update the `parent` field to `null`.
 By default all the former values, categories and associations (included those defined at the parent level) will be kept if they are not specified in the PATCH request.
 
 ## Focus on the product values
@@ -177,7 +177,7 @@ In this formula:
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
  - `LINKED_DATA` containing the attribute option labels if the attribute is a simple or multi select. [Check some examples here.](#the-linked_data-format) This property is only available since the 5.0.
- 
+
 ### The `data` format
 The sections below describe the format of the `data` property for each [product attribute](/concepts/catalog-structure.html#attribute) type.
 
@@ -344,7 +344,7 @@ Whenever the attribute's type is `pim_catalog_number`, the `data` field should c
 
 Whenever the attribute's type is `pim_catalog_metric`, the `data` field should contain an object with following fields:
 - `amount`: a string representing a number if the `decimals_allowed` property of the attribute is set to `true`, otherwise an integer, containing amount value
-- `unit`: a string representing the metric unit for the specified amount 
+- `unit`: a string representing the metric unit for the specified amount
 
 ##### Examples
 ```json
@@ -508,6 +508,65 @@ Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` fiel
   }
 }
 ```
+
+#### Table attribute
+::: availability versions=SaaS editions=EE,GE
+:::
+
+Whenever the attribute type is `pim_catalog_table`, the `data` field should contain an array of rows, where each row is a key-value object, the key being the `column` code, and the value being the cell value.
+
+##### Example
+```json
+{
+  "values": {
+    "Food_composition": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": [
+          {
+              "percentage": "28.5",
+              "composition": "Cooked_wheat_semolin"
+          },
+          {
+              "Origin": "France",
+              "allergen": false,
+              "percentage": "28.5",
+              "composition": "Vegetables"
+          },
+          {
+              "allergen": true,
+              "percentage": "28",
+              "composition": "Sauce"
+          },
+          {
+              "Origin": "France",
+              "allergen": false,
+              "percentage": "10",
+              "composition": "Cooked_cured_chicken_fillet"
+          },
+          {
+              "Origin": "Spain",
+              "allergen": false,
+              "percentage": "5",
+              "composition": "Pre_cooked_merguez"
+          },
+          {
+              "composition": "Frozen"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+:::warning
+Please note that we have defined some limits in order to guarantee the PIM stability.
+- The maximum number of rows in a table is set to **100**.
+- The maximum number of table attributes within the PIM is set to **50**.
+- The maximum number of filled cells per product is set to 8000, for all the table attributes on a given product page.
+:::
 
 ### The `locale` and `scope` format
 

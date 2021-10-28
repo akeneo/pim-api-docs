@@ -92,6 +92,13 @@ with_attribute_options:
   default: false
   type: boolean
   required: false
+with_table_select_options:
+  name: with_table_select_options
+  in: query
+  description: Return the options of 'select' column types (of a table attribute) in the response. (Only available on SaaS platforms)
+  default: false
+  type: boolean
+  required: false
 with_quality_scores:
   name: with_quality_scores
   in: query

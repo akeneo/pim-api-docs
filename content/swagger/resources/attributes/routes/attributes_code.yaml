@@ -13,6 +13,7 @@ get:
     - "SaaS"
   parameters:
     - $ref: '#/parameters/code'
+    - $ref: '#/parameters/with_table_select_options'
   responses:
     200:
       description: OK
