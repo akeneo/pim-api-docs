@@ -552,6 +552,7 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
         'introduction.md': 'What\'s an App ?',
+        'create-app.md': 'Create an App',
     };
 
     var isOnePage = false;

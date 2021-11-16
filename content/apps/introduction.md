@@ -14,8 +14,8 @@ by retrieving or updating data and integrate it with external services.
 
 The only constraint is that an App must have a single activation URL and should be hosted by its creator.
 
-In this documentation, we will guide you through the steps of building an App.
-
 ::: info
 For more information on Apps usage, please read our help center article [some article](https://help.akeneo.com).
 ::::
+
+**Next step**: we will guide you through the steps of [creating an App](/apps/create-app.html).
