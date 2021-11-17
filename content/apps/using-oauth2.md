@@ -4,8 +4,10 @@ The PIM uses OAuth 2.0 to manage the authorization of Apps.
 
 [[SCHEMA]]
 
-To begin, you must obtain valid OAuth 2.0 client credentials by registering your App on the 
-[Akeneo Marketplace](https://marketplace.akeneo.com/node/add/extension).  
+## Credentials
+
+To begin, you must obtain valid OAuth 2.0 client credentials by registering your App on the
+[Akeneo Marketplace](https://marketplace.akeneo.com/node/add/extension).
 
 Then, when any user want to connect his PIM to your App, the authorization process will go through the following steps.
 
@@ -42,6 +44,10 @@ https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
     scope=[REQUESTED_SCOPES]&
     state=[STATE]
 ```
+
+::: info
+You can consult the list of [availables scopes](https://help.akeneo.com).
+::::
 
 ::: warning
 To protect your App from cross-site request forgery, you should send a random string in the `state` parameter.
@@ -129,3 +135,5 @@ If your Access Token Request is refused, you will receive a JSON response with t
 ```
 
 Check the [OAuth 2.0 spec](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1) for the possible error codes.
+
+**Next step**: we will show you a simple [implementation of this steps with a PHP example](/apps/create-app-in-php.html).

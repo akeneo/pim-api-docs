@@ -18,4 +18,4 @@ The only constraint is that an App must have a single activation URL and should 
 For more information on Apps usage, please read our help center article [some article](https://help.akeneo.com).
 ::::
 
-**Next step**: we will guide you through the steps of [creating an App](/apps/create-app.html).
+**Next step**: we will guide you through the steps of [using OAuth 2.0 to connect an App](/apps/using-oauth2.html).

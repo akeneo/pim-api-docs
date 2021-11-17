@@ -553,7 +553,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
         'introduction.md': 'What\'s an App ?',
         'using-oauth2.md': 'Using OAuth 2.0 to connect an App',
-        'create-app.md': 'Create an App',
+        'create-app-in-php.md': 'Create an App in PHP',
     };
 
     var isOnePage = false;
