@@ -1,0 +1,26 @@
+title Auth0 protocol in action
+participant App
+participant PIM
+actor Julia
+
+
+note over Julia: initiate activation
+Julia-->PIM:clicks on "connect"
+
+
+PIM->App: redirects to the app activate page
+activate App
+note over App: App prerequisites:\ninformation, pricing, signup
+App->PIM:Request authorization
+deactivate App
+activate PIM
+note over Julia, PIM: Julie consents\nconfigures permissions
+Julia-->PIM: confirm authorization
+deactivate PIM
+PIM->App: redirects to with authroization code
+
+App->PIM: exchange code for token
+PIM-->>App: token response
+
+App-->>PIM: API calls
+activate PIM
