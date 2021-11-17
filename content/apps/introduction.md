@@ -12,10 +12,12 @@ with a streamlined process of activation and configuration.
 An App can extend the PIM functionalities through the REST API, like a Connector, 
 by retrieving or updating data and integrate it with external services.
 
-The only constraint is that an App must have a single activation URL and should be hosted by its creator.
+An App must have a single activation URL, be hosted by its creator and use OAuth 2.0 to ask for API access.
 
 In this documentation, we will guide you through the steps of building an App.
 
 ::: info
-For more information on Apps usage, please read our help center article [some article](https://help.akeneo.com).
+For more information on Apps usage, please read our help center articles
+[How to connect Akeneo PIM with third parties](https://help.akeneo.com/pim/serenity/articles/how-to-connect-my-pim-with-apps.html)
+and [Manage your Apps](https://help.akeneo.com/pim/serenity/articles/manage-your-apps.html).
 ::::
