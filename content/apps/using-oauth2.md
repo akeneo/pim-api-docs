@@ -2,7 +2,8 @@
 
 The PIM uses OAuth 2.0 to manage the authorization of Apps.
 
-[[SCHEMA]]
+![App activation diagram](../img/apps/app-activation-sequence-diagram.png)
+
 
 ## Credentials
 
