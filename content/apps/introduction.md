@@ -14,10 +14,10 @@ by retrieving or updating data and integrate it with external services.
 
 An App must have a single activation URL, be hosted by its creator and use OAuth 2.0 to ask for API access.
 
-In this documentation, we will guide you through the steps of building an App.
-
 ::: info
 For more information on Apps usage, please read our help center articles
 [How to connect Akeneo PIM with third parties](https://help.akeneo.com/pim/serenity/articles/how-to-connect-my-pim-with-apps.html)
 and [Manage your Apps](https://help.akeneo.com/pim/serenity/articles/manage-your-apps.html).
 ::::
+
+**Next step**: we will guide you through the steps of [using OAuth 2.0 to connect an App](/apps/using-oauth2.html).
