@@ -569,7 +569,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
                   return gulp.src('src/partials/apps.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation:  true,
-                        title: 'The Apps',
+                        title: 'Apps',
                         mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']

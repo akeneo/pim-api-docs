@@ -1,7 +1,7 @@
 # What's an App ?
 
 ::: warning
-The Apps are only available in the **6.0 version** and higher and for **SaaS** customers.
+Apps are only available in the **6.0 version** and higher and for **SaaS** customers.
 :::
 
 Before you start developing an App, it's important to understand what Apps can do and how they interact with the PIM.
