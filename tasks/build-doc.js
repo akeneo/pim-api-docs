@@ -549,6 +549,37 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
   }
 );
 
+gulp.task('build-apps', ['clean-dist','less'], function () {
+    var pages = {
+        'introduction.md': 'What\'s an App ?',
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/apps/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/apps/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/apps') + "\n"))
+              .pipe(gulpMarkdownIt(md))
+              .pipe(gulp.dest('tmp/apps/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/apps.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_documentation:  true,
+                        title: 'The Apps',
+                        mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/apps'));
+              })
+        }));
+  }
+);
+
 gulp.task('build-concepts', ['clean-dist','less'], function () {
 
     var pages = {
