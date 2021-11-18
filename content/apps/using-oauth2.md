@@ -131,6 +131,16 @@ If your Access Token Request is accepted, you will receive a JSON response with 
 }
 ```
 
+::: warning
+You must **store the access token securely**. If you need to ask for a new one, you have to go through the same steps
+and be granted a new access token by the PIM user.
+:::
+
+::: info
+An Access Token given to an App has no expiration date.  
+However, be aware that it can be revoked at any moment by the PIM user.
+:::
+
 ### Token Error Response
 
 If your Access Token Request is refused, you will receive a JSON response with the error:
