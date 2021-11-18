@@ -36,6 +36,12 @@ The user landed on your Activation URL and when you are ready to do so, you must
 Like any other OAuth 2.0 application, you simply have to redirect the user to the Authorization Server (the PIM)
 with the following parameters:
 
+- `response_type` (required, must always be "code")
+- `client_id` (required)
+- `redirect_uri` (optional)
+- `scope` (optional)
+- `state` (recommended)
+
 ```
 
 https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
@@ -76,11 +82,12 @@ to the one you sent.
 Now that you have received an authorization code, you can exchange this code against an access token.
 
 The PIM expect the following parameters in the request: 
-- `client_id`
-- `code`
-- `grant_type`
-- `code_identifier`
-- `code_challenge`
+- `client_id` (required)
+- `code` (required)
+- `grant_type` (required, must always be "authorization_code")
+- `code_identifier` (required)
+- `code_challenge` (required)
+- `redirect_uri` (required, only if included in the Authorization Request)
 
 ### What's the Code Challenge ?
 
