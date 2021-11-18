@@ -15,7 +15,7 @@ Then, when any user want to connect his PIM to your App, the authorization proce
 ::: info
 In the following examples, we will use those fictional urls:  
 `https://my-pim.cloud.akeneo.com` for the PIM  
-`https://my-app.example.com/oauth/activate` for your App Activatio*n* URL  
+`https://my-app.example.com/oauth/activate` for your App Activation URL  
 `https://my-app.example.com/oauth/callback` for your App Callback URL
 ::::
 
