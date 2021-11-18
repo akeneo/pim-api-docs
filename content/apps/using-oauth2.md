@@ -47,7 +47,7 @@ https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
 ```
 
 ::: info
-You can consult the list of [availables scopes](https://help.akeneo.com).
+You can consult the list of [availables scopes](/apps/oauth2-scopes.html#supported-scopes).
 ::::
 
 ::: warning
