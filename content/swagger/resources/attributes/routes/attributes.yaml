@@ -180,7 +180,8 @@ get:
                     "en_US": "Ingredient",
                     "fr_FR": "Ingrédient"
                   },
-                  "validations": {}
+                  "validations": {},
+                  "is_required_for_completeness": true
                 },
                 {
                   "code": "percentage",
@@ -193,7 +194,8 @@ get:
                     "max": 100,
                     "min": 0,
                     "decimals_allowed": true
-                  }
+                  },
+                  "is_required_for_completeness": true
                 },
                 {
                   "code": "allergen",
@@ -202,7 +204,8 @@ get:
                     "en_US": "Allergen",
                     "fr_FR": "Allergène"
                   },
-                  "validations": {}
+                  "validations": {},
+                  "is_required_for_completeness": false
                 }
               ]
             }
