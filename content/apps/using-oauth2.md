@@ -73,15 +73,15 @@ https://my-app.example.com/oauth/callback?
 ```
 
 ::: warning
-To protect your App from cross-site request forgery, you must validate that the received state is identical
-to the one you sent.
+If you used a state to protect your App from cross-site request forgery, you must validate that the received
+state is identical.
 :::
 
 ## Access Token Request
 
 Now that you have received an authorization code, you can exchange this code against an access token.
 
-The PIM expect the following parameters in the request: 
+The PIM expect the following parameters in the request:
 - `client_id` (required)
 - `code` (required)
 - `grant_type` (required, must always be "authorization_code")
@@ -91,7 +91,7 @@ The PIM expect the following parameters in the request:
 
 ### What's the Code Challenge ?
 
-To validate the App identity, instead of sending your client secret, the PIM requires a code challenge, 
+To validate the App identity, instead of sending your client secret, the PIM requires a code challenge,
 different for each Access Token Request, alongside the OAuth client id.
 The code challenge is composed of 2 keys:
 - `code_identifier`: high-entropy cryptographic random string
