@@ -100,7 +100,7 @@ HTTP/1.1 200 OK
 
 This is the default pagination type. It's available for all the resources, except the reference entity and the reference entity record: only the search-after method is available for these two resources.
 
-The `Offset` method is the most common way to paginate resources (with an offset on query), but it's less efficient than the [`Search-after method](/documentation/pagination.html#the-offset-method).
+The `Offset` method is the most common way to paginate resources (with an offset on query), but it's less efficient than the [`Search-after` method](/documentation/pagination.html#the-search-after-method).
 
 When you want to use the classical method on products, product models, published products or assets, you can set the `pagination_type` query parameter to `page` but this is not mandatory since this is the default pagination.
 
