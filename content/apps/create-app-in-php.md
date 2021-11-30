@@ -5,7 +5,7 @@ required for the activation process based on OAuth 2.0 with Authorization Code.
 At the end of this tutorial, your App will receive an Access Token and will be able to call the REST API of a PIM.
 
 ::: warning
-Examples in this tutorial are using PHP without any framework or library, and are consequently not following
+Examples in this tutorial are using PHP without any framework or library and are consequently not following
 all the recommended best practices. We are **strongly** encouraging you to adapt those examples with the framework or 
 library of your choice.
 :::
@@ -25,7 +25,7 @@ Let's create an `activate.php` file:
 ```php
 
 const OAUTH_CLIENT_ID = '<CLIENT_ID>';
-const OAUTH_SCOPES = '<SCOPES>'; // eg: read_products
+const OAUTH_SCOPES = '<SCOPES>';
 
 session_start();
 
@@ -69,7 +69,7 @@ Then, your application must expose a callback URL.
 The Code Challenge is documented [here](/apps/using-oauth2.html#whats-the-code-challenge).
 :::
 
-Let's create an `callback.php` file:
+Let's create a `callback.php` file:
 ```php
 
 const OAUTH_CLIENT_ID = '<CLIENT_ID>';
@@ -117,7 +117,9 @@ $response = json_decode(curl_exec($ch), true);
 echo $response['access_token'];
 ```
 
-And that's all. At the end of this process, you have now received the following response with an `access_token`:
+And that's it!  
+At the end of this process, you receive the following response with an `access_token`:
+
 ```json
 
 {
@@ -126,4 +128,4 @@ And that's all. At the end of this process, you have now received the following 
 }
 ```
 
-You can use this token to call the PIM REST API.
+You can use this token to call the Akeneo PIM REST API.

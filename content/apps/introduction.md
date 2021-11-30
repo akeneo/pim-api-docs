@@ -1,18 +1,18 @@
-# What's an App ?
+# What's an App?
 
 ::: warning
-Apps are only available in the **6.0 version** and higher and for **SaaS** customers.
+Apps are only available for **SaaS** customers.
 :::
 
-Before you start developing an App, it's important to understand what Apps can do and how they interact with the PIM.
+Before you start developing an App, it's essential to understand what Apps can do and how they interact with the PIM.
 
 An App is a service that can be easily connected to a PIM, directly from the PIM, 
 with a streamlined process of activation and configuration.
 
-An App can extend the PIM functionalities through the REST API, like a Connector, 
-by retrieving or updating data and integrate it with external services.
+An App can extend Akeneo PIM functionalities through the REST API, like a connector, 
+by retrieving or updating data and integrating it with external services.
 
-An App must have a single activation URL, be hosted by its creator and use OAuth 2.0 to ask for API access.
+An App must have a **single activation URL, be hosted by its creator, and use OAuth 2.0** to ask for API access.
 
 ::: info
 For more information on Apps usage, please read our help center articles
