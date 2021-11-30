@@ -53,8 +53,8 @@ https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
 ```
 
 ::: info
-You can consult the list of [available scopes](https://help.akeneo.com).
-::::
+You can consult the list of [availables scopes](/apps/access-scopes.html).
+:::
 
 ::: warning
 To protect your App from cross-site request forgery, you should send a random string in the `state` parameter.

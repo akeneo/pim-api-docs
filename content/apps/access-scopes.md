@@ -1,0 +1,39 @@
+# Access scopes
+
+Part of the app authorization process requires specifying which parts of the Akeneo PIM's data the app needs access to.  
+An App can request any of the access scopes listed below.
+
+::: warning
+**The Akeneo PIM is not required to grant all requested scopes.**  
+This is up to your App to check which scopes were granted when you receive an Access Token.  
+For example, the Community edition will not be able to grant you scopes related to the Asset Manager because
+it's a feature only available in the Enterprise edition.
+:::
+
+## Available scopes
+
+| Scope | Grants access to |
+|-------|------------------|
+| `read_products` | Read products |
+| `write_products` | Write products |
+| `delete_products` | Remove products |
+| `read_catalog_structure` | Read attributes, attribute groups, families and family variants|
+| `write_catalog_structure` | Write attributes, attribute groups, families and family variants |
+| `read_attribute_options` | Read attribute options |
+| `write_attribute_options` | Write attribute options  |
+| `read_categories` | Read categories  |
+| `write_categories` | Write categories |
+| `read_channel_localization` | Read locales and currencies |
+| `read_channel_settings` | Read channels |
+| `write_channel_settings` | Write channels |
+| `read_association_types` | Read association types |
+| `write_association_types` | Write association types |
+| `read_asset_families` <span class="label label-ee">EE</span> | Read asset families |
+| `write_asset_families` <span class="label label-ee">EE</span> | Write assets families |
+| `read_assets` <span class="label label-ee">EE</span> | Read assets |
+| `write_assets` <span class="label label-ee">EE</span> | Write assets |
+| `delete_assets` <span class="label label-ee">EE</span> | Remove assets |
+| `read_entities` <span class="label label-ee">EE</span> | Read reference entities |
+| `write_entities` <span class="label label-ee">EE</span> | Write reference entities |
+| `read_entity_records` <span class="label label-ee">EE</span> | Read reference entity records |
+| `write_entity_records` <span class="label label-ee">EE</span> | Write reference entity records |
