@@ -1,41 +1,36 @@
-materialdesignicons f004 "<color:#11324d>**++User++**</color>" as User #11324d
-participant "<color:#9452ba>**++PIM++**</color>" as PIM
-participant "<color:#4f5bc6>**++App++**</color>" as App
+materialdesignicons f004 "**++User++**" as User #000000
+participant "**++Akeneo PIM++**" as PIM
+participant "**++App++**" as App
 
+lifelinestyle User :1:dashed
+lifelinestyle PIM :1:solid
+lifelinestyle App :1:solid
 
-lifelinestyle User #11324d:1:dashed
-lifelinestyle PIM #9452ba:2:solid
-lifelinestyle App #4f5bc6:1:solid
+activate PIM
+User->PIM: Request App Activation
 
-activecolor PIM #9452ba
-activecolor App #4f5bc6
-
-autonumber 1
-
-rbox over User: Initiate Activation
-User->PIM:Clicks on "connect"
-
-PIM-#9452ba:2>App: Redirection to the activation URL
+PIM-:1>App: Redirection to the Activation URL
+deactivate PIM
 activate App
-rbox over App: App prerequisites:\ninformation, pricing, signup
-App-#4f5bc6:2>PIM:Authorization Request
+
+App-:1>PIM:Authorization Request
 deactivate App
 activate PIM
-rbox over PIM: User consent\nPermisions configuration
 
 User->PIM: Confirm Authorization
-destroysilent User
 
-PIM-#9452ba:2>App: Authorization Response
+PIM-->>App: Authorization Response
 deactivate PIM
+activate App
 
 entryspacing 2
-App-#4f5bc6>>PIM: Access Token Request
-entryspacing 0.5
-PIM--#9452ba>>App: Access Token Response
-entryspacing 2
-
-rbox over PIM, App: App is activated and ready
-
-App--#4f5bc6>>PIM: API calls with token
+App->>PIM: Access Token Request
+deactivate App
 activate PIM
+
+entryspacing 1
+PIM-->>App: Access Token Response
+deactivate PIM
+entryspacing 2
+
+App->>PIM: REST API calls with token

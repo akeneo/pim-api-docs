@@ -25,7 +25,7 @@ Let's create an `activate.php` file:
 ```php
 
 const OAUTH_CLIENT_ID = '<CLIENT_ID>';
-const OAUTH_SCOPES = '<SCOPES>';
+const OAUTH_SCOPES = 'read_products write_products';
 
 session_start();
 
@@ -64,10 +64,6 @@ header('Location: ' . $authorizeUrl);
 ## Callback URL
 
 Then, your application must expose a callback URL.
-
-::: info
-The Code Challenge is documented [here](/apps/using-oauth2.html#whats-the-code-challenge).
-:::
 
 Let's create a `callback.php` file:
 ```php
@@ -117,6 +113,10 @@ $response = json_decode(curl_exec($ch), true);
 echo $response['access_token'];
 ```
 
+::: info
+The Code Challenge is documented [here](/apps/using-oauth2.html#whats-the-code-challenge).
+:::
+
 And that's it!  
 At the end of this process, you receive the following response with an `access_token`:
 
@@ -124,7 +124,8 @@ At the end of this process, you receive the following response with an `access_t
 
 {
   "access_token": "Y2YyYjM1ZjMyMmZlZmE5Yzg0OTNiYjRjZTJjNjk0ZTUxYTE0NWI5Zm",
-  "token_type": "bearer"
+  "token_type": "bearer",
+  "scope": "read_products write_products"
 }
 ```
 

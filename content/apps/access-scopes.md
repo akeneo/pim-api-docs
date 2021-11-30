@@ -33,7 +33,7 @@ it's a feature only available in the Enterprise edition.
 | `read_assets` <span class="label label-ee">EE</span> | Read assets |
 | `write_assets` <span class="label label-ee">EE</span> | Write assets |
 | `delete_assets` <span class="label label-ee">EE</span> | Remove assets |
-| `read_entities` <span class="label label-ee">EE</span> | Read reference entities |
-| `write_entities` <span class="label label-ee">EE</span> | Write reference entities |
-| `read_entity_records` <span class="label label-ee">EE</span> | Read reference entity records |
-| `write_entity_records` <span class="label label-ee">EE</span> | Write reference entity records |
+| `read_reference_entities` <span class="label label-ee">EE</span> | Read reference entities |
+| `write_reference_entities` <span class="label label-ee">EE</span> | Write reference entities |
+| `read_reference_entity_records` <span class="label label-ee">EE</span> | Read reference entity records |
+| `write_reference_entity_records` <span class="label label-ee">EE</span> | Write reference entity records |

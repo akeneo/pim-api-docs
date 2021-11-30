@@ -1,6 +1,6 @@
 # Using OAuth 2.0 to connect an App
 
-The PIM uses OAuth 2.0 to manage the authorization of Apps.
+The PIM uses **OAuth 2.0** to manage the authorization of Apps.
 
 ![App activation diagram](../img/apps/app-activation-sequence-diagram.png)
 
@@ -127,13 +127,14 @@ If your Access Token Request is accepted, you will receive a JSON response with 
 
 {
   "access_token": "Y2YyYjM1ZjMyMmZlZmE5Yzg0OTNiYjRjZTJjNjk0ZTUxYTE0NWI5Zm",
-  "token_type": "bearer"
+  "token_type": "bearer",
+  "scope": "read_products write_products"
 }
 ```
 
 ::: warning
 You must **store the access token securely**. If you need to ask for a new one, you have to go through the same steps
-and be granted a new access token by the PIM user.
+and be manually granted a new access token by the PIM user.
 :::
 
 ::: info
