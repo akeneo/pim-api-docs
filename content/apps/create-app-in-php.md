@@ -1,12 +1,12 @@
 # Create an App in PHP
 
-In this tutorial, we will provide a guide, with examples in PHP, on how to implement the parts of your App 
-required for the activation process based on OAuth 2.0 with Authorization Code.
+In this tutorial, we will provide a guide, with examples in PHP, on how to implement the required parts of your App
+for the activation process based on OAuth 2.0 with Authorization Code.
 At the end of this tutorial, your App will receive an Access Token and will be able to call the REST API of a PIM.
 
 ::: warning
-Examples in this tutorial are using PHP without any framework or library and are consequently not following
-all the recommended best practices. We are **strongly** encouraging you to adapt those examples with the framework or 
+Examples in this tutorial use PHP without any framework or library and, consequently, don't follow
+all the recommended best practices. We **strongly** encourage you to adapt those examples with the framework or
 library of your choice.
 :::
 

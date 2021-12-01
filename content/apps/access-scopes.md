@@ -1,10 +1,10 @@
 # Access scopes
 
-Part of the app authorization process requires specifying which parts of the Akeneo PIM's data the app needs access to.  
+Part of the app authorization process requires specifying which parts of Akeneo PIM data the App needs to access.
 An App can request any of the access scopes listed below.
 
 ::: warning
-**The Akeneo PIM is not required to grant all requested scopes.**  
+**Akeneo PIM may not grant all requested scopes.**  
 This is up to your App to check which scopes were granted when you receive an Access Token.  
 For example, the Community edition will not be able to grant you scopes related to the Asset Manager because
 it's a feature only available in the Enterprise edition.

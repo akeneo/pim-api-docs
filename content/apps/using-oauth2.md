@@ -22,7 +22,7 @@ In the following examples, we will use these fictional URLs:
 ## Activation URL
 
 Your App must expose an activation URL.  
-Akeneo PIM users have access to an App marketplace in their PIM. When they connect your App from their PIM,
+Akeneo PIM users have access to an App marketplace in their PIM. When a PIM user connects your App from their PIM,
 they are redirected to the activation URL you provided. The PIM URL they come from is in the query you receive.
 
 ```
@@ -53,7 +53,7 @@ https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
 ```
 
 ::: info
-You can consult the list of [availables scopes](/apps/access-scopes.html).
+You can consult the list of [available scopes](/apps/access-scopes.html).
 :::
 
 ::: warning
@@ -81,7 +81,7 @@ state is identical.
 
 Now that you have received an authorization code, you can exchange this code against an access token.
 
-The PIM expect the following parameters in the request:
+The PIM expects the following parameters in the request:
 - `client_id` (required)
 - `code` (required)
 - `grant_type` (required, must always be "authorization_code")
@@ -91,8 +91,8 @@ The PIM expect the following parameters in the request:
 
 ### What's the Code Challenge?
 
-To validate the App identity, instead of sending your client secret, Akeneo PIM requires a code challenge,
-different for each Access Token Request, alongside the OAuth client id.
+To validate the App identity, Akeneo PIM requires a unique code challenge for each Access Token Request,
+instead of the usual client secret.  
 The code challenge is composed of 2 keys:
 - `code_identifier`: high-entropy cryptographic random string
 - `code_challenge`: sha256 hash of the concatenation of `code_identifier` and `client_secret`
@@ -134,7 +134,7 @@ If your Access Token Request is accepted, you will receive a JSON response with 
 
 ::: warning
 You must **store the access token securely**. If you need to ask for a new one, you have to go through the same steps
-and be manually granted a new access token by the PIM user.
+and wait for the PIM user to manually grant you a new access token.
 :::
 
 ::: info
