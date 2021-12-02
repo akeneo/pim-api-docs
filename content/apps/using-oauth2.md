@@ -1,6 +1,6 @@
 # Using OAuth 2.0 to connect an App
 
-The PIM uses **OAuth 2.0** to manage the authorization of Apps.
+Akeneo PIM uses **OAuth 2.0** to manage the authorization of Apps.
 
 ![App activation diagram](../img/apps/app-activation-sequence-diagram.png)
 
