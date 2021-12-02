@@ -34,9 +34,6 @@ if (empty($pimUrl)) {
     exit('Missing PIM URL in the query');
 }
 
-$scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'] ?: $_SERVER['REQUEST_SCHEME'];
-$host = $_SERVER['HTTP_HOST'];
-$redirectUri = sprintf('%s://%s/callback.php', $scheme, $host);
 // create a random state for preventing cross-site request forgery
 $state = bin2hex(random_bytes(10));
 
@@ -49,7 +46,6 @@ $_SESSION['pim_url'] = $pimUrl;
 $authorizeUrlParams = http_build_query([
     'response_type' => 'code',
     'client_id' => OAUTH_CLIENT_ID,
-    'redirect_uri' => $redirectUri,
     'scope' => OAUTH_SCOPES,
     'state' => $state,
 ]);

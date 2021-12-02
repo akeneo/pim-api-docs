@@ -38,7 +38,6 @@ with the following parameters:
 
 - `response_type` (required, must always be "code")
 - `client_id` (required)
-- `redirect_uri` (optional)
 - `scope` (optional)
 - `state` (recommended)
 
@@ -47,7 +46,6 @@ with the following parameters:
 https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
     response_type=code&
     client_id=[OAUTH_CLIENT_ID]&
-    redirect_uri=[CALLBACK_URL]&
     scope=[REQUESTED_SCOPES]&
     state=[STATE]
 ```
@@ -87,7 +85,6 @@ The PIM expects the following parameters in the request:
 - `grant_type` (required, must always be "authorization_code")
 - `code_identifier` (required)
 - `code_challenge` (required)
-- `redirect_uri` (required, only if included in the Authorization Request)
 
 ### What's the Code Challenge?
 
