@@ -8,7 +8,7 @@ Both connectors and Apps use the OAuth standard. However, there are some signifi
 
 The user who connects Akeneo PIM with a connector must create a connection and manually configure authorizations and permissions. Then, they copy/paste generated API credentials from the PIM UI to the connector. 
 
-### Apps are using the Connect feature
+### Apps use the Connect feature
 
 When a user connects Akeneo PIM with an App, they click on Connect then follow the step-by-step activation process to accept requested authorizations and set up permissions. The App receives everything it needs to interact with Akeneo PIM at the end of this process.
 
@@ -16,22 +16,17 @@ No more manual configuration issues and more transparency!
 
 ## High visibility
 
-We give your App high visibility when you publish an App on our [Marketplace](https://marketplace.akeneo.com/). Your App is displayed above all connectors. 
+We give your App high visibility when you publish an App on our [Marketplace](https://marketplace.akeneo.com/). Your App is displayed **above all connectors**. 
 
-We also give high visibility to Apps to our Akeneo PIM users. To do so, we created a dedicated section to highlight them in the PIM marketplace.
+We also give high visibility to Apps to our Akeneo PIM users. To do so, we created a **dedicated section** to highlight them in the PIM marketplace.
 
 ![PIM marketplace](../img/apps/pim-marketplace-with-apps.png)
 
 
-## Akeneo promotion
-
-Akeneo promotes Apps, and all our internal teams believe in Apps and their future. Publish an App, and when we detect a customer who might need it, we will tell them about you.
-
-Also, we will communicate about new Apps published on our Marketplace all along the year.
-
 ## This is just the beginning!
 
 Akeneo promotes Apps and will communicate about new Apps published on its Marketplace.
+
 Akeneo teams are also investing in Apps by developing new features for you to ease and accelerate App development and publication in the coming years. 
 
 And we are going to need your input so get ready to hear about us! 🎙️
