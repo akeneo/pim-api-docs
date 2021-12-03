@@ -1,7 +1,7 @@
 # What's an App?
 
 ::: warning
-Apps are only available for **SaaS** customers.
+Today, Apps are only available for **SaaS** customers.
 :::
 
 Before you start developing an App, it's essential to understand what Apps can do and how they interact with the PIM.
@@ -20,4 +20,9 @@ For more information on Apps usage, please read our help center articles
 and [Manage your Apps](https://help.akeneo.com/pim/serenity/articles/manage-your-apps.html).
 ::::
 
-**Next step**: we will guide you through the steps of [using OAuth 2.0 to connect an App](/apps/using-oauth2.html).
+::: tips
+Still not sure about developing an App? Read our page [Why should you choose Apps?](/apps/why-apps-over-connectors.html)
+:::
+
+::: panel-link Next step [Use OAuth 2.0 to connect an App](/apps/using-oauth2.html)
+:::
