@@ -1,7 +1,7 @@
 # What's an App?
 
 ::: warning
-Today, Apps are only available for **SaaS** customers.
+**THIS FEATURE WILL BE AVAILABLE SOON**
 :::
 
 Before you start developing an App, it's essential to understand what Apps can do and how they interact with the PIM.

@@ -1,5 +1,9 @@
 # Why should you choose developing an App over a connector?
 
+::: warning
+**THIS FEATURE WILL BE AVAILABLE SOON**
+:::
+
 Both connectors and Apps use the OAuth standard. However, there are some significant differences.
 
 ## Automatic configuration instead of manual configuration

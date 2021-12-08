@@ -1,5 +1,9 @@
 # Access scopes
 
+::: warning
+**THIS FEATURE WILL BE AVAILABLE SOON**
+:::
+
 Part of the app authorization process requires specifying which parts of Akeneo PIM data the App needs to access.
 An App can request any of the access scopes listed below.
 
