@@ -48,7 +48,8 @@ gulp.task('create-dist', [
   'build-misc-documentation',
   'build-guides',
   'build-getting-started',
-  'build-events-reference-page'
+  'build-events-reference-page',
+  'build-apps',
 ]);
 
 // Main task that should be used for development purpose
