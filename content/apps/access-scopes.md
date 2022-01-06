@@ -14,7 +14,7 @@ For example, the Community edition will not be able to grant you scopes related 
 it's a feature only available in the Enterprise edition.
 :::
 
-## Available scopes
+## Available authorization scopes
 
 | Scope | Grants access to |
 |-------|------------------|
@@ -41,3 +41,12 @@ it's a feature only available in the Enterprise edition.
 | `write_reference_entities` <span class="label label-ee">EE</span> | Write reference entities |
 | `read_reference_entity_records` <span class="label label-ee">EE</span> | Read reference entity records |
 | `write_reference_entity_records` <span class="label label-ee">EE</span> | Write reference entity records |
+
+
+## Available authentication scopes
+
+| Scope | Grants access to |
+|-------|------------------|
+| `openid` | Get the user uuid to be able to identify them |
+| `profile` | Read user first name and last name (information filled in the PIM user profile) |
+| `email` | Read user email (information filled in the PIM user profile) |
