@@ -252,7 +252,7 @@ $client->getProductApi()->upsert('top', [
 You can get more information about the expected format of the product values [here](/concepts/products.html#focus-on-the-products-values).
 
 :::warning
-If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the product you try to upsert.
+If you are using a v2.0 Enterprise Edition PIM, permissions based on your user groups are applied to the product you try to upsert.
 If you have edit rights but do not own the product, then it will create a [product draft](/php-client/resources.html#product-draft) instead of updating the product.
 :::
 

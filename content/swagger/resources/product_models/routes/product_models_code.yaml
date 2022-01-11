@@ -9,7 +9,7 @@ get:
     - "4.0"
     - "5.0"
     - "SaaS"
-  description: This endpoint allows you to get the information about a given product model. In the Entreprise Edition, since the v2.0, permissions based on your user groups are applied to the product model you request.
+  description: This endpoint allows you to get the information about a given product model. In the Enterprise Edition, since the v2.0, permissions based on your user groups are applied to the product model you request.
   parameters:
     - $ref: '#/parameters/code'
   responses:

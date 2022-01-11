@@ -8,7 +8,7 @@ There are several resources available to interact with the Reference Entities fe
 Each section below contains an explanation of the concept behind these resources You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API. 
 
 ::: info
-The Reference Entities is an Entreprise only feature, meaning all the following resources are only available in the Entreprise Edition.
+The Reference Entities is an Enterprise only feature, meaning all the following resources are only available in the Enterprise Edition.
 :::
 
 ## Reference entity

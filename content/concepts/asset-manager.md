@@ -14,7 +14,7 @@ Below, you'll find an illustration of this wonderful new feature.
 This part of the documentation introduces all the REST API resources our team created to interact with the Asset Manager.
 
 ::: info
-The Asset Manager is an Entreprise only feature, meaning all the following resources are only available in the Entreprise Edition.
+The Asset Manager is an Enterprise only feature, meaning all the following resources are only available in the Enterprise Edition.
 :::
 
 ## Asset family

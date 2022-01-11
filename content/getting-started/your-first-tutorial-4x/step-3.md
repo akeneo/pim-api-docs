@@ -19,7 +19,7 @@ In the response area, you can see a list of 100 products in json format.
 
 ::: warning
 The response area is showing you an empty list of products?  
-It's totally normal, it means that your are using the Entreprise edition. To view products, you need to configure the permissions linked to the connection.  
+It's totally normal, it means that your are using the Enterprise edition. To view products, you need to configure the permissions linked to the connection.  
 To do so, create a user group that has view rights over your category trees and then, link this user group to your connection. :wink:
 For more details, don't hesitate to browse our [help center documentation](https://help.akeneo.com/pim/articles/manage-your-connections.html#configure-the-connection-user-group).
 :::

@@ -22,7 +22,7 @@ In the end, we hope that these amazing connectors you are going to build on top 
 
 ::: info
 Usually, between PIM versions, there are no BC breaks in our REST API. But in some cases, for example, when we entirely revamp whole features in a new PIM version, we have no choice but to deprecate things in the REST API. Rest reassured that this kind of situation remains exceptional. When it happens, we try to warn you, our dear ecosystem 🥰, the sooner we can. So that you can take the time to integrate integrate the changes.  
-Also, if you're dealing with REST API breaks that weren't announced and not documented on this website, don't hesitate to reach out to us. It's probably a regression that we can fix asap, if you are an Entreprise customer. :wink:
+Also, if you're dealing with REST API breaks that weren't announced and not documented on this website, don't hesitate to reach out to us. It's probably a regression that we can fix asap, if you are an Enterprise customer. :wink:
 :::
 
 

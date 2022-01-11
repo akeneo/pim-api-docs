@@ -3,7 +3,7 @@
 In some connector use cases, you will need to restrict the access to the REST API.
 There are two ways to handle this in the REST API, depending on the wanted result:
 - if you want to restrict the access to some REST API endpoints, use [the ACLs authorizations](#endpoint-access-restrictions).
-- if you want to restrict the access to certain parts of your product catalog, use the [Entreprise Edition permissions](#catalog-permissions-ee-only) _(only available in the Entreprise Edition)_.
+- if you want to restrict the access to certain parts of your product catalog, use the [Enterprise Edition permissions](#catalog-permissions-ee-only) _(only available in the Enterprise Edition)_.
 
 Please see below for more details about both permission systems. 
 
@@ -87,7 +87,7 @@ You can fine-tune even more this permission by restricting or allowing access to
 
 ## Catalog permissions _(EE only)_
 
-The Entreprise Edition permissions based on the user groups are also enforced in the API.
+The Enterprise Edition permissions based on the user groups are also enforced in the API.
 
 Those permissions are really powerful and make it possible to create great workflows around product enrichment with the REST API. There are 3 ways to benefit from those permissions. They are detailed in the following sections.
 
