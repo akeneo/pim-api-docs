@@ -555,7 +555,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'why-apps-over-connectors.md': 'Why should you choose Apps?',
         'using-oauth2.md': 'Using OAuth 2.0 to connect an App',
         'create-app-in-php.md': 'Create an App in PHP',
-        'access-scopes.md': 'Access scopes'
+        'how-to-test-my-app.md': 'How to test my App?'
     };
 
     var isOnePage = false;
@@ -571,7 +571,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
                   return gulp.src('src/partials/apps.handlebars')
                     .pipe(gulpHandlebars({
                         active_documentation:  true,
-                        title: 'Apps (available soon)',
+                        title: 'Apps (available for partners)',
                         mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']

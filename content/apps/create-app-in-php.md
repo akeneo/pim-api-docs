@@ -1,7 +1,7 @@
 # Create an App in PHP
 
 ::: warning
-**THIS FEATURE WILL BE AVAILABLE SOON**
+**For now, this feature is ONLY AVAILABLE on partner sandboxes Akeneo provides**
 :::
 
 In this tutorial, we will provide a guide, with examples in PHP, on how to implement the required parts of your App

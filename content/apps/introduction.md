@@ -1,7 +1,7 @@
 # What's an App?
 
 ::: warning
-**THIS FEATURE WILL BE AVAILABLE SOON**
+**For now, this feature is ONLY AVAILABLE on partner sandboxes Akeneo provides**
 :::
 
 Before you start developing an App, it's essential to understand what Apps can do and how they interact with the PIM.
