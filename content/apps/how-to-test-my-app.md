@@ -40,11 +40,15 @@ To create a test App:
 Connect a test App is like connecting a published App. 
 
 1. Click on `Connect`
-2. Either it opens your App in a new tab of your browser, or it launches the step-by-step activation process, depending what you chose for your App. 
+2. Your App opens in a new tab of your browser
+3. Launch the connection process from your App
+4. Follow all the activation process steps, then `Confirm`
+5. Your test App is now connected with Akeneo PIM! 🔗
 
+::: info
 To know more about the step-by-step activation process, please read our article: [How to connect an App?](https://help.akeneo.com/pim/serenity/articles/how-to-connect-my-pim-with-apps.html#how-to-connect-an-app)
+:::
 
-Your test App is now connected! 🔗
 
 ## Step 4 - Access the connected App settings on Akeneo PIM
 
@@ -54,3 +58,7 @@ To access the settings of your connected App on the Akeneo PIM side, please go t
 You can also open your App from Akeneo PIM UI, to do so, click on `Open app`. 
 
 ![Connected test app on Apps](../img/apps/connected-test-app.png)
+
+::: info
+To know more about connected app management, please read our article: [Manage your Apps](https://help.akeneo.com/pim/serenity/articles/manage-your-apps.html)
+:::
