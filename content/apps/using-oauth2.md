@@ -1,7 +1,7 @@
 # Using OAuth 2.0 to connect an App
 
 ::: warning
-**THIS FEATURE WILL BE AVAILABLE SOON**
+**This feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
 :::
 
 Akeneo PIM uses **OAuth 2.0** to manage the authorization of Apps.
@@ -155,6 +155,7 @@ If your Access Token Request is refused, you will receive a JSON response with t
 ```
 
 Check the [OAuth 2.0 spec](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1) for the possible error codes.
+
 
 ::: panel-link Next step: we will show you a simple implementation of these steps [Create an App in PHP](/apps/create-app-in-php.html)
 :::

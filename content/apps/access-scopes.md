@@ -1,8 +1,9 @@
 # Access scopes
 
 ::: warning
-**THIS FEATURE WILL BE AVAILABLE SOON**
+**This feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
 :::
+
 
 Part of the app authorization process requires specifying which parts of Akeneo PIM data the App needs to access.
 An App can request any of the access scopes listed below.
@@ -50,3 +51,7 @@ it's a feature only available in the Enterprise edition.
 | `openid` | Get the user uuid to be able to identify them |
 | `profile` | Read user first name and last name (information filled in the PIM user profile) |
 | `email` | Read user email (information filled in the PIM user profile) |
+
+
+::: panel-link Next step: we will show you a simple implementation of these steps [Create an App in PHP](/apps/create-app-in-php.html)
+:::

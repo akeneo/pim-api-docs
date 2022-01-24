@@ -1,7 +1,7 @@
 # Why should you choose developing an App over a connector?
 
 ::: warning
-**THIS FEATURE WILL BE AVAILABLE SOON**
+**This feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
 :::
 
 Both connectors and Apps use the OAuth standard. However, there are some significant differences.
