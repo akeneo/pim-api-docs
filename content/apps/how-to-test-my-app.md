@@ -1,10 +1,10 @@
 # How to test my App?
 
 ::: warning
-**For now, this feature is ONLY AVAILABLE on partner sandboxes Akeneo provides**
+**This feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
 :::
 
-This page explains how to enable the `developer mode` on your partner sandbox and how to create a test App to check that everything is working well. 
+This page explains how to enable the `developer mode` on your partner sandbox and how to create a test App to check that everything works well. 
 
 ## Step 1 - Enable the developer mode and the test App creation
 
@@ -37,7 +37,7 @@ To create a test App:
 
 ![Test app on Marketplace](../img/apps/marketplace-with-test-app.png)
 
-Connect a test App is like connecting a published App. 
+Connecting a test App is like connecting a published App. 
 
 1. Click on `Connect`
 2. Your App opens in a new tab of your browser
@@ -52,9 +52,9 @@ To know more about the step-by-step activation process, please read our article:
 
 ## Step 4 - Access the connected App settings on Akeneo PIM
 
-Now, your App is connected you can enjoy all the available App features from the Akeneo PIM UI and test that your App is working well. 
+Now that your App is connected, you can enjoy all the available App features from the Akeneo PIM UI and test that your App works well. 
 
-To access the settings of your connected App on the Akeneo PIM side, please go to `Apps`, then click on `Manage App`. 
+To access the settings of your connected App on Akeneo PIM, please go to `Apps`, then click on `Manage App`. 
 You can also open your App from Akeneo PIM UI, to do so, click on `Open app`. 
 
 ![Connected test app on Apps](../img/apps/connected-test-app.png)
