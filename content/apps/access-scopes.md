@@ -1,5 +1,10 @@
 # Access scopes
 
+::: warning
+**This feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
+:::
+
+
 Part of the app authorization process requires specifying which parts of Akeneo PIM data the App needs to access.
 An App can request any of the access scopes listed below.
 
