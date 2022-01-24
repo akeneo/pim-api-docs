@@ -1,7 +1,7 @@
 # Using OAuth 2.0 to connect an App
 
 ::: warning
-**For now, this feature is ONLY AVAILABLE on partner sandboxes Akeneo provides**
+**This feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
 :::
 
 Akeneo PIM uses **OAuth 2.0** to manage the authorization of Apps.

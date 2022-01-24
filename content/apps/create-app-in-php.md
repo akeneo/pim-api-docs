@@ -4,7 +4,7 @@
 **For now, this feature is ONLY AVAILABLE on partner sandboxes Akeneo provides**
 :::
 
-In this tutorial, we will provide a guide, with examples in PHP, on how to implement the required parts of your App
+In this tutorial, we provide a guide, with examples in PHP, on how to implement the required parts of your App
 for the activation process based on OAuth 2.0 with Authorization Code.
 At the end of this tutorial, your App will receive an Access Token and will be able to call the REST API of a PIM.
 
