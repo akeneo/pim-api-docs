@@ -65,7 +65,7 @@ both tokens:
 
 ### Decoding the ID Token
 
-An ID Token is a JWT is composed of 3 parts encoded independently in base64: `header.payload.signature`.
+An ID Token is a JWT composed of 3 parts encoded independently in base64: `header.payload.signature`.
 
 We recommend using one of the libraries listed [here](https://jwt.io/libraries) with support for `RS256` to decode it
 and retrieve the values inside the payload.
