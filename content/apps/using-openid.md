@@ -5,7 +5,7 @@
 :::
 
 ::: tips
-This is an optional feature in Apps, you can also use your own Authentication.
+This is an optional feature in Apps. You can also use your own Authentication.
 :::
 
 To authenticate the users coming from Akeneo PIM, you can use the OpenID Connect protocol.
@@ -16,8 +16,7 @@ OpenID Connect is a simple identity layer on top of the OAuth 2.0 protocol.
 See [OpenID official website](https://openid.net/connect/) for more info.
 :::
 
-Basically, you use the same process as for Authorization, but you request an additional scope and you will receive,
-alongside the Access Token, an ID Token containing the information of the current user.
+You use the same process as for Authorization and request an additional scope. You will receive an ID Token containing the current user's information alongside the Access Token.
 
 ![App authentication diagram](../img/apps/app-authentication-sequence-diagram.png)
 
@@ -41,7 +40,7 @@ You can consult the list of [available authentication scopes](/apps/access-scope
 
 ## Authenticate after the first Authorization request
 
-If a user is trying to access your App from his Akeneo PIM, and you want to authenticate him, start an
+If a user is trying to access your App from his Akeneo PIM and wants to authenticate him, start an
 [Authorization Request](/apps/using-oauth2.html#authorization-request),
 **even if you already are connected to his Akeneo PIM**.
 
@@ -124,7 +123,7 @@ URL `{PIM}/connect/apps/v1/openid/public-key`.
 Then, follow the instructions of the library you are using.
 
 ::: warning
-The pair of private/public keys are regenerated regularly for security reasons. You should always retrieve
+The pair of private/public keys are regenerated regularly for security reasons. It would be best if you always retrieved 
 the latest public key when validating a signature.
 :::
 
