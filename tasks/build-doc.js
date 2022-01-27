@@ -554,9 +554,10 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'introduction.md': 'What\'s an App?',
         'why-apps-over-connectors.md': 'Why should you choose Apps?',
         'using-oauth2.md': 'Using OAuth 2.0 to connect an App',
+        'using-openid.md': 'Using OpenID Connect to authenticate users',
         'access-scopes.md': 'Access scopes',
-        'create-app-in-php.md': 'Create an App in PHP',
-        'how-to-test-my-app.md': 'How to test my App?'
+        'how-to-test-my-app.md': 'How to test my App?',
+        'create-app-in-php.md': 'Create an App in PHP'
     };
 
     var isOnePage = false;

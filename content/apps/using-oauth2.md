@@ -157,5 +157,5 @@ If your Access Token Request is refused, you will receive a JSON response with t
 Check the [OAuth 2.0 spec](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1) for the possible error codes.
 
 
-::: panel-link Next step: we will show you a simple implementation of these steps [Create an App in PHP](/apps/create-app-in-php.html)
+::: panel-link Next step [Using OpenID Connect to authenticate users](/apps/using-openid.html)
 :::

@@ -1,0 +1,35 @@
+materialdesignicons f004 "**++User++**" as User #000000
+participant "**++Akeneo PIM++**" as PIM
+participant "**++App++**" as App
+
+lifelinestyle User :1:dashed
+lifelinestyle PIM :1:solid
+lifelinestyle App :1:solid
+
+activate PIM
+User->PIM: Request App Activation
+
+PIM-:1>App: Redirection to the Activation URL
+deactivate PIM
+activate App
+
+App-:1>PIM:Authorization Request\n**+ OpenID scope**
+deactivate App
+activate PIM
+
+User->PIM: Confirm Authorization
+User->PIM: **Accept Authentication**
+
+PIM-->>App: Authorization Response
+deactivate PIM
+activate App
+
+entryspacing 2
+App->>PIM: Access Token Request
+deactivate App
+activate PIM
+
+entryspacing 1
+PIM-->>App: Access Token Response\n**+ ID Token**
+deactivate PIM
+entryspacing 2
