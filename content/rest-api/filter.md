@@ -531,7 +531,7 @@ As seen previously, the attribute type determines which set of operators is avai
 
 | Allowed operators                                  | Allowed value type |
 | -------------------------------------------------- | ------------------ |
-| STARTS WITH, ENDS WITH, CONTAINS, DOES NOT CONTAIN | string             |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN            | string             |
 | =, !=                                              | string             |
 | EMPTY, NOT EMPTY                                   | no value           |
 
@@ -573,7 +573,7 @@ As seen previously, the attribute type determines which set of operators is avai
 
 | Allowed operators                                         | Allowed value type |
 | --------------------------------------------------------- | ------------------ |
-| STARTS WITH, ENDS WITH, CONTAINS, DOES NOT CONTAIN, =, != | string             |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN, =, !=            | string             |
 | EMPTY, NOT EMPTY                                          | no value           |
 
 ## Filter product values
@@ -1005,7 +1005,7 @@ As seen previously, the attribute type determines which set of operators is avai
 
 | Allowed operators                                  | Allowed value type |
 | -------------------------------------------------- | ------------------ |
-| STARTS WITH, ENDS WITH, CONTAINS, DOES NOT CONTAIN | string             |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN            | string             |
 | =, !=                                              | string             |
 | EMPTY, NOT EMPTY                                   | no value           |
 
@@ -1047,7 +1047,7 @@ As seen previously, the attribute type determines which set of operators is avai
 
 | Allowed operators                                         | Allowed value type |
 | --------------------------------------------------------- | ------------------ |
-| STARTS WITH, ENDS WITH, CONTAINS, DOES NOT CONTAIN, =, != | string             |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN, =, !=            | string             |
 | EMPTY, NOT EMPTY                                          | no value           |
 
 ## Filter published product values
