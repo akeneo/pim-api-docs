@@ -23,7 +23,7 @@ alongside the Access Token, an ID Token containing the information of the curren
 
 ## Authenticate during the first Authorization request
 
-If an user is trying to connect your App for the first time, and you want to authenticate him, ask for OpenID scopes
+If a user is trying to connect your App for the first time, and you want to authenticate him, ask for OpenID scopes
 during the [Authorization Request](/apps/using-oauth2.html#authorization-request).
 
 ```
@@ -41,12 +41,12 @@ You can consult the list of [available authentication scopes](/apps/access-scope
 
 ## Authenticate after the first Authorization request
 
-If an user is trying to access your App from his Akeneo PIM, and you want to authenticate him, start an
+If a user is trying to access your App from his Akeneo PIM, and you want to authenticate him, start an
 [Authorization Request](/apps/using-oauth2.html#authorization-request),
 **even if you already are connected to his Akeneo PIM**.
 
 **During this new Authorization Request, you must request all the scopes your App needs**, including the Authorization
-scopes, in addition of the OpenID scopes.
+scopes, in addition to the OpenID scopes.
 
 ## Extracting user information from the ID Token
 
@@ -105,12 +105,12 @@ Once you've decoded the payload, it will look like this:
 | `firstname` | **(optional) Firstname of the user** |
 | `lastname`  | **(optional) Lastname of the user**  |
 
-Additonal information (`email`, `firstname`, `lastname`, ...) are only present if you requested the corresponding
+Additional information (`email`, `firstname`, `lastname`, ...) are only present if you requested the corresponding
 authentication scopes and those were approved by the user.
 
 ::: warning
 `email`, `firstname` and `lastname` are values that can be edited on Akeneo PIM and are not verified by
-Akeneo. The only value that will truly identify an user is his unique user id in the subject claim (`sub`).
+Akeneo. The only value that will truly identify a user is his unique user id in the subject claim (`sub`).
 :::
 
 ### Signature
@@ -119,13 +119,13 @@ The ID Token sent by Akeneo PIM contains a signature, and you must verify it to 
 tampered with.
 
 To validate the signature, you must retrieve the public key available at the
-url `{PIM}/connect/apps/v1/openid/public-key`.
+URL `{PIM}/connect/apps/v1/openid/public-key`.
 
 Then, follow the instructions of the library you are using.
 
 ::: warning
-The pair of private/public keys is regenerated regularly for security reasons. You should always retrieve
-the lastest public key when validating a signature.
+The pair of private/public keys are regenerated regularly for security reasons. You should always retrieve
+the latest public key when validating a signature.
 :::
 
 ::: panel-link Next step [Access scopes](/apps/access-scopes.html)
