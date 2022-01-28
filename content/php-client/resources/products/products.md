@@ -53,7 +53,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $product = $client->getProductApi()->get('top');
 ```
 
-You can get more information about the returned format of the product values [here](/concepts/products.html#focus-on-the-products-values).
+You can get more information about the returned format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
 In the Enterprise Edition, the response contains one more field `metadata`. Look at the [product drafts](/php-client/resources.html#product-draft) for an example.
 
@@ -200,7 +200,7 @@ $client->getProductApi()->create('top', [
 );
 ```
 
-You can get more information about the expected format of the product values [here](/concepts/products.html#focus-on-the-products-values).
+You can get more information about the expected format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
 #### Upsert a product 
 ::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
@@ -249,7 +249,7 @@ $client->getProductApi()->upsert('top', [
 );
 ```
 
-You can get more information about the expected format of the product values [here](/concepts/products.html#focus-on-the-products-values).
+You can get more information about the expected format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
 :::warning
 If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the product you try to upsert.

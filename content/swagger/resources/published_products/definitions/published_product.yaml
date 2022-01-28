@@ -29,7 +29,7 @@ properties:
     default: []
   values:
     type: object
-    description: "Published product attributes values, see <a href='/concepts/products.html#focus-on-the-products-values'>Product values</a> section for more details"
+    description: "Published product attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details"
     x-validation-rules: Validation rules detailed in Product values section
     properties:
       attributeCode:

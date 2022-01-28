@@ -44,7 +44,7 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
 $publishedProduct = $client->getPublishedProductApi()->get('top');
 ```
 
-You can get more information about the returned format of the product values [here](/concepts/products.html#focus-on-the-products-values).
+You can get more information about the returned format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
 ::: warning
 The field `product_models` in the `associations` property was added in the 2.1 version of the PIM and is therefore not present in previous versions.
