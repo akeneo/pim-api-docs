@@ -557,6 +557,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'using-openid.md': 'Using OpenID Connect to authenticate users',
         'access-scopes.md': 'Access scopes',
         'how-to-test-my-app.md': 'How to test my App?',
+        'how-to-have-public-url-for-my-app.md': 'How to have a public URL for my App?',
         'create-app-in-php.md': 'Create an App in PHP'
     };
 
