@@ -6,7 +6,7 @@ We refer here to the asset attribute option of the [Asset Manager](/concepts/ass
 ::: php-client-availability versions=5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -26,7 +26,7 @@ $client->getAssetAttributeOptionApi()->get('packshot', 'main_colors', 'blue);
 ::: php-client-availability versions=5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAssetAttributeOptionApi()->all('packshot', 'main_colors');
 ```
@@ -37,7 +37,7 @@ $client->getAssetAttributeOptionApi()->all('packshot', 'main_colors');
 If the attribute option does not exist yet, this method creates it, otherwise it updates it.
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAssetAttributeOptionApi()->upsert('packshot', 'main_colors', 'blue', [
     'code' => 'blue',

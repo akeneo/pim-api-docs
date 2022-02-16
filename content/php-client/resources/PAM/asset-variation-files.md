@@ -10,7 +10,7 @@ Also, did you know that since the PIM 3.2 (or the 5.0 of the client), you can ha
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -32,7 +32,7 @@ $product = $client->getAssetVariationFileApi()->getFromLocalizableAsset('chicago
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -54,7 +54,7 @@ $product = $client->getAssetVariationFileApi()->getFromNotLocalizableAsset('brid
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $product = $client->getAssetVariationFileApi()->downloadFromLocalizableAsset('chicagoskyline', 'mobile', 'en_US');
 
@@ -72,7 +72,7 @@ file_put_contents('/tmp/chicagoskyline-mobile.jpg', $product->getBody()->getCont
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $product = $client->getAssetVariationFileApi()->downloadFromNotLocalizableAsset('bridge', 'mobile');
 
@@ -90,7 +90,7 @@ file_put_contents('/tmp/bridge-mobile.jpg', $product->getBody()->getContents());
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAssetVariationFileApi()->uploadForLocalizableAsset('/tmp/chicagoskyline-mobile.jpg', 'chicagoskyline', 'mobile','en_US');
 ```
@@ -99,7 +99,7 @@ $client->getAssetVariationFileApi()->uploadForLocalizableAsset('/tmp/chicagoskyl
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAssetVariationFileApi()->uploadForNotLocalizableAsset('/tmp/bridge-mobile.jpg', 'bridge', 'mobile');
 ```

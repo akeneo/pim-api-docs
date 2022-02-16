@@ -6,7 +6,7 @@ We refer here to the asset of the [Asset Manager](/concepts/asset-manager.html#a
 ::: php-client-availability versions=5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -34,7 +34,7 @@ Assets are automatically paginated and can be filtered.
 You can get more information about the available query parameters [here](/api-reference-asset-manager.html#get_assets).
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $cursor = $client->getAssetManagerApi()->all('user_instructions');
 ```
@@ -45,7 +45,7 @@ $cursor = $client->getAssetManagerApi()->all('user_instructions');
 If the asset does not exist yet, this method creates it, otherwise it updates it.
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAssetManagerApi()->upsert('user_instructions', 'jeans_care_instructions', [
     'code' => 'jeans_care_instructions',
@@ -64,7 +64,7 @@ This method allows to create or update a list of assets of a given asset family.
 It has the same behavior as the `upsert` method for a single asset.
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAssetManagerApi()->upsertList('user_instructions', [
     [
