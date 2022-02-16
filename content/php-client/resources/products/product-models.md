@@ -48,7 +48,7 @@ $productModel = $client->getProductModelApi()->get('rain_boots_red');
 
 You can get more information about the returned format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
-Since the 2.3 version, in the Enterprise Edition, the response contains one more field `metadata`. Look at the [product model drafts](/php-client/resources.html#product-model-draft) for an example.
+Since the 2.3 version, in the Akeneo PIM Enterprise Edition, the response contains one more field `metadata`. Look at the [product model drafts](/php-client/resources.html#product-model-draft) for an example.
 
 #### Get a list of product models
 ::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
