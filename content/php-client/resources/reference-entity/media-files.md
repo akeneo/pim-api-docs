@@ -4,7 +4,7 @@
 ::: php-client-availability versions=4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $mediaFileResponse = $client->getReferenceEntityMediaFileApi()->download('images/kartell.png');
 ```
@@ -15,7 +15,7 @@ From the response, you can retrieve the file name in the header "Content-Disposi
 ::: php-client-availability versions=4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $mediaFileCode = $client->getReferenceEntityMediaFileApi()->create('/tmp/kartell.png');
 ```

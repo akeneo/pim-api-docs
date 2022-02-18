@@ -16,7 +16,7 @@ Also, did you know that since the PIM 3.2 (or the 5.0 of the client), you can ha
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -43,7 +43,7 @@ This method allows to get asset categories page per page, as a classical paginat
 It's possible to get the total number of asset categories with this method.
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $firstPage = $client->getAssetCategoryApi()->listPerPage(50, true);
 ```
@@ -55,7 +55,7 @@ You can get more information about this method [here](/php-client/list-resources
 This method allows to iterate the asset categories. It will automatically get the next pages for you.
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $assetCategories = $client->getAssetCategoryApi()->all(50);
 ```
@@ -68,7 +68,7 @@ You can get more information about this method [here](/php-client/list-resources
 If the asset category does not exist yet, this method creates it, otherwise it updates it.
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAssetCategoryApi()->upsert('dos', [
     'parent' => 'images',
@@ -86,7 +86,7 @@ This method allows to create or update a list of asset categories.
 It has the same behavior as the `upsert` method for a single asset category, except that the code must be specified in the data of each asset category.
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAssetCategoryApi()->upsertList([
     [
