@@ -51,7 +51,7 @@ If you don't know which implementation to choose, we strongly recommend you to u
 ### Enterprise Edition
 
 ::: warning
-Enterprise Edition and Community Edition of the client have been fused to a one and unique package.
+Enterprise Edition and Community Edition of the client have been merged into a one and unique package.
 Every user shall now use the same client package. Learn about migration instructions [here](https://github.com/akeneo/api-php-client-ee#warning-the-client-project-has-moved-warning).
 :::
 
