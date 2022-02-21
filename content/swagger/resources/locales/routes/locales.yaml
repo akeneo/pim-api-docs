@@ -12,6 +12,11 @@ get:
     - "5.0"
     - "SaaS"
   parameters:
+    - name: search
+      in: query
+      description: Filter locales, for more details see the <a href="/documentation/filter.html">Filters</a> section
+      required: false
+      type: string
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
