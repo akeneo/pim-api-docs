@@ -20,16 +20,16 @@ No more manual configuration issues and more transparency!
 
 ## High visibility
 
-We give your App high visibility when you publish an App on our [Marketplace](https://marketplace.akeneo.com/). Your App is displayed **above all connectors**. 
+We give your App high visibility when you publish an App on our [Akeneo App Store](https://marketplace.akeneo.com/). Your App is displayed **above all connectors**. 
 
-We also give high visibility to Apps to our Akeneo PIM users. To do so, we created a **dedicated section** to highlight them in the PIM marketplace.
+We also give high visibility to Apps to our Akeneo PIM users. To do so, we created a **dedicated section** to highlight them in the PIM App store.
 
-![PIM marketplace](../img/apps/pim-marketplace-with-apps.png)
+![PIM App store](../img/apps/pim-marketplace-with-apps.png)
 
 
 ## This is just the beginning!
 
-Akeneo promotes Apps and will communicate about new Apps published on its Marketplace.
+Akeneo promotes Apps and will communicate about new Apps published on its Akeneo App Store.
 
 Akeneo teams are also investing in Apps by developing new features for you to ease and accelerate App development and publication in the coming years. 
 
