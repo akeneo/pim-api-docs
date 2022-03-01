@@ -10,7 +10,7 @@ Also, did you know that since the PIM 3.2 (or the 5.0 of the client), you can ha
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -31,7 +31,7 @@ $product = $client->getAssetReferenceFileApi()->getFromLocalizableAsset('chicago
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -52,7 +52,7 @@ $product = $client->getAssetReferenceFileApi()->getFromNotLocalizableAsset('brid
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $product = $client->getAssetReferenceFileApi()->downloadFromLocalizableAsset('chicagoskyline', 'en_US');
 
@@ -70,7 +70,7 @@ file_put_contents('/tmp/chicagoskyline.jpg', $product->getBody()->getContents())
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $product = $client->getAssetReferenceFileApi()->downloadFromNotLocalizableAsset('bridge');
 
@@ -88,7 +88,7 @@ file_put_contents('/tmp/bridge.jpg', $product->getBody()->getContents());
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAssetReferenceFileApi()->uploadForLocalizableAsset('/tmp/chicagoskyline.jpg', 'chicagoskyline', 'en_US');
 ```
@@ -98,7 +98,7 @@ If one or more generations of variation files failed, a specific exception will 
 You'll be able to see the details of the errors from this exception.
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 try {
     $client->getAssetReferenceFileApi()->uploadForLocalizableAsset('/tmp/chicagoskyline.jpg', 'chicagoskyline', 'en_US');
@@ -129,7 +129,7 @@ try {
 ::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAssetReferenceFileApi()->uploadForNotLocalizableAsset('/tmp/bridge.jpg', 'bridge');
 ```
@@ -139,7 +139,7 @@ If one or more generation of variation file failed, a specific exception will be
 You'll be able to see the details of the errors from this exception.
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 try {
     $client->getAssetReferenceFileApi()->uploadForNotLocalizableAsset('/tmp/bridge.jpg', 'bridge');

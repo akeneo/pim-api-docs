@@ -55,7 +55,7 @@ $product = $client->getProductApi()->get('top');
 
 You can get more information about the returned format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
-In the Enterprise Edition, the response contains one more field `metadata`. Look at the [product drafts](/php-client/resources.html#product-draft) for an example.
+In the Akeneo PIM Enterprise Edition, the response contains one more field `metadata`. Look at the [product drafts](/php-client/resources.html#product-draft) for an example.
 
 ::: warning
 The field `product_models` in the `associations` property was added in the 2.1 version of the PIM and is therefore not present in previous versions.
@@ -252,7 +252,7 @@ $client->getProductApi()->upsert('top', [
 You can get more information about the expected format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
 :::warning
-If you are using a v2.0 Entreprise Edition PIM, permissions based on your user groups are applied to the product you try to upsert.
+If you are using a v2.0 Enterprise Edition PIM, permissions based on your user groups are applied to the product you try to upsert.
 If you have edit rights but do not own the product, then it will create a [product draft](/php-client/resources.html#product-draft) instead of updating the product.
 :::
 

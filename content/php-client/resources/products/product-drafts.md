@@ -4,7 +4,7 @@
 ::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -71,7 +71,7 @@ The field `quantified_associations` is only available since the 5.0.
 ::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getProductDraftApi()->submitForApproval('top');
 ```

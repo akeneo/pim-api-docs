@@ -4,7 +4,7 @@
 ::: php-client-availability versions=4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -23,7 +23,7 @@ $referenceEntityAttributeOption = $client->getReferenceEntityAttributeOptionApi(
 ::: php-client-availability versions=4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $referenceEntityAttributeOptions = $client->getReferenceEntityAttributeOptionApi()->all('designer', 'favorite_color');
 ```
@@ -34,7 +34,7 @@ $referenceEntityAttributeOptions = $client->getReferenceEntityAttributeOptionApi
 If the attribute option does not exist yet, this method creates it, otherwise it updates it.
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getReferenceEntityAttributeOptionApi()->upsert('designer', 'favorite_color', 'blue', [
     'code' => 'blue',

@@ -154,7 +154,7 @@ If your Access Token Request is refused, you will receive a JSON response with t
 }
 ```
 
-Check the [OAuth 2.0 spec](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1) for the possible error codes.
+Check the [OAuth 2.0 spec](https://datatracker.ietf.org/doc/html/rfc6749#section-5.2) for the possible error codes.
 
 
 ::: panel-link Next step [Using OpenID Connect to authenticate users](/apps/using-openid.html)

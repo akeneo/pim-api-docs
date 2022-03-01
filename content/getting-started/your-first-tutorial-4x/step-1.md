@@ -27,9 +27,9 @@ For the purpose of this tutorial, we will name your connection: `My very first c
 Follow these steps:
 1. Log into your 4.0 or newer PIM.  
 _Sidenote: This tutorial is dedicated to 4.0 or newer PIM. Here is the one for [older PIM version](/getting-started/your-first-tutorial-old/welcome.html)._
-1. Click on `Connect`.
-1. Click on `Connection settings`.
-1. Then on `Create`.
+1. Click on `System`.
+1. Click on `Connections`.
+1. Then on `CREATE`.
 ![Connection creation button](/img/getting-started/connection-creation-button.png)
 1. In the `Label` field, enter `My very first connection`.  
 _Sidenote: the code of the connection is automatically generated based on the label._
