@@ -2,11 +2,11 @@
 
 In this step, there are 2 sub-steps.
 
-## Find your connector on our App store
+## Find your connector on our App Store
 
 We have good news for you. Maybe the connector you have in mind already exists!
 
-Indeed, we have an App store on which our dear ecosystem publishes its own tools and connectors.
+Indeed, we have an App Store on which our dear ecosystem publishes its own tools and connectors.
 
 So, we definitely recommend you to take a look at it and try to find a connector that can suit your use case. It will save you a lot of time!
 
@@ -21,12 +21,12 @@ For SaaS users, you can also go to `Connect` from your Akeneo PIM, then click on
 You found what you were looking for? Great! You can now install your connector and go directly to the [third step of this tutorial](/getting-started/connect-the-pim-4x/step-3.html).
 
 Couldn't find any connector that suits you?  
-It is the case in our example in this tutorial. We want to connect the PIM to our ERP but the Akeneo App store doesn't provide any connector that covers this use case.  
+It is the case in our example in this tutorial. We want to connect the PIM to our ERP but the Akeneo App Store doesn't provide any connector that covers this use case.  
 Alright! So let's build it ourselves!
 
 ## Build your very own connector
 
-In the event you can't find an existing connector on Akeneo App store, you will have to develop it. 
+In the event you can't find an existing connector on Akeneo App Store, you will have to develop it. 
 
 Below are the macro steps to successfully go through this development.
 1. Have your connection use case in mind
