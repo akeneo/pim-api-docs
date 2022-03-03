@@ -14,7 +14,7 @@ Please don't hesitate to read our ["4 reasons why you should use our API"](https
 
 We suggest following our method which leans on some useful existing PIM features to interact with Julia.
 
-This method is based on one of our Akeneo App Store connector specifications: [GlobalLink Connect for Akeneo](https://marketplace.akeneo.com/extension/globallink-connect-akeneo) from the [Translations.com](https://www.translations.com) company.
+This method is based on one of the Akeneo App Store connector specifications: [GlobalLink Connect for Akeneo](https://marketplace.akeneo.com/extension/globallink-connect-akeneo) from the [Translations.com](https://www.translations.com) company.
 
 ## Some pre-requisites
 

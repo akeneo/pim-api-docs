@@ -22,7 +22,7 @@ To enable the developer mode and the `Create a test App` button, you need to:
 ![Create a test app button](../img/apps/create-a-test-app-button.png)
 
 To create a test App: 
-1. Go to `Connect`, then `Akeneo App Store`
+1. Go to `Connect`, then `App Store`
 2. On the top right corner, click on `Create a test App` 
 3. Fill in all the required information
 4. Then click on `Create`
@@ -35,7 +35,7 @@ To create a test App:
 
 ## Step 3 - Connect your test App 
 
-![Test app on Akeneo App Store](../img/apps/marketplace-with-test-app.png)
+![Test app on the Akeneo App Store](../img/apps/marketplace-with-test-app.png)
 
 Connecting a test App is like connecting a published App. 
 

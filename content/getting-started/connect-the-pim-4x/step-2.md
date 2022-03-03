@@ -2,7 +2,7 @@
 
 In this step, there are 2 sub-steps.
 
-## Find your connector on our App Store
+## Find your connector on the Akeneo App Store
 
 We have good news for you. Maybe the connector you have in mind already exists!
 
@@ -26,7 +26,7 @@ Alright! So let's build it ourselves!
 
 ## Build your very own connector
 
-In the event you can't find an existing connector on Akeneo App Store, you will have to develop it. 
+In the event you can't find an existing connector on the Akeneo App Store, you will have to develop it. 
 
 Below are the macro steps to successfully go through this development.
 1. Have your connection use case in mind

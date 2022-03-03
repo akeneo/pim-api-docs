@@ -14,7 +14,7 @@ We're here to help you find your way around, understand how your ERP solution wi
 
 ## Building a one-size-fits-all solution?
 
-If you are using this guide in order to build a **one-size-fits-all** connector for our Akeneo App Store, you should know that each ERP solution has different capabilities and above all, each project has its own specificities due to the product modeling specific to each ERP.
+If you are using this guide in order to build a **one-size-fits-all** connector for the Akeneo App Store, you should know that each ERP solution has different capabilities and above all, each project has its own specificities due to the product modeling specific to each ERP.
 
 It is therefore very complex to build a connector that fits all end-users' needs...
 
