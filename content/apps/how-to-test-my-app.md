@@ -54,7 +54,7 @@ To know more about the step-by-step activation process, please read our article:
 
 Now that your App is connected, you can enjoy all the available App features from the Akeneo PIM UI and test that your App works well. 
 
-To access the settings of your connected App on Akeneo PIM, please go to `Apps`, then click on `Manage App`. 
+To access the settings of your connected App on Akeneo PIM, please go to `Connected Apps`, then click on `Manage App`. 
 You can also open your App from Akeneo PIM UI, to do so, click on `Open app`. 
 
 ![Connected test app on Apps](../img/apps/connected-test-app.png)
