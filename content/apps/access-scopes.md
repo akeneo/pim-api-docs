@@ -1,7 +1,7 @@
 # Access scopes
 
 ::: warning
-**This feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
+This feature is available on all SaaS environments and only since v6 for other types of environments.
 :::
 
 

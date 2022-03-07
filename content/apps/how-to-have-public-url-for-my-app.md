@@ -1,7 +1,7 @@
 # How to have a public URL for my App during its development?
 
 ::: warning
-**The test App feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
+This feature is available on all SaaS environments and only since v6 for other types of environments.
 :::
 
 One of the issues that might arise during your app development is that you need a PIM instance to communicate with your local App that is still in development. You can create a test App in your PIM instance however PIM will require you to provide valid URLs to your App.

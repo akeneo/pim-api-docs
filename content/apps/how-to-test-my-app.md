@@ -1,12 +1,12 @@
 # How to test my App?
 
 ::: warning
-**This feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
+**This feature is only available for our partners using an Akeneo sandbox environment.**
 :::
 
 This page explains how to enable the `developer mode` on your partner sandbox and how to create a test App to check that everything works well. 
 
-## Step 1 - Enable the developer mode and the test App creation
+## Step 1 - Enable the `developer mode` and the test App creation
 
 To enable the developer mode and the `Create a test App` button, you need to:
 1. Go to `Settings`, then `Roles`
