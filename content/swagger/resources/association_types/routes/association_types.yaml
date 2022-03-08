@@ -9,6 +9,7 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
+    - "6.0"
     - "SaaS"
   parameters:
     - $ref: '#/parameters/page'
@@ -104,6 +105,7 @@ post:
     - "3.x"
     - "4.0"
     - "5.0"
+    - "6.0"
     - "SaaS"
   parameters:
     - name: body
@@ -133,6 +135,7 @@ patch:
     - "3.x"
     - "4.0"
     - "5.0"
+    - "6.0"
     - "SaaS"
   description: This endpoint allows you to update and/or create several association types at once.
   x-body-by-line: Contains several lines, each line is an association type in JSON standard format

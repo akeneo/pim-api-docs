@@ -10,6 +10,7 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
+    - "6.0"
     - "SaaS"
   parameters:
     - $ref: '#/parameters/page'
@@ -130,6 +131,7 @@ post:
     - "3.x"
     - "4.0"
     - "5.0"
+    - "6.0"
     - "SaaS"
   parameters:
     - name: Content-type
