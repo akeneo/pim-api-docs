@@ -28,14 +28,14 @@ To create a test App:
 4. Then click on `Create`
 5. Copy/paste credentials in your app configuration file
 6. And click on `Done`
-7. Your test App appears on the Akeneo App Store page
+7. Your test App appears on the App Store page
 
 ![Test app creation](../img/apps/test-app-creation.png)
 
 
 ## Step 3 - Connect your test App 
 
-![Test app on the Akeneo App Store](../img/apps/marketplace-with-test-app.png)
+![Test app on the App Store](../img/apps/marketplace-with-test-app.png)
 
 Connecting a test App is like connecting a published App. 
 
