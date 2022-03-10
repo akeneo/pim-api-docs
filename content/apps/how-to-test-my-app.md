@@ -1,12 +1,12 @@
 # How to test my App?
 
 ::: warning
-**This feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
+**This feature is only available for our partners using an Akeneo sandbox environment.**
 :::
 
 This page explains how to enable the `developer mode` on your partner sandbox and how to create a test App to check that everything works well. 
 
-## Step 1 - Enable the developer mode and the test App creation
+## Step 1 - Enable the `developer mode` and the test App creation
 
 To enable the developer mode and the `Create a test App` button, you need to:
 1. Go to `Settings`, then `Roles`
@@ -22,20 +22,20 @@ To enable the developer mode and the `Create a test App` button, you need to:
 ![Create a test app button](../img/apps/create-a-test-app-button.png)
 
 To create a test App: 
-1. Go to `Connect`, then `Marketplace`
+1. Go to `Connect`, then `App Store`
 2. On the top right corner, click on `Create a test App` 
 3. Fill in all the required information
 4. Then click on `Create`
 5. Copy/paste credentials in your app configuration file
 6. And click on `Done`
-7. Your test App appears on the Marketplace page
+7. Your test App appears on the App Store page
 
 ![Test app creation](../img/apps/test-app-creation.png)
 
 
 ## Step 3 - Connect your test App 
 
-![Test app on Marketplace](../img/apps/marketplace-with-test-app.png)
+![Test app on the App Store](../img/apps/marketplace-with-test-app.png)
 
 Connecting a test App is like connecting a published App. 
 
@@ -54,7 +54,7 @@ To know more about the step-by-step activation process, please read our article:
 
 Now that your App is connected, you can enjoy all the available App features from the Akeneo PIM UI and test that your App works well. 
 
-To access the settings of your connected App on Akeneo PIM, please go to `Apps`, then click on `Manage App`. 
+To access the settings of your connected App on Akeneo PIM, please go to `Connected Apps`, then click on `Manage App`. 
 You can also open your App from Akeneo PIM UI, to do so, click on `Open app`. 
 
 ![Connected test app on Apps](../img/apps/connected-test-app.png)

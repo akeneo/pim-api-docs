@@ -1,7 +1,7 @@
 # Why should you choose developing an App over a connector?
 
 ::: warning
-**This feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
+This feature is available on all SaaS environments and only since v6 for other types of environments.
 :::
 
 Both connectors and Apps use the OAuth standard. However, there are some significant differences.
@@ -20,16 +20,16 @@ No more manual configuration issues and more transparency!
 
 ## High visibility
 
-We give your App high visibility when you publish an App on our [Marketplace](https://marketplace.akeneo.com/). Your App is displayed **above all connectors**. 
+We give your App high visibility when you publish an App on the [Akeneo App Store](https://marketplace.akeneo.com/). Your App is displayed **above all connectors**. 
 
-We also give high visibility to Apps to our Akeneo PIM users. To do so, we created a **dedicated section** to highlight them in the PIM marketplace.
+We also give high visibility to Apps to our Akeneo PIM users. To do so, we created a **dedicated section** to highlight them in the PIM App Store.
 
-![PIM marketplace](../img/apps/pim-marketplace-with-apps.png)
+![PIM App Store](../img/apps/pim-marketplace-with-apps.png)
 
 
 ## This is just the beginning!
 
-Akeneo promotes Apps and will communicate about new Apps published on its Marketplace.
+Akeneo promotes Apps and will communicate about new Apps published on the Akeneo App Store.
 
 Akeneo teams are also investing in Apps by developing new features for you to ease and accelerate App development and publication in the coming years. 
 
