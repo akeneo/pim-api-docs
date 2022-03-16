@@ -221,7 +221,7 @@ To get all the simple products, you can use the following URL.
 
 ### On their quality score
 
-::: availability versions=SaaS editions=CE,EE
+::: availability versions=6.0,SaaS editions=CE,EE
 
 To filter products on their quality score, use the `quality_score` product property. You will also need to provide a `scope` and `locale` value to specify on which channel and locale you want to filter the quality score on.
 This filter accepts one operator: IN. It expects one or several scores, given as a list of letters. The possible values for the quality score are "A", "B", "C", "D" and "E".
@@ -393,7 +393,7 @@ To get the product models that were updated during the last 4 days, you can use 
 
 ### On their parent
 
-::: availability versions=SaaS editions=CE,EE
+::: availability versions=6.0,SaaS editions=CE,EE
 
 To filter product models on their parent, use the `parent` product model property.
 Here are the allowed operators you can use to filter by parent as well as the corresponding type of value expected in the `search` query parameter.
@@ -797,7 +797,7 @@ To get the published products of the `winter_collection` category, you can use t
 
 ### On their status
 
-::: availability versions=SaaS editions=CE,EE
+::: availability versions=5.0,6.0,SaaS editions=CE,EE
 
 To filter published products on their status, use the `enabled` property.
 Here are the allowed operators you can use to filter on the status as well as the corresponding type of value expected in the `search` query parameter.
@@ -1445,7 +1445,7 @@ Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/w
 | ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
 | `>`                 | datetime <br> _Format: ISO 8601_           | Only returns assets that were <br> updated after the given day and hour                    |
 
-::: availability versions=SaaS editions=EE
+::: availability versions=6.0,SaaS editions=EE
 
 | Operator            | Allowed value type                         | Filter description                                                                         |
 | ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
@@ -1812,7 +1812,7 @@ When you request specific categories, you can use filters to select only the one
 
 ### By category level: root
 
-::: availability versions=SaaS editions=CE,EE
+::: availability versions=6.0,SaaS editions=CE,EE
 
 You can filter the categories to get only root categories.
 
@@ -1872,7 +1872,7 @@ Below you will find the operator to filter on this property, as well as the corr
 
 ### By updated date
 
-::: availability versions=SaaS editions=CE,EE
+::: availability versions=6.0,SaaS editions=CE,EE
 
 You can filter the categories by their updated date.
 

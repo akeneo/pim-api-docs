@@ -62,6 +62,7 @@ delete:
   tags:
     - Product model
   x-versions:
+    - "6.0"
     - "SaaS"
   description: This endpoint allows you to delete a given product model. All its children, product models and variant products, will be also deleted. In the Enterprise Edition, the permissions based on your connection user group are applied to the product model you try to delete.
   parameters:
