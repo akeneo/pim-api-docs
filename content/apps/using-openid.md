@@ -1,7 +1,7 @@
 # Using OpenID Connect to authenticate users
 
 ::: warning
-**This feature is available for our partners using an Akeneo sandbox environment. It will be available for all soon.**
+This feature is available on all SaaS environments and only since v6 for other types of environments.
 :::
 
 ::: tips
@@ -41,9 +41,9 @@ You can consult the list of [available authentication scopes](/apps/access-scope
 
 ## Authenticate after the first Authorization request
 
-If a user is trying to access your App from his Akeneo PIM, and you want to authenticate him, start an
+If a user is trying to access your App from their Akeneo PIM, and you want to authenticate him, start an
 [Authorization Request](/apps/using-oauth2.html#authorization-request),
-**even if you already are connected to his Akeneo PIM**.
+**even if you already are connected to their Akeneo PIM**.
 
 **During this new Authorization Request, you must request all the scopes your App needs**, including the Authorization
 scopes, in addition to the OpenID scopes.
@@ -110,7 +110,7 @@ authentication scopes and those were approved by the user.
 
 ::: warning
 `email`, `firstname` and `lastname` are values that can be edited on Akeneo PIM and are not verified by
-Akeneo. The only value that will truly identify a user is his unique user id in the subject claim (`sub`).
+Akeneo. The only value that will truly identify a user is their unique user id in the subject claim (`sub`).
 :::
 
 ### Signature

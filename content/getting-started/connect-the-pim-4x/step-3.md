@@ -1,7 +1,7 @@
 # _Step 3_ | Identify your connector in the PIM
 
 In the very first step of this tutorial, you created a connection in the PIM.  
-Here, we are going to associate this connection to the connector you've built (or downloaded from the marketplace).
+Here, we are going to associate this connection to the connector you've built (or downloaded from the Akeneo App Store).
 
 By doing so, you will be able to easily monitor the data flows between your connector and the PIM.
 

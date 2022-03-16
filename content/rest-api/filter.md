@@ -38,7 +38,7 @@ You can even combine several filters on the same product properties. The example
 
 ### On their categories
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on their categories, use the property `categories`.
 Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
@@ -62,7 +62,7 @@ To get the products of the `winter_collection` category, you can use the followi
 
 ### On their status
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on their status, use the `enabled` property.
 Here are the allowed operators you can use to filter on the status as well as the corresponding type of value expected in the `search` query parameter.
@@ -82,7 +82,7 @@ To get the disabled products, you can use the following URL.
 
 ### On their completeness
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on their completeness, use the `completeness` product property. You will also need to provide a `scope` value to specify on which channel you want to filter with the completeness.
 Here are the allowed operators you can use to filter by completeness as well as the corresponding type of value expected in the `search` query parameter.
@@ -112,7 +112,7 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 
 ### On their group or family
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on groups or families, use respectively the product property `groups` and `family`.
 Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -140,7 +140,7 @@ To get the products that are not in the `camcorders` and `digital_cameras` famil
 
 ### On their creation or update date
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on creation or update date, use respectively the product property `created` and `updated`.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -177,7 +177,7 @@ To get the products that were updated during the last 4 days, you can use the fo
 
 ### On their parent
 
-::: availability versions=3.2,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=3.2,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on their parent, use the `parent` product property.
 Here are the allowed operators you can use to filter by parent as well as the corresponding type of value expected in the `search` query parameter.
@@ -276,7 +276,7 @@ You can even combine several filters on the same product model properties. The e
 
 ### On categories
 
-::: availability versions=2.3,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=2.3,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter product models on their categories, use the property `categories`.
 Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
@@ -300,7 +300,7 @@ To get the product models of the `winter_collection` category, you can use the f
 
 ### On completeness
 
-::: availability versions=2.3,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=2.3,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter product models on their completeness, use the `completeness` product property. You will also need to provide a `scope` value to specify on which channel you want to filter with the completeness.
 Here are the allowed operators you can use to filter by completeness as well as the corresponding type of value expected in the `search` query parameter.
@@ -328,7 +328,7 @@ To get the product models that have at least one variant product 100% complete o
 
 ### On family
 
-::: availability versions=2.3,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=2.3,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter product models on families, use the product model property `family`.
 Here are the allowed operators you can use to filter on this property as well as the corresponding type of value expected in the `search` query parameter.
@@ -356,7 +356,7 @@ To get the product models that are not in the `camcorders` and `digital_cameras`
 
 ### On creation or update date
 
-::: availability versions=2.3,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=2.3,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter product models on creation or update date, use the product property `created` and `updated`, respectively.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -426,7 +426,7 @@ To get all the sub-product models, you can use the following URL.
 
 ## Filter on product values
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-products-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
@@ -486,7 +486,7 @@ Filtering on product values is also available for published products.
 
 ### `search_locale` query parameter
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 If you need to filter on several attributes on the same locale, you can use the `search_locale` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing locale code.
 
 #### Example
@@ -505,7 +505,7 @@ This query parameter is also available for the published products.
 
 ### `search_scope` query parameter
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 If you need to filter on several attributes on the same channel, you can use the `search_scope` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing channel code.
 
 #### Example
@@ -527,7 +527,7 @@ This query parameter is also available for the published products.
 As seen previously, the attribute type determines which set of operators is available to use these filters.
 
 **The `pim_catalog_identifier`, `pim_catalog_text` and `pim_catalog_textarea` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators                                  | Allowed value type |
 | -------------------------------------------------- | ------------------ |
@@ -536,7 +536,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY                                   | no value           |
 
 **The `pim_catalog_number`, `pim_catalog_metric` and `pim_catalog_price_collection` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators   | Allowed value type |
 | ------------------- | ------------------ |
@@ -544,7 +544,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY    | no value           |
 
 **The `pim_catalog_simpleselect` and `pim_catalog_multiselect` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators | Allowed value type                                 |
 | ----------------- | -------------------------------------------------- |
@@ -552,7 +552,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY  | no value                                           |
 
 **The `pim_catalog_boolean` attribute type**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators | Allowed value type                                 |
 | ----------------- | -------------------------------------------------- |
@@ -560,7 +560,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY  | no value (only available on 5.0 and SaaS versions) |
 
 **The `pim_catalog_date` attribute type**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators    | Allowed value type                         |
 | -------------------- | ------------------------------------------ |
@@ -569,7 +569,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY     | no value                                   |
 
 **The `pim_catalog_file` and `pim_catalog_image` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators                                         | Allowed value type |
 | --------------------------------------------------------- | ------------------ |
@@ -586,7 +586,7 @@ Filtering product values via attributes, channel or locale is also available for
 
 ### Via attributes
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 If you want to receive for each product only product values about specific attributes, you can specify it thanks to the `attributes` query parameter.
 
@@ -606,7 +606,7 @@ You can filter product values on several attributes at the same time.
 
 ### Via locale
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 If you want to receive for each product only product values on specific locales, as well as the product values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
@@ -714,7 +714,7 @@ You can also filter product values on several locales at the same time.
 
 ### Via channel
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 There is also a `scope` query parameter that will allow you to:
 
@@ -773,7 +773,7 @@ You can even combine several filters on the same published product properties. T
 
 ### On their categories
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter published products on their categories, use the property `categories`.
 Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
@@ -817,7 +817,7 @@ To get the disabled published products, you can use the following URL.
 
 ### On their completeness
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter published products on their completeness, use the `completeness` published product property. You will also need to provide a `scope` value to specify on which channel you want to filter with the completeness.
 Here are the allowed operators you can use to filter by completeness as well as the corresponding type of value expected in the `search` query parameter.
@@ -847,7 +847,7 @@ To get the published products that are 100% complete on both the `en_US` and `fr
 
 ### On their group or family
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter published products on groups or families, use respectively the published product property `groups` and `family`.
 Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -875,7 +875,7 @@ To get the published products that are not in the `camcorders` and `digital_came
 
 ### On their creation or update date
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter published products on creation or update date, use respectively the published product property `created` and `updated`.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -912,7 +912,7 @@ To get the published products that were updated during the last 4 days, you can 
 
 ## Filter on published product values
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter published products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-products-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
@@ -968,7 +968,7 @@ You can even combine several filters on the same attribute. The example below wi
 
 ### `search_locale` query parameter
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 If you need to filter on several attributes on the same locale, you can use the `search_locale` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing locale code.
 
 #### Example
@@ -983,7 +983,7 @@ is equivalent to
 
 ### `search_scope` query parameter
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 If you need to filter on several attributes on the same channel, you can use the `search_scope` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing channel code.
 
 #### Example
@@ -1001,7 +1001,7 @@ is equivalent to
 As seen previously, the attribute type determines which set of operators is available to use these filters.
 
 **The `pim_catalog_identifier`, `pim_catalog_text` and `pim_catalog_textarea` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators                                  | Allowed value type |
 | -------------------------------------------------- | ------------------ |
@@ -1010,7 +1010,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY                                   | no value           |
 
 **The `pim_catalog_number`, `pim_catalog_metric` and `pim_catalog_price_collection` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators   | Allowed value type |
 | ------------------- | ------------------ |
@@ -1018,7 +1018,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY    | no value           |
 
 **The `pim_catalog_simpleselect` and `pim_catalog_multiselect` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators | Allowed value type                                 |
 | ----------------- | -------------------------------------------------- |
@@ -1026,7 +1026,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY  | no value                                           |
 
 **The `pim_catalog_boolean` attribute type**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators | Allowed value type                                 |
 | ----------------- | -------------------------------------------------- |
@@ -1034,7 +1034,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY  | no value (only available on 5.0 and SaaS versions) |
 
 **The `pim_catalog_date` attribute type**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators    | Allowed value type                         |
 | -------------------- | ------------------------------------------ |
@@ -1043,7 +1043,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY     | no value                                   |
 
 **The `pim_catalog_file` and `pim_catalog_image` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators                                         | Allowed value type |
 | --------------------------------------------------------- | ------------------ |
@@ -1056,7 +1056,7 @@ Thanks to the above sections, you are able to filter your published products to 
 
 ### Via attributes
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 If you want to receive for each published product only published product values about specific attributes, you can specify it thanks to the `attributes` query parameter.
 
@@ -1076,7 +1076,7 @@ You can filter published product values on several attributes at the same time.
 
 ### Via locale
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 If you want to receive for each product only product values on specific locales, as well as the product values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
@@ -1184,7 +1184,7 @@ You can also filter product values on several locales at the same time.
 
 ### Via channel
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 There is also a `scope` query parameter that will allow you to:
 
@@ -1209,7 +1209,7 @@ When using this query parameter, you will never be able to retrieve published pr
 
 ## Filter locales
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 When requesting locales, you can use a filter to get the enabled ones.
 
@@ -1227,7 +1227,7 @@ All these filters are available starting the 3.0 version of the PIM.
 
 ### By completeness
 
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 
 You can filter the reference entity records to get only the completed ones on a given channel for given locales.
 
@@ -1239,7 +1239,7 @@ You can filter the reference entity records to get only the completed ones on a 
 
 ### By update date
 
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 
 You can filter the reference entity records by their update date.
 
@@ -1263,7 +1263,7 @@ To get the reference entity records that were updated since the 4th of July 2016
 
 ### Record values by locale
 
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 
 If you want to receive reference entity records of one given reference entity with only the attribute values of specific locales, as well as the attribute values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
@@ -1347,7 +1347,7 @@ You can also filter attribute values on several locales at the same time.
 
 ### Record values by channel
 
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 
 There is also a `channel` query parameter that will allow you to get only the attribute values for a specific channel, as well as the attribute values of the non scopable attributes.
 
@@ -1439,7 +1439,7 @@ Below is the operator to filter on this property, as well as the corresponding t
 Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
 :::
 
-::: availability versions=3.2,4.0,5.0,SaaS editions=EE
+::: availability versions=3.2,4.0,5.0,6.0,SaaS editions=EE
 
 | Operator            | Allowed value type                         | Filter description                                                                         |
 | ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
@@ -1482,7 +1482,7 @@ Finally, if you want to get the assets updated in the last 4 days, you can use t
 
 ### Asset values by locale
 
-::: availability versions=3.2,4.0,5.0,SaaS editions=EE
+::: availability versions=3.2,4.0,5.0,6.0,SaaS editions=EE
 
 If you want to receive assets with only the asset values of specific locales, as well as the attribute values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
@@ -1566,7 +1566,7 @@ You can also filter asset values on several locales at the same time.
 
 ### Asset values by channel
 
-::: availability versions=3.2,4.0,5.0,SaaS editions=EE
+::: availability versions=3.2,4.0,5.0,6.0,SaaS editions=EE
 
 There is also a `channel` query parameter that will allow you to get only the asset values for a specific channel, as well as the asset values of the non scopable attributes.
 
@@ -1650,7 +1650,7 @@ When you request specific attributes, you can use filters to select only the one
 
 ### By attribute codes
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the attributes by their code.
 
@@ -1668,7 +1668,7 @@ Below you will find the operator to filter on this property, as well as the corr
 
 ### By updated date
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the attributes by their updated date.
 
@@ -1696,7 +1696,7 @@ To get the attributes that have been updated since July 4th, 2020 at 10 am (UTC)
 
 ### By attribute types
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the attributes by their types.
 
@@ -1720,7 +1720,7 @@ When you request specific attribute groups, you can use filters to select only t
 
 ### By attribute group codes
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the attribute groups by their code.
 
@@ -1738,7 +1738,7 @@ Below you will find the operator to filter on this property, as well as the corr
 
 ### By updated date
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the attribute groups by their update date.
 
@@ -1766,7 +1766,7 @@ When you request specific families, you can use filters to select only the ones 
 
 ### By family codes
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the families by their code.
 
@@ -1784,7 +1784,7 @@ Below you will find the operator to filter on this property, as well as the corr
 
 ### By updated date
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the families by their updated date.
 
@@ -1834,7 +1834,7 @@ You can combine the `is_root` filter with any other filter available on categori
 
 ### By parent category
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the categories by parent.
 
@@ -1854,7 +1854,7 @@ To get the child categories of the parent category `categoryA`, you can use the 
 
 ### By category codes
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the categories by their code.
 
