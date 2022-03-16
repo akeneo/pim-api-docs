@@ -57,16 +57,43 @@ get:
             {
               "_links": {
                 "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/categories/master"
+                }
+              },
+              "code": "master",
+              "root": "master",
+              "parent": null,
+              "updated": "2021-05-21T11:32:00+02:00",
+              "labels": {
+                "en_US": "Master",
+                "fr_FR": "Master",
+                "de_DE": "Master"
+              },
+              "nested_tree_node": {
+                "depth": 0,
+                "left": 1,
+                "right": 12
+              }
+            },
+            {
+              "_links": {
+                "self": {
                   "href": "https://demo.akeneo.com/api/rest/v1/categories/winter_collection"
                 }
               },
               "code": "winter_collection",
-              "parent": null,
+              "root": "master",
+              "parent": "master",
               "updated": "2021-05-21T11:32:00+02:00",
               "labels": {
                 "en_US": "Winter collection",
                 "fr_FR": "Collection hiver",
                 "de_DE": "Winter-Kollektion"
+              },
+              "nested_tree_node": {
+                "depth": 1,
+                "left": 2,
+                "right": 9
               }
             },
             {
@@ -76,12 +103,18 @@ get:
                 }
               },
               "code": "woman",
+              "root": "master",
               "parent": "winter_collection",
               "updated": "2021-04-21T10:41:02+02:00",
               "labels": {
                 "en_US": "Woman",
                 "fr_FR": "Femme",
                 "de_DE": "Damen"
+              },
+              "nested_tree_node": {
+                "depth": 2,
+                "left": 3,
+                "right": 4
               }
             },
             {
@@ -91,12 +124,18 @@ get:
                 }
               },
               "code": "man",
+              "root": "master",
               "parent": "winter_collection",
               "updated": "2021-03-02T12:59:59+02:00",
               "labels": {
                 "en_US": "Man",
                 "fr_FR": "Homme",
                 "de_DE": "Herren"
+              },
+              "nested_tree_node": {
+                "depth": 2,
+                "left": 5,
+                "right": 6
               }
             },
             {
@@ -106,12 +145,18 @@ get:
                 }
               },
               "code": "kids",
+              "root": "master",
               "parent": "winter_collection",
               "updated": "2021-01-03T12:40:00+02:00",
               "labels": {
                 "en_US": "Kids",
                 "fr_FR": "Enfant",
                 "de_DE": "Kinder"
+              },
+              "nested_tree_node": {
+                "depth": 2,
+                "left": 7,
+                "right": 8
               }
             },
             {
@@ -121,12 +166,18 @@ get:
                 }
               },
               "code": "summer_collection",
+              "root": "master",
               "parent": null,
               "updated": "2021-04-04T09:42:00+02:00",
               "labels": {
                 "en_US": "Summer collection",
                 "fr_FR": "Collection été",
                 "de_DE": "Sommer-Kollektion"
+              },
+              "nested_tree_node": {
+                "depth": 1,
+                "left": 10,
+                "right": 11
               }
             }
           ]

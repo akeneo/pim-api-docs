@@ -5,6 +5,10 @@ properties:
     type: string
     description: Category code
     x-immutable: true
+  root:
+    type: string
+    description: Category code of the root category of the category tree (only available on SaaS platforms)
+    x-read-only: true
   parent:
     type: string
     description: Category code of the parent's category
@@ -24,12 +28,32 @@ properties:
       localeCode:
         type: string
         description: Category label for the locale `localeCode`
+  nested_tree_node:
+    type: object
+    x-read-only: true
+    description: Nested category tree information for the current node category
+    properties:
+      depth:
+        type: integer
+        description: Depth of the node into the nested category tree (only available on SaaS platforms)
+      left:
+        type: integer
+        description: Left child of the node into the nested category tree (only available on SaaS platforms)
+      right:
+        type: integer
+        description: Right child of the node in the nested category tree (only available on SaaS platforms)
 example: {
   "code": "winter_collection",
-  "parent": null,
+  "root": "master",
+  "parent": "master",
   "updated": "2021-05-22T12:48:00+02:00",
   "labels": {
     "en_US": "Winter collection",
     "fr_FR": "Collection hiver"
+  },
+  "nested_tree_node": {
+    "depth": 1,
+    "left": 2,
+    "right": 3
   }
 }
