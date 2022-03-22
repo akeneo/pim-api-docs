@@ -133,6 +133,14 @@ HTTP/1.1 406 Not Acceptable
 }
 ```
 
+### 409 error
+When a request could not be processed because of conflict, it results in a `409 Conflict` error.
+
+#### Example
+```http
+HTTP/1.1 409 Conflict
+```
+
 ### 415 error
 Trying to give the `Content-type` header a value different from `application/json` when posting or patching data, results in a `415 Unsupported Media Type` response.
 
