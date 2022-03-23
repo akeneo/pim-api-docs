@@ -800,6 +800,13 @@ To finish, below is the JSON standard format representing a product model. Notic
   "updated": "2017-10-05T11:24:46+02:00",
   "associations": {},
   "quantified_associations": {},
+  "quality_scores": [
+    {
+      "scope": "ecommerce",
+      "locale": "en_US",
+      "data": "A"
+    }
+  ],
   "metadata": {
     "workflow_status": "working_copy"
   }
@@ -812,6 +819,10 @@ Note that the `metadata` field is only available since the 2.3 version and as it
 
 ::: warning
 Note that the `family` field is only available since the 3.2 version.
+:::
+
+::: warning
+Note that the `quality_scores` field is **only available on SaaS platforms** and when the `with_quality_scores` query parameter is set to `true`.
 :::
 
 ::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodel)

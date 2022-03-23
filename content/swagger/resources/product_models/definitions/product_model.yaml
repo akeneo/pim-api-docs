@@ -118,6 +118,11 @@ properties:
         description: Status of the product model regarding the user permissions (only available since the v2.3 in the Enterprise Edition)
         type: string
         enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
+  quality_scores:
+    type: object
+    description: Product model quality scores for each channel/locale combination (<strong>only available on SaaS platforms</strong> and when the "with_quality_scores" query parameter is set to "true")
+    x-immutable: true
+    x-read-only: true
 
 example: {
   "code": "model-biker-jacket-leather",
@@ -196,6 +201,28 @@ example: {
       ]
     }
   },
+  "quality_scores": [
+    {
+      "scope": "ecommerce",
+      "locale": "en_US",
+      "data": "A"
+    },
+    {
+      "scope": "ecommerce",
+      "locale": "fr_FR",
+      "data": "B"
+    },
+    {
+      "scope": "tablet",
+      "locale": "en_US",
+      "data": "D"
+    },
+    {
+      "scope": "tablet",
+      "locale": "fr_FR",
+      "data": "E"
+    }
+  ],
   "created": "2017-10-02T15:03:55+02:00",
   "updated": "2017-10-02T15:03:55+02:00"
 }
