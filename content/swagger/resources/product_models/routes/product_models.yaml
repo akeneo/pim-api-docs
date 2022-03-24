@@ -37,6 +37,7 @@ get:
     - $ref: '#/parameters/search_after'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
+    - $ref: '#/parameters/with_quality_scores__product_models'
   responses:
     200:
       description: Return product models paginated
@@ -126,6 +127,28 @@ get:
                   ]
                 }
               },
+              "quality_scores": [
+                {
+                  "scope": "ecommerce",
+                  "locale": "en_US",
+                  "data": "A"
+                },
+                {
+                  "scope": "ecommerce",
+                  "locale": "fr_FR",
+                  "data": "B"
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "en_US",
+                  "data": "D"
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "fr_FR",
+                  "data": "E"
+                }
+              ],
               "created": "2017-10-04T18:04:10+02:00",
               "updated": "2017-10-04T18:04:10+02:00"
             },
@@ -179,6 +202,28 @@ get:
                   "product_models": []
                 }
               },
+              "quality_scores": [
+                {
+                  "scope": "ecommerce",
+                  "locale": "en_US",
+                  "data": "A"
+                },
+                {
+                  "scope": "ecommerce",
+                  "locale": "fr_FR",
+                  "data": "B"
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "en_US",
+                  "data": "D"
+                },
+                {
+                  "scope": "tablet",
+                  "locale": "fr_FR",
+                  "data": "E"
+                }
+              ],
               "created": "2017-10-04T18:04:10+02:00",
               "updated": "2017-10-04T18:04:10+02:00"
             },
@@ -205,15 +250,7 @@ get:
                       }
                     ]
                   }
-                ],
-                "associations": {
-                  "PACK": {
-                    "products": ["sunglasses"],
-                    "product_models": [],
-                    "groups": []
-                  },
-                },
-                "quantified_associations": {},
+                ],                
                 "description": [
                   {
                     "locale": "en_US",
@@ -222,6 +259,14 @@ get:
                   }
                 ]
               },
+              "associations": {
+                "PACK": {
+                  "products": ["sunglasses"],
+                  "product_models": [],
+                  "groups": []
+                },
+              },
+              "quantified_associations": {},
               "created": "2017-10-04T18:04:10+02:00",
               "updated": "2017-10-04T18:04:10+02:00"
             }
