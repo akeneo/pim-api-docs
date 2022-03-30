@@ -51,5 +51,36 @@ it's a feature only available in the Enterprise edition.
 | `profile` | Read user first name and last name (from PIM user profile) |
 | `email`   | Read user email (from PIM user profile)                    |
 
+
+## Updating access scopes
+
+It's possible to update the access scopes of an already connected app.
+Acces scope update process requires app users to consent to new scopes changes. If your app needs to change the initial scope list, it needs to initiate an authorization request with the new access scopes that the app requires. The authorization request follows the usual OAuth 2.0 protocol through which the app will be able to retrieve a new Access Token that reflects new demanded scopes.
+
+::: warning
+**Not all users of Akeneo PIM can manage scopes changes.**
+Some users might only have the rights to use your app but not manage it on the Akeneo PIM side. For this reason, it is up to your app to be able to function as per usual until it retrieves a new Access Token.
+:::
+
+The app can warn Akeneo PIM of authorization scopes changes through PIM API.
+Using the following `POST` method, with parameters below:
+
+```
+https://my-pim.cloud.akeneo.com/connect/apps/v1/scopes/update?scope=[REQUESTED_SCOPES]
+```
+Requirements:
+- `scopes`: query parameter to specify app new scope list as a space-separated string
+- `Authorization: Bearer [AccessToken]`: header to authenticate your app
+- `Content-Type: application/json`: header for the response format
+
+Response: `"Ok"`
+
+Using this endpoint notifies all users that can manage your app, that the scopes of your app are changed.
+
+::: warning
+**This endpoint does not update any access scopes.**  
+It is only meant to provide a way for an app to warn Akeneo PIM.
+:::
+
 ::: panel-link Next step [How to test my App ?](/apps/how-to-test-my-app.html)
 :::
