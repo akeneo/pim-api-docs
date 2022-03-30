@@ -32,7 +32,7 @@ Here are the simple steps to follow to configure those permissions.
 
 We strongly recommend you to create **dedicated user roles** for your API users, different from the user roles that you use for your UI users. So go ahead and create one user role for every API connection you will need.
 
-::: warning
+::: tips
 Grant UI permissions to your API user roles doesn't make sense. Your API user should never be used to access the PIM UI. 
 :::
 
@@ -41,16 +41,26 @@ Grant UI permissions to your API user roles doesn't make sense. Your API user sh
 The first ACL `Overall Web API access` means that if enabled, each user under that role will have access to the REST API.
 You will need to give at least this ACL to all the API user roles you created before for them to be able to call the REST API.
 
-::: warning
-Grant Web API permissions to a UI user role doesn't make sense. Your UI users should never be used to call the REST API.
-:::
+For more security, we introduced the following ACLs **from version 6.0 and for our SaaS customers**: 
+- on products: 
+    - Create and update products
+    - List products
+    - Delete products
+- on assets and asset families: 
+    - List assets, 
+    - Create and update assets
+    - Delete assets
+    - List asset families
+    - Create and update asset families
+- on reference entities and records: 
+    - List reference entity records
+    - Create and update reference entity records
+    - Delete reference entity records
+    - List reference entities
+    - List reference entities`
 
 ::: warning
-**Until the 5.0 version**, users with `Overall Web API` were able to make requests on products and product models without additional permissions. 
-
-For more security, we introduced the following ACLs on **Akeneo SaaS versions**: `Create and update products`, `List products` and `Delete products`. 
-
-Please note that these new ACLs are only used to secure access to products and product models.
+**Until the 5.0 version**, users with `Overall Web API` were able to make requests on products, product models, asset families, assets, reference entities, and records without additional permissions. 
 :::
 
 ::: info
@@ -59,31 +69,47 @@ In the Enterprise Edition, the [Catalog Permissions](/documentation/permissions
 
 ### Catalog structure access
 
-You can fine-tune even more this permission by restricting or allowing access to the entities of the catalog structure (categories, families, attributes, attribute options, channels and locales). The table below lists all the ACLs available.
+You can fine-tune even more this permission by restricting or allowing access to the entities of the catalog structure (categories, families, attributes, attribute options, channels and locales). The tables below list all the ACLs available.
 
 | Permission name | If enabled, you will be able to |
 |-----------------|-------------------|
-| List categories | GET on `/categories` and on `/categories/{category_code}`|
-| List families | GET on `/families` and on `/families/{family_code}`|
-| List family variants *(2.x only)* | GET on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
-| List attributes | GET on `/attributes` and on `/attributes/{attribute_code}` |
-| List attribute options | GET on `/attributes/{attribute_code}/options` and on `/attributes/{attribute_code}/options/{attribute_option_code}` |
-| List attribute group *(2.x only)* | GET on `/attribute-groups` and on `/attributes-groups/{attribute_groups_code}` |
-| List association types *(2.x only)* | GET on `/association-types` and on `/association-types/{association_type_code}` |
-| List channels | GET on `/channels` and on `/channels/{channel_code}` |
-| List locales | GET on `/locales` and on `/locales/{locale_code}` |
-| List currencies *(2.x only)*  | GET on `/currencies` and on `/currencies/{currency_code}` |
-| List products *(SaaS only)*  | GET on `/products`, `/products/{code}`, `/product-models` and `/product-models/{code}` |
-| Create and update categories | POST and PATCH on `/categories/{category_code}` <br/> PATCH on `/categories` |
-| Create and update families | POST and PATCH on `/families/{family_code}` <br/> PATCH on `/families` |
-| Create and update family variants *(2.x only)* | POST and PATCH on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
-| Create and update attributes | POST and PATCH on `/attributes/{attribute_code}` <br/> PATCH on `/attributes`|
-| Create and update attribute options | POST and PATCH on `/attributes/{attribute_code}/options/{attribute_option_code}` <br/> PATCH on `/attributes/{attribute_code}/options` |
-| Create and update attribute groups *(2.x only)* | POST and PATCH on `/attribute-groups/{attribute_group_code}` <br/> PATCH on `/attribute-groups` |
-| Create and update association types *(2.x only)* | POST and PATCH on `/association-types/{association_type_code}` <br/> PATCH on `/association-types` |
-| Create and update channels *(2.x only)* | POST and PATCH on `/channels/{channel_code}` <br/> PATCH on `/channels` |
-| Create and update products *(SaaS only)* | POST and PATCH on `/products`, `/products/{code}`, `/product-models` and `/product-models/{code}` |
-| Delete products *(SaaS only)* | DELETE on `/products/{code}` and `/product-models/{code}` |
+| List categories | GET on `/categories*`|
+| Create and update categories | POST and PATCH on `/categories*` |
+| List families | GET on `/families*` |
+| Create and update families | POST and PATCH on `/families*` |
+| List family variants *(2.x only)* | GET on `/families/{family_code}/variants*` |
+| Create and update family variants *(2.x only)* | POST and PATCH on `/families/{family_code}/variants*` |
+| List attributes | GET on `/attributes*` |
+| Create and update attributes | POST and PATCH on `/attributes*`|
+| List attribute options | GET on `/attributes/{attribute_code}/options*` |
+| Create and update attribute options | POST and PATCH on `/attributes/{attribute_code}/options*` |
+| List attribute group *(2.x only)* | GET on `/attribute-groups*` |
+| Create and update attribute groups *(2.x only)* | POST and PATCH on `/attribute-groups*` |
+| List association types *(2.x only)* | GET on `/association-types*` |
+| Create and update association types *(2.x only)* | POST and PATCH on `/association-types*` |
+| List channels | GET on `/channels*` |
+| Create and update channels *(2.x only)* | POST and PATCH on `/channels*` |
+| List locales | GET on `/locales*` |
+| List currencies *(2.x only)*  | GET on `/currencies*` |
+
+
+For more security, we introduced the following ACLs **from version 6.0 and for our SaaS customers**: 
+
+| Permission name | If enabled, you will be able to |
+|-----------------|-------------------|
+| List products  | GET on `/products*` and `/product-models*` |
+| Create and update products | POST and PATCH on `/products*` and `/product-models*` |
+| Delete products | DELETE on `/products/{code}`, and `/product-models/{code}` |
+| List asset families <span class="label label-ee">EE</span> | GET on `/asset-families`, <br> on `/asset-families/{code}`, <br> and on `/asset-families/{code}/attributes*` |
+| Create and update asset families <span class="label label-ee">EE</span> | PATCH on `/asset-families`, <br> on `/asset-families/{code}`, <br> and on `/asset-families/{code}/attributes*` |
+| List assets <span class="label label-ee">EE</span> | GET on `/asset-families/{code}/assets*` <br> and on `/asset-media-files/{code}` |
+| Create and update assets <span class="label label-ee">EE</span> | POST and PATCH `/asset-families/{code}/assets*` <br> and on `/asset-media-files/{code}` |
+| Delete assets <span class="label label-ee">EE</span> | DELETE on `/asset-families/{code}/assets/{code}` |
+| List reference entity records <span class="label label-ee">EE</span> | GET on `reference-entities/{code}/records*` <br> and on `reference-entities-media-files/{code}` |
+| Create and update reference entity records <span class="label label-ee">EE</span> | POST and PATCH on `reference-entities/{code}/records*` and on `reference-entities-media-files` |
+| List reference entities <span class="label label-ee">EE</span> | GET on `reference-entities`, <br> on `reference-entities/{code}`, <br> and on `reference-entities/{code}/attributes*` |
+| Create and update reference entities <span class="label label-ee">EE</span> | PATCH on `reference-entities/{code}` and on `reference-entities/{code}/attributes/{code}*` |
+
 
 ## Catalog permissions _(EE only)_
 

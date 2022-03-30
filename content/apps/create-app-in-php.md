@@ -1,7 +1,7 @@
 # Create an App in PHP
 
 ::: warning
-**For now, this feature is ONLY AVAILABLE on partner sandboxes Akeneo provides**
+This feature is available on all SaaS environments and only since v6 for other types of environments.
 :::
 
 In this tutorial, we provide a guide, with examples in PHP, on how to implement the required parts of your App

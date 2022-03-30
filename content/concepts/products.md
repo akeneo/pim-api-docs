@@ -6,7 +6,7 @@ In the sections below, you will find all the different flavors of products you c
 Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API.
 
 ## Product
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 The product is the central entity of the PIM. This is the entity that holds all the information concerning products.
@@ -182,7 +182,7 @@ In this formula:
 The sections below describe the format of the `data` property for each [product attribute](/concepts/catalog-structure.html#attribute) type.
 
 #### Text and text area attributes
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is either `pim_catalog_text` or `pim_catalog_textarea`, the `data` field should contain a string.
@@ -201,7 +201,7 @@ Whenever the attribute's type is either `pim_catalog_text` or `pim_catalog_texta
 ```
 
 #### Media file attributes
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is either `pim_catalog_file` or `pim_catalog_image`, the `data` field should contain a string, that should be the code of a [product media file](#product-media-file).
@@ -220,7 +220,7 @@ Whenever the attribute's type is either `pim_catalog_file` or `pim_catalog_image
 ```
 
 #### Date attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is `pim_catalog_date`, the `data` field should contain a string, in ISO-8601 format.
@@ -239,7 +239,7 @@ Whenever the attribute's type is `pim_catalog_date`, the `data` field should con
 ```
 
 #### Simple and multi select attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is `pim_catalog_simpleselect`, the `data` field should contain a string, that should be the code of an [attribute option](/concepts/catalog-structure.html#attribute-option).
@@ -273,7 +273,7 @@ Whenever the attribute's type is `pim_catalog_multiselect`, the `data` field sho
 ```
 
 #### Reference data simple and multi select attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is `pim_catalog_reference_data_simpleselect`, the `data` field should contain a string, that should be the code of a reference data attribute option.
@@ -307,7 +307,7 @@ Whenever the attribute's type is `pim_catalog_reference_data_multiselect`, the `
 ```
 
 #### Number attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is `pim_catalog_number`, the `data` field should contain:
@@ -339,7 +339,7 @@ Whenever the attribute's type is `pim_catalog_number`, the `data` field should c
 ```
 
 #### Metric attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is `pim_catalog_metric`, the `data` field should contain an object with following fields:
@@ -377,7 +377,7 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
 ```
 
 #### Price attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is `pim_catalog_price`, the `data` field should contain an array of price objects, each containing:
@@ -419,7 +419,7 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
 ```
 
 #### Boolean attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is `pim_catalog_boolean`, the `data` field should contain either `true` or `false`.
@@ -438,7 +438,7 @@ Whenever the attribute's type is `pim_catalog_boolean`, the `data` field should 
 ```
 
 #### Reference entity single and multiple links attribute
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Whenever the attribute's type is `akeneo_reference_entity`, the `data` field should contain a string, that should be the code of a [reference entity record](/concepts/reference-entities.html#reference-entity-record).
@@ -491,7 +491,7 @@ Whenever the attribute's type is `pim_assets_collection`, the `data` field shoul
 ```
 
 #### Asset Manager asset collection attribute
-::: availability versions=3.2,4.0,5.0,SaaS editions=EE
+::: availability versions=3.2,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` field should contain an array of strings, each string being the code of an [Asset Manager asset](/concepts/asset-manager.html#asset).
@@ -747,7 +747,7 @@ Whenever the attribute type is `pim_catalog_multiselect`, the `linked_data` fiel
 ```
 
 ## Product model
-::: availability versions=2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 The product model gathers similar products that differ in some aspects, and allows the enrichment of their common properties.
@@ -800,6 +800,13 @@ To finish, below is the JSON standard format representing a product model. Notic
   "updated": "2017-10-05T11:24:46+02:00",
   "associations": {},
   "quantified_associations": {},
+  "quality_scores": [
+    {
+      "scope": "ecommerce",
+      "locale": "en_US",
+      "data": "A"
+    }
+  ],
   "metadata": {
     "workflow_status": "working_copy"
   }
@@ -814,11 +821,15 @@ Note that the `metadata` field is only available since the 2.3 version and as it
 Note that the `family` field is only available since the 3.2 version.
 :::
 
+::: warning
+Note that the `quality_scores` field is **only available on SaaS platforms** and when the `with_quality_scores` query parameter is set to `true`.
+:::
+
 ::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodel)
 :::
 
 ## Published product
-::: availability versions=2.x,3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=2.x,3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 A published product is a product that was published by a user in order to freeze a given version of the product. It can be very useful when you want to work on a new version of your product for the next collection for example, but in the meantime, you still want to export the previous version of your product to your channels.
@@ -880,7 +891,7 @@ Endpoints for the published products are only available starting the 2.0 version
 :::
 
 ## Product media file
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 A product media file can be an image (a photo, an illustration, etc.), a video (demonstration of a product, an animation, etc.), an audio file (music, podcast, etc.), other multimedia (PDF file) or office documents (.xlsx, .docx, .csv, etc.). It can also be any exotic format you could use.

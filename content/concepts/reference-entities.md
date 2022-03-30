@@ -12,7 +12,7 @@ The Reference Entities is an Entreprise only feature, meaning all the following 
 :::
 
 ## Reference entity
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Reference entities are objects that are related to products but have their own attributes and lifecycle. A reference entity can be for example the brands, the ranges, the manufacturers, the colors, the materials or the care instructions... And so many other entities.
@@ -38,7 +38,7 @@ Below is the JSON format representing a reference entity.
 :::
 
 ## Reference entity attribute
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Reference entities have attributes that allow to describe their [records](#reference-entity-record).
@@ -175,7 +175,7 @@ As a consequence, when you ask for the list of attributes of one given reference
 :::
 
 ## Reference entity attribute option
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Some type of attributes of reference entities can offer a list of choices. These available choices are reference entity attribute options.
@@ -226,7 +226,7 @@ As a consequence of this limit, when you ask for the list of attribute options o
 :::
 
 ## Reference entity record
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Reference entities have been introduced in the PIM in the 3.0 version.
@@ -454,7 +454,7 @@ Note that the `locale` and `channel` properties are all set to `null` in this ca
 :::
 
 ## Reference entity media file
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Reference entity media files corresponds to the images that you can link to the records of your reference entities and also, to the images that you can direclty link to your reference entities.

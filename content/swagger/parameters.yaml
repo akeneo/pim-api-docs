@@ -99,11 +99,17 @@ with_table_select_options:
   default: false
   type: boolean
   required: false
-with_quality_scores:
+with_quality_scores__products:
   name: with_quality_scores
   in: query
   description: Return product quality scores in the response. (Only available since the 5.0 version)
   default: false
+  type: boolean
+  required: false
+with_quality_scores__product_models:
+  name: with_quality_scores
+  in: query
+  description: Return product model quality scores in the response. <strong>(Only available on SaaS platforms)</strong>
   type: boolean
   required: false
 with_completenesses:
