@@ -51,3 +51,5 @@ it's a feature only available in the Enterprise edition.
 | `profile` | Read user first name and last name (from PIM user profile) |
 | `email`   | Read user email (from PIM user profile)                    |
 
+::: panel-link Next step [How to test my App ?](/apps/how-to-test-my-app.html)
+:::
