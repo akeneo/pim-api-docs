@@ -1,4 +1,4 @@
-# Using OpenID Connect to authenticate users
+# Use OpenID Connect to authenticate users
 
 ::: warning
 This feature is available on all SaaS environments and only since v6 for other types of environments.

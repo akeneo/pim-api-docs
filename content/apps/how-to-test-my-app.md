@@ -1,4 +1,4 @@
-# How to test my App?
+# How to test your App?
 
 ::: warning
 **This feature is only available for our partners using an Akeneo sandbox environment.**
