@@ -1253,6 +1253,15 @@ Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/w
 | -------- | -------------------------------- | ------------------------------------------------------------------------------------ |
 | `>`      | datetime <br> _Format: ISO 8601_ | Only returns records that were respectively<br> updated after the given day and hour |
 
+::: availability versions=SaaS editions=EE
+
+| Operator            | Allowed value type                         | Filter description                                                                         |
+| ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `<`                 | datetime <br> _Format: ISO 8601_           | Only returns records that were <br> updated before the given day and hour                   |
+| `BETWEEN`           | array of datetimes <br> _Format: ISO 8601_ | Only returns records that were <br> updated between the two given dates                     |
+| `NOT BETWEEN`       | array of datetimes <br> _Format: ISO 8601_ | Only returns records that were <br> not updated between the two given dates                 |
+| `SINCE LAST N DAYS` | integer                                    | Only returns records that were <br> updated during the last n days, n being the given value |
+
 #### Example
 
 To get the reference entity records that were updated since the 4th of July 2016 at 10am (UTC), you can use the following URL.
