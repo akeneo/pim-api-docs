@@ -24,6 +24,19 @@ properties:
             data:
               type: object
               description: Reference entity record value
+  created:
+      type: string
+      description: Date of creation. (Only available on SaaS platforms)
+      format: dateTime
+      default: null
+      x-immutable: true
+      x-read-only: true
+  updated:
+      type: string
+      description: Date of the last update. (Only available on SaaS platforms)
+      format: dateTime
+      default: null
+      x-read-only: true
 example: {
   "code": "kartell",
   "values": {
@@ -74,5 +87,7 @@ example: {
         "data": "1949"
       }
     ]
-  }
+  },
+  "created": "2021-01-01T01:23:34+00:00",
+  "updated": "2021-02-03T23:45:60+00:00"
 }
