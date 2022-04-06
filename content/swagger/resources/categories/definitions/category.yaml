@@ -15,6 +15,14 @@ properties:
     description: Date of the last update
     format: dateTime
     x-read-only: true
+  position:
+    type: integer
+    description: Position of the category in its level (only available on SaaS platforms and when query parameter "with_position" is set to "true")
+    x-read-only: true
+  level:
+    type: integer
+    description: Level of the category in its category tree (only available on SaaS platforms and when query parameter "with_position" is set to "true")
+    x-read-only: true
   labels:
     type: object
     description: Category labels for each locale
@@ -28,6 +36,8 @@ example: {
   "code": "winter_collection",
   "parent": null,
   "updated": "2021-05-22T12:48:00+02:00",
+  "position": 1,
+  "level": 1,
   "labels": {
     "en_US": "Winter collection",
     "fr_FR": "Collection hiver"

@@ -18,6 +18,7 @@ get:
       description: Filter categories, for more details see the <a href="/documentation/filter.html#filter-categories">Filters</a> section.
       required: false
       type: string
+    - $ref: '#/parameters/with_position'
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
@@ -64,6 +65,8 @@ get:
               "code": "winter_collection",
               "parent": null,
               "updated": "2021-05-21T11:32:00+02:00",
+              "position": 1,
+              "level": 1,
               "labels": {
                 "en_US": "Winter collection",
                 "fr_FR": "Collection hiver",
@@ -79,6 +82,8 @@ get:
               "code": "woman",
               "parent": "winter_collection",
               "updated": "2021-04-21T10:41:02+02:00",
+              "position": 1,
+              "level": 2,
               "labels": {
                 "en_US": "Woman",
                 "fr_FR": "Femme",
@@ -94,6 +99,8 @@ get:
               "code": "man",
               "parent": "winter_collection",
               "updated": "2021-03-02T12:59:59+02:00",
+              "position": 2,
+              "level": 2,
               "labels": {
                 "en_US": "Man",
                 "fr_FR": "Homme",
@@ -109,6 +116,8 @@ get:
               "code": "kids",
               "parent": "winter_collection",
               "updated": "2021-01-03T12:40:00+02:00",
+              "position": 3,
+              "level": 2,
               "labels": {
                 "en_US": "Kids",
                 "fr_FR": "Enfant",
@@ -124,6 +133,8 @@ get:
               "code": "summer_collection",
               "parent": null,
               "updated": "2021-04-04T09:42:00+02:00",
+              "position": 1,
+              "level": 1,
               "labels": {
                 "en_US": "Summer collection",
                 "fr_FR": "Collection été",

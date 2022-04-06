@@ -119,3 +119,9 @@ with_completenesses:
   default: false
   type: boolean
   required: false
+with_position:
+  name: with_position
+  in: query
+  description: Return information about category position into its category tree (only available on SaaS platforms)
+  required: false
+  type: boolean
