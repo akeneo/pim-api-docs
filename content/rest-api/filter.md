@@ -1815,6 +1815,30 @@ To get the families that have been updated since July 4th, 2020 at 10 am (UTC), 
 /api/rest/v1/families?search={"updated":[{"operator":">","value":"2020-07-04T10:00:00Z"}]}
 ```
 
+### By families with at least one product
+
+::: availability versions=SaaS editions=CE,EE
+
+You can filter the families that have at least one attached product.
+
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+:::info
+You can combine the `has_products` filter with any other filter available on families.
+:::
+
+| Operator | Allowed value type | Filter description                                                                                  |
+|----------|------------------|-----------------------------------------------------------------------------------------------------|
+| `=`      | boolean          | When true, only returns families with at least one product. When false, returns any other families. |
+
+#### Example
+
+To get the families with products, you can use the following URL.
+
+```
+/api/rest/v1/families?search={"has_products":[{"operator":"=","value":"true"}]}
+```
+
 ## Filter categories
 
 When you request specific categories, you can use filters to select only the ones you want.
