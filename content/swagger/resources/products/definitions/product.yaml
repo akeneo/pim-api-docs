@@ -50,7 +50,7 @@ properties:
               description: Locale code of the product value
             data:
               type: object
-              description: Product value
+              description: Product value. See <a href='/concepts/products.html#the-data-format'>the `data` format</a> section for more details.
             linked_data:
               type: object
               x-read-only: true
