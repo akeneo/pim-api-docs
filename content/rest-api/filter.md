@@ -146,7 +146,8 @@ To filter products on creation or update date, use respectively the product prop
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
 :::info
-Note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini).
+Note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini).    
+For Serenity clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator            | Allowed value type                                    | Filter description                                                                                                  |
@@ -362,7 +363,8 @@ To filter product models on creation or update date, use the product property `c
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
 :::info
-Note that dates are interpreted in the time zone of the server that runs Akeneo PIM (e.g. date.timezone setting in php.ini).
+Note that dates are interpreted in the time zone of the server that runs Akeneo PIM (e.g. date.timezone setting in php.ini).    
+For Serenity clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator            | Allowed value type                                    | Filter description                                                                                                        |
@@ -881,7 +883,8 @@ To filter published products on creation or update date, use respectively the pu
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
 :::info
-Note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini).
+Note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini).    
+For Serenity clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator            | Allowed value type                                    | Filter description                                                                                                            |
