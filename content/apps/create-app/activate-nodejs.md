@@ -6,7 +6,7 @@ storage // your own memory system
 // Retrieve GET query params from your own framework / http handler
 const { pim_url: pimUrl } = params;
 
-// Retrive your app's Client ID with your own system
+// Retrieve your app's Client ID with your own system
 const clientId = storage.get("CLIENT_ID");
 
 // Set the access scopes, take care of the 254 chars max !

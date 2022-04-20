@@ -1,2 +1,0 @@
-```java [activate:Java]
-```

@@ -6,13 +6,13 @@ storage // your own memory system
 // Retrieve GET query params from your own framework / http handler
 const { code, state } = params;
 
-// Retrive your app's Client ID with your own logic
+// Retrieve your app's Client ID with your own logic
 const pimUrl = storage.get("PIM_URL");
 const appState = storage.get("APP_STATE");
 const clientId = storage.get("CLIENT_ID");
 const clientSecret = storage.get("CLIENT_SECRET");
 
-//Control the security state integrity previously defined, to avoid attacks
+// Control the security state integrity previously defined, to avoid attacks
 if (state !== appState) {
     return response(403, 
         {

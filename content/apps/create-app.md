@@ -29,8 +29,6 @@ immediately in this Activation URL.
 !!!include(content/apps/create-app/activate-php.md)!!!
 !!!include(content/apps/create-app/activate-nodejs.md)!!!
 !!!include(content/apps/create-app/activate-python.md)!!!
-<!-- !!!include(content/apps/create-app/activate-java.md)!!!
-!!!include(content/apps/create-app/activate-dotnet.md)!!! -->
 
 ## Callback URL
 
@@ -40,8 +38,6 @@ Then, your application must expose a callback URL.
 !!!include(content/apps/create-app/callback-php.md)!!!
 !!!include(content/apps/create-app/callback-nodejs.md)!!!
 !!!include(content/apps/create-app/callback-python.md)!!!
-<!-- !!!include(content/apps/create-app/callback-java.md)!!!
-!!!include(content/apps/create-app/callback-dotnet.md)!!! -->
 
 
 

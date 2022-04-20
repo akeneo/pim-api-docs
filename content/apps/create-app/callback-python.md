@@ -12,7 +12,7 @@ storage # your own memory system
 code: str = params.get('pim_url')
 state: str = params.get('pim_url')
 
-# Retrive your app's variables with your own system
+# Retrieve your app's variables with your own system
 pim_url: str = storage.get("PIM_URL")
 app_state: str = storage.get("APP_STATE")
 client_id: str = storage.get("CLIENT_ID")

@@ -9,7 +9,7 @@ storage # your own memory system
 # Retrieve GET query params from your own framework / http handler
 pim_url: str = params.get('pim_url')
 
-# Retrive your app's Client ID with your own system
+# Retrieve your app's Client ID with your own system
 client_id: str = storage.get("CLIENT_ID")
 
 # The activate URL should have the pim_url param
