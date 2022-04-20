@@ -3018,11 +3018,6 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-markdown-it-codetabs@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/markdown-it-codetabs/-/markdown-it-codetabs-1.2.0.tgz#e1c2626dee5e726d76c2739c425ebfd4443d2f1e"
-  integrity sha512-kF0ec56hKmBZ4xMSFm1pIOuRT37iInD8uvTq+uaWpVKnja6mAg6gkGMLaeLeBiRx4fAMJmrWy417WPf8GgNWxg==
-
 markdown-it-container@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/markdown-it-container/-/markdown-it-container-2.0.0.tgz#0019b43fd02eefece2f1960a2895fba81a404695"
@@ -3032,11 +3027,6 @@ markdown-it-emoji@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/markdown-it-emoji/-/markdown-it-emoji-1.4.0.tgz#9bee0e9a990a963ba96df6980c4fddb05dfb4dcc"
   integrity sha1-m+4OmpkKljupbfaYDE/dsF37Tcw=
-
-markdown-it-include@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/markdown-it-include/-/markdown-it-include-2.0.0.tgz#e86e3b3c68c8f0e0437e179ba919ffd28443127a"
-  integrity sha512-wfgIX92ZEYahYWiCk6Jx36XmHvAimeHN420csOWgfyZjpf171Y0xREqZWcm/Rwjzyd0RLYryY+cbNmrkYW2MDw==
 
 markdown-it-toc-and-anchor@4.1.1:
   version "4.1.1"
