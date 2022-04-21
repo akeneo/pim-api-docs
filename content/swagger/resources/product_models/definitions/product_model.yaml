@@ -7,7 +7,7 @@ properties:
     x-immutable: true
   family:
     type: string
-    description: Family code  from which the product inherits its attributes and attributes requirements (since the 3.2)
+    description: <a href='api-reference.html#Family'>Family</a> code  from which the product inherits its attributes and attributes requirements (since the 3.2)
     x-validation-rules: It is equal to an existing family code
     x-immutable: true
   family_variant:
@@ -17,12 +17,12 @@ properties:
     x-immutable: true
   parent:
     type: string
-    description: Code of the parent product model. This parent can be modified since the 2.3.
+    description: Code of the parent <a href='api-reference.html#Productmodel'>product model</a>. This parent can be modified since the 2.3.
     x-validation-rules: "&bull; It is equal to an existing product model code&#10;&bull; This product model has the same family variant as the one given in the `family_variant field`"
     default: "null"
   categories:
     type: array
-    description: Codes of the categories in which the product model is categorized
+    description: Codes of the <a href='api-reference.html#Category'>categories</a> in which the product model is categorized
     x-validation-rules: Each string of the array is equal to an existing category code
     items:
       type: string
@@ -39,13 +39,13 @@ properties:
           properties:
             scope:
               type: string
-              description: Channel code of the product value
+              description: <a href='api-reference.html#Channel'>Channel</a> code of the product value
             locale:
               type: string
-              description: Locale code of the product value
+              description: <a href='api-reference.html#Locale'>Locale</a> code of the product value
             data:
               type: object
-              description: Product value
+              description: <a href='api-reference.html#Product'>Product</a> value
   associations:
     type: object
     description: Several associations related to groups, product and/or other product models, grouped by association types
