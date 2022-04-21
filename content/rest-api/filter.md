@@ -1846,7 +1846,7 @@ You can combine the `has_products` filter with any other filter available on fam
 To get the families with products, you can use the following URL.
 
 ```
-/api/rest/v1/families?search={"has_products":[{"operator":"=","value":"true"}]}
+/api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}
 ```
 
 ## Filter categories
