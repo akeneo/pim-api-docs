@@ -16,7 +16,7 @@ properties:
         description: Attribute label for the locale `localeCode`
   type:
     type: string
-    description: Attribute type
+    description: Attribute type. See <a href='/concepts/reference-entities.html#reference-entity-attribute'>type</a> section for more details.
     enum: ['text', 'image', 'number', 'single_option', 'multiple_options', 'reference_entity_single_link', 'reference_entity_multiple_links']
     x-immutable: true
   value_per_locale:
