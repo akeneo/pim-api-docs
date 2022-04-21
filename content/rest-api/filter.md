@@ -145,8 +145,8 @@ To get the products that are not in the `camcorders` and `digital_cameras` famil
 To filter products on creation or update date, use respectively the product property `created` and `updated`.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
-:::info
-Note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini).
+::: info
+Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator            | Allowed value type                                    | Filter description                                                                                                  |
@@ -361,8 +361,8 @@ To get the product models that are not in the `camcorders` and `digital_cameras`
 To filter product models on creation or update date, use the product property `created` and `updated`, respectively.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
-:::info
-Note that dates are interpreted in the time zone of the server that runs Akeneo PIM (e.g. date.timezone setting in php.ini).
+::: info
+Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator            | Allowed value type                                    | Filter description                                                                                                        |
@@ -880,8 +880,8 @@ To get the published products that are not in the `camcorders` and `digital_came
 To filter published products on creation or update date, use respectively the published product property `created` and `updated`.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
-:::info
-Note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini).
+::: info
+Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator            | Allowed value type                                    | Filter description                                                                                                            |
@@ -1245,8 +1245,10 @@ You can filter the reference entity records by their update date.
 
 Below are the allowed operators to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
 
-:::info
-Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+::: info
+Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator | Allowed value type               | Filter description                                                                   |
@@ -1444,8 +1446,10 @@ You can filter the assets by their update date.
 
 Below is the operator to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
 
-:::info
-Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+::: info
+Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 ::: availability versions=3.2,4.0,5.0,6.0,SaaS editions=EE
@@ -1675,16 +1679,18 @@ Below you will find the operator to filter on this property, as well as the corr
 /api/rest/v1/attributes?search={"code":[{"operator":"IN","value":["code1","code2"]}]}
 ```
 
-### By updated date
+### By update date
 
 ::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
-You can filter the attributes by their updated date.
+You can filter the attributes by their update date.
 
 Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
-:::info
-Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+::: info
+Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator | Allowed value type               | Filter description                                                          |
@@ -1745,7 +1751,7 @@ Below you will find the operator to filter on this property, as well as the corr
 /api/rest/v1/attribute-groups?search={"code":[{"operator":"IN","value":["marketing","technical"]}]}
 ```
 
-### By updated date
+### By update date
 
 ::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
@@ -1753,8 +1759,10 @@ You can filter the attribute groups by their update date.
 
 Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
-:::info
-Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+::: info
+Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator | Allowed value type               | Filter description                                                                |
@@ -1791,16 +1799,18 @@ Below you will find the operator to filter on this property, as well as the corr
 /api/rest/v1/families?search={"code":[{"operator":"IN","value":["family_code1","family_code2"]}]}
 ```
 
-### By updated date
+### By update date
 
 ::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
-You can filter the families by their updated date.
+You can filter the families by their update date.
 
 Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
-:::info
-Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+::: info
+Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator | Allowed value type               | Filter description                                                        |
@@ -1879,16 +1889,18 @@ Below you will find the operator to filter on this property, as well as the corr
 /api/rest/v1/categories?search={"code":[{"operator":"IN","value":["category_code1","category_code2"]}]}
 ```
 
-### By updated date
+### By update date
 
 ::: availability versions=6.0,SaaS editions=CE,EE
 
-You can filter the categories by their updated date.
+You can filter the categories by their update date.
 
 Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
-:::info
+::: info
 Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator | Allowed value type               | Filter description                                                          |
