@@ -1839,7 +1839,7 @@ You can combine the `has_products` filter with any other filter available on fam
 
 | Operator | Allowed value type | Filter description                                                                                  |
 |----------|------------------|-----------------------------------------------------------------------------------------------------|
-| `=`      | boolean          | When true, only returns families with at least one product. When false, returns any other families. |
+| `=`      | boolean          | When true, only returns families with at least one product (true) or families with no products (false). |
 
 #### Example
 
