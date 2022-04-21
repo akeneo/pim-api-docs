@@ -24,11 +24,16 @@ Many apps built using the Events API will follow the same abstract event-driven 
 
 Using the REST API with the Events API empowers your app to do much more than just listen and reply to messages.
 
-::: tips
-The volume of events will vary depending on:
+Please, note that the volume of events will vary depending on:
 - the payload size (that mainly depends on the product values and product associations),
-- and the activity on your Akeneo PIM (meaning the number of events that happened into your PIM).
+- and the activity on your Akeneo PIM (meaning the number of events that happened on your PIM).
 
-Your Request URL might receive *many* event requests. Consider decoupling the way you process and react to events.
+For example, when a user makes product updates on Akeneo PIM, the requests you receive contain one event each because Akeneo PIM sends requests as an event arises.
+
+And when an app bulk edits hundreds of products through the REST API, the requests you receive contain 10 events each to send a maximum of events as soon as possible.
+
+::: tips
+Your Request URL might receive *many* event requests.  
+Consider decoupling the way you process and react to events.
 :::
 
