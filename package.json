@@ -39,5 +39,8 @@
     "minimist": "1.2.0",
     "require-dir": "^0.3.1",
     "js-yaml": "^3.0.0"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.9"
   }
 }
