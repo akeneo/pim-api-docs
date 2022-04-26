@@ -138,6 +138,7 @@ properties:
     type: boolean
     description: Default value for a Yes/No attribute, applied when creating a new product or product model (only available since the 5.0)
     x-warning: Only for `pim_catalog_boolean` attribute type
+    x-from-version: "5.0"
   table_configuration:
     type: array
     description: Configuration of the Table attribute (columns)
