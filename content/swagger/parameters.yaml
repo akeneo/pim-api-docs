@@ -92,6 +92,7 @@ with_attribute_options:
   default: false
   type: boolean
   required: false
+  x-from-version: "5.0"
 with_table_select_options:
   name: with_table_select_options
   in: query
@@ -106,6 +107,7 @@ with_quality_scores__products:
   default: false
   type: boolean
   required: false
+  x-from-version: "5.0"
 with_quality_scores__product_models:
   name: with_quality_scores
   in: query
@@ -119,6 +121,7 @@ with_completenesses:
   default: false
   type: boolean
   required: false
+  x-from-version: "SaaS"
 with_position:
   name: with_position
   in: query
