@@ -30,11 +30,13 @@ properties:
     format: dateTime
     x-immutable: true
     x-read-only: true
+    x-from-version: "SaaS"
   updated:
     type: string
     description: Date of the last update (Only available on SaaS versions)
     format: dateTime
     x-read-only: true
+    x-from-version: "SaaS"
 example: {
   "code": "sku_54628_picture1",
   "values": {
