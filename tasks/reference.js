@@ -16,6 +16,24 @@ var rename = require('gulp-rename');
 var highlightJs = require('highlightjs');
 var revReplace = require('gulp-rev-replace');
 
+const ignoreVersionImcompatibleProperties = async (data, version) => {
+    const { default: objectScan } = await import('object-scan')
+    objectScan(['**.x-from-version'], {
+        filterFn: ({ value, depth, key, gparent }) => {
+            if (`${version}` < value) {
+                const propertyName = key[depth - 2];
+                try {
+                    // If element if array.
+                    gparent.splice(propertyName, propertyName);
+                } catch (e) {
+                    // If element is object.
+                    delete gparent[propertyName];
+                }
+            }
+        },
+    }) (data)
+}
+
 function determineCategory(tag){
     switch(tag){
         case 'Product':
@@ -132,7 +150,8 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
         gulp.src('content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
             .pipe(gulp.dest('content/swagger'))
-            .pipe(jsonTransform(function(data, file) {
+            .pipe(jsonTransform(async function(data) {
+                await ignoreVersionImcompatibleProperties(data, version);
                 var templateData = data;
                 data.categories = {};
                 data.pimVersion = version;
@@ -223,6 +242,21 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                 var status = code.match(/^2.*$/) ? 'success' : 'error';
                                 response[status] = true;
                                 response.id = operationId + '_' + code;
+
+                                if (response.hasOwnProperty('x-examples-per-version')) {
+                                    const sortedExamples = _.reverse(_.sortBy(response['x-examples-per-version'], ['x-version']));
+                                    const closestExample = _.find(sortedExamples, function(exemplePerVersion) {
+                                        return exemplePerVersion['x-version'] <= version;
+                                    });
+                                    if (closestExample === undefined) {
+                                        console.log('Error: Missing example for version "' + version + '" of route "' + verb + ' ' + pathUri + '"');
+                                        return;
+                                    }
+                                    const stringValue = highlightJs.highlight('json', JSON.stringify(closestExample['x-example'], null, 2), true);
+                                    response.hljsExample = '<pre class="hljs"><code>' + stringValue.value + '</code></pre>';
+                                    return response;
+                                }
+
                                 var example = response.examples || response['x-examples'] || ((response.schema) ? response.schema.example : undefined);
                                 if (example) {
                                     var highlightjsExample = example['x-example-1'] ?
