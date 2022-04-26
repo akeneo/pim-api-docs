@@ -114,6 +114,7 @@ with_quality_scores__product_models:
   description: Return product model quality scores in the response. <strong>(Only available on SaaS platforms)</strong>
   type: boolean
   required: false
+  x-from-version: "SaaS"
 with_completenesses:
   name: with_completenesses
   in: query
