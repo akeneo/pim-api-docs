@@ -43,8 +43,8 @@ workflows:
                   filters:
                       branches:
                           only: master
-            - destroy_staging?:
+            - deploy_staging?:
                   type: approval
             - deploy_staging:
                   requires:
-                      - destroy_staging?
+                      - deploy_staging?
