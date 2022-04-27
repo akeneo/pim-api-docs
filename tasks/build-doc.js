@@ -423,11 +423,11 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'The complete guide to connect Akeneo PIM to your eCommerce solution',
             files: {
                 'introduction.md': 'Introduction',
-                'step0-who-is-your-connector-for.md': 'Who is your connector for?',
+                'step0-who-is-your-app-for.md': 'Who is your app for?',
                 'step1-who-does-what.md': 'Who does what?',
                 'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
                 'step3-reconcile-PIM-data-with-eCommerce-data.md': 'Reconcile PIM data with eCommerce data',
-                'step4-define-your-first-scope.md': 'Define the first scope of your connector'
+                'step4-define-your-first-scope.md': 'Define the first scope of your app'
             }
         },
         'translation-connection': {
