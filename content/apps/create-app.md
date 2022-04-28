@@ -1,4 +1,4 @@
-# Create an App in any language
+# Create an App (with code samples)
 
 ::: warning
 This feature is available on all SaaS environments and only since v6 for other types of environments.
