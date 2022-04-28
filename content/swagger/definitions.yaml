@@ -1,5 +1,7 @@
 Product:
   $ref: ./resources/products/definitions/product.yaml
+ProductExamples:
+  $ref: ./resources/products/definitions/examples/products.yaml
 ProductList:
   type: object
   allOf:

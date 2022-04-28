@@ -92,6 +92,7 @@ with_attribute_options:
   default: false
   type: boolean
   required: false
+  x-from-version: "5.0"
 with_table_select_options:
   name: with_table_select_options
   in: query
@@ -99,6 +100,7 @@ with_table_select_options:
   default: false
   type: boolean
   required: false
+  x-from-version: "SaaS"
 with_quality_scores__products:
   name: with_quality_scores
   in: query
@@ -106,12 +108,14 @@ with_quality_scores__products:
   default: false
   type: boolean
   required: false
+  x-from-version: "5.0"
 with_quality_scores__product_models:
   name: with_quality_scores
   in: query
   description: Return product model quality scores in the response. <strong>(Only available on SaaS platforms)</strong>
   type: boolean
   required: false
+  x-from-version: "SaaS"
 with_completenesses:
   name: with_completenesses
   in: query
@@ -119,3 +123,10 @@ with_completenesses:
   default: false
   type: boolean
   required: false
+  x-from-version: "SaaS"
+with_position:
+  name: with_position
+  in: query
+  description: Return information about category position into its category tree (only available on SaaS platforms)
+  required: false
+  type: boolean

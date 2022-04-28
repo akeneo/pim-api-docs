@@ -67,6 +67,7 @@ properties:
           product_models:
             type: array
             description: Array of product model codes with which the product is in relation (only available since the v2.1)
+            x-from-version: "2.1"
             items:
               type: string
   quantified_associations:

@@ -10,6 +10,7 @@ properties:
     description: <a href='api-reference.html#Family'>Family</a> code  from which the product inherits its attributes and attributes requirements (since the 3.2)
     x-validation-rules: It is equal to an existing family code
     x-immutable: true
+    x-from-version: "3.2"
   family_variant:
     type: string
     description: Family variant code from which the product model inherits its attributes and variant attributes
@@ -20,6 +21,7 @@ properties:
     description: Code of the parent <a href='api-reference.html#Productmodel'>product model</a>. This parent can be modified since the 2.3.
     x-validation-rules: "&bull; It is equal to an existing product model code&#10;&bull; This product model has the same family variant as the one given in the `family_variant field`"
     default: "null"
+    x-from-version: "2.3"
   categories:
     type: array
     description: Codes of the <a href='api-reference.html#Category'>categories</a> in which the product model is categorized
@@ -67,12 +69,14 @@ properties:
           product_models:
             type: array
             description: Array of product model codes with which the product is in relation (only available since the v2.1)
+            x-from-version: "2.1"
             items:
               type: string
   quantified_associations:
     type: object
     description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available since the 5.0)
     x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it. &#10;&bull; Each object in the array of the property `product_models` contains the code of an existing product model and the quantity of it."
+    x-from-version: "5.0"
     properties:
       quantifiedAssociationTypeCode:
         type: object
@@ -113,9 +117,10 @@ properties:
     description: More information around the product model (only available since the v2.3 in the Enterprise Edition)
     x-immutable: true
     x-read-only: true
+    x-from-version: "2.3"
     properties:
       workflow_status:
-        description: Status of the product model regarding the user permissions (only available since the v2.3 in the Enterprise Edition)
+        description: Status of the product model regarding the user permissions
         type: string
         enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
   quality_scores:
@@ -123,6 +128,7 @@ properties:
     description: Product model quality scores for each channel/locale combination (<strong>only available on SaaS platforms</strong> and when the "with_quality_scores" query parameter is set to "true")
     x-immutable: true
     x-read-only: true
+    x-from-version: "SaaS"
 
 example: {
   "code": "model-biker-jacket-leather",
