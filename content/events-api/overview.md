@@ -1,22 +1,17 @@
-# 👋 Welcome in the Events API basics documentation!
+# 👋 Welcome to the Events API basics documentation!
 
 You are probably asking yourself a ton of questions about our Events API, that's why we made this article.
 
 ::: warning
-The Events API feature is only available in the **5.0 version** and higher and for **SaaS** customers.
+The Events API feature is only available since the **5.0 version** and for **SaaS** customers.
+
+Please note that the events API feature is not currently available for **Apps**.
 :::
-
-
-_All the essential things you need to know._
 
 Using the Akeneo Events API, you will receive events on product creation, product update, and product deletion. 
 The feature is working as well on simple products as on product models and variants.
 
 Simple products and product variants have similar event formats, but events related to product models are a bit different. That is why we detailed each event type format in our [Events API Reference](../events-reference/events-reference-serenity/products.html)
-
-::: warning
-The events API feature is not currently available for **Apps**.
-:::
 
 ::: info 
 For more information, please read our help center article [What is an event subscription?](https://help.akeneo.com/pim/serenity/articles/what-is-an-event-subscription.html) to discover which type of events Akeneo PIM triggers and in what cases. 
