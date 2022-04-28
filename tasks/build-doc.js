@@ -566,7 +566,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'access-scopes.md': 'Access scopes',
         'how-to-test-my-app.md': 'How to test my App?',
         'how-to-have-public-url-for-my-app.md': 'How to have a public URL for my App?',
-        'create-app.md': 'Code samples'
+        'create-app.md': 'Create an App (with code samples)'
     };
 
     var isOnePage = false;
