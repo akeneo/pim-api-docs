@@ -1,4 +1,4 @@
-# Who is your connector for?
+# Who is your App for?
 
 ## Personas
 

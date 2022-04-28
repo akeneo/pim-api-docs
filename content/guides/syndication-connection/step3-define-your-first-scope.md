@@ -1,8 +1,8 @@
 # Define the scope of your first version
 
-## A "Connection-compliant" connector
+## A "Connection-compliant" App
 
-The best way to interact with Julia's PIM is to develop a "[Connection-compliant](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html)" connector (based on our API).
+The best way to interact with Julia's PIM is to develop a "[Connection-compliant](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html)" App (based on our API).
 
 :::tips
 Why?
@@ -13,7 +13,7 @@ Please don't hesitate to read our ["4 reasons why you should use our API"](https
 
 As [mentioned before](step2-understand-akeneo-pim.html), there are [several editions](https://www.akeneo.com/compare-editions/) and several supported version of Akeneo PIM.
 
-Of course, the choice of the PIM version/edition depends on your business but we strongly encourage you to develop a connector that is fully compatible with our latest **SaaS editions**.
+Of course, the choice of the PIM version/edition depends on your business but we strongly encourage you to develop an App that is fully compatible with our latest **SaaS editions**.
 
 To know more about the different PIM versions, don't hesitate to consult our blog section on our [PIM release cycle](https://www.akeneo.com/blog/akeneo-introduces-a-simpler-product-release-cycle/).
 
@@ -25,9 +25,9 @@ Well, now you can [start here](https://api.akeneo.com/getting-started/connect-th
 
 **Our recommendation: always listen to your customer's needs first!**
 
-We are aware that it is difficult and expensive in terms of investment to achieve a 100% complete syndication connector that is flexible enough to adapt to any customer project.
+We are aware that it is difficult and expensive in terms of investment to achieve a 100% complete syndication App that is flexible enough to adapt to any customer project.
 
-Furthermore, to build such a complex connector as a syndication connector in a single iteration would undoubtedly be too complex to specify.
+Furthermore, to build such a complex App as a syndication App in a single iteration would undoubtedly be too complex to specify.
 
 **Our advice: adopt an Agile approach!**
 
