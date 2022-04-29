@@ -523,7 +523,6 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
 gulp.task('build-events-api', ['clean-dist','less'], function () {
 
     var pages = {
-        'introduction.md': 'Introduction',
         'overview.md': 'Overview',
         'subscription.md': 'Subscribe and receive events',
         'security.md': 'Security',

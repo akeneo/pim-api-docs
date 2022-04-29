@@ -1,6 +1,12 @@
-# Overview
+# 👋 Welcome to the Events API basics documentation!
 
-_All the essential things you need to know._
+You are probably asking yourself a ton of questions about our Events API, that's why we made this article.
+
+::: warning
+The Events API feature is only available since the **5.0 version** and for **SaaS** customers.
+
+Please note that the events API feature is not currently available for **Apps**.
+:::
 
 Using the Akeneo Events API, you will receive events on product creation, product update, and product deletion. 
 The feature is working as well on simple products as on product models and variants.
