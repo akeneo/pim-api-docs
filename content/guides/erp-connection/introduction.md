@@ -2,7 +2,7 @@
 ![Product illustration](../../img/illustrations/illus--Product.svg)
 
 > You want to connect your ERP solution to your PIM?
-> You want to implement an ERP connector and you don't know where to start?
+> You want to implement an ERP App and you don't know where to start?
 
 You landed in the right place!
 
@@ -14,9 +14,9 @@ We're here to help you find your way around, understand how your ERP solution wi
 
 ## Building a one-size-fits-all solution?
 
-If you are using this guide in order to build a **one-size-fits-all** connector for the Akeneo App Store, you should know that each ERP solution has different capabilities and above all, each project has its own specificities due to the product modeling specific to each ERP.
+If you are using this guide in order to build a **one-size-fits-all** App for the Akeneo App Store, you should know that each ERP solution has different capabilities and above all, each project has its own specificities due to the product modeling specific to each ERP.
 
-It is therefore very complex to build a connector that fits all end-users' needs...
+It is therefore very complex to build an App that fits all end-users' needs...
 
 That's why, from our experience, this guide will only address the most common use-cases and classical architectures.
 
@@ -36,11 +36,11 @@ Now that this product data dispatch from your ERP solution is crystal clear, let
 
 ## Follow the steps!
 
-1. [Who is your connector for?](step1-who-is-your-connector-for.html)  
+1. [Who is your App for?](step1-who-is-your-app-for.html)  
 Understand your target user: Who will install it? Who will set it up? Who will use it? What are their needs?
 2. [Analyse ERP data](step2-analyze-erp-data.html)
 Understand the product information that should flow between your ERP and the PIM.
 3. [Understand Akeneo PIM](step3-understand-akeneo-pim.html)
 Understand Akeneo PIM, its features, its data structure in order to be able to compare them with your ERP solution.
-4. [How to build your connector?](step4-how-to-build-your-connector.html)
+4. [How to build your App?](step4-how-to-build-your-connector.html)
 Ready to start? Some last recommendations on how to interact with our PIM...

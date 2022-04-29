@@ -14,7 +14,7 @@ We're here to help you find your way around, understand how Akeneo PIM will inte
 
 ## Follow the steps!
 
-1. [Who is your connector for?](step0-who-is-your-connector-for.html)  
+1. [Who is your App for?](step0-who-is-your-app-for.html)  
 Understand your target user: Who will install it? Who will set it up? Who will use it? What are the needs of these stakeholders?
 2. [Who does what?](step1-who-does-what.html)  
 Understand how external stakeholders interact and synchronize their data with the PIM, and why.
