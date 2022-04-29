@@ -581,7 +581,7 @@ clone@^1.0.0, clone@^1.0.2:
   resolved "https://registry.npmjs.org/clone/-/clone-1.0.4.tgz"
   integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
 
-clone@^2.1.1:
+clone@^2.1.0, clone@^2.1.1:
   version "2.1.2"
   resolved "https://registry.npmjs.org/clone/-/clone-2.1.2.tgz"
   integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
@@ -3018,12 +3018,12 @@ markdown-it-include@2.0.0:
   resolved "https://registry.yarnpkg.com/markdown-it-include/-/markdown-it-include-2.0.0.tgz#e86e3b3c68c8f0e0437e179ba919ffd28443127a"
   integrity sha512-wfgIX92ZEYahYWiCk6Jx36XmHvAimeHN420csOWgfyZjpf171Y0xREqZWcm/Rwjzyd0RLYryY+cbNmrkYW2MDw==
 
-markdown-it-toc-and-anchor@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.npmjs.org/markdown-it-toc-and-anchor/-/markdown-it-toc-and-anchor-4.1.1.tgz"
-  integrity sha1-0x5Dd67X4G0UzXt8mo9z/w+rUwg=
+markdown-it-toc-and-anchor@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-toc-and-anchor/-/markdown-it-toc-and-anchor-4.2.0.tgz#d1613327cc63c61f82cd66cbac5564f4db12c0e9"
+  integrity sha512-DusSbKtg8CwZ92ztN7bOojDpP4h0+w7BVOPuA3PHDIaabMsERYpwsazLYSP/UlKedoQjOz21mwlai36TQ04EpA==
   dependencies:
-    clone "^1.0.2"
+    clone "^2.1.0"
     uslug "^1.0.4"
 
 markdown-it@8.2.2:
