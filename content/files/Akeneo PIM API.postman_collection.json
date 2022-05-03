@@ -189,6 +189,14 @@
                 "v1",
                 "attributes",
                 "auto_exposure"
+              ],
+              "query": [
+                {
+                  "key": "with_table_select_options",
+                  "value": "false",
+                  "description": "(boolean ) • Return the options of 'select' column types (of a table attribute) in the response. (Only available on SaaS platforms) ",
+                  "disabled": true
+                }
               ]
             },
             "description": "Assuming that the given code is the code of an existing attribute"
@@ -215,6 +223,50 @@
                 "rest",
                 "v1",
                 "attributes"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"updated\":[{\"operator\":\">\",\"value\":\"2020-07-04T10:00:00Z\"}]}",
+                  "description": "Get the attributes that have been updated since July 4th, 2020 at 10 am (UTC), you can use the following URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"code\":[{\"operator\":\"IN\",\"value\":[\"code1\",\"code2\"]}]}",
+                  "description": "Get the attributes that code is in the given list",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"type\":[{\"operator\":\"IN\",\"value\":[\"pim_catalog_simpleselect\",\"pim_catalog_multiselect\"]}]}",
+                  "description": "Get the attributes of types pim_catalog_simpleselect and pim_catalog_multiselect, you can use the following URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "false",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_table_select_options",
+                  "value": "false",
+                  "description": "(boolean ) • Return the options of 'select' column types (of a table attribute) in the response. (Only available on SaaS platforms)",
+                  "disabled": true
+                }
               ]
             }
           },
@@ -546,6 +598,38 @@
                 "rest",
                 "v1",
                 "attribute-groups"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"code\":[{\"operator\":\"IN\",\"value\":[\"marketing\",\"technical\"]}]}",
+                  "description": "Only returns attribute groups that are in the list.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"updated\":[{\"operator\":\">\",\"value\":\"2020-07-04T10:00:00Z\"}]}",
+                  "description": "Only returns attribute groups that were updated after the given day and hour.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type. Should never be set manually.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "true",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                }
               ]
             }
           },
@@ -680,6 +764,14 @@
                 "v1",
                 "categories",
                 "master"
+              ],
+              "query": [
+                {
+                  "key": "with_position",
+                  "value": "false",
+                  "description": "Return information about category position into its category tree (only available on SaaS platforms)",
+                  "disabled": true
+                }
               ]
             },
             "description": "Assuming that the given code is the code of an existing category"
@@ -706,6 +798,56 @@
                 "rest",
                 "v1",
                 "categories"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"is_root\":[{\"operator\":\"=\",\"value\":true}]}",
+                  "description": "Get only root categories",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"parent\":[{\"operator\":\"=\",\"value\":\"categoryA\"}]}",
+                  "description": "Get the child categories of the parent category categoryA, you can use the following URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"code\":[{\"operator\":\"IN\",\"value\":[\"category_code1\",\"category_code2\"]}]}",
+                  "description": "Get only categories that are in the list",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"updated\":[{\"operator\":\">\",\"value\":\"2021-05-17T10:00:00Z\"}]}",
+                  "description": "Get the categories that have been updated since May 17th, 2021 at 10 am (UTC), you can use the following URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "false",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_position",
+                  "value": "false",
+                  "description": "(boolean ) • Return information about category position into its category tree (only available on SaaS platforms)",
+                  "disabled": true
+                }
               ]
             }
           },
@@ -1084,6 +1226,44 @@
                 "rest",
                 "v1",
                 "families"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"code\":[{\"operator\":\"IN\",\"value\":[\"family_code1\",\"family_code2\"]}]}",
+                  "description": "Only returns families that are in the list.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"updated\":[{\"operator\":\">\",\"value\":\"2020-07-04T10:00:00Z\"}]}",
+                  "description": "Only returns families that were updated after the given day and hour.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"has_products\":[{\"operator\":\"=\",\"value\":true}]}",
+                  "description": "When true, only returns families with at least one product (true) or families with no products (false).",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type. Should never be set manually.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "true",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                }
               ]
             }
           },
@@ -1415,6 +1595,32 @@
                 "rest",
                 "v1",
                 "locales"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"enabled\":[{\"operator\":\"=\",\"value\":true}]}",
+                  "description": "Get enabled locales",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "(integer , 10 by default ) • Number of results by page, see Pagination section",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "false",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way",
+                  "disabled": true
+                }
               ]
             }
           },
