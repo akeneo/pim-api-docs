@@ -100,7 +100,7 @@ $client->getAttributeOptionApi()->upsertList('a_simple_select',
         'sort_order' => 2,
         'labels'     => [
             'en_US' => 'Black',
-            'fr_FR' => 'Noir'
+            'fr_FR' => 'Noir',
         ]
     ],
     [
@@ -108,9 +108,9 @@ $client->getAttributeOptionApi()->upsertList('a_simple_select',
         'sort_order' => 3,
         'labels'     => [
             'en_US' => 'White',
-            'fr_FR' => 'Blanc'
-        ]
-    ]
+            'fr_FR' => 'Blanc',
+        ],
+    ],
 ]);
 ```
 
