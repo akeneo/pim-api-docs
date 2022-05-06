@@ -136,7 +136,7 @@ For non-scalar values (objects and arrays) data types must match.
 ```json
 {
   "code": "boots",
-  "parent": "clothes",
+  "parent": "master",
   "labels": {
     "en_US": "Boots",
     "fr_FR": "Bottes"
@@ -323,7 +323,7 @@ You want to remove the product `boots-4846` from the category `boots`. Here is h
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 
-The PATCH behavior described above is quite intuitive. However, applying a PATCH containing [product values](/concepts/products.html#focus-on-the-products-values) on a product is a bit different.
+The PATCH behavior described above is quite intuitive. However, applying a PATCH containing [product values](/concepts/products.html#focus-on-the-product-values) on a product is a bit different.
 
 ::: info
 In the examples below only products values are represented, but usually products also include other information as specified in the standard format.
@@ -391,7 +391,7 @@ You want to add the `description` of the product `boots-4846` for the `en_US` lo
 ```
 
 ::: info 
-Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/concepts/products.html#focus-on-the-products-values)
+Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/concepts/products.html#focus-on-the-product-values)
 :::
 
 ### Modify a product value
@@ -537,7 +537,7 @@ You want to modify the `name` of the product `boots-4846` for the `fr_FR` locale
 ```
 
 ::: info 
-Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/concepts/products.html#focus-on-the-products-values)
+Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/concepts/products.html#focus-on-the-product-values)
 :::
 
 ### Erase a product value
@@ -607,7 +607,7 @@ You want to erase the `name` of the product `boots-4846` for the `en_US` locale.
 ```
 
 ::: info 
-Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/concepts/products.html#focus-on-the-products-values)
+Wondering how to format the `data` property in these product values? In fact, it depends on the attribute type. [More details right here!](/concepts/products.html#focus-on-the-product-values)
 :::
 
 ## Update reference entity record values

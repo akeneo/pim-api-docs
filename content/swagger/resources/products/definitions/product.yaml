@@ -10,12 +10,12 @@ properties:
     default: true
   family:
     type: string
-    description: Family code from which the product inherits its attributes and attributes requirements
+    description: <a href='api-reference.html#Family'>Family</a> code from which the product inherits its attributes and attributes requirements.
     x-validation-rules: It is equal to an existing family code. In the case of variant product, the given family should be the same as the product model family.
     default: "null only in the case of a non variant product"
   categories:
     type: array
-    description: Codes of the categories in which the product is classified
+    description: Codes of the <a href='api-reference.html#Category'>categories</a> in which the product is classified
     x-validation-rules: Each string of the array is equal to an existing category code
     items:
       type: string
@@ -29,12 +29,13 @@ properties:
     default: []
   parent:
     type: string
-    description: Code of the parent product model when the product is a variant (only available since the 2.0). This parent can be modified since the 2.3.
+    description: Code of the parent <a href='api-reference.html#Productmodel'>product model</a> when the product is a variant (only available since the 2.0). This parent can be modified since the 2.3.
     x-validation-rules: It is equal to an existing product model code only if the product is variant otherwise it's equal to null
     default: "null"
+    x-from-version: '2.0'
   values:
     type: object
-    description: "Product attributes values, see <a href='/concepts/products.html#focus-on-the-products-values'>Product values</a> section for more details"
+    description: "Product attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details"
     x-validation-rules: Validation rules detailed in Product values section
     properties:
       attributeCode:
@@ -44,17 +45,18 @@ properties:
           properties:
             scope:
               type: string
-              description: Channel code of the product value
+              description: <a href='api-reference.html#Channel'>Channel</a> code of the product value
             locale:
               type: string
-              description: Locale code of the product value
+              description: <a href='api-reference.html#Locale'>Locale</a> code of the product value
             data:
               type: object
-              description: Product value
+              description: Product value. See <a href='/concepts/products.html#the-data-format'>the `data` format</a> section for more details.
             linked_data:
               type: object
               x-read-only: true
               description: Object containing labels of attribute options (only available since the 5.0 and when query parameter "with_attribute_options" is set to "true"). See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
+              x-from-version: '5.0'
               properties:
                 attribute:
                   type: string
@@ -83,12 +85,14 @@ properties:
           product_models:
             type: array
             description: Array of product model codes with which the product is in relation (only available since the v2.1)
+            x-from-version: '2.1'
             items:
               type: string
   quantified_associations:
     type: object
     description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available since the 5.0)
     x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it."
+    x-from-version: '5.0'
     properties:
       quantifiedAssociationTypeCode:
         type: object
@@ -129,9 +133,10 @@ properties:
     description: More information around the product (only available since the v2.0 in the Enterprise Edition)
     x-immutable: true
     x-read-only: true
+    x-from-version: '2.0'
     properties:
       workflow_status:
-        description: Status of the product regarding the user permissions (only available since the v2.0 in the Enterprise Edition)
+        description: Status of the product regarding the user permissions
         type: string
         enum: ['read_only','draft_in_progress','proposal_waiting_for_approval','working_copy']
   quality_scores:
@@ -139,11 +144,13 @@ properties:
     description: Product quality scores for each channel/locale combination (only available since the 5.0 and when the "with_quality_scores" query parameter is set to "true")
     x-immutable: true
     x-read-only: true
+    x-from-version: '5.0'
   completenesses:
     type: object
     description: Product completenesses for each channel/locale combination (only available on SaaS platforms, and when the "with_completenesses" query parameter is set to "true")
     x-immutable: true
     x-read-only: true
+    x-from-version: 'SaaS'
 
 example: {
   "identifier": "top",

@@ -245,6 +245,8 @@ md.use(require('markdown-it-container'), 'panel-link', {
         }
     }
 });
+md.use(require("markdown-it-codetabs"));
+md.use(require("markdown-it-include"));
 
 
 gulp.task('build-getting-started', ['clean-dist','less'], function () {
@@ -557,14 +559,13 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
 
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
-        'introduction.md': 'Introduction to Apps',
-        'why-apps-over-connectors.md': 'Choose Apps over connectors',
-        'using-oauth2.md': 'Use OAuth 2.0 to connect an App',
-        'using-openid.md': 'Use OpenID Connect to authenticate users',
+        'introduction.md': 'What\'s an App?',
+        'why-apps-over-connectors.md': 'Why should you choose Apps?',
+        'using-oauth2.md': 'Using OAuth 2.0 to connect an App',
+        'using-openid.md': 'Using OpenID Connect to authenticate users',
         'access-scopes.md': 'Access scopes',
-        'update-scopes.md': 'Update access scopes',
-        'how-to-test-my-app.md': 'Test your App',
-        'how-to-have-public-url-for-my-app.md': 'Get a public URL for your App',
+        'how-to-test-my-app.md': 'How to test my App?',
+        'how-to-have-public-url-for-my-app.md': 'How to have a public URL for my App?',
         'create-app-in-php.md': 'Create an App in PHP'
     };
 

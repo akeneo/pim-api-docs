@@ -614,6 +614,7 @@
                                                                                                                             {{/each}}
                                                                                                                             <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } {{#unless @last}} <br> {{/unless}}
                                                                                                                         {{else}}
+                                                                                                                            &bull; {{{description}}}
                                                                                                                             {{#with items}}
                                                                                                                                 {{#if properties}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { <br>
                                                                                                                                     {{#each properties}}
@@ -625,7 +626,7 @@
                                                                                                                                     &bull; {{{description}}}
                                                                                                                                 {{/if}}
                                                                                                                             {{else}}
-                                                                                                                                &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                                                                                {{#unless @last}} <br> {{/unless}}
                                                                                                                             {{/with}}
                                                                                                                         {{/if}}
                                                                                                                     {{/each}}
