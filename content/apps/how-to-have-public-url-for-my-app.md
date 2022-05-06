@@ -1,4 +1,4 @@
-# How to have a public URL for my App during its development?
+# How to have a public URL for your App during its development?
 
 ::: warning
 This feature is available on all SaaS environments and only since v6 for other types of environments.

@@ -523,6 +523,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
 gulp.task('build-events-api', ['clean-dist','less'], function () {
 
     var pages = {
+        'introduction.md': 'Introduction',
         'overview.md': 'Overview',
         'subscription.md': 'Subscribe and receive events',
         'security.md': 'Security',
@@ -565,7 +566,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'access-scopes.md': 'Access scopes',
         'how-to-test-my-app.md': 'How to test my App?',
         'how-to-have-public-url-for-my-app.md': 'How to have a public URL for my App?',
-        'create-app.md': 'Create an App (with code samples)'
+        'create-app-in-php.md': 'Create an App in PHP'
     };
 
     var isOnePage = false;

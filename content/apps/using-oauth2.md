@@ -1,4 +1,4 @@
-# Using OAuth 2.0 to connect an App
+# Use OAuth 2.0 to connect an App
 
 ::: warning
 This feature is available on all SaaS environments and only since v6 for other types of environments.
