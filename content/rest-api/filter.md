@@ -527,7 +527,26 @@ This query parameter is also available for the published products.
 
 As seen previously, the attribute type determines which set of operators is available to use these filters.
 
-**The `pim_catalog_identifier`, `pim_catalog_text` and `pim_catalog_textarea` attribute types**
+**The `pim_catalog_identifier` attribute type**
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
+
+| Allowed operators                                  | Allowed value type |
+| -------------------------------------------------- | ------------------ |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN            | string             |
+| =, !=                                              | string             |
+| EMPTY, NOT EMPTY                                   | no value           |
+
+::: availability versions=SaaS editions=CE,EE
+
+| Allowed operators | Allowed value type                    |
+| ----------------- | ------------------------------------- |
+| IN, NOT IN        | list of strings (product identifiers) |
+
+::: warning
+With the IN operator, the list of product identifiers can contain up to **100** strings.
+:::
+
+**The `pim_catalog_text` and `pim_catalog_textarea` attribute types**
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators                                  | Allowed value type |
