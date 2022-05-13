@@ -9,7 +9,7 @@ This page explains how to enable the `developer mode` on your partner sandbox an
 ## Step 1 - Enable the `developer mode` and the test App creation
 
 To enable the developer mode and the `Create a test App` button, you need to:
-1. Go to `Settings`, then `Roles`
+1. Go to `System`, then `Roles`
 2. Choose the role you use for your user
 3. In the `Permissions` tab, scroll down and search for the `Developer mode` submenu
 4. Select `Manage test apps`
