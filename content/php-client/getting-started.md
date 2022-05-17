@@ -2,21 +2,22 @@
 
 ## Requirements
 
-* PHP >= 5.6
+* PHP >= 7.4
 * Composer
 
 ## Compatibility matrix
 
 Below you will find which PHP client version to use depending on your PIM version.
 
-| PIM version | REST API PHP client version | End of life |
-|--------|----|----|
-| v2.0  | v1.0 | March 2019 |
-| v2.1 - v2.2 | v2.0 | March 2019 |
-| v2.3 | v3.0 | December 2019 |
-| v3.0 - v3.1 | v4.0 | August 2020 |
-| v3.2 - v4.0 | v5.0 | August 2021 |
-| v5.0 - Serenity | v6.0 | August 2022 |
+| PIM version | REST API PHP client version | [End of life](https://help.akeneo.com/pim/serenity/supported-versions-table.html) |
+|-------------|-----------------------------|-----------------------------------------------------------------------------------|
+| v2.0        | v1.0                        | March 2019                                                                        |
+| v2.1 - v2.2 | v2.0                        | March 2019                                                                        |
+| v2.3        | v3.0                        | December 2019                                                                     |
+| v3.0 - v3.1 | v4.0                        | August 2020                                                                       |
+| v3.2 - v4.0 | v5.0                        | August 2021                                                                       |
+| v5.0        | v6.0                        | September 2022                                                                    |
+| v6.0 - SaaS | v7.0 to current latest      |                                                                                   |
 
 ::: info
 Note that our PHP client is backward compatible.
@@ -28,7 +29,7 @@ The new endpoints available in v2.3 will not be available in the v1.0 of the PHP
 
 ## Installation
 
-`api-php-client` and `api-php-client-ee` use [Composer](http://getcomposer.org).
+`api-php-client` use [Composer](http://getcomposer.org).
 The first step is to download Composer:
 
 ```bash
@@ -39,18 +40,19 @@ In this example, we will use [Guzzle](https://github.com/guzzle/guzzle) v6 as th
 
 Run the following command to require the libraries in your project:
 
-### Community Edition 
 ```bash
 $ php composer.phar require akeneo/api-php-client php-http/guzzle6-adapter:^2.0 http-interop/http-factory-guzzle:^1.0
 ```
 
-### Enterprise Edition
-```bash
-$ php composer.phar require akeneo/api-php-client-ee php-http/guzzle6-adapter:^2.0 http-interop/http-factory-guzzle:^1.0
-```
-
 ::: info
 If you don't know which implementation to choose, we strongly recommend you to use Guzzle v6, as in the previous example.
+:::
+
+### Enterprise Edition
+
+::: warning
+Enterprise Edition and Community Edition of the client have been merged into a one and unique package.
+Every user shall now use the same client package. Learn about migration instructions [here](https://github.com/akeneo/api-php-client-ee#warning-the-client-project-has-moved-warning).
 :::
 
 ## Initialization of the client
@@ -59,8 +61,6 @@ You first need to initialize the client with your credentials (client id, secret
 
 If you don't have any client id/secret, let's take a look at [this page](/documentation/authentication.html#client-idsecret-generation) to create it.
 
-### Community Edition
-
 ```php
 <?php
 
@@ -77,27 +77,6 @@ You can authenticate to the client with your token/refresh token as well.
 require_once __DIR__ . '/vendor/autoload.php';
 
 $clientBuilder = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://localhost/');
-$client = $clientBuilder->buildAuthenticatedByToken('client_id', 'secret', 'token', 'refresh_token');
-```
-
-### Enterprise Edition
-
-```php
-<?php
-
-require_once __DIR__ . '/vendor/autoload.php';
-
-$clientBuilder = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://localhost/');
-$client = $clientBuilder->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
-```
-
-You can authenticate to the client with your token/refresh token as well.
-```php
-<?php
-
-require_once __DIR__ . '/vendor/autoload.php';
-
-$clientBuilder = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://localhost/');
 $client = $clientBuilder->buildAuthenticatedByToken('client_id', 'secret', 'token', 'refresh_token');
 ```
 

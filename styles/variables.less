@@ -103,8 +103,19 @@ li {
     margin-bottom: @spacing-base;
 }
 
+.description-table {
+    border: 1px solid #677688;
+    border-radius: 20px;
+    & td, th {
+        border: 1px solid #677688;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
 @import "button.less";
 @import "code.less";
+@import "codetabs.less";
 @import "nav.less";
 @import "label.less";
 @import "alert.less";
@@ -124,3 +135,4 @@ li {
 @import "modal.less";
 @import "persona.less";
 @import "sticky.less";
+@import "layout.less";

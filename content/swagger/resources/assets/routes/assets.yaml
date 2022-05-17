@@ -7,7 +7,8 @@ get:
     - "3.2"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   x-ee: true
   description: This endpoint allows you to get a list of assets of a given asset family. Assets are paginated. This endpoint is case sensitive on the asset family code.
   parameters:
@@ -92,7 +93,9 @@ get:
                     "channel": null
                   }
                 ]
-              }
+              },
+              "created": "2021-05-31T09:23:34+00:00",
+              "updated": "2021-05-31T09:23:34+00:00"
             },
             {
               "_links": {
@@ -128,7 +131,9 @@ get:
                     "channel": null
                   }
                 ]
-              }
+              },
+              "created": "2021-05-31T09:23:34+00:00",
+              "updated": "2021-05-31T09:23:34+00:00"
             },
             {
               "_links": {
@@ -164,7 +169,9 @@ get:
                     "channel": null
                   }
                 ]
-              }
+              },
+              "created": "2021-05-31T09:23:34+00:00",
+              "updated": "2021-05-31T09:23:34+00:00"
             }
           ]
         }
@@ -182,7 +189,8 @@ patch:
     - "3.2"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   x-ee: true
   description: This endpoint allows you to update and/or create several assets of one given asset family at once. Learn more about the <a href="/documentation/update.html#patch-asset-attribute-values">Update behavior</a>. Note that if the asset does not already exist for the given asset family, it creates it. This endpoint is case sensitive on the asset family code.
   parameters:

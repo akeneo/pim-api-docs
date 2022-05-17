@@ -5,7 +5,7 @@ In the PIM, products are structured thanks to the Catalog structure entities.
 Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API.
 
 ## Category
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 A category is a way of classifying products. Categories constitute category trees and in Akeneo, you can have multiple category trees with an unlimited number of levels (categories, subcategories, subsubcategories..).
@@ -25,24 +25,26 @@ Below is the JSON standard format representing a set of categories.
 // A root category
 {
   "code":"master",
+  "parent":null,
+  "updated": "2021-04-21T10:41:02+02:00",
   "labels":{
     "en_US": "Master catalog",
     "de_DE": "Hauptkatalog",
     "fr_FR": "Catalogue principal"
-   },
-  "parent":null
+   }
 }
 ```
 ```json
 // A subcategory
 {
   "code":"tvs_projectors",
+  "parent":"master",
+  "updated": "2021-04-21T10:22:02+02:00",
   "labels":{
     "en_US": "TVs and projectors",
     "de_DE": "TVs und projectoren",
     "fr_FR": "Téléviseurs et projecteurs"
-   },
-  "parent":"master"
+   }
 }
 ```
 
@@ -50,7 +52,7 @@ Below is the JSON standard format representing a set of categories.
 :::
 
 ## Attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 An attribute is a characteristic of a product. Each product is composed of a variety of attributes.
@@ -84,6 +86,7 @@ Below is the list of attribute types and their description:
 | Reference entity multiple links (Enterprise Edition only) | akeneo_reference_entity_collection | the same as above but allowing you to manage multiple links |
 | Reference data simple select | pim_reference_data_simpleselect | allows you to manage any kind of data that has its own properties, as a single-choice select. |
 | Reference data multi select | pim_reference_data_multiselect | allows you to manage any kind of data that has its own properties, as a multi-choice select. |
+| Table (Growth and Enterprise editions only) | pim_catalog_table | allows you to manage multidimensional data in the form of a table |
 
 In the Akeneo UI, you can find the attributes in the `Settings`/`Attributes` menu. Below is an example of one attribute in the UI.
 
@@ -136,11 +139,22 @@ Below is the JSON standard format representing this attribute.
 The `group_labels` field is only available since the 5.0.
 :::
 
+::: info
+_Focus on the table attribute configuration_
+
+The structure of a table attribute is defined in a specific `table_configuration` field, which describes the columns of the table.
+Each column is defined by a data type (select, text, boolean, number), and a unique code. It can hold a collection of labels,
+and user-defined validation constraints based on the column data type. A table configuration must define at least two columns, and the first one has to be a `select` data type.
+In order to ensure that the PIM will still be running, we have defined some limits.  
+- You can create up to **10 columns** in a single table.
+- You can create up to **200000 options** for a select column.
+:::
+
 ::: panel-link Want more details about the attribute resource? [Check its endpoints here!](/api-reference.html#Attribute)
 :::
 
 ## Attribute option
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Some type of attributes offers list of choices. These available choices are attribute options.
@@ -183,12 +197,12 @@ Below is the JSON standard format representing these attribute options.
 :::
 
 ## Family
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
-A family is a set of attributes that are shared by products belonging to this family. In other words, a family can be considered as a template for products. A product family can use all of the attributes available in the PIM. Several families of products can use the same attributes. 
+A family is a set of attributes that are shared by products belonging to this family. In other words, a family can be considered as a template for products. A product family can use all of the attributes available in the PIM. Several families of products can use the same attributes.
 
-When a product is associated to a family, the product automatically inherits from all attributes defined at the family level. 
+When a product is associated to a family, the product automatically inherits from all attributes defined at the family level.
 
 The family helps managing the product’s completeness as you can say at the family level, which family attributes are required for the completeness calculation.
 
@@ -262,7 +276,7 @@ Below is the JSON standard format representing this family.
 :::
 
 ## Family variant
-::: availability versions=2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 The family variant is the entity used to modelize the products with variants.
@@ -361,7 +375,7 @@ Endpoints for the attribute groups are only available starting the 2.0 version.
 :::
 
 ## Association type
-::: availability versions=2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 In the PIM, a product can be associated to another. You can create an association type to specify what is the nature of this association.

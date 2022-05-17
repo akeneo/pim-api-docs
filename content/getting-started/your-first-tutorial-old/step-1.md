@@ -14,8 +14,8 @@ _Best practice:_ Always create a dedicated user when you want to use it to make 
 
 Then, we are going to create a dedicated user role. We will name it `My API user role`. 
 
-1. Click on `System` menu.
-1. Click on the `Role` submenu. 
+1. Click on `System`.
+1. Click on `Role`. 
 1. From here, you should be able to create a role, click on `Create role`.
 ![Role creation](/img/getting-started/role-creation.png)
 1. Once in the role form, give a name to the role you are creating: `My API user role`.
@@ -24,10 +24,10 @@ Then, we are going to create a dedicated user role. We will name it `My API user
 ![Permission activation](/img/getting-started/permission-activation.png)
 1. Click on the `Users` tab and tick the box next to the `myAPIuser` to associate your API user to this new role.
 ![Permission assignation](/img/getting-started/permission-assignation.png)
-1. Click on the `Save` button.
+1. Click on `Save`.
 
 ::: info
-_Best practice:_ Do not - under any condition :wink: - re-use a user role that is assigned to real users. Indeed, we highly recommend you to create a dedicated user role for your API user.
+_Best practice:_ Do not re-use a user role that is assigned to real users. Indeed, we highly recommend you create a dedicated user role for your API user.
 :::
 
 ## Get you client ID and secret
@@ -45,13 +45,13 @@ You will then need a client ID and a secret. To do so, we will create an API con
 This feature is only available since the 2.0 version. If you are trying to use the REST API on a 1.7 PIM, please have a look to the [second method below](#get-your-credentials-via-command-line-).
 :::
 
-1. Click on the `System` menu.
-1. Click on the `API connections` submenu.
-1. Click on the `Create` button.
+1. Click on `System`.
+1. Click on `API connections`.
+1. Then on `Create`.
 ![API connections empty screen](/img/getting-started/api-connections-empty-screen.png)
 The following popin should be then displayed.
 ![API connection creation popin](/img/getting-started/api-connection-creation-popin.png)
-1. Enter `My very first API connection` in the label field and click on the `Save` button.  
+1. Enter `My very first API connection` in the label field and click on `Save`.  
 You API connection appears in the API connections table and should look like this:
 ![My very first API connection](/img/getting-started/my-very-first-api-connection.png)
 
@@ -90,4 +90,3 @@ Along with the username and the password we just created, these are your credent
 
 ::: panel-link And now, let's configure the tool that will make the REST API request [The Postman set up](/getting-started/your-first-tutorial-old/step-2.html)
 :::
-

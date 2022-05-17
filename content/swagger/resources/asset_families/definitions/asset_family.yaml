@@ -38,7 +38,7 @@ properties:
     type: array
     description: The rules that will be run after the asset creation, in order to automatically link the assets of this family to a set of products. To understand the format of this property, see <a href='/concepts/asset-manager.html#focus-on-the-product-link-rule'>here</a>.
     x-validation-rules: To know more about the validation of this property, take a look at our product link rule format.
-    default: {}
+    default: []
     items:
       type: object
       properties:
@@ -78,7 +78,8 @@ properties:
     type: array
     description: The transformations to perform on source files in order to generate new files into your asset attributes (only available since v4.0). To understand the format of this property, see <a href='/concepts/asset-manager.html#focus-on-the-transformations'>here</a>.
     x-validation-rules: To know more about the validation of this property, take a look at our transformation format.
-    default: {}
+    x-from-version: "4.0"
+    default: []
     items:
       type: object
       required: ['label', 'target', 'source', 'operations']

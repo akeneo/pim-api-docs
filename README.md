@@ -46,3 +46,19 @@ Then click on _Rerun_.
 
 As our YAML Swagger spec uses references and links, it is considered as non-valid.
 During the build, we generate a valid JSON specification that is put under the `content/swagger` folder. Don't forget to version it if you made any change into the YAML Swagger spec.
+
+### Custom properties
+
+Our Swagger spec is extended with [custom properties](https://swagger.io/docs/specification/2-0/swagger-extensions/):
+
+| Property                 | Type                                | Description                                                                                                                                                                          |
+|--------------------------|-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `x-from-version`         | `string`                            | Indicates the version the property was added to the API. In the user documentation, hides the property from payload descriptions that doesn't match the selected API version.        |
+| `x-examples-per-version` | [[Example object](#example-object)] | Allows to set a payload example for a specific version. Use as a [Response object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#responsesObject) property. |
+
+#### Example object
+
+| Property    | Type     | Description                |
+|-------------|----------|----------------------------|
+| `x-version` | `string` | API version of the example |
+| `x-example` | `any`    | Example payload content    |

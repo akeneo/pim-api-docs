@@ -3,10 +3,10 @@
 The **Product** is the central resource of our PIM and, when you think about it, it makes perfect sense since what we are doing is Product Management. :wink:
 
 In the sections below, you will find all the different flavors of products you can find in the PIM.  
-Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API. 
+Each section below contains an explanation of the concept behind these resources. You will find out more about their usage in the PIM and their JSON format in order for them to interact with the REST API.
 
 ## Product
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 The product is the central entity of the PIM. This is the entity that holds all the information concerning products.
@@ -102,6 +102,18 @@ Below is the JSON standard format representing a product.
           "locale": "en_US",
           "data": "A"
       }
+  ],
+  "completenesses": [
+    {
+      "scope": "ecommerce",
+      "locale": "en_US",
+      "data": 45
+    },
+    {
+      "scope": "ecommerce",
+      "locale": "fr_FR",
+      "data": 90
+    }
   ]
 }
 ```
@@ -122,14 +134,18 @@ The `quantified_associations` field is only available since the 5.0.
 Note that the `quality_scores` field is only available since the 5.0 and when the `with_quality_scores` query parameter is set to `true`.
 :::
 
+::: warning
+Note that the `completenesses` field is only available on SaaS platforms, and when the `with_completenesses` query parameter is set to `true`.
+:::
+
 ::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Product)
 :::
 
 ### Convert a variant product to a simple product
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=SaaS editions=CE,EE
 :::
 
-A variant product, which has a product model as parent, can be converted to a simple product by removing its parent. To perform this action through the API, you just have to update the `parent` field to `null`. 
+A variant product, which has a product model as parent, can be converted to a simple product by removing its parent. To perform this action through the API, you just have to update the `parent` field to `null`.
 By default all the former values, categories and associations (included those defined at the parent level) will be kept if they are not specified in the PATCH request.
 
 ## Focus on the product values
@@ -161,12 +177,12 @@ In this formula:
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
  - `LINKED_DATA` containing the attribute option labels if the attribute is a simple or multi select. [Check some examples here.](#the-linked_data-format) This property is only available since the 5.0.
- 
+
 ### The `data` format
 The sections below describe the format of the `data` property for each [product attribute](/concepts/catalog-structure.html#attribute) type.
 
 #### Text and text area attributes
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is either `pim_catalog_text` or `pim_catalog_textarea`, the `data` field should contain a string.
@@ -185,7 +201,7 @@ Whenever the attribute's type is either `pim_catalog_text` or `pim_catalog_texta
 ```
 
 #### Media file attributes
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is either `pim_catalog_file` or `pim_catalog_image`, the `data` field should contain a string, that should be the code of a [product media file](#product-media-file).
@@ -204,7 +220,7 @@ Whenever the attribute's type is either `pim_catalog_file` or `pim_catalog_image
 ```
 
 #### Date attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is `pim_catalog_date`, the `data` field should contain a string, in ISO-8601 format.
@@ -215,7 +231,7 @@ Whenever the attribute's type is `pim_catalog_date`, the `data` field should con
   "values": {
     "packshot": [
       {
-        "data": "f/2/e/6/f2e6674e0766acdc70f814_myFile.pdf"
+        "data": "2021-04-29T08:58:00.101Z"
       }
     ]
   }
@@ -223,7 +239,7 @@ Whenever the attribute's type is `pim_catalog_date`, the `data` field should con
 ```
 
 #### Simple and multi select attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is `pim_catalog_simpleselect`, the `data` field should contain a string, that should be the code of an [attribute option](/concepts/catalog-structure.html#attribute-option).
@@ -257,7 +273,13 @@ Whenever the attribute's type is `pim_catalog_multiselect`, the `data` field sho
 ```
 
 #### Reference data simple and multi select attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
+:::
+
+::: warning
+Reference Data is the ancestor of Reference Entities.  
+On SaaS platforms, **users can't create Reference Data attributes anymore**.  
+More information about Reference Data and Reference Entities in the following Help Center article: [Reference entities or reference data?](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#reference-entities-or-reference-data)
 :::
 
 Whenever the attribute's type is `pim_catalog_reference_data_simpleselect`, the `data` field should contain a string, that should be the code of a reference data attribute option.
@@ -291,7 +313,7 @@ Whenever the attribute's type is `pim_catalog_reference_data_multiselect`, the `
 ```
 
 #### Number attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is `pim_catalog_number`, the `data` field should contain:
@@ -323,12 +345,12 @@ Whenever the attribute's type is `pim_catalog_number`, the `data` field should c
 ```
 
 #### Metric attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
-Whenever the attribute's type is `pim_catalog_metric`, the `data` field should contain:
-- an integer, whenever the `decimals_allowed` property of the attribute is set to `false`.
-- a string representing a number, whenever the `decimals_allowed` property of the attribute is set to `true`.
+Whenever the attribute's type is `pim_catalog_metric`, the `data` field should contain an object with following fields:
+- `amount`: a string representing a number if the `decimals_allowed` property of the attribute is set to `true`, otherwise an integer, containing amount value
+- `unit`: a string representing the metric unit for the specified amount
 
 ##### Examples
 ```json
@@ -361,12 +383,12 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
 ```
 
 #### Price attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
-Whenever the attribute's type is `pim_catalog_price`, the `data` field should contain:
-- an integer, whenever the `decimals_allowed` property of the attribute is set to `false`.
-- a string representing a number, whenever the `decimals_allowed` property of the attribute is set to `true`.
+Whenever the attribute's type is `pim_catalog_price`, the `data` field should contain an array of price objects, each containing:
+- `amount`: a string representing a number if the `decimals_allowed` property of the attribute is set to `true`, otherwise an integer, containing amount value
+- `currency`: a string representing the price currency for the specified amount
 
 ##### Examples
 ```json
@@ -374,10 +396,12 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
   "values": {
     "recommended_price": [
       {
-        "data": {
-          "amount":200,
-          "unit": "USD"
-        }
+        "data": [
+          {
+            "amount":200,
+            "currency": "USD"
+          }
+        ]
       }
     ]
   }
@@ -388,10 +412,12 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
   "values": {
     "price": [
       {
-        "data": {
-          "amount":"25.50",
-          "unit": "EUR"
-        }
+        "data": [
+          {
+            "amount":"25.50",
+            "currency": "EUR"
+          }
+        ]
       }
     ]
   }
@@ -399,7 +425,7 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
 ```
 
 #### Boolean attribute
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 Whenever the attribute's type is `pim_catalog_boolean`, the `data` field should contain either `true` or `false`.
@@ -418,7 +444,7 @@ Whenever the attribute's type is `pim_catalog_boolean`, the `data` field should 
 ```
 
 #### Reference entity single and multiple links attribute
-::: availability versions=3.x,4.0,5.0,Serenity editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Whenever the attribute's type is `akeneo_reference_entity`, the `data` field should contain a string, that should be the code of a [reference entity record](/concepts/reference-entities.html#reference-entity-record).
@@ -471,7 +497,7 @@ Whenever the attribute's type is `pim_assets_collection`, the `data` field shoul
 ```
 
 #### Asset Manager asset collection attribute
-::: availability versions=3.2,4.0,5.0,Serenity editions=EE
+::: availability versions=3.2,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` field should contain an array of strings, each string being the code of an [Asset Manager asset](/concepts/asset-manager.html#asset).
@@ -488,6 +514,65 @@ Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` fiel
   }
 }
 ```
+
+#### Table attribute
+::: availability versions=SaaS editions=EE,GE
+:::
+
+Whenever the attribute type is `pim_catalog_table`, the `data` field should contain an array of rows, where each row is a key-value object, the key being the `column` code, and the value being the cell value.
+
+##### Example
+```json
+{
+  "values": {
+    "Food_composition": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": [
+          {
+              "percentage": "28.5",
+              "composition": "Cooked_wheat_semolin"
+          },
+          {
+              "Origin": "France",
+              "allergen": false,
+              "percentage": "28.5",
+              "composition": "Vegetables"
+          },
+          {
+              "allergen": true,
+              "percentage": "28",
+              "composition": "Sauce"
+          },
+          {
+              "Origin": "France",
+              "allergen": false,
+              "percentage": "10",
+              "composition": "Cooked_cured_chicken_fillet"
+          },
+          {
+              "Origin": "Spain",
+              "allergen": false,
+              "percentage": "5",
+              "composition": "Pre_cooked_merguez"
+          },
+          {
+              "composition": "Frozen"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+:::warning
+Please note that we have defined some limits in order to guarantee the PIM stability.
+- The maximum number of rows in a table is set to **100**.
+- The maximum number of table attributes within the PIM is set to **50**.
+- The maximum number of filled cells per product is set to 8000, for all the table attributes on a given product page.
+:::
 
 ### The `locale` and `scope` format
 
@@ -606,7 +691,7 @@ Note that the `locale` and `scope` properties are all set to `null` in this case
 :::
 
 ### The `linked_data` format
-::: availability versions=Serenity editions=CE,EE
+::: availability versions=SaaS editions=CE,EE
 :::info
 Note that this property is in read-only. You won't be able to patch or post it.
 :::
@@ -668,7 +753,7 @@ Whenever the attribute type is `pim_catalog_multiselect`, the `linked_data` fiel
 ```
 
 ## Product model
-::: availability versions=2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 The product model gathers similar products that differ in some aspects, and allows the enrichment of their common properties.
@@ -721,6 +806,13 @@ To finish, below is the JSON standard format representing a product model. Notic
   "updated": "2017-10-05T11:24:46+02:00",
   "associations": {},
   "quantified_associations": {},
+  "quality_scores": [
+    {
+      "scope": "ecommerce",
+      "locale": "en_US",
+      "data": "A"
+    }
+  ],
   "metadata": {
     "workflow_status": "working_copy"
   }
@@ -735,11 +827,15 @@ Note that the `metadata` field is only available since the 2.3 version and as it
 Note that the `family` field is only available since the 3.2 version.
 :::
 
+::: warning
+Note that the `quality_scores` field is **only available on SaaS platforms** and when the `with_quality_scores` query parameter is set to `true`.
+:::
+
 ::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodel)
 :::
 
 ## Published product
-::: availability versions=2.x,3.x,4.0,5.0,Serenity editions=EE
+::: availability versions=2.x,3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 A published product is a product that was published by a user in order to freeze a given version of the product. It can be very useful when you want to work on a new version of your product for the next collection for example, but in the meantime, you still want to export the previous version of your product to your channels.
@@ -801,7 +897,7 @@ Endpoints for the published products are only available starting the 2.0 version
 :::
 
 ## Product media file
-::: availability versions=1.7,2.x,3.x,4.0,5.0,Serenity editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
 A product media file can be an image (a photo, an illustration, etc.), a video (demonstration of a product, an animation, etc.), an audio file (music, podcast, etc.), other multimedia (PDF file) or office documents (.xlsx, .docx, .csv, etc.). It can also be any exotic format you could use.

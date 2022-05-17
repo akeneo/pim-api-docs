@@ -22,7 +22,7 @@ Here are the simple steps to follow to configure those permissions.
 
 1. Log into your favorite PIM.
 1. Navigate to the `System/Roles` menu.
-1. Click on the `Create role` button.
+1. Click on `Create role`.
 1. Input a new name for the user role you are creating, `ERP connection user role` for example.
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
 1. In the `Web API permissions` tab, select the permissions you want to give to your API user.
@@ -32,49 +32,84 @@ Here are the simple steps to follow to configure those permissions.
 
 We strongly recommend you to create **dedicated user roles** for your API users, different from the user roles that you use for your UI users. So go ahead and create one user role for every API connection you will need.
 
-::: warning
-Do not give any UI permissions to your API user roles.
+::: tips
+Grant UI permissions to your API user roles doesn't make sense. Your API user should never be used to access the PIM UI. 
 :::
 
 ### Overall access
 
 The first ACL `Overall Web API access` means that if enabled, each user under that role will have access to the REST API.
-
 You will need to give at least this ACL to all the API user roles you created before for them to be able to call the REST API.
 
+For more security, we introduced the following ACLs **from version 6.0 and for our SaaS customers**: 
+- on products: 
+    - Create and update products
+    - List products
+    - Delete products
+- on assets and asset families: 
+    - List assets, 
+    - Create and update assets
+    - Delete assets
+    - List asset families
+    - Create and update asset families
+- on reference entities and records: 
+    - List reference entity records
+    - Create and update reference entity records
+    - Delete reference entity records
+    - List reference entities
+    - List reference entities`
+
 ::: warning
-Do not give this permission to your UI user role as it makes no sense to give API access to UI users.
+**Until the 5.0 version**, users with `Overall Web API` were able to make requests on products, product models, asset families, assets, reference entities, and records without additional permissions. 
 :::
 
-:::info
-Note that if a role has `Overall Web API` access, then it means that all the users under that role will be able to make requests on products, product models and published products.  
-There is no way to only restrict access to products, except if you are using a 2.x Enterprise Edition. In this case, the EE permissions based on user groups are applied to the API for the products and the published products.
+::: info
+In the Enterprise Edition, the [Catalog Permissions](/documentation/permissions.html#catalog-permissions-ee-only) are applied in addition to those ACLs.
 :::
 
 ### Catalog structure access
 
-You can fine-tune even more this permission by restricting or allowing access to the entities of the catalog structure (categories, families, attributes, attribute options, channels and locales). The table below lists all the ACLs available.
+You can fine-tune even more this permission by restricting or allowing access to the entities of the catalog structure (categories, families, attributes, attribute options, channels and locales). The tables below list all the ACLs available.
 
 | Permission name | If enabled, you will be able to |
 |-----------------|-------------------|
-| List categories | GET on `/categories` and on `/categories/{category_code}`|
-| List families | GET on `/families` and on `/families/{family_code}`|
-| List family variants *(2.x only)* | GET on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
-| List attributes | GET on `/attributes` and on `/attributes/{attribute_code}` |
-| List attribute options | GET on `/attributes/{attribute_code}/options` and on `/attributes/{attribute_code}/options/{attribute_option_code}` |
-| List attribute group *(2.x only)* | GET on `/attribute-groups` and on `/attributes-groups/{attribute_groups_code}` |
-| List association types *(2.x only)* | GET on `/association-types` and on `/association-types/{association_type_code}` |
-| List channels | GET on `/channels` and on `/channels/{channel_code}` |
-| List locales | GET on `/locales` and on `/locales/{locale_code}` |
-| List currencies *(2.x only)*  | GET on `/currencies` and on `/currencies/{currency_code}` |
-| Create and update categories | POST and PATCH on `/categories/{category_code}` <br/> PATCH on `/categories` |
-| Create and update families | POST and PATCH on `/families/{family_code}` <br/> PATCH on `/families` |
-| Create and update family variants *(2.x only)* | POST and PATCH on `/families/{family_code}/variants` and on `/families/{family_code}/variants/{variant_code}`|
-| Create and update attributes | POST and PATCH on `/attributes/{attribute_code}` <br/> PATCH on `/attributes`|
-| Create and update attribute options | POST and PATCH on `/attributes/{attribute_code}/options/{attribute_option_code}` <br/> PATCH on `/attributes/{attribute_code}/options` |
-| Create and update attribute groups *(2.x only)* | POST and PATCH on `/attribute-groups/{attribute_group_code}` <br/> PATCH on `/attribute-groups` |
-| Create and update association types *(2.x only)* | POST and PATCH on `/association-types/{association_type_code}` <br/> PATCH on `/association-types` |
-| Create and update channels *(2.x only)* | POST and PATCH on `/channels/{channel_code}` <br/> PATCH on `/channels` |
+| List categories | GET on `/categories*`|
+| Create and update categories | POST and PATCH on `/categories*` |
+| List families | GET on `/families*` |
+| Create and update families | POST and PATCH on `/families*` |
+| List family variants *(2.x only)* | GET on `/families/{family_code}/variants*` |
+| Create and update family variants *(2.x only)* | POST and PATCH on `/families/{family_code}/variants*` |
+| List attributes | GET on `/attributes*` |
+| Create and update attributes | POST and PATCH on `/attributes*`|
+| List attribute options | GET on `/attributes/{attribute_code}/options*` |
+| Create and update attribute options | POST and PATCH on `/attributes/{attribute_code}/options*` |
+| List attribute group *(2.x only)* | GET on `/attribute-groups*` |
+| Create and update attribute groups *(2.x only)* | POST and PATCH on `/attribute-groups*` |
+| List association types *(2.x only)* | GET on `/association-types*` |
+| Create and update association types *(2.x only)* | POST and PATCH on `/association-types*` |
+| List channels | GET on `/channels*` |
+| Create and update channels *(2.x only)* | POST and PATCH on `/channels*` |
+| List locales | GET on `/locales*` |
+| List currencies *(2.x only)*  | GET on `/currencies*` |
+
+
+For more security, we introduced the following ACLs **from version 6.0 and for our SaaS customers**: 
+
+| Permission name | If enabled, you will be able to |
+|-----------------|-------------------|
+| List products  | GET on `/products*` and `/product-models*` |
+| Create and update products | POST and PATCH on `/products*` and `/product-models*` |
+| Delete products | DELETE on `/products/{code}`, and `/product-models/{code}` |
+| List asset families <span class="label label-ee">EE</span> | GET on `/asset-families`, <br> on `/asset-families/{code}`, <br> and on `/asset-families/{code}/attributes*` |
+| Create and update asset families <span class="label label-ee">EE</span> | PATCH on `/asset-families`, <br> on `/asset-families/{code}`, <br> and on `/asset-families/{code}/attributes*` |
+| List assets <span class="label label-ee">EE</span> | GET on `/asset-families/{code}/assets*` <br> and on `/asset-media-files/{code}` |
+| Create and update assets <span class="label label-ee">EE</span> | POST and PATCH `/asset-families/{code}/assets*` <br> and on `/asset-media-files/{code}` |
+| Delete assets <span class="label label-ee">EE</span> | DELETE on `/asset-families/{code}/assets/{code}` |
+| List reference entity records <span class="label label-ee">EE</span> | GET on `reference-entities/{code}/records*` <br> and on `reference-entities-media-files/{code}` |
+| Create and update reference entity records <span class="label label-ee">EE</span> | POST and PATCH on `reference-entities/{code}/records*` and on `reference-entities-media-files` |
+| List reference entities <span class="label label-ee">EE</span> | GET on `reference-entities`, <br> on `reference-entities/{code}`, <br> and on `reference-entities/{code}/attributes*` |
+| Create and update reference entities <span class="label label-ee">EE</span> | PATCH on `reference-entities/{code}` and on `reference-entities/{code}/attributes/{code}*` |
+
 
 ## Catalog permissions _(EE only)_
 
@@ -87,7 +122,7 @@ Those permissions were introduced in the REST API starting from the 2.0 version.
 :::
 
 ::: info
-All the permissions described here, apply to both product and product model updates.
+Permissions described here apply to all product types: products, product models, and published products.
 :::
 
 ### Hide a part of your catalog
@@ -106,20 +141,20 @@ _For example, you are a reseller and you provide an API connection to one of you
 
 To enable these powers:
 1. Log into your favorite PIM and navigate to the `System/User groups` menu.
-1. Click on the `Create group` button and input a new name for the user group you are creating, `ERP connection user group` for example.
+1. Click on `Create group` and input a new name for the user group you are creating, `ERP connection user group` for example.
 ![New ERP connection user group](/img/rest-api/erp-connection-user-group.png)
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
 ![API user in the user group](/img/rest-api/my-erp-user-in-group.png)
 1. Then, navigate to the `Settings/Categories` menu, if you want to benefit from permissions on categories, otherwise jump to step 9.
 1. For each category you want to hide from your REST API calls, enter the `Permissions` tab.
-1.  Remove the group you just created from the `Allowed to view products`, `Allowed to edit products` and `Allowed to own products` inputs. Don't forget to click on the `Save` button.
+1.  Remove the group you just created from the `Allowed to view products`, `Allowed to edit products` and `Allowed to own products` inputs. Don't forget to click on `Save`.
 ![Permissions for hide mode](/img/rest-api/hide-permission-mode.png)
 1. Then, navigate to the `Settings/Locales` menu, if you want to benefit from permissions on locales, otherwise jump to step 10.
 1. For each locale you want to hide from your REST API calls, enter the `Permissions` tab.
-1.  Remove the group you just created from the `Allowed to view information` and `Allowed to edit information` inputs. Don't forget to click on the `Save` button.
+1.  Remove the group you just created from the `Allowed to view information` and `Allowed to edit information` inputs. Don't forget to click on `Save`.
 1. Then, navigate to the `Settings/Attribute groups` menu.
 1. For each locale you want to hide from your REST API calls, enter the `Permissions` tab.
-1.  Remove the group you just created from the `Allowed to view attributes` and `Allowed to edit attributes` inputs. Don't forget to click on the `Save` button.
+1.  Remove the group you just created from the `Allowed to view attributes` and `Allowed to edit attributes` inputs. Don't forget to click on `Save`.
 
 That's it! :tada:
 
@@ -141,7 +176,7 @@ This can be pretty useful whenever you only want to share your catalog in a read
 To enable this possibility:
 1. Log into your favorite PIM.
 1. Navigate to the `System/User groups` menu.
-1. Click on the `Create group` button.
+1. Click on `Create group`.
 1. Input a new name for the user group you are creating, `ERP connection user group` for example.
 ![New ERP connection user group](/img/rest-api/erp-connection-user-group.png)
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
@@ -151,7 +186,7 @@ To enable this possibility:
 1. Add the group you just created into the `Allowed to view products` input.
 1. If your user group is already set into the `Allowed to own products` and `Allowed to edit products` inputs, remove it. 
 ![Permissions for read-only mode](/img/rest-api/read-only-permission-mode.png)
-1. Don't forget to click on the `Save` button.
+1. Don't forget to click on `Save`.
 
 That's it! :tada:
 
@@ -165,7 +200,7 @@ Your PIM users will then be able to validate or reject them directly in the PIM 
 To enable this possibility:
 1. Log into your favorite PIM.
 1. Navigate to the `System/User groups` menu.
-1. Click on the `Create group` button.
+1. Click on `Create group`.
 1. Input a new name for the user group you are creating, `ERP connection user group` for example.
 ![New ERP connection user group](/img/rest-api/erp-connection-user-group.png)
 1. In the `Users` tab, select the [API user you created earlier](/documentation/authentication.html#api-user-creation).
@@ -175,7 +210,7 @@ To enable this possibility:
 1.  Add the group you just created into the `Allowed to view products` and `Allowed to edit products` inputs.
 1. If your user group is already set into the `Allowed to own products` input, remove it. 
 ![Permissions for proposals](/img/rest-api/proposal-permission-mode.png)
-1. Don't forget to click on the `Save` button.
+1. Don't forget to click on `Save`.
 
 That's it! :tada:
 

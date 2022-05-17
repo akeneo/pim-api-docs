@@ -7,7 +7,7 @@ properties:
     x-immutable: true
   type:
     type: string
-    description: Attribute type
+    description: Attribute type. See <a href='/concepts/catalog-structure.html#attribute'>type</a> section for more details.
     x-validation-rules: The type is one of the following values
     enum: ['pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price_collection', 'pim_catalog_boolean', 'akeneo_reference_entity', 'akeneo_reference_entity_collection', 'pim_catalog_asset_collection']
     x-immutable: true
@@ -138,6 +138,53 @@ properties:
     type: boolean
     description: Default value for a Yes/No attribute, applied when creating a new product or product model (only available since the 5.0)
     x-warning: Only for `pim_catalog_boolean` attribute type
+    x-from-version: "5.0"
+  table_configuration:
+    type: array
+    description: Configuration of the Table attribute (columns)
+    x-validation-rules: Required only for `pim_catalog_table` attribute type
+    x-warning: Only for `pim_catalog_table` attribute type
+    items:
+      type: object
+      required: ["code", "data_type"]
+      properties:
+        code:
+          type: string
+          description: Column code
+        data_type:
+          type: string
+          enum: ["select", "text", "number", "boolean"]
+          description: Column data type
+        validations:
+          type: object
+          description: User defined validation constraints on the cell content
+          default: {}
+          properties:
+            min:
+              type: number
+              description: minimum value of a numeric cell
+              x-validation-rules: only for `number` data type columns
+            max:
+              type: number
+              description: maximum value of a numeric cell
+              x-validation-rules: only for `number` data type columns
+            decimals_allowed:
+              type: boolean
+              description: whether the value of a numeric cell can hold a decimal part
+              x-validation-rules: only for `number` data type columns
+            max_length:
+              type: number
+              description: maximum length of a text cell
+              x-validation-rules: only for `text` data type columns
+        labels:
+          type: object
+          description: Column labels for each locale
+          x-validation-rules: The `localeCode` is the code of an existing and activated locale
+          default: {}
+          properties:
+            localeCode:
+              type: string
+              description: Column label for the locale `localeCode`
 example: {
   "code": "release_date",
   "type": "pim_catalog_date",

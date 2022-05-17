@@ -36,8 +36,12 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  *     'scopable'               => false,
  *     'labels'                 => [
  *         'en_US' => 'Sale date',
- *         'fr_FR' => 'Date des soldes'],
- *     ]
+ *         'fr_FR' => 'Date des soldes',
+ *     ],
+ *     'guidelines'             => [
+ *         'en_US' => 'Fill the release date for the summer sale 2017',
+ *         'fr_FR' => 'Renseigner la date des soldes pour l\'été 2017',
+ *     ],
  * ]
  */
 $attribute = $client->getAttributeApi()->get('release_date');
@@ -67,7 +71,7 @@ This method allows to iterate the attributes. It will automatically get the next
 With this method, it's not possible to get the previous page, or getting the total number of attributes.
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = (new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/'))->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $attributes = $client->getAttributeApi()->all(50);
 ```
@@ -80,7 +84,7 @@ You can get more information about this method [here](/php-client/list-resources
 If the attribute does not exist yet, this method creates it, otherwise it throws an exception.
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = (new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/'))->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAttributeApi()->create('release_date', [
     'type'                   => 'pim_catalog_date',
@@ -108,9 +112,13 @@ $client->getAttributeApi()->create('release_date', [
     'localizable'            => false,
     'scopable'               => false,
     'labels'                 => [
-        'en_US': 'Sale date',
-        'fr_FR': 'Date des soldes'],
-     ]
+        'en_US' => 'Sale date',
+        'fr_FR' => 'Date des soldes',
+    ],
+    'guidelines'             => [
+        'en_US' => 'Fill the release date for the summer sale 2017',
+        'fr_FR' => 'Renseigner la date des soldes pour l\'été 2017',
+    ],
 ]);
 ```
 
@@ -120,7 +128,7 @@ $client->getAttributeApi()->create('release_date', [
 If the attribute does not exist yet, this method creates it, otherwise it updates it.
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = (new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/'))->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAttributeApi()->upsert('release_date', [
     'type'                   => 'pim_catalog_date',
@@ -148,9 +156,13 @@ $client->getAttributeApi()->upsert('release_date', [
     'localizable'            => false,
     'scopable'               => false,
     'labels'                 => [
-        'en_US': 'Sale date',
-        'fr_FR': 'Date des soldes'],
-     ]
+        'en_US' => 'Sale date',
+        'fr_FR' => 'Date des soldes',
+    ],
+    'guidelines'             => [
+        'en_US' => 'Fill the release date for the summer sale 2017',
+        'fr_FR' => 'Renseigner la date des soldes pour l\'été 2017',
+    ],
 ]);
 ```
 
@@ -162,7 +174,7 @@ It has the same behavior as the `upsert` method for a single attribute, except t
 
 
 ```php
-$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = (new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/'))->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getAttributeApi()->upsertList([
     [
@@ -192,9 +204,13 @@ $client->getAttributeApi()->upsertList([
         'localizable'            => false,
         'scopable'               => false,
         'labels'                 => [
-            'en_US': 'Sale date',
-            'fr_FR': 'Date des soldes'],
-         ]
+            'en_US' => 'Sale date',
+            'fr_FR' => 'Date des soldes',
+        ],
+        'guidelines'             => [
+            'en_US' => 'Fill the release date for the summer sale 2017',
+            'fr_FR' => 'Renseigner la date des soldes pour l\'été 2017',
+        ],
     ],
     [
         'code' => 'name',

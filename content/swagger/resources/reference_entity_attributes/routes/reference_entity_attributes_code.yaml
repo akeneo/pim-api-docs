@@ -7,7 +7,8 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   x-ee: true
   description: This endpoint allows you to get the information about a given attribute for a given reference entity.
   parameters:
@@ -34,7 +35,8 @@ patch:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   x-ee: true
   description: This endpoint allows you to update a given attribute for a given renference entity. Note that if the attribute does not already exist for the given reference entity, it creates it.
   parameters:

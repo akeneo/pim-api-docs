@@ -7,7 +7,8 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   x-ee: true
   description: This endpoint allows you to get a list of records of a given reference entity. Records are paginated and can be filtered.
   parameters:
@@ -19,12 +20,12 @@ get:
     - name: channel
       in: query
       type: string
-      description: Filter attribute values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#filter-attribute-values-by-channel">Filter attribute values by channel</a> section
+      description: Filter attribute values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#record-values-by-channel">Filter attribute values by channel</a> section
       required: false
     - name: locales
       in: query
       type: string
-      description: Filter attribute values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href=/documentation/filter.html#filter-attribute-values-by-locale">Filter attribute values by locale</a> section
+      description: Filter attribute values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#record-values-by-locale">Filter attribute values by locale</a> section
       required: false
     - $ref: '#/parameters/reference_entity_code'
     - $ref: '#/parameters/search_after'
@@ -99,7 +100,9 @@ get:
                     "data": "italy"
                   }
                 ]
-              }
+              },
+              "created": "2021-01-01T01:23:34+00:00",
+              "updated": "2021-02-03T23:45:60+00:00"
             },
             {
               "_links": {
@@ -142,7 +145,9 @@ get:
                     "data": "switzerland"
                   }
                 ]
-              }
+              },
+              "created": "2021-01-01T01:23:34+00:00",
+              "updated": "2021-02-03T23:45:60+00:00"
             },
             {
               "_links": {
@@ -185,7 +190,9 @@ get:
                     "data": "france"
                   }
                 ]
-              }
+              },
+              "created": "2021-01-01T01:23:34+00:00",
+              "updated": "2021-02-03T23:45:60+00:00"
             }
           ]
         }
@@ -203,7 +210,8 @@ patch:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   x-ee: true
   description: This endpoint allows you to update and/or create several records of one given reference entity at once. Learn more about <a href="/documentation/update.html#patch-reference-entity-record-values">Update behavior</a>. Note that if the record does not already exist for the given reference entity, it creates it.
   parameters:

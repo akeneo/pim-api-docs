@@ -6,7 +6,8 @@ get:
     - Measurement family
   x-versions:
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   responses:
     200:
       description: Return the measurement families
@@ -78,7 +79,8 @@ patch:
     - Measurement family
   x-versions:
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   description: This endpoint allows you to update and/or create several measurement families at once.
   parameters:
     - name: body

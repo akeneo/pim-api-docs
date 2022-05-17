@@ -21,7 +21,7 @@ Thanks to the REST API, you will be able to build long lasting connectors. We gu
 In the end, we hope that these amazing connectors you are going to build on top of our REST API, will be easier to implement, easier to integrate, easier to maintain and above all, that you will not suffer from painful migrations again.
 
 ::: info
-Usually, between PIM versions, there are no BC breaks in our REST API. But in some cases, for example, when we entirely revamp whole features in a new PIM version, we have no choice but to deprecate things in the REST API. Rest reassured that this kind of situation remains exceptional. When it happens, we try to warn you, our dear ecosystem 🥰, the sooner we can. So that you can take the time to integrate integrate the changes.  
+Usually, between PIM versions, there are no BC breaks in our REST API. But in some cases, for example, when we entirely revamp whole features in a new PIM version, we have no choice but to deprecate things in the REST API. Rest reassured that this kind of situation remains exceptional. When it happens, we try to warn you, our dear ecosystem 🥰, the sooner we can. So that you can take the time to integrate the changes.  
 Also, if you're dealing with REST API breaks that weren't announced and not documented on this website, don't hesitate to reach out to us. It's probably a regression that we can fix asap, if you are an Entreprise customer. :wink:
 :::
 
@@ -43,8 +43,8 @@ As the REST API is a standard REST API, you can use the language you want to imp
 
 Be innovative! Offer value to our common end-users! They will love it.
 
-## The only way for Serenity users
+## The only way for SaaS users
 
-For our Serenity users, the REST API is the **only way** to connect their PIM. 
+For our SaaS users, the REST API is the **only way** to connect their PIM. 
 
 Indeed, in this case, as the PIM is provided to you as a service, you cannot customize any part of its code. The REST API is your only way out when it comes to integrating it into your IT infrastructure.

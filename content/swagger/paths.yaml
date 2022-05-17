@@ -157,3 +157,6 @@
 
 /api/oauth/v1/token:
   $ref: ./resources/token.yaml
+
+/api/rest/v1/system-information:
+  $ref: ./resources/system_information.yaml

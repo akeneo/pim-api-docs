@@ -12,6 +12,18 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+
+    <!-- Hotjar Tracking Code for https://api.akeneo.com/ -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:2599654,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
 </head>
 <body data-spy="scroll" data-target="#navbar">
 <nav class="navbar navbar-default navbar-fixed-top navbar-white">
@@ -39,8 +51,9 @@
                         <li class="dropdown-title">Documentation</li>
                         <li><a href="/concepts/introduction.html">The concepts & resources</a></li>
                         <li><a href="/documentation/introduction.html">The REST API basics</a></li>
-                        <li><a href="/events-documentation/introduction.html">The Events API basics</a></li>
+                        <li><a href="/events-documentation/overview.html">The Events API basics</a></li>
                         <li><a href="/php-client/introduction.html">The PHP API client</a></li>
+                        <li><a href="/apps/introduction.html">Apps</a></li>
                     </ul>
                 </li>
                 <li class="dropdown{{#if active_api_reference}} active{{/if}}">
@@ -61,7 +74,7 @@
     </div>
 </nav>
 
-<div id="mainContent">
+<div id="mainContent" class="main-content">
     {{> @partial-block }}
 </div>
 {{> footer }}

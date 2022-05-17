@@ -148,6 +148,26 @@ HTTP/1.1 200 OK
 You do not need to be authenticated to access this route.
 :::
 
+## Fair-usage protection
+
+Our API is provided to connect Akeneo PIM to external systems.
+
+Our recommendations on maximum usage are:
+
+- a maximum of 4 concurrent API calls per PIM Connection
+- a maximum of 10 concurrent API calls in total on a PIM instance
+
+Our PIM Cloud service has currently no rate limit based on API requests per unit of time or per IP. 
+
+However, our platform is protected through a number of preservation mechanisms to avoid impacting the user experience and platform stability in case of over-usage.
+
+When these protection mechanisms are triggered, we will return an [HTTP status code 429](https://api.akeneo.com/documentation/responses.html#429-error) with a Retry-After header. The "Retry-After" property indicates how many seconds you have to wait before your next API request.
+
+As a REST API consumer, you have to keep in mind that your integration with Akeneo PIM should anticipate this throttling and should be able to handle failures.
+
+This API protection is typically triggered above 100 API requests per second per PIM instance, but it depends as well on the duration of the over-usage.
+
+That is to say, bursts are allowed, but continuous over-usage will trigger the protection sooner.
 
 ## Introducing the REST API reference
 

@@ -4,7 +4,7 @@
 ::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -44,7 +44,7 @@ $client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('
 $publishedProduct = $client->getPublishedProductApi()->get('top');
 ```
 
-You can get more information about the returned format of the product values [here](/concepts/products.html#focus-on-the-products-values).
+You can get more information about the returned format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
 ::: warning
 The field `product_models` in the `associations` property was added in the 2.1 version of the PIM and is therefore not present in previous versions.
@@ -69,7 +69,7 @@ Also, it's possible to filter the value to return, thanks to the query parameter
 For example, in this example, we only return product values belonging to the channel "ecommerce" by adding the query parameter `'scope' => 'ecommerce'`.
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $searchBuilder = new \Akeneo\Pim\ApiClient\Search\SearchBuilder();
 $searchBuilder
@@ -104,7 +104,7 @@ As for the paginated method, the search builder can be used and all query parame
 For example, in this example, we only return product values belonging to the channel "ecommerce" by adding the query parameter `'scope' => 'ecommerce'`. 
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $searchBuilder = new \Akeneo\Pim\ApiClient\Search\SearchBuilder();
 $searchBuilder

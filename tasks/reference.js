@@ -16,13 +16,32 @@ var rename = require('gulp-rename');
 var highlightJs = require('highlightjs');
 var revReplace = require('gulp-rev-replace');
 
+const ignoreVersionImcompatibleProperties = async (data, version) => {
+    const { default: objectScan } = await import('object-scan')
+    objectScan(['**.x-from-version'], {
+        filterFn: ({ value, depth, key, gparent }) => {
+            if (`${version}` < value) {
+                const propertyName = key[depth - 2];
+                try {
+                    // If element if array.
+                    gparent.splice(propertyName, propertyName);
+                } catch (e) {
+                    // If element is object.
+                    delete gparent[propertyName];
+                }
+            }
+        },
+    }) (data)
+}
+
 function determineCategory(tag){
     switch(tag){
         case 'Product':
-        case 'Published product':
         case 'Product model':
         case 'Product media file':
             return 'Products';
+        case 'Published product':
+            return 'Published products';
         case 'Family':
         case 'Family variant':
         case 'Attribute':
@@ -62,7 +81,7 @@ function determineCategory(tag){
 
 gulp.task('reference', ['clean-dist', 'less'], function() {
 
-    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3', '3.0', '3.1', '3.2', '4.0', '5.0', 'Serenity'];
+    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3', '3.0', '3.1', '3.2', '4.0', '5.0', '6.0', 'SaaS'];
     // We construct a reference index file and a complete reference file for each PIM version: 1.7, 2.0 and 2.1.
     // When we construct the 1.7 files, we filter to not include the new 2.0 and the 2.1 endpoints.
     // Same thing when we construct the 2.0 files, we filter to not include the 2.1 endpoints.
@@ -77,7 +96,8 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                         (version === '3.1') ? 'api-reference-index-31' :
                                         (version === '3.2') ? 'api-reference-index-32' :
                                         (version === '4.0') ? 'api-reference-index-40' : 
-                                        (version === '5.0') ? 'api-reference-index-50' : 'api-reference-index';
+                                        (version === '5.0') ? 'api-reference-index-50' :
+                                        (version === '6.0') ? 'api-reference-index-60' : 'api-reference-index';
         var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' :
                                     (version === '2.0') ? 'api-reference-20' :
                                     (version === '2.1') ? 'api-reference-21' :
@@ -87,7 +107,8 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                     (version === '3.1') ? 'api-reference-31' :
                                     (version === '3.2') ? 'api-reference-32' :
                                     (version === '4.0') ? 'api-reference-40' : 
-                                    (version === '5.0') ? 'api-reference-50' : 'api-reference';
+                                    (version === '5.0') ? 'api-reference-50' :
+                                    (version === '6.0') ? 'api-reference-60' : 'api-reference';
 
         gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
@@ -129,7 +150,8 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
         gulp.src('content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))
             .pipe(gulp.dest('content/swagger'))
-            .pipe(jsonTransform(function(data, file) {
+            .pipe(jsonTransform(async function(data) {
+                await ignoreVersionImcompatibleProperties(data, version);
                 var templateData = data;
                 data.categories = {};
                 data.pimVersion = version;
@@ -220,6 +242,21 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                 var status = code.match(/^2.*$/) ? 'success' : 'error';
                                 response[status] = true;
                                 response.id = operationId + '_' + code;
+
+                                if (response.hasOwnProperty('x-examples-per-version')) {
+                                    const sortedExamples = _.reverse(_.sortBy(response['x-examples-per-version'], ['x-version']));
+                                    const closestExample = _.find(sortedExamples, function(exemplePerVersion) {
+                                        return exemplePerVersion['x-version'] <= version;
+                                    });
+                                    if (closestExample === undefined) {
+                                        console.log('Error: Missing example for version "' + version + '" of route "' + verb + ' ' + pathUri + '"');
+                                        return;
+                                    }
+                                    const stringValue = highlightJs.highlight('json', JSON.stringify(closestExample['x-example'], null, 2), true);
+                                    response.hljsExample = '<pre class="hljs"><code>' + stringValue.value + '</code></pre>';
+                                    return response;
+                                }
+
                                 var example = response.examples || response['x-examples'] || ((response.schema) ? response.schema.example : undefined);
                                 if (example) {
                                     var highlightjsExample = example['x-example-1'] ?

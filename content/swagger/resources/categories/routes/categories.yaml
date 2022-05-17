@@ -10,7 +10,8 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   parameters:
     - name: search
       in: query
@@ -20,6 +21,7 @@ get:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
+    - $ref: '#/parameters/with_position'
   responses:
     200:
       description: Return categories paginated
@@ -62,6 +64,8 @@ get:
               },
               "code": "winter_collection",
               "parent": null,
+              "updated": "2021-05-21T11:32:00+02:00",
+              "position": 1,
               "labels": {
                 "en_US": "Winter collection",
                 "fr_FR": "Collection hiver",
@@ -76,6 +80,8 @@ get:
               },
               "code": "woman",
               "parent": "winter_collection",
+              "updated": "2021-04-21T10:41:02+02:00",
+              "position": 1,
               "labels": {
                 "en_US": "Woman",
                 "fr_FR": "Femme",
@@ -90,6 +96,8 @@ get:
               },
               "code": "man",
               "parent": "winter_collection",
+              "updated": "2021-03-02T12:59:59+02:00",
+              "position": 2,
               "labels": {
                 "en_US": "Man",
                 "fr_FR": "Homme",
@@ -104,6 +112,8 @@ get:
               },
               "code": "kids",
               "parent": "winter_collection",
+              "updated": "2021-01-03T12:40:00+02:00",
+              "position": 3,
               "labels": {
                 "en_US": "Kids",
                 "fr_FR": "Enfant",
@@ -118,6 +128,8 @@ get:
               },
               "code": "summer_collection",
               "parent": null,
+              "updated": "2021-04-04T09:42:00+02:00",
+              "position": 1,
               "labels": {
                 "en_US": "Summer collection",
                 "fr_FR": "Collection été",
@@ -145,7 +157,8 @@ post:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   parameters:
     - name: body
       in: body
@@ -175,7 +188,8 @@ patch:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   description: This endpoint allows you to update several categories at once.
   x-body-by-line: Contains several lines, each line is a category in JSON standard format
   parameters:

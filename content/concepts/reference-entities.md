@@ -12,7 +12,7 @@ The Reference Entities is an Entreprise only feature, meaning all the following 
 :::
 
 ## Reference entity
-::: availability versions=3.x,4.0,5.0,Serenity editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Reference entities are objects that are related to products but have their own attributes and lifecycle. A reference entity can be for example the brands, the ranges, the manufacturers, the colors, the materials or the care instructions... And so many other entities.
@@ -38,7 +38,7 @@ Below is the JSON format representing a reference entity.
 :::
 
 ## Reference entity attribute
-::: availability versions=3.x,4.0,5.0,Serenity editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Reference entities have attributes that allow to describe their [records](#reference-entity-record).
@@ -47,7 +47,7 @@ Reference entities have attributes that allow to describe their [records](#refer
 Note that the "Reference entity attribute" resource is not the same as the "Attribute" resource, even though they have a lot in common. The first one is used to describe reference entities records, the second one is use to describe products.
 :::
 
-In the Akeneo UI, you can find the attributes that compose a given reference entity by following these simple steps. Go in the `Entities` menu. Click on a reference entity and then, click on the `Attributes` sub menu. Below is an example of the attributes that compose the `Designer` entity in the UI.
+In the Akeneo UI, you can find the attributes that compose a given reference entity by following these simple steps. From the `Entities` menu, choose a reference entity and then, click on `Attributes`. Below is an example of the  `Designer` entity attributes in the UI.
 
 ![Reference entity attributes](/img/concepts/reference_entity_attribute_ui.png)
 
@@ -175,7 +175,7 @@ As a consequence, when you ask for the list of attributes of one given reference
 :::
 
 ## Reference entity attribute option
-::: availability versions=3.x,4.0,5.0,Serenity editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Some type of attributes of reference entities can offer a list of choices. These available choices are reference entity attribute options.
@@ -186,7 +186,11 @@ Note that the "Reference entity attribute option" resource is not the same as th
 
 Only attribute of type `single option` or `multiple options` can have options.
 
-In the Akeneo UI, if you want to manage the options of an reference entity attribute with single and multiple options, first, select a reference entity in the `Entities` menu. Then, click on the `Attributes` sub-menu. Click on the edit button of a single or multiple options attribute. An edit popin should open. Then, click on the `Manage options` button. Here you are! You can view and edit the options of your attribute.  
+In the Akeneo UI, here are the steps to manage the options of a reference entity attribute with single and multiple options:
+1. Select a reference entity in the `Entities` menu
+1. Then, click on `Attributes`
+1. Click on `Edit` for a single or multiple options attribute. An edit pop-in opens. 
+1. Then, click on `Manage options`. Here you are! You can view and edit the options of your attribute.  
 
 The screenshot below shows the screen where you can manage your options.
 
@@ -222,7 +226,7 @@ As a consequence of this limit, when you ask for the list of attribute options o
 :::
 
 ## Reference entity record
-::: availability versions=3.x,4.0,5.0,Serenity editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Reference entities have been introduced in the PIM in the 3.0 version.
@@ -450,7 +454,7 @@ Note that the `locale` and `channel` properties are all set to `null` in this ca
 :::
 
 ## Reference entity media file
-::: availability versions=3.x,4.0,5.0,Serenity editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 :::
 
 Reference entity media files corresponds to the images that you can link to the records of your reference entities and also, to the images that you can direclty link to your reference entities.

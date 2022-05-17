@@ -189,6 +189,14 @@
                 "v1",
                 "attributes",
                 "auto_exposure"
+              ],
+              "query": [
+                {
+                  "key": "with_table_select_options",
+                  "value": "false",
+                  "description": "(boolean ) • Return the options of 'select' column types (of a table attribute) in the response. (Only available on SaaS platforms) ",
+                  "disabled": true
+                }
               ]
             },
             "description": "Assuming that the given code is the code of an existing attribute"
@@ -215,6 +223,50 @@
                 "rest",
                 "v1",
                 "attributes"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"updated\":[{\"operator\":\">\",\"value\":\"2020-07-04T10:00:00Z\"}]}",
+                  "description": "Get the attributes that have been updated since July 4th, 2020 at 10 am (UTC), you can use the following URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"code\":[{\"operator\":\"IN\",\"value\":[\"code1\",\"code2\"]}]}",
+                  "description": "Get the attributes that code is in the given list",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"type\":[{\"operator\":\"IN\",\"value\":[\"pim_catalog_simpleselect\",\"pim_catalog_multiselect\"]}]}",
+                  "description": "Get the attributes of types pim_catalog_simpleselect and pim_catalog_multiselect, you can use the following URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "false",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_table_select_options",
+                  "value": "false",
+                  "description": "(boolean ) • Return the options of 'select' column types (of a table attribute) in the response. (Only available on SaaS platforms)",
+                  "disabled": true
+                }
               ]
             }
           },
@@ -546,6 +598,38 @@
                 "rest",
                 "v1",
                 "attribute-groups"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"code\":[{\"operator\":\"IN\",\"value\":[\"marketing\",\"technical\"]}]}",
+                  "description": "Only returns attribute groups that are in the list.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"updated\":[{\"operator\":\">\",\"value\":\"2020-07-04T10:00:00Z\"}]}",
+                  "description": "Only returns attribute groups that were updated after the given day and hour.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type. Should never be set manually.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "true",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                }
               ]
             }
           },
@@ -680,6 +764,14 @@
                 "v1",
                 "categories",
                 "master"
+              ],
+              "query": [
+                {
+                  "key": "with_position",
+                  "value": "false",
+                  "description": "Return information about category position into its category tree (only available on SaaS platforms)",
+                  "disabled": true
+                }
               ]
             },
             "description": "Assuming that the given code is the code of an existing category"
@@ -706,6 +798,56 @@
                 "rest",
                 "v1",
                 "categories"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"is_root\":[{\"operator\":\"=\",\"value\":true}]}",
+                  "description": "Get only root categories",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"parent\":[{\"operator\":\"=\",\"value\":\"categoryA\"}]}",
+                  "description": "Get the child categories of the parent category categoryA, you can use the following URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"code\":[{\"operator\":\"IN\",\"value\":[\"category_code1\",\"category_code2\"]}]}",
+                  "description": "Get only categories that are in the list",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"updated\":[{\"operator\":\">\",\"value\":\"2021-05-17T10:00:00Z\"}]}",
+                  "description": "Get the categories that have been updated since May 17th, 2021 at 10 am (UTC), you can use the following URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "false",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_position",
+                  "value": "false",
+                  "description": "(boolean ) • Return information about category position into its category tree (only available on SaaS platforms)",
+                  "disabled": true
+                }
               ]
             }
           },
@@ -1084,6 +1226,44 @@
                 "rest",
                 "v1",
                 "families"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"code\":[{\"operator\":\"IN\",\"value\":[\"family_code1\",\"family_code2\"]}]}",
+                  "description": "Only returns families that are in the list.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"updated\":[{\"operator\":\">\",\"value\":\"2020-07-04T10:00:00Z\"}]}",
+                  "description": "Only returns families that were updated after the given day and hour.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"has_products\":[{\"operator\":\"=\",\"value\":true}]}",
+                  "description": "When true, only returns families with at least one product (true) or families with no products (false).",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type. Should never be set manually.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "true",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                }
               ]
             }
           },
@@ -1415,6 +1595,32 @@
                 "rest",
                 "v1",
                 "locales"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"enabled\":[{\"operator\":\"=\",\"value\":true}]}",
+                  "description": "Get enabled locales",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "(integer , 10 by default ) • Number of results by page, see Pagination section",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "false",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way",
+                  "disabled": true
+                }
               ]
             }
           },
@@ -2629,10 +2835,10 @@
       "protocolProfileBehavior": {}
     },
     {
-      "name": "Measurement family (Serenity only)",
+      "name": "Measurement family (SaaS only)",
       "item": [
         {
-          "name": "measurement families (Serenity only)",
+          "name": "measurement families (SaaS only)",
           "request": {
             "method": "GET",
             "header": [
@@ -2657,7 +2863,7 @@
           "response": []
         },
         {
-          "name": "measurement families (Serenity only)",
+          "name": "measurement families (SaaS only)",
           "request": {
             "method": "PATCH",
             "header": [
@@ -2835,6 +3041,26 @@
                 "v1",
                 "products",
                 "AKNSTK"
+              ],
+              "query": [
+                {
+                  "key": "with_attribute_options",
+                  "value": "true",
+                  "description": "(boolean ) • Return labels of attribute options in the response. (Only available since the 5.0 version).",
+                  "disabled": true
+                },
+                {
+                  "key": "with_quality_scores",
+                  "value": "true",
+                  "description": "(boolean ) • Return product quality scores in the response. (Only available since the 5.0 version).",
+                  "disabled": true
+                },
+                {
+                  "key": "with_completenesses",
+                  "value": "true",
+                  "description": "(boolean ) • Return product completenesses in the response. (Only available on SaaS platforms).",
+                  "disabled": true
+                }
               ]
             },
             "description": "Assuming that the given identifier is the identifier of an existing product"
@@ -2869,6 +3095,206 @@
                 "rest",
                 "v1",
                 "products"
+              ],
+              "query": [
+                {
+                  "key": "attributes",
+                  "value": "description,name",
+                  "description": "Get products with only product values regarding the description and name attributes.",
+                  "disabled": true
+                },
+                {
+                  "key": "locales",
+                  "value": "en_US,fr_FR",
+                  "description": "Get products with only product values regarding the en_US and fr_FR locales.",
+                  "disabled": true
+                },
+                {
+                  "key": "scope",
+                  "value": "ecommerce",
+                  "description": "Get products from the tree linked to the ecommerce channel with only product values regarding the ecommerce channel (+ the product values of the non scopable attributes).",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"main_color\":[{\"operator\":\"IN\",\"value\":[\"purple\"]}]}",
+                  "description": "Get products that are purple, purple being an option of the simple select main_color attribute and this attribute being neither localizable nor scopable.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"short_description\":[{\"operator\":\"STARTS WITH\",\"value\":\"Amazing\",\"locale\":\"en_US\"}]}\n",
+                  "description": "Get products having a description begining with Amazing on the en_US locale, the short_description attribute being localizable but not scopable.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"release_date\":[{\"operator\":\">\",\"value\":\"2016-07-04\",\"scope\":\"ecommerce\"}]}",
+                  "description": "Get products that have a release date due after the 4th of July 2016 for the ecommerce channel, the release_date attribute being scopable but not localizable.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"name\":[{\"operator\":\"CONTAINS\",\"value\":\"shirt\",\"locale\":\"en_US\",\"scope\":\"mobile\"}]}",
+                  "description": "Get products that have a name that contains with shirt on the en_US locale for the mobile channel, the name attribute being both localizable and scopable.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"description\":[{\"operator\":\"STARTS WITH\",\"value\":\"Amazing\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}],\"main_color\":[{\"operator\":\"IN\",\"value\":[\"purple\"]}]}\n",
+                  "description": "Get you the products with description starting with Amazing on the en_US locale for the ecommerce channel, and of purple color.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"description\":[{\"operator\":\"NOT EMPTY\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"},{\"operator\":\"EMPTY\",\"locale\":\"fr_FR\",\"scope\":\"ecommerce\"}]}\n",
+                  "description": "Get you the products with not empty description on the en_US locale and empty description on the fr_FR locale for the ecommerce channel.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"description\":[{\"operator\":\"STARTS WITH\",\"value\":\"Amazing\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}],\"short_description\":[{\"operator\":\"CONTAINS\",\"value\":\"shoes\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}]}",
+                  "description": "If you need to filter on several attributes on the same locale, you can use the search_locale query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing locale code.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"release_date\":[{\"operator\":\">\",\"value\":\"2016-07-04\",\"scope\":\"ecommerce\"}],\"short_description\":[{\"operator\":\"CONTAINS\",\"value\":\"shoes\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}]}",
+                  "description": "If you need to filter on several attributes on the same scope, you can use the search_scope query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing scope code.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"categories\":[{\"operator\":\"IN\",\"value\":[\"winter_collection\"]}]}",
+                  "description": "Get the products of the winter_collection category.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"enabled\":[{\"operator\":\"=\",\"value\":false}]}",
+                  "description": "Get the disabled products.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"completeness\":[{\"operator\":\"=\",\"value\":100,\"scope\":\"ecommerce\"}]}",
+                  "description": "Get the products that are 100% complete for the ecommerce channel.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"completeness\":[{\"operator\":\"GREATER OR EQUALS THAN ON ALL LOCALES\",\"value\":100,\"locales\":[\"en_US\",\"fr_FR\"],\"scope\":\"ecommerce\"}]}",
+                  "description": "Get the products that are 100% complete on both the en_US and fr_FR locales for the ecommerce channel.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"groups\":[{\"operator\":\"IN\",\"value\":[\"promotion\"]}]}",
+                  "description": "Get the products that are in the promotion group.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"family\":[{\"operator\":\"NOT IN\",\"value\":[\"camcorders\",\"digital_cameras\"]}]}",
+                  "description": "Get the products that are not in the camcorders and digital_cameras family.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"created\":[{\"operator\":\"=\",\"value\":\"2016-07-04 10:00:00\"}]}",
+                  "description": "Get the products that were created on the 4th of July 2016 at 10am.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"updated\":[{\"operator\":\"SINCE LAST N DAYS\",\"value\":4}]}",
+                  "description": "Get the products that were updated during the last 4 days.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"parent\":[{\"operator\":\"=\",\"value\":\"apollon\"}]}",
+                  "description": "Get all the variant products of the apollon root product model without having to filter on all its sub-product models.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"parent\":[{\"operator\":\"IN\",\"value\":[\"tshirt_armor_blue\",\"tshirt_armor_red\"]}]}",
+                  "description": "Get all the variant products of the sub product models with the codes tshirt_armor_blue and tshirt_armor_red.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"parent\":[{\"operator\":\"NOT EMPTY\"}]}",
+                  "description": "Get all the variant products.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"parent\":[{\"operator\":\"EMPTY\"}]}",
+                  "description": "Get all the simple products.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"quality_score\":[{\"operator\":\"IN\",\"value\":[\"D\"],\"scope\":\"ecommerce\",\"locale\":\"en_US\"}]}",
+                  "description": "Get the products with a \"D\" for the ecommerce channel and en_US locale.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"quality_score\":[{\"operator\":\"IN\",\"value\":[\"A\",\"B\"],\"scope\":\"mobile\",\"locale\":\"en_GB\"}]}",
+                  "description": "Get the products with an \"A\" or \"B\" for the mobile channel and en_GB locale",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "3",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "true",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                },
+                {
+                  "key": "pagination_type",
+                  "value": "search_after",
+                  "description": "(string , page by default )  • Pagination method type.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_quality_scores",
+                  "value": "true",
+                  "description": "(boolean ) • Return product quality scores in the response. (Only available since the 5.0 version).",
+                  "disabled": true
+                },
+                {
+                  "key": "search_after",
+                  "value": "qaXbcde",
+                  "description": "(string , cursor to the first page by default ) • Cursor when using the `search_after` pagination method type. Should never be set manually.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_attribute_options",
+                  "value": "true",
+                  "description": "(boolean ) • Return labels of attribute options in the response. (Only available since the 5.0 version).",
+                  "disabled": true
+                },
+                {
+                  "key": "with_completenesses",
+                  "value": "true",
+                  "description": "(boolean ) • Return product completenesses in the response. (Only available on SaaS platforms).",
+                  "disabled": true
+                }
               ]
             },
             "description": "\n"
@@ -3103,7 +3529,16 @@
                 "v1",
                 "product-models",
                 "amor"
+              ],
+              "query": [
+                {
+                  "key": "with_quality_scores",
+                  "value": "true",
+                  "description": "(boolean ) • Return product model quality scores in the response. (Only available on SaaS platforms).",
+                  "disabled": true
+                }
               ]
+
             },
             "description": "Assuming that the given code is the code of an existing product model"
           },
@@ -3133,6 +3568,86 @@
                 "rest",
                 "v1",
                 "product-models"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"categories\":[{\"operator\":\"IN\",\"value\":[\"winter_collection\"]}]}",
+                  "description": "Get the product models of the winter_collection category",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"completeness\":[{\"operator\":\"ALL COMPLETE\",\"locale\":\"fr_FR\",\"scope\":\"ecommerce\"}]}",
+                  "description": "Get the product models that are 100% complete for the ecommerce channel on fr_FR locale, you can use the following URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"family\":[{\"operator\":\"NOT IN\",\"value\":[\"camcorders\",\"digital_cameras\"]}]}",
+                  "description": "Get the product models that are not in the camcorders and digital_cameras family, you can use the following URL",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"created\":[{\"operator\":\"=\",\"value\":\"2016-07-04 10:00:00\"}]}",
+                  "description": "Get the product models that were created on the 4th of July 2016 at 10am, you can use the following URL",
+                  "disabled": true
+                },
+                {
+                  "key": "scope",
+                  "value": "ecommerce",
+                  "description": "(string ) • Filter product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes.",
+                  "disabled": true
+                },
+                {
+                  "key": "locales",
+                  "value": "en_US,fr_FR",
+                  "description": "(string ) • Filter product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes.",
+                  "disabled": true
+                },
+                {
+                  "key": "attributes",
+                  "value": "description,name",
+                  "description": "(string ) • Filter product values to only return those concerning the given attributes.",
+                  "disabled": true
+                },
+                {
+                  "key": "pagination_type",
+                  "value": "search_after",
+                  "description": "(string , page by default )  • Pagination method type.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "3",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type. Should never be set manually.",
+                  "disabled": true
+                },
+                {
+                  "key": "search_after",
+                  "value": "qaXbcde",
+                  "description": "(string , cursor to the first page by default ) • Cursor when using the `search_after` pagination method type. Should never be set manually.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "true",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_quality_scores",
+                  "value": "true",
+                  "description": "(boolean ) • Return product model quality scores in the response. (Only available on SaaS platforms).",
+                  "disabled": true
+                }
               ]
             },
             "description": "\n"
@@ -3238,6 +3753,33 @@
               ]
             },
             "description": "\n"
+          },
+          "response": []
+        },
+        {
+          "name": "product model (SaaS only)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/api/rest/v1/product-models/amor",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "product-models",
+                "amor"
+              ]
+            },
+            "description": "Assuming that the given code is the code of an existing product model"
           },
           "response": []
         },
@@ -3366,6 +3908,164 @@
                 "rest",
                 "v1",
                 "published-products"
+              ],
+              "query": [
+                {
+                  "key": "attributes",
+                  "value": "description,name",
+                  "description": "Get published products with only published product values regarding the description and name attributes.",
+                  "disabled": true
+                },
+                {
+                  "key": "locales",
+                  "value": "en_US,fr_FR",
+                  "description": "Get published products with only published product values regarding the en_US and fr_FR locales.",
+                  "disabled": true
+                },
+                {
+                  "key": "scope",
+                  "value": "ecommerce",
+                  "description": "Get published products from the tree linked to the ecommerce channel with only published product values regarding the ecommerce channel (+ the published product values of the non scopable attributes).",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"main_color\":[{\"operator\":\"IN\",\"value\":[\"purple\"]}]}",
+                  "description": "Get published products that are purple",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"short_description\":[{\"operator\":\"STARTS WITH\",\"value\":\"Amazing\",\"locale\":\"en_US\"}]}",
+                  "description": "Get published products having a description begining with Amazing on the en_US locale",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"release_date\":[{\"operator\":\">\",\"value\":\"2016-07-04\",\"scope\":\"ecommerce\"}]}",
+                  "description": "Get published products that have a release date due after the 4th of July 2016 for the ecommerce channel",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"name\":[{\"operator\":\"CONTAINS\",\"value\":\"shirt\",\"locale\":\"en_US\",\"scope\":\"mobile\"}]}",
+                  "description": "Get published products that have a name that contains with shirt on the en_US locale for the mobile channel",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"description\":[{\"operator\":\"STARTS WITH\",\"value\":\"Amazing\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}],\"main_color\":[{\"operator\":\"IN\",\"value\":[\"purple\"]}]}",
+                  "description": "Get the published products with description starting with Amazing on the en_US locale for the ecommerce channel, and of purple color",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"description\":[{\"operator\":\"NOT EMPTY\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"},{\"operator\":\"EMPTY\",\"locale\":\"fr_FR\",\"scope\":\"ecommerce\"}]}",
+                  "description": "Get the published products with not empty description on the en_US locale and empty description on the fr_FR locale for the ecommerce channel",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"description\":[{\"operator\":\"STARTS WITH\",\"value\":\"Amazing\",\"scope\":\"ecommerce\"}],\"short_description\":[{\"operator\":\"CONTAINS\",\"value\":\"shoes\",\"scope\":\"ecommerce\"}]}&search_locale=en_US",
+                  "description": "Filter on several attributes on the same locale",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"release_date\":[{\"operator\":\">\",\"value\":\"2016-07-04\"}],\"short_description\":[{\"operator\":\"CONTAINS\",\"value\":\"shoes\",\"locale\":\"en_US\"}]}&search_scope=ecommerce",
+                  "description": "Filter on several attributes on the same channel",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"categories\":[{\"operator\":\"IN\",\"value\":[\"winter_collection\"]}]}",
+                  "description": "Get the published products of the winter_collection category.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"enabled\":[{\"operator\":\"=\",\"value\":false}]}",
+                  "description": "Get the disabled published products.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"completeness\":[{\"operator\":\"=\",\"value\":100,\"scope\":\"ecommerce\"}]}",
+                  "description": "Get the published products that are 100% complete for the ecommerce channel.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"completeness\":[{\"operator\":\"GREATER OR EQUALS THAN ON ALL LOCALES\",\"value\":100,\"locales\":[\"en_US\",\"fr_FR\"],\"scope\":\"ecommerce\"}]}",
+                  "description": "Get the published products that are 100% complete on both the en_US and fr_FR locales for the ecommerce channel.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"groups\":[{\"operator\":\"IN\",\"value\":[\"promotion\"]}]}",
+                  "description": "Get the published products that are in the promotion group.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"family\":[{\"operator\":\"NOT IN\",\"value\":[\"camcorders\",\"digital_cameras\"]}]}",
+                  "description": "Get the published products that are not in the camcorders and digital_cameras family.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"created\":[{\"operator\":\"=\",\"value\":\"2016-07-04 10:00:00\"}]}",
+                  "description": "Get the published products that were created on the 4th of July 2016 at 10am.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"updated\":[{\"operator\":\"SINCE LAST N DAYS\",\"value\":4}]}",
+                  "description": "Get the published products that were updated during the last 4 days.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"description\":[{\"operator\":\"STARTS WITH\",\"value\":\"Amazing\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}],\"short_description\":[{\"operator\":\"CONTAINS\",\"value\":\"shoes\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}]}",
+                  "description": "If you need to filter on several attributes on the same locale, you can use the search_locale query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing locale code.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"release_date\":[{\"operator\":\">\",\"value\":\"2016-07-04\",\"scope\":\"ecommerce\"}],\"short_description\":[{\"operator\":\"CONTAINS\",\"value\":\"shoes\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}]}",
+                  "description": "If you need to filter on several attributes on the same channel, you can use the search_scope query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing channel code.",
+                  "disabled": true
+                },
+                {
+                  "key": "pagination_type",
+                  "value": "search_after",
+                  "description": "(string , page by default )  • Pagination method type.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "3",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type. Should never be set manually.",
+                  "disabled": true
+                },
+                {
+                  "key": "search_after",
+                  "value": "qaXbcde",
+                  "description": "(string , cursor to the first page by default ) • Cursor when using the `search_after` pagination method type. Should never be set manually.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "true",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                }
               ]
             },
             "description": "\n"

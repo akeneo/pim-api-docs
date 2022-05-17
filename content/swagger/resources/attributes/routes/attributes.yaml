@@ -10,7 +10,8 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   parameters:
     - name: search
       in: query
@@ -20,6 +21,7 @@ get:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
+    - $ref: '#/parameters/with_table_select_options'
   responses:
     200:
       description: Return attributes paginated
@@ -39,16 +41,16 @@ get:
       examples: {
         _links: {
           self: {
-            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=3&limit=2"
+            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=3&limit=3"
           },
           first: {
-            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=1&limit=2"
+            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=1&limit=3"
           },
           previous: {
-            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=2&limit=2"
+            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=2&limit=3"
           },
           next: {
-            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=4&limit=2"
+            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=4&limit=3"
           }
         },
         current_page: 3,
@@ -131,6 +133,79 @@ get:
                 "en_US": "Sale date",
                 "fr_FR": "Date des soldes"
               }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "http://localhost:8080/api/rest/v1/attributes/food_composition"
+                }
+              },
+              "code": "food_composition",
+              "type": "pim_catalog_table",
+              "group": "product",
+              "unique": false,
+              "useable_as_grid_filter": false,
+              "allowed_extensions": [],
+              "metric_family": null,
+              "default_metric_unit": null,
+              "reference_data_name": null,
+              "available_locales": [],
+              "max_characters": null,
+              "validation_rule": null,
+              "validation_regexp": null,
+              "wysiwyg_enabled": null,
+              "number_min": null,
+              "number_max": null,
+              "decimals_allowed": null,
+              "negative_allowed": null,
+              "date_min": null,
+              "date_max": null,
+              "max_file_size": null,
+              "minimum_input_length": null,
+              "sort_order": 0,
+              "localizable": false,
+              "scopable": false,
+              "labels": {
+                "en_US": "Composition",
+                "fr_FR": "Composition"
+              },
+              "guidelines": { },
+              "auto_option_sorting": null,
+              "is_read_only": null,
+              "default_value": null,
+              "table_configuration": [
+                {
+                  "code": "ingredient",
+                  "data_type": "select",
+                  "labels": {
+                    "en_US": "Ingredient",
+                    "fr_FR": "Ingrédient"
+                  },
+                  "validations": {}
+                },
+                {
+                  "code": "percentage",
+                  "data_type": "number",
+                  "labels": {
+                    "en_US": "%",
+                    "fr_FR": "%"
+                  },
+                  "validations": {
+                    "max": 100,
+                    "min": 0,
+                    "decimals_allowed": true
+                  }
+                },
+                {
+                  "code": "allergen",
+                  "data_type": "boolean",
+                  "labels": {
+                    "en_US": "Allergen",
+                    "fr_FR": "Allergène"
+                  },
+                  "validations": {}
+                }
+              ]
             }
           ]
         }
@@ -153,7 +228,8 @@ post:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   parameters:
     - name: body
       in: body
@@ -183,7 +259,8 @@ patch:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   description: This endpoint allows you to update and/or create several attributes at once.
   x-body-by-line: Contains several lines, each line is an attribute in JSON standard format
   parameters:

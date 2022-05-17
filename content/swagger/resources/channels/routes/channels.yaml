@@ -10,7 +10,8 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -122,7 +123,8 @@ post:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   parameters:
     - name: body
       in: body
@@ -151,7 +153,8 @@ patch:
     - "3.x"
     - "4.0"
     - "5.0"
-    - "Serenity"
+    - "6.0"
+    - "SaaS"
   description: This endpoint allows you to update and/or create several channels at once.
   x-body-by-line: Contains several lines, each line is a channel in JSON standard format
   parameters:
