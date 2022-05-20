@@ -355,7 +355,26 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 v6: "5x",
                 v5: "5x"
             }
-        }
+        },
+        'synchronize-pim-products-6x': {
+            gettingStartedName: 'synchronize-pim-products',
+            pimVersion: 'v6 / SaaS',
+            title: 'Synchronize PIM products with your App',
+            files: {
+                'welcome.md': 'Welcome',
+                'step-0.md': 'General relation schema',
+                'step-1.md': 'PIM structure',
+                'step-2.md': 'Catalog structure: families and attributes',
+                'step-3.md': 'Catalog structure: categories',
+                'step-4.md': 'Products and product models',
+                'step-5.md': 'Reference entities',
+                'step-6.md': 'Assets'
+            },
+            availability: {
+                serenity: "6x",
+                v6: "6x"
+            }
+        },
     };
     var isOnePage = false;
 
