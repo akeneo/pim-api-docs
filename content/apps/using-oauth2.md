@@ -145,12 +145,14 @@ However, be aware that it can be revoked at any moment by a PIM user.
 
 ### Token Error Response
 
-If your Access Token Request is refused, you will receive a JSON response with the error:
+If your Access Token Request is refused, you will receive a JSON response with the error.  
+
+For example, if your app doesn’t retrieve its access token within a 30 seconds delay, you will receive the following error, which indicates that your code is no longer valid. 
 
 ```json
-
 {
-  "error": "[ERROR_CODE]"
+    "error": "invalid_grant",
+    "error_description": "Code has expired"
 }
 ```
 
