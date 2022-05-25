@@ -18,7 +18,12 @@ Depending on your PIM version, there are two different ways to generate these cl
 - Using a PIM v2.x or v3.x? [Follow the instructions right here.](#with-a-v2x-and-3x-pim)
 - Still using the v1.7? [Here you go!](#with-a-v17-pim)
 
-### Since the PIM v4
+::: tips
+Don't know your PIM version? You can find it in the `version` line of the `System/System information` page. 
+If the version looks more like a datetime, you use one of our SaaS offer, so please check the _Since the PIM v4_ paragraph.
+::: 
+
+### Since the PIM v4 
 Since the PIM v4, there is one unique and streamlined way to generate your client ID and secret. See by yourself!
 
 1. Log into your favorite PIM.
@@ -114,6 +119,11 @@ You will get this answer.
 ## API user creation
 
 You now have a client ID and a secret.  But the request to get this token needs a username and a password.
+
+::: tips
+Don't know your PIM version? You can find it in the `version` line of the `System/System information` page. 
+If the version looks more like a datetime, you use one of our SaaS offer, so please check the _Since the PIM v4_ paragraph.
+::: 
 
 ### Since the PIM v4
 
