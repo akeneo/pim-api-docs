@@ -26,7 +26,7 @@ Indeed, in order for your connector to interact with Julia, we will have to ask 
 First, in order to communicate with your connector and obtain API credentials, Julia needs to create a dedicated [connection](https://help.akeneo.com/pim/serenity/articles/manage-your-connections.html) for your connector.
 
 To do so she will need to:
-1. Go to the `System` menu and then, on the `Connections` submenu
+1. Depending on the version you use, go to the `System/Connections` menu (before the v6) or the `Connect/Connection settings` menu.
 2. Click on `Create`
 3. In the `Label` field, enter the name of your connector.
 4. Choose the `Other` flow type

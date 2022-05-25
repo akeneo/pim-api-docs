@@ -22,7 +22,7 @@ Depending on your PIM version, there are two different ways to generate these cl
 Since the PIM v4, there is one unique and streamlined way to generate your client ID and secret. See by yourself!
 
 1. Log into your favorite PIM.
-1. Navigate to the `System/Connections` menu.
+1. Depending on the version you use, go to the `System/Connections` menu (before the v6) or the `Connect/Connection settings` menu.
 1. Click on `Create`.
 1. Input a label for your connection, `ERP` for example.
 1. Select a type flow. [_Don't know what it is? More info here._](https://help.akeneo.com/pim/articles/manage-your-connections.html#choose-your-flow-type)
@@ -117,7 +117,7 @@ You now have a client ID and a secret.  But the request to get this token needs 
 
 ### Since the PIM v4
 
-Since the PIM v4, this username and password are automatically generated whenever you create a connection in the UI. Navigate to `System/Connections`, click on your connection and find your username and password in the `Credentials` section.
+Since the PIM v4, this username and password are automatically generated whenever you create a connection in the UI. Depending on the version you use, navigate to the `System/Connections` menu (before the v6) or the `Connect/Connection settings` menu, click on your connection and find your username and password in the `Credentials` section.
 
 You may need to regenerate a password if you haven't saved it anywhere. Indeed, for security reasons, the PIM can only show it to you once, after the connection is created. There is a `Regenerate` button close to the hidden password if needed. :wink:
 
