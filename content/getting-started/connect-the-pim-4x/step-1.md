@@ -26,8 +26,7 @@ As a connection corresponds to one specific connection, we will name our connect
 Follow these steps:
 1. Log into your 4.0 or newer PIM.  
 _Sidenote: This tutorial is dedicated to 4.0 or newer PIMs. Here is the one for [older PIM versions](/getting-started/connect-the-pim-old/welcome.html)._
-1. Click on `Connect`.
-1. Click on `Connection settings`.
+1. Depending on the version you use, go to the `System/Connections` menu (before the v6) or the `Connect/Connection settings` menu.
 1. Click on `Create`.
 ![Connection creation button](/img/getting-started/connection-creation-button.png)
 1. In the `Label` field, enter `My ERP`.  
