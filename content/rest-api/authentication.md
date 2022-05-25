@@ -21,7 +21,7 @@ Depending on your PIM version, there are two different ways to generate these cl
 ::: tips
 **You don't know your PIM version?**  
 You can find it in the `version` line of the `System/System information` page.  
-If the version looks like a datetime, you use one of our SaaS offer, so please check the _Since the PIM v4_ paragraph.
+If the version looks like a datetime, you use one of our SaaS offers, so please check the _Since the PIM v4_ paragraph.
 :::
 
 ### Since the PIM v4 
@@ -124,7 +124,7 @@ You now have a client ID and a secret.  But the request to get this token needs 
 ::: tips
 **You don't know your PIM version?**  
 You can find it in the `version` line of the `System/System information` page.  
-If the version looks like a datetime, you use one of our SaaS offer, so please check the _Since the PIM v4_ paragraph.
+If the version looks like a datetime, you use one of our SaaS offers, so please check the _Since the PIM v4_ paragraph.
 ::: 
 
 ### Since the PIM v4
