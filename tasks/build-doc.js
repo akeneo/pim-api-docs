@@ -362,13 +362,13 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             title: 'Synchronize PIM products with your App',
             files: {
                 'welcome.md': 'Welcome',
-                'step-0.md': 'General relation schema',
-                'step-1.md': 'PIM structure',
-                'step-2.md': 'Catalog structure: families and attributes',
-                'step-3.md': 'Catalog structure: categories',
-                'step-4.md': 'Products and product models',
-                'step-5.md': 'Reference entities',
-                'step-6.md': 'Assets'
+                'step-0.md': 'Discover the PIM objects relationship schema',
+                'step-1.md': 'Synchronize PIM structure',
+                'step-2.md': 'Synchronize Catalog structure: families and attributes',
+                'step-3.md': 'Synchronize Catalog structure: categories',
+                'step-4.md': 'Synchronize Products and product models',
+                'step-5.md': 'Synchronize Reference entities',
+                'step-6.md': 'Synchronize Assets'
             },
             availability: {
                 serenity: "6x",

@@ -16,8 +16,12 @@ And of course, you also have to make sure that you can access it from where you 
 Whatever is the storage system, you will need one for product data persistence.
 You don't know what an App is? Have a look to our documentation about this next way of connecting with Akeneo [here](/apps/introduction.html).
 
-That's it! :tada:
+## How to follow this tutorial?
 
-::: panel-link Let's move to the first step of this tutorial [Step 0: the general relation schema](/getting-started/synchronize-pim-products-6x/step-0.html)
+We recommend that you follow the steps in the proposed order and from the first to the last drop: you may store data that you will use later.
+Nevertheless, if you are already familiar with our dear [API](https://api.akeneo.com/) and [PIM key concepts](https://help.akeneo.com/pim/serenity/themes-for-julia.html#first-steps), feel free to tackle this guide in the order you want.
+Some steps are not mandatory for all e-commerce platforms — you won’t, for instance, synchronize assets or reference entities if you use a PIM community edition. We indicated them: skip these chapters if you’re not concerned.
+
+::: panel-link Ready for action? Check first [the PIM objects relationship schema](/getting-started/synchronize-pim-products-6x/step-0.html)
 :::
 
