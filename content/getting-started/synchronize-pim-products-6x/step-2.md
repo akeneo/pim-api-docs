@@ -247,17 +247,17 @@ Because attributes can be shared between families, you may have redundant attrib
 :::
 
 ::: info
-💡 A word about labels. During all the synchronization guides, you may encounter in the API response a **labels** section that contains translations for the asked resource. Here, for example, you can get the American English and French translation for the family code **T-shirt**. Do you have to store labels? It depends on your needs, but remember one thing: in the end, you have to display something for your final user. In the case of a family with the family code **dress**, what will be the best thing to display to a French user? the raw family code (_dress_), the German translation (_kleid_), or the French translation (_robe_)? You are the final judge.
+A word about labels. During all the synchronization guides, you may encounter in the API response a **labels** section that contains translations for the asked resource. Here, for example, you can get the American English and French translation for the family code **T-shirt**. Do you have to store labels? It depends on your needs, but remember one thing: in the end, you have to display something for your final user. In the case of a family with the family code **dress**, what will be the best thing to display to a French user? the raw family code (_dress_), the German translation (_kleid_), or the French translation (_robe_)? You are the final judge.
 :::
 
 ::: info 
-💡 Also, keep in mind that you can filter useless locales with the list of locales you built in [the previous section of the guide](/getting-started/synchronize-pim-products-6x/step-1.html).
+Also, keep in mind that you can filter useless locales with the list of locales you built in [the previous section of the guide](/getting-started/synchronize-pim-products-6x/step-1.html).
 :::
 
 # 2 - Collect family variants
 
 ::: info
-💡 This step is mandatory if you want to synchronize product models later. If not, jump to the third step.
+This step is mandatory if you want to synchronize product models later. If not, jump to the third step.
 :::
 
 In order to collect the family variants, we will use the **family_code_list** you built in the first step.
@@ -311,7 +311,6 @@ Store at least code and variant_attribute_sets in **family_variant_list**.
 Remember your **attribute_code_list**? It’s (already) time to use it for retrieving attribute information with the help of this [API endpoint](https://api.akeneo.com/api-reference.html#Attribute).
 
 > **GET /api/rest/v1/attributes?search={"code":[{"operator":"IN","value":attribute_code_list}]}**
->
 
 Save results into **attribute_list**. The most important information, for each attribute, is :
 
@@ -332,7 +331,7 @@ Save results into **attribute_list**. The most important information, for each a
 Why saving type? for saving your life later during [product synchronization](/getting-started/synchronize-pim-products-6x/step-4.html).
 
 ::: warning
-💡 **attribute_code_list** may be significant, very big! If you get an [HTPP 414 error](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.15), you probably hit these boundaries. A workaround is to split your **attribute_code_list** into different parts and call them independently.
+💡 **attribute_code_list** may be significant, very big! If you get an [HTTP 414 error](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.15), you probably hit these boundaries. A workaround is to split your **attribute_code_list** into different parts and call them independently.
 :::
 
 Well done, your catalog structure is becoming a reality! Go to the next level.

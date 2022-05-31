@@ -211,7 +211,7 @@ If you know the category codes you want to collect, it’s your lucky day: [a fi
 Unfortunately, the most difficult filtering method is probably the one you need: because a scope has one and only one category tree, it’s natural to filter categories that belong to the category tree of the scope...and there is no API endpoint for that.
 
 ::: tips
-💡 Look closely at the first schema of this section...yes, a category tree is simply a graph where its nodes are categories!
+Look closely at the first schema of this section...yes, a category tree is simply a graph where its nodes are categories!
 :::
 
 And who says “graph,” says “dept-first search”!

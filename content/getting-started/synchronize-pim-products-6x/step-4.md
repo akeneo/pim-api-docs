@@ -237,7 +237,7 @@ We recommend to you the following product filters:
 Another very important point is the **with_attribute_options**. When this option is activated, labels of attributes options will be returned in the response — and saves you from many extra API calls. More information [here](https://api.akeneo.com/api-reference.html#get_products).
 
 ::: tips
-💡 Have a look at our [product filters](https://api.akeneo.com/documentation/filter.html#filter-on-product-properties): you may find other interesting ones.
+Have a look at our [product filters](https://api.akeneo.com/documentation/filter.html#filter-on-product-properties): you may find other interesting ones.
 :::
 
 So, what does our API call on products look like?
@@ -468,7 +468,7 @@ function add_reference_entity_record_code(reference_entity_record_code)
 ```
 
 ::: info
-💡 Why such a format for reference entity records? You will understand in [reference entities synchronization](/getting-started/synchronize-pim-products-6x/step-5.html).
+Why such a format for reference entity records? You will understand in [reference entities synchronization](/getting-started/synchronize-pim-products-6x/step-5.html).
 :::
 
 **_Assets_**

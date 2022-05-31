@@ -320,11 +320,11 @@ Your products are synchronized, but what about your complex fields shared by sev
 So far, we haven’t dealt with reference entities, and it’s now time to fill his particular gap. This part of the guide is quite similar to the [product synchronization chapter](/getting-started/synchronize-pim-products-6x/step-5.html): you won’t be lost.
 
 ::: tips
-💡 Before going further and if references entities have still some secrets for you, feel free to read [our dear documentation about it](https://help.akeneo.com/pim/serenity/articles/what-about-reference-entities.html#introduction-to-reference-entities).
+Before going further and if references entities have still some secrets for you, feel free to read [our dear documentation about it](https://help.akeneo.com/pim/serenity/articles/what-about-reference-entities.html#introduction-to-reference-entities).
 :::
 
 ::: warning
-💡 We assume in the next sections that you iterate through this **record_codes_by_reference_entity_code_list**. As a reminder, its format is:
+We assume in the next sections that you iterate through this **record_codes_by_reference_entity_code_list**. As a reminder, its format is:
 :::
 
 ```code

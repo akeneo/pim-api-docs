@@ -523,7 +523,7 @@ And because a picture is worth a thousand words, the following global relationsh
 </svg>
 
 
-This relation schema is the complete version of what you will discover, little by little, all along with this guide.
+This relation schema is the complete version of what you will discover, step by step, all along with this guide.
 Every square represents a queryable resource of your PIM; narrows show interactions between them.
 
 ::: tips
