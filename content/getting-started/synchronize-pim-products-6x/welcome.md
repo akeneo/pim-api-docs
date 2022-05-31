@@ -14,7 +14,7 @@ And of course, you also have to make sure that you can access it from where you 
 
 <i class="fa fa-check-square"></i> **You have access to an App, and it has its own storage system.**
 Whatever is the storage system, you will need one for product data persistence.
-You don't know what an App is? Have a look to our documentation about this next way of connecting with Akeneo [here](/apps/introduction.html).
+You don't know what an App is? Have a look at our documentation about this brand-new way of connecting with Akeneo [here](/apps/introduction.html).
 
 ## How to follow this tutorial?
 

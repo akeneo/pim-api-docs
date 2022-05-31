@@ -425,7 +425,7 @@ Whereas a metric attribute has the following format:
 ```
 
 ::: tips
-💡 You will find all the definitions in our API documentation, just [here](https://api.akeneo.com/concepts/products.html#the-data-format).
+You will find all the definitions in our API documentation, just [here](https://api.akeneo.com/concepts/products.html#the-data-format).
 :::
 
 Use the same algorithm - search the attribute type in **attribute_list** and parse according to product value data - and you will obtain all the product values of your product. Store it, and you’ve done with your product values.
@@ -468,7 +468,7 @@ function add_reference_entity_record_code(reference_entity_record_code)
 ```
 
 ::: info
-💡 Why such a format for reference entity records? You will see in [reference entities synchronization](/getting-started/synchronize-pim-products-6x/step-5.html).
+💡 Why such a format for reference entity records? You will understand in [reference entities synchronization](/getting-started/synchronize-pim-products-6x/step-5.html).
 :::
 
 **_Assets_**
@@ -507,7 +507,7 @@ Again, we will use it later, during [the asset synchronization](/getting-started
 At last, a **pim_catalog_file** or **pim_catalog_image** attribute type means you are dealing with a media that could be downloaded.
 
 ::: tips
-💡 Keep in mind that synchronizing media files might be time and resource-consuming. Download media only if you need it, or do it in a dedicated and independent process.
+Keep in mind that synchronizing media files might be time and resource-consuming. Download media only if you need it, or do it in a dedicated and independent process.
 :::
 
 For downloading your resource, simply call the right [API endpoint](https://api.akeneo.com/api-reference-index.html#Productmediafile).
@@ -529,7 +529,7 @@ Be careful: filters for products and product models aren’t the same. Have a lo
 Otherwise, go through the same steps as products.
 
 ::: info
-If you need more information on product models, have a look to the documentation [here](https://help.akeneo.com/pim/serenity/articles/what-about-products-variants.html#what-is-a-product-model).
+Need more information on product models, have a look to the documentation [here](https://help.akeneo.com/pim/serenity/articles/what-about-products-variants.html#what-is-a-product-model).
 :::
 
 If you didn’t plan to synchronize assets or reference entities, well done: your product synchronization is finished :tada:

@@ -169,7 +169,7 @@
 </svg>
 
 
-Collecting categories is a piece of cake: query the PIM, and store the result. Call [the following endpoint.](https://api.akeneo.com/api-reference.html#get_categories)
+Collecting categories is a piece of cake: [query the PIM](https://api.akeneo.com/api-reference.html#get_categories), store the result.
 
 > **GET /api/rest/v1/categories**
 
@@ -190,7 +190,7 @@ Collecting categories is a piece of cake: query the PIM, and store the result. C
 }
 ```
 
-Store data you need into a **category_list**, like **code** and l**abels**.
+Store data you need into a **category_list**, like **code** and **labels**.
 
 # Filtering categories
 
@@ -198,7 +198,7 @@ Filtering categories is another story.
 
 Problem: with the previous call, you will collect all the categories of your PIM, even the ones you don’t use in the scope you are synchronizing! Maybe it’s not an issue — you don’t have so many categories after all. In this case, don’t go further in filtering.
 
-Nevertheless, if you need to filter your categories, you have two possibilities.
+If you need to filter your categories, you have two possibilities.
 
 ## Filter by category codes
 

@@ -388,7 +388,7 @@ Here also, is as simple as calling the right [API endpoint](https://api.akeneo.c
 Store `code` and `type` in a dedicated list, and call it **reference_entity_attribute_list**.
 
 ::: info
-💡 As for products, some attributes may be simple select or multi select type (`pim_catalog_simpleselect` or `pim_catalog_multiselect`). In these cases, don’t forget to store the option in **reference_entity_attribute_option_list**.
+As for products, some attributes may be simple select or multi select type (`pim_catalog_simpleselect` or `pim_catalog_multiselect`). In these cases, don’t forget to store the option in **reference_entity_attribute_option_list**.
 :::
 
 ## 3 - Collect reference entity records
@@ -396,7 +396,7 @@ Store `code` and `type` in a dedicated list, and call it **reference_entity_attr
 Again, an [API call](https://api.akeneo.com/api-reference.html#Referenceentityrecord) will save your life.
 
 ::: tips
-💡 Dont’t forget to add the options **locales** and **channel**. Remember: early filter saves time later...More filters [here](https://api.akeneo.com/documentation/filter.html#filter-reference-entity-records)
+Dont’t forget to add the options **locales** and **channel**. Remember: early filter saves time later...More filters [here](https://api.akeneo.com/documentation/filter.html#filter-reference-entity-records)
 :::
 
 > **GET /api/rest/v1/reference-entities/{reference_entity_code}/records?locales=locales&channel=your_channel_code**
@@ -502,7 +502,7 @@ If your function returns `image`, it means your attribute is an image and it can
 > **GET /api/rest/v1/reference-entities-media-files/{reference_entity_code}**
 
 ::: tips
-💡 Again, keep in mind that synchronizing media files might be time and resource-consuming. Use parsimoniously this API call!
+Again, keep in mind that synchronizing media files might be time and resource-consuming. Use parsimoniously this API call!
 :::
 
 ## 4.2 - Parse record attribute value
@@ -510,7 +510,7 @@ If your function returns `image`, it means your attribute is an image and it can
 Parsing record values is much easier than parsing product values: data is homogenous and there is fewer types.
 
 ::: tips
-💡 You will find all the attribute types for reference entities [here](https://api.akeneo.com/concepts/reference-entities.html#the-data-format).
+You will find all the attribute types for reference entities [here](https://api.akeneo.com/concepts/reference-entities.html#the-data-format).
 :::
 
 Store your records and their attribute values into the list **reference_entity_record_list**,

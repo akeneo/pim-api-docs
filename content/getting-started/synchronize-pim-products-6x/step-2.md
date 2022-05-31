@@ -205,15 +205,13 @@ The first step of the catalog structure synchronization can be summed up in **3 
 2. Collect [family variants](https://help.akeneo.com/pim/serenity/articles/what-about-products-variants.html#what-is-a-family-variant)
 3. Collect [attributes](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#mainContent)
 
-# I - Collect families and attribute codes
-
-First and foremost, let’s collect families and store them.
+# 1 - Collect families and attribute codes
 
 The natural way to retrieve your PIM families is to call the [API endpoint design for that](https://api.akeneo.com/api-reference.html#get_families)
 
 > **GET /api/rest/v1/families**
 
-Store family codes in a **family_code_list** and attribute codes in a separate list (for example, **attribute_code_list**). We will deal later with the attribute code list.
+Store family codes in a **family_code_list** and attribute codes in a separate list (for example, **attribute_code_list**). We will deal [later](/getting-started/synchronize-pim-products-6x/step-4.html) with the attribute code list.
 
 ```json
 {
@@ -249,14 +247,14 @@ Because attributes can be shared between families, you may have redundant attrib
 :::
 
 ::: info
-💡 A word about labels. During all the synchronization guides, you may encounter in the API response a **labels** section that contains translations for the asked resource. Here, for example, you can get the American English and French translation for the family code **T-shirt.** Do you have to store labels? It depends on your needs, but remember one thing: in the end, you have to display something for your final user. in the case of a family with the family code **traffic_light**, what will be the best thing to display to a  French user? the raw family code (**traffic_light**), the German translation (**Ampel**), or the French translation (Feu de **signalization**)? You are the final judge.
+💡 A word about labels. During all the synchronization guides, you may encounter in the API response a **labels** section that contains translations for the asked resource. Here, for example, you can get the American English and French translation for the family code **T-shirt**. Do you have to store labels? It depends on your needs, but remember one thing: in the end, you have to display something for your final user. In the case of a family with the family code **dress**, what will be the best thing to display to a French user? the raw family code (_dress_), the German translation (_kleid_), or the French translation (_robe_)? You are the final judge.
 :::
 
 ::: info 
 💡 Also, keep in mind that you can filter useless locales with the list of locales you built in [the previous section of the guide](/getting-started/synchronize-pim-products-6x/step-1.html).
 :::
 
-# II - Collect family variants
+# 2 - Collect family variants
 
 ::: info
 💡 This step is mandatory if you want to synchronize product models later. If not, jump to the third step.
@@ -308,9 +306,7 @@ More details for this API endpoint are [here](https://api.akeneo.com/api-referen
 
 Store at least code and variant_attribute_sets in **family_variant_list**.
 
-# III - Collect attributes
-
-Last but not least, attributes.
+# 3 - Collect attributes
 
 Remember your **attribute_code_list**? It’s (already) time to use it for retrieving attribute information with the help of this [API endpoint](https://api.akeneo.com/api-reference.html#Attribute).
 
@@ -333,7 +329,7 @@ Save results into **attribute_list**. The most important information, for each a
 }
 ```
 
-Why saving type? for saving your life later during [product synchronization](/getting-started/synchronize-pim-products-6x/step-4.html). Trust us...
+Why saving type? for saving your life later during [product synchronization](/getting-started/synchronize-pim-products-6x/step-4.html).
 
 ::: warning
 💡 **attribute_code_list** may be significant, very big! If you get an [HTPP 414 error](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.15), you probably hit these boundaries. A workaround is to split your **attribute_code_list** into different parts and call them independently.

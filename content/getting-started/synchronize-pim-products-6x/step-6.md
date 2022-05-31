@@ -439,7 +439,7 @@ Again, an [API endpoint](https://api.akeneo.com/api-reference.html#Assetattribut
 Store `code` and `type` in a **asset_attribute_list**.
 
 ::: info
-💡 As for reference entities, some asset family attributes may be simple select or multi select type (`pim_catalog_simpleselect` or `pim_catalog_multiselect`). In these cases, don’t forget to store the option in **asset_attribute_option_list**.
+As for reference entities, some asset family attributes may be simple select or multi select type (`pim_catalog_simpleselect` or `pim_catalog_multiselect`). In these cases, don’t forget to store the option in **asset_attribute_option_list**.
 :::
 
 ## 3 - Collect assets
@@ -447,7 +447,7 @@ Store `code` and `type` in a **asset_attribute_list**.
 Simply call [the following API endpoint](https://api.akeneo.com/api-reference.html#Asset).
 
 ::: tips
-💡 Please add the options **locales** and **channel**. Remember: early filter saves time later... More filters [here](https://api.akeneo.com/documentation/filter.html#filter-assets)
+Please add the options **locales** and **channel**. Remember: early filter saves time later... More filters [here](https://api.akeneo.com/documentation/filter.html#filter-assets)
 :::
 
 > **GET /api/rest/v1/asset-families/{asset_family_code}/assets?locales=locales&channel=your_channel_code**
@@ -483,7 +483,7 @@ Simply call [the following API endpoint](https://api.akeneo.com/api-reference.ht
 
 ## 4 - Retrieve asset values
 
-It’s exactly the same as for reference entities! We won’t repeat ourselves so, here the algorithm in a nutshell.
+It’s exactly the same as for reference entities! We won’t repeat ourselves so, here the algorithm:
 
 for each attribute_value in values:
  - type = search in asset_attribute_list the asset attribute type of attribute_code

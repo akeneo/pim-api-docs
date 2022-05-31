@@ -527,7 +527,7 @@ This relation schema is the complete version of what you will discover, little b
 Every square represents a queryable resource of your PIM; narrows show interactions between them.
 
 ::: tips
-Don't forget this page and come back to it whenever you need to see the big picture of a PIM.
+Don't forget this page and come back to it whenever you need to see "the big picture".
 :::
 
 That's all! Let's now start serious matters...
