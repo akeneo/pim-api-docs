@@ -8,7 +8,7 @@ At the end of this tutorial and thanks to the REST API, all your product data fr
 
 ## Prerequisite
 
-<i class="fa fa-check-square"></i> **You have access to a 6.0 or newer Akeneo PIM.**  
+<i class="fa fa-check-square"></i> **You have access to a PIM.**  
 This can seem pretty obvious. But yeah! You will need a PIM if you want to make any REST API requests.
 And of course, you also have to make sure that you can access it from where you are requesting.
 
