@@ -17,7 +17,7 @@ You don't have access to a PIM to develop your App?  Don't worry!
 Please [contact us](https://www.akeneo.com/contact/), we will be happy to provide you with a PIM Enterprise Edition SaaS sandbox.
 <i class="fa fa-check-square"></i> **You have access to an App, and it has its own storage system.**
 Whatever is the storage system, you will need one for product data persistence.
-You don't know what an App is? Have a look at our documentation about this brand-new way of connecting with Akeneo [here](/apps/introduction.html).
+You don't know what an App is? Have a look at [our documentation](/apps/introduction.html) about this brand-new way of connecting with Akeneo PIM.
 
 ## How to follow this tutorial?
 
