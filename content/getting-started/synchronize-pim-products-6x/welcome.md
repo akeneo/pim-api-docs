@@ -6,6 +6,10 @@ This tutorial will teach you:
 ## Goal
 At the end of this tutorial and thanks to the REST API, all your product data from your PIM will be persisted in your App storage.
 
+::: info
+This guide is dedicated to Apps that need to import data from a PIM (e-Commerce, Syndication, CMS, print ...).
+:::
+
 ## Prerequisite
 
 <i class="fa fa-check-square"></i> **You have access to a PIM.**  
@@ -15,9 +19,19 @@ Our recommendation is to have access to a PIM Enterprise Edition SaaS to benefit
 
 You don't have access to a PIM to develop your App?  Don't worry!
 Please [contact us](https://www.akeneo.com/contact/), we will be happy to provide you with a PIM Enterprise Edition SaaS sandbox.
+
 <i class="fa fa-check-square"></i> **You have access to an App, and it has its own storage system.**
 Whatever is the storage system, you will need one for product data persistence.
 You don't know what an App is? Have a look at [our documentation](/apps/introduction.html) about this brand-new way of connecting with Akeneo PIM.
+
+<i class="fa fa-check-square"></i> **You already followed the dedicated guide depending on your App type.**
+Whatever the App you plan to develop, please have a look at the dedicated guide before moving forward in this one:
+ - [Dam App](/guides/dam-connection/introduction.html)
+ - [eCommerce App](/guides/ecommerce-connection/introduction.html)
+ - [translation App](/guides/translation-connection/introduction.html)
+ - [ERP App](/guides/erp-connection/introduction.html)
+ - [syndication App](/guides/syndication-connection/introduction.html)
+ - [print App](/guides/print-connection/introduction.html)
 
 ## How to follow this tutorial?
 
