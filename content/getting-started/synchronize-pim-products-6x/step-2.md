@@ -137,7 +137,7 @@ Save results into **attribute_list**. The most important information, for each a
 Why saving type? for saving your life later during [product synchronization](/getting-started/synchronize-pim-products-6x/step-4.html).
 
 ::: warning
-💡 **attribute_code_list** may be significant, very big! If you get an [HTTP 414 error](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.15), you probably hit these boundaries. A workaround is to split your **attribute_code_list** into different parts and call them independently.
+**attribute_code_list** may be significant, very big! If you get an [HTTP 414 error](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.15), you probably hit these boundaries. A workaround is to split your **attribute_code_list** into different parts and call them independently.
 :::
 
 Well done, your catalog structure is becoming a reality! Go to the next level.
