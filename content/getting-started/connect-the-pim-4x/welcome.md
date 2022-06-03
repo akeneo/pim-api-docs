@@ -1,4 +1,4 @@
-# 👋 Welcome in this guide!
+# 👋 Welcome to this guide!
 
 This tutorial will teach you:
 > How to connect the PIM with the REST API on a 4.0 or a 5.0 PIM
