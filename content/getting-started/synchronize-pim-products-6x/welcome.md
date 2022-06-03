@@ -1,4 +1,4 @@
-# 👋 Welcome in this tutorial!
+# 👋 Welcome to this tutorial!
 
 This tutorial will teach you:
 > How to synchronize PIM product data with your App
