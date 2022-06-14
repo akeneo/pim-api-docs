@@ -12,7 +12,7 @@ Akeneo PIM uses **OAuth 2.0** to manage the authorization of Apps.
 ## Credentials
 
 First, you must obtain valid OAuth 2.0 client credentials by submitting your App on the
-[Akeneo App Store](https://marketplace.akeneo.com/how-submit-extension-akeneo-marketplace).
+[Akeneo App Store](https://apps.akeneo.com/how-submit-extension-akeneo-marketplace).
 
 Then, when a user wants to connect their PIM to your App, the authorization process will go through the following steps.
 
