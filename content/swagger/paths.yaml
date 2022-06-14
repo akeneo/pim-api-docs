@@ -152,6 +152,13 @@
 /api/rest/v1/asset-tags/{code}:
   $ref: ./resources/deprecated/asset_tags/routes/asset_tags_code.yaml
 
+/api/rest/v1/catalogs:
+  $ref: ./resources/app_catalogs/routes/app_catalogs.yaml
+/api/rest/v1/catalogs/{id}:
+  $ref: ./resources/app_catalogs/routes/app_catalogs_id.yaml
+/api/rest/v1/catalogs/{id}/product-uuids:
+  $ref: ./resources/app_catalogs/routes/app_catalogs_id_product_uuids.yaml
+
 /api/rest/v1:
   $ref: ./resources/list_endpoints.yaml
 
