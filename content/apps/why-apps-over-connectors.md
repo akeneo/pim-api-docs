@@ -20,7 +20,7 @@ No more manual configuration issues and more transparency!
 
 ## High visibility
 
-We give your App high visibility when you publish an App on the [Akeneo App Store](https://marketplace.akeneo.com/). Your App is displayed **above all connectors**. 
+We give your App high visibility when you publish an App on the [Akeneo App Store](https://apps.akeneo.com/). Your App is displayed **above all connectors**. 
 
 We also give high visibility to Apps to our Akeneo PIM users. To do so, we created a **dedicated section** to highlight them in the PIM App Store.
 
