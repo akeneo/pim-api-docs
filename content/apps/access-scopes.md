@@ -33,6 +33,9 @@ it's a feature only available in the Enterprise edition.
 | `write_channel_settings`                                                | Write channels                                                   |
 | `read_association_types`                                                | Read association types                                           |
 | `write_association_types`                                               | Write association types                                          |
+| `read_catalogs`                                                         | Read app catalogs                                                |
+| `write_catalogs`                                                        | Write app catalogs                                               |
+| `delete_catalogs`                                                       | Remove app catalogs                                              |
 | `read_asset_families` <span class="label label-ee">EE</span>            | Read asset families                                              |
 | `write_asset_families` <span class="label label-ee">EE</span>           | Write assets families                                            |
 | `read_assets` <span class="label label-ee">EE</span>                    | Read assets                                                      |
