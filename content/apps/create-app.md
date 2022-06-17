@@ -59,3 +59,5 @@ At the end of this process, you receive the following response with an `access_t
 ```
 
 You can use this token to call the Akeneo PIM REST API.
+
+Reminder: our documentation is [open-source](https://github.com/akeneo/pim-api-docs). Feel free to contribute with languages we're not experts at.
