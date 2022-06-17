@@ -31,7 +31,7 @@
                 "6c046434-4501-4f85-94b7-d0194b3d9fb1"
               ]
             },
-            "description": "Assuming that the given uuid is the code of an existing catalog"
+            "description": "Assuming that the given uuid is the unique identifier of an existing catalog"
           },
           "response": []
         },
