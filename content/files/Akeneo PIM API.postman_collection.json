@@ -181,7 +181,7 @@
                 "product-uuids"
               ]
             },
-            "description": "Assuming that the given uuid is the code of an existing catalog"
+            "description": "Assuming that the given uuid is the unique identifier of an existing catalog"
           },
           "response": []
         }
