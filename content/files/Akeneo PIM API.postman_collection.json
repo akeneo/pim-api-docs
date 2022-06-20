@@ -6,6 +6,188 @@
   },
   "item": [
     {
+      "name": "App Catalogs",
+      "item": [
+        {
+          "name": "catalog",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/api/rest/v1/catalogs/6c046434-4501-4f85-94b7-d0194b3d9fb1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "catalogs",
+                "6c046434-4501-4f85-94b7-d0194b3d9fb1"
+              ]
+            },
+            "description": "Assuming that the given uuid is the unique identifier of an existing catalog"
+          },
+          "response": []
+        },
+        {
+          "name": "catalogs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/api/rest/v1/catalogs",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "catalogs"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "catalog",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Store US\"\n}"
+            },
+            "url": {
+              "raw": "{{url}}/api/rest/v1/catalogs",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "catalogs"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "catalog",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"New Store US\"\n}"
+            },
+            "url": {
+              "raw": "{{url}}/api/rest/v1/catalogs/6c046434-4501-4f85-94b7-d0194b3d9fb1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "catalogs",
+                "6c046434-4501-4f85-94b7-d0194b3d9fb1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "catalog",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/api/rest/v1/catalogs/6c046434-4501-4f85-94b7-d0194b3d9fb1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "catalogs",
+                "6c046434-4501-4f85-94b7-d0194b3d9fb1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "catalog product uuids",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/api/rest/v1/catalogs/6c046434-4501-4f85-94b7-d0194b3d9fb1/product-uuids",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "catalogs",
+                "6c046434-4501-4f85-94b7-d0194b3d9fb1",
+                "product-uuids"
+              ]
+            },
+            "description": "Assuming that the given uuid is the unique identifier of an existing catalog"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Association type (>= v2)",
       "item": [
         {

@@ -1,0 +1,9 @@
+type: object
+required: ["name"]
+properties:
+    name:
+        type: string
+        description: App catalog name
+example: {
+    "name": "My app catalog"
+}
