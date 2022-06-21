@@ -579,7 +579,8 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
         'apps-getting-started.md': 'Getting started',
         'authentication-and-authorization.md': 'Authentication and authorization',
-        'catalogs.md': 'Catalogs for Apps (beta)'
+        'catalogs.md': 'Catalogs for Apps (beta)',
+        'app-developer-tools.md': 'Developer tools'
     };
 
     var isOnePage = false;

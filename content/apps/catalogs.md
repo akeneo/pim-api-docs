@@ -2,7 +2,7 @@
 
 ## Overview
 
-<!-- `To be done` -->
+<!-- TODO -->
 
 This guide introduces the catalog feature, which avoids you to add a filtering interface to your app as Akeneo PXM Studio already does it.
 
@@ -16,7 +16,7 @@ When your app uses catalogs to retrieve product data, it automatically enables t
 
 ### Next steps
 
-- Learn how to create and use catalogs `add link`
+- Learn [how to create and use catalogs](/apps/catalogs.html#getting-started-with-catalogs)
 - Discover how users configure catalogs in the Akeneo PXM Studio `add link`
 
 ## Getting started with catalogs
@@ -30,26 +30,26 @@ After you've completed this tutorial, you'll be able to create and use catalogs 
 ### Requirements
 
 - You have a Partner account and a developer sandbox.
-- Your app already manages the authentication step `add link to authentication`
+- Your app already manages the authentication step
 
 ### Step 1: Ask for catalog scopes
 
-<!-- `To be done` -->
+<!-- TODO -->
 
 ### Step 2: Create catalogs
 
-<!-- `To be done` -->
+<!-- TODO -->
 
 By default, when you create a catalog in the Akeneo PXM Studio, the catalog is disabled. It means that, until a user hasn't enabled it, you won't be able to retrieve products for this catalog. Note that only users can enable a catalog. 
 
 ::: warning
-You can create up to 15 catalogs per app.
+You can create **up to 15 catalogs** per app.
 ::: 
 
 ### Step 3: Get products using catalogs
 
-<!-- `To be done` -->
+<!-- TODO -->
 
 ### Next steps
-- Learn how to synchronize Akeneo data. `add link to Thomas' guide`
-- Explore the REST API reference. `add link`
+- Learn [how to synchronize Akeneo data](/getting-started/synchronize-pim-products-6x/welcome.html)
+- Explore the [REST API reference](/api-reference-index.html) 
