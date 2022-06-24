@@ -29,6 +29,7 @@ immediately in this Activation URL.
 !!!include(content/apps/create-app/activate-php.md)!!!
 !!!include(content/apps/create-app/activate-nodejs.md)!!!
 !!!include(content/apps/create-app/activate-python.md)!!!
+!!!include(content/apps/create-app/activate-java.md)!!!
 
 ## Callback URL
 
@@ -38,6 +39,7 @@ Then, your application must expose a callback URL.
 !!!include(content/apps/create-app/callback-php.md)!!!
 !!!include(content/apps/create-app/callback-nodejs.md)!!!
 !!!include(content/apps/create-app/callback-python.md)!!!
+!!!include(content/apps/create-app/callback-java.md)!!!
 
 
 
@@ -57,3 +59,7 @@ At the end of this process, you receive the following response with an `access_t
 ```
 
 You can use this token to call the Akeneo PIM REST API.
+
+::: tips
+Reminder: our documentation is [open-source](https://github.com/akeneo/pim-api-docs). Feel free to contribute with languages we're not experts at.
+:::
