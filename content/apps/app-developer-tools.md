@@ -2,9 +2,13 @@
 
 ## Akeneo Demo App
 
+The Akeneo team created the Akeneo Demo App to show you how Akeneo apps work. 
+It provides you an example of app you can use to understand how to implement Akeneo app features. 
+
 Github repository: [akeneo/demo-app](https://github.com/akeneo/demo-app)
-  
-<!-- TODO -->
+
+Stay tuned! We update the Akeneo Demo App with all our new features.
+
 
 ## Akeneo PHP API client
 
