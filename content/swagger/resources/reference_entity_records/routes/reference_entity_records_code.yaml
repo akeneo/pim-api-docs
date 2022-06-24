@@ -7,6 +7,7 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
+    - "6.0"
     - "SaaS"
   x-ee: true
   description: This endpoint allows you to get the information about a given record for a given reference entity.
@@ -34,6 +35,7 @@ patch:
     - "3.x"
     - "4.0"
     - "5.0"
+    - "6.0"
     - "SaaS"
   x-ee: true
   description: This endpoint allows you to update a given record of a given renference entity. Learn more about <a href="/documentation/update.html#patch-reference-entity-record-values">Update behavior</a>. Note that if the record does not already exist for the given reference entity, it creates it.
@@ -45,6 +47,58 @@ patch:
       required: true
       schema:
         $ref: ../definitions/reference_entity_record.yaml
+        example: {
+          "code": "kartell",
+          "values": {
+            "label": [
+              {
+                "locale": "en_US",
+                "channel": null,
+                "data": "Kartell"
+              }
+            ],
+            "image": [
+              {
+                "locale": null,
+                "channel": null,
+                "data": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg"
+              }
+            ],
+            "description": [
+              {
+                "locale": "en_US",
+                "channel": null,
+                "data": "Kartell, the Italian furniture company that sells modern and remarkable pieces of furnitures."
+              },
+              {
+                "locale": "fr_FR",
+                "channel": null,
+                "data": "Kartell, l'éditeur de meuble italien spécialisé dans la signature de belle pièces au design contemporain."
+              }
+            ],
+            "country": [
+              {
+                "locale": null,
+                "channel": null,
+                "data": "italy"
+              }
+            ],
+            "collection_overview":[
+              {
+                "locale": null,
+                "channel": null,
+                "data": "5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"
+              }
+            ],
+            "creation_year":[
+              {
+                "locale": null,
+                "channel": null,
+                "data": "1949"
+              }
+            ]
+          }
+        }
   responses:
     201:
       $ref: "#/responses/Created"

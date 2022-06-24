@@ -10,6 +10,7 @@ get:
     - "3.x"
     - "4.0"
     - "5.0"
+    - "6.0"
     - "SaaS"
   parameters:
     - name: search
@@ -230,6 +231,7 @@ post:
     - "3.x"
     - "4.0"
     - "5.0"
+    - "6.0"
     - "SaaS"
   parameters:
     - name: body
@@ -260,6 +262,7 @@ patch:
     - "3.x"
     - "4.0"
     - "5.0"
+    - "6.0"
     - "SaaS"
   description: This endpoint allows you to update and/or create several attributes at once.
   x-body-by-line: Contains several lines, each line is an attribute in JSON standard format

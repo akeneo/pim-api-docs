@@ -1,4 +1,4 @@
-# 👋 Welcome in this tutorial!
+# 👋 Welcome to this tutorial!
 
 This tutorial will teach you:
 > How to make your very first REST API request on a v1.7, v2 or v3 PIM

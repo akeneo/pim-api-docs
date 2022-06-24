@@ -2,14 +2,14 @@ version: 2
 jobs:
     build:
         machine:
-            image: ubuntu-1604:201903-01
+            image: ubuntu-2004:202111-02
         steps:
             - checkout
             - run: make build
 
     deploy_staging:
         machine:
-            image: ubuntu-1604:201903-01
+            image: ubuntu-2004:202111-02
         steps:
             - checkout
             - add_ssh_keys
@@ -19,7 +19,7 @@ jobs:
 
     deploy_production:
         machine:
-            image: ubuntu-1604:201903-01
+            image: ubuntu-2004:202111-02
         steps:
             - checkout
             - add_ssh_keys
@@ -43,3 +43,8 @@ workflows:
                   filters:
                       branches:
                           only: master
+            - deploy_staging?:
+                  type: approval
+            - deploy_staging:
+                  requires:
+                      - deploy_staging?

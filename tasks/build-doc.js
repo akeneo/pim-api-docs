@@ -245,6 +245,8 @@ md.use(require('markdown-it-container'), 'panel-link', {
         }
     }
 });
+md.use(require("markdown-it-codetabs"));
+md.use(require("markdown-it-include"));
 
 
 gulp.task('build-getting-started', ['clean-dist','less'], function () {
@@ -252,7 +254,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
     var pages = {
         'your-first-tutorial-4x': {
             gettingStartedName: 'your-first-tutorial',
-            pimVersion: 'v4 / v5 / SaaS',
+            pimVersion: 'v4 / v5 / v6 / SaaS',
             title: 'Your very first tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -263,6 +265,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v6: "4x",
                 v5: "4x",
                 v4: "4x",
                 old: "old"
@@ -281,6 +284,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v6: "4x",
                 v5: "4x",
                 v4: "4x",
                 old: "old"
@@ -288,7 +292,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         },
         'connect-the-pim-4x': {
             gettingStartedName: 'connect-the-pim',
-            pimVersion: 'v4 / v5 / SaaS',
+            pimVersion: 'v4 / v5 / v6 / SaaS',
             title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -299,6 +303,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v6: "4x",
                 v5: "4x",
                 v4: "4x",
                 old: "old"
@@ -317,6 +322,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v6: "4x",
                 v5: "4x",
                 v4: "4x",
                 old: "old"
@@ -324,7 +330,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         },
         'quick-start-my-first-webhook-5x': {
             gettingStartedName: 'quick-start-my-first-webhook',
-            pimVersion: 'v5 / SaaS',
+            pimVersion: 'v5 / v6 / SaaS',
             title: 'Quick start my first webhook',
             files: {
                 'welcome.md': 'Welcome',
@@ -333,21 +339,42 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "5x",
+                v6: "5x",
                 v5: "5x"
             }
         },
         'events-api-best-practices-5x': {
             gettingStartedName: 'events-api-best-practices',
-            pimVersion: 'v5 / SaaS',
+            pimVersion: 'v5 / v6 / SaaS',
             title: 'Events API best practices',
             files: {
                 'welcome.md': 'Best practices',
             },
             availability: {
                 serenity: "5x",
+                v6: "5x",
                 v5: "5x"
             }
-        }
+        },
+        'synchronize-pim-products-6x': {
+            gettingStartedName: 'synchronize-pim-products',
+            pimVersion: 'v6 / SaaS',
+            title: 'Synchronize PIM products with your App',
+            files: {
+                'welcome.md': 'Welcome',
+                'step-0.md': 'Discover the PIM objects relationship schema',
+                'step-1.md': 'Synchronize PIM structure',
+                'step-2.md': 'Synchronize Catalog structure: families and attributes',
+                'step-3.md': 'Synchronize Catalog structure: categories',
+                'step-4.md': 'Synchronize Products and product models',
+                'step-5.md': 'Synchronize Reference entities',
+                'step-6.md': 'Synchronize Assets'
+            },
+            availability: {
+                serenity: "6x",
+                v6: "6x"
+            }
+        },
     };
     var isOnePage = false;
 
@@ -515,7 +542,6 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
 gulp.task('build-events-api', ['clean-dist','less'], function () {
 
     var pages = {
-        'introduction.md': 'Introduction',
         'overview.md': 'Overview',
         'subscription.md': 'Subscribe and receive events',
         'security.md': 'Security',
@@ -544,6 +570,44 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
                     .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
                     .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                     .pipe(gulp.dest('./dist/events-documentation'));
+              })
+        }));
+  }
+);
+
+gulp.task('build-apps', ['clean-dist','less'], function () {
+    var pages = {
+        'introduction.md': 'What\'s an App?',
+        'why-apps-over-connectors.md': 'Why should you choose Apps?',
+        'using-oauth2.md': 'Using OAuth 2.0 to connect an App',
+        'using-openid.md': 'Using OpenID Connect to authenticate users',
+        'access-scopes.md': 'Access scopes',
+        'how-to-test-my-app.md': 'How to test my App?',
+        'how-to-have-public-url-for-my-app.md': 'How to have a public URL for my App?',
+        'create-app.md': 'Create an App (with code samples)'
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/apps/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/apps/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/apps') + "\n"))
+              .pipe(gulpMarkdownIt(md))
+              .pipe(gulp.dest('tmp/apps/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/apps.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_documentation:  true,
+                        title: 'Apps',
+                        mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/apps'));
               })
         }));
   }

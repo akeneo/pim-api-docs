@@ -4,7 +4,7 @@
 ::: php-client-availability versions=4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -59,7 +59,7 @@ Records are automatically paginated and can be filtered.
 You can get more information about the available query parameters [here](/api-reference.html#get_reference_entity_records).
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $referenceEntityRecordsCursor = $client->getReferenceEntityRecordApi()->all('brand');
 ```
@@ -70,7 +70,7 @@ $referenceEntityRecordsCursor = $client->getReferenceEntityRecordApi()->all('bra
 If the record does not exist yet, this method creates it, otherwise it updates it.
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getReferenceEntityRecordApi()->upsert('brand', 'kartell', [
     'code'   => 'kartell',
@@ -100,7 +100,7 @@ This method allows to create or update a list of records of a given reference en
 It has the same behavior as the `upsert` method for a single record.
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getReferenceEntityRecordApi()->upsertList('brand', [
     [

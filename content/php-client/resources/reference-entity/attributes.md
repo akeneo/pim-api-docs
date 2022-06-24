@@ -4,7 +4,7 @@
 ::: php-client-availability versions=4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 /*
  * Returns an array like this:
@@ -32,7 +32,7 @@ $referenceEntityAttribute = $client->getReferenceEntityAttributeApi()->get('bran
 ::: php-client-availability versions=4.0,5.0,6.0 editions=EE
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $referenceEntityRecordsCursor = $client->getReferenceEntityAttributeApi()->all('brand');
 ```
@@ -43,7 +43,7 @@ $referenceEntityRecordsCursor = $client->getReferenceEntityAttributeApi()->all('
 If the attribute does not exist yet, this method creates it, otherwise it updates it.
 
 ```php
-$client = new \Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
+$client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getReferenceEntityAttributeApi()->upsert('brand', 'description', [
     'code' => 'description',

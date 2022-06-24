@@ -6,6 +6,7 @@ get:
     - Measurement family
   x-versions:
     - "5.0"
+    - "6.0"
     - "SaaS"
   responses:
     200:
@@ -78,6 +79,7 @@ patch:
     - Measurement family
   x-versions:
     - "5.0"
+    - "6.0"
     - "SaaS"
   description: This endpoint allows you to update and/or create several measurement families at once.
   parameters:

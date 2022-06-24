@@ -25,6 +25,7 @@
                         <li><a href="/api-reference-32.html">3.2</a></li>
                         <li><a href="/api-reference-40.html">4.0</a></li>
                         <li><a href="/api-reference-50.html">5.0</a></li>
+                        <li><a href="/api-reference-60.html">6.0</a></li>
                         <li><a href="/api-reference.html">SaaS</a></li>
                     </ul>
                 </div>
@@ -613,6 +614,7 @@
                                                                                                                             {{/each}}
                                                                                                                             <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } {{#unless @last}} <br> {{/unless}}
                                                                                                                         {{else}}
+                                                                                                                            &bull; {{{description}}}
                                                                                                                             {{#with items}}
                                                                                                                                 {{#if properties}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { <br>
                                                                                                                                     {{#each properties}}
@@ -624,7 +626,7 @@
                                                                                                                                     &bull; {{{description}}}
                                                                                                                                 {{/if}}
                                                                                                                             {{else}}
-                                                                                                                                &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                                                                                {{#unless @last}} <br> {{/unless}}
                                                                                                                             {{/with}}
                                                                                                                         {{/if}}
                                                                                                                     {{/each}}

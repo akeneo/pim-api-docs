@@ -38,7 +38,7 @@ You can even combine several filters on the same product properties. The example
 
 ### On their categories
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on their categories, use the property `categories`.
 Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
@@ -62,7 +62,7 @@ To get the products of the `winter_collection` category, you can use the followi
 
 ### On their status
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on their status, use the `enabled` property.
 Here are the allowed operators you can use to filter on the status as well as the corresponding type of value expected in the `search` query parameter.
@@ -82,7 +82,7 @@ To get the disabled products, you can use the following URL.
 
 ### On their completeness
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on their completeness, use the `completeness` product property. You will also need to provide a `scope` value to specify on which channel you want to filter with the completeness.
 Here are the allowed operators you can use to filter by completeness as well as the corresponding type of value expected in the `search` query parameter.
@@ -112,7 +112,7 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 
 ### On their group or family
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on groups or families, use respectively the product property `groups` and `family`.
 Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -140,13 +140,14 @@ To get the products that are not in the `camcorders` and `digital_cameras` famil
 
 ### On their creation or update date
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on creation or update date, use respectively the product property `created` and `updated`.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
-:::info
-Note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini).
+::: info
+Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.    
+Please also note that product variants, with an older updated date than the filter applied, will be part of the API answer if at least one of their parent product model has an updated date that matches the filter applied.
 :::
 
 | Operator            | Allowed value type                                    | Filter description                                                                                                  |
@@ -177,7 +178,7 @@ To get the products that were updated during the last 4 days, you can use the fo
 
 ### On their parent
 
-::: availability versions=3.2,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=3.2,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter products on their parent, use the `parent` product property.
 Here are the allowed operators you can use to filter by parent as well as the corresponding type of value expected in the `search` query parameter.
@@ -221,7 +222,7 @@ To get all the simple products, you can use the following URL.
 
 ### On their quality score
 
-::: availability versions=SaaS editions=CE,EE
+::: availability versions=6.0,SaaS editions=CE,EE
 
 To filter products on their quality score, use the `quality_score` product property. You will also need to provide a `scope` and `locale` value to specify on which channel and locale you want to filter the quality score on.
 This filter accepts one operator: IN. It expects one or several scores, given as a list of letters. The possible values for the quality score are "A", "B", "C", "D" and "E".
@@ -276,7 +277,7 @@ You can even combine several filters on the same product model properties. The e
 
 ### On categories
 
-::: availability versions=2.3,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=2.3,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter product models on their categories, use the property `categories`.
 Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
@@ -300,7 +301,7 @@ To get the product models of the `winter_collection` category, you can use the f
 
 ### On completeness
 
-::: availability versions=2.3,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=2.3,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter product models on their completeness, use the `completeness` product property. You will also need to provide a `scope` value to specify on which channel you want to filter with the completeness.
 Here are the allowed operators you can use to filter by completeness as well as the corresponding type of value expected in the `search` query parameter.
@@ -328,7 +329,7 @@ To get the product models that have at least one variant product 100% complete o
 
 ### On family
 
-::: availability versions=2.3,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=2.3,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter product models on families, use the product model property `family`.
 Here are the allowed operators you can use to filter on this property as well as the corresponding type of value expected in the `search` query parameter.
@@ -356,13 +357,13 @@ To get the product models that are not in the `camcorders` and `digital_cameras`
 
 ### On creation or update date
 
-::: availability versions=2.3,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=2.3,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter product models on creation or update date, use the product property `created` and `updated`, respectively.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
-:::info
-Note that dates are interpreted in the time zone of the server that runs Akeneo PIM (e.g. date.timezone setting in php.ini).
+::: info
+Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator            | Allowed value type                                    | Filter description                                                                                                        |
@@ -393,7 +394,7 @@ To get the product models that were updated during the last 4 days, you can use 
 
 ### On their parent
 
-::: availability versions=SaaS editions=CE,EE
+::: availability versions=6.0,SaaS editions=CE,EE
 
 To filter product models on their parent, use the `parent` product model property.
 Here are the allowed operators you can use to filter by parent as well as the corresponding type of value expected in the `search` query parameter.
@@ -426,9 +427,9 @@ To get all the sub-product models, you can use the following URL.
 
 ## Filter on product values
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
-To filter products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-products-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
+To filter products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
 /api/rest/v1/products?search={ATTIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
@@ -486,7 +487,7 @@ Filtering on product values is also available for published products.
 
 ### `search_locale` query parameter
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 If you need to filter on several attributes on the same locale, you can use the `search_locale` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing locale code.
 
 #### Example
@@ -505,7 +506,7 @@ This query parameter is also available for the published products.
 
 ### `search_scope` query parameter
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 If you need to filter on several attributes on the same channel, you can use the `search_scope` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing channel code.
 
 #### Example
@@ -526,17 +527,36 @@ This query parameter is also available for the published products.
 
 As seen previously, the attribute type determines which set of operators is available to use these filters.
 
-**The `pim_catalog_identifier`, `pim_catalog_text` and `pim_catalog_textarea` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+**The `pim_catalog_identifier` attribute type**
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators                                  | Allowed value type |
 | -------------------------------------------------- | ------------------ |
-| STARTS WITH, ENDS WITH, CONTAINS, DOES NOT CONTAIN | string             |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN            | string             |
+| =, !=                                              | string             |
+| EMPTY, NOT EMPTY                                   | no value           |
+
+::: availability versions=SaaS editions=CE,EE
+
+| Allowed operators | Allowed value type                    |
+| ----------------- | ------------------------------------- |
+| IN, NOT IN        | list of strings (product identifiers) |
+
+::: warning
+With the IN operator, the list of product identifiers can contain up to **100** strings.
+:::
+
+**The `pim_catalog_text` and `pim_catalog_textarea` attribute types**
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
+
+| Allowed operators                                  | Allowed value type |
+| -------------------------------------------------- | ------------------ |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN            | string             |
 | =, !=                                              | string             |
 | EMPTY, NOT EMPTY                                   | no value           |
 
 **The `pim_catalog_number`, `pim_catalog_metric` and `pim_catalog_price_collection` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators   | Allowed value type |
 | ------------------- | ------------------ |
@@ -544,7 +564,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY    | no value           |
 
 **The `pim_catalog_simpleselect` and `pim_catalog_multiselect` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators | Allowed value type                                 |
 | ----------------- | -------------------------------------------------- |
@@ -552,7 +572,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY  | no value                                           |
 
 **The `pim_catalog_boolean` attribute type**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators | Allowed value type                                 |
 | ----------------- | -------------------------------------------------- |
@@ -560,7 +580,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY  | no value (only available on 5.0 and SaaS versions) |
 
 **The `pim_catalog_date` attribute type**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators    | Allowed value type                         |
 | -------------------- | ------------------------------------------ |
@@ -569,11 +589,11 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY     | no value                                   |
 
 **The `pim_catalog_file` and `pim_catalog_image` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators                                         | Allowed value type |
 | --------------------------------------------------------- | ------------------ |
-| STARTS WITH, ENDS WITH, CONTAINS, DOES NOT CONTAIN, =, != | string             |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN, =, !=            | string             |
 | EMPTY, NOT EMPTY                                          | no value           |
 
 ## Filter product values
@@ -586,7 +606,7 @@ Filtering product values via attributes, channel or locale is also available for
 
 ### Via attributes
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 If you want to receive for each product only product values about specific attributes, you can specify it thanks to the `attributes` query parameter.
 
@@ -606,7 +626,7 @@ You can filter product values on several attributes at the same time.
 
 ### Via locale
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 If you want to receive for each product only product values on specific locales, as well as the product values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
@@ -714,7 +734,7 @@ You can also filter product values on several locales at the same time.
 
 ### Via channel
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 There is also a `scope` query parameter that will allow you to:
 
@@ -773,7 +793,7 @@ You can even combine several filters on the same published product properties. T
 
 ### On their categories
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter published products on their categories, use the property `categories`.
 Here are the allowed operators you can use to filter on the category code as well as the corresponding type of value expected in the `search` query parameter.
@@ -797,7 +817,7 @@ To get the published products of the `winter_collection` category, you can use t
 
 ### On their status
 
-::: availability versions=SaaS editions=CE,EE
+::: availability versions=5.0,6.0,SaaS editions=CE,EE
 
 To filter published products on their status, use the `enabled` property.
 Here are the allowed operators you can use to filter on the status as well as the corresponding type of value expected in the `search` query parameter.
@@ -817,7 +837,7 @@ To get the disabled published products, you can use the following URL.
 
 ### On their completeness
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter published products on their completeness, use the `completeness` published product property. You will also need to provide a `scope` value to specify on which channel you want to filter with the completeness.
 Here are the allowed operators you can use to filter by completeness as well as the corresponding type of value expected in the `search` query parameter.
@@ -847,7 +867,7 @@ To get the published products that are 100% complete on both the `en_US` and `fr
 
 ### On their group or family
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter published products on groups or families, use respectively the published product property `groups` and `family`.
 Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
@@ -875,13 +895,13 @@ To get the published products that are not in the `camcorders` and `digital_came
 
 ### On their creation or update date
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 To filter published products on creation or update date, use respectively the published product property `created` and `updated`.
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
-:::info
-Note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini).
+::: info
+Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator            | Allowed value type                                    | Filter description                                                                                                            |
@@ -912,9 +932,9 @@ To get the published products that were updated during the last 4 days, you can 
 
 ## Filter on published product values
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
-To filter published products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-products-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
+To filter published products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
 /api/rest/v1/published-products?search={ATTIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
@@ -968,7 +988,7 @@ You can even combine several filters on the same attribute. The example below wi
 
 ### `search_locale` query parameter
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 If you need to filter on several attributes on the same locale, you can use the `search_locale` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing locale code.
 
 #### Example
@@ -983,7 +1003,7 @@ is equivalent to
 
 ### `search_scope` query parameter
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 If you need to filter on several attributes on the same channel, you can use the `search_scope` query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing channel code.
 
 #### Example
@@ -1001,16 +1021,16 @@ is equivalent to
 As seen previously, the attribute type determines which set of operators is available to use these filters.
 
 **The `pim_catalog_identifier`, `pim_catalog_text` and `pim_catalog_textarea` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators                                  | Allowed value type |
 | -------------------------------------------------- | ------------------ |
-| STARTS WITH, ENDS WITH, CONTAINS, DOES NOT CONTAIN | string             |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN            | string             |
 | =, !=                                              | string             |
 | EMPTY, NOT EMPTY                                   | no value           |
 
 **The `pim_catalog_number`, `pim_catalog_metric` and `pim_catalog_price_collection` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators   | Allowed value type |
 | ------------------- | ------------------ |
@@ -1018,7 +1038,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY    | no value           |
 
 **The `pim_catalog_simpleselect` and `pim_catalog_multiselect` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators | Allowed value type                                 |
 | ----------------- | -------------------------------------------------- |
@@ -1026,7 +1046,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY  | no value                                           |
 
 **The `pim_catalog_boolean` attribute type**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators | Allowed value type                                 |
 | ----------------- | -------------------------------------------------- |
@@ -1034,7 +1054,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY  | no value (only available on 5.0 and SaaS versions) |
 
 **The `pim_catalog_date` attribute type**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators    | Allowed value type                         |
 | -------------------- | ------------------------------------------ |
@@ -1043,11 +1063,11 @@ As seen previously, the attribute type determines which set of operators is avai
 | EMPTY, NOT EMPTY     | no value                                   |
 
 **The `pim_catalog_file` and `pim_catalog_image` attribute types**
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators                                         | Allowed value type |
 | --------------------------------------------------------- | ------------------ |
-| STARTS WITH, ENDS WITH, CONTAINS, DOES NOT CONTAIN, =, != | string             |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN, =, !=            | string             |
 | EMPTY, NOT EMPTY                                          | no value           |
 
 ## Filter published product values
@@ -1056,7 +1076,7 @@ Thanks to the above sections, you are able to filter your published products to 
 
 ### Via attributes
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 If you want to receive for each published product only published product values about specific attributes, you can specify it thanks to the `attributes` query parameter.
 
@@ -1076,7 +1096,7 @@ You can filter published product values on several attributes at the same time.
 
 ### Via locale
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 If you want to receive for each product only product values on specific locales, as well as the product values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
@@ -1184,7 +1204,7 @@ You can also filter product values on several locales at the same time.
 
 ### Via channel
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 There is also a `scope` query parameter that will allow you to:
 
@@ -1209,7 +1229,7 @@ When using this query parameter, you will never be able to retrieve published pr
 
 ## Filter locales
 
-::: availability versions=1.7,2.x,3.x,4.0,5.0,SaaS editions=CE,EE
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 When requesting locales, you can use a filter to get the enabled ones.
 
@@ -1227,7 +1247,7 @@ All these filters are available starting the 3.0 version of the PIM.
 
 ### By completeness
 
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 
 You can filter the reference entity records to get only the completed ones on a given channel for given locales.
 
@@ -1239,19 +1259,30 @@ You can filter the reference entity records to get only the completed ones on a 
 
 ### By update date
 
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 
 You can filter the reference entity records by their update date.
 
 Below are the allowed operators to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
 
-:::info
-Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+::: info
+Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator | Allowed value type               | Filter description                                                                   |
 | -------- | -------------------------------- | ------------------------------------------------------------------------------------ |
 | `>`      | datetime <br> _Format: ISO 8601_ | Only returns records that were respectively<br> updated after the given day and hour |
+
+::: availability versions=SaaS editions=EE
+
+| Operator            | Allowed value type                         | Filter description                                                                         |
+| ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `<`                 | datetime <br> _Format: ISO 8601_           | Only returns records that were <br> updated before the given day and hour                   |
+| `BETWEEN`           | array of datetimes <br> _Format: ISO 8601_ | Only returns records that were <br> updated between the two given dates                     |
+| `NOT BETWEEN`       | array of datetimes <br> _Format: ISO 8601_ | Only returns records that were <br> not updated between the two given dates                 |
+| `SINCE LAST N DAYS` | integer                                    | Only returns records that were <br> updated during the last n days, n being the given value |
 
 #### Example
 
@@ -1263,7 +1294,7 @@ To get the reference entity records that were updated since the 4th of July 2016
 
 ### Record values by locale
 
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 
 If you want to receive reference entity records of one given reference entity with only the attribute values of specific locales, as well as the attribute values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
@@ -1347,7 +1378,7 @@ You can also filter attribute values on several locales at the same time.
 
 ### Record values by channel
 
-::: availability versions=3.x,4.0,5.0,SaaS editions=EE
+::: availability versions=3.x,4.0,5.0,6.0,SaaS editions=EE
 
 There is also a `channel` query parameter that will allow you to get only the attribute values for a specific channel, as well as the attribute values of the non scopable attributes.
 
@@ -1435,17 +1466,19 @@ You can filter the assets by their update date.
 
 Below is the operator to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
 
-:::info
-Note that dates should follow the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+::: info
+Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
-::: availability versions=3.2,4.0,5.0,SaaS editions=EE
+::: availability versions=3.2,4.0,5.0,6.0,SaaS editions=EE
 
 | Operator            | Allowed value type                         | Filter description                                                                         |
 | ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
 | `>`                 | datetime <br> _Format: ISO 8601_           | Only returns assets that were <br> updated after the given day and hour                    |
 
-::: availability versions=SaaS editions=EE
+::: availability versions=6.0,SaaS editions=EE
 
 | Operator            | Allowed value type                         | Filter description                                                                         |
 | ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
@@ -1482,7 +1515,7 @@ Finally, if you want to get the assets updated in the last 4 days, you can use t
 
 ### Asset values by locale
 
-::: availability versions=3.2,4.0,5.0,SaaS editions=EE
+::: availability versions=3.2,4.0,5.0,6.0,SaaS editions=EE
 
 If you want to receive assets with only the asset values of specific locales, as well as the attribute values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
 
@@ -1566,7 +1599,7 @@ You can also filter asset values on several locales at the same time.
 
 ### Asset values by channel
 
-::: availability versions=3.2,4.0,5.0,SaaS editions=EE
+::: availability versions=3.2,4.0,5.0,6.0,SaaS editions=EE
 
 There is also a `channel` query parameter that will allow you to get only the asset values for a specific channel, as well as the asset values of the non scopable attributes.
 
@@ -1650,7 +1683,7 @@ When you request specific attributes, you can use filters to select only the one
 
 ### By attribute codes
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the attributes by their code.
 
@@ -1666,16 +1699,18 @@ Below you will find the operator to filter on this property, as well as the corr
 /api/rest/v1/attributes?search={"code":[{"operator":"IN","value":["code1","code2"]}]}
 ```
 
-### By updated date
+### By update date
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
-You can filter the attributes by their updated date.
+You can filter the attributes by their update date.
 
 Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
-:::info
-Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+::: info
+Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator | Allowed value type               | Filter description                                                          |
@@ -1696,7 +1731,7 @@ To get the attributes that have been updated since July 4th, 2020 at 10 am (UTC)
 
 ### By attribute types
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the attributes by their types.
 
@@ -1720,7 +1755,7 @@ When you request specific attribute groups, you can use filters to select only t
 
 ### By attribute group codes
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the attribute groups by their code.
 
@@ -1736,16 +1771,18 @@ Below you will find the operator to filter on this property, as well as the corr
 /api/rest/v1/attribute-groups?search={"code":[{"operator":"IN","value":["marketing","technical"]}]}
 ```
 
-### By updated date
+### By update date
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the attribute groups by their update date.
 
 Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
-:::info
-Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+::: info
+Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator | Allowed value type               | Filter description                                                                |
@@ -1766,7 +1803,7 @@ When you request specific families, you can use filters to select only the ones 
 
 ### By family codes
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the families by their code.
 
@@ -1782,16 +1819,18 @@ Below you will find the operator to filter on this property, as well as the corr
 /api/rest/v1/families?search={"code":[{"operator":"IN","value":["family_code1","family_code2"]}]}
 ```
 
-### By updated date
+### By update date
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
-You can filter the families by their updated date.
+You can filter the families by their update date.
 
 Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
-:::info
-Please note that you have to write dates in either of these format _2020-07-23T15:19:32Z_, or _2020-07-23T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+::: info
+Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator | Allowed value type               | Filter description                                                        |
@@ -1806,13 +1845,37 @@ To get the families that have been updated since July 4th, 2020 at 10 am (UTC), 
 /api/rest/v1/families?search={"updated":[{"operator":">","value":"2020-07-04T10:00:00Z"}]}
 ```
 
+### By families with at least one product
+
+::: availability versions=SaaS editions=CE,EE
+
+You can filter the families that have at least one attached product.
+
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+:::info
+You can combine the `has_products` filter with any other filter available on families.
+:::
+
+| Operator | Allowed value type | Filter description                                                                                  |
+|----------|------------------|-----------------------------------------------------------------------------------------------------|
+| `=`      | boolean          | When true, only returns families with at least one product (true) or families with no products (false). |
+
+#### Example
+
+To retrieve only families with products, you can use the following URL.
+
+```
+/api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}
+```
+
 ## Filter categories
 
 When you request specific categories, you can use filters to select only the ones you want.
 
 ### By category level: root
 
-::: availability versions=SaaS editions=CE,EE
+::: availability versions=6.0,SaaS editions=CE,EE
 
 You can filter the categories to get only root categories.
 
@@ -1834,7 +1897,7 @@ You can combine the `is_root` filter with any other filter available on categori
 
 ### By parent category
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the categories by parent.
 
@@ -1854,7 +1917,7 @@ To get the child categories of the parent category `categoryA`, you can use the 
 
 ### By category codes
 
-::: availability versions=4.0,5.0,SaaS editions=CE,EE
+::: availability versions=4.0,5.0,6.0,SaaS editions=CE,EE
 
 You can filter the categories by their code.
 
@@ -1870,16 +1933,18 @@ Below you will find the operator to filter on this property, as well as the corr
 /api/rest/v1/categories?search={"code":[{"operator":"IN","value":["category_code1","category_code2"]}]}
 ```
 
-### By updated date
+### By update date
 
-::: availability versions=SaaS editions=CE,EE
+::: availability versions=6.0,SaaS editions=CE,EE
 
-You can filter the categories by their updated date.
+You can filter the categories by their update date.
 
 Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
-:::info
+::: info
 Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
+
+Moreover dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 :::
 
 | Operator | Allowed value type               | Filter description                                                          |

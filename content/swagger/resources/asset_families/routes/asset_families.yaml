@@ -8,6 +8,7 @@ get:
     - "3.2"
     - "4.0"
     - "5.0"
+    - "6.0"
     - "SaaS"
   x-ee: true
   parameters:
@@ -24,7 +25,7 @@ get:
               _embedded:
                 type: object
                 properties:
-                  _items:
+                  items:
                     type: array
                     items:
                       $ref: '#/definitions/AssetFamilyList'

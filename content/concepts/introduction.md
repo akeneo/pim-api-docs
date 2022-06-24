@@ -1,4 +1,4 @@
-#  👋 Welcome in the Concepts documentation!
+#  👋 Welcome to the Concepts documentation!
 
 This is where your journey begins! :airplane:  
 

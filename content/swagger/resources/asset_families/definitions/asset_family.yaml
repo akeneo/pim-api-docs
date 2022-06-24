@@ -78,6 +78,7 @@ properties:
     type: array
     description: The transformations to perform on source files in order to generate new files into your asset attributes (only available since v4.0). To understand the format of this property, see <a href='/concepts/asset-manager.html#focus-on-the-transformations'>here</a>.
     x-validation-rules: To know more about the validation of this property, take a look at our transformation format.
+    x-from-version: "4.0"
     default: []
     items:
       type: object

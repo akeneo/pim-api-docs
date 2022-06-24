@@ -1,4 +1,4 @@
-# 👋 Welcome in the REST API basics documentation!
+# 👋 Welcome to the REST API basics documentation!
 
 You are probably asking yourself a ton of questions about our REST API.  
 From the pagination to the permissions, this part of the documentation will give you all the keys to understand how our REST API works.

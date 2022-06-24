@@ -36,6 +36,7 @@ get:
   tags:
     - System
   x-versions:
+    - "6.0"
     - "SaaS"
   x-no-token: true
   responses:
