@@ -1,46 +1,25 @@
 # Who is your App for?
 
-## Personas
+Because we want to give our PIM users the best experience to connect Akeneo PIM with third-parties by providing them easy-to-connect, configurable & interactive Apps on our App Store, you need to understand who is Julia and her needs.
 
-You will find below user archetypes we use to help you guide your decisions about product features, interactions, and even visual design of your connector. By designing for the archetype — whose goals and behavior patterns are well understood — you can satisfy the broader group of people represented by that archetype.
+## Understand Julia
 
-![Personas](../../img/guides/personas.png)
+Julia is the persona we use to help you guide your decisions about product features, interactions, and even visual design of your App.
 
-## Personas' needs
+Julia, PIM user, is also the end-user of your App, she has no technical skills, she wants to spend more time building versus operating her business. She is looking for a faster, more effective way to manage her marketing projects.
 
-You will find below the main needs, associated to each user profile, in terms of process, documentation, actions related to your future syndication connector.
+## Julia's needs
 
-### Julia's needs
+* An **easy to follow configuration process** to configure the App.
 
-Julia needs an easy way to export her PIM data into your syndication solution.
-
-So she needs:
-
-* An **easy to follow process** to import automatically her PIM data into the syndication solution.
+* An **easy to follow process** to import automatically her PIM data into your Syndication solution.
 
 * An **easy to follow strategy** to define the periodicity of these automatic imports.
 
-* A **friendly Connector UI** to trigger manually the connector if needed (full or partial imports)
+* A **friendly UI** to trigger manually the App if needed (full or partial imports on demand)
 
 * A **friendly UI** to log all automatic and manual import processes and a notification system to be alerted when something goes wrong.
 
-### Peter and/or Filips' needs
+* A **complete and easy-to-read online documentation** to understand all the features of your App and how to use it.
 
-Peter and/or Filips needs a easy way to install, configure and maintain your connector.
-
-So they need:
-
-* If needed, an **easy to follow download/installation process:** to retrieve and install your connector.
-It depends on your business model. If you require your client to install the connector themself, make sure you provide appropriate documentation.
-
-* A **full documentation** about **the limits of the connector** in terms of **scalability** and **performance**.
-
-* An **easy to follow configuration process** to set up the connection between the Akeneo PIM and your syndication solution as well as parameters to configure the connector. It requires documentation to explain the methodology on how to configure your connector compared to your business needs.
-
-* A **friendly import process** to perform the first import of the PIM data into your syndication solution. Due to the volume of data to be imported, this may require special support from your end.
-
-* A **connector UI or a configuration file to set up the connector** (PIM connection, flexible filtering capabilities, …)
-
-* An access to the **connector logs** to have all detailed technical information to investigate errors.
-
-* A **documentation or a process** to know **how to customize** your connector compared to Julia's project (if needed). We know that each client project is specific and most of the time there will be a need to adapt your connector to particular contexts.
+* A **support contract** to ask for assistance and get quick support from you.
