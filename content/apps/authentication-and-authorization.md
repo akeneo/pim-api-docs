@@ -75,8 +75,8 @@ Before an app can access data, a user must grant authorizations and permissions 
 After a user clicks on `Connect`, they are redirected to the **activation URL** you provided. The PXM Studio URL they come from is in the query you receive.
 
 ``` http
-https://my-app.example.com/oauth/activate?pim_url=https%3A%2F%2Fmy-pim.cloud.akeneo.com
 
+https://my-app.example.com/oauth/activate?pim_url=https%3A%2F%2Fmy-pim.cloud.akeneo.com
 ```
 
 When you are ready to do so, you must start the **Authorization Request**. 
@@ -92,6 +92,7 @@ Like any other OAuth 2.0 application, you have to redirect the user to the Autho
 
 
 ``` http
+
 https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
     response_type=code&
     client_id=[OAUTH_CLIENT_ID]&
@@ -114,6 +115,7 @@ When the user arrives at this URL, Akeneo shows the following prompt to receive 
 When the user ends the connection process, they are redirected to the app **callback URL** with the following parameters:
 
 ``` http
+
 https://my-app.example.com/oauth/callback?
     code=[AUTHORIZATION_CODE]&
     state=[STATE]
