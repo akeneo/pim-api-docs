@@ -135,7 +135,8 @@ There are several ways to create a tunnel to your localhost such as **localhost.
 Initiate localhost tunnel using the following command:
 
 ```shell
-    ssh -R 80:localhost:8080 localhost.run
+
+ssh -R 80:localhost:8080 localhost.run
 ```
 
 The command above assumes that your local App is available on port 8080 but you can specify any port you want.
@@ -146,12 +147,11 @@ The command above assumes that your local App is available on port 8080 but you 
 If everything goes well the command will output your public URL for your local app:
 
 ```shell
-** your connection id is 910cf378-6db9-470d-9533-c7373528ba6e, please mention it if you send me a message about an issue. **
 
-46672a93dd647e.lhrtunnel.link tunneled with tls termination, https://46672a93dd647e.lhrtunnel.link
+46672a93dd64.lhrtunnel.link tunneled with tls termination, https://46672a93dd64.lhrtunnel.link
 ```
 
-Your local app is now available at `https://46672a93dd647e.lhrtunnel.link`. You may now use it for your development.
+Your local app is now available at `https://46672a93dd64.lhrtunnel.link`. You may now use it for your development.
 
 ### Step 4: Get your test app credentials
 
@@ -170,11 +170,6 @@ To create a test App:
 
 ![Test app creation](../img/apps/test-app-creation.png)
 
-```
-
-AKENEO_CLIENT_ID=0d574774-7b11-4226-8e9f-7a7deb702600
-AKENEO_CLIENT_SECRET=NGFlMTQ5MWE2ZDQ5YzRmZmUwMzJjYWYyNGRmZDU4N2FmMWE4OWE3NmRmMWYxZjc5MTE4ZjY2ZGU5YjgzNTU0MQ
-```
 
 If you don't see the `Create a test App` button, please enable the `developer mode`.  
 To do so, you need to:
