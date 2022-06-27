@@ -106,17 +106,23 @@ In our example, we won't do additional steps (like authentification), so we will
 !!!include(content/apps/create-app/activate-php.md)!!!
 !!!include(content/apps/create-app/activate-nodejs.md)!!!
 !!!include(content/apps/create-app/activate-python.md)!!!
+!!!include(content/apps/create-app/activate-java.md)!!!
 
 Then, your application must expose a **callback URL**.
 
 !!!include(content/apps/create-app/callback-php.md)!!!
 !!!include(content/apps/create-app/callback-nodejs.md)!!!
 !!!include(content/apps/create-app/callback-python.md)!!!
+!!!include(content/apps/create-app/callback-java.md)!!!
 
 ::: info
 You can find more information about the authorization process and code challenge in the following documentation. 
 - [Step 2: Ask for authorizations](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations)
 - [What's the code challenge?](/apps/authentication-and-authorization.html#whats-the-code-challenge)
+:::
+
+::: tips
+Reminder: our documentation is [open-source](https://github.com/akeneo/pim-api-docs). Feel free to contribute with languages we're not experts at.
 :::
 
 ### Step 2: Get a public URL for your in development App
