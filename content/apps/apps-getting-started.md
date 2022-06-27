@@ -97,12 +97,7 @@ We strongly encourage you to adapt those examples with the framework or library 
 - You understand what's an Akeneo App and how they fit into Akeneo PXM Studio
 - You've installed a PHP version >= 7.4 and Composer.
 
-### Step 1: Install our PHP API client/Demo app?
-
-<!-- TODO -->
-<!-- cf [https://api.akeneo.com/php-client/getting-started.html#installation](https://api.akeneo.com/php-client/getting-started.html#installation)  -->
-
-### Step 2: Expose your activation and callback URLs
+### Step 1: Expose your activation and callback URLs
 
 First, your application must expose an **activation URL**.
 
@@ -124,7 +119,7 @@ You can find more information about the authorization process and code challenge
 - [What's the code challenge?](/apps/authentication-and-authorization.html#whats-the-code-challenge)
 :::
 
-### Step 3: Get a public URL for your in development App
+### Step 2: Get a public URL for your in development App
 
 Before proceeding to step 4 create a test App in your developer sandbox, you will need valid URLs to your App. This can be easily resolved with a tunnel to your localhost.
 
@@ -153,7 +148,7 @@ If everything goes well the command will output your public URL for your local a
 
 Your local app is now available at `https://46672a93dd64.lhrtunnel.link`. You may now use it for your development.
 
-### Step 4: Get your test app credentials
+### Step 3: Get your test app credentials
 
 To get credentials for your app, you need to create a test app on your developer sandbox.
 
@@ -180,7 +175,7 @@ To do so, you need to:
 5. Don't forget to save your modifications
 
 
-### Step 5: Connect your test App and access its settings
+### Step 4: Connect your test App and access its settings
 
 ![Test app on the App Store](../img/apps/marketplace-with-test-app.png)
 
@@ -204,7 +199,7 @@ To know more about the step-by-step activation process, please read our article:
 [How to connect an App?](https://help.akeneo.com/pim/serenity/articles/how-to-connect-my-pim-with-apps.html#how-to-connect-an-app)
 :::
 
-### Step 6: Receive and use your access token to call the API
+### Step 5: Use your access token to call the API
 
 At the end of this process, you receive the following response with an `access_token`:
 
