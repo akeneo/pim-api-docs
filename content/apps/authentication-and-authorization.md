@@ -255,7 +255,7 @@ After you've completed this tutorial, you'll be able to authenticate users comin
 
 - You have a Partner account and a developer sandbox.
 - You're familiar with [OpenID connect](https://openid.net/connect/)
-- You're familiar with the [app authentication process](link to the previous section)
+- You're familiar with the [app authentication process](/apps/authentication-and-authorization.html#getting-started-with-oauth-20)
 
 ### Step 1: Ask for authentication scopes
 

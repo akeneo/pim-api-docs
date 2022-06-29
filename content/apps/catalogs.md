@@ -17,7 +17,7 @@ When your app uses catalogs to retrieve product data, it automatically enables t
 ### Next steps
 
 - Learn [how to create and use catalogs](/apps/catalogs.html#getting-started-with-catalogs)
-- Discover how users configure catalogs in the Akeneo PXM Studio `add link`
+- Discover how users configure catalogs in the Akeneo PXM Studio <!-- TODO Add link -->
 
 ## Getting started with catalogs
 

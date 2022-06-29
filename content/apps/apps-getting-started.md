@@ -92,10 +92,14 @@ Examples in this tutorial use languages without any framework or library and, co
 We strongly encourage you to adapt those examples with the framework or library of your choice.
 :::
 
+::: tips
+Reminder: our documentation is [open-source](https://github.com/akeneo/pim-api-docs).  
+Feel free to contribute with languages we're not experts at.
+:::
+
 ### Requirements
-- You have a Partner account and a developer sandbox.
-- You understand what's an Akeneo App and how they fit into Akeneo PXM Studio
-- You've installed a PHP version >= 7.4 and Composer.
+- You have a Partner account and a developer sandbox
+- You understand [what's an Akeneo App](/apps/apps-getting-started.html#whats-an-akeneo-app) and [how they fit into Akeneo PXM Studio](/apps/apps-getting-started.html#how-apps-fit-into-akeneo-pxm-studio)
 
 ### Step 1: Expose your activation and callback URLs
 
@@ -119,10 +123,6 @@ Then, your application must expose a **callback URL**.
 You can find more information about the authorization process and code challenge in the following documentation. 
 - [Step 2: Ask for authorizations](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations)
 - [What's the code challenge?](/apps/authentication-and-authorization.html#whats-the-code-challenge)
-:::
-
-::: tips
-Reminder: our documentation is [open-source](https://github.com/akeneo/pim-api-docs). Feel free to contribute with languages we're not experts at.
 :::
 
 ### Step 2: Get a public URL for your in development App
