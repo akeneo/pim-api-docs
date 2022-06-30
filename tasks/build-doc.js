@@ -577,14 +577,10 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
 
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
-        'introduction.md': 'What\'s an App?',
-        'why-apps-over-connectors.md': 'Why should you choose Apps?',
-        'using-oauth2.md': 'Using OAuth 2.0 to connect an App',
-        'using-openid.md': 'Using OpenID Connect to authenticate users',
-        'access-scopes.md': 'Access scopes',
-        'how-to-test-my-app.md': 'How to test my App?',
-        'how-to-have-public-url-for-my-app.md': 'How to have a public URL for my App?',
-        'create-app.md': 'Create an App (with code samples)'
+        'apps-getting-started.md': 'Getting started',
+        'authentication-and-authorization.md': 'Authentication and authorization',
+        'catalogs.md': 'Catalogs for Apps (beta)',
+        'app-developer-tools.md': 'Developer tools'
     };
 
     var isOnePage = false;
