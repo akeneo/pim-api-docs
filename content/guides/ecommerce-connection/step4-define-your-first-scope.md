@@ -16,6 +16,10 @@ You have to choose these versions according to:
 * The number of potential users owning this version.
 * The lifetime of this version. It is useless to specifically develop a version compatible with a version of your eCommerce solution if this one won't exist anymore in a couple of months.
 
+## Follow the guide to build an App!
+
+We have a ["complete guide"](https://api.akeneo.com/apps/introduction.html) to understand how to build an App.
+
 ## What are Akeneo's recommendations to build the first iteration of an eCommerce App release?
 
 **Our recommendation: always listen to your customer's needs first!**

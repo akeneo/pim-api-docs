@@ -7,17 +7,17 @@ Congratulations! Now that you have a good overview of Akeneo PIM data, you need 
 Next step, for each piece of PIM data, you need to ask yourself the following questions:
 
 1. What data does my print solution need from the PIM?
-2. How will the configuration UI of my connector fulfill all of my end users' needs?  
-3. How flexible does my connector need to be to adapt to any catalog structure created with the PIM?
+2. How will the configuration UI of my App fulfill all of my end users' needs?  
+3. How flexible does my App need to be to adapt to any catalog structure created with the PIM?
 4. Documentation: What do I need to document? (Data processing, feature limits, possible settings...)   
 
-In order to help you develop your connector features, here are some useful features you can use. 
+In order to help you develop your App features, here are some useful features you can use.
 
 ## API connection configuration
 
 **What is it?**
 
-In order for your connector to communicate with Akeneo PIM, you need to provide a setting to invite Julia to enter her PIM API credentials.
+In order for your App to communicate with Akeneo PIM, you need to provide a setting to invite Julia to enter her PIM API credentials.
 
 **What do you need to implement?**
 
@@ -44,7 +44,7 @@ Here are some examples of filters we believe are relevant:
 * Channel: Only import product data related to the selected channel (most of the time a "print" channel).
 * Locale: Only import product data related to the selected locale.
 * Completeness: A PIM product can be exported if it is complete in terms of data content, translation (localizable attribute), or information specific to the channels you are going to use (attribute with a value per channel).
-* Enabled/Disabled status: Each PIM product has an enable/disable status. You can set your connector to only export products that are `enabled`.
+* Enabled/Disabled status: Each PIM product has an enable/disable status. You can set your App to only export products that are `enabled`.
 
 And sometimes, your customers may also need to export a PIM product to the print solution based on the following parameters:
 
@@ -55,11 +55,11 @@ And sometimes, your customers may also need to export a PIM product to the print
 * A category tree or a subcategory tree
 * ...
 
-**Conclusion:** each customer project has its own requirements and it is important to offer enough flexibility in your connector settings to allow each customer to import only the product information they need according to their own criteria.
+**Conclusion:** each customer project has its own requirements and it is important to offer enough flexibility in your App settings to allow each customer to import only the product information they need according to their own criteria.
 
 **What do you need to implement?**
 
-In the features of your connector configuration page, in order to be able to cover all of your customers' needs, you can choose to have one of the two filter systems. Either a “simple” one for straightforward use cases or an “advanced” one for the most specific requirements. 
+In the features of your App configuration page, in order to be able to cover all of your customers' needs, you can choose to have one of the two filter systems. Either a “simple” one for straightforward use cases or an “advanced” one for the most specific requirements.
 
 ### Products with variants
 
@@ -109,7 +109,7 @@ Apart from taking into consideration all these PIM modeling capabilities, you al
 
 ::: warning
 The number of images that a catalog can contain can be quite large and we know that images dedicated to a print catalog can be very heavy (high definition).
-Make sure you have all the mechanisms in your connector to optimize the performance to manage image binaries.
+Make sure you have all the mechanisms in your App to optimize the performance to manage image binaries.
 :::
 
 
@@ -172,7 +172,7 @@ The introduction of [our documentation on Reference Entities](https://help.akene
 
 As you can see, Reference Entities can be used to enrich product information or to create dedicated pages with product relationships.
 
-Keep in mind that Julia can use "Reference Entities" for a wide variety of needs, you might have to adapt accordingly. 
+Keep in mind that Julia can use "Reference Entities" for a wide variety of needs, you might have to adapt accordingly.
 
 **What do you need to implement?**
 

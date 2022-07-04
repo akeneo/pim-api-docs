@@ -23,9 +23,9 @@ All you need to know to interact with our PIM through our API can be found in ou
 
 **Our recommendation: always listen to your customer's needs first.**
 
-We are aware that it is quite difficult to develop a 100% complete connector that fits all your customer's needs immediately.
+We are aware that it is quite difficult to develop a 100% complete App that fits all your customer's needs immediately.
 
-Once you are comfortable with your customer's needs, our recommendation is to follow the steps we describe and to iterate in order not to miss any important feature. Building an ERP connector is a complex task that requires a dedicated focus every step of the way.  
+Once you are comfortable with your customer's needs, our recommendation is to follow the steps we describe and to iterate in order not to miss any important feature. Building an ERP App is a complex task that requires a dedicated focus every step of the way.  
 
 **To conclude: adopt an Agile approach**
 

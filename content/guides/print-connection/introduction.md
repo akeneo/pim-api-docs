@@ -2,7 +2,7 @@
 ![Asset family illustration](../../img/illustrations/illus--Assetfamily.svg)
 
 > Do you want to connect your PIM to your print solution?  
-> You want to implement an Akeneo PIM print connector and you don't know where to start?  
+> You want to implement an Akeneo PIM print App and you don't know where to start?  
 
 You landed in the right place!
 
@@ -23,4 +23,4 @@ Understand Akeneo PIM, its features, its data structure in order to be able to m
 4. [Reconcile PIM data with print capabilities](step3-reconcile-PIM-data-with-print-features.html)  
 Discover how you can use PIM data on paper products.
 5. [Starting your first version](step4-define-your-first-scope.html)  
-What are Akeneo's recommendations for starting the first version of a print connector?
+What are Akeneo's recommendations for starting the first version of a print App?

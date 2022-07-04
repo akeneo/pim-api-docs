@@ -1,15 +1,6 @@
 # Define the scope of your first version
 
-## A "Connection-compliant" App
-
-The best way to interact with Julia's PIM is to develop a "[Connection-compliant](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html)" App (based on our API).
-
-:::tips
-Why?
-Please don't hesitate to read our ["4 reasons why you should use our API"](https://api.akeneo.com/documentation/why-the-api.html#4-reasons-why-you-should-use-our-api) page.
-:::
-
-## Follow the guide!
+## Find your PIM compatibility
 
 As [mentioned before](step2-understand-akeneo-pim.html), there are [several editions](https://www.akeneo.com/compare-editions/) and several supported version of Akeneo PIM.
 
@@ -19,7 +10,9 @@ To know more about the different PIM versions, don't hesitate to consult our blo
 
 You can also consult our [release notes](https://www.akeneo.com/release-notes/) and our ["new key features released" page](https://help.akeneo.com/pim/serenity/whats-new.html) to understand more about the latest Akeneo supported **versions** and their brand new features.
 
-Well, now you can [start here](https://api.akeneo.com/getting-started/connect-the-pim-4x/welcome.html) to connect your syndication solution with our API! 🚀
+## Follow the guide to build an App!
+
+We have a ["complete guide"](https://api.akeneo.com/apps/introduction.html) to understand how to build an App.
 
 ## Step by step
 
