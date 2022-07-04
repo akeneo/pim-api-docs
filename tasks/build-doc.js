@@ -454,7 +454,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'The complete guide to connect Akeneo PIM to your syndication solution',
             files: {
               'introduction.md': 'Introduction',
-              'step0-who-is-your-app-for.md': 'Who is your connector for?',
+              'step0-who-is-your-app-for.md': 'Who is your App for?',
               'step1-who-does-what.md': 'Who does what?',
               'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
               'step3-define-your-first-scope.md': 'How to build your App?'
@@ -464,11 +464,11 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'A high-level guide to connecting Akeneo PIM to your print solution',
             files: {
               'introduction.md': 'Introduction',
-              'step0-who-is-your-connector-for.md': 'Who is your connector for?',
+              'step0-who-is-your-app-for.md': 'Who is your App for?',
               'step1-who-does-what.md': 'Who does what?',
               'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
               'step3-reconcile-PIM-data-with-print-features.md': 'Reconcile PIM data with print capabilities',
-              'step4-define-your-first-scope.md': 'How to build your connector'
+              'step4-define-your-first-scope.md': 'How to build your App'
             }
         }
     };
