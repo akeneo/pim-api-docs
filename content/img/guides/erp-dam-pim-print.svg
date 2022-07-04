@@ -84,7 +84,7 @@
   </g>
   <text transform="matrix(1 0 0 1 462 502.2625)" class="st6 st7 st8" style="white-space: pre;">The piece of software you are </text>
   <text transform="matrix(1 0 0 1 462 518.2625)" class="st6 st7 st8" style="white-space: pre;">going to write</text>
-  <text transform="matrix(1 0 0 1 462 485.2625)" class="st9 st7 st10" style="white-space: pre;">PIM/print connector</text>
+  <text transform="matrix(1 0 0 1 462 485.2625)" class="st9 st7 st10" style="white-space: pre;">PIM/print App</text>
  </g>
  <g transform="matrix(1, 0, 0, 1, -5, 4)">
   <path class="st11" d="M662,496.8h65"/>
@@ -349,7 +349,7 @@
  </g>
  <path class="st35" d="M 91 310.7 L 119 310.7 C 121.8 310.7 124 312.9 124 315.7 L 124 343.7 C 124 346.5 121.8 348.7 119 348.7 L 91 348.7 C 88.2 348.7 86 346.5 86 343.7 L 86 315.7 C 86 313 88.3 310.7 91 310.7 Z"/>
  <path class="st5" d="M 101.8 323.4 C 99.5 324.7 97.9 327 97.9 329.7 C 97.9 332.4 99.5 334.8 101.9 336.1 M 103.5 335.7 L 105.9 337.7 L 105.9 333.7 L 103.5 335.7 L 103.5 335.7 Z M 107.5 323.4 C 109.8 324.7 111.4 327 111.4 329.7 C 111.4 332.4 109.8 334.8 107.4 336.1 M 105.8 323.8 L 103.4 325.8 L 103.4 321.8 L 105.8 323.8 Z"/>
- <text class="st9 st7 st10" style="white-space: pre; font-size: 17px;" x="139.039" y="336.719">DAM/PIM connector</text>
+ <text class="st9 st7 st10" style="white-space: pre; font-size: 17px;" x="139.039" y="336.719">DAM/PIM App</text>
  <g transform="matrix(1, 0, 0, 1, 1395.33252, 343.616241)">
   <g>
    <path id="path-1" class="st42" d="M-589.4-230.6h54.6c5.4,0,9.7,4.4,9.7,9.7v54.6c0,5.4-4.4,9.7-9.7,9.7h-54.6 c-5.4,0-9.7-4.4-9.7-9.7v-54.6C-599.2-226.2-594.8-230.6-589.4-230.6z"/>

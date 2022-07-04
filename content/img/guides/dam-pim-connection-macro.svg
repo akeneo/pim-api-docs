@@ -63,7 +63,7 @@
                 <path d="M15.743,12.667 C13.428,13.94 11.875,16.289 11.875,18.976 C11.875,21.697 13.468,24.072 15.833,25.333 M17.417,24.937 L19.792,26.917 L19.792,22.958 L17.417,24.938 L17.417,24.937 Z M21.465,12.667 C23.78,13.94 25.333,16.289 25.333,18.976 C25.333,21.697 23.74,24.072 21.375,25.333 M19.792,13.063 L17.417,15.042 L17.417,11.083 L19.792,13.063 Z" id="Shape" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
             </g>
             <g id="Group" transform="translate(410.000000, 243.000000)" fill="#3A438B" fill-rule="nonzero" font-family="Lato-MediumItalic, Lato" font-size="17" font-style="italic" font-weight="400">
-                <text id="DAM/PIM-connector">
+                <text id="DAM/PIM-App">
                     <tspan x="0" y="17">DAM/PIM App</tspan>
                 </text>
             </g>
