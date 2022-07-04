@@ -22,7 +22,7 @@ In order for your App to communicate with Akeneo PIM, it must connect with its R
 
 **What do you need to implement?**
 
-A step-by-step guide to connect an App is available [here](../../apps/introduction.html).
+A step-by-step guide to connect an App to the PIM is available [here](../../apps/introduction.html).
 
 ## Attribute management
 

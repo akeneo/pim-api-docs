@@ -6,7 +6,7 @@ Here are some of our recommendations!
 
 ## Follow the guide!
 
-We have a ["complete guide"](https://api.akeneo.com/apps/introduction.html) to understand how an App interact with Akeneo PIM.
+We have a ["complete guide"](https://api.akeneo.com/apps/introduction.html) to understand how to build an App.
 
 
 ## Use our API

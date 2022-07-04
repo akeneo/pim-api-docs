@@ -13,16 +13,15 @@ Next step, for each piece of PIM data, you need to ask yourself the following qu
 
 In order to help you develop your App features, here are some useful features you can use.
 
-## API connection configuration
+## API connection
 
 **What is it?**
 
-In order for your App to communicate with Akeneo PIM, you need to provide a setting to invite Julia to enter her PIM API credentials.
+In order for your App to communicate with Akeneo PIM, it must connect with its REST API.
 
 **What do you need to implement?**
 
-* A UI or a “configuration file” to copy and paste Akeneo PIM API credentials (client id, secret, connection username and password).
-* If you create a UI, you should add a “Test” button to test the connection (in order to check that everything is correctly configured on this side, and to start retrieving some configuration information from Akeneo PIM)
+A step-by-step guide to connect an App to the PIM is available [here](../../apps/introduction.html).
 
 
 ## Product management
