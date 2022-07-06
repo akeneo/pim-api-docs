@@ -432,7 +432,7 @@ To get all the sub-product models, you can use the following URL.
 To filter products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
-/api/rest/v1/products?search={ATTIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
+/api/rest/v1/products?search={ATTRIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
 ```
 
 In the above url :
@@ -937,7 +937,7 @@ To get the published products that were updated during the last 4 days, you can 
 To filter published products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
-/api/rest/v1/published-products?search={ATTIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
+/api/rest/v1/published-products?search={ATTRIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
 ```
 
 In the above url :
