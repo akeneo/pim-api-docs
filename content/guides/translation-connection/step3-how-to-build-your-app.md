@@ -1,12 +1,12 @@
-# How to build your connector?
+# How to build your App?
 
-## A connection compliant method
+## Follow the guide!
 
-Now that you have a good overview of Akeneo PIM data, you are probably wondering how your online translation connector will interact with Julia while being compatible with all of our PIM editions.
+Now that you have a good overview of Akeneo PIM data, you are probably wondering how your online translation App will interact with Julia while being compatible with all of our PIM editions.
 
-The best way to do this is to develop a "[connection-compliant](https://help.akeneo.com/pim/serenity/articles/what-is-a-connection.html)" connector based on our API.
+The best way to do this is to develop an App! We have ["complete guide"](https://api.akeneo.com/apps/introduction.html) to help you to connect it to the PIM.
 
-![Translation connector overview](../../img/guides/translation-connection-macro.svg)
+![Translation App overview](../../img/guides/translation-connection-macro.svg)
 
 :::tips
 Please don't hesitate to read our ["4 reasons why you should use our API"](https://api.akeneo.com/documentation/why-the-api.html#4-reasons-why-you-should-use-our-api) page!
@@ -14,40 +14,16 @@ Please don't hesitate to read our ["4 reasons why you should use our API"](https
 
 We suggest following our method which leans on some useful existing PIM features to interact with Julia.
 
-This method is based on one of the Akeneo App Store connector specifications: [GlobalLink Connect for Akeneo](https://apps.akeneo.com/extension/globallink-connect-akeneo) from the [Translations.com](https://www.translations.com) company.
+This method is based the specifications of [GlobalLink Connect for Akeneo](https://marketplace.akeneo.com/extension/globallink-connect-akeneo) from the [Translations.com](https://www.translations.com) company.
 
 ## Some pre-requisites
 
 First of all, we're going to ask Julia to do some work!  
-Indeed, in order for your connector to interact with Julia, we will have to ask her to **check some pre-requisites** and to **add some additional data** in her PIM.
-
-### Create a dedicated connection
-
-First, in order to communicate with your connector and obtain API credentials, Julia needs to create a dedicated [connection](https://help.akeneo.com/pim/serenity/articles/manage-your-connections.html) for your connector.
-
-To do so she will need to:
-1. Depending on the version you use, go to the `System/Connections` menu (before the v6) or the `Connect/Connection settings` menu.
-2. Click on `Create`
-3. In the `Label` field, enter the name of your connector.
-4. Choose the `Other` flow type
-
-Whenever you create a connection, the PIM automatically generates a set of credentials for you.
-
-These API credentials consist of 4 items:
-* the `client id`,
-* the `secret`,
-* the connection `username`,
-* the connection `password`.
-
-:::warning
-Don't forget to set the [permissions](https://help.akeneo.com/pim/serenity/articles/manage-your-connections.html#set-the-permissions) of this connection!
-:::
-
-As you may understand, your connector needs to have a dedicated UI or a configuration file in order to manage these PIM API credentials.
+Indeed, in order for your App to interact with Julia, we will have to ask her to **check some pre-requisites** and to **add some additional data** in her PIM.
 
 ### Check Julia's PIM data
 
-Then, in order for your connector to be able to add translations, Julia's PIM must be correctly set up.
+Then, in order for your App to be able to add translations, Julia's PIM must be correctly set up.
 
 :::warning
 That's why you must check with Julia that in her PIM:
@@ -99,7 +75,7 @@ Then, Julia must create 6 new attributes in this attribute group:
   - Attribute label: `Translation due date`
   - Attribute group: `Translations`
   - Usable in grid: enabled  
-* `Translation status`: This attribute allows your translator to give a status about the translation project to Julia. As this attribute has a `Read only` property, it can't be modified by Julia. This status can only be modified by your connector through the API and set the translation project status for each desired locale. This attribute contains these options:    
+* `Translation status`: This attribute allows your translator to give a status about the translation project to Julia. As this attribute has a `Read only` property, it can't be modified by Julia. This status can only be modified by your App through the API and set the translation project status for each desired locale. This attribute contains these options:    
   |      Code      |     Label      |
   | :------------- | :------------- |
   | INPROGRESS     | In progress    |
@@ -179,49 +155,49 @@ For this action, Julia has to:
 
 After this last action, the bulk action will run and Julia will be notified in the Akeneo PIM notification bar once it is successfully executed.
 
-With these new attributes, your connector is now ready to go! Let's see how it'll behave on the other side of the connector.
+With these new attributes, your App is now ready to go! Let's see how it'll behave on the other side of the App.
 
-### How it works with your connector?
+### How it works with your App?
 
 **Find products with the "translation queued" status enabled**
 
-At regular intervals, your connector will need to retrieve products where the `Translation queued` attribute has been set to enable (set to `true`).
+At regular intervals, your App will need to retrieve products where the `Translation queued` attribute has been set to enable (set to `true`).
 
 You can do this by using our PIM [API filtering system](https://api.akeneo.com/documentation/filter.html#filter-on-product-values) on product attribute value.
 
 **Tell Julia that her translation project is "in progress"**
 
-Then, your connector needs to set the "translation queued" attribute to `false` (To prevent the product from being reprocessed by the connector) and change the `Translation status` attribute to `IN PROGRESS` to indicate Julia that the translation is being processed by one of your translators.
+Then, your App needs to set the "translation queued" attribute to `false` (To prevent the product from being reprocessed by the App) and change the `Translation status` attribute to `IN PROGRESS` to indicate Julia that the translation is being processed by one of your translators.
 
 **Retrieve "text" product attributes**
 
 You have 2 possibilities to develop this action:
 
-* The simplest but less automatic way is that, directly in your connector configuration, Julia and Peter declare the exhaustive list of text attributes to be translated (by product family). Then, your connector has to consult this list one family at a time.
-* The other way is that your connector can analyze the PIM product families to determine which attributes have a "text" type and, therefore, can be translated. It must also check that the attribute is "localizable".
+* The simplest but less automatic way is that, directly in your App configuration, Julia and Peter declare the exhaustive list of text attributes to be translated (by product family). Then, your App has to consult this list one family at a time.
+* The other way is that your App can analyze the PIM product families to determine which attributes have a "text" type and, therefore, can be translated. It must also check that the attribute is "localizable".
 
 :::info
-We suggest that you develop the first solution during the first iteration of your connector. If in your projects Julia handles a large number of product families with many attributes to translate, you can then upgrade your connector with the second solution.
+We suggest that you develop the first solution during the first iteration of your App. If in your projects Julia handles a large number of product families with many attributes to translate, you can then upgrade your App with the second solution.
 :::
 
 :::tips
-Using the ["get a list of products"](https://api.akeneo.com/api-reference.html#get_products) API endpoint (with the correct filter), your connector will retrieve a JSON structure of each localizable products.
+Using the ["get a list of products"](https://api.akeneo.com/api-reference.html#get_products) API endpoint (with the correct filter), your App will retrieve a JSON structure of each localizable products.
 
-Then, with the help of the family code of these products, your connector will be able to call the ["get the list of attributes"](https://api.akeneo.com/api-reference.html#get_attributes) API endpoint to retrieve each attribute type that composes this product family.
+Then, with the help of the family code of these products, your App will be able to call the ["get the list of attributes"](https://api.akeneo.com/api-reference.html#get_attributes) API endpoint to retrieve each attribute type that composes this product family.
 
 By analyzing these types, you will be able to define for your translator which are the textual attributes they need to translate.
 :::
 
 **What about simple and multi select attribute types?**
 
-We mentioned [earlier](step2-understand-akeneo-pim.html#pim-product-data-that-can-be-translated) that it would be interesting for your connector to allow the translation of "simple" or "multi select" type attributes.
+We mentioned [earlier](step2-understand-akeneo-pim.html#pim-product-data-that-can-be-translated) that it would be interesting for your App to allow the translation of "simple" or "multi select" type attributes.
 
-To do so, Julia and Peter can declare the exhaustive list of "simple" or "multi select" attributes in your connector configuration, just as they do for "text" attributes.
+To do so, Julia and Peter can declare the exhaustive list of "simple" or "multi select" attributes in your App configuration, just as they do for "text" attributes.
 
-When Julia requests the translation of a product, your connector will then automatically translate the "options" of the "simple" or "multi select" attributes that have not been translated yet.  
+When Julia requests the translation of a product, your App will then automatically translate the "options" of the "simple" or "multi select" attributes that have not been translated yet.  
 
 :::tips
-To perform this action, your connector can use the ["get list of attribute options"](https://api.akeneo.com/api-reference.html#get_attributes__attribute_code__options) API endpoint.
+To perform this action, your App can use the ["get list of attribute options"](https://api.akeneo.com/api-reference.html#get_attributes__attribute_code__options) API endpoint.
 :::
 
 **Tell Julia that her translation project is either finished...**
@@ -233,7 +209,7 @@ When the translation is finished, your translator needs to set the `Translation 
 If, for some reason, the translation project has been canceled, your translator needs to set the `Translation status` attribute to `CANCELLED` and to send this product data back into the PIM.
 
 :::info
-To develop these connector actions, and to understand our API, please follow our [wonderful dedicated API documentation](https://api.akeneo.com)!
+To develop these App actions, and to understand our API, please follow our [wonderful dedicated API documentation](https://api.akeneo.com)!
 :::
 
 ### Check the "Translation status"
@@ -246,13 +222,13 @@ As the `Translation status` has been declared as `Usable in grid`, Julia can:
 
 Of course, she can do the same for all the other "Translation" attributes.
 
-As you can see, without any PIM customization and with a few developments on your connector, Julia can build some powerful translation features in her PIM!
+As you can see, without any PIM customization and with a few developments on your App, Julia can build some powerful translation features in her PIM!
 
 ## How to start?
 
 **Our recommendation: always listen to your customer's needs first!**
 
-We are aware that it is difficult and expensive in terms of investment to achieve a 100% complete online translation connector that is flexible enough to adapt to any Julia's project.
+We are aware that it is difficult and expensive in terms of investment to achieve a 100% complete online translation App that is flexible enough to adapt to any Julia's project.
 
 **Our advice: adopt an Agile approach!**
 

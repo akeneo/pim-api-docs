@@ -89,8 +89,8 @@ In conclusion, in relation to what has been said above, it is, therefore, necess
 
 ![PIM with a DAM](../../img/guides/erp-dam-pim-ecommerce.svg)
 
-Of course these are only basic PIM architectures: some clients may have multiple data sources or destinations making the data workflow managed by your connector more complex… However, we suggest that you focus on these 2 typical architectures that we believe are the most used by our clients.
+Of course these are only basic PIM architectures: some clients may have multiple data sources or destinations making the data workflow managed by your App more complex… However, we suggest that you focus on these 2 typical architectures that we believe are the most used by our clients.
 
 ::: warning
-An eCommerce connector never works alone: an eCommerce solution needs a **PIM connector** and probably an **ERP connector** in order to have all the product information enabling products to be activated and therefore visible to end-users... and sometimes a DAM/CDN to manage product media.
+An eCommerce App never works alone: an eCommerce solution needs a **PIM App** and probably an **ERP App** in order to have all the product information enabling products to be activated and therefore visible to end-users... and sometimes a DAM/CDN to manage product media.
 :::   

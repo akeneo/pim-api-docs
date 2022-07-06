@@ -1,6 +1,6 @@
-# Define the technical stack of your connector
+# Define the technical stack of your App
 
-Now that your PIM and your DAM are [well prepared](pre-requisites.html) for their connection, it's time to dig a bit into the technical stack you are going to choose for your connector.
+Now that your PIM and your DAM are [well prepared](pre-requisites.html) for their connection, it's time to dig a bit into the technical stack you are going to choose for your App.
 
 ## On the PIM side
 
@@ -11,7 +11,9 @@ We will never repeat it enough: the REST API is the **most stable** way to conne
 Also, and it is quite important to keep it in mind, the REST API is the **fastest way** to push and pull data from the PIM.
 
 ::: tips
-Not familiar with the Akeneo PIM REST API? We have a [getting started guide](/getting-started/your-first-tutorial-4x/welcome.html) to help you right here!
+Not yet familiar with Akeneo App? We have a [complete App guide](/apps/introduction.html)!
+
+You want to know everything about the REST API? [Follow this guide](/documentation/introduction.html)!
 :::
 
 Also, if you are a PHP developer, we provide a [PHP Client](https://github.com/akeneo/api-php-client-ee) for this REST API. So don't hesitate to use it if need be!
@@ -44,21 +46,21 @@ APIs are great for initialization purposes. But their main drawback lays in the 
 In other words, you'll need to regularly ask which were the last updated DAM assets, in order to synchronize them with the PIM.
 
 ### Queuing systems
-Queuing systems offer the possibility to get closer to real-time and are run asynchronously, protecting your connector from too many simultaneous requests.
+Queuing systems offer the possibility to get closer to real-time and are run asynchronously, protecting your App from too many simultaneous requests.
 
 ![Queuing System Schema](../../img/guides/dam_pim-connection_queuingSystem.svg)
 
 The updated DAM assets are *published* as messages in the queuing system.  
-Then the connector will consume these messages.
+Then the App will consume these messages.
 
 ### Webhooks
 
-With webhooks, the DAM will send newly created assets and updated asset values to your connector.
+With webhooks, the DAM will send newly created assets and updated asset values to your App.
 It allows you to have some kind of "real-time" asset synchronization between your DAM and your PIM.
 
 ![Webhooks Schema](../../img/guides/dam_pim-connection_webhook.svg)
 
-The biggest drawback is to ensure that your connector and your PIM won't suffer from too many HTTP requests.  
+The biggest drawback is to ensure that your App and your PIM won't suffer from too many HTTP requests.  
 It could lead to a crash of one of these applications (or they could just ignore your messages) and sometimes could create latency on the DAM side (if it is waiting from a webhook response).  
 So **be careful** with that!
 
@@ -85,7 +87,7 @@ When you use an asynchronous method to connect, you will need to [synchronize yo
 
 You should avoid having too many calls to the PIM REST API and process only the data you need. This is why the [DAM attribute selection](pre-requisites.html#define-the-attributes-of-your-asset-families) is really important.
 
-For queuing systems and webhooks, you need to send all messages related to assets. Then, in the connector, filter them to keep only DAM assets that are related to products that you want in the PIM (see [Pre-requisites](pre-requisites.html#which-dam-assets-are-products-related)).  
+For queuing systems and webhooks, you need to send all messages related to assets. Then, in the App, filter them to keep only DAM assets that are related to products that you want in the PIM (see [Pre-requisites](pre-requisites.html#which-dam-assets-are-products-related)).  
 
 If you are using an API in the DAM, please make sure to only query the modified assets since the last successful synchronization, in order to avoid synchronizing twice the exact same asset.
 
@@ -102,12 +104,12 @@ If the memory is not stable (meaning it returns to a base after each batch call)
 
 ### Performance
 
-One of the best ways to enhance your connector performance is to limit the number of I/O calls to your infrastructure (HTTP requests to the API, database queries, etc...).
+One of the best ways to enhance your App performance is to limit the number of I/O calls to your infrastructure (HTTP requests to the API, database queries, etc...).
 
 For example, it is better to patch assets using bulk requests than using multiple single patches. It will limit the number of REST API calls.  
 You can also implement a cache system for the PIM asset structure (asset family and asset attribute) to avoid using an REST API call each time you need it.
 
-Keep in mind that one of the most efficient ways to enhance your connector performance is to be able to scale (see above).
+Keep in mind that one of the most efficient ways to enhance your App performance is to be able to scale (see above).
 
 ### Error handling
 
@@ -122,6 +124,6 @@ You'll need to find a way to run the calls again for the assets that have not be
 
 ### Our skeleton
 
-As already stated in the [introduction](introduction.html#our-skeleton), we provide [a skeleton](https://github.com/akeneo/dam-connector) to inspire you when writing your own connector.   
+As already stated in the [introduction](introduction.html#our-skeleton), we provide [a skeleton](https://github.com/akeneo/dam-connector) to inspire you when writing your App.   
 It is fueled with coding best practices, so do not hesitate to have a look at it.  
 As a reminder, this skeleton is only supported in **best effort**.  

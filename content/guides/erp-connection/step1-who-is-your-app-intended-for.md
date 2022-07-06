@@ -1,10 +1,12 @@
-# Who is your connector for?
+# Who is your App intended for?
 
-## Personas
+Because we want to give our PIM users the best experience to connect Akeneo PIM with third-parties by providing them easy-to-connect, configurable & interactive Apps on our App Store, you need to understand who is Julia and her needs.
 
-Below, you will find the user archetypes we use to help you guide your decisions about product features, interactions, and even the visual design of your connector. Designing for the archetype — whose goals and behavior patterns are well understood — allows you to satisfy the broader group of people represented by that archetype.
+## Understand Julia
 
-![Personas](../../img/guides/personas.png)
+Julia is the persona we use to help you guide your decisions about product features, interactions, and even visual design of your App.
+
+Julia, PIM user, is also the end-user of your App, she has no technical skills, she wants to spend more time building versus operating her business. She is looking for a faster, more effective way to manage her marketing projects.
 
 ## Product workflow overview
 
@@ -34,20 +36,15 @@ Julia's needs will be to:
 4. Finalize the product marketing information in her PIM
 5. Export these PIM data to different channels such as an e-commerce website, a print solution, a mobile application...
 
-:::warning
-The initial PIM action to create new products in the PIM requires Julia to have a process to automatically generate products SKU and then assign this into the PIM.
-:::
 
 :::info
 In the PIM, product information that comes from the ERP is usually stored in dedicated **read-only** attributes and in a specific **attribute group**.
 This allows Julia to have the information at her fingertips without the risk of mixing it with her own PIM product information.
 :::
 
-## Personas' needs
+## Julia's needs
 
-Below, you will find the main needs, associated with each user profile, in terms of processes, documentation, actions related to your future ERP connector.
-
-### Julia's needs
+Now, let's be focus on Julia's needs about your App.
 
 **If the product is initially created in the ERP:**
 
@@ -59,7 +56,7 @@ So she needs:
 
 * An **easy to follow strategy** to define the periodicity of this automatic import process.
 
-* Perhaps also a **friendly Connector UI** to trigger and to log manually all processes (import/export) if needed (full or partial imports). She also needs a notification system to be alerted when something goes wrong.
+* Perhaps also a **friendly App UI** to trigger and to log manually all processes (import/export) if needed (full or partial imports). She also needs a notification system to be alerted when something goes wrong.
 
 **If the product is initially created in the PIM**
 
@@ -69,29 +66,18 @@ So she needs:
 
 * An **easy process** to create dynamically a SKU for the product
 
-* An **easy way** to tag her new product so that your ERP connector can automatically export the corresponding product data from her PIM to the ERP solution
+* An **easy way** to tag her new product so that your ERP App can automatically export the corresponding product data from her PIM to the ERP solution
 
 * A **smooth process** to retrieve ERP product information she needs in return
 
 * A **strategy** to define the periodicity of these automatic import/export processes
 
-* Perhaps also a **friendly Connector UI** to trigger and to log manually all processes (import/export) if needed (full or partial imports). She also needs a notification system to be alerted when something goes wrong.
+* Perhaps also a **friendly App UI** to trigger and to log manually all processes (import/export) if needed (full or partial imports). She also needs a notification system to be alerted when something goes wrong.
 
-### Peter and/or Filips' needs
+And of course, she also needs:
 
-Peter and/or Filips need an easy way to install, configure and maintain your connector.
+* An **easy to follow configuration process** to configure the App.
 
-So they need:
+* A **complete and easy-to-read online documentation** to understand all the features of your App and how to use it.
 
-* An **easy to follow download/installation process:** depending on your business needs.
-It depends on your business model. If you expect your client to install the connector themself, make sure you provide appropriate documentation.
-
-* A **full documentation** about **the limits of the connector** in terms of **scalability** and **performance**.
-
-* A **smooth configuration process** to set up the connection between the ERP Solution and Akeneo PIM as well as parameters to configure the connector. It requires documentation to explain the methodology on how to configure your connector compared to your business needs.
-
-* Sometimes, a **friendly import process** to perform the first import of product data: due to the volume of data usually imported, this may require special support from your end.
-
-* A **connector UI or a configuration file to set up the connector** (PIM/ERP connection, mapping settings, filtering capabilities, …)
-
-* An access to the **connector logs** to centralize all detailed technical information to investigate errors.
+* A **support contract** to ask for assistance and get quick support from you.
