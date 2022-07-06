@@ -1,4 +1,4 @@
-# Who is your App for?
+# Who is your App intended for?
 
 Because we want to give our PIM users the best experience to connect Akeneo PIM with third-parties by providing them easy-to-connect, configurable & interactive Apps on our App Store, you need to understand who is Julia and her needs.
 

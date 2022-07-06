@@ -423,7 +423,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'The complete guide to connect Akeneo PIM to your eCommerce solution',
             files: {
                 'introduction.md': 'Introduction',
-                'step0-who-is-your-app-for.md': 'Who is your App for?',
+                'step0-who-is-your-app-intended-for.md': 'Who is your App intended for?',
                 'step1-who-does-what.md': 'Who does what?',
                 'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
                 'step3-reconcile-PIM-data-with-eCommerce-data.md': 'Reconcile PIM data with eCommerce data',
@@ -434,7 +434,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'The complete guide to connect Akeneo PIM to your online translation solution',
             files: {
                 'introduction.md': 'Introduction',
-                'step1-who-is-your-app-for.md': 'Who is your App for?',
+                'step1-who-is-your-app-intended-for.md': 'Who is your App intended for?',
                 'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
                 'step3-how-to-build-your-app.md': 'How to build your App?',
                 'step4-known-limits.md': 'Known limits'
@@ -444,7 +444,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'The complete guide to connect your ERP solution to Akeneo PIM',
             files: {
                 'introduction.md': 'Introduction',
-                'step1-who-is-your-app-for.md': 'Who is your App for?',
+                'step1-who-is-your-app-intended-for.md': 'Who is your App intended for?',
                 'step2-analyze-erp-data.md': 'Analyze your ERP data',
                 'step3-understand-akeneo-pim.md': 'Understand Akeneo PIM',
                 'step4-how-to-build-your-app.md': 'How to build your App?'
@@ -454,7 +454,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'The complete guide to connect Akeneo PIM to your syndication solution',
             files: {
               'introduction.md': 'Introduction',
-              'step0-who-is-your-app-for.md': 'Who is your App for?',
+              'step0-who-is-your-app-intended-for.md': 'Who is your App intended for?',
               'step1-who-does-what.md': 'Who does what?',
               'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
               'step3-define-your-first-scope.md': 'How to build your App?'
@@ -464,7 +464,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'A high-level guide to connecting Akeneo PIM to your print solution',
             files: {
               'introduction.md': 'Introduction',
-              'step0-who-is-your-app-for.md': 'Who is your App for?',
+              'step0-who-is-your-app-intended-for.md': 'Who is your App intended for?',
               'step1-who-does-what.md': 'Who does what?',
               'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
               'step3-reconcile-PIM-data-with-print-features.md': 'Reconcile PIM data with print capabilities',

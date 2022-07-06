@@ -1,4 +1,4 @@
-# Who is your App for?
+# Who is your App intended for?
 
 Because we want to give our PIM users the best experience to connect Akeneo PIM with third-parties by providing them easy-to-connect, configurable & interactive Apps on our App Store, you need to understand who is Julia and her needs.
 
@@ -10,15 +10,17 @@ Julia, PIM user, is also the end-user of your App, she has no technical skills, 
 
 ## Julia's needs
 
-* An **easy to follow configuration process** to configure the App.
+Let's already address 2 different Julia needs:
+1. The need to create a complete print catalog from PIM information.
+2. The ability to create a PDF, a product brochure, a paper label or flyers on demand from one or more PIM products.
 
-* An **easy to follow process** to import automatically her PIM data into your Syndication solution.
+So she needs:
 
-* An **easy to follow strategy** to define the periodicity of these automatic imports.
+* An **easy to follow process** to define what PIM data will be managed by your Print solution.
 
-* A **friendly UI** to trigger manually the App if needed (full or partial imports on demand)
+* A **friendly App UI** to select and import PIM data into your Print solution.
 
-* A **friendly UI** to log all automatic and manual import processes and a notification system to be alerted when something goes wrong.
+* A **complete documentation** on how to use your App.
 
 * A **complete and easy-to-read online documentation** to understand all the features of your App and how to use it.
 

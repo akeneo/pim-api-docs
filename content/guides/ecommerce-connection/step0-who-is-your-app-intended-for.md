@@ -1,4 +1,4 @@
-# Who is your App for?
+# Who is your App intended for?
 
 Because we want to give our PIM users the best experience to connect Akeneo PIM with third-parties by providing them easy-to-connect, configurable & interactive Apps on our App Store, you need to understand who is Julia and her needs.
 
@@ -10,18 +10,19 @@ Julia, PIM user, is also the end-user of your App, she has no technical skills, 
 
 ## Julia's needs
 
-Julia needs an easy and quick way to translate her product information.
+Julia needs an easy way to export her PIM data into her eCommerce solution.
 
 So she needs:
 
-* An **easy way** to select, in her Akeneo PIM, the products she wants to translate via your online translation solution.
+* An **easy to follow configuration process** to configure the App.
 
-* For the selected products, a **friendly UI** allowing her to choose:
-  * into which language(s) the products need to be translated.
-  * the deadline.
-  * a project name to track this translation process in her online translation tool.
+* An **easy to follow process** to import automatically her PIM data into the eCommerce solution.
 
-* A **friendly UI** to be able to track directly in the PIM if the products have been translated.
+* An **easy to follow strategy** to define the periodicity of these automatic imports.
+
+* A **friendly UI** to trigger manually the App if needed (full or partial imports on demand)
+
+* A **friendly UI** to log all automatic and manual import processes and a notification system to be alerted when something goes wrong.
 
 * A **complete and easy-to-read online documentation** to understand all the features of your App and how to use it.
 

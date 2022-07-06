@@ -36,7 +36,7 @@ Now that this product data dispatch from your ERP solution is crystal clear, let
 
 ## Follow the steps!
 
-1. [Who is your App for?](step1-who-is-your-app-for.html)  
+1. [Who is your App intended for?](step1-who-is-your-app-intended-for.html)  
 Understand your target user: Who will install it? Who will set it up? Who will use it? What are their needs?
 2. [Analyse ERP data](step2-analyze-erp-data.html)
 Understand the product information that should flow between your ERP and the PIM.
