@@ -20,7 +20,7 @@ only visible if the app manage catalogs.
 ### Limits
 
 ::: warning
-You can create **up to 15 catalogs** per app.
+You can only create **up to 15 catalogs** per app.
 :::
 
 ### Next steps
@@ -39,14 +39,14 @@ After you've completed this tutorial, you'll be able to create and use catalogs 
 ### Requirements
 
 - You have a Partner account and a developer sandbox.
-- Your app already manages the authentication step
+- You have an app able to use the authorization process.
 
 ### Step 1: Ask for catalog scopes
 
 In the documentation [Ask for authorizations](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations), 
 you discovered how to ask for scopes.
 
-If you want to manage catalogs, you need to ask for 4 scopes:
+If you want to manage catalogs, you need to ask for at least 4 scopes:
 - `read_products`
 - `read_catalogs`
 - `write_catalogs`
@@ -65,7 +65,7 @@ You should create a catalog with the more descriptive name possible. It will hel
 :::
 
 Catalogs created **are always disabled by default** in the Akeneo PXM Studio. Only Akeneo users are able to enable a 
-catalog. You must wait for one of your user to enable it before using it.
+catalog. You must wait for any of your users to enable it before using it.
 
 To help your users, you can give them a link to directly access the catalog configuration interface:
 
