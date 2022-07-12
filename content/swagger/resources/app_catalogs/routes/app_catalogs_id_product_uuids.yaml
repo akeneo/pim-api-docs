@@ -1,7 +1,7 @@
 get:
   summary: Get the list of product uuids
   operationId: "get_app_catalog_product_uuids"
-  description: This endpoint allows you to get the list of uuids of products contained in a catalog.
+  description: Coming soon. This endpoint allows you to get the list of uuids of products contained in a catalog.
   tags:
     - App catalog product
   x-versions:

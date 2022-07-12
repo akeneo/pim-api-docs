@@ -78,7 +78,12 @@ At any moment, you can verify if the catalog is enabled by calling the [get cata
 
 ### Step 3: Get products using catalogs
 
-<!-- TODO -->
+::: warning
+The endpoint for retrieving the list of product uuids will be available soon.
+:::
+
+Once you have an enabled catalog, you will be able to paginate the corresponding product uuids using this
+[endpoint](/api-reference.html#Appcatalogproduct).
 
 ### Next steps
 - Learn [how to synchronize Akeneo data](/getting-started/synchronize-pim-products-6x/welcome.html)
