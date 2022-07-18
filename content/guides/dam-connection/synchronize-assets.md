@@ -1,20 +1,20 @@
 # Dive into the DAM-PIM synchronization
 
-Alright, let's code now! In this section, you'll find everything you need to code your connector.
+Alright, let's code now! In this section, you'll find everything you need to code your App.
 
 ::: warning
 Did you carefully read the previous sections? If not, you're missing some crucial steps and chances are you won't understand what's coming next. So, here you go: [here](introduction.html), [here](glossary.html), [here](pre-requisites.html) and [here](technical-stack.html).  
 We promise it's worth the read. :wink:
 :::
 
-As a reminder, the connector is the piece of software that is between the DAM and the PIM and that's in charge of the synchronization of the DAM assets with the PIM, as illustrated in this diagram.
+As a reminder, the App is the piece of software that is between the DAM and the PIM and that's in charge of the synchronization of the DAM assets with the PIM, as illustrated in this diagram.
 
 ![Macro overview of the DAM connection](../../img/guides/dam-connection-macro.svg)
 
-To be crystal clear, the goal of the connector is to collect assets from the DAM and send them to the PIM. Easy peasy, right?  
+To be crystal clear, the goal of the App is to collect assets from the DAM and send them to the PIM. Easy peasy, right?  
 
-Well then! Let's zoom in on what's inside that connector.  
-Below is the general diagram of what your connector will actually do under the hood.
+Well then! Let's zoom in on what's inside that App.  
+Below is the general diagram of what your App will actually do under the hood.
 
 ![General workflow](../../img/guides/dam_pim-general-workflow.svg)
 
@@ -43,7 +43,7 @@ Don't forget that, when collecting your DAM assets, you should also filter them 
 
 ## Transform DAM assets into PIM assets
 
-We already covered in a previous [section](pre-requisites.html#define-the-attributes-of-your-asset-families) that DAM and PIM assets have a totally different structure. 
+We already covered in a previous [section](pre-requisites.html#define-the-attributes-of-your-asset-families) that DAM and PIM assets have a totally different structure.
 
 Remember this example?
 
@@ -52,7 +52,7 @@ Remember this example?
 Your DAM and PIM assets don't share the same structure.  
 And that is absolutely fine, by the way! DAM and PIM softwares do not serve the same purpose at all, so it is normal if they are not described by the same set of attributes/properties.
 
-Your connector will need to run some transformations on your DAM assets in order to turn them into PIM assets. This is the goal of this step. You'll see it's a pretty big one, but don't worry we're here to guide you so you don't get lost somewhere along the way. :wink:
+Your App will need to run some transformations on your DAM assets in order to turn them into PIM assets. This is the goal of this step. You'll see it's a pretty big one, but don't worry we're here to guide you so you don't get lost somewhere along the way. :wink:
 
 As we are in a more technical section, let's show some code! Below you'll find an example of a DAM asset, in JSON format, as it can be extracted thanks to the DAM REST API:
 
@@ -89,14 +89,14 @@ After this transformation step, here is what the JSON of the corresponding PIM a
                     "locale": null,
                     "channel": null,
                     "data": "Allie jean model picture 1"
-                } 
+                }
             ],
             "dam_url": [
                 {
                     "locale": null,
                     "channel": null,
                     "data": "https://cdn.my-dam.com/l/579a05bbece1a1d/allie-jean_1_model-picture.png"
-                } 
+                }
             ],
             "main_colors": [
                 {
@@ -138,7 +138,7 @@ The sub-sections below will guide you through all the steps needed to perform th
 To create a PIM asset, you'll need a code. This code must be unique among all your PIM assets, regardless of the asset family they belong to.
 
 We recommend you to use the unique identifier that is used in your DAM system as the code of your PIM asset. In our previous example, this identifier is the `uid`.  
-So, it means that you need to transform this `uid` in your DAM asset: 
+So, it means that you need to transform this `uid` in your DAM asset:
 ```json
 "uid": "0A3C2A6E-4C32-4492-BC0DA02"
 ```
@@ -269,7 +269,7 @@ Here are the different steps to follow:
 1. The `warning_mention` DAM Property is mapped to the `disclaimer` PIM attribute.
 1. Fetching the information for the `disclaimer` PIM attribute will tell you that:
     - This attribute is a **text** attribute. So the `data` field of its asset attribute value expects a string.
-    - This attribute is **localizable**. So you need to know for which PIM locale this information was enriched. Here, in our example, we consider that the DAM does not handle localization and every text property within the DAM is enriched in English. So we specify it, in the connector: the corresponding locale for localizable attributes will be "en_US".
+    - This attribute is **localizable**. So you need to know for which PIM locale this information was enriched. Here, in our example, we consider that the DAM does not handle localization and every text property within the DAM is enriched in English. So we specify it, in the App: the corresponding locale for localizable attributes will be "en_US".
 1. In the end, you'll generate this asset value:
     ```json
     "disclaimer": [
@@ -315,9 +315,8 @@ When your PIM assets are ready, you can call the [patch assets](/api-reference.h
 
 ### Dealing with options
 For the single option and multiple options attributes, you may want to dynamically add new options provided by the DAM to your PIM asset attribute.  
-In this case, you should first call the [patch attribute options](/api-reference.html#patch_asset_attributes__attribute_code__options__code_) endpoint, as illustrated in the diagram below. 
+In this case, you should first call the [patch attribute options](/api-reference.html#patch_asset_attributes__attribute_code__options__code_) endpoint, as illustrated in the diagram below.
 
 ![Push assets with options](../../img/guides/dam_pim-asset-push.svg)
 
 Again, don't hesitate to take a look at our [skeleton](https://github.com/akeneo/dam-connector/blob/master/src/Infrastructure/Pim/AttributeOptionsApi.php) to see it all in action. :wink:
-

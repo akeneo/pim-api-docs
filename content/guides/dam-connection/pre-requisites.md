@@ -1,6 +1,6 @@
 # Prepare the structure in your DAM and your PIM
 
-Before writing any line of code for the connector, you'll need to prepare your DAM and your PIM. By _preparation_, we mean adapting or creating a proper structure around your DAM or PIM assets, so that the connector will easily do its job, i.e. send assets from the DAM to the PIM.
+Before writing any line of code for the App, you'll need to prepare your DAM and your PIM. By _preparation_, we mean adapting or creating a proper structure around your DAM or PIM assets, so that the App will easily do its job, i.e. send assets from the DAM to the PIM.
 
 ## In your PIM
 
@@ -64,7 +64,7 @@ If you answer `No` to all of these questions, it's likely that you don't need th
 ### Create the structure in the Asset Manager
 
 Once you have a better idea of the modelization of your asset families, you can create them.  
-You can either do it in the PIM, or you can use a script leveraging our REST API. You can find an example of this script in our [DAM connector skeleton](introduction.html#the-skeleton).
+You can either do it in the PIM, or you can use a script leveraging our REST API. You can find an example of this script in our [skeleton](introduction.html#the-skeleton).
 
 To create an asset family with its attributes and its product link rules, you'll need to follow those steps:
 1. Create your asset family with its code and labels.  
@@ -102,7 +102,7 @@ Those are just suggestions. Don't hesitate to find the one that will best suit y
 ### Which asset family do your DAM product assets belong to?
 
 In the PIM, in the Asset Manager, assets must belong to an [asset family](/concepts/asset-manager.html#asset-family).  
-So, at one point, whenever the connector creates an asset in the PIM, it will need to know in which family it should create it.  
+So, at one point, whenever the App creates an asset in the PIM, it will need to know in which family it should create it.  
 As a result, we need this information to be on the DAM side, for each DAM asset.
 
 ::: info

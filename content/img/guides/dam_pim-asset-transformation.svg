@@ -44,7 +44,7 @@
       <tspan x="83" y="66">Synchronization application</tspan>
     </text>
     <text fill="#3A438B" font-family="Lato-MediumItalic, Lato" font-size="24" font-style="italic" font-weight="500" transform="translate(480 60)">
-      <tspan x="83" y="46">Connector</tspan>
+      <tspan x="83" y="46">App</tspan>
     </text>
     <path stroke="#8F92C7" stroke-dasharray="2 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M504.902 162l.098 60H351c-11.046 0-20 8.954-20 20s8.954 20 20 20h154v100"/>
     <g transform="translate(500 167)">

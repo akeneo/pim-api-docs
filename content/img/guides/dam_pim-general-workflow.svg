@@ -35,7 +35,7 @@
       <tspan x="83" y="66">Synchronization application</tspan>
     </text>
     <text fill="#3A438B" font-family="Lato-MediumItalic, Lato" font-size="24" font-style="italic" font-weight="500" transform="translate(480 60)">
-      <tspan x="83" y="46">Connector</tspan>
+      <tspan x="83" y="46">App</tspan>
     </text>
     <g transform="translate(60 133)">
       <use fill="#000" filter="url(#c)" xlink:href="#d"/>
