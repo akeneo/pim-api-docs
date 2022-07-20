@@ -380,7 +380,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             pimVersion: 'SaaS',
             title: 'From product identifiers to UUID',
             files: {
-                'welcome.md': 'Welcome',
+                'welcome.md': 'Guide',
             },
             availability: {
                 serenity: "7x",
