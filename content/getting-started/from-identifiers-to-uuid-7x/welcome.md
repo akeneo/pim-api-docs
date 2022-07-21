@@ -97,7 +97,7 @@ And at last, step by step, replace `akeneo_identifier` in your correlation table
         if ecommerce_identifier was not found
             Get the ecommerce_identifier matching identifier in the correlation table
             if ecommerce_identifier was found
-                Add uuid and identifier in the correlation table
+                Add uuid in the correlation table
                 Update the product in the eCommerce
             else
                 Add the product to the eCommerce
