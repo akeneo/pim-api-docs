@@ -100,5 +100,5 @@ And then, step by step, replace `akeneo_identifier` in your correlation table wi
   ```
 
 ::: info
-If you need help, don't hesitate to contact us!
+If you need help, don't hesitate to [contact us](https://www.akeneo.com/contact/)!
 :::
