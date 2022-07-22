@@ -98,7 +98,7 @@ Feel free to contribute with languages we're not experts at.
 :::
 
 ### Requirements
-- You have a Partner account and a developer sandbox
+- You have a [Partner account](https://www.akeneo.com/technology-partners/) and a developer sandbox [contact us](https://www.akeneo.com/contact/)
 - You understand [what's an Akeneo App](/apps/apps-getting-started.html#whats-an-akeneo-app) and [how they fit into Akeneo PXM Studio](/apps/apps-getting-started.html#how-apps-fit-into-akeneo-pxm-studio)
 
 ### Step 1: Expose your activation and callback URLs
