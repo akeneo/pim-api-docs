@@ -577,7 +577,8 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
 
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
-        'apps-getting-started.md': 'Getting started',
+        'quick-start.md': 'Getting started',
+        'apps-getting-started.md': 'Create an app',
         'authentication-and-authorization.md': 'Authentication and authorization',
         'catalogs.md': 'Catalogs for Apps (beta)',
         'app-developer-tools.md': 'Developer tools'
@@ -595,7 +596,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/apps.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_apps:  true,
                         title: 'Apps',
                         mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {

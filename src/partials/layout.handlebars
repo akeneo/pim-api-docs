@@ -42,6 +42,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <li class="{{#if active_apps}}active{{/if}}">
+                    <a href="/apps/quick-start.html">Apps</a>
+                </li>
                 <li class="{{#if active_guides}}active{{/if}}">
                     <a href="/guides-index.html">Guides</a>
                 </li>
@@ -53,7 +56,6 @@
                         <li><a href="/documentation/introduction.html">The REST API basics</a></li>
                         <li><a href="/events-documentation/overview.html">The Events API basics</a></li>
                         <li><a href="/php-client/introduction.html">The PHP API client</a></li>
-                        <li><a href="/apps/apps-getting-started.html">Apps</a></li>
                     </ul>
                 </li>
                 <li class="dropdown{{#if active_api_reference}} active{{/if}}">
