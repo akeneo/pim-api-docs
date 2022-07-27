@@ -2,6 +2,10 @@
 
 Here, you will connect an event subscription to a fake endpoint and receive your first data. :rocket:
 
+::: info
+For security reasons, localhost is blocked for event API target location and cannot be used as a fake endpoint. Use Mockbin or a comparable tool instead.
+:::
+
 ## Create a Bin on Mockbin
 
 [Mockbin](http://mockbin.org/) allows you to generate custom endpoints to test, mock, and track HTTP requests & responses between libraries, sockets and APIs.

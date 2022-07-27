@@ -19,6 +19,9 @@ Since your connected application will have only one Request URL, maybe you'll ne
 
 Your Request URL will receive JSON-based payloads containing wrapped event types.
 
+::: info
+For security reasons, localhost is blocked for Events API Request URL.
+:::
 
 ## Receive Events
 
