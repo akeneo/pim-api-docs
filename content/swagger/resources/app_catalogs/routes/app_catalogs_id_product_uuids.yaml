@@ -42,13 +42,13 @@ get:
       x-examples: {
         "_links": {
           "self": {
-            "href": "http://demo.akeneo.com/api/rest/v1/catalogs/12351d98-200e-4bbc-aa19-7fdda1bd14f2?pagination_type=search_after&limit=3&search_after=10de33fa-e026-4439-85d6-73a1105f52e7"
+            "href": "http://demo.akeneo.com/api/rest/v1/catalogs/12351d98-200e-4bbc-aa19-7fdda1bd14f2/product-uuids"
           },
           "first": {
-            "href": "http://demo.akeneo.com/api/rest/v1/catalogs/12351d98-200e-4bbc-aa19-7fdda1bd14f2?pagination_type=search_after&limit=3"
+            "href": "http://demo.akeneo.com/api/rest/v1/catalogs/12351d98-200e-4bbc-aa19-7fdda1bd14f2/product-uuids"
           },
           "next": {
-            "href": "http://demo.akeneo.com/api/rest/v1/catalogs/12351d98-200e-4bbc-aa19-7fdda1bd14f2?pagination_type=search_after&limit=3&search_after=eddfbd2a-abc7-488d-b9e3-41289c824f80"
+            "href": "http://demo.akeneo.com/api/rest/v1/catalogs/12351d98-200e-4bbc-aa19-7fdda1bd14f2/product-uuids?search_after=eddfbd2a-abc7-488d-b9e3-41289c824f80"
           }
         },
         "_embedded": {
