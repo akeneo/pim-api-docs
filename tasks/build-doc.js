@@ -577,7 +577,7 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
 
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
-        'quick-start.md': 'Getting started',
+        'overview.md': 'Overview',
         'apps-getting-started.md': 'Create an app',
         'authentication-and-authorization.md': 'Authentication and authorization',
         'catalogs.md': 'Catalogs for Apps (beta)',

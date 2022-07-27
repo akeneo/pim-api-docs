@@ -1,4 +1,4 @@
-# Getting started
+# Overview
 
 Before you start planning and developing your app, it's essential to understand what Akeneo apps do and how they fit into Akeneo PIM.
 
@@ -62,9 +62,9 @@ Before starting to develop your app, we advise you to:
 - Check our REST API [Reference](https://api.akeneo.com/api-reference-index.html) & [basics](https://api.akeneo.com/documentation/introduction.html)
 - Use our [developer tools](https://api.akeneo.com/apps/app-developer-tools.html)
 
-Then, you can [contact us](https://www.akeneo.com/contact/) to get: 
-- A dedicated Akeneo PIM Enterprise Edition SaaS sandbox
-- An access to our [support portal](https://apps-support.akeneo.com/) to easily ask questions, send suggestions or report a bug.
+Then, you can [contact us](https://www.akeneo.com/contact/) to get your **App developer starter kit**: 
+- A developer sandbox with our [Serenity Enterprise version](https://help.akeneo.com/pim/serenity/versions-in-detail.html)
+- An access to our [support portal](https://apps-support.akeneo.com/) to easily ask questions, send suggestions or report a bug
 
 ## Publish your app
 

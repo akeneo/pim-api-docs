@@ -46,8 +46,8 @@ After completing this tutorial, you'll be able to create and use catalogs to ret
 
 ### Requirements
 
-- You have a [Partner account](https://www.akeneo.com/technology-partners/) and a developer sandbox [contact us](https://www.akeneo.com/contact/).
-- Your app already manages the authorization process.
+- You have your [App developer starter kit](/apps/quick-start.html#app-developer-starter-kit)
+- Your app already manages the authorization process
 
 ### Step 1: Ask for catalog scopes
 
