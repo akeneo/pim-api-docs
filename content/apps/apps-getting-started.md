@@ -25,7 +25,7 @@ Feel free to contribute with languages we're not experts at.
 :::
 
 ## Requirements
-- You have your [App developer starter kit](/apps/quick-start.html#app-developer-starter-kit)
+- You have your [App developer starter kit](/apps/overview.html#app-developer-starter-kit)
 - You understand [what's an Akeneo App](/apps/apps-getting-started.html#whats-an-akeneo-app) and [how they fit into Akeneo PXM Studio](/apps/apps-getting-started.html#how-apps-fit-into-akeneo-pxm-studio)
 
 ## Step 1: Expose your activation and callback URLs
