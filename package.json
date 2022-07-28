@@ -37,7 +37,7 @@
     "markdown-it-container": "2.0.0",
     "markdown-it-emoji": "1.4.0",
     "markdown-it-include": "2.0.0",
-    "markdown-it-toc-and-anchor": "4.1.1",
+    "markdown-it-toc-and-anchor": "4.2.0",
     "merge-stream": "1.0.1",
     "minimist": "1.2.0",
     "object-scan": "^18.0.1",
