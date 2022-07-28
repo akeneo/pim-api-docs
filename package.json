@@ -28,7 +28,7 @@
     "gulp-swagger": "1.0.1",
     "gulp-util": "3.0.8",
     "gulp-webserver": "0.9.1",
-    "handlebars": "4.3.0",
+    "handlebars": "4.7.7",
     "highlightjs": "9.8.0",
     "js-yaml": "^3.0.0",
     "lodash": "4.17.13",
