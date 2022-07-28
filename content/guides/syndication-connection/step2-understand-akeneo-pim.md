@@ -16,16 +16,16 @@ Then, in order to understand our different editions and their capabilities, you 
 
 Play with our PIM!
 
-It is crucial to understand the PIM features and data model in order to create a great syndication connector.
+It is crucial to understand the PIM features and data model in order to create a great syndication App.
 
 The best way to become an expert at Akeneo PIM is to play with it!  
 Here, you can access our [Akeneo PIM Community Edition demo platform](https://demo.akeneo.com) (login/password: admin / admin).
 
 :::warning
-Please note that this Akeneo PIM CE demo instance is for exploratory purposes only and will only allow you to start getting familiar with Akeneo PIM. This instance is reset frequently and is therefore not intended to be used to build a connector.
+Please note that this Akeneo PIM CE demo instance is for exploratory purposes only and will only allow you to start getting familiar with Akeneo PIM. This instance is frequently reset and is therefore not intended to be used to build an App.
 :::
 
-If you need an Akeneo PIM **Enterprise Edition** instance to start developing your connector, please [contact us](https://www.akeneo.com/contact/).
+If you need an Akeneo PIM **Enterprise Edition** instance to start developing your App, please [contact us](https://www.akeneo.com/contact/).
 
 ## Acquire PIM knowledge
 
@@ -33,7 +33,7 @@ We advise you to take a look at our [Helpcenter](https://help.akeneo.com/pim/ind
 
 If you feel that a comprehensive training program would allow you to know everything about Akeneo PIM, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
 
-In the context of building a syndication connector, here is a selection of  PIM concepts you'll need to master before developing anything:
+In the context of building a syndication App, here is a selection of  PIM concepts you'll need to master before developing anything:
 - The [product](/concepts/products.html#product),
 - The [product model](/concepts/products.html#product-model),
 - The [family](/concepts/catalog-structure.html#family),
@@ -48,7 +48,7 @@ In the context of building a syndication connector, here is a selection of  PIM 
 - The [asset](/concepts/asset-manager.html).
 
 :::info
-If you need to go deeper, the purpose of the next chapters is not to redo the PIM documentation but to explain where to find the information and, above all, to point out PIM features/properties to be taken into consideration **in a context of developing an syndication connector**.
+If you need to go deeper, the purpose of the next chapters is not to redo the PIM documentation but to explain where to find the information and, above all, to point out PIM features/properties to be taken into consideration **in a context of developing a syndication App**.
 :::
 
 ## Product

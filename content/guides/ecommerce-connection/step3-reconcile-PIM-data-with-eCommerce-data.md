@@ -9,24 +9,20 @@ Next step, for each piece of PIM data, you need to ask yourself the following qu
 1. What does your eCommerce solution need from the PIM?
 2. Is this PIM data strictly identical to the eCommerce one? (same type, same structure, same limits)
 3. Should I implement a data conversion or a specific mapping if necessary?
-4. Should I implement some configuration in my connector to allow some mapping flexibility?
+4. Should I implement some configuration in my App to allow some mapping flexibility?
 5. Documentation: What do I need to document? (Data processing, mapping or feature limits, possible settings...)   
 
-In order to help you implement the features of your connector, you will find below a list of features implemented as part of our premium eCommerce connectors:
+In order to help you implement the features of your App, you will find below a list of features implemented as part of our premium eCommerce App:
 
-## REST API connection
-
-![API connection](../../img/guides/configuration-pim.png)
+## Connect your App
 
 **What is it?**
 
-In order for your connector to communicate with Akeneo PIM, it must connect with its REST API. So you need to provide a setting to invite the user to enter PIM API credentials.
+In order for your App to communicate with Akeneo PIM, it must connect with its REST API.
 
 **What do you need to implement?**
 
-* A UI or a “configuration file” to copy and paste Akeneo PIM API credentials (client id, secret, connection username and password).
-* If you create a UI, add a “Test” button to test this connection (in order to check that everything is well configured on this side and maybe to start retrieving some interesting information about the Akeneo PIM that has just been connected)
-* Bonus: Akeneo REST API allows you to change the “limit” parameter. It could be useful to have this setting in your connector configuration to optimize the connection between the Akeneo PIM and your eCommerce solution.
+A step-by-step guide to connect an App to the PIM is available [here](../../apps/introduction.html).
 
 ## Attribute management
 
@@ -45,7 +41,7 @@ For price attribute type, again, warning, the PIM manages only a “reference”
 
 **What do you need to implement?**
 
-In order to bring flexibility to your connector configuration you can introduce a manual choice of the attribute type mapping.
+In order to bring flexibility to your App configuration you can introduce a manual choice of the attribute type mapping.
 
 For example, you can suggest a configuration to convert a PIM attribute type to a different eCommerce attribute type (e.g. transform a PIM “select” attribute to an eCommerce “text” attribute).
 
@@ -57,7 +53,7 @@ This type of configuration can be very useful when you want to optimize your att
 
 **What is it?**
 
-By default your connector will create a new attribute in the eCommerce solution for each PIM attribute it will find.
+By default your App will create a new attribute in the eCommerce solution for each PIM attribute it will find.
 
 This is a feature that allows you to select, in the settings, which PIM attribute can be mapped to an already existing attribute (default or custom) from your in eCommerce platform.
 
@@ -65,7 +61,7 @@ This is especially useful for mapping essential attributes such as product name,
 
 **What do you need to implement?**
 
-* A Connector configuration to map existing PIM attributes to eCommerce ones.
+* An App configuration to map existing PIM attributes to eCommerce ones.
 
 * If you develop a UI, if possible, retrieve automatically all PIM and eCommerce attributes so that your user has only to make a defined choice through an already filled list.
 
@@ -79,7 +75,7 @@ With Akeneo PIM, it is possible to define localizable attributes (attribute cont
 
 **What do you need to implement?**
 
-Some eCommerce solutions offer the same capabilities as Akeneo PIM for localizable attributes management. Depending on the eCommerce solution, the mapping is sometimes straightforward and automatic but sometimes it requires implementing a connector configuration to map locales manually.
+Some eCommerce solutions offer the same capabilities as Akeneo PIM for localizable attributes management. Depending on the eCommerce solution, the mapping is sometimes straightforward and automatic but sometimes it requires implementing an App configuration to map locales manually.
 
 Don't forget that you can have localizable attributes on PIM products, assets and reference entities type of data.
 
@@ -88,7 +84,7 @@ Don't forget that you can have localizable attributes on PIM products, assets an
 Some eCommerce solutions may have a notion of **"default locale"**.
 This default locale makes it possible, for example, to define the product translation to be displayed when a product translation for a specific locale does not exist.
 
-This notion does not exist in the PIM and it is, therefore, necessary to define this default locale at the connector configuration level.
+This notion does not exist in the PIM and it is, therefore, necessary to define this default locale at the App configuration level.
 
 
 ### “Scopable” attribute
@@ -108,7 +104,7 @@ Please read “Manage multiple eCommerce website” below for more information.
 
 **What do you need to implement?**
 
-You could develop a specific configuration in your connector to specify which channel you will take into account when retrieving data from Akeneo PIM.
+You could develop a specific configuration in your App to specify which channel you will take into account when retrieving data from Akeneo PIM.
 
 Don't forget that you can have scopable attributes on PIM products, assets and reference entities type of data.
 
@@ -132,7 +128,7 @@ As Akeneo PIM and eCommerce attribute groups have absolutely different purposes,
 
 The eCommerce managers will then be able, to manually redistribute these attributes into strategic eCommerce attribute groups to optimize the SEO of their eCommerce store.
 
-At the level of your connector you must, therefore, take into account that the attributes already synchronized may have been changed manually in the eCommerce solution. Your connector should therefore not change attributes that already exist in your eCommerce solution and have been moved into eCommerce attribute groups.
+At the level of your App you must, therefore, take into account that the attributes already synchronized may have been changed manually in the eCommerce solution. Your App should therefore not change attributes that already exist in your eCommerce solution and have been moved into eCommerce attribute groups.
 
 
 ### Family mapping feature
@@ -149,7 +145,7 @@ Like Akeneo PIM, most eCommerce solutions have this capability to define a set o
 
 You can, therefore, map Akeneo PIM families to the attribute sets of your eCommerce solution.
 
-At the connector settings level, you can give the possibility to manually define which family you want to import. This feature is particularly useful for an initial import and allows you to import PIM products family by family (step by step) when you are dealing with a very large catalog.
+At the App settings level, you can give the possibility to manually define which family you want to import. This feature is particularly useful for an initial import and allows you to import PIM products family by family (step by step) when you are dealing with a very large catalog.
 
 
 ## Media management
@@ -179,7 +175,7 @@ Apart from taking into consideration all these PIM modeling capabilities (compar
 
 ::: warning
 The number of images that a catalog can contain can be quite large and the time to import the image binaries is difficult to optimize.
-Make sure you have all the mechanisms in your connector to optimize the performance to import of image binaries.
+Make sure you have all the mechanisms in your App to optimize the performance to import of image binaries.
 :::
 
 ::: warning
@@ -192,7 +188,7 @@ For “media file” attributes, the PIM API generates a URL. As Akeneo PIM is n
 
 As per images, you would want to enable your users to attach videos or files to your eCommerce products via Akeneo PIM.
 
-* For videos: most of the time, it’s not a media file in the PIM (too heavy). Your connector will rather have to manage videos as “media links” attribute with a URL from Youtube, Vimeo or from other video providers.
+* For videos: most of the time, it’s not a media file in the PIM (too heavy). Your App will rather have to manage videos as “media links” attribute with a URL from Youtube, Vimeo or from other video providers.
 
 Of course, don’t forget that a video can have some metadata for SEO purposes.
 
@@ -205,7 +201,7 @@ Of course, don’t forget that a video can have some metadata for SEO purposes.
 
 If your eCommerce solution does not have this feature, you will probably need to expose this URL at product level (in a product text attribute for example).
 
-Please create a configuration at your connector level to enable the mapping of PIM asset attributes with eCommerce ALT or description fields to ensure SEO goals.
+Please create a configuration at your App level to enable the mapping of PIM asset attributes with eCommerce ALT or description fields to ensure SEO goals.
 
 * For files, following the capabilities of your eCommerce platform to host files, you will have to either retrieve the binary of the file or its URL if it is hosted on a CDN server
 
@@ -242,18 +238,18 @@ And sometimes, your customers will also need to import a PIM product into the eC
 * A category tree or a subcategory tree…
 ...
 
-**Conclusion:** each customer project has its own needs and it is important to implement enough flexibility in your connector settings to allow each customer to import in his eCommerce solution only product information he needs according to his criteria.
+**Conclusion:** each customer project has its own needs and it is important to implement enough flexibility in your App settings to allow each customer to import in his eCommerce solution only product information he needs according to his criteria.
 
 **What do you need to implement?**
 
-In the features of your connector configuration, you can add a “simple” and an “advanced” filter system with the capability to switch from one to the other according to the needs of your customers.
+In the features of your App configuration, you can add a “simple” and an “advanced” filter system with the capability to switch from one to the other according to the needs of your customers.
 
 The “simple” filter will include filters most used by your customers and the “advanced” filter will allow more complex configurations (based on our [PIM REST API filter capabilities](/documentation/filter.html)).
 
 Bonus: to have the most advanced system, you can implement a specific configuration for each website of your eCommerce solution.  
 This method comes with some benefits:
 * Ability to have a large flexibility in terms of configuration for each website.
-* Ability of your connector to manage websites independently.
+* Ability of your App to manage websites independently.
 * Ability to manage multiple PIMs for the same eCommerce solution.
 
 ### Product with variants
@@ -294,7 +290,7 @@ A product is rarely removed. It is more often “disabled” to keep its history
 Please consider relying only on the enable/disable status of the PIM product to know if a product can be activated or deactivated in your eCommerce solution.
 
 Also, remember that, sometimes, a PIM isn't the only source of product data (e.g. if an ERP imports its data directly into the eCommerce solution).  
-In that case, you need to consider setting up a specific configuration if the product needs to be activated (in the event your connector is the last one to import product data) or stay deactivated (when the ERP connector is the last one to import product data).
+In that case, you need to consider setting up a specific configuration if the product needs to be activated (in the event your App is the last one to import product data) or stay deactivated (when the ERP App is the last one to import product data).
 
 ### Manage product associations
 
@@ -321,7 +317,7 @@ But also "custom" product association types for other needs.
 
 Well, again, it depends on your customers needs.
 
-If your customers don't manage associations directly in the eCommerce solution and want to manage them manually in the PIM, you can create a specific configuration in your connector. It will allow you to identify which PIM association type is a “Cross-sell”, “Up-sell”, “Substitution” or “Pack” association type to be able to map these associations in your eCommerce solution.
+If your customers don't manage associations directly in the eCommerce solution and want to manage them manually in the PIM, you can create a specific configuration in your App. It will allow you to identify which PIM association type is a “Cross-sell”, “Up-sell”, “Substitution” or “Pack” association type to be able to map these associations in your eCommerce solution.
 
 Also, don't forget our feature that adds [quantities on PIM associations](https://help.akeneo.com/pim/serenity/updates/2020-07.html#new-association-type-with-quantities).
 
@@ -362,7 +358,7 @@ In that specific case, you don't have to map PIM categories with eCommerce ones.
 
 If, on the other hand, you think it's interesting to map PIM categories to eCommerce categories, you need to give some flexibility to your users to choose which category trees are going to do what in the eCommerce solution.
 
-You can then define in the configuration of your connector:
+You can then define in the configuration of your App:
 * Which category trees or sub-trees do you want to import into the eCommerce plate-form
 * A mapping to define which organizations, eCommerce websites and features (menu, anchor…) will use this category tree or sub-tree.
 
@@ -395,9 +391,9 @@ If websites are dedicated to a specific locale, a customer will create some loca
 
 **What do you need to implement?**
 
-Your connector will probably have to manage this notion Multi-organisation / Multi-sites in the eCommerce solution and choose the right PIM data to import to achieve this.
+Your App will probably have to manage this notion Multi-organisation / Multi-sites in the eCommerce solution and choose the right PIM data to import to achieve this.
 
-Compared to your eCommerce features, you should, therefore, implement a flexible connector configuration to define:
+Compared to your eCommerce features, you should, therefore, implement a flexible App configuration to define:
 
 * Which products are going to be associated to which website (compared to categories and/or a specific multi-select attribute)
 
@@ -417,12 +413,12 @@ The main problem that usually occurs is that, most of the time, this notion of "
 
 Well, two choices are available:
 
-1. **Don’t manage PIM Reference Entities in your connector:**
+1. **Don’t manage PIM Reference Entities in your App:**
 As the concept of Reference Entities does not exist most of the time in your eCommerce solution, you can then decide:
 
-* To import Reference Entities records data in your connector but not to manage it (no mapping).
+* To import Reference Entities records data in your App but not to manage it (no mapping).
 
-* To indicate to your customers in your documentation that this requires a customization of your connector and the eCommerce solution to take into account these Reference Entities (customization that you can decide to develop).
+* To indicate to your customers in your documentation that this requires a customization of your App and the eCommerce solution to take into account these Reference Entities (customization that you can decide to develop).
 
 
 2. **Expose Reference Entities at Product information level:**
@@ -432,21 +428,21 @@ As there is no equivalent structure in your eCommerce solution, one strategy cou
 
 ### Manage creations: Initial import
 
-The first use-case your connector will encounter is the initial import of your user's PIM catalog.
+The first use-case your App will encounter is the initial import of your user's PIM catalog.
 
-Indeed, your client will probably have been preparing everything in Akeneo PIM for several weeks and is ready to make a first test with your connector...
+Indeed, your client will probably have been preparing everything in Akeneo PIM for several weeks and is ready to make a first test with your App...
 
-This is an important use-case because it will probably be the first contact between your connector and your customer.
+This is an important use-case because it will probably be the first contact between your App and your customer.
 
-The performance of your connector is not necessarily an issue here because this initial import will normally only be done once in the context of this use-case.
+The performance of your App is not necessarily an issue here because this initial import will normally only be done once in the context of this use-case.
 
-But this first step is one of the most challenging for the scalability of your connector.
-(Scalability is the ability of your connector to manage any type of data volume, any data complexity without issue.)
+But this first step is one of the most challenging for the scalability of your App.
+(Scalability is the ability of your App to manage any type of data volume, any data complexity without issue.)
 
-If your customer's Akeneo PIM catalog contains a large amount of data (not only in terms of the number of products but also in terms of the number of attributes, options, categories, images...) and your connector is not scalable (i.e. your connector must, in theory, be able to import any volume of data from Akeneo PIM), you risk breaking the user experience from the start…
+If your customer's Akeneo PIM catalog contains a large amount of data (not only in terms of the number of products but also in terms of the number of attributes, options, categories, images...) and your App is not scalable (i.e. your App must, in theory, be able to import any volume of data from Akeneo PIM), you risk breaking the user experience from the start…
 
 ::: warning
-Don't forget that the scalability of your connector work is also constrained by :
+Don't forget that the scalability of your App work is also constrained by :
 * The scalability limits of the PIM
 * The scalability limits of your eCommerce solution
 :::
@@ -454,10 +450,10 @@ Don't forget that the scalability of your connector work is also constrained by 
 ::: info
 **Think scalable from the start!**
 
-A connector must be **"scalable"**, i.e. it must be able to import any type of volume that Akeneo PIM gives it and this regardless of the import time (here we are talking about scalability and not performance).
+An App must be **"scalable"**, i.e. it must be able to import any type of volume that Akeneo PIM gives it and this regardless of the import time (here we are talking about scalability and not performance).
 :::
 
-To test the scalability limits of your connector, Akeneo can give you access to a specific Akeneo PIM platform containing a "Reference" catalog.
+To test the scalability limits of your App, Akeneo can give you access to a specific Akeneo PIM platform containing a "Reference" catalog.
 
 **What is the Akeneo “Reference” catalog?**
 
@@ -472,9 +468,9 @@ Please contact us if you need to have access to our **Scalability PIM** for your
 
 ### Manage modifications: Differential import feature
 
-Your connector will not need to process all Akeneo PIM data at each synchronization. This would not be efficient in terms of performance.
+Your App will not need to process all Akeneo PIM data at each synchronization. This would not be efficient in terms of performance.
 
-Your connector will therefore need to try to synchronize the product data differential between Akeneo PIM and your eCommerce solution.
+Your App will therefore need to try to synchronize the product data differential between Akeneo PIM and your eCommerce solution.
 
 Your users will push you to have immediate synchronisation between Akeneo PIM and your eCommerce solution but this can be dangerous and complex to build…
 
@@ -482,9 +478,9 @@ Your users will push you to have immediate synchronisation between Akeneo PIM an
 * Because product data must be fully prepared (notion of completeness) before being synchronized with your eCommerce solution.
 * Because the Akeneo PIM does not yet have a push event system to determine whether data has been modified or deleted.
 
-Please, consider a regular synchronisation solution (the recurrence will be configured by your customers according to their needs) which will only retrieve data that has changed since the last synchronisation of your connector.
+Please, consider a regular synchronisation solution (the recurrence will be configured by your customers according to their needs) which will only retrieve data that has changed since the last synchronisation of your App.
 
-Here, it is more the capacity of your connector in terms of performance that will be judged more than its scalability capabilities.
+Here, it is more the capacity of your App in terms of performance that will be judged more than its scalability capabilities.
 
 Akeneo PIM offers data modification API filters based on a specific date that allow you to import only data that has been modified since a certain date.
 
@@ -504,12 +500,12 @@ You will need:
 * For each modified asset/reference entity, to retrieve the associated products/product models to update them.
 
 **What about “options” and “categories”?**
-As Akeneo PIM REST API does not have a date filtering system on this data, your connector will need to fully import all options and all categories.
+As Akeneo PIM REST API does not have a date filtering system on this data, your App will need to fully import all options and all categories.
 
 ::: info
 **Think “performance” from the start!**
 
-* Your connector must be as high-performance as possible to synchronize with the PIM.
+* Your App must be as high-performance as possible to synchronize with the PIM.
 
-* Your connector only needs to import the latest Akeneo PIM data modified since the previous synchronization (delta only).  You don't have to synchronize all Akeneo PIM data each time but only data that cannot be filtered by update date.
+* Your App only needs to import the latest Akeneo PIM data modified since the previous synchronization (delta only).  You don't have to synchronize all Akeneo PIM data each time but only data that cannot be filtered by update date.
 :::

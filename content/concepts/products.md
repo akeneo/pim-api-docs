@@ -276,6 +276,12 @@ Whenever the attribute's type is `pim_catalog_multiselect`, the `data` field sho
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 :::
 
+::: warning
+Reference Data is the ancestor of Reference Entities.  
+On SaaS platforms, **users can't create Reference Data attributes anymore**.  
+More information about Reference Data and Reference Entities in the following Help Center article: [Reference entities or reference data?](https://help.akeneo.com/pim/serenity/articles/what-is-an-attribute.html#reference-entities-or-reference-data)
+:::
+
 Whenever the attribute's type is `pim_catalog_reference_data_simpleselect`, the `data` field should contain a string, that should be the code of a reference data attribute option.
 
 ##### Example

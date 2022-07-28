@@ -31,7 +31,7 @@ $client->getAssetManagerApi()->get('user_instructions', 'jeans_care_instructions
 
 Assets are automatically paginated and can be filtered.
 
-You can get more information about the available query parameters [here](/api-reference-asset-manager.html#get_assets).
+You can get more information about the available query parameters [here](/api-reference.html#get_assets).
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

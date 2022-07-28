@@ -1,0 +1,67 @@
+get:
+  summary: Get the list of product uuids
+  operationId: "get_app_catalog_product_uuids"
+  description: Coming soon. This endpoint allows you to get the list of uuids of products contained in a catalog.
+  tags:
+    - App catalog product
+  x-versions:
+    - "SaaS"
+  parameters:
+    - name: id
+      in: path
+      description: Id of the catalog
+      required: true
+      type: string
+      format: uuid
+    - $ref: '#/parameters/search_after'
+    - name: limit
+      in: query
+      description: Number of results by page, see <a href="/documentation/pagination.html">Pagination</a> section
+      required: false
+      type: integer
+      minimum: 1
+      maximum: 1000
+      default: 100
+  responses:
+    200:
+      description: Return the paginated product uuids
+      schema:
+        title: Product uuids
+        type: object
+        allOf:
+          - $ref: '#/definitions/SearchAfterPagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: string
+                      format: uuid
+      x-examples: {
+        "_links": {
+          "self": {
+            "href": "http://demo.akeneo.com/api/rest/v1/catalogs/12351d98-200e-4bbc-aa19-7fdda1bd14f2/product-uuids"
+          },
+          "first": {
+            "href": "http://demo.akeneo.com/api/rest/v1/catalogs/12351d98-200e-4bbc-aa19-7fdda1bd14f2/product-uuids"
+          },
+          "next": {
+            "href": "http://demo.akeneo.com/api/rest/v1/catalogs/12351d98-200e-4bbc-aa19-7fdda1bd14f2/product-uuids?search_after=eddfbd2a-abc7-488d-b9e3-41289c824f80"
+          }
+        },
+        "_embedded": {
+          "items": [
+            "844c736b-a19b-48a6-a354-6056044729f0",
+            "b2a683ef-4a91-4ed3-b3fa-76dab065a8d5",
+            "eddfbd2a-abc7-488d-b9e3-41289c824f80"
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
