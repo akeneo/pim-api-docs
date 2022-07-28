@@ -42,7 +42,7 @@ properties:
                 description: Unit label for the locale `localeCode`
           convert_from_standard:
             type: array
-            description: Calculation to convert the unit into the standard unit. More details <a href='/concepts/target-market-settings.html#focus-on-the-units'>here</a>.
+            description: Calculation to convert the unit from the standard unit. More details <a href='/concepts/target-market-settings.html#focus-on-the-units'>here</a>.
             x-validation-rules: "&bull; The conversion operations can't be updated when a product attribute is linked to this measurement family &#10;&bull; At least one conversion operation per unit is required"
             items:
               type: object
