@@ -39,7 +39,7 @@
     "markdown-it-include": "2.0.0",
     "markdown-it-toc-and-anchor": "4.2.0",
     "merge-stream": "1.0.1",
-    "minimist": "1.2.0",
+    "minimist": "1.2.6",
     "object-scan": "^18.0.1",
     "require-dir": "^0.3.1"
   },
