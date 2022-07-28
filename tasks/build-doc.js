@@ -355,7 +355,26 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 v6: "5x",
                 v5: "5x"
             }
-        }
+        },
+        'synchronize-pim-products-6x': {
+            gettingStartedName: 'synchronize-pim-products',
+            pimVersion: 'v6 / SaaS',
+            title: 'Synchronize PIM products with your App',
+            files: {
+                'welcome.md': 'Welcome',
+                'step-0.md': 'Discover the PIM objects relationship schema',
+                'step-1.md': 'Synchronize PIM structure',
+                'step-2.md': 'Synchronize Catalog structure: families and attributes',
+                'step-3.md': 'Synchronize Catalog structure: categories',
+                'step-4.md': 'Synchronize Products and product models',
+                'step-5.md': 'Synchronize Reference entities',
+                'step-6.md': 'Synchronize Assets'
+            },
+            availability: {
+                serenity: "6x",
+                v6: "6x"
+            }
+        },
     };
     var isOnePage = false;
 
@@ -404,20 +423,20 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'The complete guide to connect Akeneo PIM to your eCommerce solution',
             files: {
                 'introduction.md': 'Introduction',
-                'step0-who-is-your-connector-for.md': 'Who is your connector for?',
+                'step0-who-is-your-app-intended-for.md': 'Who is your App intended for?',
                 'step1-who-does-what.md': 'Who does what?',
                 'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
                 'step3-reconcile-PIM-data-with-eCommerce-data.md': 'Reconcile PIM data with eCommerce data',
-                'step4-define-your-first-scope.md': 'Define the first scope of your connector'
+                'step4-define-your-first-scope.md': 'Define the first scope of your App'
             }
         },
         'translation-connection': {
             title: 'The complete guide to connect Akeneo PIM to your online translation solution',
             files: {
                 'introduction.md': 'Introduction',
-                'step1-who-is-your-connector-for.md': 'Who is your connector for?',
+                'step1-who-is-your-app-intended-for.md': 'Who is your App intended for?',
                 'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
-                'step3-how-to-build-your-connector.md': 'How to build your connector?',
+                'step3-how-to-build-your-app.md': 'How to build your App?',
                 'step4-known-limits.md': 'Known limits'
             }
         },
@@ -425,31 +444,31 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
             title: 'The complete guide to connect your ERP solution to Akeneo PIM',
             files: {
                 'introduction.md': 'Introduction',
-                'step1-who-is-your-connector-for.md': 'Who is your connector for?',
+                'step1-who-is-your-app-intended-for.md': 'Who is your App intended for?',
                 'step2-analyze-erp-data.md': 'Analyze your ERP data',
                 'step3-understand-akeneo-pim.md': 'Understand Akeneo PIM',
-                'step4-how-to-build-your-connector.md': 'How to build your connector'
+                'step4-how-to-build-your-app.md': 'How to build your App?'
             }
         },
         'syndication-connection': {
             title: 'The complete guide to connect Akeneo PIM to your syndication solution',
             files: {
               'introduction.md': 'Introduction',
-              'step0-who-is-your-connector-for.md': 'Who is your connector for?',
+              'step0-who-is-your-app-intended-for.md': 'Who is your App intended for?',
               'step1-who-does-what.md': 'Who does what?',
               'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
-              'step3-define-your-first-scope.md': 'How to build your connector'
+              'step3-define-your-first-scope.md': 'How to build your App?'
             }
         },
         'print-connection': {
             title: 'A high-level guide to connecting Akeneo PIM to your print solution',
             files: {
               'introduction.md': 'Introduction',
-              'step0-who-is-your-connector-for.md': 'Who is your connector for?',
+              'step0-who-is-your-app-intended-for.md': 'Who is your App intended for?',
               'step1-who-does-what.md': 'Who does what?',
               'step2-understand-akeneo-pim.md': 'Understand Akeneo PIM data',
               'step3-reconcile-PIM-data-with-print-features.md': 'Reconcile PIM data with print capabilities',
-              'step4-define-your-first-scope.md': 'How to build your connector'
+              'step4-define-your-first-scope.md': 'How to build your App'
             }
         }
     };
@@ -523,7 +542,6 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
 gulp.task('build-events-api', ['clean-dist','less'], function () {
 
     var pages = {
-        'introduction.md': 'Introduction',
         'overview.md': 'Overview',
         'subscription.md': 'Subscribe and receive events',
         'security.md': 'Security',
@@ -559,14 +577,10 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
 
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
-        'introduction.md': 'What\'s an App?',
-        'why-apps-over-connectors.md': 'Why should you choose Apps?',
-        'using-oauth2.md': 'Using OAuth 2.0 to connect an App',
-        'using-openid.md': 'Using OpenID Connect to authenticate users',
-        'access-scopes.md': 'Access scopes',
-        'how-to-test-my-app.md': 'How to test my App?',
-        'how-to-have-public-url-for-my-app.md': 'How to have a public URL for my App?',
-        'create-app.md': 'Create an App (with code samples)'
+        'apps-getting-started.md': 'Getting started',
+        'authentication-and-authorization.md': 'Authentication and authorization',
+        'catalogs.md': 'Catalogs for Apps (beta)',
+        'app-developer-tools.md': 'Developer tools'
     };
 
     var isOnePage = false;

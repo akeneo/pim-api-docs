@@ -93,10 +93,10 @@ It has the same behavior as the `upsert` method for a single attribute option, e
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
-$client->getAttributeOptionApi()->upsertList([
+$client->getAttributeOptionApi()->upsertList('a_simple_select',
+[
     [
         'code'       => 'black',
-        'attribute'  => 'a_simple_select',
         'sort_order' => 2,
         'labels'     => [
             'en_US' => 'Black',
@@ -105,7 +105,6 @@ $client->getAttributeOptionApi()->upsertList([
     ],
     [
         'code'       => 'white',
-        'attribute'  => 'a_simple_select',
         'sort_order' => 3,
         'labels'     => [
             'en_US' => 'White',

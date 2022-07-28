@@ -432,7 +432,7 @@ To get all the sub-product models, you can use the following URL.
 To filter products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
-/api/rest/v1/products?search={ATTIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
+/api/rest/v1/products?search={ATTRIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
 ```
 
 In the above url :
@@ -527,7 +527,26 @@ This query parameter is also available for the published products.
 
 As seen previously, the attribute type determines which set of operators is available to use these filters.
 
-**The `pim_catalog_identifier`, `pim_catalog_text` and `pim_catalog_textarea` attribute types**
+**The `pim_catalog_identifier` attribute type**
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
+
+| Allowed operators                                  | Allowed value type |
+| -------------------------------------------------- | ------------------ |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN            | string             |
+| =, !=                                              | string             |
+| EMPTY, NOT EMPTY                                   | no value           |
+
+::: availability versions=SaaS editions=CE,EE
+
+| Allowed operators | Allowed value type                    |
+| ----------------- | ------------------------------------- |
+| IN, NOT IN        | list of strings (product identifiers) |
+
+::: warning
+With the IN operator, the list of product identifiers can contain up to **100** strings.
+:::
+
+**The `pim_catalog_text` and `pim_catalog_textarea` attribute types**
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators                                  | Allowed value type |
@@ -918,7 +937,7 @@ To get the published products that were updated during the last 4 days, you can 
 To filter published products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
-/api/rest/v1/published-products?search={ATTIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
+/api/rest/v1/published-products?search={ATTRIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
 ```
 
 In the above url :

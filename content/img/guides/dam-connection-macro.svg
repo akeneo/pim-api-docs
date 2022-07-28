@@ -81,7 +81,7 @@
       <tspan x="63" y="43">The piece of software you are </tspan> <tspan x="63" y="59">going to write</tspan>
     </text>
     <text font-family="Lato-MediumItalic, Lato" font-size="17" font-style="italic" font-weight="500" fill="#3A438B" transform="translate(347 219)">
-      <tspan x="63" y="26">DAM/PIM connector</tspan>
+      <tspan x="63" y="26">DAM/PIM App</tspan>
     </text>
     <g>
       <path d="M584 256.5h65" stroke="#8F92C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2,6"/>

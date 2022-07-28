@@ -29,7 +29,7 @@ For price information, Akeneo PIM has the capability of storing product price in
 :::info
 * The **PIM** should only own **“cold”** product information.
 * **ERPs** own **“hot”** product information (like prices and stocks).
-* PIM product price information shouldn't be mapped to syndication solution price but you can have a specific connector configuration that enabled/disabled this setting to allow or not this mapping (In the context of some projects, we met some clients who were forced to pass pricing information through the PIM).
+* PIM product price information shouldn't be mapped to syndication solution price, but you can have a specific App configuration that enables/disables this setting to allow or not this mapping (In the context of some projects, we met some clients who were forced to pass pricing information through the PIM).
 :::
 
 ## Akeneo PIM and DAM
@@ -74,8 +74,8 @@ In conclusion, in relation to what has been said above, it is, therefore, necess
 
 ![PIM with a DAM](../../img/guides/erp-dam-pim-syndication.svg)
 
-Of course these are only basic PIM architectures: some clients may have multiple data sources or destinations making the data workflow managed by your connector more complex… However, for asset media management, we suggest that you focus on these 2 typical architectures that we believe are the most used by our clients.
+Of course these are only basic PIM architectures: some clients may have multiple data sources or destinations making the data workflow managed by your App more complex… However, for asset media management, we suggest that you focus on these 2 typical architectures that we believe are the most used by our clients.
 
 ::: warning
-An syndication connector never works alone: a syndication solution needs a **PIM connector** and probably an **ERP connector** in order to have all the product information enabling products to be activated and therefore visible in marketplaces...
+A syndication App never works alone: a syndication solution needs a **PIM App** and probably an **ERP App** in order to have all the product information enabling products to be activated and therefore visible in marketplaces...
 :::   

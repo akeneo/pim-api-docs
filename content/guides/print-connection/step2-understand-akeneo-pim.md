@@ -16,16 +16,16 @@ Then, in order to understand our different editions and their capabilities, you 
 
 Play with our PIM!
 
-It is crucial to understand the PIM features and data model in order to create a great print connector.
+It is crucial to understand the PIM features and data model in order to create a great print App.
 
 The best way to become an expert at Akeneo PIM is to play with it!  
 Here, you can access our [Akeneo PIM Community Edition demo platform](http://demo.akeneo.com) (login/password: admin / admin).
 
 :::warning
-Please note that this Akeneo PIM CE demo instance is for exploratory purposes only and will only allow you to start getting familiar with Akeneo PIM. This instance is reset frequently and is therefore not intended to be used to build a connector.
+Please note that this Akeneo PIM CE demo instance is for exploratory purposes only and will only allow you to start getting familiar with Akeneo PIM. This instance is reset frequently and is therefore not intended to be used to build a App.
 :::
 
-If you need an Akeneo PIM **Enterprise Edition** instance to start developing your connector, please [contact us](https://www.akeneo.com/contact/).
+If you need an Akeneo PIM **Enterprise Edition** instance to start developing your App, please [contact us](https://www.akeneo.com/contact/).
 
 ## Acquire PIM knowledge
 
@@ -33,7 +33,7 @@ We advise you to take a look at our [Helpcenter](https://help.akeneo.com/pim/ind
 
 If you feel that a comprehensive training program would allow you to know everything about Akeneo PIM, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
 
-In the context of building a print connector, here is a selection of PIM concepts you'll need to master before developing anything:
+In the context of building a print App, here is a selection of PIM concepts you'll need to master before developing anything:
 - The [product](/concepts/products.html#product),
 - The [product model](/concepts/products.html#product-model),
 - The [family](/concepts/catalog-structure.html#family),
