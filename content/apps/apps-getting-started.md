@@ -151,4 +151,4 @@ You can use this token to call the Akeneo PIM REST API.
 - Explore the [REST API reference](/api-reference-index.html)
 - Discover how to [synchronize product data with your app](/getting-started/synchronize-pim-products-6x/welcome.html)
 - Start building your app by populating data to test your app against, designing your user interface, and interacting with the Akeneo REST API so that your app stays in sync with changing data
-- Publish your app on the [Akeneo App Store](https://apps.akeneo.com/how-submit-extension-akeneo-app-store)
+- [Publish your app](/apps/overview.html#publish-your-app) on the [Akeneo App Store](https://apps.akeneo.com/how-submit-extension-akeneo-app-store)
