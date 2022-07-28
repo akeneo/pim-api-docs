@@ -1,4 +1,4 @@
-# 👋 Welcome in this tutorial!
+# 👋 Welcome to this tutorial!
 
 This tutorial will teach you:
 > How to make your very first REST API request on a 4.0 or newer PIM

@@ -5,7 +5,7 @@ ProductExamples:
 ProductList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/ItemList'
     - $ref: '#/definitions/Product'
 
 ProductModel:
@@ -234,6 +234,12 @@ AssetItemList:
             href:
               type: string
               description: URI of the resource
+
+AppCatalogList:
+  type: object
+  allOf:
+    - $ref: '#/definitions/ItemList'
+    - $ref: ./resources/app_catalogs/definitions/app_catalog.yaml
 
 Error:
   type: object

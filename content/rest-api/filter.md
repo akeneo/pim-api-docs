@@ -146,7 +146,8 @@ To filter products on creation or update date, use respectively the product prop
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
 ::: info
-Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
+Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.    
+Please also note that product variants, with an older updated date than the filter applied, will be part of the API answer if at least one of their parent product model has an updated date that matches the filter applied.
 :::
 
 | Operator            | Allowed value type                                    | Filter description                                                                                                  |
@@ -431,7 +432,7 @@ To get all the sub-product models, you can use the following URL.
 To filter products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
-/api/rest/v1/products?search={ATTIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
+/api/rest/v1/products?search={ATTRIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
 ```
 
 In the above url :
@@ -526,7 +527,26 @@ This query parameter is also available for the published products.
 
 As seen previously, the attribute type determines which set of operators is available to use these filters.
 
-**The `pim_catalog_identifier`, `pim_catalog_text` and `pim_catalog_textarea` attribute types**
+**The `pim_catalog_identifier` attribute type**
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
+
+| Allowed operators                                  | Allowed value type |
+| -------------------------------------------------- | ------------------ |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN            | string             |
+| =, !=                                              | string             |
+| EMPTY, NOT EMPTY                                   | no value           |
+
+::: availability versions=SaaS editions=CE,EE
+
+| Allowed operators | Allowed value type                    |
+| ----------------- | ------------------------------------- |
+| IN, NOT IN        | list of strings (product identifiers) |
+
+::: warning
+With the IN operator, the list of product identifiers can contain up to **100** strings.
+:::
+
+**The `pim_catalog_text` and `pim_catalog_textarea` attribute types**
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
 
 | Allowed operators                                  | Allowed value type |
@@ -917,7 +937,7 @@ To get the published products that were updated during the last 4 days, you can 
 To filter published products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
-/api/rest/v1/published-products?search={ATTIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
+/api/rest/v1/published-products?search={ATTRIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
 ```
 
 In the above url :

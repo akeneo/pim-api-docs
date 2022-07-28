@@ -2,11 +2,11 @@
 
 ## Only text attributes
 
-Our [suggested method](step3-how-to-build-your-connector.html) allows your online translation solution to translate only **textual** attributes of Akeneo PIM products.
+Our [suggested method](step3-how-to-build-your-app.html) allows your online translation solution to translate only **textual** attributes of Akeneo PIM products.
 
 Among other PIM attributes, Akeneo PIM has a `file` attribute type that allows handling a binary file (CSV, DOC, DOCX, MP3 or PDF) associated with the product.
 
-A possible improvement of your connector could be also to take into account some of these files in order to translate them.
+A possible improvement of your App could be also to take into account some of these files in order to translate them.
 
 ## Assets and Reference Entities
 
@@ -36,7 +36,7 @@ The main problem is that with the method we suggested, Julia can only indicate p
 This is due to the fact that bulk actions aren't available on assets for now.
 :::
 
-A workaround would be to manage the translation of asset metadata as you manage [the single or multiselect attribute options](step3-how-to-build-your-connector.html#how-it-works-with-your-connector).
+A workaround would be to manage the translation of asset metadata as you manage [the single or multiselect attribute options](step3-how-to-build-your-app.html#how-it-works-with-your-app).
 
 By retrieving Julia's PIM products, you could also retrieve the information from the associated assets via asset collection attributes.
 
@@ -44,7 +44,7 @@ Moreover, since a given asset can be used for several products, it could lead to
 
 ### Reference entities
 
-Reference entity records also have localizable attributes and your connector, just like for assets, could be legitimate to offer an associated translation service to Julia.
+Reference entity records also have localizable attributes and your App, just like for assets, could be legitimate to offer an associated translation service to Julia.
 
 But for the same reasons as for assets, there is no bulk actions for reference entities / reference entity records.
 

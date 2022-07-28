@@ -25,7 +25,7 @@ $client->getAssetFamilyApi()->get('user_instructions');
 #### Get the list of the asset families
 ::: php-client-availability versions=5.0,6.0 editions=EE
 
-You can get more information about the available query parameters [here](/api-reference-asset-manager.html#get_asset_families).
+You can get more information about the available query parameters [here](/api-reference.html#get_asset_families).
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

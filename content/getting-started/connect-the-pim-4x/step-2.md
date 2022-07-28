@@ -10,7 +10,7 @@ Indeed, we have an App Store on which our dear ecosystem publishes its own tools
 
 So, we definitely recommend you to take a look at it and try to find a connector that can suit your use case. It will save you a lot of time!
 
-1. Navigate to the [marketplace](https://marketplace.akeneo.com/extensions?edition=all&version=all&api_use=1&sort=date) website.  
+1. Navigate to the [Akeneo App Store](https://apps.akeneo.com/extensions?edition=all&version=all&api_use=1&sort=date) website.  
 The results are already filtered to show you the REST API-based connectors only.
 1. In this list of connectors, try to find the one that can fit your use case best.
 
