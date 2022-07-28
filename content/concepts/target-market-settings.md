@@ -290,8 +290,8 @@ Each unit follows the same format:
 In this formula:
 - `UNIT_CODE` is the code to identify a unit.
 - `UNIT_LABEL_EN_US` and `UNIT_LABEL_FR_FR` are the labels of a unit in each locale.
-- `CONVERSION_OPERATOR` is the operator for a conversion operation to convert a unit in the standard unit.
-- `CONVERSION_VALUE` is the value for a conversion operation to convert the unit in the standard unit.
+- `CONVERSION_OPERATOR` is the operator for a conversion operation to convert a unit from the standard unit.
+- `CONVERSION_VALUE` is the value for a conversion operation to convert the unit from the standard unit.
 - `UNIT_SYMBOL` is the symbol of the unit.
 
 The conversion operators are:
