@@ -267,3 +267,7 @@ HTTP/1.1 200 OK
 ```
 
 The response is the same as when asking for the initial token, except that it contains a new `access_token` and a new `refresh_token`. You can then use this `access_token` for every REST API request you do within an hour.
+
+::: info
+By default, the refresh token expiration is set at 1209600 seconds (14 days).
+:::
