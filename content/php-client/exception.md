@@ -4,7 +4,7 @@ Every request made with the client can throw an HTTP exception.
 
 You can read more about REST API Exception handling : [here](https://api.akeneo.com/documentation/responses.html#)
 
-## HTTP exception (4XX)
+## HTTP exception
 
 The parent of these HTTP exceptions is `Akeneo\Pim\Exception\HttpException`.
 You can get the request and the response that are responsible for this exception. Also, the HTTP response code and response message are available.
