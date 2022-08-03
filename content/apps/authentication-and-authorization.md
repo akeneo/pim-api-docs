@@ -259,7 +259,7 @@ After you've completed this tutorial, you'll be able to authenticate users comin
 
 ### Step 1: Ask for authentication scopes
 
-When a user connects to your app **for the first time**, and you want to authenticate them, you must ask for OpenID scopes during the [Authorization request](link to Step 2: Ask for authorizations and permissions).
+When a user connects to your app **for the first time**, and you want to authenticate them, you must ask for OpenID scopes during the [Authorization request](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations).
 
 ``` http
 https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
