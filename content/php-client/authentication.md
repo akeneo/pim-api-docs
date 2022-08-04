@@ -2,6 +2,19 @@
 
 You can be authenticated to the REST API either by providing a username and a password or by providing a token and a refresh token.
 
+## By App token
+
+Authenticate with the access token received from an [OAuth authorization](/apps/authentication-and-authorization.html#token-success-response).
+
+```php
+<?php
+
+require_once '/vendor/autoload.php';
+
+$clientBuilder = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://localhost/');
+$client = $clientBuilder->buildAuthenticatedByAppToken('token');
+```
+
 ## By username/password
 
 You can authenticate to the client with your credentials client id/secret and your user/password:
