@@ -140,17 +140,22 @@ md.use(require('markdown-it-container'), 'php-client-availability', {
         return params.trim().match(/^php-client-availability(.*)$/);
     },
     render: function (tokens, idx) {
-        var versionsAndEditions = tokens[idx].info.trim().match(/^php-client-availability\sversions=(.*)\seditions=(.*)$/);
-        var html = '';
+        let html = '';
         if(tokens[idx].nesting === 1) {
-            var versions = versionsAndEditions[1].split(',');
-            html += _.reduce(versions, function(res, version) {
-                return res + ' <span class="label label-version">' + version + '</span>';
-            }, '<p><em class="small text-primary">Available in the client versions:</em>');
-            var editions = versionsAndEditions[2].split(',');
-            html += _.reduce(editions, function(res, edition) {
-                return res + ' <span class="label label-info">' + edition + '</span>';
-            }, '<em class="small text-primary">&nbsp;&nbsp;|&nbsp;&nbsp;Available in the client editions:</em>');
+            const matchedVersions = tokens[idx].info.trim().match(/^php-client-availability.*versions=(.*?)(\s|$)/);
+            if (matchedVersions !== null) {
+                const versions = matchedVersions[1].split(',');
+                html += _.reduce(versions, function(res, version) {
+                    return res + ' <span class="label label-version">' + version + '</span>';
+                }, '<p><em class="small text-primary">Available since PIM version:</em>');
+            }
+            const matchedEditions = tokens[idx].info.trim().match(/^php-client-availability.*editions=(.*?)(\s|$)/);
+            if (matchedEditions !== null) {
+                const editions = matchedEditions[1].split(',');
+                html += _.reduce(editions, function(res, edition) {
+                    return res + ' <span class="label label-info">' + edition + '</span>';
+                }, '<em class="small text-primary">&nbsp;&nbsp;|&nbsp;&nbsp;Available only in PIM edition:</em>');
+            }
         } else {
             html = '</p>';
         }
