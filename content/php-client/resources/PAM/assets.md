@@ -7,7 +7,7 @@ Also, did you know that since the PIM 3.2 (or the 5.0 of the client), you can ha
 :::
 
 #### Get an asset 
-::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=2.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -74,7 +74,7 @@ $asset = $client->getAssetApi()->get('bridge');
 ```
 
 #### Get a list of assets 
-::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=2.0 editions=EE
 
 There are two ways of getting assets. 
 
@@ -104,7 +104,7 @@ $assets = $client->getAssetApi()->all(50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Create an asset 
-::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=2.0 editions=EE
 
 If the asset does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -121,7 +121,7 @@ $client->getAssetApi()->create('unicorn', [
 ```
 
 #### Upsert an asset 
-::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=2.0 editions=EE
 
 If the asset does not exist yet, this method creates it, otherwise it updates it.
 
@@ -138,7 +138,7 @@ $client->getAssetApi()->upsert('bridge', [
 ```
 
 #### Upsert a list of assets 
-::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=2.0 editions=EE
 
 This method allows to create or update a list of assets.
 It has the same behavior as the `upsert` method for a single asset, except that the code must be specified in the data of each asset.

@@ -1,7 +1,7 @@
 ### Attribute group
 
 #### Get an attribute group
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -22,7 +22,7 @@ $attributeGroup = $client->getAttributeGroupApi()->get('marketing');
 ```
 
 #### Get a list of attribute groups
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 There are two ways of getting attribute groups.
  
@@ -51,7 +51,7 @@ $attributeGroups = $client->getAttributeGroupApi()->all(50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Create an attribute group
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 If the attribute group does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -68,7 +68,7 @@ $client->getAttributeGroupApi()->create('media', [
 ```
 
 #### Upsert an attribute group
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 If the attribute group does not exist yet, this method creates it, otherwise it updates it.
 
@@ -85,7 +85,7 @@ $client->getAttributeGroupApi()->upsert('marketing', [
 ```
 
 #### Upsert a list of attribute groups
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 This method allows to create or update a list of attribute groups.
 It has the same behavior as the `upsert` method for a single attribute group, except that the code must be specified in the data of each attribute group.

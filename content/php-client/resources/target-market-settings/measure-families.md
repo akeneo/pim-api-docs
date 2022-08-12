@@ -5,7 +5,7 @@ Since the 5.0 and for the SaaS versions, we encourage you to use [these new endp
 :::
 
 #### Get a measure family 
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -38,7 +38,7 @@ $measureFamily = $client->getMeasureFamilyApi()->get('casebox');
 ```
 
 #### Get a list of measure families
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 There are two ways of getting measure families. 
 

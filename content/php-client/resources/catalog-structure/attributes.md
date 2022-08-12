@@ -1,7 +1,7 @@
 ### Attribute
 
 #### Get an attribute 
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -48,7 +48,7 @@ $attribute = $client->getAttributeApi()->get('release_date');
 ```
 
 #### Get a list of attributes
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 There are two ways of getting attributes. 
 
@@ -79,7 +79,7 @@ $attributes = $client->getAttributeApi()->all(50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Create an attribute 
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 If the attribute does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -123,7 +123,7 @@ $client->getAttributeApi()->create('release_date', [
 ```
 
 #### Upsert an attribute 
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 If the attribute does not exist yet, this method creates it, otherwise it updates it.
 
@@ -167,7 +167,7 @@ $client->getAttributeApi()->upsert('release_date', [
 ```
 
 #### Upsert a list of attributes 
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=1.0
 
 This method allows to create or update a list of attributes.
 It has the same behavior as the `upsert` method for a single attribute, except that the code must be specified in the data of each attribute.

@@ -1,7 +1,7 @@
 ### Published product
 
 #### Get a published product 
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=1.0 editions=EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -55,7 +55,7 @@ The field `quantified_associations` is only available since the 5.0.
 :::
 
 #### Get a list of published products
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=1.0 editions=EE
 
 There are two ways of getting published products. Like for the products, you can use the [search builder](/php-client/resources.html#search-builder) to ease the construction of a research.
 
