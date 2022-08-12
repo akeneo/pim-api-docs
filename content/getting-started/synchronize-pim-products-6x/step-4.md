@@ -227,13 +227,13 @@ Your attribute is type **akeneo_reference_entity** or **akeneo_reference_entity_
 ```code
 record_codes_by_reference_entity_code_list = [
 	reference_entity_code_1 => [
-		reference_entity_record_code_1,
-		reference_entity_record_code_2,
+		record_code_1,
+		record_code_2,
 		...
 	],
 	reference_entity_code_2 => [
-		reference_entity_record_code_3,
-		reference_entity_record_code_4,
+		record_code_3,
+		record_code_4,
 		...
 	],
 	...
@@ -243,11 +243,11 @@ record_codes_by_reference_entity_code_list = [
 Add reference entity record data as follow:
 
 ```code
-function add_reference_entity_record_code(reference_entity_record_code)
+function add_record_code(record_code)
 {
     reference_entity_code = reference_data_name field of your attribute
-    reference_entity_record_code = parsed value of your attribute
-    record_codes_by_reference_entity_code_list[reference_entity_code].add(**reference_entity_record_code)
+    record_code = parsed value of your attribute
+    record_codes_by_reference_entity_code_list[reference_entity_code].add(**record_code)
 }
 ```
 

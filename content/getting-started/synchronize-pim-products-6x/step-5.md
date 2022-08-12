@@ -24,8 +24,8 @@ We assume in the next sections that you iterate through this **record_codes_by_r
 ```code
  [
 	reference_entity_code => [
-		reference_entity_record_code_1,
-		reference_entity_record_code_2,
+		record_code_1,
+		record_code_2,
 		...
 	],
 	...
@@ -87,13 +87,13 @@ As for products, some attributes may be simple select or multi select type (`pim
 
 ### 3 - Collect reference entity records
 
-Again, an [API call](https://api.akeneo.com/api-reference.html#Referenceentityrecord) will save your life.
+Call the Records [API endpoint](https://api.akeneo.com/api-reference.html#Referenceentityrecord) and filter by the Record codes you previously fetched.
 
 ::: tips
 Dont’t forget to add the options **locales** and **channel**. Remember: early filter saves time later...More filters [here](https://api.akeneo.com/documentation/filter.html#filter-reference-entity-records)
 :::
 
-`GET /api/rest/v1/reference-entities/{reference_entity_code}/records?locales=locales&channel=your_channel_code`
+`GET /api/rest/v1/reference-entities/{reference_entity_code}/records?search={"code":[{"operator":"IN","value":["record_code_1","record_code_2"]}]}&locales=locales&channel=your_channel_code`
 
 ```json
 {

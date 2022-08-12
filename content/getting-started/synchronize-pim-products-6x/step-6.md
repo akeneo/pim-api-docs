@@ -137,13 +137,13 @@ As for reference entities, some asset family attributes may be simple select or 
 
 ### 3 - Collect assets
 
-Simply call [the following API endpoint](https://api.akeneo.com/api-reference.html#Asset).
+Call the Assets [API endpoint](https://api.akeneo.com/api-reference.html#Asset) and filter by the Asset codes you previously fetched.
 
 ::: tips
 Please add the options **locales** and **channel**. Remember: early filter saves time later... More filters [here](https://api.akeneo.com/documentation/filter.html#filter-assets)
 :::
 
-`GET /api/rest/v1/asset-families/{asset_family_code}/assets?locales=locales&channel=your_channel_code`
+`GET /api/rest/v1/asset-families/{asset_family_code}/assets?search={"code":[{"operator":"IN","value":["asset_code_1","asset_code_2"]}]}&locales=locales&channel=your_channel_code`
 
 ```json
 {
