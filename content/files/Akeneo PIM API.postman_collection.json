@@ -2161,6 +2161,11 @@
               "query": [
                 {
                   "key": "search",
+                  "value": "{\"code\":[{\"operator\":\"IN\",\"value\":[\"bangolufsen\",\"kartell\"]}]}",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
                   "value": "{\"complete\":{\"operator\":\"=\",\"value\":true,\"channel\":\"ecommerce\",\"locales\":[\"en_US\"]}}",
                   "disabled": true
                 },
@@ -2833,6 +2838,11 @@
                 "assets"
               ],
               "query": [
+                {
+                  "key": "search",
+                  "value": "{\"code\":[{\"operator\":\"IN\",\"value\":[\"absorb_atmosphere_1\",\"absorb_atmosphere_2\"]}]}",
+                  "disabled": true
+                },
                 {
                   "key": "search",
                   "value": "{\"updated\":[{\"operator\":\">\",\"value\":\"2022-05-01T10:00:00Z\"}]}",
