@@ -698,6 +698,7 @@ gulp.task('create-resources-md', ['create-products-md','create-catalog-structure
 gulp.task('build-php-client', ['clean-dist','less', 'create-resources-md'], function () {
 
     var pages = {
+        'introduction.md': 'Introduction',
         'getting-started.md': 'Getting started',
         'authentication.md': 'Authentication',
         'exception.md': 'Exception handling',
