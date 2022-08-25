@@ -2,7 +2,7 @@
 
 
 #### Get the list of owned catalogs
-::: php-client-availability versions=10.0 editions=CE,EE
+::: php-client-availability versions=9.1 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('https://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -27,7 +27,7 @@ $catalogs = $client->getAppCatalogApi()->all();
 
 
 #### Get a catalog
-::: php-client-availability versions=10.0 editions=CE,EE
+::: php-client-availability versions=9.1 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('https://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -44,7 +44,7 @@ $catalogs = $client->getAppCatalogApi()->get('12351d98-200e-4bbc-aa19-7fdda1bd14
 ```
 
 #### Create a new catalog
-::: php-client-availability versions=10.0 editions=CE,EE
+::: php-client-availability versions=9.1 editions=CE,EE
 
 If the catalog does not exist yet, this method creates it, otherwise it throws an exception.
 
