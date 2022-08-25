@@ -647,6 +647,13 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
   }
 );
 
+gulp.task('create-app-catalog-md', function () {
+    return gulp.src(['content/php-client/resources/app-catalog/app-catalog.md','content/php-client/resources/app-catalog/app-catalog.md','content/php-client/resources/app-catalog/*.md'])
+        .pipe(concat('app-catalog.md'))
+        .pipe(insert.prepend('## App catalog\n'))
+        .pipe(gulp.dest('tmp/php-client-resources/'));
+});
+
 gulp.task('create-products-md', function () {
     return gulp.src(['content/php-client/resources/products/products.md','content/php-client/resources/products/product-models.md','content/php-client/resources/products/*.md'])
         .pipe(concat('products.md'))
@@ -683,13 +690,14 @@ gulp.task('create-asset-manager-md', function () {
         .pipe(insert.prepend('## Asset Manager\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
-gulp.task('create-resources-md', ['create-products-md','create-catalog-structure-md', 'create-target-market-settings-md', 'create-PAM-md', 'create-reference-entity-md', 'create-asset-manager-md'], function () {
+gulp.task('create-resources-md', ['create-app-catalog-md','create-products-md','create-catalog-structure-md', 'create-target-market-settings-md', 'create-PAM-md', 'create-reference-entity-md', 'create-asset-manager-md'], function () {
     return gulp.src(['tmp/php-client-resources/products.md',
                     'tmp/php-client-resources/catalog-structure.md',
                     'tmp/php-client-resources/target-market-settings.md',
                     'tmp/php-client-resources/asset-manager.md',
                     'tmp/php-client-resources/PAM.md',
-                    'tmp/php-client-resources/reference-entity.md'])
+                    'tmp/php-client-resources/reference-entity.md',
+                    'tmp/php-client-resources/app-catalog.md'])
         .pipe(concat('resources.md'))
         .pipe(insert.prepend('# Resources\n'))
         .pipe(gulp.dest('tmp/php-client'));
