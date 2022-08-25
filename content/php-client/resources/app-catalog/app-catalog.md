@@ -56,7 +56,7 @@ $client->getAppCatalogApi()->create(['name' => 'A catalog name']);
 
 
 #### Update a catalog
-::: php-client-availability versions=10.0 editions=CE,EE
+::: php-client-availability versions=9.1 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -66,7 +66,7 @@ $client->getAppCatalogApi()->upsert(['name' => 'A catalog name']);
 
 
 #### Delete a catalog
-::: php-client-availability versions=10.0 editions=CE,EE
+::: php-client-availability versions=9.1 editions=CE,EE
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
