@@ -1,7 +1,7 @@
 ### Currency
 
 #### Get a currency
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -17,7 +17,7 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 ```
 
 #### Get a list of currencies
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 There are two ways of getting currencies.
  

@@ -1,7 +1,7 @@
 ### Product draft
 
 #### Get a product draft 
-::: php-client-availability versions=1.0 editions=EE
+::: php-client-availability all-versions ee-only
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -68,7 +68,7 @@ The field `quantified_associations` is only available since the 5.0.
 :::
 
 #### Submit a product draft for approval
-::: php-client-availability versions=1.0 editions=EE
+::: php-client-availability all-versions ee-only
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

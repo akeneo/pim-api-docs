@@ -1,7 +1,7 @@
 ### Channel
 
 #### Get a channel
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -25,7 +25,7 @@ $channel = $client->getChannelApi()->get('ecommerce');
 ```
 
 #### Get a list of channels
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 There are two ways of getting channels. 
 
@@ -54,7 +54,7 @@ $channels = $client->getChannelApi()->all(50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Create a channel
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 If the channel does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -73,7 +73,7 @@ $client->getChannelApi()->create('paper', [
 ```
 
 #### Upsert a channel
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 If the channel does not exist yet, this method creates it, otherwise it updates it.
 
@@ -92,7 +92,7 @@ $client->getChannelApi()->upsert('paper', [
 ```
 
 #### Upsert a list of channels
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 This method allows to create or update a list of channels.
 It has the same behavior as the `upsert` method for a single channel, except that the code must be specified in the data of each channel.

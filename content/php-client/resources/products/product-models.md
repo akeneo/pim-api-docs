@@ -1,7 +1,7 @@
 ### Product model
 
 #### Get a product model
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -51,7 +51,7 @@ You can get more information about the returned format of the product values [he
 Since the 2.3 version, in the Akeneo PIM Enterprise Edition, the response contains one more field `metadata`. Look at the [product model drafts](/php-client/resources.html#product-model-draft) for an example.
 
 #### Get a list of product models
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 There are two ways of getting product models.
 
@@ -137,7 +137,7 @@ You can get more information about this method [here](/php-client/list-resources
 You can get more information about the available query parameters [here](/api-reference.html#get_product_models).
 
 #### Create a product model
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 If the product model does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -170,7 +170,7 @@ $client->getProductModelApi()->create('saddle_rain_boots', [
 Product model values use the same format as the product values. If you want to know more, take a look at [here](/concepts/products.html#focus-on-the-product-values).
 
 #### Upsert a product model
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 If the product model does not exist yet, this method creates it, otherwise it updates it.
 
@@ -183,7 +183,7 @@ $client->getProductModelApi()->upsert('rain_boots_red', [
 ```
 
 #### Upsert a list of product models
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 This method allows to create or update a list of product models.
 It has the same behavior as the `upsert` method for a single product model, except that the code must be specified in the data of each product models.

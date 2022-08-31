@@ -1,7 +1,7 @@
 ### Attribute option
 
 #### Get an attribute option
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -22,7 +22,7 @@ $attributeOption = $client->getAttributeOptionApi()->get('a_simple_select', 'bla
 ```
 
 #### Get a list of attribute options
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 There are two ways of getting attribute options. 
 
@@ -51,7 +51,7 @@ $attributes = $client->getAttributeOptionApi()->all('a_simple_select', 50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Create an attribute 
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 If the attribute option does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -68,7 +68,7 @@ $client->getAttributeOptionApi()->create('a_simple_select', 'black', [
 ```
 
 #### Upsert an attribute option
-::: php-client-availability versions=1.0
+::: php-client-availability all-versions
 
 If the attribute option does not exist yet, this method creates it, otherwise it updates it.
 
