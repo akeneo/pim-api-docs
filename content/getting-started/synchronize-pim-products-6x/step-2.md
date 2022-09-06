@@ -18,7 +18,7 @@ The natural way to retrieve your PIM families is to call the [API endpoint desig
 
 `GET /api/rest/v1/families`
 
-Store family codes in a **family_code_list** and attribute codes in a separate list (for example, **attribute_code_list**). We will deal [later](/getting-started/synchronize-pim-products-6x/step-4.html) with the attribute code list.
+Store family codes in a **family_code_list** and concatenate attribute codes into a single **attribute_code_list**. We will deal with them [later](/getting-started/synchronize-pim-products-6x/step-4.html).
 
 ```json
 {
