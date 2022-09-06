@@ -2,7 +2,7 @@
 
 You're ready to create a new app. You want to set up your development environment so that you can start coding.
 
-In this tutorial, we provide a guide on how to implement the required parts of your App for the activation process based on OAuth 2.0 with Authorization Code.
+In this tutorial, we provide a guide on how to implement the required parts of your App for the activation process based on OAuth 2.0 with Authorization Code..
 
 At the end of this tutorial, your App will receive an Access Token and will be able to call the REST API of a PIM.
 
