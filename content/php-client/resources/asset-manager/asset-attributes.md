@@ -2,7 +2,7 @@
 We refer here to the asset attribute option of the [Asset Manager](/concepts/asset-manager.html#asset-attribute).
 
 #### Get an attribute of a given asset family
-::: php-client-availability versions=5.0,6.0 editions=EE
+::: php-client-availability versions=5.0 ee-only
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -27,7 +27,7 @@ $client->getAssetAttributeApi()->get('user_instructions', 'label');
 ```
 
 #### Get the list of attributes of a given asset
-::: php-client-availability versions=5.0,6.0 editions=EE
+::: php-client-availability versions=5.0 ee-only
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -36,7 +36,7 @@ $client->getAssetAttributeApi()->all('user_instructions');
 ```
 
 #### Upsert an attribute of a given asset family
-::: php-client-availability versions=5.0,6.0 editions=EE
+::: php-client-availability versions=5.0 ee-only
 
 If the attribute does not exist yet, this method creates it, otherwise it updates it.
 

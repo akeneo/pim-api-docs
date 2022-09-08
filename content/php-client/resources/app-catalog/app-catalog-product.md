@@ -2,7 +2,7 @@
 
 
 #### Get the list of product uuids
-::: php-client-availability versions=9.1 editions=CE,EE
+::: php-client-availability versions=9.1
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('https://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');

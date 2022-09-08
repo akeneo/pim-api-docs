@@ -7,7 +7,7 @@ Also, did you know that since the PIM 3.2 (or the 5.0 of the client), you can ha
 :::
 
 #### Get a reference file of a localizable asset
-::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=2.0 ee-only
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -28,7 +28,7 @@ $product = $client->getAssetReferenceFileApi()->getFromLocalizableAsset('chicago
 ```
 
 #### Get a reference file of a not localizable asset
-::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=2.0 ee-only
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -49,7 +49,7 @@ $product = $client->getAssetReferenceFileApi()->getFromNotLocalizableAsset('brid
 ```
 
 #### Download a reference file of a localizable asset
-::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=2.0 ee-only
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -67,7 +67,7 @@ file_put_contents('/tmp/chicagoskyline.jpg', $product->getBody()->getContents())
 ```
 
 #### Download a reference file of a not localizable asset
-::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=2.0 ee-only
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -85,7 +85,7 @@ file_put_contents('/tmp/bridge.jpg', $product->getBody()->getContents());
 ```
 
 #### Upload an asset reference file for a localizable asset
-::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=2.0 ee-only
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -126,7 +126,7 @@ try {
 ```
 
 #### Upload an asset reference file for a not localizable asset
-::: php-client-availability versions=2.0,3.0,4.0,5.0,6.0 editions=EE
+::: php-client-availability versions=2.0 ee-only
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
