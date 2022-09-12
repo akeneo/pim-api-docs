@@ -586,7 +586,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'overview.md': 'Overview',
         'apps-getting-started.md': 'Create an app',
         'authentication-and-authorization.md': 'Authentication and authorization',
-        'catalogs.md': 'Catalogs for Apps (beta)',
+        'catalogs.md': 'Catalogs for Apps [beta]',
         'app-developer-tools.md': 'Developer tools'
     };
 
@@ -656,7 +656,7 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
 gulp.task('create-app-catalog-md', function () {
     return gulp.src(['content/php-client/resources/app-catalog/app-catalog.md','content/php-client/resources/app-catalog/app-catalog.md','content/php-client/resources/app-catalog/*.md'])
         .pipe(concat('app-catalog.md'))
-        .pipe(insert.prepend('## App catalog\n'))
+        .pipe(insert.prepend('## App catalog [beta]\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
 

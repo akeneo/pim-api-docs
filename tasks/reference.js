@@ -76,7 +76,7 @@ function determineCategory(tag){
             return 'Reference entities';
         case 'App catalog':
         case 'App catalog product':
-            return 'App catalogs';
+            return 'App catalogs [beta]';
         default:
             return 'Utilities';
     }
