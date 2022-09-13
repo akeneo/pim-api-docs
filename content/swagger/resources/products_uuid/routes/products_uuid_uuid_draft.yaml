@@ -1,0 +1,25 @@
+get:
+  summary: Get a draft
+  operationId: "get_draft_uuid__code_"
+  tags:
+    - Product uuid
+  x-versions:
+    - "SaaS"
+  x-ee: true
+  description: This endpoint allows you to get the information about a given draft.
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the draft in JSON standard format
+      schema:
+        $ref: '#/definitions/Product'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+    404:
+      $ref: "#/responses/404Error"

@@ -8,12 +8,22 @@ ProductList:
     - $ref: '#/definitions/ItemList'
     - $ref: '#/definitions/Product'
 
+ProductUuid:
+  $ref: ./resources/products_uuid/definitions/product_uuid.yaml
+ProductUuidExamples:
+  $ref: ./resources/products_uuid/definitions/examples/products_uuid.yaml
+ProductUuidList:
+  type: object
+  allOf:
+    - $ref: '#/definitions/ItemList'
+    - $ref: '#/definitions/ProductUuid'
+
 ProductModel:
   $ref: ./resources/product_models/definitions/product_model.yaml
 ProductModelList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/ItemList'
     - $ref: '#/definitions/ProductModel'
 
 PublishedProduct:

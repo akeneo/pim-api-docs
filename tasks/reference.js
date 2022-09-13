@@ -37,6 +37,7 @@ const ignoreVersionImcompatibleProperties = async (data, version) => {
 function determineCategory(tag){
     switch(tag){
         case 'Product':
+        case 'Product uuid':
         case 'Product model':
         case 'Product media file':
             return 'Products';
@@ -98,7 +99,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                         (version === '3.0') ? 'api-reference-index-30' :
                                         (version === '3.1') ? 'api-reference-index-31' :
                                         (version === '3.2') ? 'api-reference-index-32' :
-                                        (version === '4.0') ? 'api-reference-index-40' : 
+                                        (version === '4.0') ? 'api-reference-index-40' :
                                         (version === '5.0') ? 'api-reference-index-50' :
                                         (version === '6.0') ? 'api-reference-index-60' : 'api-reference-index';
         var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' :
@@ -109,7 +110,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                     (version === '3.0') ? 'api-reference-30' :
                                     (version === '3.1') ? 'api-reference-31' :
                                     (version === '3.2') ? 'api-reference-32' :
-                                    (version === '4.0') ? 'api-reference-40' : 
+                                    (version === '4.0') ? 'api-reference-40' :
                                     (version === '5.0') ? 'api-reference-50' :
                                     (version === '6.0') ? 'api-reference-60' : 'api-reference';
 
