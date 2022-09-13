@@ -1,0 +1,380 @@
+x-SaaS: {
+  _links: {
+    self: {
+      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=3&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
+    },
+    first: {
+      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=1&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
+    },
+    previous: {
+      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=2&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
+    },
+    next: {
+      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=4&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
+    }
+  },
+  current_page: 3,
+  _embedded: {
+    items: [
+      {
+        "_links": {
+          "self": {
+            "href": "https://demo.akeneo.com/api/rest/v1/product-uuid/25566245-55c3-42ce-86d9-8610ac459fa8"
+          }
+        },
+        "uuid": "25566245-55c3-42ce-86d9-8610ac459fa8",
+        "family": "tshirt",
+        "groups": [],
+        "parent": null,
+        "categories": ["summer_collection"],
+        "enabled": true,
+        "values": {
+          "sku": [
+            {
+              "data": "top",
+              "locale": null,
+              "scope": null,
+            }
+          ],
+          "name": [
+            {
+              "data": "Top",
+              "locale": "en_US",
+              "scope": null,
+            },
+            {
+              "data": "Débardeur",
+              "locale": "fr_FR",
+              "scope": null,
+            }
+          ],
+          "description": [
+            {
+              "data": "Summer top",
+              "locale": "en_US",
+              "scope": "ecommerce"
+            },
+            {
+              "data": "Top",
+              "locale": "en_US",
+              "scope": "tablet"
+            },
+            {
+              "data": "Débardeur pour l'été",
+              "locale": "fr_FR",
+              "scope": "ecommerce"
+            },
+            {
+              "data": "Débardeur",
+              "locale": "fr_FR",
+              "scope": "tablet"
+            }
+          ],
+          "price": [
+            {
+              "locale": null,
+              "scope": null,
+              "data": [
+                {
+                  "amount": "15.5", "currency": "EUR"
+                },
+                {
+                  "amount": "15", "currency": "USD"
+                }
+              ]
+            }
+          ],
+          "color": [
+            {
+              "locale": null,
+              "scope": null,
+              "data": "black",
+              "linked_data": {
+                "attribute": "color",
+                "code": "black",
+                "labels": {
+                  "en_US": "Black",
+                  "fr_FR": "Noir"
+                }
+              }
+            }
+          ],
+          "size": [
+            {
+              "locale": null,
+              "scope": null,
+              "data": "m",
+              "linked_data": {
+                "attribute": "size",
+                "code": "m",
+                "labels": {
+                  "en_US": "M",
+                  "fr_FR": "M"
+                }
+              }
+            }
+          ],
+          "collection": [
+            {
+              "locale": null,
+              "scope": null,
+              "data": [
+                "winter_2016"
+              ],
+              "linked_data": {
+                "winter_2016": {
+                  "attribute": "collection",
+                  "code": "winter_2016",
+                  "labels": {
+                    "en_US": "Winter 2016",
+                    "fr_FR": "Hiver 2016"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "created": "2016-06-23T18:24:44+02:00",
+        "updated": "2016-06-25T17:56:12+02:00",
+        "associations": {
+          "PACK": {
+            "products": ["d055527c-0698-4967-8f16-8a5f23f4e5cf"],
+            "product_models": [],
+            "groups": []
+          },
+        },
+        "quantified_associations": {
+          "PRODUCT_SET": {
+            "products": [
+              {
+                "uuid": "fc24e6c3-933c-4a93-8a81-e5c703d134d5",
+                "quantity": 2
+              },
+              {
+                "uuid": "a9b69002-a0b1-4ead-85c2-f8dbf59c6cfc",
+                "quantity": 1
+              }
+            ],
+            "product_models": [
+              {
+                "identifier": "model-biker-jacket-leather",
+                "quantity": 2
+              }
+            ]
+          }
+        },
+        "quality_scores": [
+          {
+            "scope": "ecommerce",
+            "locale": "en_US",
+            "data": "A"
+          },
+          {
+            "scope": "ecommerce",
+            "locale": "fr_FR",
+            "data": "B"
+          },
+          {
+            "scope": "tablet",
+            "locale": "en_US",
+            "data": "D"
+          },
+          {
+            "scope": "tablet",
+            "locale": "fr_FR",
+            "data": "E"
+          }
+        ],
+        "completenesses": [
+          {
+            "scope": "ecommerce",
+            "locale": "en_US",
+            "data": 20
+          },
+          {
+            "scope": "ecommerce",
+            "locale": "fr_FR",
+            "data": 30
+          },
+          {
+            "scope": "tablet",
+            "locale": "en_US",
+            "data": 55
+          },
+          {
+            "scope": "tablet",
+            "locale": "fr_FR",
+            "data": 70
+          }
+        ]
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://demo.akeneo.com/api/rest/v1/product/fc24e6c3-933c-4a93-8a81-e5c703d134d5"
+          }
+        },
+        "uuid": "fc24e6c3-933c-4a93-8a81-e5c703d134d5",
+        "family": "caps",
+        "groups": [],
+        "parent": null,
+        "categories": ["summer_collection"],
+        "enabled": true,
+        "values": {
+          "sku": [
+            {
+              "data": "cap",
+              "locale": null,
+              "scope": null,
+            }
+          ],
+          "name": [
+            {
+              "data": "Cap",
+              "locale": "en_US",
+              "scope": null,
+            },
+            {
+              "data": "Casquette",
+              "locale": "fr_FR",
+              "scope": null,
+            }
+          ],
+          "description": [
+            {
+              "data": "Cap unisex",
+              "locale": "en_US",
+              "scope": "ecommerce"
+            },
+            {
+              "data": "Cap unisex",
+              "locale": "en_US",
+              "scope": "tablet"
+            },
+            {
+              "data": "Casquette unisexe",
+              "locale": "fr_FR",
+              "scope": "ecommerce"
+            },
+            {
+              "data": "Casquette unisexe",
+              "locale": "fr_FR",
+              "scope": "tablet"
+            }
+          ],
+          "price": [
+            {
+              "locale": null,
+              "scope": null,
+              "data": [
+                {
+                  "amount": "20", "currency": "EUR"
+                },
+                {
+                  "amount": "20", "currency": "USD"
+                }
+              ]
+            }
+          ],
+          "color": [
+            {
+              "locale": null,
+              "scope": null,
+              "data": "black",
+              "linked_data": {
+                "attribute": "color",
+                "code": "black",
+                "labels": {
+                  "en_US": "Black",
+                  "fr_FR": "Noir"
+                }
+              }
+            }
+          ]
+        },
+        "created": "2016-06-23T18:24:44+02:00",
+        "updated": "2016-06-25T17:56:12+02:00",
+        "associations": {
+          "PACK": {
+            "products": ['d055527c-0698-4967-8f16-8a5f23f4e5cf'],
+            "product_models": [],
+            "groups": []
+          }
+        },
+        "quantified_associations": {},
+        "quality_scores": [
+          {
+            "scope": "ecommerce",
+            "locale": "en_US",
+            "data": "A"
+          },
+          {
+            "scope": "ecommerce",
+            "locale": "fr_FR",
+            "data": "B"
+          },
+          {
+            "scope": "tablet",
+            "locale": "en_US",
+            "data": "D"
+          },
+          {
+            "scope": "tablet",
+            "locale": "fr_FR",
+            "data": "E"
+          }
+        ],
+        "completenesses": [
+          {
+            "scope": "ecommerce",
+            "locale": "en_US",
+            "data": 20
+          },
+          {
+            "scope": "ecommerce",
+            "locale": "fr_FR",
+            "data": 30
+          },
+          {
+            "scope": "tablet",
+            "locale": "en_US",
+            "data": 55
+          },
+          {
+            "scope": "tablet",
+            "locale": "fr_FR",
+            "data": 70
+          }
+        ]
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "https://demo.akeneo.com/api/rest/v1/product-uuid/fa0b115e-46ec-4527-beab-7207452f1b47"
+          }
+        },
+        "uuid": "fa0b115e-46ec-4527-beab-7207452f1b47",
+        "family": null,
+        "groups": [],
+        "parent": null,
+        "categories": ["winter_collection"],
+        "enabled": true,
+        "values": {
+          "sku": [
+            {
+              "data": "sweat",
+              "locale": null,
+              "scope": null,
+            }
+          ]
+        },
+        "created": "2016-06-23T11:24:44+02:00",
+        "updated": "2016-06-23T11:24:44+02:00",
+        "associations": {},
+        "quantified_associations": {},
+        "quality_scores": {},
+        "completenesses": {}
+      }
+    ]
+  }
+}

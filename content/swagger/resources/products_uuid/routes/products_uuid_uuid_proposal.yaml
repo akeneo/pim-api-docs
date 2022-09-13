@@ -1,0 +1,22 @@
+post:
+  summary: Submit a draft for approval
+  operationId: "post_proposal_uuid"
+  tags:
+    - Product uuid
+  x-versions:
+    - "SaaS"
+  x-ee: true
+  description: This endpoint allows you to submit a draft for approval.
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    201:
+      $ref: "#/responses/Submitted"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"

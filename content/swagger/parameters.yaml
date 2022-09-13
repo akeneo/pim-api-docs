@@ -36,6 +36,12 @@ code:
   description: Code of the resource
   required: true
   type: string
+uuid:
+  name: uuid
+  in: path
+  description: Uuid of the resource
+  required: true
+  type: string
 reference_entity_code:
   name: reference_entity_code
   in: path
