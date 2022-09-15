@@ -2,7 +2,7 @@ get:
   summary: Get list of products
   operationId: "get_products_uuid"
   tags:
-    - Product uuid
+    - Product [uuid]
   x-versions:
     - "SaaS"
   description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered. In the Enterprise Edition, since the 2.0, permissions based on your user groups are applied to the set of products you request.
@@ -67,7 +67,7 @@ post:
   summary: Create a new product
   operationId: "post_products_uuid"
   tags:
-    - Product uuid
+    - Product [uuid]
   x-versions:
     - "SaaS"
   description: This endpoint allows you to create a new product. In the Enterprise Edition, since the v2.0, permissions based on your user groups are applied to the product you try to create.
@@ -93,7 +93,7 @@ patch:
   summary: Update/create several products
   operationId: "patch_products_uuid"
   tags:
-    - Product uuid
+    - Product [uuid]
   x-versions:
     - "SaaS"
   description: This endpoint allows you to update and/or create several products at once. Learn more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given uuid, it creates it. In the Enterprise Edition, since the v2.0, permissions based on your user groups are applied to the products you try to update. It may result in the creation of drafts if you only have edit rights through the product's categories.

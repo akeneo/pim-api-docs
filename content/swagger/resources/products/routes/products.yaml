@@ -2,7 +2,7 @@ get:
   summary: Get list of products
   operationId: "get_products"
   tags:
-    - Product
+    - Product [identifier]
   x-versions:
     - "1.7"
     - "2.x"
@@ -85,7 +85,7 @@ post:
   summary: Create a new product
   operationId: "post_products"
   tags:
-    - Product
+    - Product [identifier]
   x-versions:
     - "1.7"
     - "2.x"
@@ -117,7 +117,7 @@ patch:
   summary: Update/create several products
   operationId: "patch_products"
   tags:
-    - Product
+    - Product [identifier]
   x-versions:
     - "1.7"
     - "2.x"

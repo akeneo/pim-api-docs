@@ -2,7 +2,7 @@ get:
   summary: Get a draft
   operationId: "get_draft_uuid__code_"
   tags:
-    - Product uuid
+    - Product [uuid]
   x-versions:
     - "SaaS"
   x-ee: true

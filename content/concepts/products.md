@@ -138,7 +138,7 @@ Note that the `quality_scores` field is only available since the 5.0 and when th
 Note that the `completenesses` field is only available on SaaS platforms, and when the `with_completenesses` query parameter is set to `true`.
 :::
 
-::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Product)
+::: panel-link Want more details about the product resource? [Check its endpoints here!](/api-reference.html#Productuuid)
 :::
 
 ### Convert a variant product to a simple product
