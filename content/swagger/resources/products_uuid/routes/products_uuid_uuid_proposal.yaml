@@ -2,7 +2,7 @@ post:
   summary: Submit a draft for approval
   operationId: "post_proposal_uuid"
   tags:
-    - Product uuid
+    - Product [uuid]
   x-versions:
     - "SaaS"
   x-ee: true

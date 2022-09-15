@@ -36,8 +36,8 @@ const ignoreVersionImcompatibleProperties = async (data, version) => {
 
 function determineCategory(tag){
     switch(tag){
-        case 'Product':
-        case 'Product uuid':
+        case 'Product [identifier]':
+        case 'Product [uuid]':
         case 'Product model':
         case 'Product media file':
             return 'Products';
@@ -125,9 +125,9 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                     _.forEach(path, function(operation, verb) {
                         // This is where we filter the endpoints depending on their availability in the PIM versions
                         if (_.find(operation['x-versions'], function(o) { return (o === version) || o.startsWith(version.split('.')[0]) && o.endsWith('x'); })) {
-                            var escapeTag = operation.tags[0].replace(/\s/g, '');
+                            var escapeTag = operation.tags[0].replace(/[^\w]/g, '');
                             var category = determineCategory(operation.tags[0]);
-                            escapeCategory = category.replace(/\s/g, '');
+                            escapeCategory = category.replace(/[^\w]/g, '');
                             if (!data.categories[escapeCategory]){
                                 data.categories[escapeCategory] = { categoryName: category, resources: {}};
                                 if(escapeCategory === 'PAM') {
@@ -170,9 +170,9 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                         // This is where we filter the endpoints depending on their availability in the PIM versions
                         if (_.find(operation['x-versions'], function(o) { return o === version || o.startsWith(version.split('.')[0]) && o.endsWith('x'); })) {
                             var operationId = operation.operationId;
-                            var escapeTag = operation.tags[0].replace(/\s/g, '');
+                            var escapeTag = operation.tags[0].replace(/[^\w]/g, '');
                             var category = determineCategory(operation.tags[0]);
-                            escapeCategory = category.replace(/\s/g, '');
+                            escapeCategory = category.replace(/[^\w]/g, '');
                             if (!data.categories[escapeCategory]){
                                 data.categories[escapeCategory] = { categoryName: category, resources: {}};
                                 if(escapeCategory === 'PAM') {

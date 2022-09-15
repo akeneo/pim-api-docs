@@ -2,7 +2,7 @@ get:
   summary: Get a draft
   operationId: "get_draft__code_"
   tags:
-    - Product
+    - Product [identifier]
   x-versions:
     - "2.x"
     - "3.x"
