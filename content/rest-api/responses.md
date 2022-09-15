@@ -116,7 +116,7 @@ HTTP/1.1 405 Method Not Allowed
 
 {
     "code": 405, 
-    "message": "No route found for 'POST /api/rest/v1/products/myproduct': Method Not Allowed (Allow: GET, PATCH, DELETE)"
+    "message": "No route found for 'POST /api/rest/v1/products-uuid/f62190e8-8314-4360-8ff8-7dbdb4af6312': Method Not Allowed (Allow: GET, PATCH, DELETE)"
 }
 ```
 

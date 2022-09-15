@@ -8,7 +8,7 @@ post:
   x-ee: true
   description: This endpoint allows you to submit a draft for approval.
   parameters:
-    - $ref: '#/parameters/code'
+    - $ref: '#/parameters/uuid'
   responses:
     201:
       $ref: "#/responses/Submitted"

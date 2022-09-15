@@ -8,13 +8,13 @@ get:
   x-ee: true
   description: This endpoint allows you to get the information about a given draft.
   parameters:
-    - $ref: '#/parameters/code'
+    - $ref: '#/parameters/uuid'
   responses:
     200:
       description: OK
       x-details: Returns the content of the draft in JSON standard format
       schema:
-        $ref: '#/definitions/Product'
+        $ref: '#/definitions/ProductUuid'
     401:
       $ref: "#/responses/401Error"
     403:

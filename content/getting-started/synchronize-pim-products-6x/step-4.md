@@ -26,7 +26,7 @@ Have a look at our [product filters](https://api.akeneo.com/documentation/filter
 
 So, what does our API call on products look like?
 
-`GET /api/rest/v1/products?locales=locales&scope=your_channel_code&with_attribute_options=true&search={"family":[{"operator":"IN","value":family_code_list}],"enabled"[{"operator":"=","value":true}]}`
+`GET /api/rest/v1/products-uuid?locales=locales&scope=your_channel_code&with_attribute_options=true&search={"family":[{"operator":"IN","value":family_code_list}],"enabled"[{"operator":"=","value":true}]}`
 
 Details of this call are [here](https://api.akeneo.com/api-reference.html#get_products).
 

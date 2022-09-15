@@ -11,9 +11,9 @@
   $ref: ./resources/products_uuid/routes/products_uuid.yaml
 /api/rest/v1/products-uuid/{uuid}:
   $ref: ./resources/products_uuid/routes/products_uuid_uuid.yaml
-/api/rest/v1/products-uuid/{code}/proposal:
+/api/rest/v1/products-uuid/{uuid}/proposal:
   $ref: ./resources/products_uuid/routes/products_uuid_uuid_proposal.yaml
-/api/rest/v1/products-uuid/{code}/draft:
+/api/rest/v1/products-uuid/{uuid}/draft:
   $ref: ./resources/products_uuid/routes/products_uuid_uuid_draft.yaml
 
 /api/rest/v1/product-models:

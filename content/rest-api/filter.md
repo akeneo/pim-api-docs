@@ -7,7 +7,7 @@ When requesting a list of resources via the REST API, you can apply filters to g
 To filter products by one of its properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
-/api/rest/v1/products?search={PRODUCT_PROPERTY:[{"operator":OPERATOR,"value":VALUE}]}
+/api/rest/v1/products-uuid?search={PRODUCT_PROPERTY:[{"operator":OPERATOR,"value":VALUE}]}
 ```
 
 In the above url :
@@ -21,19 +21,19 @@ In the above url :
 To only retrieve enabled products, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"enabled":[{"operator":"=","value":true}]}
+/api/rest/v1/products-uuid?search={"enabled":[{"operator":"=","value":true}]}
 ```
 
 Of course, you can combine as many filters as you want. The example below will get you the enabled products being 70% complete.
 
 ```
-/api/rest/v1/products?search={"enabled":[{"operator":"=","value":true}],"completeness":[{"operator":">","value":70,"scope":"ecommerce"}]}
+/api/rest/v1/products-uuid?search={"enabled":[{"operator":"=","value":true}],"completeness":[{"operator":">","value":70,"scope":"ecommerce"}]}
 ```
 
 You can even combine several filters on the same product properties. The example below will get you the products categorized on the Winter Collection category and that are not categorized on the Accessories category.
 
 ```
-/api/rest/v1/products?search={"categories":[{"operator":"IN","value":["winter_collection"]},{"operator":"NOT IN","value":["accessories"]}]}
+/api/rest/v1/products-uuid?search={"categories":[{"operator":"IN","value":["winter_collection"]},{"operator":"NOT IN","value":["accessories"]}]}
 ```
 
 ### On their categories
@@ -57,7 +57,7 @@ Here are the allowed operators you can use to filter on the category code as wel
 To get the products of the `winter_collection` category, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"categories":[{"operator":"IN","value":["winter_collection"]}]}
+/api/rest/v1/products-uuid?search={"categories":[{"operator":"IN","value":["winter_collection"]}]}
 ```
 
 ### On their status
@@ -77,7 +77,7 @@ Here are the allowed operators you can use to filter on the status as well as th
 To get the disabled products, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"enabled":[{"operator":"=","value":false}]}
+/api/rest/v1/products-uuid?search={"enabled":[{"operator":"=","value":false}]}
 ```
 
 ### On their completeness
@@ -101,13 +101,13 @@ Here are the allowed operators you can use to filter by completeness as well as 
 To get the products that are 100% complete for the `ecommerce` channel, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"completeness":[{"operator":"=","value":100,"scope":"ecommerce"}]}
+/api/rest/v1/products-uuid?search={"completeness":[{"operator":"=","value":100,"scope":"ecommerce"}]}
 ```
 
 To get the products that are 100% complete on both the `en_US` and `fr_FR` locales for the `ecommerce` channel, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"completeness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
+/api/rest/v1/products-uuid?search={"completeness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
 ```
 
 ### On their group or family
@@ -129,13 +129,13 @@ Here are the allowed operators you can use to filter on these properties as well
 To get the products that are in the `promotion` group, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"groups":[{"operator":"IN","value":["promotion"]}]}
+/api/rest/v1/products-uuid?search={"groups":[{"operator":"IN","value":["promotion"]}]}
 ```
 
 To get the products that are not in the `camcorders` and `digital_cameras` family, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"family":[{"operator":"NOT IN","value":["camcorders","digital_cameras"]}]}
+/api/rest/v1/products-uuid?search={"family":[{"operator":"NOT IN","value":["camcorders","digital_cameras"]}]}
 ```
 
 ### On their creation or update date
@@ -167,13 +167,13 @@ Please also note that product variants, with an older updated date than the filt
 To get the products that were created on the 4th of July 2016 at 10am, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"created":[{"operator":"=","value":"2016-07-04 10:00:00"}]}
+/api/rest/v1/products-uuid?search={"created":[{"operator":"=","value":"2016-07-04 10:00:00"}]}
 ```
 
 To get the products that were updated during the last 4 days, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
+/api/rest/v1/products-uuid?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
 ```
 
 ### On their parent
@@ -199,25 +199,25 @@ The `IN`, `EMPTY` and `NOT EMPTY` operators are only available for SaaS customer
 To get all the variant products of the `apollon` root product model without having to filter on all its sub-product models, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"parent":[{"operator":"=","value":"apollon"}]}
+/api/rest/v1/products-uuid?search={"parent":[{"operator":"=","value":"apollon"}]}
 ```
 
 To get all the variant products of the sub product models with the codes `tshirt_armor_blue` and `tshirt_armor_red`, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"parent":[{"operator":"IN","value":["tshirt_armor_blue","tshirt_armor_red"]}]}
+/api/rest/v1/products-uuid?search={"parent":[{"operator":"IN","value":["tshirt_armor_blue","tshirt_armor_red"]}]}
 ```
 
 To get all the variant products, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"parent":[{"operator":"NOT EMPTY"}]}
+/api/rest/v1/products-uuid?search={"parent":[{"operator":"NOT EMPTY"}]}
 ```
 
 To get all the simple products, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"parent":[{"operator":"EMPTY"}]}
+/api/rest/v1/products-uuid?search={"parent":[{"operator":"EMPTY"}]}
 ```
 
 ### On their quality score
@@ -232,13 +232,13 @@ This filter accepts one operator: IN. It expects one or several scores, given as
 To get the products with a "D" for the `ecommerce` channel and `en_US` locale, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"quality_score":[{"operator":"IN","value":["D"],"scope":"ecommerce","locale":"en_US"}]}
+/api/rest/v1/products-uuid?search={"quality_score":[{"operator":"IN","value":["D"],"scope":"ecommerce","locale":"en_US"}]}
 ```
 
 To get the products with an "A" or "B" for the `mobile` channel and `en_GB` locale, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"quality_score":[{"operator":"IN","value":["A","B"],"scope":"mobile","locale":"en_GB"}]}
+/api/rest/v1/products-uuid?search={"quality_score":[{"operator":"IN","value":["A","B"],"scope":"mobile","locale":"en_GB"}]}
 ```
 
 ## Filter on product model properties
@@ -432,7 +432,7 @@ To get all the sub-product models, you can use the following URL.
 To filter products, and product models **since the v2.3**, on its [product values](/concepts/products.html#focus-on-the-product-values), you can use the `search` query parameter when requesting products. The value given to this query parameter should be a valid JSON as shown below.
 
 ```
-/api/rest/v1/products?search={ATTRIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
+/api/rest/v1/products-uuid?search={ATTRIBUTE_CODE:[{"operator":OPERATOR,"value":VALUE,"locale":LOCALE_CODE,"scope":CHANNEL_CODE}]}
 ```
 
 In the above url :
@@ -448,37 +448,37 @@ In the above url :
 To get products that are purple, purple being an option of the simple select `main_color` attribute and this attribute being neither localizable nor scopable, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"main_color":[{"operator":"IN","value":["purple"]}]}
+/api/rest/v1/products-uuid?search={"main_color":[{"operator":"IN","value":["purple"]}]}
 ```
 
 To get products having a description begining with `Amazing` on the `en_US` locale, the `short_description` attribute being localizable but not scopable, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"short_description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}]}
+/api/rest/v1/products-uuid?search={"short_description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}]}
 ```
 
 To get products that have a release date due after the 4th of July 2016 for the `ecommerce` channel, the `release_date` attribute being scopable but not localizable, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04","scope":"ecommerce"}]}
+/api/rest/v1/products-uuid?search={"release_date":[{"operator":">","value":"2016-07-04","scope":"ecommerce"}]}
 ```
 
 To get products that have a name that contains with `shirt` on the `en_US` locale for the `mobile` channel, the `name` attribute being both localizable and scopable, you can use the following URL.
 
 ```
-/api/rest/v1/products?search={"name":[{"operator":"CONTAINS","value":"shirt","locale":"en_US","scope":"mobile"}]}
+/api/rest/v1/products-uuid?search={"name":[{"operator":"CONTAINS","value":"shirt","locale":"en_US","scope":"mobile"}]}
 ```
 
 Of course, you can combine as many filters as you want. The example below will get you the products with description starting with `Amazing` on the `en_US` locale for the `ecommerce` channel, and of purple color.
 
 ```
-/api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US","scope":"ecommerce"}],"main_color":[{"operator":"IN","value":["purple"]}]}
+/api/rest/v1/products-uuid?search={"description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US","scope":"ecommerce"}],"main_color":[{"operator":"IN","value":["purple"]}]}
 ```
 
 You can even combine several filters on the same attribute. The example below will get you the products with not empty description on the `en_US` locale and empty description on the `fr_FR` locale for the `ecommerce` channel.
 
 ```
-/api/rest/v1/products?search={"description":[{"operator":"NOT EMPTY","locale":"en_US","scope":"ecommerce"},{"operator":"EMPTY","locale":"fr_FR","scope":"ecommerce"}]}
+/api/rest/v1/products-uuid?search={"description":[{"operator":"NOT EMPTY","locale":"en_US","scope":"ecommerce"},{"operator":"EMPTY","locale":"fr_FR","scope":"ecommerce"}]}
 ```
 
 :::info
@@ -493,11 +493,11 @@ If you need to filter on several attributes on the same locale, you can use the 
 #### Example
 
 ```
-/api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US","scope":"ecommerce"}]}
+/api/rest/v1/products-uuid?search={"description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US","scope":"ecommerce"}]}
 
 is equivalent to
 
-/api/rest/v1/products?search={"description":[{"operator":"STARTS WITH","value":"Amazing","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","scope":"ecommerce"}]}&search_locale=en_US
+/api/rest/v1/products-uuid?search={"description":[{"operator":"STARTS WITH","value":"Amazing","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","scope":"ecommerce"}]}&search_locale=en_US
 ```
 
 :::info
@@ -512,11 +512,11 @@ If you need to filter on several attributes on the same channel, you can use the
 #### Example
 
 ```
-/api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US","scope":"ecommerce"}]}
+/api/rest/v1/products-uuid?search={"release_date":[{"operator":">","value":"2016-07-04","scope":"ecommerce"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US","scope":"ecommerce"}]}
 
 is equivalent to
 
-/api/rest/v1/products?search={"release_date":[{"operator":">","value":"2016-07-04"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US"}]}&search_scope=ecommerce
+/api/rest/v1/products-uuid?search={"release_date":[{"operator":">","value":"2016-07-04"}],"short_description":[{"operator":"CONTAINS","value":"shoes","locale":"en_US"}]}&search_scope=ecommerce
 ```
 
 :::info
@@ -615,13 +615,13 @@ If you want to receive for each product only product values about specific attri
 To get products with only product values regarding the `description` attribute, you can use the following URL.
 
 ```
-/api/rest/v1/products?attributes=description
+/api/rest/v1/products-uuid?attributes=description
 ```
 
 You can filter product values on several attributes at the same time.
 
 ```
-/api/rest/v1/products?attributes=name,description
+/api/rest/v1/products-uuid?attributes=name,description
 ```
 
 ### Via locale
@@ -683,7 +683,7 @@ Imagine that without this filter you get these product values:
 To get only product values regarding the `en_US` locale (+ the product values of the non localizable attributes), you can use the following URL.
 
 ```
-/api/rest/v1/products?locales=en_US
+/api/rest/v1/products-uuid?locales=en_US
 ```
 
 As a result you will receive the following answer:
@@ -729,7 +729,7 @@ If you want to get the localized label of this attribute option, you will have t
 You can also filter product values on several locales at the same time.
 
 ```
-/api/rest/v1/products?locales=en_US,fr_FR
+/api/rest/v1/products-uuid?locales=en_US,fr_FR
 ```
 
 ### Via channel
@@ -746,7 +746,7 @@ There is also a `scope` query parameter that will allow you to:
 To get products from the tree linked to the `ecommerce` channel with only product values regarding the `ecommerce` channel (+ the product values of the non scopable attributes), you can use the following URL.
 
 ```
-/api/rest/v1/products?scope=ecommerce
+/api/rest/v1/products-uuid?scope=ecommerce
 ```
 
 :::warning
