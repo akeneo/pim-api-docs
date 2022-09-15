@@ -1,5 +1,4 @@
 type: object
-required: ["uuid"]
 properties:
   uuid:
     type: string
