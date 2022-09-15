@@ -65,7 +65,7 @@ For the reference entities and their records, and reference entity attribute opt
 ### Example
 #### Request
 ``` bash
-curl -X GET /api/rest/v1/products?pagination_type=search_after&search_after=qaXbcde&limit=20
+curl -X GET /api/rest/v1/products-uuid?pagination_type=search_after&search_after=qaXbcde&limit=20
 ```
 
 This request returns the 20 products situated after the `qaXbcde` cursor.
@@ -79,13 +79,13 @@ HTTP/1.1 200 OK
 {
   "_links": {
     "self": {
-      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_after=qaXbcde&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products-uuid?pagination_type=search_after&search_after=qaXbcde&limit=20"
     },
     "first": {
-      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products-uuid?pagination_type=search_after&limit=20"
     },
     "next": {
-      "href": "https://demo.akeneo.com/api/rest/v1/products?pagination_type=search_after&search_after=qaXbcdedsfeF&limit=20"
+      "href": "https://demo.akeneo.com/api/rest/v1/products-uuid?pagination_type=search_after&search_after=qaXbcdedsfeF&limit=20"
     }
   },
   "_embedded": {
@@ -156,10 +156,10 @@ HTTP/1.1 200 OK
 This is the default method used for pagination on the products. So, in fact, you do not need to specify the `pagination_type` query parameter when requesting on products.
 ``` bash
 // This request
-curl -X GET /api/rest/v1/products?pagination_type=page
+curl -X GET /api/rest/v1/products-uuid?pagination_type=page
 
 // is equal to this request
-curl -X GET /api/rest/v1/products
+curl -X GET /api/rest/v1/products-uuid
 ```
 :::
 

@@ -3729,6 +3729,493 @@
       ]
     },
     {
+      "name": "Product (uuid)",
+      "item": [
+        {
+          "name": "product",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/api/rest/v1/products-uuid/f62190e8-8314-4360-8ff8-7dbdb4af6312",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "products-uuid",
+                "f62190e8-8314-4360-8ff8-7dbdb4af6312"
+              ],
+              "query": [
+                {
+                  "key": "with_attribute_options",
+                  "value": "true",
+                  "description": "(boolean ) • Return labels of attribute options in the response.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_quality_scores",
+                  "value": "true",
+                  "description": "(boolean ) • Return product quality scores in the response.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_completenesses",
+                  "value": "true",
+                  "description": "(boolean ) • Return product completenesses in the response.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Assuming that the given uuid is the uuid of an existing product"
+          },
+          "response": []
+        },
+        {
+          "name": "products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Cookie",
+                "value": ""
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/api/rest/v1/products-uuid",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "products-uuid"
+              ],
+              "query": [
+                {
+                  "key": "attributes",
+                  "value": "description,name",
+                  "description": "Get products with only product values regarding the description and name attributes.",
+                  "disabled": true
+                },
+                {
+                  "key": "locales",
+                  "value": "en_US,fr_FR",
+                  "description": "Get products with only product values regarding the en_US and fr_FR locales.",
+                  "disabled": true
+                },
+                {
+                  "key": "scope",
+                  "value": "ecommerce",
+                  "description": "Get products from the tree linked to the ecommerce channel with only product values regarding the ecommerce channel (+ the product values of the non scopable attributes).",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"main_color\":[{\"operator\":\"IN\",\"value\":[\"purple\"]}]}",
+                  "description": "Get products that are purple, purple being an option of the simple select main_color attribute and this attribute being neither localizable nor scopable.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"short_description\":[{\"operator\":\"STARTS WITH\",\"value\":\"Amazing\",\"locale\":\"en_US\"}]}\n",
+                  "description": "Get products having a description begining with Amazing on the en_US locale, the short_description attribute being localizable but not scopable.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"release_date\":[{\"operator\":\">\",\"value\":\"2016-07-04\",\"scope\":\"ecommerce\"}]}",
+                  "description": "Get products that have a release date due after the 4th of July 2016 for the ecommerce channel, the release_date attribute being scopable but not localizable.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"name\":[{\"operator\":\"CONTAINS\",\"value\":\"shirt\",\"locale\":\"en_US\",\"scope\":\"mobile\"}]}",
+                  "description": "Get products that have a name that contains with shirt on the en_US locale for the mobile channel, the name attribute being both localizable and scopable.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"description\":[{\"operator\":\"STARTS WITH\",\"value\":\"Amazing\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}],\"main_color\":[{\"operator\":\"IN\",\"value\":[\"purple\"]}]}\n",
+                  "description": "Get you the products with description starting with Amazing on the en_US locale for the ecommerce channel, and of purple color.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"description\":[{\"operator\":\"NOT EMPTY\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"},{\"operator\":\"EMPTY\",\"locale\":\"fr_FR\",\"scope\":\"ecommerce\"}]}\n",
+                  "description": "Get you the products with not empty description on the en_US locale and empty description on the fr_FR locale for the ecommerce channel.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"description\":[{\"operator\":\"STARTS WITH\",\"value\":\"Amazing\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}],\"short_description\":[{\"operator\":\"CONTAINS\",\"value\":\"shoes\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}]}",
+                  "description": "If you need to filter on several attributes on the same locale, you can use the search_locale query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing locale code.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"release_date\":[{\"operator\":\">\",\"value\":\"2016-07-04\",\"scope\":\"ecommerce\"}],\"short_description\":[{\"operator\":\"CONTAINS\",\"value\":\"shoes\",\"locale\":\"en_US\",\"scope\":\"ecommerce\"}]}",
+                  "description": "If you need to filter on several attributes on the same scope, you can use the search_scope query parameter, to avoid repeating yourself for each attribute. This parameter expect an existing scope code.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"categories\":[{\"operator\":\"IN\",\"value\":[\"winter_collection\"]}]}",
+                  "description": "Get the products of the winter_collection category.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"enabled\":[{\"operator\":\"=\",\"value\":false}]}",
+                  "description": "Get the disabled products.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"completeness\":[{\"operator\":\"=\",\"value\":100,\"scope\":\"ecommerce\"}]}",
+                  "description": "Get the products that are 100% complete for the ecommerce channel.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"completeness\":[{\"operator\":\"GREATER OR EQUALS THAN ON ALL LOCALES\",\"value\":100,\"locales\":[\"en_US\",\"fr_FR\"],\"scope\":\"ecommerce\"}]}",
+                  "description": "Get the products that are 100% complete on both the en_US and fr_FR locales for the ecommerce channel.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"groups\":[{\"operator\":\"IN\",\"value\":[\"promotion\"]}]}",
+                  "description": "Get the products that are in the promotion group.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"family\":[{\"operator\":\"NOT IN\",\"value\":[\"camcorders\",\"digital_cameras\"]}]}",
+                  "description": "Get the products that are not in the camcorders and digital_cameras family.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"created\":[{\"operator\":\"=\",\"value\":\"2016-07-04 10:00:00\"}]}",
+                  "description": "Get the products that were created on the 4th of July 2016 at 10am.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"updated\":[{\"operator\":\"SINCE LAST N DAYS\",\"value\":4}]}",
+                  "description": "Get the products that were updated during the last 4 days.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"parent\":[{\"operator\":\"=\",\"value\":\"apollon\"}]}",
+                  "description": "Get all the variant products of the apollon root product model without having to filter on all its sub-product models.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"parent\":[{\"operator\":\"IN\",\"value\":[\"tshirt_armor_blue\",\"tshirt_armor_red\"]}]}",
+                  "description": "Get all the variant products of the sub product models with the codes tshirt_armor_blue and tshirt_armor_red.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"parent\":[{\"operator\":\"NOT EMPTY\"}]}",
+                  "description": "Get all the variant products.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"parent\":[{\"operator\":\"EMPTY\"}]}",
+                  "description": "Get all the simple products.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"quality_score\":[{\"operator\":\"IN\",\"value\":[\"D\"],\"scope\":\"ecommerce\",\"locale\":\"en_US\"}]}",
+                  "description": "Get the products with a \"D\" for the ecommerce channel and en_US locale.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "{\"quality_score\":[{\"operator\":\"IN\",\"value\":[\"A\",\"B\"],\"scope\":\"mobile\",\"locale\":\"en_GB\"}]}",
+                  "description": "Get the products with an \"A\" or \"B\" for the mobile channel and en_GB locale",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "3",
+                  "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_count",
+                  "value": "true",
+                  "description": "(boolean ) • Return the count of items in the response. Be carefull with that, on a big catalog, it can decrease performance in a significative way.",
+                  "disabled": true
+                },
+                {
+                  "key": "pagination_type",
+                  "value": "search_after",
+                  "description": "(string , page by default )  • Pagination method type.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "description": "(integer , 10 by default )  • Number of results by page.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_quality_scores",
+                  "value": "true",
+                  "description": "(boolean ) • Return product quality scores in the response.",
+                  "disabled": true
+                },
+                {
+                  "key": "search_after",
+                  "value": "qaXbcde",
+                  "description": "(string , cursor to the first page by default ) • Cursor when using the `search_after` pagination method type. Should never be set manually.",
+                  "disabled": true
+                },
+                {
+                  "key": "with_attribute_options",
+                  "value": "true",
+                  "description": "(boolean ) • Return labels of attribute options in the response. (Only available since the 5.0 version).",
+                  "disabled": true
+                },
+                {
+                  "key": "with_completenesses",
+                  "value": "true",
+                  "description": "(boolean ) • Return product completenesses in the response. (Only available on SaaS platforms).",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "\n"
+          },
+          "response": []
+        },
+        {
+          "name": "product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"f62190e8-8314-4360-8ff8-7dbdb4af6312\",\n  \"family\": \"tshirts\",\n  \"groups\": [],\n  \"parent\": null,\n  \"categories\": [\n    \"tvs_projectors\"\n  ],\n  \"enabled\": true,\n  \"values\": {\n    \"sku\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"new_product\"\n      }\n    ],\n    \"clothing_size\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"s\"\n      }\n    ],\n    \"description\": [\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"mobile\",\n        \"data\": \"Akeneo T-Shirt 77777\"\n      },\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"print\",\n        \"data\": \"Akeneo T-Shirt with short sleeve\"\n      }\n    ],\n    \"main_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"black\"\n      }\n    ],\n    \"name\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"Akeneo T-Shirt black and purple with short sleeve\"\n      }\n    ],\n    \"secondary_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"purple\"\n      }\n    ],\n    \"tshirt_materials\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"cotton\"\n      }\n    ],\n    \"tshirt_style\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          \"crewneck\",\n          \"short_sleeve\"\n        ]\n      }\n    ],\n    \"price\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          {\n            \"amount\": 10,\n            \"currency\": \"EUR\"\n          },\n          {\n            \"amount\": 14,\n            \"currency\": \"USD\"\n          }\n        ]\n      }\n    ]\n  },\n  \"created\": \"2017-03-30T14:55:26+02:00\",\n  \"updated\": \"2017-05-04T23:56:09+02:00\",\n  \"associations\": {\n    \"SUBSTITUTION\": {\n      \"groups\": [],\n      \"products\": [\n        \"AKNSTK\"\n      ]\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{url}}/api/rest/v1/products-uuid",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "products-uuid"
+              ]
+            },
+            "description": "Assuming that there is no \"new_product\" already existing"
+          },
+          "response": []
+        },
+        {
+          "name": "product",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identifier\": \"AKNSTK\",\n  \"family\": \"tshirts\",\n  \"groups\": [],\n  \"parent\": null,\n  \"categories\": [\n    \"goodies\",\n    \"tshirts\"\n  ],\n  \"enabled\": true,\n  \"values\": {\n    \"sku\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"updated_product\"\n      }\n    ],\n    \"clothing_size\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"s\"\n      }\n    ],\n    \"description\": [\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"mobile\",\n        \"data\": \"Akeneo T-Shirt 77777\"\n      },\n      {\n        \"locale\": \"en_US\",\n        \"scope\": \"print\",\n        \"data\": \"Akeneo T-Shirt with short sleeve\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"mobile\",\n        \"data\": \"T-Shirt Akeneo\"\n      },\n      {\n        \"locale\": \"fr_FR\",\n        \"scope\": \"print\",\n        \"data\": \"T-Shirt Akeneo manches courtes\"\n      }\n    ],\n    \"main_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"black\"\n      }\n    ],\n    \"name\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"Akeneo T-Shirt black and purple with short sleeve\"\n      }\n    ],\n    \"secondary_color\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"purple\"\n      }\n    ],\n    \"tshirt_materials\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": \"cotton\"\n      }\n    ],\n    \"tshirt_style\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          \"crewneck\",\n          \"short_sleeve\"\n        ]\n      }\n    ],\n    \"price\": [\n      {\n        \"locale\": null,\n        \"scope\": null,\n        \"data\": [\n          {\n            \"amount\": 10,\n            \"currency\": \"EUR\"\n          },\n          {\n            \"amount\": 14,\n            \"currency\": \"USD\"\n          }\n        ]\n      }\n    ]\n  },\n  \"created\": \"2017-03-30T14:55:26+02:00\",\n  \"updated\": \"2017-05-04T23:56:09+02:00\",\n  \"associations\": {\n    \"SUBSTITUTION\": {\n      \"groups\": [],\n      \"products\": []\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{url}}/api/rest/v1/products-uuid/f62190e8-8314-4360-8ff8-7dbdb4af6312",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "products-uuid",
+                "f62190e8-8314-4360-8ff8-7dbdb4af6312"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "products",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.akeneo.collection+json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"values\": {\"sku\": [{\"locale\": null, \"scope\": null, \"data\": \"new_product\"}]}}\n{\"values\": {\"sku\": [{\"locale\": null, \"scope\": null, \"data\": \"AKNSTK\"}]}, \"family\": \"tshirts\"}\n"
+            },
+            "url": {
+              "raw": "{{url}}/api/rest/v1/products-uuid",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "products-uuid"
+              ]
+            },
+            "description": "\n"
+          },
+          "response": []
+        },
+        {
+          "name": "product",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{url}}/api/rest/v1/products-uuid/f62190e8-8314-4360-8ff8-7dbdb4af6312",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "products-uuid",
+                "f62190e8-8314-4360-8ff8-7dbdb4af6312"
+              ]
+            },
+            "description": "Assuming that the given uuid is the uuid of an existing product"
+          },
+          "response": []
+        },
+        {
+          "name": "draft (2.x and EE only)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/api/rest/v1/products-uuid/f62190e8-8314-4360-8ff8-7dbdb4af6312/draft",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "products-uuid",
+                "f62190e8-8314-4360-8ff8-7dbdb4af6312",
+                "draft"
+              ]
+            },
+            "description": "Assuming that there is already a draft for the given product. The draft was created by the same user that using this request.\nThe user has only an edition permission through categories on the given product."
+          },
+          "response": []
+        },
+        {
+          "name": "proposal (2.x and EE only)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{url}}/api/rest/v1/products-uuid/f62190e8-8314-4360-8ff8-7dbdb4af6312/proposal",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "rest",
+                "v1",
+                "products-uuid",
+                "f62190e8-8314-4360-8ff8-7dbdb4af6312",
+                "proposal"
+              ]
+            },
+            "description": "Assuming that there is already a draft for the given product. The draft was created by the same user using this request.\nThe user has only an edition permission through categories on the given product."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Product model (>= v2)",
       "item": [
         {

@@ -137,7 +137,7 @@ HTTP/1.1 200 OK
       "methods": ["PATCH"]
     }, 
     "pim_api_product_delete": {
-      "route": "/api/rest/v1/products/{code}",
+      "route": "/api/rest/v1/products-uuid/{uuid}",
       "methods": ["DELETE"]
     }
   }
