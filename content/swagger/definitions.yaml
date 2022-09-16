@@ -278,6 +278,21 @@ ErrorByLine:
     message:
       type: string
       description: Message explaining the error
+ErrorByLineProductUuid:
+  type: object
+  properties:
+    line:
+      type: integer
+      description: Line number
+    uuid:
+      type: string
+      description: Product uuid
+    status_code:
+      type: integer
+      description: HTTP status code, see <a href="/documentation/responses.html#client-errors">Client errors</a> to understand the meaning of each code
+    message:
+      type: string
+      description: Message explaining the error
 ErrorByObject:
   type: array
   items:

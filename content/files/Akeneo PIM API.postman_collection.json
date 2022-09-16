@@ -3997,7 +3997,7 @@
                 {
                   "key": "with_attribute_options",
                   "value": "true",
-                  "description": "(boolean ) • Return labels of attribute options in the response. (Only available since the 5.0 version).",
+                  "description": "(boolean ) • Return labels of attribute options in the response.",
                   "disabled": true
                 },
                 {
