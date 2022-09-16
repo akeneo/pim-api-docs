@@ -159,16 +159,23 @@ example: {
   "groups": [],
   "parent": null,
   "values": {
+    "sku": [
+      {
+        "data": "top",
+        "locale": null,
+        "scope": null
+      }
+    ],
     "name": [
       {
         "data": "Top",
         "locale": "en_US",
-        "scope": null,
+        "scope": null
       },
       {
         "data": "Débardeur",
         "locale": "fr_FR",
-        "scope": null,
+        "scope": null
       }
     ],
     "description": [
