@@ -764,7 +764,7 @@ In the Akeneo UI, product models are displayed in the grid, exactly like classic
 
 ![Product models in the grid](/img/concepts/product_models_in_the_grid_ui.png)
 
-It's also possible to enrich product model. Below, you can find a screenshot of what the UI looks like.
+It's also possible to enrich a product model. Below, you can find a screenshot of what the UI looks like.
 
 ![Product models in the PEF](/img/concepts/product_models_in_the_pef_ui.png)
 
