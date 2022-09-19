@@ -44,7 +44,7 @@ This allows Julia to have the information at her fingertips without the risk of 
 
 ## Julia's needs
 
-Now, let's be focus on Julia's needs about your App.
+Now, let's focus on Julia's needs about your App.
 
 **If the product is initially created in the ERP:**
 
