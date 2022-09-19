@@ -1,6 +1,10 @@
 type: object
 required: ["identifier"]
 properties:
+  uuid:
+    type: string
+    description: Product UUID
+    x-from-version: 'SaaS'
   identifier:
     type: string
     description: Product identifier, i.e. the value of the only `pim_catalog_identifier` attribute

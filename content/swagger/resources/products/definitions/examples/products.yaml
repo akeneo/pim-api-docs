@@ -1026,6 +1026,7 @@ x-SaaS: {
             "href": "https://demo.akeneo.com/api/rest/v1/product/top"
           }
         },
+        "uuid": "aaf518b2-f91e-40f1-a53a-78ce5e81a6f9",
         "identifier": "top",
         "family": "tshirt",
         "groups": [],
@@ -1211,6 +1212,7 @@ x-SaaS: {
             "href": "https://demo.akeneo.com/api/rest/v1/product/cap"
           }
         },
+        "uuid": "aec6780b-c813-4bd7-8e24-1a8574471576",
         "identifier": "cap",
         "family": "caps",
         "groups": [],
@@ -1343,6 +1345,7 @@ x-SaaS: {
             "href": "https://demo.akeneo.com/api/rest/v1/product/sweat"
           }
         },
+        "uuid": "93f14b03-5ed3-4f23-87c6-ae3806041b6a",
         "identifier": "sweat",
         "family": null,
         "groups": [],
