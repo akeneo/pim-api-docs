@@ -216,7 +216,7 @@ HTTP/1.1 422 Unprocessable Entity
     "message": "The sunglasses category does not exist in your PIM. Check the expected format on the API documentation.",
     "_links": {
         "documentation": {
-            "href": "http://api.akeneo.com/api-reference.html#post_products"
+            "href": "http://api.akeneo.com/api-reference.html#post_products_uuid"
         }
     }
 }

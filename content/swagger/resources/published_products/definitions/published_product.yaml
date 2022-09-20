@@ -45,7 +45,7 @@ properties:
               description: <a href='api-reference.html#Locale'>Locale</a> code of the product value
             data:
               type: object
-              description: <a href='api-reference.html#Product'>Product</a> value
+              description: <a href='api-reference.html#Productuuid'>Product</a> value
   associations:
     type: object
     description: Several associations related to groups and/or other published products, grouped by association types
