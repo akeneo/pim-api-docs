@@ -26,7 +26,7 @@ Below is the JSON standard format representing a product.
 
 ```json
 {
-  "identifier": "1111111195",
+  "uuid": "fc24e6c3-933c-4a93-8a81-e5c703d134d5",
   "family": "clothing",
   "parent": "jack_brown",
   "categories": [
@@ -34,6 +34,13 @@ Below is the JSON standard format representing a product.
   ],
   "enabled": true,
   "values": {
+    "sku": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "1111111195"
+      }
+    ],
     "ean": [
       {
         "locale": null,

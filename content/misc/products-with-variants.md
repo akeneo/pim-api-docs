@@ -30,7 +30,7 @@ As a result, we totally refounded the way we model the product with variants. In
 The JSON standard format of a variant product is, in 2.0, the following:
 ```json
 {
-  "identifier": "1111111195",
+  "uuid": "fc24e6c3-933c-4a93-8a81-e5c703d134d5",
   "family": "clothing",
   "parent": "jack_brown",
   "categories": [
@@ -38,6 +38,13 @@ The JSON standard format of a variant product is, in 2.0, the following:
   ],
   "enabled": true,
   "values": {
+    "sku": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": "1111111195"
+      }
+    ],
     "ean": [
       {
         "locale": null,
@@ -145,7 +152,7 @@ Before in 1.7
   "updated": "2017-10-05T11:25:48+02:00"
 }
 ```
-Now in 2.0
+After 2.0
 ```json
 {
   "identifier": "1111111195",
