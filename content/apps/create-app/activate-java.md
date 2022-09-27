@@ -1,4 +1,5 @@
 ```java [activate:Java Spring]
+
 import java.security.SecureRandom;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +16,10 @@ public class App {
     static final String OAUTH_SCOPES = "read_products write_products";
     
     @GetMapping("/activate")
-    public void activate(HttpServletRequest request, HttpSession session, HttpServletResponse response) throws Exception {
+    public void activate(
+            HttpServletRequest request,
+            HttpSession session,
+            HttpServletResponse response) throws Exception {
         // Create a random state for preventing cross-site request forgery
         byte[] randomBytes = new byte[10];
         new SecureRandom().nextBytes(randomBytes);
@@ -32,7 +36,8 @@ public class App {
     
         // Build url for the Authorization Request
         // https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1
-        String authorizeUrl = pimUrl + "/connect/apps/v1/authorize" + "?response_type=code" + "&client_id=" + OAUTH_CLIENT_ID
+        String authorizeUrl = pimUrl + "/connect/apps/v1/authorize" + "?response_type=code"
+                + "&client_id=" + OAUTH_CLIENT_ID
                 + "&scope=" + OAUTH_SCOPES + "&state=" + state;
     
         // Redirect the user to the Authorization URL
