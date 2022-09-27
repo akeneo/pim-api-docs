@@ -3729,7 +3729,7 @@
       ]
     },
     {
-      "name": "Product (uuid)",
+      "name": "Product (uuid, SAAS only)",
       "item": [
         {
           "name": "product",
