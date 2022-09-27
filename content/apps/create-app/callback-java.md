@@ -1,4 +1,5 @@
 ```java [callback:Java Spring]
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -21,7 +22,9 @@ public class App {
     static final String OAUTH_CLIENT_SECRET = "CLIENT_SECRET";
     
     @GetMapping("/callback")
-    public String callback(HttpServletRequest request, HttpSession session) throws Exception {
+    public String callback(
+            HttpServletRequest request,
+            HttpSession session) throws Exception {
         Object sessionState = session.getAttribute("oauth2_state");
         String stateParam = request.getParameter("state");
     
@@ -46,7 +49,9 @@ public class App {
         String codeIdentifier = HexUtils.toHexString(randomBytes);
     
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] codeChallengeBytes = digest.digest((codeIdentifier + OAUTH_CLIENT_SECRET).getBytes(StandardCharsets.UTF_8));
+        byte[] codeChallengeBytes = digest
+                .digest((codeIdentifier + OAUTH_CLIENT_SECRET)
+                        .getBytes(StandardCharsets.UTF_8));
         String codeChallenge = HexUtils.toHexString(codeChallengeBytes);
     
         String accessTokenUrl = pimUrl + "/connect/apps/v1/oauth2/token";
@@ -67,7 +72,8 @@ public class App {
                 .POST(BodyPublishers.ofString(json.toString()))
                 .build();
     
-        HttpResponse<String> response = client.send(authorizeRequest, BodyHandlers.ofString());
+        HttpResponse<String> response = client
+                .send(authorizeRequest, BodyHandlers.ofString());
     
         return response.body();
     }
