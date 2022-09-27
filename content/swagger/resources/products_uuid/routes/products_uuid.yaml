@@ -109,7 +109,7 @@ patch:
           x-example-2:
             '{"uuid":"573dd613-0c7f-4143-83d5-63cc5e535966","values":{"sku":[{"data":"updated_sku","locale":null,"scope":null}]}, "group":["promotion"]}'
           x-example-3:
-            '{"values":{"sku":[{"data":"new_product","locale":null,"scope":null}]},"family":"clothes"}'
+            '{"uuid":"25566245-55c3-42ce-86d9-8610ac459fa8","values":{"sku":[{"data":"new_product","locale":null,"scope":null}]},"family":"clothes"}'
   responses:
     200:
       description: OK
@@ -123,7 +123,7 @@ patch:
         x-example-2:
           '{"line":2,"uuid":"573dd613-0c7f-4143-83d5-63cc5e535966","status_code":422,"message":"Property "group" does not exist."}'
         x-example-3:
-          '{"line":3,"uuid":"2d9e205c-78c9-495a-831c-e1a10531eeb1","status_code":201}'
+          '{"line":3,"uuid":"25566245-55c3-42ce-86d9-8610ac459fa8","status_code":201}'
     401:
       $ref: "#/responses/401Error"
     403:
