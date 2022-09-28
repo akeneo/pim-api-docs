@@ -28,6 +28,8 @@ gulp.task('copy-assets', ['clean-dist'], function(){
         .pipe(gulp.dest('dist/img/'));
     var files = gulp.src('content/files/*')
         .pipe(gulp.dest('dist/files/'));
+    var files = gulp.src('content/mapping/**')
+        .pipe(gulp.dest('dist/mapping/'));
 
     return merge(fa, fonts, lib, img);
 });
