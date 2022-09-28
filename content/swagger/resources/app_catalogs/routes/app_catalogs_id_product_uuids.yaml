@@ -1,7 +1,11 @@
 get:
   summary: Get the list of product uuids
   operationId: "get_app_catalog_product_uuids"
-  description: Coming soon. This endpoint allows you to get the list of uuids of products contained in a catalog.
+  description: |
+    Coming soon. This endpoint allows you to get the list of uuids of products contained in a catalog.
+    Note that a disabled catalog can return an empty list.
+    A catalog can be disabled automatically on the PIM side if a product selection is no longer valid
+    following the deletion of a category or an attribute option.
   tags:
     - App catalog product
   x-versions:
@@ -24,7 +28,9 @@ get:
       default: 100
   responses:
     200:
-      description: Return the paginated product uuids
+      description: |
+        Return the paginated product uuids.
+        Note that a disabled catalog can return an empty list.
       schema:
         title: Product uuids
         type: object
