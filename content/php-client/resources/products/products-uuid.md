@@ -5,7 +5,7 @@ The following endpoints are largely the same as for [products](/php-client/resou
 :::
 
 #### Get a product
-::: php-client-availability versions=10.0 editions=CE,EE
+::: php-client-availability versions=10.0
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -58,7 +58,7 @@ $product = $client->getProductUuidApi()->get('12951d98-210e-4bRC-ab18-7fdgf1bd14
 ```
 
 #### Get a list of products
-::: php-client-availability versions=10.0 editions=CE,EE
+::: php-client-availability versions=10.0
 
 There are two ways of getting products. Also, you have a search builder to ease the construction of a research.
 
@@ -86,7 +86,7 @@ $searchFilters = $searchBuilder->getFilters();
 This method allows to get products page per page, as a classical pagination. You can research products thanks to the search builder.
 
 As for the other entities, it's possible to get the total number of researched products with this method.
-Also, it's possible to filter the value to return, thanks to the query parameters that are fully described [here](/api-reference.html#get_products).
+Also, it's possible to filter the value to return, thanks to the query parameters that are fully described [here](/api-reference.html#get_products_uuid).
 
 For example, in this example, we only return product values belonging to the channel "ecommerce" by adding the query parameter `'scope' => 'ecommerce'`.
 
@@ -114,7 +114,7 @@ It's recommended to let this parameter with the default value `false` if the tot
 
 You can get more information about this method [here](/php-client/list-resources.html#by-getting-pages).
 
-You can get more information about the available query parameters [here](/api-reference.html#get_products).
+You can get more information about the available query parameters [here](/api-reference.html#get_products_uuid).
 
 **With a cursor**
 
@@ -143,10 +143,10 @@ There is a maximum limit allowed on server side for the parameter `pageSize`.
 
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
-You can get more information about the available query parameters [here](/api-reference.html#get_products).
+You can get more information about the available query parameters [here](/api-reference.html#get_products_uuid).
 
 #### Create a product
-::: php-client-availability versions=9.0 editions=CE,EE
+::: php-client-availability versions=10.0
 
 If the product does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -196,7 +196,7 @@ $client->getProductUuidApi()->create('844c736b-a19b-48a6-a354-6056044729f0', [
 You can get more information about the expected format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
 #### Upsert a product
-::: php-client-availability versions=9.0 editions=CE,EE
+::: php-client-availability versions=10.0
 
 If the product does not exist yet, this method creates it, otherwise it updates it.
 
@@ -246,7 +246,7 @@ $client->getProductUuidApi()->upsert('844c736b-a19b-48a6-a354-6056044729f0', [
 You can get more information about the expected format of the product values [here](/concepts/products.html#focus-on-the-product-values).
 
 #### Upsert a list of products
-::: php-client-availability versions=9.0 editions=CE,EE
+::: php-client-availability versions=10.0
 
 This method allows to create or update a list of products.
 It has the same behavior as the `upsert` method for a single product, except that the code must be specified in the data of each product.
@@ -302,10 +302,10 @@ foreach ($responseLines as $line) {
 There is a limit on the maximum number of products that you can upsert in one time on server side. By default this limit is set to 100.
 :::
 
-You can get a complete description of the expected format and the returned format [here](/api-reference.html#get_products__code_).
+You can get a complete description of the expected format and the returned format [here](/api-reference.html#get_products_uuid__uuid_).
 
 #### Delete a product
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability versions=10.0
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
