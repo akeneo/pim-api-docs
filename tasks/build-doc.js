@@ -667,7 +667,7 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
 gulp.task('create-app-catalog-md', function () {
     return gulp.src(['content/php-client/resources/app-catalog/app-catalog.md','content/php-client/resources/app-catalog/app-catalog.md','content/php-client/resources/app-catalog/*.md'])
         .pipe(concat('app-catalog.md'))
-        .pipe(insert.prepend('## Catalogs <span class="label label-beta">Beta</span>\n'))
+        .pipe(insert.prepend('## Catalogs for Apps <span class="label label-beta">Beta</span>\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
 

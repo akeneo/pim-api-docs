@@ -1,4 +1,4 @@
-# Catalogs <span class="label label-beta">Beta</span>
+# Catalogs for Apps <span class="label label-beta">Beta</span>
 
 ## Overview
 
