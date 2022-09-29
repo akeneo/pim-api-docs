@@ -200,6 +200,8 @@ Whenever the attribute's type is either `pim_catalog_text` or `pim_catalog_texta
   "values": {
     "description": [
       {
+        "locale": null,
+        "scope": null,
         "data": "Tshirt long sleeves\nWinter special, 100% whool"
       }
     ]
@@ -219,6 +221,8 @@ Whenever the attribute's type is either `pim_catalog_file` or `pim_catalog_image
   "values": {
     "packshot": [
       {
+        "locale": null,
+        "scope": null,
         "data": "f/2/e/6/f2e6674e0766acdc70f814_myFile.pdf"
       }
     ]
@@ -238,6 +242,8 @@ Whenever the attribute's type is `pim_catalog_date`, the `data` field should con
   "values": {
     "packshot": [
       {
+        "locale": null,
+        "scope": null,
         "data": "2021-04-29T08:58:00.101Z"
       }
     ]
@@ -257,6 +263,8 @@ Whenever the attribute's type is `pim_catalog_simpleselect`, the `data` field sh
   "values": {
     "main_color": [
       {
+        "locale": null,
+        "scope": null,
         "data": "blue"
       }
     ]
@@ -272,6 +280,8 @@ Whenever the attribute's type is `pim_catalog_multiselect`, the `data` field sho
   "values": {
     "materials": [
       {
+        "locale": null,
+        "scope": null,
         "data": ["leather", "cotton"]
       }
     ]
@@ -297,6 +307,8 @@ Whenever the attribute's type is `pim_catalog_reference_data_simpleselect`, the 
   "values": {
     "designer": [
       {
+        "locale": null,
+        "scope": null,
         "data": "bouroullec"
       }
     ]
@@ -312,6 +324,8 @@ Whenever the attribute's type is `pim_catalog_reference_data_multiselect`, the `
   "values": {
     "collections": [
       {
+        "locale": null,
+        "scope": null,
         "data": ["winter_2019", "spring_2020"]
       }
     ]
@@ -333,6 +347,8 @@ Whenever the attribute's type is `pim_catalog_number`, the `data` field should c
   "values": {
     "age": [
       {
+        "locale": null,
+        "scope": null,
         "data": 40
       }
     ]
@@ -344,6 +360,8 @@ Whenever the attribute's type is `pim_catalog_number`, the `data` field should c
   "values": {
     "typing_speed": [
       {
+        "locale": null,
+        "scope": null,
         "data": "89.897"
       }
     ]
@@ -365,6 +383,8 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
   "values": {
     "power": [
       {
+        "locale": null,
+        "scope": null,
         "data": {
           "amount":10,
           "unit": "KILOWATT"
@@ -379,6 +399,8 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
   "values": {
     "height": [
       {
+        "locale": null,
+        "scope": null,
         "data": {
           "amount":"25.45",
           "unit": "CENTIMETER"
@@ -403,6 +425,8 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
   "values": {
     "recommended_price": [
       {
+        "locale": null,
+        "scope": null,
         "data": [
           {
             "amount":200,
@@ -419,6 +443,8 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
   "values": {
     "price": [
       {
+        "locale": null,
+        "scope": null,
         "data": [
           {
             "amount":"25.50",
@@ -443,6 +469,8 @@ Whenever the attribute's type is `pim_catalog_boolean`, the `data` field should 
   "values": {
     "is_smart": [
       {
+        "locale": null,
+        "scope": null,
         "data": "true"
       }
     ]
@@ -462,6 +490,8 @@ Whenever the attribute's type is `akeneo_reference_entity`, the `data` field sho
   "values": {
     "designer": [
       {
+        "locale": null,
+        "scope": null,
         "data": "bouroullec"
       }
     ]
@@ -477,6 +507,8 @@ Whenever the attribute's type is `akeneo_reference_entity_collection`, the `data
   "values": {
     "collections": [
       {
+        "locale": null,
+        "scope": null,
         "data": ["winter_2019", "spring_2020"]
       }
     ]
@@ -496,6 +528,8 @@ Whenever the attribute's type is `pim_assets_collection`, the `data` field shoul
   "values": {
     "userguides": [
       {
+        "locale": null,
+        "scope": null,
         "data": ["guarantee_notice", "how_to_guide"]
       }
     ]
@@ -515,6 +549,8 @@ Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` fiel
   "values": {
     "model_pictures": [
       {
+        "locale": null,
+        "scope": null,
         "data": ["allie_jean_frontview", "allie_jean_backview"]
       }
     ]
