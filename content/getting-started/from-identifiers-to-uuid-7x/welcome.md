@@ -10,13 +10,15 @@ The goal of this guide is to help you to move from a product-identifier-based lo
 
 ## What will happen?
 
-We deployed **6** new API endpoints, endpoints that have the same role as already-existing ones:
+We deployed **8** new API endpoints, endpoints that have the same role as already-existing ones:
 - `GET /api/rest/v1/products-uuid`, same as [GET /api/rest/v1/products](https://api.akeneo.com/api-reference.html#get_products)
 - `POST /api/rest/v1/products-uuid`, same as [GET /api/rest/v1/products](https://api.akeneo.com/api-reference.html#post_products)
 - `PATCH /api/rest/v1/products-uuid`, same as [PATCH /api/rest/v1/products](https://api.akeneo.com/api-reference.html#patch_products)
 - `GET /api/rest/v1/products-uuid/{uuid}`, same as [GET /api/rest/v1/products/{code}](https://api.akeneo.com/api-reference.html#get_products__code_)
 - `PATCH /api/rest/v1/products-uuid/{uuid}`, same as [PATCH /api/rest/v1/products/{code}](https://api.akeneo.com/api-reference.html#patch_products__code_)
 - `DELETE /api/rest/v1/products-uuid/{uuid}`, same as [DELETE /api/rest/v1/products/{code}](https://api.akeneo.com/api-reference.html#delete_products__code_)
+- `POST a proposal /api/rest/v1/products-uuid/{uuid}/proposal` (EE only), same as [POST /api/rest/v1/products/{code}/proposal](https://api.akeneo.com/api-reference.html#post_proposal)
+- `GET a draft /api/rest/v1/products-uuid/{uuid}/draft` (EE only), same as [GET /api/rest/v1/products/{code}/draft](https://api.akeneo.com/api-reference.html#get_draft__code_)
 
 And later (during the last quarter of 2022), we plan to make optional the product identifier value (`pim_catalog_identifier` attribute).
 
