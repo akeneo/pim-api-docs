@@ -24,7 +24,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/rest/v1/products",
+					"raw": "{{url}}/api/rest/v1/products-uuid",
 					"host": [
 						"{{url}}"
 					],
@@ -32,7 +32,7 @@
 						"api",
 						"rest",
 						"v1",
-						"products"
+						"products-uuid"
 					]
 				},
 				"description": "This REST API request asks the PIM for its 100 first products."

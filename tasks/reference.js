@@ -36,7 +36,8 @@ const ignoreVersionImcompatibleProperties = async (data, version) => {
 
 function determineCategory(tag){
     switch(tag){
-        case 'Product':
+        case 'Product [identifier]':
+        case 'Product [uuid]':
         case 'Product model':
         case 'Product media file':
             return 'Products';
@@ -98,7 +99,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                         (version === '3.0') ? 'api-reference-index-30' :
                                         (version === '3.1') ? 'api-reference-index-31' :
                                         (version === '3.2') ? 'api-reference-index-32' :
-                                        (version === '4.0') ? 'api-reference-index-40' : 
+                                        (version === '4.0') ? 'api-reference-index-40' :
                                         (version === '5.0') ? 'api-reference-index-50' :
                                         (version === '6.0') ? 'api-reference-index-60' : 'api-reference-index';
         var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' :
@@ -109,7 +110,7 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                     (version === '3.0') ? 'api-reference-30' :
                                     (version === '3.1') ? 'api-reference-31' :
                                     (version === '3.2') ? 'api-reference-32' :
-                                    (version === '4.0') ? 'api-reference-40' : 
+                                    (version === '4.0') ? 'api-reference-40' :
                                     (version === '5.0') ? 'api-reference-50' :
                                     (version === '6.0') ? 'api-reference-60' : 'api-reference';
 
@@ -124,9 +125,9 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                     _.forEach(path, function(operation, verb) {
                         // This is where we filter the endpoints depending on their availability in the PIM versions
                         if (_.find(operation['x-versions'], function(o) { return (o === version) || o.startsWith(version.split('.')[0]) && o.endsWith('x'); })) {
-                            var escapeTag = operation.tags[0].replace(/\s/g, '');
+                            var escapeTag = operation.tags[0].replace(/[^\w]/g, '');
                             var category = determineCategory(operation.tags[0]);
-                            escapeCategory = category.replace(/\s/g, '');
+                            escapeCategory = category.replace(/[^\w]/g, '');
                             if (!data.categories[escapeCategory]){
                                 data.categories[escapeCategory] = { categoryName: category, resources: {}};
                                 if(escapeCategory === 'PAM') {
@@ -169,9 +170,9 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                         // This is where we filter the endpoints depending on their availability in the PIM versions
                         if (_.find(operation['x-versions'], function(o) { return o === version || o.startsWith(version.split('.')[0]) && o.endsWith('x'); })) {
                             var operationId = operation.operationId;
-                            var escapeTag = operation.tags[0].replace(/\s/g, '');
+                            var escapeTag = operation.tags[0].replace(/[^\w]/g, '');
                             var category = determineCategory(operation.tags[0]);
-                            escapeCategory = category.replace(/\s/g, '');
+                            escapeCategory = category.replace(/[^\w]/g, '');
                             if (!data.categories[escapeCategory]){
                                 data.categories[escapeCategory] = { categoryName: category, resources: {}};
                                 if(escapeCategory === 'PAM') {

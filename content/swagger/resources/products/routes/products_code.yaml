@@ -2,7 +2,7 @@ get:
   summary: Get a product
   operationId: "get_products__code_"
   tags:
-    - Product
+    - Product [identifier]
   x-versions:
     - "1.7"
     - "2.x"
@@ -35,7 +35,7 @@ patch:
   summary: Update/create a product
   operationId: "patch_products__code_"
   tags:
-    - Product
+    - Product [identifier]
   x-versions:
     - "1.7"
     - "2.x"
@@ -69,7 +69,7 @@ delete:
   summary: Delete a product
   operationId: "delete_products__code_"
   tags:
-    - Product
+    - Product [identifier]
   x-versions:
     - "1.7"
     - "2.x"

@@ -10,7 +10,7 @@ Alright! You're all set now. Let's launch this request.
 In the response area, you should get an answer similar to the one below.
 ![Response area for authent request](/img/getting-started/authentication-response.png)
 4. Now, click on `Your very first request` in the `Collections` tab.
-5. You can see the request we are about to launch. It is using the endpoint referenced [here](/api-reference.html#get_products). We are going to ask your PIM to give us its first 100 products.
+5. You can see the request we are about to launch. It is using the endpoint referenced [here](/api-reference.html#get_products_uuid). We are going to ask your PIM to give us its first 100 products.
 ![Your very first request](/img/getting-started/your-very-first-request.png)
 6. Are you ready? Hit the blue `Send` button.
 In the response area, you can see a list of 100 products in json format.

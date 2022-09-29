@@ -1,13 +1,8 @@
 type: object
-required: ["identifier"]
 properties:
   uuid:
     type: string
-    description: Product UUID
-    x-from-version: 'SaaS'
-  identifier:
-    type: string
-    description: Product identifier, i.e. the value of the only `pim_catalog_identifier` attribute
+    description: Product uuid
   enabled:
     type: boolean
     description: Whether the product is enabled
@@ -71,7 +66,7 @@ properties:
   associations:
     type: object
     description: Several associations related to groups, product models and/or other products, grouped by association types
-    x-validation-rules: "&bull; The `associationTypeCode` is the code of an existing association type. &#10;&bull; Each string in the array of the property `groups` is the code of an existing group. &#10;&bull; Each string in the array of the property `products` is the identifier of an existing product. &#10;&bull; Each string in the array of the property `product_models` is the code of an existing product model."
+    x-validation-rules: "&bull; The `associationTypeCode` is the code of an existing association type. &#10;&bull; Each string in the array of the property `groups` is the code of an existing group. &#10;&bull; Each string in the array of the property `products` is the uuid of an existing product. &#10;&bull; Each string in the array of the property `product_models` is the code of an existing product model."
     properties:
       associationTypeCode:
         type: object
@@ -83,7 +78,7 @@ properties:
               type: string
           products:
             type: array
-            description: Array of product identifiers with which the product is in relation
+            description: Array of product uuids with which the product is in relation
             items:
               type: string
           product_models:
@@ -95,7 +90,7 @@ properties:
   quantified_associations:
     type: object
     description: Several quantified associations related to products and/or product models, grouped by quantified association types (only available since the 5.0)
-    x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the identifier of an existing product and the quantity of it."
+    x-validation-rules: "&bull; The `quantifiedAssociationTypeCode` is the code of an existing association type which provides quantity information. &#10;&bull; Each object in the array of the property `products` contains the uuid of an existing product and the quantity of it."
     x-from-version: '5.0'
     properties:
       quantifiedAssociationTypeCode:
@@ -103,11 +98,11 @@ properties:
         properties:
           products:
             type: array
-            description: Array of objects containing product identifiers and quantities with which the product is in relation
+            description: Array of objects containing product uuids and quantities with which the product is in relation
             items:
               type: object
               properties:
-                identifier:
+                uuid:
                   type: string
                 quantity:
                   type: integer
@@ -157,23 +152,30 @@ properties:
     x-from-version: 'SaaS'
 
 example: {
-  "identifier": "top",
+  "uuid": "25566245-55c3-42ce-86d9-8610ac459fa8",
   "enabled": true,
   "family": "tshirt",
   "categories": ["summer_collection"],
   "groups": [],
   "parent": null,
   "values": {
+    "sku": [
+      {
+        "data": "top",
+        "locale": null,
+        "scope": null
+      }
+    ],
     "name": [
       {
         "data": "Top",
         "locale": "en_US",
-        "scope": null,
+        "scope": null
       },
       {
         "data": "Débardeur",
         "locale": "fr_FR",
-        "scope": null,
+        "scope": null
       }
     ],
     "description": [
@@ -266,7 +268,7 @@ example: {
   "updated": "2016-06-25T17:56:12+02:00",
   "associations": {
     "PACK": {
-      "products": ["sunglass"],
+      "products": ["d055527c-0698-4967-8f16-8a5f23f4e5cf"],
       "product_models": [],
       "groups": []
     }
@@ -275,11 +277,11 @@ example: {
     "PRODUCT_SET": {
       "products": [
         {
-          "identifier": "cap",
+          "uuid": "fc24e6c3-933c-4a93-8a81-e5c703d134d5",
           "quantity": 2
         },
         {
-          "identifier": "shoes",
+          "uuid": "a9b69002-a0b1-4ead-85c2-f8dbf59c6cfc",
           "quantity": 1
         }
       ],

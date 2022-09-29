@@ -116,7 +116,7 @@ HTTP/1.1 405 Method Not Allowed
 
 {
     "code": 405, 
-    "message": "No route found for 'POST /api/rest/v1/products/myproduct': Method Not Allowed (Allow: GET, PATCH, DELETE)"
+    "message": "No route found for 'POST /api/rest/v1/products-uuid/f62190e8-8314-4360-8ff8-7dbdb4af6312': Method Not Allowed (Allow: GET, PATCH, DELETE)"
 }
 ```
 
@@ -216,7 +216,7 @@ HTTP/1.1 422 Unprocessable Entity
     "message": "The sunglasses category does not exist in your PIM. Check the expected format on the API documentation.",
     "_links": {
         "documentation": {
-            "href": "http://api.akeneo.com/api-reference.html#post_products"
+            "href": "http://api.akeneo.com/api-reference.html#post_products_uuid"
         }
     }
 }

@@ -8,12 +8,22 @@ ProductList:
     - $ref: '#/definitions/ItemList'
     - $ref: '#/definitions/Product'
 
+ProductUuid:
+  $ref: ./resources/products_uuid/definitions/product_uuid.yaml
+ProductUuidExamples:
+  $ref: ./resources/products_uuid/definitions/examples/products_uuid.yaml
+ProductUuidList:
+  type: object
+  allOf:
+    - $ref: '#/definitions/ItemList'
+    - $ref: '#/definitions/ProductUuid'
+
 ProductModel:
   $ref: ./resources/product_models/definitions/product_model.yaml
 ProductModelList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/ItemList'
     - $ref: '#/definitions/ProductModel'
 
 PublishedProduct:
@@ -262,6 +272,21 @@ ErrorByLine:
     code:
       type: string
       description: Resource code, only filled when the resource is not a product
+    status_code:
+      type: integer
+      description: HTTP status code, see <a href="/documentation/responses.html#client-errors">Client errors</a> to understand the meaning of each code
+    message:
+      type: string
+      description: Message explaining the error
+ErrorByLineProductUuid:
+  type: object
+  properties:
+    line:
+      type: integer
+      description: Line number
+    uuid:
+      type: string
+      description: Product uuid
     status_code:
       type: integer
       description: HTTP status code, see <a href="/documentation/responses.html#client-errors">Client errors</a> to understand the meaning of each code
