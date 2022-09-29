@@ -1,7 +1,7 @@
 ### Product UUID
 
 ::: info
-The following endpoints are largely the same as for [products](/php-client/resources.html#products-uuid). The difference? Here, you can query, create or update products identified by its uuid. More information [here](/content/getting-started/from-identifiers-to-uuid-7x/welcome.md).
+The following endpoints are largely the same as for [products](/php-client/resources.html#products). The difference? Here, you can query, create or update products identified by their uuid. More information [here](/content/getting-started/from-identifiers-to-uuid-7x/welcome.md).
 :::
 
 #### Get a product
@@ -13,13 +13,20 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 /*
  * Returns an array like this:
  * [
- *     'identifier' => 'top',
+ *     'uuid' => '12951d98-210e-4bRC-ab18-7fdgf1bd14f3',
  *     'enabled' => true,
  *     'family' => 'tshirt',
  *     'categories' => ['summer_collection'],
  *     'groups' => [],
  *     'parent' => null,
  *     'values' => [
+ *         'sku' => [
+ *             [
+ *                 'locale' => null,
+ *                 'scope' => null,
+ *                 'data' => 'top'
+ *             ]
+ *         ],
  *         'name' => [
  *              [
  *                  'data' => 'Top',
@@ -108,7 +115,7 @@ There is a maximum limit allowed on server side for the parameter `limit`.
 :::
 
 ::: warning
-Setting the parameter `with_count`  to `true`  can drastically decrease the performance.  
+Setting the parameter `with_count`  to `true` can drastically decrease the performance.  
 It's recommended to let this parameter with the default value `false` if the total number of products is not needed in the response.
 :::
 
@@ -154,13 +161,20 @@ If the product does not exist yet, this method creates it, otherwise it throws a
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getProductUuidApi()->create('844c736b-a19b-48a6-a354-6056044729f0', [
-    'identifier' => 'top',
+    'uuid' => '844c736b-a19b-48a6-a354-6056044729f0',
     'enabled' => true,
     'family' => 'tshirt',
     'categories' => ['summer_collection'],
     'groups' => [],
     'parent'=> null,
     'values' => [
+        'sku' => [
+            [
+                'locale' => null,
+                'scope' => null,
+                'data' => 'top'
+            ]
+        ],
         'name' => [
             [
                 'data' => 'top',
@@ -204,13 +218,20 @@ If the product does not exist yet, this method creates it, otherwise it updates 
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
 
 $client->getProductUuidApi()->upsert('844c736b-a19b-48a6-a354-6056044729f0', [
-    'identifier' => 'top',
+    'uuid' => '844c736b-a19b-48a6-a354-6056044729f0',
     'enabled' => true,
     'family' => 'tshirt',
     'categories' => ['summer_collection'],
     'groups' => [],
     'parent'=> null,
     'values' => [
+        'sku' => [
+            [
+                'locale' => null,
+                'scope' => null,
+                'data' => 'top'
+            ]
+        ],
         'name' => [
             [
                 'data' => 'top',
@@ -258,11 +279,17 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 $responseLines = $client->getProductUuidApi()->upsertList([
     [
         'uuid' => '12951d98-210e-4bRC-ab18-7fdgf1bd14f3',
-        'identifier' => 'top',
         'family' => 'tshirt',
         'categories' => ['summer_collection'],
         'groups' => [],
         'values' => [
+            'sku' => [
+                [
+                    'locale' => null,
+                    'scope' => null,
+                    'data' => 'top'
+                ]
+            ],
             'price' => [
                 [
                     'data' => [
@@ -283,14 +310,13 @@ $responseLines = $client->getProductUuidApi()->upsertList([
     ],
     [
         'uuid' => '12951d98-210e-4bRC-ab18-7fdgf1bd14f4',
-        'identifier' => 'cap',
         'categories' => ['hat'],
     ],
 ]);
 
 foreach ($responseLines as $line) {
     echo $line['line'];
-    echo $line['identifier'];
+    echo $line['uuid'];
     echo $line['status_code'];
     if (isset($line['message'])) {
         echo $line['message'];

@@ -19,6 +19,13 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  *     'categories' => ['summer_collection'],
  *     'groups' => [],
  *     'values' => [
+ *         'sku' => [
+ *             [
+ *                 'locale' => null,
+ *                 'scope' => null,
+ *                 'data' => 'top'
+ *             ]
+ *         ],
  *         'name' => [
  *              [
  *                  'data' => 'Top',
