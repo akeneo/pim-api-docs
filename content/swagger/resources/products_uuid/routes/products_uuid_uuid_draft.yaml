@@ -1,6 +1,6 @@
 get:
   summary: Get a draft
-  operationId: "get_draft_uuid__code_"
+  operationId: "get_draft_uuid__uuid_"
   tags:
     - Product [uuid]
   x-versions:
