@@ -1,4 +1,4 @@
-# Catalogs [beta]
+# Catalogs <span class="label label-beta">Beta</span>
 
 ## Overview
 
