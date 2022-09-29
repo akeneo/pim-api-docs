@@ -87,8 +87,8 @@ Want to know more about authentication? It's over [there](/php-client/authentica
 Getting a product is as simple as:
 
 ```
-$product = $client->getProductApi()->get('top');
-echo $product['identifier'];
+$product = $client->getProductUuidApi()->get('1cf1d135-26fe-4ac2-9cf5-cdb69ada0547');
+echo $product['uuid'];
 ```
 
 Want to [update an attribute](/php-client/resources.html#upsert-an-attribute), [create a category](/php-client/resources.html#create-a-category) or [delete a product](/php-client/resources.html#delete-a-product)? You can get code snippets for all the resources [here](/php-client/resources.html)

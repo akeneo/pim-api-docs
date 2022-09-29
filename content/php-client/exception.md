@@ -11,7 +11,7 @@ You can get the request and the response that are responsible for this exception
  
 ```php
 try {
-    $client->getProductApi()->get('top');
+    $client->getProductUuidApi()->get('1cf1d135-26fe-4ac2-9cf5-cdb69ada0547');
 } catch (HttpException $e) {
     // do your stuff with the exception
     $requestBody = $e->getRequest()->getBody();
@@ -80,7 +80,7 @@ It returns an empty array if there is no error in the array.
 
 ```php
 try {
-    $client->getProductApi()->create('top');
+    $client->getProductUuidApi()->create('1cf1d135-26fe-4ac2-9cf5-cdb69ada0547');
 } catch (UnprocessableEntityHttpException $e) {
     // do your stuff with the exception
     $requestBody = $e->getRequest()->getBody();
@@ -103,7 +103,7 @@ It corresponds to the HTTP code 429.
 
 ```php
 try {
-    $client->getProductApi()->get('top');
+    $client->getProductUuidApi()->get('1cf1d135-26fe-4ac2-9cf5-cdb69ada0547');
 } catch (TooManyRequestsHttpException $e) {
     $requestBody = $e->getRequest()->getBody();
     $responseBody = $e->getResponse()->getBody();

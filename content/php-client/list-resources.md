@@ -16,10 +16,10 @@ You can define the first parameter `page size` to adjust the number of resources
 
 ```php
 
-$products = $client->getProductApi()->all(50);
+$products = $client->getProductUuidApi()->all(50);
 foreach ($products as $product) {
     // do your stuff here
-    echo $product['identifier'];
+    echo $product['uuid'];
 }
 ```
 
@@ -39,7 +39,7 @@ This method allows to get a list of resources page per page, as a classical pagi
 You get the first page by calling the function `listPerpage`. The first parameter `limit` is the number of elements per page.
 
 ```php
-$firstPage = $client->getProductApi()->listPerPage(50);
+$firstPage = $client->getProductUuidApi()->listPerPage(50);
 ```
 
 ::: warning
@@ -50,7 +50,7 @@ Then, you can iterate the items of this page:
 ```php
 foreach ($firstPage->getItems() as $product) {
     // do your stuff here
-    echo $product['identifier'];
+    echo $product['uuid'];
 }
 ```
 
