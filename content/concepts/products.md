@@ -523,7 +523,7 @@ Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` fiel
 ```
 
 #### Table attribute
-::: availability versions=SaaS editions=EE,GE
+::: availability versions=6.0,SaaS editions=EE,GE
 :::
 
 Whenever the attribute type is `pim_catalog_table`, the `data` field should contain an array of rows, where each row is a key-value object, the key being the `column` code, and the value being the cell value.
@@ -698,7 +698,7 @@ Note that the `locale` and `scope` properties are all set to `null` in this case
 :::
 
 ### The `linked_data` format
-::: availability versions=SaaS editions=CE,EE
+::: availability versions=5.0,6.0,SaaS editions=CE,EE
 :::info
 Note that this property is in read-only. You won't be able to patch or post it.
 :::
@@ -716,7 +716,7 @@ Whenever the attribute type is `pim_catalog_simpleselect`, the `linked_data` fie
       {
         "data": "black",
         "linked_data": {
-          "attribute": "color",
+          "attribute": "main_color",
           "code": "black",
           "labels": {
             "en_US": "Black",
