@@ -1,7 +1,7 @@
 ### Category
 
 #### Get a category 
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability all-versions
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -21,7 +21,7 @@ $category = $client->getCategoryApi()->get('master');
 ```
 
 #### Get a list of categories
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability all-versions
 
 There are two ways of getting categories. 
 
@@ -50,7 +50,7 @@ $categories = $client->getCategoryApi()->all(50);
 You can get more information about this method [here](/php-client/list-resources.html#with-a-cursor).
 
 #### Create a category
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability all-versions
 
 If the category does not exist yet, this method creates it, otherwise it throws an exception.
 
@@ -67,7 +67,7 @@ $client->getCategoryApi()->create('winter_collection', [
 ```
 
 #### Upsert a category
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability all-versions
 
 If the category does not exist yet, this method creates it, otherwise it updates it.
 
@@ -84,7 +84,7 @@ $client->getCategoryApi()->upsert('winter_collection', [
 ```
 
 #### Upsert a list of categories
-::: php-client-availability versions=1.0,2.0,3.0,4.0,5.0,6.0 editions=CE,EE
+::: php-client-availability all-versions
 
 This method allows to create or update a list of categories.
 It has the same behavior as the `upsert` method for a single category, except that the code must be specified in the data of each category.

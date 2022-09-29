@@ -42,6 +42,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <li class="{{#if active_apps}}active{{/if}}">
+                    <a href="/apps/overview.html">Apps</a>
+                </li>
                 <li class="{{#if active_guides}}active{{/if}}">
                     <a href="/guides-index.html">Guides</a>
                 </li>
@@ -53,7 +56,6 @@
                         <li><a href="/documentation/introduction.html">The REST API basics</a></li>
                         <li><a href="/events-documentation/overview.html">The Events API basics</a></li>
                         <li><a href="/php-client/introduction.html">The PHP API client</a></li>
-                        <li><a href="/apps/apps-getting-started.html">Apps</a></li>
                     </ul>
                 </li>
                 <li class="dropdown{{#if active_api_reference}} active{{/if}}">
@@ -82,8 +84,9 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
 <script type="text/javascript">
     docsearch({
-        apiKey: '2d54ec0583367835496f9b24eb99de62',
-        indexName: 'akeneo-api',
+        appId: 'USYFJKQ2TZ',
+        apiKey: '0432ae035ca73de97c72534104efc0c5',
+        indexName: 'akeneo_api_akeneo_com_main',
         inputSelector: '#algolia-search',
         debug: false // Set debug to true if you want to inspect the dropdown
     });

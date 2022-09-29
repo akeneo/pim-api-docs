@@ -1241,9 +1241,24 @@ When requesting locales, you can use a filter to get the enabled ones.
 
 ## Filter reference entity records
 
-::: info
-All these filters are available starting the 3.0 version of the PIM.
-:::
+### By record codes
+
+::: availability versions=SaaS editions=EE
+
+You can filter the reference entity records by their code.
+
+Below is the operator to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
+
+| Operator | Allowed value type                 | Filter description                        |
+|----------|------------------------------------|-------------------------------------------|
+| `IN`     | an array of existing record codes  | Only returns records that are in the list |
+
+#### Example
+
+```
+/api/rest/v1/reference-entities/brands/records?search={"code":[{"operator":"IN","value":["code1","code2"]}]}
+```
+
 
 ### By completeness
 
@@ -1459,6 +1474,24 @@ As a result you will receive the following answer:
 ## Filter assets
 
 When requesting a [list of assets via the REST API](/api-reference.html#get_assets), you can apply filters to get only the ones you want and also the kind of information you want in them.
+
+### By asset codes
+
+::: availability versions=SaaS editions=EE
+
+You can filter the assets by their code.
+
+Below is the operator to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
+
+| Operator | Allowed value type               | Filter description                       |
+|----------|----------------------------------|------------------------------------------|
+| `IN`     | an array of existing asset codes | Only returns assets that are in the list |
+
+#### Example
+
+```
+/api/rest/v1/asset-families/model_pictures/assets?search={"code":[{"operator":"IN","value":["code1","code2"]}]}
+```
 
 ### By update date
 

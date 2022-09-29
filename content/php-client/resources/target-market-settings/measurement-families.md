@@ -1,7 +1,7 @@
 ### Measurement family
 
 #### Get a list of measurement families
-::: php-client-availability versions=6.0 editions=CE,EE
+::: php-client-availability versions=6.0
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
@@ -60,7 +60,7 @@ There is no pagination on measurement families.
 :::
 
 #### Upsert a list of measurement families 
-::: php-client-availability versions=6.0 editions=CE,EE
+::: php-client-availability versions=6.0
 
 This method allows to create or update a list of measurement families.
 

@@ -51,8 +51,8 @@ After you've completed this tutorial, you'll be able to authorize an app created
 
 ### Requirements
 
-- You have a Partner account and a developer sandbox.
-- You're familiar with the [OAuth 2.0 flow](/apps/authentication-and-authorization.html#oauth-20) in Akeneo.
+- You have your [App developer starter kit](/apps/overview.html#app-developer-starter-kit)
+- You're familiar with the [OAuth 2.0 flow](/apps/authentication-and-authorization.html#oauth-20) in Akeneo
 
 ### Step 1: Generate API credentials
 
@@ -253,13 +253,13 @@ After you've completed this tutorial, you'll be able to authenticate users comin
 
 ### Requirements
 
-- You have a Partner account and a developer sandbox.
+- You have your [App developer starter kit](/apps/overview.html#app-developer-starter-kit)
 - You're familiar with [OpenID connect](https://openid.net/connect/)
 - You're familiar with the [app authentication process](/apps/authentication-and-authorization.html#getting-started-with-oauth-20)
 
 ### Step 1: Ask for authentication scopes
 
-When a user connects to your app **for the first time**, and you want to authenticate them, you must ask for OpenID scopes during the [Authorization request](link to Step 2: Ask for authorizations and permissions).
+When a user connects to your app **for the first time**, and you want to authenticate them, you must ask for OpenID scopes during the [Authorization request](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations).
 
 ``` http
 https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
