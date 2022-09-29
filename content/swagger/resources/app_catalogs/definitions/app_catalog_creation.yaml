@@ -3,7 +3,7 @@ required: ["name"]
 properties:
     name:
         type: string
-        description: App catalog name
+        description: Catalog name
 example: {
     "name": "My app catalog"
 }

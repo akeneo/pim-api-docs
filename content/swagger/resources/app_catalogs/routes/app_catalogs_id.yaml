@@ -3,7 +3,7 @@ get:
   operationId: "get_app_catalog"
   description: This endpoint allows you to get the information about a catalog.
   tags:
-    - App catalog
+    - Catalogs
   x-versions:
     - "SaaS"
   parameters:
@@ -28,10 +28,10 @@ patch:
   summary: Update a catalog
   operationId: "patch_app_catalog"
   tags:
-    - App catalog
+    - Catalogs
   x-versions:
     - "SaaS"
-  description: This endpoint allows you to update an app catalog.
+  description: This endpoint allows you to update a catalog.
   parameters:
     - name: id
       in: path
@@ -62,10 +62,10 @@ delete:
   summary: Delete a catalog
   operationId: "delete_app_catalog"
   tags:
-    - App catalog
+    - Catalog
   x-versions:
     - "SaaS"
-  description: This endpoint allows you to delete an app catalog.
+  description: This endpoint allows you to delete a catalog.
   parameters:
     - name: id
       in: path
