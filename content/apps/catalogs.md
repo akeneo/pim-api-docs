@@ -1,4 +1,4 @@
-# Catalogs (beta)
+# Catalogs [beta]
 
 ## Overview
 
