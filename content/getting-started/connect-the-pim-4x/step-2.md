@@ -92,7 +92,7 @@ The use case we took here is really simple, as you can see. In real life, connec
 
 We highly recommend you to **start small**. Focus on one single use case at first. Then, when the first one is robust and approved, add some more.
 
-Don't try to do everything at once, they are high chances you won't see the end of it and your connector won't be usable.
+Don't try to do everything at once, there are high chances you won't see the end of it and your connector won't be usable.
 
 ### UI or not UI?
 
