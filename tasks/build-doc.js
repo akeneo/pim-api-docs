@@ -381,6 +381,17 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 v6: "6x"
             }
         },
+        'from-identifiers-to-uuid-7x': {
+            gettingStartedName: 'from-identifiers-to-uuid',
+            pimVersion: 'SaaS',
+            title: 'From product identifiers to UUID',
+            files: {
+                'welcome.md': 'Guide',
+            },
+            availability: {
+                serenity: "7x",
+            }
+        },
     };
     var isOnePage = false;
 
