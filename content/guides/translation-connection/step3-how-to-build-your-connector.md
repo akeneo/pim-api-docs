@@ -183,7 +183,7 @@ With these new attributes, your connector is now ready to go! Let's see how it'l
 
 ### How it works with your connector?
 
-**Pull or Push PIM information data?**
+**How to retrieve PIM data?**
 
 Now that everything is ready in your PIM, your connector is now ready to retrieve the PIM data to be translated.
 

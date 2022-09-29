@@ -193,6 +193,8 @@ Whenever the attribute's type is either `pim_catalog_text` or `pim_catalog_texta
   "values": {
     "description": [
       {
+        "locale": null,
+        "scope": null,
         "data": "Tshirt long sleeves\nWinter special, 100% whool"
       }
     ]
