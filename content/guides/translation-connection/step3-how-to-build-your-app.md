@@ -181,7 +181,7 @@ We suggest that you develop the first solution during the first iteration of you
 :::
 
 :::tips
-Using the ["get a list of products"](https://api.akeneo.com/api-reference.html#get_products) API endpoint (with the correct filter), your App will retrieve a JSON structure of each localizable products.
+Using the ["get a list of products"](https://api.akeneo.com/api-reference.html#get_products_uuid) API endpoint (with the correct filter), your App will retrieve a JSON structure of each localizable products.
 
 Then, with the help of the family code of these products, your App will be able to call the ["get the list of attributes"](https://api.akeneo.com/api-reference.html#get_attributes) API endpoint to retrieve each attribute type that composes this product family.
 

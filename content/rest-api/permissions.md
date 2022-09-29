@@ -158,7 +158,7 @@ To enable these powers:
 
 That's it! :tada:
 
-Don't hesitate to test your configuration by calling the [GET product endpoint](/api-reference.html#get_products__code_) on a product.  
+Don't hesitate to test your configuration by calling the [GET product endpoint](/api-reference.html#get_products_uuid__uuid_) on a product.  
 If this product is classified only inside the categories you hide, you should receive a 404, meaning that your configuration worked. 🙂  
 If you hide a locale, you won't be able to receive the values of the given locale. Check the product body of the answer!
 If you hide a whole attribute group, you won't be able to receive the values of the attributes that are inside this attribute group. Marvelous!

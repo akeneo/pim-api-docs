@@ -1930,7 +1930,7 @@ Here are the steps to follow to link assets to your products:
 2. Put this attribute within the [families](/concepts/catalog-structure.html#familiy) of the products you want to link your assets to.
 3. Assign your assets to these products either:
 - manually, in the `Assets` tab of the product form in the PIM UI,
-- by API using the [product](/api-reference.html#patch_products) POST and PATCH endpoints by adding the asset codes in the asset collection data,
+- by API using the [product](/api-reference.html#patch_products_uuid) POST and PATCH endpoints by adding the asset codes in the asset collection data,
 - automatically thanks to the [product link rule](#focus-on-the-product-link-rule), detailed in the paragraph below.
 
 ::: info

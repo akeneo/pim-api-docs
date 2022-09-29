@@ -58,7 +58,7 @@ _In our example, as stated above, we know that every day, new products are creat
 In this step, you will need to find in our [REST API reference](/api-reference-index.html) the endpoints you need to achieve such a connection. 
 
 #### In this tutorial
-_For our example, you will need to create and update products in the PIM so we will mainly need this endpoint: [Patch](/api-reference.html#patch_products) on products._
+_For our example, you will need to create and update products in the PIM so we will mainly need this endpoint: [Patch](/api-reference.html#patch_products_uuid) on products._
 
 ### 5- Think about your architecture
 Choose the architecture you want for your connector. Indeed, you will have two options here:
@@ -77,7 +77,7 @@ _For our example, we choose the second option as there are little chances that y
 A crucial step. In most cases, you will need to manually map some PIM information with the data sent or received in or from the software you want to connect.
 
 #### In this tutorial
-_For our example, here is the global orchestration of our connector. First, every evening, you will extract the list of products that were created/updated during the day, in an XML file. Then, your connector reads this file. ERP products are then transformed into PIM products, by mapping the ERP information with the right PIM attributes. Lastly, the connector sends the PIM products by using the [patch](/api-reference.html#patch_products) endpoint of our REST API._
+_For our example, here is the global orchestration of our connector. First, every evening, you will extract the list of products that were created/updated during the day, in an XML file. Then, your connector reads this file. ERP products are then transformed into PIM products, by mapping the ERP information with the right PIM attributes. Lastly, the connector sends the PIM products by using the [patch](/api-reference.html#patch_products_uuid) endpoint of our REST API._
 
 ## Some pro tips
 

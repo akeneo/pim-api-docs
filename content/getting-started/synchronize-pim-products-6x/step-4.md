@@ -18,7 +18,7 @@ We recommend to you the following product filters:
 - by family codes (save to your storage in a **family_code_list** during [the second step](/getting-started/synchronize-pim-products-6x/step-2.html));
 - by enabled products (you probably don’t use not enabled products, don’t you?)
 
-Another very important point is the **with_attribute_options**. When this option is activated, labels of attributes options will be returned in the response — and saves you from many extra API calls. More information [here](https://api.akeneo.com/api-reference.html#get_products).
+Another very important point is the **with_attribute_options**. When this option is activated, labels of attributes options will be returned in the response — and saves you from many extra API calls. More information [here](https://api.akeneo.com/api-reference.html#get_products_uuid).
 
 ::: tips
 Have a look at our [product filters](https://api.akeneo.com/documentation/filter.html#filter-on-product-properties): you may find other interesting ones.
@@ -28,7 +28,7 @@ So, what does our API call on products look like?
 
 `GET /api/rest/v1/products-uuid?locales=locales&scope=your_channel_code&with_attribute_options=true&search={"family":[{"operator":"IN","value":family_code_list}],"enabled"[{"operator":"=","value":true}]}`
 
-Details of this call are [here](https://api.akeneo.com/api-reference.html#get_products).
+Details of this call are [here](https://api.akeneo.com/api-reference.html#get_products_uuid).
 
 What is important in the response payload?
 
