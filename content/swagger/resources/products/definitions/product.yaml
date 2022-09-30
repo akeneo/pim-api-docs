@@ -150,11 +150,20 @@ properties:
     x-read-only: true
     x-from-version: '5.0'
   completenesses:
-    type: object
+    type: array
     description: Product completenesses for each channel/locale combination (only available on SaaS platforms, and when the "with_completenesses" query parameter is set to "true")
     x-immutable: true
     x-read-only: true
     x-from-version: 'SaaS'
+    items:
+      type: object
+      properties:
+        scope:
+          type: string
+        locale:
+          type: string
+        data:
+          type: integer
 
 example: {
   "identifier": "top",
