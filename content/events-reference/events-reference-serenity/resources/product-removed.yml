@@ -31,3 +31,7 @@ properties:
               properties:
                 identifier:
                   type: string
+                  description: Product identifier, i.e. the value of the only `pim_catalog_identifier` attribute
+                uuid:
+                  type: string
+                  description: Product UUID

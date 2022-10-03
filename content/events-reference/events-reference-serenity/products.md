@@ -20,6 +20,7 @@ A product created event follows this format:
             "pim_source": "https://demo.akeneo.com",
             "data": {
                 "resource": {
+                    "uuid":"1fd20ad8-ef95-49d7-a581-fb9f8ac0c5ad",
                     "identifier": "1111111304",
                     "family": "accessories",
                     "parent": null,
@@ -138,6 +139,7 @@ A product updated event follows this format:
             "pim_source": "https://demo.akeneo.com",
             "data": {
                 "resource": {
+                    "uuid":"1fd20ad8-ef95-49d7-a581-fb9f8ac0c5ad",
                     "identifier": "1111111304",
                     "family": "accessories",
                     "parent": null,
@@ -256,7 +258,8 @@ A product removed event follows this format:
             "pim_source": "https://demo.akeneo.com",
             "data": {
                 "resource": {
-                    "identifier": "1111111304"
+                    "identifier": "1111111304",
+                    "uuid":"cb02315b-a8f6-4580-beee-7624c02c1384"
                 }
             }
         }
