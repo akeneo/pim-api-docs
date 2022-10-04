@@ -516,7 +516,8 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
         'pagination.md': 'Pagination',
         'update.md': 'Update behavior',
         'filter.md': 'Filters',
-        'troubleshooting.md': 'Troubleshooting guide'
+        'troubleshooting.md': 'Troubleshooting guide',
+        'app_catalog.md': 'App Catalog'
     };
 
     var isOnePage = false;
