@@ -3,7 +3,7 @@ get:
   operationId: "get_app_catalogs"
   description: This endpoint allows you to get the list of catalogs you owned.
   tags:
-    - App catalog
+    - Catalogs
   x-versions:
     - "SaaS"
   parameters:
@@ -70,7 +70,7 @@ post:
   summary: Create a new catalog
   operationId: "post_app_catalog"
   tags:
-    - App catalog
+    - Catalogs
   x-versions:
     - "SaaS"
   description: This endpoint allows you to create a new catalog.

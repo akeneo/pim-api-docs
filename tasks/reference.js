@@ -75,9 +75,9 @@ function determineCategory(tag){
         case 'Reference entity attribute':
         case 'Reference entity attribute option':
             return 'Reference entities';
-        case 'App catalog':
-        case 'App catalog product':
-            return 'App catalogs [beta]';
+        case 'Catalogs':
+        case 'Catalog products':
+            return 'Catalogs for Apps <span class="label label-beta">Beta</span>';
         default:
             return 'Utilities';
     }
