@@ -15,7 +15,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer {{token}}"
+                "value": "Bearer {{appToken}}"
               }
             ],
             "url": {
@@ -42,7 +42,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer {{token}}"
+                "value": "Bearer {{appToken}}"
               }
             ],
             "url": {
@@ -67,7 +67,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer {{token}}"
+                "value": "Bearer {{appToken}}"
               },
               {
                 "key": "Content-Type",
@@ -100,7 +100,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer {{token}}"
+                "value": "Bearer {{appToken}}"
               },
               {
                 "key": "Content-Type",
@@ -134,7 +134,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer {{token}}"
+                "value": "Bearer {{appToken}}"
               },
               {
                 "key": "Content-Type",
@@ -164,7 +164,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer {{token}}"
+                "value": "Bearer {{appToken}}"
               }
             ],
             "url": {
@@ -185,7 +185,8 @@
           },
           "response": []
         }
-      ]
+      ],
+      "description": "App catalog\" folder: \"Make sure the variable \"appToken\" is completed before calling the API with Catalog endpoints."
     },
     {
       "name": "Association type (>= v2)",
