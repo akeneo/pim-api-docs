@@ -58,7 +58,7 @@ After you've completed this tutorial, you'll be able to authorize an app created
 
 The first step is to retrieve a **Client id** and a **Client secret**, which you get when you create an app. These API credentials identify your app during the authorization process.
 
-If you've already created an app and generated API credentials, then proceed to [step 2](link to step 2).
+If you've already created an app and generated API credentials, then proceed to [step 2](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations).
 
 1. Log in to your [Akeneo App Store](https://apps.akeneo.com/) account
 2. Scroll down to the bottom of the page and click [Submit your app for review](https://apps.akeneo.com/node/add/extension)
@@ -85,7 +85,7 @@ Like any other OAuth 2.0 application, you have to redirect the user to the Autho
 
 | Query parameter          | Description                                                  |
 |--------------------------|--------------------------------------------------------------|
-| `response_type`.         | Required. Must always be "code"                              |
+| `response_type`          | Required. Must always be "code"                              |
 | `client_id`              | Required. The client id you get from the Akeneo App Store    |
 | `scope`                  | Optional. A comma-separated list of scopes. For example, to write products and read assets, use `scope=write_products,read_assets`. *Any permission to write a resource includes the permission to read it.*                                            |
 | `state`                  | Recommended.                                                 |
