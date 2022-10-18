@@ -373,7 +373,7 @@ x-SaaS: {
         "associations": {},
         "quantified_associations": {},
         "quality_scores": {},
-        "completenesses": {}
+        "completenesses": []
       }
     ]
   }
