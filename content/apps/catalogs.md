@@ -90,10 +90,6 @@ At any moment, you can verify if a catalog is enabled by calling the [get catalo
 
 ### Step 3: Get products using catalogs
 
-::: warning
-The endpoint for retrieving the list of product UUIDs will be available soon!
-:::
-
 Once you have an enabled catalog, you can paginate the corresponding product UUIDs using this [endpoint](/api-reference.html#Appcatalogproduct).
 
 ### Next steps
