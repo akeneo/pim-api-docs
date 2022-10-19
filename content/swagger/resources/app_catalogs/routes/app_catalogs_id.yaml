@@ -62,7 +62,7 @@ delete:
   summary: Delete a catalog
   operationId: "delete_app_catalog"
   tags:
-    - Catalog
+    - Catalogs
   x-versions:
     - "SaaS"
   description: This endpoint allows you to delete a catalog.
