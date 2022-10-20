@@ -19,11 +19,20 @@ Below you will find which PHP client version to use depending on your PIM versio
 | v5.0        | v6.0                        | September 2022                                                                    |
 | v6.0 - SaaS | v7.0 to current latest      |                                                                                   |
 
+### Enterprise Edition
+
+::: warning
+Enterprise Edition and Community Edition of the client have been merged into a one and unique package.
+Every user shall now use the same client package. Learn about migration instructions [here](https://github.com/akeneo/api-php-client-ee#warning-the-client-project-has-moved-warning).
+:::
+
+## Deprecation notice
+
 ::: info
 Note that our PHP client is backward compatible.
 
-For example, if your PIM is currently a v2.3, you can still use a 1.0 version of the PHP client.
-The new endpoints available in v2.3 will not be available in the v1.0 of the PHP client.
+For example, if your PIM is currently a v6.0, you can still use a 1.0 version of the PHP client.
+The new endpoints available in v6.0 will not be available in the v1.0 of the PHP client.
 :::
 
 
@@ -46,13 +55,6 @@ $ php composer.phar require akeneo/api-php-client php-http/guzzle6-adapter:^2.0 
 
 ::: info
 If you don't know which implementation to choose, we strongly recommend you to use Guzzle v6, as in the previous example.
-:::
-
-### Enterprise Edition
-
-::: warning
-Enterprise Edition and Community Edition of the client have been merged into a one and unique package.
-Every user shall now use the same client package. Learn about migration instructions [here](https://github.com/akeneo/api-php-client-ee#warning-the-client-project-has-moved-warning).
 :::
 
 ## Initialization of the client
