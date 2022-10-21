@@ -83,12 +83,12 @@ When you are ready to do so, you must start the **Authorization Request**.
 
 Like any other OAuth 2.0 application, you have to redirect the user to the Authorization Server (Akeneo PXM Studio) with the following parameters:
 
-| Query parameter          | Description                                                  |
-|--------------------------|--------------------------------------------------------------|
-| `response_type`          | Required. Must always be "code"                              |
-| `client_id`              | Required. The client id you get from the Akeneo App Store    |
-| `scope`                  | Optional. A comma-separated list of scopes. For example, to write products and read assets, use `scope=write_products,read_assets`. *Any permission to write a resource includes the permission to read it.*                                            |
-| `state`                  | Recommended.                                                 |
+| Query parameter          | Description                                                                                                                                                                                                  |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `response_type`          | Required. Must always be "code"                                                                                                                                                                              |
+| `client_id`              | Required. The client id you get from the Akeneo App Store                                                                                                                                                    |
+| `scope`                  | Optional. A space-separated list of scopes. For example, to write products and read assets, use `scope=write_products read_assets`. *Any permission to write a resource includes the permission to read it.* |
+| `state`                  | Recommended.                                                                                                                                                                                                 |
 
 
 ``` http
