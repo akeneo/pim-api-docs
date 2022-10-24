@@ -133,3 +133,5 @@ patch:
       $ref: "#/responses/413Error"
     415:
       $ref: "#/responses/415ErrorStream"
+    422:
+      $ref: "#/responses/422Error"
