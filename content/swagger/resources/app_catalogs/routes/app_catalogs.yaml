@@ -6,6 +6,7 @@ get:
     - Catalogs
   x-versions:
     - "SaaS"
+  x-app-token: true
   parameters:
     - $ref: '#/parameters/page'
     - name: limit
@@ -73,6 +74,7 @@ post:
     - Catalogs
   x-versions:
     - "SaaS"
+  x-app-token: true
   description: This endpoint allows you to create a new catalog.
   parameters:
     - name: body

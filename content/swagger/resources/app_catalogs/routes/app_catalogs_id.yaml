@@ -6,6 +6,7 @@ get:
     - Catalogs
   x-versions:
     - "SaaS"
+  x-app-token: true
   parameters:
     - name: id
       in: path
@@ -31,6 +32,7 @@ patch:
     - Catalogs
   x-versions:
     - "SaaS"
+  x-app-token: true
   description: This endpoint allows you to update a catalog.
   parameters:
     - name: id
@@ -65,6 +67,7 @@ delete:
     - Catalog
   x-versions:
     - "SaaS"
+  x-app-token: true
   description: This endpoint allows you to delete a catalog.
   parameters:
     - name: id
