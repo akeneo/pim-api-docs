@@ -1,6 +1,6 @@
 # How to retrieve PIM structure
 
-Retrieve the PIM Structure through a Channel resource. This is usually the required step before starting reading the PIM catalog data.
+Retrieve the PIM structure through a channel resource. This is usually the required step before starting to read the PIM catalog data.
 
 <table class="tag-container">
     <tr>
