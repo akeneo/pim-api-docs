@@ -25,7 +25,7 @@ Retrieve the PIM Structure through a Channel resource. This is usually the requi
 
 <div class="endpoint-container">
     <div class="endpoint-text">REST API endpoint(s):</div>
-    <a href="/api-reference.html#Channel" class="endpoint-link">channel</a>
+    <a href="/api-reference.html#Channel" class="endpoint-link" target="_blank" rel="noopener noreferrer">channel</a>
 </div>
 
 <div class="block-requirements">
@@ -36,7 +36,7 @@ Retrieve the PIM Structure through a Channel resource. This is usually the requi
         <img src="../img/illustrations/illus--Attributegroup.svg" width="110px">
         <div class="block-requirements-steps">
             <ul>
-                <li>Step 1. <a href="https://api.akeneo.com/apps/apps-getting-started.html">Get your App token tutorial</a></li>
+                <li>Step 1. <a href="apps-getting-started.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></li>
             </ul>
         </div>
     </div>
@@ -45,43 +45,40 @@ Retrieve the PIM Structure through a Channel resource. This is usually the requi
 
 ## Context
 
-The Channel resource holds useful data for reading the PIM Product catalog.
+The channel resource holds the basic PIM structure data.
 
 ![relationship schema](../../img/getting-started/synchronize-pim-products/step-1-objects-relationship-schema.svg)
 
-Get the big picture [here](https://api.akeneo.com/getting-started/synchronize-pim-products-6x/step-0.html).
+:::tips
+Get the big picture <a href="https://api.akeneo.com/getting-started/synchronize-pim-products-6x/step-0.html" target="_blank" rel="noopener noreferrer">here</a>.
+:::
 
 ## Fetch the PIM structure
 
-### 0. Setup a client for API
+### 0. Setup the client for API
 
-```
-
-composer require guzzlehttp/guzzle:^7.0
-```
+If you haven't set your client yet, please:
+- Install Guzzle by following the <a href="https://docs.guzzlephp.org/en/stable/overview.html#installation" target="_blank" rel="noopener noreferrer">official documentation</a>
+- Set your client for querying Akeneo API as follows:
 
 ```php
 
-$pimUrl = 'https://demo.cloud.akeneo.com';
-$appToken = 'app_token'; // Token provided during oauth steps
+$pimUrl = 'https://url-of-your-pim.com';
+$appToken = 'your_app_token'; // Token provided during oAuth steps
 
 $client = new \GuzzleHttp\Client([
     'base_uri' => $pimUrl,
-    'headers' => ['Authorization' => 'Bearer ' . $appToken],
+		'headers' => ['Authorization' => 'Bearer ' . $appToken],
 ]);
 ```
 
-::: info
-If you already followed a tutorial, you should already have a client.
-:::
+### 1. Get the PIM structure by fetching a channel from API
 
-### 1. Get the structure by fetching a channel from API
-
-Workflow:
+Workflow
 
 ![synchronisation steps](../../img/getting-started/synchronize-pim-products/step-1-steps-schema.svg)
 
-Retrieve Channel from PIM API:
+Collect channel from PIM API:
 
 ```php
 
@@ -99,15 +96,10 @@ $response = $client->get(
 $channel = json_decode($response->getBody()->getContents(), true);
 ```
 
-Retrieved Channel resource looks like this:
+The retrieved channel resource looks like this:
 
 ```php
-
 var_export($channel):
-```
-
-```php
-
 // Output
 [
     'code' => 'ecommerce',
@@ -130,11 +122,11 @@ var_export($channel):
 ]
 ```
 
-### 2. Store structure
+### 2. Store the PIM structure
 
-We advise the locales, currencies and root category to be stored in your App.
-- Locales will allow filtering many localisable resource labels, and parsing Product attribute values,
-- Currencies will be used to parse Product values price attribute type,
+We advise storing in your App locales, currencies, and root category.
+- Locales will allow filtering many localizable resource labels, and parsing product attribute values,
+- Currencies will be used to parse product values price attribute type,
 - Root category property will allow retrieving the whole category tree linked to the channel.
 
 ```php
