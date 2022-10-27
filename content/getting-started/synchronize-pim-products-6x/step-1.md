@@ -1,5 +1,9 @@
 # Synchronize PIM structure
 
+:::warning
+This guide is being deprecated and will soon be unpublished. Please go to the newest guide [here](../../apps/how-to-retrieve-pim-structure.html).
+:::
+
 ## What do we synchronize?
 ![relationship schema](../../img/getting-started/synchronize-pim-products/step-1-objects-relationship-schema.svg)
 
