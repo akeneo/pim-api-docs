@@ -68,7 +68,7 @@ $appToken = 'your_app_token'; // Token provided during oAuth steps
 
 $client = new \GuzzleHttp\Client([
     'base_uri' => $pimUrl,
-		'headers' => ['Authorization' => 'Bearer ' . $appToken],
+    'headers' => ['Authorization' => 'Bearer ' . $appToken],
 ]);
 ```
 
