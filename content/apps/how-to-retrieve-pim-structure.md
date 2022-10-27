@@ -99,7 +99,9 @@ $channel = json_decode($response->getBody()->getContents(), true);
 The retrieved channel resource looks like this:
 
 ```php
-var_export($channel):
+
+var_export($channel);
+
 // Output
 [
     'code' => 'ecommerce',
