@@ -596,6 +596,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
         'overview.md': 'Overview',
         'apps-getting-started.md': 'Create an app',
+        'how-to-retrieve-pim-structure.md': 'How to retrieve PIM structure',
         'authentication-and-authorization.md': 'Authentication and authorization',
         'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
         'app-developer-tools.md': 'Developer tools'
