@@ -36,6 +36,23 @@ You can even combine several filters on the same product properties. The example
 /api/rest/v1/products-uuid?search={"categories":[{"operator":"IN","value":["winter_collection"]},{"operator":"NOT IN","value":["accessories"]}]}
 ```
 
+### On their uuid
+
+::: availability versions=SaaS editions=CE,EE
+
+To filter products on their uuid, use the `uuid` property.
+Here are the allowed operators you can use to filter on the uuid as well as the corresponding type of value expected in the `search` query parameter.
+
+| Allowed operators | Allowed value type              |
+| ----------------- |---------------------------------|
+| IN, NOT IN        | list of strings (product uuids) |
+
+#### Example
+
+```
+/api/rest/v1/products-uuid?search={"uuid":[{"operator":"IN","value":["8945388d-cf5b-49af-8799-05d1ed6e296f", "941fe892-99dd-440f-b2a9-8eccb94248f0"]}]}
+```
+
 ### On their categories
 
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,SaaS editions=CE,EE
