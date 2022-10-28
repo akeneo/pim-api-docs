@@ -1,0 +1,72 @@
+get:
+  summary: Get the list of products related to a catalog
+  operationId: "get_app_catalog_products"
+  tags:
+    - Catalog products
+  x-versions:
+    - "SaaS"
+  description: This endpoint allows you to get the list of products related to a catalog. Products are paginated and they can be filtered. In the Enterprise Edition, permissions based on your app settings are applied to the set of products you request.
+  parameters:
+    - name: id
+      in: path
+      description: Catalog ID
+      required: true
+      type: string
+      format: uuid
+    - $ref: '#/parameters/search_after'
+    - name: limit
+      in: query
+      description: Number of results by page, see <a href="/documentation/pagination.html">Pagination</a> section
+      required: false
+      type: integer
+      minimum: 1
+      maximum: 1000
+      default: 100
+    - $ref: '#/parameters/updated_before'
+    - $ref: '#/parameters/updated_after'
+  responses:
+    200:
+      description: Return the paginated products
+      schema:
+        title: Products
+        type: object
+        allOf:
+          - $ref: '#/definitions/SearchAfterPagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: string
+                      format: uuid
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {
+            "TODO"
+          }
+    401:
+      description: Unauthorized
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {
+            code: 403,
+            message: "TODO"
+          }
+    403:
+      description: Access forbidden
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {
+            code: 403,
+            message: "TODO"
+          }
+    404:
+      description: Not found
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {
+            code: 403,
+            message: "TODO"
+          }

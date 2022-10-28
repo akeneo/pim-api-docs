@@ -1,0 +1,67 @@
+get:
+  summary: Get a product related to a catalog
+  operationId: "get_app_catalog_products_uuid"
+  tags:
+    - Catalog products
+  x-versions:
+    - "SaaS"
+  description: This endpoint allows you to get a specific product related to a catalog. In the Enterprise Edition, permissions based on your app settings are applied on the product you request.
+  parameters:
+    - name: id
+      in: path
+      description: Catalog ID
+      required: true
+      type: string
+      format: uuid
+    - name: uuid
+      in: path
+      description: Product UUID
+      required: true
+      type: string
+      format: uuid
+  responses:
+    200:
+      description: Return the product
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {
+            "uuid": "a5eed606-4f98-4d8c-b926-5b59f8fb0ee7",
+            "family": "tshirt",
+            "groups": [],
+            "parent": null,
+            "categories": [],
+            "enabled": true,
+            "values": {
+              "name": [
+                {
+                  "data": "Top",
+                  "locale": "en_US",
+                  "scope": null
+                }
+              ]
+            }
+          }
+    401:
+      description: Unauthorized
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {
+            code: 403,
+            message: "TODO"
+          }
+    403:
+      description: Access forbidden
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {
+            code: 403,
+            message: "TODO"
+          }
+    404:
+      description: Not found
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {
+            code: 403,
+            message: "TODO"
+          }

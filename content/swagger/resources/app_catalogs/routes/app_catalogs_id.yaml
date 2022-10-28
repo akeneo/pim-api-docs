@@ -10,7 +10,7 @@ get:
   parameters:
     - name: id
       in: path
-      description: Id of the catalog
+      description: Catalog ID
       required: true
       type: string
       format: uuid
@@ -37,7 +37,7 @@ patch:
   parameters:
     - name: id
       in: path
-      description: Id of the catalog
+      description: Catalog ID
       required: true
       type: string
       format: uuid
@@ -72,7 +72,7 @@ delete:
   parameters:
     - name: id
       in: path
-      description: Id of the catalog
+      description: Catalog ID
       required: true
       type: string
       format: uuid

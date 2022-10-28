@@ -167,6 +167,10 @@
   $ref: ./resources/app_catalogs/routes/app_catalogs_id.yaml
 /api/rest/v1/catalogs/{id}/product-uuids:
   $ref: ./resources/app_catalogs/routes/app_catalogs_id_product_uuids.yaml
+/api/rest/v1/catalogs/{id}/products:
+  $ref: ./resources/app_catalogs/routes/app_catalogs_id_products.yaml
+/api/rest/v1/catalogs/{id}/products/{uuid}:
+  $ref: ./resources/app_catalogs/routes/app_catalogs_id_products_uuid.yaml
 
 /api/rest/v1:
   $ref: ./resources/list_endpoints.yaml
