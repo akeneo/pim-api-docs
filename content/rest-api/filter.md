@@ -258,27 +258,6 @@ To get the products with an "A" or "B" for the `mobile` channel and `en_GB` loca
 /api/rest/v1/products-uuid?search={"quality_score":[{"operator":"IN","value":["A","B"],"scope":"mobile","locale":"en_GB"}]}
 ```
 
-### On their uuid
-
-::: availability versions=SaaS editions=CE,EE
-
-To filter products on their uuid, use the `uuid` product property. This filter does not need a `scope` or `locale` value.
-This filter accepts 2 operators: IN and NOT IN, and the value is always an array of uuids.
-
-#### Examples
-
-To get the products having uuid `aaf518b2-f91e-40f1-a53a-78ce5e81a6f9` or `fc24e6c3-933c-4a93-8a81-e5c703d134d5`.
-
-```
-/api/rest/v1/products-uuid?search={"uuid":[{"operator":"IN","value":["aaf518b2-f91e-40f1-a53a-78ce5e81a6f9", "fc24e6c3-933c-4a93-8a81-e5c703d134d5"]}]}
-```
-
-To get all the products but the products with uuid `aaf518b2-f91e-40f1-a53a-78ce5e81a6f9` and `fc24e6c3-933c-4a93-8a81-e5c703d134d5`.
-
-```
-/api/rest/v1/products-uuid?search={"uuid":[{"operator":"NOT IN","value":["aaf518b2-f91e-40f1-a53a-78ce5e81a6f9", "fc24e6c3-933c-4a93-8a81-e5c703d134d5"]}]}
-```
-
 ## Filter on product model properties
 
 To filter product models by one of their properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
