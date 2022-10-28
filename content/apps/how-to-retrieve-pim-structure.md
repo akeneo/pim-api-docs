@@ -36,7 +36,7 @@ Retrieve the PIM structure through a channel resource. This is usually the requi
         <img src="../img/illustrations/illus--Attributegroup.svg" width="110px">
         <div class="block-requirements-steps">
             <ul>
-                <li>Step 1. <a href="apps-getting-started.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></li>
+                <li>Step 1. <a href="apps-how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></li>
             </ul>
         </div>
     </div>
@@ -61,7 +61,7 @@ If you haven't set your client yet, please:
 - Install Guzzle by following the <a href="https://docs.guzzlephp.org/en/stable/overview.html#installation" target="_blank" rel="noopener noreferrer">official documentation</a>
 - Set your client for querying Akeneo API as follows:
 
-```php
+```php  [activate:PHP]
 
 $pimUrl = 'https://url-of-your-pim.com';
 $appToken = 'your_app_token'; // Token provided during oAuth steps

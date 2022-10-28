@@ -26,7 +26,7 @@ Feel free to contribute with languages we're not experts at.
 
 ## Requirements
 - You have your [App developer starter kit](/apps/overview.html#app-developer-starter-kit)
-- You understand [what's an Akeneo App](/apps/apps-getting-started.html#whats-an-akeneo-app) and [how they fit into Akeneo PXM Studio](/apps/apps-getting-started.html#how-apps-fit-into-akeneo-pxm-studio)
+- You understand [what's an Akeneo App](/apps/overview.html#whats-an-akeneo-app) and [how they fit into Akeneo PXM Studio](/apps/overview.html#how-apps-fit-into-akeneo-pxm-studio)
 
 ## Step 1: Expose your activation and callback URLs
 
@@ -85,7 +85,7 @@ Your local app is now available at `https://46672a93dd64.lhrtunnel.link`. You ma
 
 To get credentials for your app, you need to create a test app on your developer sandbox.
 
-![Create a test app button](../img/apps/create-a-test-app-button.png)
+![Create a test app button](../../img/apps/create-a-test-app-button.png)
 
 To create a test App: 
 1. Go to `Connect`, then `App Store`
@@ -96,7 +96,7 @@ To create a test App:
 6. And click on `Done`
 7. Your test App appears on the App Store page
 
-![Test app creation](../img/apps/test-app-creation.png)
+![Test app creation](../../img/apps/test-app-creation.png)
 
 
 If you don't see the `Create a test App` button, please enable the `developer mode`.  
@@ -110,7 +110,7 @@ To do so, you need to:
 
 ## Step 4: Connect your test App and access its settings
 
-![Test app on the App Store](../img/apps/marketplace-with-test-app.png)
+![Test app on the App Store](../../img/apps/marketplace-with-test-app.png)
 
 Connecting a test App is like connecting a published App. 
 
@@ -125,7 +125,7 @@ Now that your App is connected, you can enjoy all the available App features fro
 To access the settings of your connected App on Akeneo PIM, please go to `Connected Apps`, then click on `Manage App`. 
 You can also open your App from Akeneo PIM UI, to do so, click on `Open app`. 
 
-![Connected test app on Apps](../img/apps/connected-test-app.png)
+![Connected test app on Apps](../../img/apps/connected-test-app.png)
 
 ::: info
 To know more about the step-by-step activation process, please read our article:  

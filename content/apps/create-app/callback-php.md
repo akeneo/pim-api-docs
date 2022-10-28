@@ -1,9 +1,12 @@
 ```php [callback:PHP]
 
-// Let's create a `callback.php` file:
+// Let's create a `callback.php` file
 
-const OAUTH_CLIENT_ID = '<CLIENT_ID>';
-const OAUTH_CLIENT_SECRET = '<CLIENT_SECRET>';
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$oauthClientId = '<CLIENT_ID>';
+$oauthClientSecret = '<CLIENT_SECRET>';
+$generateTokenUrl = '/connect/apps/v1/oauth2/token';
 
 session_start();
 
@@ -24,25 +27,29 @@ if (empty($pimUrl)) {
     exit('No PIM url in session');
 }
 
+// Generate code for token request
 $codeIdentifier = bin2hex(random_bytes(30));
-$codeChallenge = hash('sha256', $codeIdentifier . OAUTH_CLIENT_SECRET);
+$codeChallenge = hash('sha256', $codeIdentifier . $oauthClientSecret);
 
-$accessTokenUrl = $pimUrl . '/connect/apps/v1/oauth2/token';
+// Build form data to post
 $accessTokenRequestPayload = [
-    'client_id' => OAUTH_CLIENT_ID,
+    'client_id' => $oauthClientId,
     'code_identifier' => $codeIdentifier,
     'code_challenge' => $codeChallenge,
     'code' => $authorizationCode,
     'grant_type' => 'authorization_code',
 ];
 
-// Do a POST request on the token endpoint
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $accessTokenUrl);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $accessTokenRequestPayload);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = json_decode(curl_exec($ch), true);
+// If you haven't set your client yet, please install Guzzle by following the official documentation:
+// https://docs.guzzlephp.org/en/stable/overview.html#installation
+$client = new GuzzleHttp\Client(['base_uri' => $pimUrl]);
 
-echo $response['access_token'];
+// Make an authenticated call to the API
+$accessTokenUrl = $pimUrl . $generateTokenUrl;
+$response = $client->post($accessTokenUrl, ['form_params' => $accessTokenRequestPayload]);
+
+// Convert json response to array
+$contents = json_decode($response->getBody()->getContents(), true);
+
+var_export($contents);
 ```

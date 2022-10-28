@@ -2,8 +2,9 @@
 
 // Let's create an `activate.php` file
 
-const OAUTH_CLIENT_ID = '<CLIENT_ID>';
-const OAUTH_SCOPES = 'read_products write_products';
+$oauthClientId = '<CLIENT_ID>';
+$getAuthorizationUrl = '%s/connect/apps/v1/authorize?%s';
+$scopes = ['read_products', 'write_products', 'delete_products'];
 
 session_start();
 
@@ -23,14 +24,13 @@ $_SESSION['pim_url'] = $pimUrl;
 // https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1
 $authorizeUrlParams = http_build_query([
     'response_type' => 'code',
-    'client_id' => OAUTH_CLIENT_ID,
-    'scope' => OAUTH_SCOPES,
+    'client_id' => $oauthClientId,
+    'scope' => implode(' ', $scopes),
     'state' => $state,
 ]);
 
 // Build the url for the Authorization Request using the PIM URL
-$authorizeUrl = $pimUrl . '/connect/apps/v1/authorize?' . $authorizeUrlParams;
-
-// Redirect the user to the Authorization URL
-header('Location: ' . $authorizeUrl);
+$url = sprintf($getAuthorizationUrl, $pimUrl, $authorizeUrlParams);
+header('Location: '.$url);
+exit;
 ```
