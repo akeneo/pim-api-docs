@@ -11,6 +11,6 @@ The response is an HTTP 200 with a payload containing a warning message.
 
 ```json
 {
-  "message": "No products to synchronize. The catalog [catalog id] has been disabled on the PIM side. Note that you can get catalogs status with the GET /api/rest/v1/catalogs endpoint."
+  "error": "No products to synchronize. The catalog [catalog id] has been disabled on the PIM side. Note that you can get catalogs status with the GET /api/rest/v1/catalogs endpoint."
 }
 ```
