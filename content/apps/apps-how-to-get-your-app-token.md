@@ -163,7 +163,7 @@ You can use this token to call the Akeneo PIM REST API.
         <div>
             <ul>
                 <li><a href="https://api.akeneo.com/apps/overview.html">Learn more about Apps</a></li>
-                <li><a href="https://api-staging.akeneo.com/api-reference-index.html">Explore the REST API reference</a></li>
+                <li><a href="https://api.akeneo.com/api-reference-index.html">Explore the REST API reference</a></li>
             </ul>
         </div>
     </div>
