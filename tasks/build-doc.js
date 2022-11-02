@@ -627,6 +627,11 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         }));
   }
 );
+gulp.task('build-apps-redirection', ['clean-dist','less'], function () {
+    return gulp.src('content/apps/redirection/to-get-your-app-token.html')
+        .pipe(rename('apps-getting-started.html'))
+        .pipe(gulp.dest('./dist/apps'))
+});
 
 gulp.task('build-concepts', ['clean-dist','less'], function () {
 
