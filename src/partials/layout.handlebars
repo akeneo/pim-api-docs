@@ -41,7 +41,7 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-left">
                 <li class="{{#if active_apps}}active{{/if}}">
                     <a href="/apps/overview.html">Apps</a>
                 </li>
@@ -62,19 +62,25 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">References <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-title">References</li>
-                        <li><a href="/api-reference-index.html">REST API Reference</a></li>
+                        <li><a href="/api-reference-index.html">REST API Reference</a>homepage.html</li>
                         <li><a href="/events-reference/events-reference-serenity/products.html">Events API Reference</a></li>
                     </ul>
                 </li>
+                <li class="{{#if active_guided_tutorials}}active{{/if}}">
+                    <a href="/guided-tutorials/homepage.html">Guided tutorials</a>
+                </li>
             </ul>
-            <form class="navbar-form navbar-right">
-                <div class="form-group form-search">
-                    <input id="algolia-search" class="form-control" placeholder="Search whole doc">
-                </div>
-            </form>
         </div>
     </div>
 </nav>
+
+<div class="search-bar-container">
+    <form class="navbar-form navbar-right search-bar-form">
+        <div class="form-group form-search">
+            <input id="algolia-search" class="form-control search-bar" placeholder="Search whole doc">
+        </div>
+    </form>
+</div>
 
 <div id="mainContent" class="main-content">
     {{> @partial-block }}

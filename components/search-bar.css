@@ -1,0 +1,13 @@
+.search-bar-container{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #F1F4F9;
+}
+
+.search-bar-form {
+    width: 43.75%;
+}

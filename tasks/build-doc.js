@@ -791,3 +791,34 @@ gulp.task('build-misc-documentation', ['clean-dist','less'], function () {
         }));
     }
 );
+
+gulp.task('build-guided-tutorials', ['clean-dist','less'], function () {
+    var pages = {
+        'homepage.md': 'Homepage',
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/guided-tutorials/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/guided-tutorials/*.md')
+                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/guided-tutorials') + "\n"))
+                .pipe(gulpMarkdownIt(md))
+                .pipe(gulp.dest('tmp/guided-tutorials/'))
+                .on('end', function () {
+                    return gulp.src('src/partials/apps.handlebars')
+                        .pipe(gulpHandlebars({
+                            active_guided_tutorials:  true,
+                            // title: '',
+                            mainContent: fs.readFileSync('tmp/guided-tutorials/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        }, {
+                            partialsDirectory: ['./src/partials']
+                        }))
+                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                        .pipe(gulp.dest('./dist/guided-tutorials'));
+                })
+        }));
+    }
+);

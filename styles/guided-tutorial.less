@@ -206,3 +206,106 @@
         background-color: #71AEAE;
         text-decoration: none;
     }
+
+    /**********************SEARCH BAR*************************/
+
+    .search-bar-container{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #F1F4F9;
+    }
+
+    .search-bar-form {
+        width: 43.75%;
+    }
+
+    .search-bar{
+        width: 100%;
+    }
+
+    /**********************TILE*************************/
+
+    .tile {
+        position: relative;
+        box-sizing: border-box;
+        word-wrap: break-word;
+
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 20px 25px 10px;
+        gap: 10px;
+
+        width: 355px;
+        height: 130px;
+
+        background: #F1F4F9;
+
+        border: 1px solid #8C9AAF;
+        border-radius: 5px;
+    }
+
+    .tile-title {
+        position: absolute;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 29px;
+
+        display: flex;
+        align-items: center;
+
+        color: #414D97;
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+    }
+
+    .tile-tag {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        position: absolute;
+        bottom: 10px;
+        right: 0;
+        .tag-selectable {
+            margin-right: 10px;
+        }
+    }
+
+    /**********************TILE*************************/
+    .feature-list {
+        display: flex;
+        flex-direction: row;
+        margin-top: 21px;
+        margin-bottom: 55px;
+        .tag-selectable {
+            margin-right: 12px;
+        }
+    }
+
+    .tag-list {
+        margin-top: 15px;
+        margin-bottom: 21px;
+    }
+
+    .tile-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 21px;
+        .tile {
+            margin-bottom: 30px;
+        }
+    }
+
+    .mr-30 {
+        margin-right: 30px;
+    }
+
