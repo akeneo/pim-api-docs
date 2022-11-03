@@ -1,3 +1,5 @@
+@import "tile.css";
+@import "search-bar.css";
 
 /**  Default pim-api-doc CSS **/
 body {
@@ -189,6 +191,33 @@ button {
     border-color: #4CA8E0;
 }
 .tag-color-red {
+    background-color: #F74B64;
+    border-color: #F74B64;
+}
+.tag-color-yellow {
+    background-color: #FCCE76;
+    border-color: #FCCE76;
+}
+.tag-color-purple {
+    background-color: #9452BA;
+    border-color: #9452BA;
+}
+.tag-color-light-green{
+    background-color: #81CCCC;
+    border-color: #81CCCC;
+}
+
+.tag-color-pink{
+    background-color: #F8A0E5;
+    border-color: #F8A0E5;
+}
+
+.tag-color-orange{
+    background-color: #FCAC76;
+    border-color: #FCAC76;
+}
+
+.tag-color-coral{
     background-color: #F74B64;
     border-color: #F74B64;
 }

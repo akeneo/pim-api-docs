@@ -1,0 +1,156 @@
+{{!-- Shared template for the documentation page and guide pages, as well as the PHP client doc --}}
+{{#> layout title=title }}
+    <div class="container">
+        <div class="row guided-tutorials">
+            {{{mainContent}}}
+            <div class="col-xs-12 col-sm-offset-1 col-sm-8">
+                <div class="tag-title mt-40">Use case</div>
+                <div class="tag-list">
+                    {{#useCases}}
+                        <div class="tag-selectable">
+                            <div class="tag-color tag-color-{{color}}"></div>
+                            <div class="tag-label">{{use_case}}</div>
+                        </div>
+                    {{/useCases}}
+                </div>
+                <div class="tag-title">Features</div>
+                <div class="feature-list">
+                    {{#each features}}
+                        <div class="tag-selectable">
+                            <div class="tag-color tag-color-{{color}}"></div>
+                            <div class="tag-label">{{feature}}</div>
+                        </div>
+                    {{/each}}
+                </div>
+                <h2 class="filtered-result"></h2>
+                <div class="tile-list">
+                    {{#each tutorials}}
+                        <a href="{{link}}" class="tile-title">
+                            <div class="tile mr-30">
+                                {{title}}
+                                <div class="tile-tag">
+                                    {{#use_cases}}
+                                        <div class="tag-selectable">
+                                            <div class="tag-color tag-color-{{color}}"></div>
+                                            <div class="tag-label">{{use_case}}</div>
+                                        </div>
+                                    {{/use_cases}}
+                                    {{#features}}
+                                        <div class="tag-selectable">
+                                            <div class="tag-color tag-color-{{color}}"></div>
+                                            <div class="tag-label">{{feature}}</div>
+                                        </div>
+                                    {{/features}}
+                                </div>
+                            </div>
+                        </a>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let filtersActivated = [];
+        let $filtered = $('.filtered-result');
+        $filtered.hide();
+
+        $(window).on('hashchange', onHashchange);
+        onHashchange();
+
+        function onHashchange() {
+            let matches = location.hash.match(/tags=([^&]+)/i);
+            let hashFilter = matches && matches[1].split(',');
+            let useCaseSelected = false;
+            for (let key in hashFilter) {
+                let label = decodeURIComponent(hashFilter[key]);
+                if (label === 'App Workflow') {
+                    useCaseSelected = true;
+                }
+                filtersActivated[label] = true;
+            }
+
+            if (useCaseSelected) {
+                checkSelectRules('App Workflow');
+            }
+;
+            let hasFilter = false;
+            for (let label in filtersActivated) {
+                if (filtersActivated[label]) {
+                    hasFilter = true;
+                    $(".tag-list, .feature-list").children().children().filter(function () {
+                        return $(this).text() === label;
+                    }).parent().not().addClass('tag-selected')
+                } else {
+                    $(".tag-list, .feature-list").children().children().filter(function () {
+                        return $(this).text() === label;
+                    }).parent().removeClass('tag-selected')
+                }
+            }
+
+            var $grid = $('.tile-list').isotope({
+                itemSelector: '.tile',
+                layoutMode: 'fitRows',
+                filter: function () {
+                    let selectors = [];
+                    for (let label in filtersActivated) {
+                        if (filtersActivated[label]) {
+                            selectors.push("div.tag-label:contains(" + label + ")");
+                        }
+                    }
+
+                    return $(this).find(selectors.join(', ')).length;
+                }
+            });
+
+            $grid.on('arrangeComplete', function (event, filteredItems) {
+                for (let label in filtersActivated) {
+                    if (filtersActivated[label]) {
+                        return $filtered.text('filtered results (' + filteredItems.length + ')').show();
+                    }
+                }
+            });
+
+            if (!hasFilter) {
+                $('.tile-list').isotope({
+                    filter: '*'
+                });
+                $filtered.hide()
+            }
+        }
+
+        $(".tag-list .tag-selectable, .feature-list .tag-selectable").click(function () {
+            let tagLabel = $(this).find('.tag-label').text();
+            filtersActivated[tagLabel] = !filtersActivated[tagLabel];
+            checkSelectRules(tagLabel);
+            changeHash()
+        });
+
+        function checkSelectRules(tagLabel) {
+            if (tagLabel === 'App Workflow') {
+                let keep = filtersActivated[tagLabel];
+                for (let label in filtersActivated) {
+                    filtersActivated[label] = false;
+                }
+                filtersActivated[tagLabel] = keep;
+            }
+            if (tagLabel !== 'App Workflow') {
+                filtersActivated['App Workflow'] = false;
+            }
+        }
+
+        function changeHash() {
+            let hash = '#tags';
+            for (let label in filtersActivated) {
+                if (filtersActivated[label]) {
+                    if (hash.includes('=')) {
+                        hash += ',' + encodeURIComponent(label);
+                    } else {
+                        hash += '=' + encodeURIComponent(label);
+                    }
+                }
+            }
+            location.hash = hash;
+        }
+
+    </script>
+{{/layout}}

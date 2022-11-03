@@ -77,6 +77,6 @@ Your app is good to go?
 
 ## Next steps
 
-- Learn more about how to [create an app](/apps/apps-how-to-get-your-app-token.html#how-to-get-app-token)
+- Learn more about how to [create an app](/tutorials/how-to-get-your-app-token.html#how-to-get-app-token)
 - Read our documentation about [authorization and authentication](/apps/authentication-and-authorization.html)
 - Learn how to use [catalogs](/apps/catalogs.html) to retrieve product data

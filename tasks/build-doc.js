@@ -254,7 +254,6 @@ md.use(require('markdown-it-container'), 'panel-link', {
 md.use(require("markdown-it-codetabs"));
 md.use(require("markdown-it-include"));
 
-
 gulp.task('build-getting-started', ['clean-dist','less'], function () {
 
     var pages = {
@@ -595,8 +594,6 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
         'overview.md': 'Overview',
-        'apps-how-to-get-your-app-token.md': 'How to get your App token',
-        'how-to-retrieve-pim-structure.md': 'How to retrieve PIM structure',
         'authentication-and-authorization.md': 'Authentication and authorization',
         'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
         'app-developer-tools.md': 'Developer tools'
@@ -799,5 +796,146 @@ gulp.task('build-misc-documentation', ['clean-dist','less'], function () {
                         .pipe(gulp.dest('./dist/documentation'));
                 });
         }));
+    }
+);
+
+gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
+    let pages = {
+        "how-to-get-your-app-token.md": "How to get your App token",
+        "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
+        "how-to-get-categories.md": "How to get categories",
+        "how-to-parse-product-values.md": "How to parse product values",
+        "how-to-collect-products.md": "How to collect products",
+        "how-to-collect-product-variations.md": "How to collect product variations",
+        "how-to-get-families-and-attributes.md": "How to get families and attributes",
+        "how-to-publish-your-app.md": "How to publish your App",
+    };
+
+    let useCases = [
+        {'color': 'light-blue', 'use_case': 'App Workflow'},
+    ];
+
+    let features = [
+        {'color': 'yellow', 'feature': 'Products'},
+        {'color': 'purple', 'feature': 'Product Models'},
+        {'color': 'light-green', 'feature': 'Variant Products'},
+        {'color': 'pink', 'feature': 'Families'},
+        {'color': 'orange', 'feature': 'Attributes'},
+        {'color': 'coral', 'feature': 'Categories'},
+    ]
+
+    let tutorials = [
+        {
+            'title': 'How to get your App token',
+            'link': '/tutorials/how-to-get-your-app-token.html',
+            'features': [],
+            'use_cases': useCases
+        },
+        {
+            'title': 'How to retrieve PIM structure',
+            'link': '/tutorials/how-to-retrieve-pim-structure.html',
+            'features': [],
+            'use_cases': useCases
+        },
+        {
+            'title': 'How to get categories',
+            'link': '/apps/how-to-get-categories.html',
+            'features': [features[5]],
+            'use_cases': useCases
+        },
+        {
+            'title': 'How to parse product values',
+            'link': '/apps/how-to-parse-product-values.html',
+            'features': [features[0]],
+            'use_cases': useCases
+        },
+        {
+            'title': 'How to collect products',
+            'link': '/apps/how-to-collect-products.html',
+            'features': [features[0]],
+            'use_cases': useCases
+        },
+        {
+            'title': 'How to collect product variations',
+            'link': '/apps/how-to-collect-product-variations.html',
+            'features': [features[2]],
+            'use_cases': useCases
+        },
+        {
+            'title': 'How to get families and attributes',
+            'link': '/apps/how-to-get-families-and-attributes.html',
+            'features': [features[3], features[4]],
+            'use_cases': useCases
+        },
+        {
+            'title': 'How to publish your App',
+            'link': '/apps/how-to-publish-your-app.html',
+            'features': [],
+            'use_cases': useCases
+        },
+    ];
+
+    let isOnePage = false;
+
+    return gulp.src('content/tutorials/homepage.md')
+        .pipe(flatmap(function (stream, file) {
+            return gulp.src('content/tutorials/*.md')
+                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/tutorials') + "\n"))
+                .pipe(gulpMarkdownIt(md))
+                .pipe(gulp.dest('tmp/tutorials/'))
+                .on('end', function () {
+                    return gulp.src('src/partials/guided-tutorials-homepage.handlebars')
+                        .pipe(gulpHandlebars({
+                            active_guided_tutorials: true,
+                            tutorials: tutorials,
+                            features: features,
+                            useCases: useCases,
+                            mainContent: fs.readFileSync('tmp/tutorials/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        }, {
+                            partialsDirectory: ['./src/partials']
+                        }))
+                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                        .pipe(gulp.dest('./dist/tutorials'));
+                })
+        }));
+    }
+);
+
+gulp.task('build-tutorials', ['clean-dist','less'], function () {
+        let pages = {
+            "how-to-get-your-app-token.md": "How to get your App token",
+            "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
+            "how-to-get-categories.md": "How to get categories",
+            "how-to-parse-product-values.md": "How to parse product values",
+            "how-to-collect-products.md": "How to collect products",
+            "how-to-collect-product-variations.md": "How to collect product variations",
+            "how-to-get-families-and-attributes.md": "How to get families and attributes",
+            "how-to-publish-your-app.md": "How to publish your App",
+        };
+
+        let isOnePage = false;
+
+        return gulp.src('content/tutorials/*.md')
+            .pipe(flatmap(function (stream, file) {
+                return gulp.src('content/tutorials/*.md')
+                    .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                    .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/tutorials') + "\n"))
+                    .pipe(gulpMarkdownIt(md))
+                    .pipe(gulp.dest('tmp/tutorials/'))
+                    .on('end', function () {
+                        return gulp.src('src/partials/guided-tutorials.handlebars')
+                            .pipe(gulpHandlebars({
+                                active_guided_tutorials: true,
+                                mainContent: fs.readFileSync('tmp/tutorials/' + path.basename(file.path).replace(/\.md/, '.html'))
+                            }, {
+                                partialsDirectory: ['./src/partials']
+                            }))
+                            .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                            .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                            .pipe(gulp.dest('./dist/tutorials'));
+                    })
+            }));
     }
 );

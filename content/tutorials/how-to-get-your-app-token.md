@@ -1,14 +1,18 @@
-# Create an app
+# How to get your App token
 
-You're ready to create a new app. You want to set up your development environment so that you can start coding.
+Implement the required parts of the App activation process and receive an App access token for querying your PIM API.
 
-In this tutorial, we provide a guide on how to implement the required parts of your App for the activation process based on OAuth 2.0 with Authorization Code.
-
-At the end of this tutorial, your App will receive an Access Token and will be able to call the REST API of a PIM.
-
-::: info
-Please go to our [REST API Reference page](/api-reference-index.html) to learn more about our REST API endpoints. And if you want to know more about response codes, pagination, filters, or get troubleshooting information, go to the REST API basics page.
-:::
+<table class="tag-container-xs">
+    <tr>
+        <td>Use case:</td>
+        <td>
+            <button aria-pressed="false" class="tag-selectable">
+                <div class="tag-color tag-color-light-blue"></div>
+                <div class="tag-label">App Workflow</div>
+            </button>
+        </td>
+    </tr>
+</table>
 
 ## What you will learn
 In this tutorial, we provide a guide on how to implement the required parts of your App for the activation process based on OAuth 2.0 with Authorization Code.
@@ -20,13 +24,8 @@ We strongly encourage you to adapt those examples with the framework or library 
 :::
 
 ::: tips
-Reminder: our documentation is [open-sourced](https://github.com/akeneo/pim-api-docs).  
-Feel free to contribute with languages we're not experts at.
+If you prefer to start with a fonctionnal App (in PHP), have a look [here](/apps/app-developer-tools.html)
 :::
-
-## Requirements
-- You have your [App developer starter kit](/apps/overview.html#app-developer-starter-kit)
-- You understand [what's an Akeneo App](/apps/overview.html#whats-an-akeneo-app) and [how they fit into Akeneo PXM Studio](/apps/overview.html#how-apps-fit-into-akeneo-pxm-studio)
 
 ## Step 1: Expose your activation and callback URLs
 
@@ -46,13 +45,17 @@ Then, your application must expose a **callback URL**.
 !!!include(content/apps/create-app/callback-python.md)!!!
 !!!include(content/apps/create-app/callback-java.md)!!!
 
+
 ::: info
 You can find more information about the authorization process and code challenge in the following documentation. 
-- [Step 2: Ask for authorizations](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations)
-- [What's the code challenge?](/apps/authentication-and-authorization.html#whats-the-code-challenge)
+- [OAuth Authorization and authentication](/apps/authentication-and-authorization.html#)
 :::
 
 ## Step 2: Get a public URL for your in development App
+
+::: info
+if you use a local version of PIM, skip this step
+:::
 
 Before proceeding to step 4 create a test App in your developer sandbox, you will need valid URLs to your App. This can be easily resolved with a tunnel to your localhost.
 
@@ -85,21 +88,13 @@ Your local app is now available at `https://46672a93dd64.lhrtunnel.link`. You ma
 
 To get credentials for your app, you need to create a test app on your developer sandbox.
 
-![Create a test app button](../../img/apps/create-a-test-app-button.png)
+First of all, go to `Connect`, then `App Store`
 
-To create a test App: 
-1. Go to `Connect`, then `App Store`
-2. On the top right corner, click on `Create a test App` 
-3. Fill in all the required information
-4. Then click on `Create`
-5. Copy/paste credentials in your app configuration file
-6. And click on `Done`
-7. Your test App appears on the App Store page
+### Permissions
 
-![Test app creation](../../img/apps/test-app-creation.png)
+If you see `Create a test App` skip to [Connect app](https://www.notion.so/Guided-tutorial-How-to-get-your-app-token-022acb1113c1413faefaec3c8f3585a5), else please enable the `developer mode`.
+![Create a test app button](../img/apps/create-a-test-app-button.png)
 
-
-If you don't see the `Create a test App` button, please enable the `developer mode`.  
 To do so, you need to:
 1. Go to `System`, then `Roles`
 2. Choose the role you use for your user
@@ -107,25 +102,38 @@ To do so, you need to:
 4. Select `Manage test apps`
 5. Don't forget to save your modifications
 
+### Connect app
+
+To create a test App:
+1. On the top right corner, click on `Create a test App`
+2. Fill in all the required information
+   ![Test_app_creation_credentials](../img/apps/test-app-creation-info.png)
+3. Then click on `Create`
+4. Copy/paste credentials in your app configuration file
+   ![Test_app_creation_credentials](../img/apps/test-app-creation-credentials.png)
+5. And click on `Done`
+6. Your test App appears on the App Store page
+
 
 ## Step 4: Connect your test App and access its settings
 
-![Test app on the App Store](../../img/apps/marketplace-with-test-app.png)
+![Test app on the App Store](../img/apps/marketplace-with-test-app.png)
 
 Connecting a test App is like connecting a published App. 
 
-1. Click on `Connect`
-2. Your App opens in a new tab of your browser
-3. Launch the connection process from your App
-4. Follow all the activation process steps, then `Confirm`
-5. Your test App is now connected with Akeneo PIM! 🔗
+1. Launch your APP
+2. Click on `Connect`
+3. Your App opens in a new tab of your browser
+4. Launch the connection process from your App
+5. Follow all the activation process steps, then `Confirm`
+6. Your test App is now connected with Akeneo PIM! 🔗
 
 Now that your App is connected, you can enjoy all the available App features from the Akeneo PXM Studio UI and test that your App works well. 
 
 To access the settings of your connected App on Akeneo PIM, please go to `Connected Apps`, then click on `Manage App`. 
 You can also open your App from Akeneo PIM UI, to do so, click on `Open app`. 
 
-![Connected test app on Apps](../../img/apps/connected-test-app.png)
+![Connected test app on Apps](../img/apps/connected-test-app.png)
 
 ::: info
 To know more about the step-by-step activation process, please read our article:  
@@ -137,6 +145,7 @@ To know more about the step-by-step activation process, please read our article:
 At the end of this process, you receive the following response with an `access_token`:
 
 ```json
+
 {
   "access_token": "Y2YyYjM1ZjMyMmZlZmE5Yzg0OTNiYjRjZTJjNjk0ZTUxYTE0NWI5Zm",
   "token_type": "bearer",
@@ -146,9 +155,16 @@ At the end of this process, you receive the following response with an `access_t
 
 You can use this token to call the Akeneo PIM REST API.
 
-## Next steps
-
-- Explore the [REST API reference](/api-reference-index.html)
-- Discover how to [synchronize product data with your app](/getting-started/synchronize-pim-products-6x/welcome.html)
-- Start building your app by populating data to test your app against, designing your user interface, and interacting with the Akeneo REST API so that your app stays in sync with changing data
-- [Publish your app](/apps/overview.html#publish-your-app) on the [Akeneo App Store](https://apps.akeneo.com/how-submit-extension-akeneo-app-store)
+<div class="block-next-steps">
+    <img src="../img/illustrations/illus--Attribute.svg" width="140px">
+    <div class="block-next-steps-column">
+        <div class="block-next-steps-title">Next Steps</div>
+        <div class="block-next-steps-text">Now that you collected your token, we advise you to follow</div>
+        <div>
+            <ul>
+                <li><a href="/apps/overview.html">Learn more about Apps</a></li>
+                <li><a href="/api-reference-index.html">Explore the REST API reference</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
