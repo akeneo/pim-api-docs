@@ -628,6 +628,16 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
   }
 );
 
+gulp.task('build-redirections',[
+    'to-get-your-app-token-redirection',
+]);
+
+gulp.task('to-get-your-app-token-redirection', ['clean-dist','less'], function () {
+    return gulp.src('content/redirections/to-get-your-app-token.html')
+        .pipe(rename('apps-getting-started.html'))
+        .pipe(gulp.dest('./dist/apps'))
+});
+
 gulp.task('build-concepts', ['clean-dist','less'], function () {
 
     var pages = {
