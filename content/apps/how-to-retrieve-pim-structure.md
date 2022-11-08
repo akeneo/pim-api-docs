@@ -55,17 +55,19 @@ Get the big picture <a href="https://api.akeneo.com/getting-started/synchronize-
 
 ## Fetch the PIM structure
 
-### 0. Setup the client for API
+### 0. Initialization
 
-If you haven't set your client yet, please:
-- Install Guzzle by following the <a href="https://docs.guzzlephp.org/en/stable/overview.html#installation" target="_blank" rel="noopener noreferrer">official documentation</a>
-- Set your client for querying Akeneo API as follows:
+If you haven't set your environment yet, please use the following snippet
 
-```php  [activate:PHP]
+```php [activate:PHP]
 
 $pimUrl = 'https://url-of-your-pim.com';
 $appToken = 'your_app_token'; // Token provided during oAuth steps
 
+// Refer to the Guzzle official documentation for installing the client 
+// https://docs.guzzlephp.org/en/stable/overview.html#installation
+
+// Set your client for querying Akeneo API as follows
 $client = new \GuzzleHttp\Client([
     'base_uri' => $pimUrl,
     'headers' => ['Authorization' => 'Bearer ' . $appToken],
@@ -80,7 +82,7 @@ Workflow
 
 Collect channel from PIM API:
 
-```php
+```php [activate:PHP]
 
 const API_URL = '/api/rest/v1/channels/%s';
 
@@ -98,7 +100,7 @@ $channel = json_decode($response->getBody()->getContents(), true);
 
 The retrieved channel resource looks like this:
 
-```php
+```php [activate:PHP]
 
 var_export($channel);
 
@@ -131,7 +133,7 @@ We advise storing in your App locales, currencies, and root category.
 - Currencies will be used to parse product values price attribute type,
 - Root category property will allow retrieving the whole category tree linked to the channel.
 
-```php
+```php [activate:PHP]
 
 storeCurrencies($channel['currencies']);
 storeLocales($channel['locales']);
