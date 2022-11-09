@@ -4,7 +4,7 @@
         <div class="row guided-tutorials">
             {{{mainContent}}}
             <div class="col-xs-12 col-sm-offset-1 col-sm-8">
-                <div class="tag-title mt-40">Use case</div>
+                <div class="tag-title mt-tag">Use case</div>
                 <div class="tag-list">
                     {{#useCases}}
                         <div class="tag-selectable">
@@ -54,6 +54,10 @@
         let $filtered = $('.filtered-result');
         $filtered.hide();
 
+        $.expr[':'].textEquals = function(a, i, m) {
+            return $(a).text().match("^" + m[3] + "$");
+        }
+
         $(window).on('hashchange', onHashchange);
         onHashchange();
 
@@ -72,7 +76,7 @@
             if (useCaseSelected) {
                 checkSelectRules('App Workflow');
             }
-;
+
             let hasFilter = false;
             for (let label in filtersActivated) {
                 if (filtersActivated[label]) {
@@ -94,7 +98,7 @@
                     let selectors = [];
                     for (let label in filtersActivated) {
                         if (filtersActivated[label]) {
-                            selectors.push("div.tag-label:contains(" + label + ")");
+                            selectors.push("div.tag-label:textEquals(" + label + ")");
                         }
                     }
 
@@ -105,7 +109,7 @@
             $grid.on('arrangeComplete', function (event, filteredItems) {
                 for (let label in filtersActivated) {
                     if (filtersActivated[label]) {
-                        return $filtered.text('filtered results (' + filteredItems.length + ')').show();
+                        return $filtered.text('Filtered results (' + filteredItems.length + ')').show();
                     }
                 }
             });

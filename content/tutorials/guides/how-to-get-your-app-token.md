@@ -93,7 +93,7 @@ First of all, go to `Connect`, then `App Store`
 ### Permissions
 
 If you see `Create a test App` skip to [Connect app](https://www.notion.so/Guided-tutorial-How-to-get-your-app-token-022acb1113c1413faefaec3c8f3585a5), else please enable the `developer mode`.
-![Create a test app button](../img/apps/create-a-test-app-button.png)
+![Create a test app button](../../img/apps/create-a-test-app-button.png)
 
 To do so, you need to:
 1. Go to `System`, then `Roles`
@@ -107,17 +107,17 @@ To do so, you need to:
 To create a test App:
 1. On the top right corner, click on `Create a test App`
 2. Fill in all the required information
-   ![Test_app_creation_credentials](../img/apps/test-app-creation-info.png)
+   ![Test_app_creation_credentials](../../img/apps/test-app-creation-info.png)
 3. Then click on `Create`
 4. Copy/paste credentials in your app configuration file
-   ![Test_app_creation_credentials](../img/apps/test-app-creation-credentials.png)
+   ![Test_app_creation_credentials](../../img/apps/test-app-creation-credentials.png)
 5. And click on `Done`
 6. Your test App appears on the App Store page
 
 
 ## Step 4: Connect your test App and access its settings
 
-![Test app on the App Store](../img/apps/marketplace-with-test-app.png)
+![Test app on the App Store](../../img/apps/marketplace-with-test-app.png)
 
 Connecting a test App is like connecting a published App. 
 
@@ -133,7 +133,7 @@ Now that your App is connected, you can enjoy all the available App features fro
 To access the settings of your connected App on Akeneo PIM, please go to `Connected Apps`, then click on `Manage App`. 
 You can also open your App from Akeneo PIM UI, to do so, click on `Open app`. 
 
-![Connected test app on Apps](../img/apps/connected-test-app.png)
+![Connected test app on Apps](../../img/apps/connected-test-app.png)
 
 ::: info
 To know more about the step-by-step activation process, please read our article:  
@@ -156,7 +156,7 @@ At the end of this process, you receive the following response with an `access_t
 You can use this token to call the Akeneo PIM REST API.
 
 <div class="block-next-steps">
-    <img src="../img/illustrations/illus--Attribute.svg" width="140px">
+    <img src="../../img/illustrations/illus--Attribute.svg" width="140px">
     <div class="block-next-steps-column">
         <div class="block-next-steps-title">Next Steps</div>
         <div class="block-next-steps-text">Now that you collected your token, we advise you to follow</div>
