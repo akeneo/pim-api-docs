@@ -57,14 +57,12 @@ Get the big picture <a href="https://api.akeneo.com/getting-started/synchronize-
 
 ### 0. Initialization
 
-If you haven't set your environment yet, please use the following snippet
-
 ```php [activate:PHP]
 
 $pimUrl = 'https://url-of-your-pim.com';
 $appToken = 'your_app_token'; // Token provided during oAuth steps
 
-// Refer to the Guzzle official documentation for installing the client 
+// If you haven't done it yet, please follow the Guzzle official documentation for installing the client 
 // https://docs.guzzlephp.org/en/stable/overview.html#installation
 
 // Set your client for querying Akeneo API as follows
