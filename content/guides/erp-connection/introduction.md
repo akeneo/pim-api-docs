@@ -1,5 +1,5 @@
 # Introduction
-![Product illustration](../../img/illustrations/illus--Product.svg)
+![Product illustration](../../img/illustrations/illus--Productidentifier.svg)
 
 > You want to connect your ERP solution to your PIM?
 > You want to implement an ERP App and you don't know where to start?
