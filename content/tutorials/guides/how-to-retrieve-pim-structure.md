@@ -72,6 +72,14 @@ $client = new \GuzzleHttp\Client([
 ]);
 ```
 
+```javascript [activate:NodeJS]
+
+// Install the node-fetch library by following the official documentation:
+// https://www.npmjs.com/package/node-fetch
+
+import fetch from 'node-fetch';
+```
+
 ### 1. Get the PIM structure by fetching a channel from API
 
 Workflow
@@ -94,6 +102,24 @@ $response = $client->get(
 
 // Convert json response to array
 $channel = json_decode($response->getBody()->getContents(), true);
+```
+
+```javascript [activate:NodeJS]
+
+import fetch from 'node-fetch';
+
+const pimUrl = 'https://url-of-your-pim.com';
+const accessToken = 'your_app_token'; // Token provided during oAuth steps
+
+const channelCode = 'ecommerce';
+
+const response = await fetch(`${pimUrl}/api/rest/v1/channels/${channelCode}`, {
+  headers: {
+    'Authorization': `Bearer ${accessToken}`
+  }
+});
+
+const channel = await response.json();
 ```
 
 The retrieved channel resource looks like this:
@@ -124,6 +150,32 @@ var_export($channel);
 ]
 ```
 
+```javascript [activate:NodeJS]
+
+console.log(channel);
+
+// Output
+{
+    code: 'ecommerce',
+    currencies: [
+        'USD',
+        'EUR'
+    ],
+    locales: [
+        'de_DE',
+        'en_US',
+        'fr_FR'
+    ],
+    category_tree: 'master',
+    conversion_units: {},
+    labels: {
+        en_US: 'Ecommerce',
+        de_DE: 'Ecommerce',
+        fr_FR: 'Ecommerce'
+    }
+}
+````
+
 ### 2. Store the PIM structure
 
 We advise storing in your App locales, currencies, and root category.
@@ -136,4 +188,11 @@ We advise storing in your App locales, currencies, and root category.
 storeCurrencies($channel['currencies']);
 storeLocales($channel['locales']);
 storeCategoryTree($channel['category_tree']);
+```
+
+```javascript [activate:NodeJS]
+
+storeCurrencies(channel.currencies);
+storeLocales(channel.locales);
+storeCategoryTree(channel.category_tree);
 ```
