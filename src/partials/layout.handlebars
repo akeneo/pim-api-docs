@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <script src="/js/jquery.min.js"></script>
     <script src='/js/bootstrap.min.js'></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
     <link rel="icon" type="image/png" href="/img/akene36.png">
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -41,7 +42,7 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-left">
                 <li class="{{#if active_apps}}active{{/if}}">
                     <a href="/apps/overview.html">Apps</a>
                 </li>
@@ -66,13 +67,18 @@
                         <li><a href="/events-reference/events-reference-serenity/products.html">Events API Reference</a></li>
                     </ul>
                 </li>
+                <li class="{{#if active_guided_tutorials}}active{{/if}}">
+                    <a href="/tutorials/homepage.html">Guided tutorials</a>
+                </li>
             </ul>
-            <form class="navbar-form navbar-right">
-                <div class="form-group form-search">
-                    <input id="algolia-search" class="form-control" placeholder="Search whole doc">
-                </div>
-            </form>
         </div>
+    </div>
+    <div class="search-bar-container">
+        <form class="navbar-form navbar-right search-bar-form">
+            <div class="form-group form-search">
+                <input id="algolia-search" class="form-control search-bar" placeholder="Search whole doc">
+            </div>
+        </form>
     </div>
 </nav>
 
@@ -99,20 +105,6 @@
 
     ga('create', 'UA-35417741-5', 'auto');
     ga('send', 'pageview');
-</script>
-<script>
-    $(function(){
-        var navbar = $('.navbar');
-        $(window).scroll(function(){
-            if($(window).scrollTop() <= 40){
-                navbar.removeClass('scroll');
-                navbar.addClass('navbar-white');
-            } else {
-                navbar.addClass('scroll');
-                navbar.removeClass('navbar-white');
-            }
-        });
-    });
 </script>
 </body>
 </html>

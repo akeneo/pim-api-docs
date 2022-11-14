@@ -1,7 +1,7 @@
 # Synchronize PIM structure
 
 :::warning
-This guide is being deprecated and will soon be unpublished. Please go to the newest guide [here](/apps/how-to-retrieve-pim-structure.html).
+This guide is being deprecated and will soon be unpublished. Please go to the newest guide [here](/tutorials/how-to-retrieve-pim-structure.html).
 :::
 
 ## What do we synchronize?

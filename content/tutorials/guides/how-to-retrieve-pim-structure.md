@@ -33,10 +33,10 @@ Retrieve the PIM structure through a channel resource. This is usually the requi
         If you're starting building your App, make sure you previously followed:
     </div>
     <div class="block-requirements-row">
-        <img src="../img/illustrations/illus--Attributegroup.svg" width="110px">
+        <img src="../../img/illustrations/illus--Attributegroup.svg" width="110px">
         <div class="block-requirements-steps">
             <ul>
-                <li>Step 1. <a href="apps-how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></li>
+                <li>Step 1. <a href="how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></li>
             </ul>
         </div>
     </div>

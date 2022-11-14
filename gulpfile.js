@@ -51,6 +51,8 @@ gulp.task('create-dist', [
   'build-events-reference-page',
   'build-apps',
   'build-redirections',
+  'build-tutorials-homepage',
+  'build-tutorials',
 ]);
 
 // Main task that should be used for development purpose

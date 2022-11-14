@@ -119,14 +119,19 @@
         background-color: #F1F4F9;
     }
 
-    .tag-container {
+    .tag-container, .tag-container-xs {
         margin-top: 27px;
     }
-    .tag-container td {
+    .tag-container td, .tag-container-xs td {
         padding-bottom: 13px;
     }
     .tag-container td:first-child {
         width: 113px;
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .tag-container-xs td:first-child {
+        width: 90px;
         font-size: 15px;
         font-weight: 500;
     }
@@ -168,6 +173,34 @@
         border-color: #F74B64;
     }
 
+    .tag-color-yellow {
+        background-color: #FCCE76;
+        border-color: #FCCE76;
+    }
+    .tag-color-purple {
+        background-color: #9452BA;
+        border-color: #9452BA;
+    }
+    .tag-color-light-green{
+        background-color: #81CCCC;
+        border-color: #81CCCC;
+    }
+
+    .tag-color-pink{
+        background-color: #F8A0E5;
+        border-color: #F8A0E5;
+    }
+
+    .tag-color-orange{
+        background-color: #FCAC76;
+        border-color: #FCAC76;
+    }
+
+    .tag-color-coral{
+        background-color: #F74B64;
+        border-color: #F74B64;
+    }
+
     .tag-label {
         font-size: 12px;
         font-weight: 400;
@@ -180,13 +213,23 @@
     }
 
     .tag-selectable:hover {
-    /** Disabled until the button becomes clickable when main guided tutorial page comes out **/
-//         background-color: #E6E6E7;
-        cursor: default;
+        background-color: #E6E6E7;
+        cursor: pointer;
     }
 
     .tag-selected {
         background-color: #E6E6E7;
+        &:after {
+            content: "";
+            color: black;
+            display:block;
+            height:8px;
+            width:8px;
+            background-size: 8px 8px;
+            background-image: url(../img/icons/icon--close.svg);
+            background-repeat: no-repeat;
+            filter: brightness(0%);
+        }
     }
 
     .endpoint-link {
@@ -205,4 +248,120 @@
         color: white;
         background-color: #71AEAE;
         text-decoration: none;
+    }
+
+    .tutorial-title {
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+    /********************* TILE ************************/
+    .tile {
+        position: relative;
+        box-sizing: border-box;
+        word-wrap: break-word;
+
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 20px 25px 10px;
+        gap: 10px;
+
+        width: 355px;
+        height: 130px;
+
+        background: #F1F4F9;
+
+        border: 1px solid #8C9AAF;
+        border-radius: 5px;
+        &:hover {
+            color: #414D97;
+            text-decoration: none;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    .tile-title {
+        position: absolute;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 29px;
+
+        display: flex;
+        align-items: center;
+
+        color: #414D97;
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+    }
+
+    .tile-tag {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        position: absolute;
+        bottom: 8px;
+        right: 0;
+        .tag-selectable {
+            margin-right: 8px;
+        }
+    }
+
+
+    .tile-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 21px;
+        width: 770px;
+        .tile {
+            margin-bottom: 30px;
+        }
+    }
+
+    .mr-30 {
+        margin-right: 30px;
+    }
+
+    /********************* USE CASE & FEATURE ********************/
+    .feature-list {
+        display: flex;
+        flex-direction: row;
+        margin-top: 15px;
+        margin-bottom: 55px;
+        .tag-selectable {
+            margin-right: 12px;
+        }
+    }
+
+    .tag-list {
+        margin-top: 15px;
+        margin-bottom: 21px;
+        .tag-selectable {
+            margin-right: 12px;
+        }
+    }
+
+    .tag-title {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #414D97;
+    }
+
+    .mt-tag {
+        margin-top: 26.5px;
+    }
+
+    /********************** SIDE NAVBAR *************************/
+
+    ul.nav.nav-stacked {
+        margin-top: 30px;
     }
