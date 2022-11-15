@@ -1,6 +1,3 @@
-@import "tile.css";
-@import "search-bar.css";
-
 /**  Default pim-api-doc CSS **/
 body {
     width: 740px;
@@ -101,6 +98,7 @@ button {
 
     color: #677688;
 }
+
 .block-next-steps img {
     margin-right: 50px;
 }

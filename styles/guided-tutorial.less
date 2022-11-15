@@ -133,12 +133,12 @@
         font-weight: 500;
     }
     .tag-container-xs td:first-child {
-        width: 90px;
+        width: 75px;
         font-size: 15px;
         font-weight: 500;
     }
 
-    .tag-selectable {
+    .tag-selectable, .tag-not-selectable {
         box-sizing: border-box;
 
         display: flex;
@@ -217,6 +217,7 @@
     .tag-selectable:hover {
         background-color: #E6E6E7;
         cursor: pointer;
+        text-decoration: none;
     }
 
     .tag-selected {
@@ -370,4 +371,58 @@
 
     ul.nav.nav-stacked {
         margin-top: 30px;
+    }
+
+    /******************** BLOCK WELCOME ***********************/
+
+    .block-welcome {
+        position: relative;
+        background-color: #F1F4F9;
+        padding: 30px 46px;
+        margin-top: 27px;
+
+        font-size: 16px;
+        line-height: 24px;
+
+        color: #677688;
+        border-radius: 5px;
+    }
+
+    .block-welcome img {
+        position: absolute;
+        width: 110px;
+        right: 73px;
+        top: 24px;
+    }
+
+    .block-welcome-row {
+        display: flex;
+        align-items: center;
+    }
+
+    .block-welcome-title {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 26px;
+        display: flex;
+        align-items: center;
+
+        color: #677688;
+    }
+
+    .block-welcome-text {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        margin-top: 30px;
+
+        color: #677688;
+    }
+
+    .block-welcome-row .block-welcome-text {
+        width: 68.5%;
     }

@@ -13,7 +13,7 @@ Retrieve the PIM structure through a channel resource. This is usually the requi
     <tr>
         <td>Use case:</td>
         <td>
-            <div aria-pressed="false" class="tag-selectable">
+            <div class="tag-not-selectable">
                 <div class="tag-color tag-color-light-blue"></div>
                 <div class="tag-label">App Workflow</div>
             </div>
@@ -22,7 +22,7 @@ Retrieve the PIM structure through a channel resource. This is usually the requi
     <tr>
         <td>PIM Features:</td>
         <td>
-            <div aria-pressed="false" class="tag-selectable">
+            <div class="tag-not-selectable">
                 <div class="tag-color tag-color-red"></div>
                 <div class="tag-label">Channel</div>
             </div>

@@ -51,12 +51,23 @@
     </div>
     <script type="text/javascript">
         let filtersActivated = [];
-        let $filtered = $('.filtered-result');
+        const $filtered = $('.filtered-result');
         $filtered.hide();
 
         $.expr[':'].textEquals = function(a, i, m) {
             return $(a).text().match("^" + m[3] + "$");
         }
+
+        const $grid = $('.tile-list').isotope({
+            initLayout: false
+        });
+        $grid.isotope( 'on', 'arrangeComplete', function(filteredItems) {
+            for (let label in filtersActivated) {
+                if (filtersActivated[label]) {
+                    return $filtered.text('Filtered results (' + filteredItems.length + ')').show();
+                }
+            }
+        });
 
         $(window).on('hashchange', onHashchange);
         onHashchange();
@@ -91,7 +102,7 @@
                 }
             }
 
-            var $grid = $('.tile-list').isotope({
+             $grid.isotope({
                 itemSelector: '.tile',
                 layoutMode: 'fitRows',
                 filter: function () {
@@ -106,16 +117,8 @@
                 }
             });
 
-            $grid.on('arrangeComplete', function (event, filteredItems) {
-                for (let label in filtersActivated) {
-                    if (filtersActivated[label]) {
-                        return $filtered.text('Filtered results (' + filteredItems.length + ')').show();
-                    }
-                }
-            });
-
             if (!hasFilter) {
-                $('.tile-list').isotope({
+                $grid.isotope({
                     filter: '*'
                 });
                 $filtered.hide()
