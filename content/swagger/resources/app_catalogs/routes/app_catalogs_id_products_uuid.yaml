@@ -42,26 +42,8 @@ get:
             }
           }
     401:
-      description: Unauthorized
-      x-examples-per-version:
-        - x-version: 'SaaS'
-          x-example: {
-            code: 403,
-            message: "TODO"
-          }
+      $ref: "#/responses/401Error"
     403:
-      description: Access forbidden
-      x-examples-per-version:
-        - x-version: 'SaaS'
-          x-example: {
-            code: 403,
-            message: "TODO"
-          }
+      $ref: "#/responses/403CatalogError"
     404:
-      description: Not found
-      x-examples-per-version:
-        - x-version: 'SaaS'
-          x-example: {
-            code: 403,
-            message: "TODO"
-          }
+      $ref: "#/responses/404CatalogError"

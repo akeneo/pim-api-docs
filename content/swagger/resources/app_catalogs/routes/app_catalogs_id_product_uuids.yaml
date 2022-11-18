@@ -65,6 +65,6 @@ get:
     401:
       $ref: "#/responses/401Error"
     403:
-      $ref: "#/responses/403Error"
+      $ref: "#/responses/403CatalogError"
     404:
-      $ref: "#/responses/404Error"
+      $ref: "#/responses/404CatalogError"

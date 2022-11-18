@@ -22,9 +22,9 @@ get:
     401:
       $ref: "#/responses/401Error"
     403:
-      $ref: "#/responses/403Error"
+      $ref: "#/responses/403CatalogError"
     404:
-      $ref: "#/responses/404Error"
+      $ref: "#/responses/404CatalogError"
 patch:
   summary: Update a catalog
   operationId: "patch_app_catalog"
@@ -53,18 +53,37 @@ patch:
     401:
       $ref: "#/responses/401Error"
     403:
-      $ref: "#/responses/403Error"
+      $ref: "#/responses/403CatalogError"
     404:
-      $ref: "#/responses/404Error"
+      $ref: "#/responses/404CatalogError"
     415:
       $ref: "#/responses/415Error"
     422:
-      $ref: "#/responses/422Error"
+      description: Unprocessable entity
+      x-details: The validation of the entity given in the body of the request failed
+      schema:
+        $ref: "#/definitions/Error"
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {
+            "code": 422,
+            "message": "Validation failed.",
+            "errors": [
+                {
+                    "property": "name",
+                    "message": "This value should not be blank."
+                },
+                {
+                    "property": "name",
+                    "message": "This value is too short. It should have 1 character or more."
+                }
+            ]
+          }
 delete:
   summary: Delete a catalog
   operationId: "delete_app_catalog"
   tags:
-    - Catalog
+    - Catalogs
   x-versions:
     - "SaaS"
   x-app-token: true
@@ -82,6 +101,6 @@ delete:
     401:
       $ref: "#/responses/401Error"
     403:
-      $ref: "#/responses/403Error"
+      $ref: "#/responses/403CatalogError"
     404:
-      $ref: "#/responses/404Error"
+      $ref: "#/responses/404CatalogError"
