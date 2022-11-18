@@ -1,7 +1,8 @@
 get:
   summary: Get the list of product uuids
   operationId: "get_app_catalog_product_uuids"
-  description: Coming soon. This endpoint allows you to get the list of uuids of products contained in a catalog.
+  description: This endpoint allows you to get the list of uuids of products contained in a catalog. Please, note that a disabled catalog can return an HTTP 200 with a payload containing an error message,
+    for more details see the <a href="apps/catalogs.html#troubleshooting">App Catalog</a> section.
   tags:
     - Catalog products
   x-versions:

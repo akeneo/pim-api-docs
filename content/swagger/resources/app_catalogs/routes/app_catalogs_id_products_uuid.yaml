@@ -5,7 +5,8 @@ get:
     - Catalog products
   x-versions:
     - "SaaS"
-  description: This endpoint allows you to get a specific product related to a catalog. In the Enterprise Edition, permissions based on your app settings are applied on the product you request.
+  description: This endpoint allows you to get a specific product related to a catalog. In the Enterprise Edition, permissions based on your app settings are applied on the product you request. Please, note that a disabled catalog can return an HTTP 200 with a payload containing an error message,
+    for more details see the <a href="apps/catalogs.html#troubleshooting">App Catalog</a> section.
   parameters:
     - name: id
       in: path
