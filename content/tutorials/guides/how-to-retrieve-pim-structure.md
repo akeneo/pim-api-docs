@@ -1,3 +1,10 @@
+<a href="/tutorials/homepage.html" class="back-button">
+   <button>
+      <img src="/img/icons/icon--arrow-back.svg" style="margin-right: 10px;">
+      All guided tutorials
+   </button>
+</a>
+
 # How to retrieve PIM structure
 
 Retrieve the PIM structure through a channel resource. This is usually the required step before starting to read the PIM catalog data.
