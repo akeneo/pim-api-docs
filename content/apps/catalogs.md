@@ -29,6 +29,20 @@ To ensure Akeneo PXM Studio remains stable, we added some limits to catalogs:
 - Each app can create up to **15 catalogs**.
 - A product selection can have up to **25 selection criteria**.
 
+### Troubleshooting
+
+#### Automatic deactivation on catalogs
+
+When a product selection becomes invalid, e.g. a selected category no longer exists, the PIM automatically disables the catalog. 
+
+In that case, your app receives an HTTP 200 response containing the following payload.
+
+```json
+{
+  "error": "No products to synchronize. The catalog \"65f5a521-e65c-4d7b-8be8-1f267fa2729c\" has been disabled on the PIM side. Note that you can get catalogs status with the GET /api/rest/v1/catalogs endpoint."
+}
+```
+
 
 ### Next steps
 

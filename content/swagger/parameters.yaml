@@ -121,7 +121,7 @@ with_quality_scores__product_models:
   description: Return product model quality scores in the response. <strong>(Only available on SaaS platforms)</strong>
   type: boolean
   required: false
-  x-from-version: "SaaS"
+  x-from-version: "6.0"
 with_completenesses:
   name: with_completenesses
   in: query
@@ -129,10 +129,27 @@ with_completenesses:
   default: false
   type: boolean
   required: false
-  x-from-version: "SaaS"
+  x-from-version: "6.0"
 with_position:
   name: with_position
   in: query
   description: Return information about category position into its category tree (only available on SaaS platforms)
   required: false
   type: boolean
+  x-from-version: "SaaS"
+updated_before:
+  name: updated_before
+  in: query
+  description: Filter products that have been updated BEFORE the provided date (Only available on Catalogs endpoints)
+  type: string
+  format: date
+  required: false
+  x-from-version: "SaaS"
+updated_after:
+  name: updated_after
+  in: query
+  description: Filter products that have been updated AFTER the provided date (Only available on Catalogs endpoints)
+  type: string
+  format: date
+  required: false
+  x-from-version: "SaaS"

@@ -1,0 +1,50 @@
+get:
+  summary: Get a product related to a catalog
+  operationId: "get_app_catalog_products_uuid"
+  tags:
+    - Catalog products
+  x-versions:
+    - "SaaS"
+  description: This endpoint allows you to get a specific product related to a catalog. In the Enterprise Edition, permissions based on your app settings are applied on the product you request. Please, note that a disabled catalog can return an HTTP 200 with a payload containing an error message,
+    for more details see the <a href="apps/catalogs.html#troubleshooting">App Catalog</a> section.
+  parameters:
+    - name: id
+      in: path
+      description: Catalog ID
+      required: true
+      type: string
+      format: uuid
+    - name: uuid
+      in: path
+      description: Product UUID
+      required: true
+      type: string
+      format: uuid
+  responses:
+    200:
+      description: Return the product
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {
+            "uuid": "a5eed606-4f98-4d8c-b926-5b59f8fb0ee7",
+            "family": "tshirt",
+            "groups": [],
+            "parent": null,
+            "categories": [],
+            "enabled": true,
+            "values": {
+              "name": [
+                {
+                  "data": "Top",
+                  "locale": "en_US",
+                  "scope": null
+                }
+              ]
+            }
+          }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403CatalogError"
+    404:
+      $ref: "#/responses/404CatalogError"
