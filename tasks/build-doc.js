@@ -939,3 +939,34 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
             }));
     }
 );
+
+gulp.task('build-news', ['clean-dist','less'], function () {
+    var pages = {
+        '2022.md': '2022',
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/news/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/news/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/news') + "\n"))
+              .pipe(gulpMarkdownIt(md))
+              .pipe(gulp.dest('tmp/news/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/news.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_news:  true,
+                        title: 'What\'s new?',
+                        mainContent: fs.readFileSync('tmp/news/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/news'));
+              })
+        }));
+  }
+);
