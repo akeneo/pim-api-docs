@@ -13,13 +13,32 @@ Implement the required parts of the App activation process and receive an App ac
     <tr>
         <td>Use case:</td>
         <td>
-            <button aria-pressed="false" class="tag-selectable">
+            <div class="tag-not-selectable">
                 <div class="tag-color tag-color-light-blue"></div>
                 <div class="tag-label">App Workflow</div>
-            </button>
+            </div>
         </td>
     </tr>
 </table>
+
+<div class="block-welcome">
+    <div class="block-welcome-title">Welcome!</div>
+    <div class="block-welcome-row">
+        <div class="block-welcome-text">
+            This pre-requisite section will follow you all along the tutorials
+            marked with the use case <b>"App workflow"</b>.
+        </div>
+        <img src="../../img/illustrations/illus--Attributegroup.svg" width="140px">
+    </div>
+    <div class="block-welcome-text">
+        The workflow starts with this tutorial that will guide you through the creation of a draft App.
+        At the end of this tutorial, your draft App will receive an <b>access token and will be able to call
+        the REST API.</b>
+    </div>
+    <div class="block-welcome-text">
+        Let's start!
+    </div>
+</div>
 
 ## What you will learn
 In this tutorial, we provide a guide on how to implement the required parts of your App for the activation process based on OAuth 2.0 with Authorization Code.

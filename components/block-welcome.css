@@ -1,0 +1,53 @@
+.block-welcome {
+    position: relative;
+    background-color: #F1F4F9;
+    padding: 30px 50px;
+
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #677688;
+}
+
+.block-welcome img {
+    position: absolute;
+    width: 110px;
+    right: 73px;
+    top: 24px;
+}
+
+.block-welcome-row {
+    display: flex;
+    align-items: center;
+}
+
+.block-welcome-title {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+
+    color: #677688;
+}
+
+.block-welcome-text {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 30px;
+
+    color: #677688;
+}
+
+.block-welcome-row .block-welcome-text {
+    width: 68.5%;
+}
+
+.bold {
+    font-weight: bold;
+}
