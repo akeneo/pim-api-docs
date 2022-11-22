@@ -57,7 +57,7 @@ The channel resource holds the basic PIM structure data.
 ![relationship schema](../../img/getting-started/synchronize-pim-products/step-1-objects-relationship-schema.svg)
 
 :::tips
-Get the big picture <a href="https://api.akeneo.com/getting-started/synchronize-pim-products-6x/step-0.html" target="_blank" rel="noopener noreferrer">here</a>.
+Get the big picture <a href="/getting-started/synchronize-pim-products-6x/step-0.html" target="_blank" rel="noopener noreferrer">here</a>.
 :::
 
 ## Fetch the PIM structure

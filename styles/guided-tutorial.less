@@ -145,6 +145,7 @@
         flex-direction: row;
         justify-content: left;
         align-items: center;
+
         padding: 0px 8px 0px 0px;
         gap: 8px;
 
@@ -263,6 +264,17 @@
         margin-top: 40px;
     }
 
+    .td-features {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        width: 350px;
+        .tag-not-selectable {
+            margin-right: 12px;
+        }
+    }
+
     /********************* TILE ************************/
     .tile {
         position: relative;
@@ -282,10 +294,10 @@
 
         border: 1px solid #8C9AAF;
         border-radius: 5px;
-        &:hover {
+        &:hover , &:focus{
             color: #414D97;
-            text-decoration: none;
             box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
         }
     }
 
@@ -305,6 +317,11 @@
         flex: none;
         order: 0;
         flex-grow: 0;
+        &:hover , &:focus{
+            text-decoration: none;
+            color: #414D97;
+            cursor: auto;
+        }
     }
 
     .tile-tag {
@@ -314,7 +331,7 @@
         position: absolute;
         bottom: 8px;
         right: 0;
-        .tag-selectable {
+        .tag-selectable, .tag-not-selectable {
             margin-right: 8px;
         }
     }
@@ -326,13 +343,11 @@
         flex-wrap: wrap;
         margin-top: 21px;
         width: 770px;
-        .tile {
-            margin-bottom: 30px;
-        }
     }
 
-    .mr-30 {
+    .mrb-30 {
         margin-right: 30px;
+        margin-bottom: 30px;
     }
 
     /********************* USE CASE & FEATURE ********************/

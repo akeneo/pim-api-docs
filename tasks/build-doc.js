@@ -803,11 +803,11 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
     const pages = {
         "how-to-get-your-app-token.md": "How to get your App token",
         "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
+        "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
         // "how-to-get-categories.md": "How to get categories",
         // "how-to-parse-product-values.md": "How to parse product values",
         // "how-to-collect-products.md": "How to collect products",
         // "how-to-collect-product-variations.md": "How to collect product variations",
-        // "how-to-get-families-and-attributes.md": "How to get families and attributes",
         // "how-to-publish-your-app.md": "How to publish your App",
     };
 
@@ -837,6 +837,12 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
             'features': [],
             'use_cases': useCases
         },
+        {
+            'title': 'How to get families, family variants, and attributes',
+            'link': '/tutorials/how-to-get-families-and-attributes.html',
+            'features': [ features[4], features[3]],
+            'use_cases': useCases
+        },
         // {
         //     'title': 'How to get categories',
         //     'link': '/apps/how-to-get-categories.html',
@@ -859,12 +865,6 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
         //     'title': 'How to collect product variations',
         //     'link': '/apps/how-to-collect-product-variations.html',
         //     'features': [features[1], features[2]],
-        //     'use_cases': useCases
-        // },
-        // {
-        //     'title': 'How to get families and attributes',
-        //     'link': '/apps/how-to-get-families-and-attributes.html',
-        //     'features': [ features[4], features[3]],
         //     'use_cases': useCases
         // },
         // {
@@ -907,11 +907,11 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
         const pages = {
             "how-to-get-your-app-token.md": "How to get your App token",
             "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
+            "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
             // "how-to-get-categories.md": "How to get categories",
             // "how-to-parse-product-values.md": "How to parse product values",
             // "how-to-collect-products.md": "How to collect products",
             // "how-to-collect-product-variations.md": "How to collect product variations",
-            // "how-to-get-families-and-attributes.md": "How to get families and attributes",
             // "how-to-publish-your-app.md": "How to publish your App",
         };
 
