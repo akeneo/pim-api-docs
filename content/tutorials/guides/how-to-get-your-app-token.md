@@ -1,3 +1,10 @@
+<a href="/tutorials/homepage.html" class="back-button">
+   <button>
+      <img src="/img/icons/icon--arrow-back.svg" style="margin-right: 10px;">
+      All guided tutorials
+   </button>
+</a>
+
 # How to get your App token
 
 Implement the required parts of the App activation process and receive an App access token for querying your PIM API.
