@@ -175,6 +175,8 @@
   $ref: ./resources/app_catalogs/routes/app_catalogs_id_products_uuid.yaml
 /api/rest/v1/catalogs/{id}/mapping-schemas/product:
   $ref: ./resources/app_catalogs/routes/app_catalogs_mapping_schema_product.yaml
+/api/rest/v1/catalogs/{id}/mapped-products:
+  $ref: ./resources/app_catalogs/routes/app_catalogs_id_mapped_products.yaml
 
 /api/rest/v1:
   $ref: ./resources/list_endpoints.yaml
