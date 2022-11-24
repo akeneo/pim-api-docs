@@ -1,53 +1,69 @@
 ```js [callback:NodeJS]
 
-params // data from your request handling
-storage // your own memory system
+import express from 'express';
+import crypto from 'crypto';
+import fetch from 'node-fetch'; // https://www.npmjs.com/package/node-fetch
 
-// Retrieve GET query params from your own framework / http handler
-const { code, state } = params;
+const app = express();
 
-// Retrieve your app's Client ID with your own logic
-const pimUrl = storage.get("PIM_URL");
-const appState = storage.get("APP_STATE");
-const clientId = storage.get("CLIENT_ID");
-const clientSecret = storage.get("CLIENT_SECRET");
+app.get('/callback', async (req, res, next) => {
+  try {
+    const appClientSecret = "CLIENT_SECRET";
+    const appClientId = "CLIENT_ID";
 
-// Control the security state integrity previously defined, to avoid attacks
-if (state !== appState) {
-    return response(403, 
-        {
-            "error": "Forbidden",
-            "error_description": "State integrity failed",
-        }
-    )
+    const session = req.session;
+
+    const pimUrl = session.pim_url;
+    const state = req.query.state;
+    const authorizationCode = req.query.code;
+
+    if (!pimUrl) {
+      throw new Error(
+        "Can't retrieve PIM url, please restart the authorization process."
+      );
+    }
+
+    // We check if the received state is the same as in the session, for security.
+    if (!state || state != session.state) {
+      throw new Error("Invalid state");
+    }
+
+    if (!authorizationCode) {
+      throw new Error("Missing authorization code");
+    }
+
+    // Generate code for token request
+    const codeidentifier = crypto.randomBytes(64).toString("hex");
+    const codeChallenge = crypto
+      .createHash("sha256")
+      .update(codeidentifier + appClientSecret)
+      .digest("hex");
+
+    // Build form data to post
+    const accessTokenRequestPayload = new URLSearchParams({
+      grant_type: "authorization_code",
+      code: authorizationCode,
+      client_id: appClientId,
+      code_identifier: codeidentifier,
+      code_challenge: codeChallenge,
+    });
+
+    // Make an authenticated call to the API
+    const accessTokenUrl = pimUrl + "/connect/apps/v1/oauth2/token";
+    const response = await fetch(accessTokenUrl, {
+      method: "post",
+      body: accessTokenRequestPayload,
+      headers: {"Content-Type": "application/x-www-form-urlencoded"},
+    });
+
+    const result = await response.json();
+
+    const accessToken = result.access_token;
+
+    console.log(accessToken);
+  } catch (err) {
+    next(err);
+  }
 }
-
-// Generate a new challenge code
-// a sha256 concatenation of a code_identifier and the client_secret
-const codeIdentifier = require('crypto').randomBytes(32).toString('hex')
-const codeChallenge = require('crypto')
-    .createHash('sha256')
-    .update(`${codeIdentifier}${clientSecret}`)
-    .digest('hex')
-
-// Send the payload to the PIM instance, ask for an API Token
-fetch
-    .post(`${storage.get('PIM_URL')}/connect/apps/v1/oauth2/token`, {
-        code,
-        grant_type: 'authorization_code',
-        client_id: clientId,
-        code_identifier: codeIdentifier,
-        code_challenge: codeChallenge,
-    })
-    .then(({ data }) => {
-        // Retrieve the fresh token and store it with your own system
-        const { access_token: accessToken } = data   
-        storage.set('API_TOKEN', accessToken)
-        redirect('/')
-    })
-    .catch((data) => {
-        // handle error
-        res.status(400).send(data)
-    })
 
 ```

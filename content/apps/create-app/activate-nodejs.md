@@ -1,38 +1,56 @@
 ```js [activate:NodeJS]
 
-params // data from your request handling
-storage // your own memory system
+import express from 'express';
+import crypto from 'crypto';
 
-// Retrieve GET query params from your own framework / http handler
-const { pim_url: pimUrl } = params;
+const app = express();
 
-// Retrieve your app's Client ID with your own system
-const clientId = storage.get("CLIENT_ID");
+app.get('/activate', (req, res, next) => {
+  try {
+    const clientId = "AKENEO_CLIENT_ID";
+    const scopes = [
+      "read_products",
+      "read_catalog_structure",
+      "read_channel_settings",
+      "read_channel_localization",
+      "read_attribute_options",
+      "read_catalogs",
+      "write_catalogs",
+      "delete_catalogs",
+    ];
+    const session = req.session;
 
-// Set the access scopes, take care of the 254 chars max !
-const scopes = 'read_products write_products'; 
+    const pimUrl = req.query.pim_url;
+    if (!pimUrl) {
+      throw new Error(
+        "Can't retrieve PIM url, please restart the authorization process."
+      );
+    }
 
-// The activate URL should have the pim_url param
-if (!pimUrl) {
-    // Return a Bad request response via your own framework / http server
-    return response(502, { message: "Bad request" });
+    // Create a random state for preventing cross-site request forgery
+    const state = crypto.randomBytes(64).toString("hex");
+
+    // Store in the user session the state and the PIM URL
+    session.state = state;
+    session.pim_url = pimUrl;
+
+    // Build the parameters for the Authorization Request
+    // https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1
+    const params = new URLSearchParams({
+      response_type: "code",
+      client_id: clientId,
+      scope: scopes.join(" "),
+      state: state,
+    });
+
+    // Build the url for the Authorization Request using the PIM URL
+    const authorizeUrl =
+      pimUrl + "/connect/apps/v1/authorize?" + params.toString();
+
+    res.redirect(authorizeUrl);
+  } catch (err) {
+    next(err);
+  }
 }
-
-// Store the PIM url value with your own system
-storage.set("PIM_URL", pimUrl);
-
-// Set a new security state secret and store the value with your own system
-const state = require('crypto').randomBytes(32).toString("hex");
-storage.set("APP_STATE", state);
-
-// Construct the PIM authorization url, it will be called on "connect" / "open" button
-const redirect_url = `${pimUrl}/connect/apps/v1/authorize` +
-    `?response_type=code` +
-    `&client_id=${clientId}` +
-    `&scope=${scopes}` +
-    `&state=${state}`
-
-// Set the redirection response with your own framework / http server
-return redirect(redirect_url);
 
 ```
