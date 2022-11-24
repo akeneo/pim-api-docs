@@ -175,16 +175,16 @@ foreach (array_chunk($attributeCodes, MAX_ITEMS) as $chunk) {
 
 // Only keep fields needed
 $attributes = [];
-foreach ($rawAttributes as $attribute) {
-    $attributes[] = [
-        'code' => $attribute['code'],
-        'type' => $attribute['type'],
+foreach ($rawAttributes as $rawAttribute) {
+    $attributes[$rawAttribute['code']] = [
+        'code' => $rawAttribute['code'],
+        'type' => $rawAttribute['type'],
         // Add additional fields if needed
     ];
 }
 
 // save attributes into storage
-saveAttributes($rawAttributes);
+saveAttributes($attributes);
 ```
 
 ::: warning
