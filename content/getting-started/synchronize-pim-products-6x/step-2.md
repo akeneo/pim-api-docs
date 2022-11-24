@@ -1,5 +1,9 @@
 # Synchronize catalog structure: families and attributes
 
+:::warning
+This guide is being deprecated and will soon be unpublished. Please go to the newest guide [here](/tutorials/how-to-get-families-and-attributes.html).
+:::
+
 ## What do we synchronize?
 ![relationship schema](../../img/getting-started/synchronize-pim-products/step-2-objects-relationship-schema.svg)
 

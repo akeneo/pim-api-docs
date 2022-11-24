@@ -26,17 +26,17 @@
                 <div class="tile-list">
                     {{#each tutorials}}
                         <a href="{{link}}" class="tile-title">
-                            <div class="tile mr-30">
+                            <div class="tile mrb-30">
                                 {{title}}
                                 <div class="tile-tag">
                                     {{#use_cases}}
-                                        <div class="tag-selectable">
+                                        <div class="tag-not-selectable">
                                             <div class="tag-color tag-color-{{color}}"></div>
                                             <div class="tag-label">{{use_case}}</div>
                                         </div>
                                     {{/use_cases}}
                                     {{#features}}
-                                        <div class="tag-selectable">
+                                        <div class="tag-not-selectable">
                                             <div class="tag-color tag-color-{{color}}"></div>
                                             <div class="tag-label">{{feature}}</div>
                                         </div>
