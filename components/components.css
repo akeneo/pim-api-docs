@@ -361,3 +361,21 @@ button {
 .next-steps-button-text {
     text-align: left;
 }
+
+.next-steps-button-smaller {
+    width: 177px;
+    height: 68px;
+}
+
+.next-steps-button-smaller {
+    padding-top: 3px
+}
+
+.next-steps-button-smaller .next-steps-button-number {
+    font-size: 48px;
+}
+
+.next-steps-button-smaller .next-steps-button-text {
+    font-size: 18px;
+    line-height: 22px;
+}

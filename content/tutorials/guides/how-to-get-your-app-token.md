@@ -184,7 +184,7 @@ You can use this token to call the Akeneo PIM REST API.
 <div class="block-next-steps block-next-steps-main">
     <div class="block-next-steps-title">Next Step</div>
     <div class="block-next-steps-text">Now that you’ve gotten your App token, continue the journey with Step 2!</div>
-    <button class="next-steps-button">
+    <button class="next-steps-button next-steps-button-smaller">
         <div class="next-steps-button-number">2</div>
         <div class="next-steps-button-text">
             Develop<br>
