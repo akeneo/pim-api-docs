@@ -181,16 +181,14 @@ At the end of this process, you receive the following response with an `access_t
 
 You can use this token to call the Akeneo PIM REST API.
 
-<div class="block-next-steps">
-    <img src="../../img/illustrations/illus--Attribute.svg" width="140px">
-    <div class="block-next-steps-column">
-        <div class="block-next-steps-title">Next Steps</div>
-        <div class="block-next-steps-text">Now that you collected your token, we advise you to follow</div>
-        <div>
-            <ul>
-                <li><a href="/apps/overview.html">Learn more about Apps</a></li>
-                <li><a href="/api-reference-index.html">Explore the REST API reference</a></li>
-            </ul>
+<div class="block-next-steps block-next-steps-main">
+    <div class="block-next-steps-title">Next Step</div>
+    <div class="block-next-steps-text">Now that you’ve gotten your App token, continue the journey with Step 2!</div>
+    <button class="next-steps-button">
+        <div class="next-steps-button-number">2</div>
+        <div class="next-steps-button-text">
+            Develop<br>
+            your App
         </div>
-    </div>
+    </button>
 </div>
