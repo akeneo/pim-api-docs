@@ -91,14 +91,19 @@ button {
     background-color: #F1F4F9;
     padding: 20px 50px;
     display: flex;
-    align-items: center;
 
     font-size: 16px;
     line-height: 24px;
 
     color: #677688;
 }
-
+.block-next-steps.block-next-steps-main {
+    flex-direction: column;
+    align-items: center;
+}
+.block-next-steps.block-next-steps-alt {
+    align-items: center;
+}
 .block-next-steps img {
     margin-right: 50px;
 }
@@ -114,7 +119,11 @@ button {
     line-height: 41px;
     margin-bottom: 20px;
 }
-.block-next-steps-text {
+.block-next-steps.block-next-steps-main .block-next-steps-text {
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+.block-next-steps.block-next-steps-alt .block-next-steps-text {
     margin-bottom: 11px;
 }
 .block-next-steps ul {
