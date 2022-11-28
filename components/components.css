@@ -88,18 +88,20 @@ button {
 }
 
 .block-next-steps {
-    background-color: #F1F4F9;
     padding: 20px 50px;
     display: flex;
 
     font-size: 16px;
     line-height: 24px;
 
+    background-color: #F1F4F9;
     color: #677688;
+    border-radius: 5px;
 }
 .block-next-steps.block-next-steps-main {
     flex-direction: column;
     align-items: center;
+    padding-bottom: 25px;
 }
 .block-next-steps.block-next-steps-alt {
     align-items: center;
@@ -337,7 +339,7 @@ button {
     align-items: center;
     gap: 10px;
 
-    font-weight: 600;
+    font-weight: 500;
     font-size: 24px;
     line-height: 29px;
     text-transform: uppercase;
@@ -364,6 +366,9 @@ button {
 .next-steps-button-number {
     padding-top: 2px;  /* Fix inability to align-item baseline */
     font-size: 63px;
+}
+.next-steps-button-smaller .next-steps-button-number {
+    padding-top: 4px;  /* Fix inability to align-item baseline */
 }
 
 .next-steps-button-text {
