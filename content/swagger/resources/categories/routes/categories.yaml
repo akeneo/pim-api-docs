@@ -22,6 +22,7 @@ get:
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
     - $ref: '#/parameters/with_position'
+    - $ref: '#/parameters/with_enriched_attributes'
   responses:
     200:
       description: Return categories paginated
@@ -70,6 +71,15 @@ get:
                 "en_US": "Winter collection",
                 "fr_FR": "Collection hiver",
                 "de_DE": "Winter-Kollektion"
+              },
+              "values": {
+                "description|96b88bf4-c2b7-4b64-a1f9-5d4876c02c26|ecommerce|en_US": {
+                  "data": "<p>Winter collection description</p>\n",
+                  "type": "textarea",
+                  "channel": "ecommerce",
+                  "locale": "en_US",
+                  "attribute_code": "description|96b88bf4-c2b7-4b64-a1f9-5d4876c02c26"
+                }
               }
             },
             {
@@ -86,7 +96,8 @@ get:
                 "en_US": "Woman",
                 "fr_FR": "Femme",
                 "de_DE": "Damen"
-              }
+              },
+              "values": null
             },
             {
               "_links": {
@@ -102,7 +113,8 @@ get:
                 "en_US": "Man",
                 "fr_FR": "Homme",
                 "de_DE": "Herren"
-              }
+              },
+              "values": null
             },
             {
               "_links": {
@@ -118,7 +130,8 @@ get:
                 "en_US": "Kids",
                 "fr_FR": "Enfant",
                 "de_DE": "Kinder"
-              }
+              },
+              "values": null
             },
             {
               "_links": {
@@ -134,7 +147,8 @@ get:
                 "en_US": "Summer collection",
                 "fr_FR": "Collection été",
                 "de_DE": "Sommer-Kollektion"
-              }
+              },
+              "values": null
             }
           ]
         }

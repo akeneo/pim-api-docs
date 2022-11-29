@@ -153,3 +153,10 @@ updated_after:
   format: date
   required: false
   x-from-version: "SaaS"
+with_enriched_attributes:
+  name: with_enriched_attributes
+  in: query
+  description: Return attribute values of the category (only available on SaaS platforms)
+  required: false
+  type: boolean
+  x-from-version: "SaaS"
