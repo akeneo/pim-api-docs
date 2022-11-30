@@ -185,11 +185,34 @@
         color: #414D97;
     }
 
-    .back-button button:hover {
+    .publish-app-button button{
+        box-sizing: border-box;
+
+        padding: 4px 12px;
+        margin: 14px 14px 0 0;
+
+        background: #FFFFFF;
+
+        border: 1px solid #414D97;
+        border-radius: 19px;
+
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+
+        color: #414D97;
+        img {
+            margin-left: 10px;
+            padding-bottom: 3px;
+        }
+    }
+
+    .back-button button:hover, .publish-app-button button:hover {
         background-color: #F1F4F9;
     }
 
-    .back-button:hover {
+    .back-button:hover, .publish-app-button:hover {
        text-decoration: none;
     }
 
@@ -337,7 +360,7 @@
     }
 
     .guided-tutorials h1 {
-        margin-top: 40px;
+        margin-top: 60px;
     }
 
     .td-features {

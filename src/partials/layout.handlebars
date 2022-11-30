@@ -44,7 +44,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
                 <li class="{{#if active_apps}}active{{/if}}">
-                    <a href="/apps/overview.html">Apps</a>
+                    <a href="/apps/apps.html">Apps</a>
                 </li>
                 <li class="{{#if active_guides}}active{{/if}}">
                     <a href="/guides-index.html">Guides</a>
@@ -71,6 +71,16 @@
                     <a href="/tutorials/homepage.html">Guided tutorials</a>
                 </li>
             </ul>
+            {{#if active_apps}}
+            <div class="navbar-right">
+                <a href="https://apps.akeneo.com/extensions-approval-requirements" class="publish-app-button">
+                    <button>
+                        Publish your app
+                        <img src="/img/icons/icon--outside.svg">
+                    </button>
+                </a>
+            </div>
+            {{/if}}
         </div>
     </div>
     <div class="search-bar-container">
