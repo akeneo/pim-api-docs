@@ -92,7 +92,7 @@ First of all, go to `Connect`, then `App Store`
 
 ### Permissions
 
-If you see `Create a test App` skip to [Connect app](https://www.notion.so/Guided-tutorial-How-to-get-your-app-token-022acb1113c1413faefaec3c8f3585a5), else please enable the `developer mode`.
+If you see `Create a test App` skip to [Connect app](#connect-app), else please enable the `developer mode`.
 ![Create a test app button](../../img/apps/create-a-test-app-button.png)
 
 To do so, you need to:
