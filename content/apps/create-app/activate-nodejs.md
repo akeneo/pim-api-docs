@@ -51,6 +51,6 @@ app.get('/activate', (req, res, next) => {
   } catch (err) {
     next(err);
   }
-}
+});
 
 ```
