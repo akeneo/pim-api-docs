@@ -96,6 +96,7 @@ $client = new \GuzzleHttp\Client([
 Get families and attribute codes by requesting the PIM API
 
 ```php [activate:PHP]
+
 const API_URL = '/api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}';
 
 // Make an authenticated call to the API
@@ -110,7 +111,10 @@ while (array_key_exists('next', $data['_links'])) {
     $response = $client->get($data['_links']['next']['href']);
     $data = json_decode($response->getBody()->getContents(), true);
     $families = array_merge($families, $data['_embedded']['items']);
-    $attributeCodes = array_merge($attributeCodes, ...array_column($data['_embedded']['items'], 'attributes'));
+    $attributeCodes = array_merge(
+        $attributeCodes,
+        ...array_column($data['_embedded']['items'], 'attributes')
+    );
 }
 
 $attributeCodes = array_unique($attributeCodes);
@@ -136,6 +140,7 @@ This step is mandatory if you want to synchronize product variants later. If not
 Get family variants by requesting the PIM API for each families
 
 ```php [activate:PHP]
+
 const MAX_ITEMS = 100;
 const API_URL = '/api/rest/v1/families/%s/variants?limit=' . MAX_ITEMS;
 
@@ -159,6 +164,7 @@ saveVariants($variants);
 Remember your <b>attribute_code_list</b>? It’s (already) time to use it to retrieve attribute information
 
 ```php [activate:PHP]
+
 const MAX_ITEMS = 100;
 const API_URL = '/api/rest/v1/attributes?search={"code":[{"operator":"IN","value":%s}]}&limit=' . MAX_ITEMS;
 

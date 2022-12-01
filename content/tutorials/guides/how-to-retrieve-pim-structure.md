@@ -113,8 +113,6 @@ $channel = json_decode($response->getBody()->getContents(), true);
 
 ```javascript [activate:NodeJS]
 
-import fetch from 'node-fetch';
-
 const pimUrl = 'https://url-of-your-pim.com';
 const accessToken = 'your_app_token'; // Token provided during oAuth steps
 
