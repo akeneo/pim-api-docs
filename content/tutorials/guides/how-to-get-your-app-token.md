@@ -50,7 +50,7 @@ We strongly encourage you to adapt those examples with the framework or library 
 :::
 
 ::: tips
-If you prefer to start with a fonctionnal App (in PHP), have a look [here](/apps/app-developer-tools.html)
+If you prefer to start with a functional App (in PHP), have a look [here](/apps/app-developer-tools.html)
 :::
 
 ## Step 1: Expose your activation and callback URLs
