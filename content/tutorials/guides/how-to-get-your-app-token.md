@@ -14,7 +14,7 @@ Implement the required parts of the App activation process and receive an App ac
         <td>Use case:</td>
         <td>
             <div class="tag-not-selectable">
-                <div class="tag-color tag-color-light-blue"></div>
+                <div class="tag-color tag-color-blue"></div>
                 <div class="tag-label">App Workflow</div>
             </div>
         </td>
