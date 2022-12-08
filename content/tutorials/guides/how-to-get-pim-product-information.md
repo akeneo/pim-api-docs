@@ -140,7 +140,7 @@ function buildApiClient(): GuzzleHttp\Client
 
 ### 1 - Collect products
 
-##### 1.1 - Start smart, start filtering
+### 1.1 - Start smart, start filtering
 
 <!-- TODO check if this part was validated on notion -->
 
@@ -159,9 +159,9 @@ We recommend you the following product filters:
 Have a look at other [product filters](/documentation/filter.html#filter-on-product-properties.html): you may find other interesting ones.
 :::
 
-##### 1.2 - Get products
+### 1.2 - Get products
 
-##### 1.2.1 - You are following the App workflow?
+#### You are following the App workflow?
 
 Collect only the products you need with the help of the family code list you built in the guided tutorial “How to get families, family variants, and attributes” and your locales and channel that you extracted during the guided tutorial “How to retrieve PIM structure”.
 
@@ -214,7 +214,7 @@ function fetchProducts(): array
 }
 ```
 
-##### 1.2.2. You aren't following the App workflow?
+#### You aren't following the App workflow?
 
 Call the product endpoint with these minimum filters.
 
@@ -254,9 +254,9 @@ function fetchProducts(): array
 
 ### 2 - Retrieve product values
 
-##### 2.1 - Get the attribute type
+### 2.1 - Get the attribute type
 
-##### 2.1.1 - You are following the App workflow?
+#### You are following the App workflow?
 
 In the guided tutorial **How to get families and attribute,** we have stored an attribute_list, a list of tuples with attribute_code and attribute type. It’s time to use it.
 
@@ -270,11 +270,11 @@ function findAttributeTypeInAttributeList(string $attributeCode, array $attribut
 }
 ```
 
-##### 2.1.2 - You haven't followed the App workflow?
+#### You haven't followed the App workflow?
 
 Simply get the attribute type by requesting the API. Instructions [here](/tutorials/how-to-get-families-and-attributes.html#3-collect-attributes).
 
-##### 2.2 - Parse value
+### 2.2 - Parse value
 
 Parse `data` properties according to the attribute type you got in the previous step.
 
@@ -458,7 +458,7 @@ Disclaimer: The previous snippet doesn’t handle for now the following attribut
 - Table attribute
 :::
 
-###### 2.3 - Collect product media files
+### 2.3 - Collect product media files
 
 Is your attribute type **pim_catalog_file** or **pim_catalog_image** ?
 It means you are looking at media that can be downloaded. To proceed, simply call the “product media file” API endpoint.
