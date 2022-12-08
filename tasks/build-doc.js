@@ -591,6 +591,38 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
   }
 );
 
+gulp.task('build-apps-homepage', ['clean-dist','less'], function () {
+    var pages = {
+        'overview.md': 'Overview',
+        'authentication-and-authorization.md': 'Authentication and authorization',
+        'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
+        'app-developer-tools.md': 'Developer tools'
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/apps/apps.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/apps/apps.md')
+                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/apps') + "\n"))
+                .pipe(gulpMarkdownIt(md))
+                .pipe(gulp.dest('tmp/apps/'))
+                .on('end', function () {
+                    return gulp.src('src/partials/apps.handlebars')
+                        .pipe(gulpHandlebars({
+                            active_apps:  true,
+                            mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        }, {
+                            partialsDirectory: ['./src/partials']
+                        }))
+                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                        .pipe(gulp.dest('./dist'));
+                })
+        }));
+});
+
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
         'overview.md': 'Overview',
@@ -812,7 +844,7 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
     };
 
     const useCases = [
-        {'color': 'light-blue', 'use_case': 'App Workflow'},
+        {'color': 'blue', 'use_case': 'App Workflow'},
     ];
 
     const features = [
@@ -821,7 +853,8 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
         {'color': 'light-green', 'feature': 'Variant Products'},
         {'color': 'pink', 'feature': 'Families'},
         {'color': 'orange', 'feature': 'Attributes'},
-        {'color': 'coral', 'feature': 'Categories'},
+        {'color': 'light-blue', 'feature': 'Categories'},
+        {'color': 'red', 'feature': 'Channel'},
     ]
 
     const tutorials = [
@@ -834,7 +867,7 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
         {
             'title': 'How to retrieve PIM structure',
             'link': '/tutorials/how-to-retrieve-pim-structure.html',
-            'features': [],
+            'features': [features[6]],
             'use_cases': useCases
         },
         {
