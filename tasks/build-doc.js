@@ -942,7 +942,7 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
             "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
             "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
             // "how-to-get-categories.md": "How to get categories",
-            // "how-to-parse-product-values.md": "How to parse product values",
+            "how-to-get-pim-product-information.md": "How to parse product values",
             // "how-to-collect-products.md": "How to collect products",
             // "how-to-collect-product-variations.md": "How to collect product variations",
             // "how-to-publish-your-app.md": "How to publish your App",
