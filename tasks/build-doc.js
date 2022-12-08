@@ -876,6 +876,12 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
             'use_cases': useCases
         },
         {
+            'title': 'How to get PIM product information',
+            'link': '/tutorials/how-to-get-pim-product-information.html',
+            'features': [ features[0] ],
+            'use_cases': useCases
+        },
+        {
             'title': 'How to collect product variations',
             'link': '/tutorials/how-to-collect-product-variations.html',
             'features': [features[1], features[2]],
@@ -885,18 +891,6 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
         //     'title': 'How to get categories',
         //     'link': '/tutorials/how-to-get-categories.html',
         //     'features': [features[5]],
-        //     'use_cases': useCases
-        // },
-        // {
-        //     'title': 'How to parse product values',
-        //     'link': '/tutorials/how-to-parse-product-values.html',
-        //     'features': [features[0]],
-        //     'use_cases': useCases
-        // },
-        // {
-        //     'title': 'How to collect products',
-        //     'link': '/tutorials/how-to-collect-products.html',
-        //     'features': [features[0]],
         //     'use_cases': useCases
         // },
         // {
@@ -942,7 +936,7 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
             "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
             "how-to-collect-product-variations.md": "How to collect product variations",
             // "how-to-get-categories.md": "How to get categories",
-            // "how-to-parse-product-values.md": "How to parse product values",
+            "how-to-get-pim-product-information.md": "How to parse product values",
             // "how-to-collect-products.md": "How to collect products",
             // "how-to-publish-your-app.md": "How to publish your App",
         };
