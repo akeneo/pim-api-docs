@@ -613,6 +613,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
                     .pipe(gulpHandlebars({
                         active_apps:  true,
                         title: 'Apps',
+                        description: "My new description",
                         mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -915,6 +916,13 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
             // "how-to-publish-your-app.md": "How to publish your App",
         };
 
+        // TODO: title and description in other files for easy edition
+        const meta = {
+            'how-to-get-your-app-token': {title:'How to get your App Token', description:'first_description'},
+            'how-to-retrieve-pim-structure': {title:'How to retrieve Pim structure', description:'second_description'},
+            'how-to-get-families-and-attributes': {title:'How to get families and attributes', description:'third_description'},
+        };
+
         const isOnePage = false;
 
         return gulp.src('content/tutorials/guides/*.md')
@@ -925,9 +933,13 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
                     .pipe(gulpMarkdownIt(md))
                     .pipe(gulp.dest('tmp/tutorials/'))
                     .on('end', function () {
+                        var name = path.parse(file.path).name;
+                        console.log(name);
                         return gulp.src('src/partials/guided-tutorials.handlebars')
                             .pipe(gulpHandlebars({
                                 active_guided_tutorials: true,
+                                title: meta[name]['title'],
+                                description: meta[name]['description'],
                                 mainContent: fs.readFileSync('tmp/tutorials/' + path.basename(file.path).replace(/\.md/, '.html'))
                             }, {
                                 partialsDirectory: ['./src/partials']
