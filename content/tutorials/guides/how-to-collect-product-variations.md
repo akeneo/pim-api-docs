@@ -49,8 +49,8 @@
             <ul>
                 <li>Step 1. <a href="how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></li>
                 <li>Step 2. <a href="how-to-retrieve-pim-structure.html" target="_blank" rel="noopener noreferrer">How to retrieve PIM structure</a></li>
-                <li>Step 2. <a href="how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a></li>
-                <li>Step 2. <a href="how-to-get-product-information.html" target="_blank" rel="noopener noreferrer">How to get product information</a></li>
+                <li>Step 3. <a href="how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a></li>
+                <li>Step 4. <a href="how-to-get-product-information.html" target="_blank" rel="noopener noreferrer">How to get product information</a></li>
             </ul>
         </div>
     </div>
@@ -126,7 +126,7 @@ function getApiClient(): GuzzleHttp\Client
 #### 1. Collect product models
 ##### 1.1 You are following the App workflow?
 
-In the guided tutorial [**How to get families and attributes**](/tutorials/how-to-get-families-and-attributes.html), we have stored a family_code_list. It’s time to use it!
+In the guided tutorial [**"How to get families and attributes"**](/tutorials/how-to-get-families-and-attributes.html), we have stored a family_code_list. It’s time to use it!
 
 ```php [activate:PHP]
 
@@ -203,12 +203,12 @@ function getProductModels(): array
 
 #### 2. Process product model
 ##### 2.1. Parse and store the product model
-Parse and store a product or a product model is definitely the same thing. Please have a how to our guided tutorial [**“How to get product information”**](/tutorials/how-to-collect-products.html).
+Parse and store a product or a product model is definitely the same thing. Please have a how to our guided tutorial [**"How to get product information"**](/tutorials/how-to-collect-products.html).
 
 ##### 2.2. Parse and store the product model
 ###### 2.2.1 You are following the App workflow?
 
-Good news: you already store the family variant in the guided tutorial [**“How to get families and attributes”**](/tutorials/how-to-get-families-and-attributes.html). Go ahead!
+Good news: you already store the family variant in the guided tutorial [**"How to get families and attributes"**](/tutorials/how-to-get-families-and-attributes.html). Go ahead!
 
 ###### 2.2.2 You are not following the App workflow?
 Query the API.
