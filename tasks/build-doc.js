@@ -853,7 +853,8 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
         {'color': 'light-green', 'feature': 'Variant Products'},
         {'color': 'pink', 'feature': 'Families'},
         {'color': 'orange', 'feature': 'Attributes'},
-        {'color': 'coral', 'feature': 'Categories'},
+        {'color': 'blue', 'feature': 'Categories'},
+        {'color': 'coral', 'feature': 'Channel'},
     ]
 
     const tutorials = [
@@ -866,7 +867,7 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
         {
             'title': 'How to retrieve PIM structure',
             'link': '/tutorials/how-to-retrieve-pim-structure.html',
-            'features': [],
+            'features': [features[6]],
             'use_cases': useCases
         },
         {

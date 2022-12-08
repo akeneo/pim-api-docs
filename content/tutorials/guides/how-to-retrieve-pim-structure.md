@@ -23,7 +23,7 @@ Retrieve the PIM structure through a channel resource. This is usually the requi
         <td>PIM Features:</td>
         <td>
             <div class="tag-not-selectable">
-                <div class="tag-color tag-color-red"></div>
+                <div class="tag-color tag-color-coral"></div>
                 <div class="tag-label">Channel</div>
             </div>
         </td>
