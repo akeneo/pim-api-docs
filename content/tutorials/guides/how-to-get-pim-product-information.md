@@ -539,3 +539,16 @@ var_export($productMediaFileResources);
 :::info
 Keep in mind that synchronizing media files might be time and resource-consuming. Download media only if you need it, or do it in a dedicated and independent process.
 :::
+
+<div class="block-next-steps block-next-steps-alt">
+    <img src="/img/illustrations/illus--Attribute.svg" width="140px">
+    <div class="block-next-steps-column">
+        <div class="block-next-steps-title">Next Step</div>
+        <div class="block-next-steps-text">Well done! Keep digging into the “App workflow” and follow the next tutorial!</div>
+        <div>
+            <ul>
+                <li><a href="/tutorials/how-to-collect-product-variations.html">How to collect product variations</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
