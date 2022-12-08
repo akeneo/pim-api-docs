@@ -193,6 +193,18 @@ foreach ($rawAttributes as $rawAttribute) {
 saveAttributes($attributes);
 ```
 
+Retrieved attribute list follows this structure:
+```php
+
+// Output
+[
+    'attribute_code' => [
+            'code' => 'attribute_code',
+            'type' => 'pim_catalog_text',
+    ],
+]
+```
+
 ::: warning
 attribute_code_list may be significant, very big! If you get an <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.15" target="_blank" rel="noopener noreferrer">HTTP 414 error</a>
 , you probably hit these boundaries. A workaround is to split your attribute_code_list into different parts and call them independently.
