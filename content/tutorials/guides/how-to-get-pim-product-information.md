@@ -84,33 +84,33 @@ This `data` field is composed of the product information you want to extract. Th
 In a nutshell:
 
 <!-- todo find the right language for comments highlight -->
-```code
+```php
 
 {
-	"values": { # Contains all the product values, stored in associative arrays
-	  "an_attribute_code": [ # Key
-	    { # AttributeValue object
-	      "data": {...}, # the data you want to extract...
+  "values": { # Contains all the product values, stored in associative arrays
+	"an_attribute_code": [ # Key
+	  { # AttributeValue object
+	    "data": {...}, # the data you want to extract...
         "locale": "a_locale", # ... for a given locale...
         "scope": "a_channel" # ... and a channel.
       },
       { # AttributeValue object
-	      "data": {...}, # the data you want to extract...
+	    "data": {...}, # the data you want to extract...
         "locale": "another_locale", # ... for a given locale...
         "scope": "another_channel", # ... and a channel.
         "linked_data": {
-        "attribute": "attribute_code",
-        "code": "an_option_code",
-        "labels": {
+          "attribute": "attribute_code",
+          "code": "an_option_code",
+          "labels": {
 	        "en_US": "option_code_label_for_locale_en_us",
-          "fr_FR": "option_code_label_for_locale_fr_fr"
+            "fr_FR": "option_code_label_for_locale_fr_fr"
+          }
         }
-       }
       },
-			...
+	  ...
     ],
-		"another_attribute_code": [...],
-		...
+    "another_attribute_code": [...],
+    ...
   }
 }
 ```
