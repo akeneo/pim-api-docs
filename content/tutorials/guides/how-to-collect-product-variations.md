@@ -34,9 +34,9 @@
 
 <div class="endpoint-container">
     <div class="endpoint-text">REST API endpoint(s):</div>
-    <a href="/api-reference.html#get_families" class="endpoint-link" target="_blank" rel="noopener noreferrer">family</a>
-    <a href="/api-reference.html#Familyvariants" class="endpoint-link" target="_blank" rel="noopener noreferrer">family variants</a>
-    <a href="/api-reference.html#Attribute" class="endpoint-link" target="_blank" rel="noopener noreferrer">attributes</a>
+    <a href="/api-reference.html#get_products_uuid" class="endpoint-link" target="_blank" rel="noopener noreferrer">products</a>
+    <a href="/api-reference.html#get_product_models" class="endpoint-link" target="_blank" rel="noopener noreferrer">product models</a>
+    <a href="/api-reference.html#get_families__family_code__variants__code__" class="endpoint-link" target="_blank" rel="noopener noreferrer">family variants</a>
 </div>
 
 <div class="block-requirements">
@@ -62,6 +62,9 @@ In the PIM we handle product models and product variations.
 
 ![scheme_variants](../../img/tutorials/how-to-collect-product-variations/scheme_variants.png)
 
+::: tips
+Before digging into the code you can find out more about these concepts in our [helpcenter](https://help.akeneo.com/pim/serenity/articles/what-about-products-variants.html#about-products-with-variants).
+:::
 
 Here are quick definitions:
 
@@ -108,17 +111,20 @@ $appToken = 'your_app_token'; // Token provided during oAuth steps
 // https://docs.guzzlephp.org/en/stable/overview.html#installation
 
 // Set your client for querying Akeneo API as follows
-function getApiClient(): GuzzleHttp\Client
+function buildApiClient(): GuzzleHttp\Client
 {
     $pimUrl = '<PIM_URL>';
     $appToken = '<APP_TOKEN>'; // Token provided during oauth steps
+
+    // If you haven't done it yet,
+    // please follow the Guzzle official documentation to install the client
+    // https://docs.guzzlephp.org/en/stable/overview.html#installation
 
     return new GuzzleHttp\Client([
         'base_uri' => $pimUrl,
         'headers' => ['Authorization' => 'Bearer ' . $appToken],
     ]);
 }
-
 ```
 
 ### Use case 1: Collect product variation information - all levels
@@ -126,13 +132,13 @@ function getApiClient(): GuzzleHttp\Client
 #### 1. Collect product models
 ##### 1.1 You are following the App workflow?
 
-In the guided tutorial [**"How to get families and attributes"**](/tutorials/how-to-get-families-and-attributes.html), we have stored a family_code_list. It’s time to use it!
+In the guided tutorial [**"How to get families and attributes"**](/tutorials/how-to-get-families-and-attributes.html), we have stored a **family_code_list**. It’s time to use it!
 
 ```php [activate:PHP]
 
 function getProductModels(): array
 {
-    $client = getApiClient();
+    $client = buildApiClient();
 
     $maxProductsPerPage = 100;
     $maxFamiliesPerQuery = 3;
@@ -173,7 +179,7 @@ Simply get the attribute type by requesting the API
 
 function getProductModels(): array
 {
-    $client = getApiClient();
+    $client = buildApiClient();
 
     $maxProductsPerPage = 100;
     $scope = 'ecommerce';
@@ -205,7 +211,7 @@ function getProductModels(): array
 ##### 2.1. Parse and store the product model
 Parse and store a product or a product model is definitely the same thing. Please have a how to our guided tutorial [**"How to get product information"**](/tutorials/how-to-collect-products.html).
 
-##### 2.2. Parse and store the product model
+##### 2.2. Collect its family variant
 ###### 2.2.1 You are following the App workflow?
 
 Good news: you already store the family variant in the guided tutorial [**"How to get families and attributes"**](/tutorials/how-to-get-families-and-attributes.html). Go ahead!
@@ -217,7 +223,7 @@ Query the API.
 
 function getFamilyVariants(): array
 {
-    $client = getApiClient();
+    $client = buildApiClient();
 
     $maxProductsPerPage = 100;
     $apiUrl = '/api/rest/v1/families/%s/variants?limit=' . $maxProductsPerPage;
@@ -247,29 +253,31 @@ To get product variants associated to a product model, ask to the API
 
 ```php [activate:PHP]
 
-function getProductsUuid(): array
+function getProductVariants(): array
 {
-    $client = getApiClient();
+    $client = buildApiClient();
 
     $maxProductsPerPage = 100;
     $maxProductModelsPerQuery = 3;
 
-    $productModelCodesChunks = array_chunk(getProductModelCodes(), $maxProductModelsPerQuery);
+    // Get product model codes from storage
+    $productModelCodes = getProductModelCodes();
+
+    $productModelCodesChunks = array_chunk($productModelCodes, $maxProductModelsPerQuery);
 
     $apiUrl = '/api/rest/v1/products-uuid?'
-        . 'search={"parent":[{"operator":"=","value":%s}]}'
+        . 'search={"parent":[{"operator":"IN","value":%s}]}'
         . '&limit=' . $maxProductsPerPage;
 
-
-    // Collect product models from paginated API
-    $productsUuid = [];
+    // Collect product models from API
+    $productVariants = [];
     foreach ($productModelCodesChunks as $productModelCodes) {
         $response = $client->get(sprintf($apiUrl, json_encode($productModelCodes)));
         $data = json_decode($response->getBody()->getContents(), true);
-        $productsUuid[] = $data['_embedded']['items'];
+        $productVariants[] = $data['_embedded']['items'];
     }
 
-    $productsUuid =  array_merge(...$productsUuid);
+    return array_merge(...$productVariants);
 }
 
 ```
