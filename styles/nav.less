@@ -259,3 +259,29 @@ ul.nav ul {
 .search-bar{
     width: 100%;
 }
+
+@media only screen and (max-width: 820px) {
+    .search-bar-form {
+        width: 100%;
+    }
+
+    element.style {
+        position: absolute;
+        top: 100%;
+        z-index: 100;
+        left: 0px;
+        right: auto;
+        display: none;
+    }
+    .algolia-autocomplete.algolia-autocomplete-right .ds-dropdown-menu {
+        right: 0!important;
+        left: inherit!important;
+    }
+    .form-group.form-search span {
+        width: 100%;
+    }
+    #algolia-autocomplete-listbox-0 {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
