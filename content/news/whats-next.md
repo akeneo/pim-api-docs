@@ -5,7 +5,7 @@
 ## Product data mapping 
 
 You discovered our `catalogs for apps` feature in the [October 2022 section]().  
-As we want to give app users the best experience and reduce the development cost for you, app developers, we are working on a mapping interface to avoid you to develop it. 
+As we want to give app users the best experience and reduce the development cost for you, app developers, we are working on a mapping interface so you won't have to develop it from scratch. 
 
 To do so, in **December 2022**, we will launch an **alpha developer version** of our product data mapping feature. 
 
