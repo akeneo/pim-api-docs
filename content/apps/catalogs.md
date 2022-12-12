@@ -87,11 +87,10 @@ When your app creates a catalog, the API returns its UUID. You will use this cat
 To help your users know how to configure a catalog, give it the most descriptive name possible.
 :::
 
-By default, new catalogs are **disabled**. 
+**By default, new catalogs are disabled and only users can enable a catalog.** 
 It means that until a user hasn't enabled it, you won't be able to retrieve products for this catalog. 
 
-Please note that only users can enable a catalog. 
-![Catalog settings](../img/apps/catalogs-settings.png)
+<img class="img-responsive in-article" alt="Enable catalog field" src="../img/apps/app-catalog-enable-button.png" style="max-width: 600px;">
 
 To help your users, you can redirect them directly to the catalog configuration interface on their Akeneo PXM Studio using the following URL structure:
 
@@ -104,12 +103,64 @@ At any moment, you can verify if a catalog is enabled by calling the [get catalo
 
 ### Step 3: Get products using catalogs
 
-::: warning
-The endpoint for retrieving the list of product UUIDs will be available soon!
-:::
-
 Once you have an enabled catalog, you can paginate the corresponding product UUIDs using this [endpoint](/api-reference.html#Appcatalogproduct).
 
 ### Next steps
+- Learn [how to use the product mapping feature](/getting-started/synchronize-pim-products-6x/welcome.html)
 - Learn [how to synchronize Akeneo data](/getting-started/synchronize-pim-products-6x/welcome.html)
+- Explore the [REST API reference](/api-reference-index.html) 
+
+
+## Use the catalog product mapping
+
+To further help you in your app development, you can use product mapping to push your data structure to Akeneo PIM and get pre-formatted product data. 
+
+### What you'll learn
+
+After completing this tutorial, you'll be able to push your JSON mapping schema to the PIM and get product data in the format you expect. 
+
+### Requirements
+
+- You have your [App developer starter kit](/apps/overview.html#app-developer-starter-kit)
+- Your app already manages the authorization process 
+- You followed the [Getting started with catalogs](#getting-started-with-catalogs) steps
+
+### Step 1: Define your JSON schema
+
+The first step to using the mapping feature is determining the JSON schema you need to push to the Akeneo PIM to get mapped product data. 
+
+::: info 
+**JSON Schema is a declarative language that allows to annotate and validate JSON documents.** It describes an existing data format, provides clear human- and machine-readable documentation, and allows to validate data which is useful for ensuring the quality of client-submitted data.
+:::
+
+To help you define your schema, we advise you to use the following JSON Schema validator: [https://www.jsonschemavalidator.net/](https://www.jsonschemavalidator.net/) before pushing it to the Akeneo PIM. 
+
+In the left panel, you can copy/paste our [product mapping meta-schema](/mapping/product/0.0.2/schema) and fill the right panel with your JSON schema. The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints. 
+
+::: warning
+**You can only ask for string properties, and map PIM text attributes with the alpha version**.  
+In the coming months, we will cover more property types and, therefore, more PIM attribute types.  
+:::
+
+### Step 2: Push your product mapping schema
+
+Once your product mapping schema is ready, use the endpoint to [create or update the product mapping schema related to a catalog](/api-reference.html#put_app_catalogs_mapping_schema_product) to push your schema to the PIM and access the related configuration screen inside the PIM. 
+
+### Step 3:  Get mapped product data 
+
+Finally, get product data using the endpoint to [get the list of mapped products related to a catalog](/api-reference.html#get_app_catalog_mapped_products).
+
+### Step 4: Test your implementation
+
+To do so, please:
+1. Log into your [developer sandbox](/apps/overview.html#app-developer-starter-kit)
+2. Click `Connect`, `Connected apps`, `Catalogs`, then the name of your catalog
+3. Go to the `Product mapping` tab 
+4. Fill in the mapping and enable the catalog using the `Enable catalog` button in the catalog header
+
+We use your product mapping schema to display a screen where your users will configure their catalog. Here is how we use the JSON schema data:
+
+<!-- TODO screenshot with helpers -->
+
+### Next steps
 - Explore the [REST API reference](/api-reference-index.html) 
