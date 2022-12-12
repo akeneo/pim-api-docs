@@ -876,16 +876,16 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
             'features': [ features[4], features[3]],
             'use_cases': useCases
         },
+        {
+            'title': 'How to get PIM product information',
+            'link': '/tutorials/how-to-get-pim-product-information.html',
+            'features': [features[0]],
+            'use_cases': useCases
+        },
         // {
         //     'title': 'How to get categories',
         //     'link': '/apps/how-to-get-categories.html',
         //     'features': [features[5]],
-        //     'use_cases': useCases
-        // },
-        // {
-        //     'title': 'How to parse product values',
-        //     'link': '/apps/how-to-parse-product-values.html',
-        //     'features': [features[0]],
         //     'use_cases': useCases
         // },
         // {
