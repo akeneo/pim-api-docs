@@ -7,7 +7,7 @@
 You discovered our `catalogs for apps` feature in the [October 2022 section]().  
 As we want to give app users the best experience and reduce the development cost for you, app developers, we are working on a mapping interface so you won't have to develop it from scratch. 
 
-To do so, in **December 2022**, we will launch an **alpha developer version** of our product data mapping feature. 
+To do so, **beginning of 2023, we will launch an alpha developer version of our product data mapping feature**. 
 
 You will be able to: 
 - access all the endpoints to push a mapping schema for a specific catalog to the PIM
@@ -15,7 +15,7 @@ You will be able to:
 - use the related endpoints to get the product data in a format that matches your mapping schema properties
 
 
-Than, **starting from January 2023**, we will make our meta-schema evolve to allow you to ask for multiple types of targets, push your target requirements and information, and ask for required targets. 
+Then we will make our meta-schema evolve to allow you to ask for multiple types of targets, push your target requirements and information, and ask for required targets. 
 
 From their PIM, app users will configure the mapping to match your app requirements and targets. 
 
