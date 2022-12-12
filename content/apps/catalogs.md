@@ -87,8 +87,8 @@ When your app creates a catalog, the API returns its UUID. You will use this cat
 To help your users know how to configure a catalog, give it the most descriptive name possible.
 :::
 
-**By default, new catalogs are disabled and only users can enable a catalog.** 
-It means that once a user has enabled it, you won't be able to retrieve products for this catalog. 
+**By default, new catalogs are disabled and only users can enable a catalog.**
+It means that  once a user has enabled it, you won't be able to retrieve products for this catalog. 
 
 <img class="img-responsive in-article" alt="Enable catalog field" src="../img/apps/app-catalog-enable-button.png" style="max-width: 600px;">
 
@@ -137,7 +137,6 @@ To help you define your schema, we advise you to use this online validator pre-c
 
 You can also download the latest meta-schema at this url: [product mapping meta-schema - v0.0.6 (February, 2023)](/mapping/product/0.0.6/schema)
 
-
 ### Step 2: Push your product mapping schema
 
 Once your product mapping schema is ready, use the endpoint to [create or update the product mapping schema related to a catalog](/api-reference.html#put_app_catalogs_mapping_schema_product) to push your schema to the PIM and access the related configuration screen inside the PIM. 
@@ -154,7 +153,7 @@ To do so, please:
 3. Go to the `Product mapping` tab 
 4. Fill in the mapping and enable the catalog using the `Enable catalog` button in the catalog header
 
-We use your product mapping schema to display a screen where your users will configure their catalog. 
+We use your product mapping schema to display a screen where your users will configure their catalog.
 Here is an example of an interface displayed using a JSON schema:
 
 <!-- TODO screenshot with helpers -->
