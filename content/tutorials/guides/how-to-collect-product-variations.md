@@ -63,7 +63,7 @@ In the PIM we handle product models and product variations.
 ![scheme_variants](../../img/tutorials/how-to-collect-product-variations/scheme_variants.png)
 
 ::: tips
-Before digging into the code you can find out more about these concepts in our [helpcenter](https://help.akeneo.com/pim/serenity/articles/what-about-products-variants.html#about-products-with-variants).
+Before digging into the code you can find out more about these concepts in our <a href="https://help.akeneo.com/pim/serenity/articles/what-about-products-variants.html#about-products-with-variants" class="endpoint-link" target="_blank" rel="noopener noreferrer">helpcenter</a>
 :::
 
 Here are quick definitions:
@@ -104,17 +104,10 @@ We noticed that many e-commerce solutions understand product variation on only o
 
 ```php [activate:PHP]
 
-$pimUrl = 'https://url-of-your-pim.com';
-$appToken = 'your_app_token'; // Token provided during oAuth steps
-
-// If you haven't done it yet, please follow the Guzzle official documentation for installing the client 
-// https://docs.guzzlephp.org/en/stable/overview.html#installation
-
-// Set your client for querying Akeneo API as follows
 function buildApiClient(): GuzzleHttp\Client
 {
-    $pimUrl = '<PIM_URL>';
-    $appToken = '<APP_TOKEN>'; // Token provided during oauth steps
+    $pimUrl = 'https://url-of-your-pim.com';
+    $appToken = 'your_app_token'; // Token provided during oAuth steps
 
     // If you haven't done it yet,
     // please follow the Guzzle official documentation to install the client
@@ -125,6 +118,7 @@ function buildApiClient(): GuzzleHttp\Client
         'headers' => ['Authorization' => 'Bearer ' . $appToken],
     ]);
 }
+
 ```
 
 ### Use case 1: Collect product variation information - all levels
@@ -132,7 +126,7 @@ function buildApiClient(): GuzzleHttp\Client
 #### 1. Collect product models
 ##### 1.1 You are following the App workflow?
 
-In the guided tutorial [**"How to get families and attributes"**](/tutorials/how-to-get-families-and-attributes.html), we have stored a **family_code_list**. It’s time to use it!
+In the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>, we have stored a **family_code_list**. It’s time to use it!
 
 ```php [activate:PHP]
 
@@ -144,9 +138,11 @@ function getProductModels(): array
     $maxFamiliesPerQuery = 3;
     $scope = 'ecommerce';
 
-    // Get family $codes and locales from storage
+    // Get family codes from storage
     $familyCodes = getFamilyCodes();
-    $locales = getLocales('fr');
+    
+    // Get locales from storage
+    $locales = getLocales();
 
     $familyCodeChunks = array_chunk($familyCodes, $maxFamiliesPerQuery);
 
@@ -209,12 +205,12 @@ function getProductModels(): array
 
 #### 2. Process product model
 ##### 2.1. Parse and store the product model
-Parse and store a product or a product model is definitely the same thing. Please have a how to our guided tutorial [**"How to get product information"**](/tutorials/how-to-collect-products.html).
+Parse and store a product or a product model is definitely the same thing. Please have a how to our guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>.
 
 ##### 2.2. Collect its family variant
 ###### 2.2.1 You are following the App workflow?
 
-Good news: you already store the family variant in the guided tutorial [**"How to get families and attributes"**](/tutorials/how-to-get-families-and-attributes.html). Go ahead!
+Good news: you already store the family variant in the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>. Go ahead!
 
 ###### 2.2.2 You are not following the App workflow?
 Query the API.
@@ -277,9 +273,9 @@ function getProductVariants(): array
         $productVariants[] = $data['_embedded']['items'];
     }
 
-    return array_merge(...$productVariants);
+    $productVariants = array_merge(...$productVariants);
 }
 
 ```
 
-Again, treat each product like a simple product. Please refer to the guided tutorial [**“How to get product information”**](/tutorials/how-to-collect-products.html) 
+Again, treat each product like a simple product. Please refer to the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>
