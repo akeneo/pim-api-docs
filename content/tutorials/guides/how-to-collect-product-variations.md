@@ -50,7 +50,7 @@
                 <li>Step 1. <a href="how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></li>
                 <li>Step 2. <a href="how-to-retrieve-pim-structure.html" target="_blank" rel="noopener noreferrer">How to retrieve PIM structure</a></li>
                 <li>Step 3. <a href="how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a></li>
-                <li>Step 4. <a href="how-to-get-product-information.html" target="_blank" rel="noopener noreferrer">How to get product information</a></li>
+                <li>Step 4. <a href="how-to-get-pim-product-information.html" target="_blank" rel="noopener noreferrer">How to get PIM product information</a></li>
             </ul>
         </div>
     </div>
