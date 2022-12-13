@@ -171,7 +171,7 @@ function fetchProducts(): array
 {
     $client = buildApiClient();
 
-    $locales = ['en_US', 'fr_FR'];
+    $locales = getLocales(); // ['en_US', 'fr_FR']
     $scope = 'ecommerce';
     $maxProductsPerPage = 100;
     $maxFamiliesPerQuery = 100;
@@ -258,9 +258,9 @@ function fetchProducts(): array
 
 ##### 2.1.1 - You are following the App workflow?
 
-In the guided tutorial **How to get families and attribute,** we have stored an attribute_list, a list of tuples with attribute_code and attribute type. It’s time to use it.
+In the guided tutorial **How to get families and attribute**, we have stored an **attribute_list**, a list of tuples with attribute_code and attribute type. It’s time to use it.
 
-Simply search your attribute in the attribute_list.
+Simply search your attribute in the **attribute_list**.
 
 ```php
 
