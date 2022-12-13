@@ -837,9 +837,9 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
         "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
         "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
         "how-to-get-pim-product-information.md": "How to get PIM product information",
+        "how-to-collect-product-variations.md": "How to collect product variations",
         // "how-to-get-categories.md": "How to get categories",
         // "how-to-collect-products.md": "How to collect products",
-        // "how-to-collect-product-variations.md": "How to collect product variations",
         // "how-to-publish-your-app.md": "How to publish your App",
     };
 
@@ -882,27 +882,27 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
             'features': [features[0]],
             'use_cases': useCases
         },
+        {
+            'title': 'How to collect product variations',
+            'link': '/tutorials/how-to-collect-product-variations.html',
+            'features': [features[1], features[2]],
+            'use_cases': useCases
+        },
         // {
         //     'title': 'How to get categories',
-        //     'link': '/apps/how-to-get-categories.html',
+        //     'link': '/tutorials/how-to-get-categories.html',
         //     'features': [features[5]],
         //     'use_cases': useCases
         // },
         // {
         //     'title': 'How to collect products',
-        //     'link': '/apps/how-to-collect-products.html',
+        //     'link': '/tutorials/how-to-collect-products.html',
         //     'features': [features[0]],
         //     'use_cases': useCases
         // },
         // {
-        //     'title': 'How to collect product variations',
-        //     'link': '/apps/how-to-collect-product-variations.html',
-        //     'features': [features[1], features[2]],
-        //     'use_cases': useCases
-        // },
-        // {
         //     'title': 'How to publish your App',
-        //     'link': '/apps/how-to-publish-your-app.html',
+        //     'link': '/tutorials/how-to-publish-your-app.html',
         //     'features': [],
         //     'use_cases': useCases
         // },
@@ -942,9 +942,9 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
             "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
             "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
             "how-to-get-pim-product-information.md": "How to get PIM product information",
+            "how-to-collect-product-variations.md": "How to collect product variations",
             // "how-to-get-categories.md": "How to get categories",
             // "how-to-collect-products.md": "How to collect products",
-            // "how-to-collect-product-variations.md": "How to collect product variations",
             // "how-to-publish-your-app.md": "How to publish your App",
         };
 
