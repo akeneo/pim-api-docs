@@ -193,7 +193,32 @@ foreach ($rawAttributes as $rawAttribute) {
 saveAttributes($attributes);
 ```
 
+Retrieved attribute list follows this structure:
+```php
+
+// Output
+[
+    'attribute_code' => [
+            'code' => 'attribute_code',
+            'type' => 'pim_catalog_text',
+    ],
+]
+```
+
 ::: warning
 attribute_code_list may be significant, very big! If you get an <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.15" target="_blank" rel="noopener noreferrer">HTTP 414 error</a>
 , you probably hit these boundaries. A workaround is to split your attribute_code_list into different parts and call them independently.
 :::
+
+<div class="block-next-steps block-next-steps-alt">
+    <img src="/img/illustrations/illus--Attribute.svg" width="140px">
+    <div class="block-next-steps-column">
+        <div class="block-next-steps-title">Next Step</div>
+        <div class="block-next-steps-text">Well done! Keep digging into the “App workflow” and follow the next tutorial!</div>
+        <div>
+            <ul>
+                <li><a href="/tutorials/how-to-get-pim-product-information.html">How to get PIM product information</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
