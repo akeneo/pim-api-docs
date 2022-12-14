@@ -2,9 +2,9 @@
 
 Here, you will connect an event subscription to a fake endpoint and receive your first data. :rocket:
 
-::: info
-For security reasons, local URLs are blocked for event API target location and cannot be used as a fake endpoint. Use Mockbin or a comparable tool instead.
-:::
+::: tips
+When testing your app, we advise you to check our [Constraints on IP addresses](/events-documentation/security.html#constraints-on-ip-addresses) and use [Mockbin](#create-a-bin-on-mockbin) or a comparable tool instead.
+::: 
 
 ## Create a Bin on Mockbin
 

@@ -1,4 +1,6 @@
-# How to check the request signature?
+# Security
+
+## How to check the request signature?
 
 Akeneo PIM uses the **secret** to create a hash **signature** of the API event.
 
@@ -44,3 +46,13 @@ You are encouraged to use a string comparison function that is safe to timing at
 :::
 
 You can also use the `X-Akeneo-Request-Timestamp` to validate that the event request is not too old.
+
+## Constraints on IP addresses 
+
+For security reasons, we block private IP and IP in the ranges that are marked as Reserved-By-Protocol in [RFC 6890](http://www.faqs.org/rfcs/rfc6890.html) as event API target. 
+
+These ranges are the following ones:
+- private IPv4 ranges: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16
+- IPv6 addresses starting with FD or FC
+- reserved IPv4 ranges: 0.0.0.0/8, 169.254.0.0/16, 127.0.0.0/8 and 240.0.0.0/4
+- reserved IPv6 ranges: ::1/128, ::/128, ::ffff:0:0/96 and fe80::/10
