@@ -30,7 +30,7 @@
 
 <div class="endpoint-container">
     <div class="endpoint-text">REST API endpoint(s):</div>
-    <a href="/api-reference.html#get_products_uuid" class="endpoint-link" target="_blank" rel="noopener noreferrer">product-uuid</a>
+    <a href="/api-reference.html#get_products_uuid" class="endpoint-link" target="_blank" rel="noopener noreferrer">products</a>
 </div>
 
 <div class="block-requirements">
