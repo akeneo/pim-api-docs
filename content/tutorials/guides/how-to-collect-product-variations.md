@@ -279,3 +279,127 @@ function getProductVariants(): array
 ```
 
 Again, treat each product like a simple product. Please refer to the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>
+
+### Use case 2: Collect product variation information - set it all on 1 level
+
+#### 1. Collect product models
+
+##### 1.1 You are following the App workflow?
+
+In the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>, we have stored a **family_code_list**. It’s time to use it!
+
+```php [activate:PHP]
+
+function getProductModels(): array
+{
+    $client = buildApiClient();
+
+    $maxProductsPerPage = 100;
+    $maxFamiliesPerQuery = 3;
+    $scope = 'ecommerce';
+
+    // Get family codes and locales from storage
+    $familyCodes = getFamilyCodes();
+    $locales = getLocales('fr');
+
+    $familyCodeChunks = array_chunk($familyCodes, $maxFamiliesPerQuery);
+
+    $apiUrl = '/api/rest/v1/product-models?'
+        . 'locales=%s'
+        . '&scope=%s'
+        . '&search={"family":[{"operator":"IN","value":%s}],"parent":[{"operator":"EMPTY"}]}'
+        . '&limit=' . $maxProductsPerPage;
+
+
+    // Collect product models from API
+    $productModels = [];
+    foreach ($familyCodeChunks as $familyCodes) {
+        $response = $client->get(sprintf($apiUrl, $locales, $scope, json_encode($familyCodes)));
+        $data = json_decode($response->getBody()->getContents(), true);
+        $productModels[] = $data['_embedded']['items'];
+    }
+
+    $productModels = array_merge(...$productModels);
+
+    // Get variants from storage
+    $variants = getVariants();
+    foreach ($productModels as $key => $productModel) {
+        foreach ($variants as $variant) {
+            if ($productModel['family_variant'] === $variant['code']) {
+                // extract all variations level
+                $axes = array_column($variant['variant_attribute_sets'], 'axes');
+                // build flat axes
+                $axes = array_column($axes, 0);
+                $productModels[$key]['axes'] = $axes;
+            }
+        }
+    }
+
+    saveProductModels($productModels);
+}
+
+
+```
+
+##### 1.2 - You are not following the App workflow?
+
+::: warning
+Make sure to get the list of your family variants before continuing like in  <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>
+:::
+
+```php [activate:PHP]
+
+function getProductModels(): array
+{
+    $client = buildApiClient();
+
+    $maxProductsPerPage = 100;
+    $scope = 'ecommerce';
+
+    $apiUrl = '/api/rest/v1/product-models?'
+        . '&scope=%s'
+        . '&search={"parent":[{"operator":"EMPTY"}]}'
+        . '&limit=' . $maxProductsPerPage;
+
+    // Collect product models from paginated API
+    $response = $client->get(sprintf($apiUrl, $scope));
+    $data = json_decode($response->getBody()->getContents(), true);
+
+    $productModels = [];
+    $productModels[] = $data['_embedded']['items'];
+    while (array_key_exists('next', $data['_links'])) {
+        $response = $client->get($data['_links']['next']['href']);
+        $data = json_decode($response->getBody()->getContents(), true);
+        $productModels[] = $data['_embedded']['items'];
+    }
+
+    $productModels = array_merge(...$productModels);
+
+    // Get variants from storage
+    $variants = getVariants();
+    foreach ($productModels as $key => $productModel) {
+        foreach ($variants as $variant) {
+            if ($productModel['family_variant'] === $variant['code']) {
+                // extract all variations level
+                $axes = array_column($variant['variant_attribute_sets'], 'axes');
+                // build flat axes
+                $axes = array_column($axes, 0);
+                $productModels[$key]['axes'] = $axes;
+            }
+        }
+    }
+
+    saveProductModels($productModels);
+}
+
+```
+
+#### 2. Process product model
+
+##### 2.1. Parse and store the product model
+
+Parse and store the product model like in [**2.1. Parse and store the product model**](/tutorials/how-to-collect-product-variations.html#21-parse-and-store-the-product-model)
+
+##### 2.2. Collect its product variants
+
+Collect product variants the same way than in [**2.2. Collect its product variants**](/tutorials/how-to-collect-product-variations.html#22-collect-its-product-variants)
