@@ -30,7 +30,7 @@
 
 <div class="endpoint-container">
     <div class="endpoint-text">REST API endpoint(s):</div>
-    <a href="/api-reference.html#get_products_uuid" class="endpoint-link" target="_blank" rel="noopener noreferrer">product-uuid</a>
+    <a href="/api-reference.html#get_products_uuid" class="endpoint-link" target="_blank" rel="noopener noreferrer">products</a>
 </div>
 
 <div class="block-requirements">
@@ -84,7 +84,7 @@ This `data` field is composed of the product information you want to extract. Th
 In a nutshell:
 
 <!-- todo find the right language for comments highlight -->
-```php
+```php [activate:PHP]
 
 {
   "values": { # Contains all the product values, stored in associative arrays
@@ -119,7 +119,7 @@ In a nutshell:
 
 ### 0 - Initialization
 
-```php
+```php [activate:PHP]
 
 function buildApiClient(): GuzzleHttp\Client
 {
@@ -165,7 +165,7 @@ Have a look at other [product filters](/documentation/filter.html#filter-on-prod
 
 Collect only the products you need with the help of the family code list you built in the guided tutorial “How to get families, family variants, and attributes” and your locales and channel that you extracted during the guided tutorial “How to retrieve PIM structure”.
 
-```php
+```php [activate:PHP]
 
 function fetchProducts(): array
 {
@@ -218,7 +218,7 @@ function fetchProducts(): array
 
 Call the product endpoint with these minimum filters.
 
-```php
+```php [activate:PHP]
 
 function fetchProducts(): array
 {
@@ -262,7 +262,7 @@ In the guided tutorial **How to get families and attribute**, we have stored an 
 
 Simply search your attribute in the **attribute_list**.
 
-```php
+```php [activate:PHP]
 
 function findAttributeTypeInAttributeList(string $attributeCode, array $attributeList): string
 {
@@ -278,7 +278,7 @@ Simply get the attribute type by requesting the API. Instructions [here](/tutori
 
 Parse `data` properties according to the attribute type you got in the previous step.
 
-```php
+```php [activate:PHP]
 
 const PIM_CATALOG_IDENTIFIER = 'pim_catalog_identifier';
 const PIM_CATALOG_TEXT = 'pim_catalog_text';
@@ -389,7 +389,7 @@ function extractData(string $attributeType, array $value): string|bool
 ```
 
 Iterate over products to parse their value list one by one:
-```php
+```php [activate:PHP]
 
 $products = fetchProducts();
 $attributes = getAttributes();
@@ -409,7 +409,8 @@ foreach ($products as $key => $product) {
 storeProducts($products);
 ```
 
-```php
+Example output:
+```php [activate:PHP]
 
 var_export($products);
 
@@ -463,7 +464,7 @@ Disclaimer: The previous snippet doesn’t handle for now the following attribut
 Is your attribute type **pim_catalog_file** or **pim_catalog_image** ?
 It means you are looking at media that can be downloaded. To proceed, simply call the “product media file” API endpoint.
 
-```php
+```php [activate:PHP]
 
 function fetchProductMediaFileResources(array $productMediaFileValues): array
 {
@@ -485,7 +486,7 @@ function fetchProductMediaFileResources(array $productMediaFileValues): array
 ```
 
 Update the previous script from step 2.2 so media files are fetched in the same loop:
-```php
+```php [activate:PHP]
 
 $products = fetchProducts();
 $attributes = getAttributes();
@@ -513,7 +514,8 @@ saveProducts($products);
 saveMediaFiles($productMediaFileResources);
 ```
 
-```php
+Example output:
+```php [activate:PHP]
 
 var_export($productMediaFileResources);
 
