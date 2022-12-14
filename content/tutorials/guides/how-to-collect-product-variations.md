@@ -97,7 +97,11 @@ In this tutorial, we will introduce you to the two use cases you may encounter f
 - **Use case 2**: Collect all product variation information on 1 level only)
 
 ::: info
-We noticed that many e-commerce solutions understand product variation on only one level. This means that for Akeneo a special recollection of the variations must be done to have them all on the same level.
+**Use case 2**
+<br>
+We noticed that many e-commerce solutions understand product variation on only one level. This means that for Akeneo **a special recollection of the variations must be done to have them all on the same level.**
+<br>
+Stay tuned! Our teams are currently working on this specific use case and should release it very soon.
 :::
 
 ### 0 - Initialization
