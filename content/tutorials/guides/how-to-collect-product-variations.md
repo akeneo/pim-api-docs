@@ -63,7 +63,7 @@ In the PIM we handle product models and product variations.
 ![scheme_variants](../../img/tutorials/how-to-collect-product-variations/scheme_variants.png)
 
 ::: tips
-Before digging into the code you can find out more about these concepts in our <a href="https://help.akeneo.com/pim/serenity/articles/what-about-products-variants.html#about-products-with-variants" class="endpoint-link" target="_blank" rel="noopener noreferrer">helpcenter</a>
+Before digging into the code you can find out more about these concepts in our <a href="https://help.akeneo.com/pim/serenity/articles/what-about-products-variants.html#about-products-with-variants" target="_blank" rel="noopener noreferrer">helpcenter</a>
 :::
 
 Here are quick definitions:
