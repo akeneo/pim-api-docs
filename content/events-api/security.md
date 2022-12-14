@@ -47,6 +47,7 @@ You are encouraged to use a string comparison function that is safe to timing at
 
 You can also use the `X-Akeneo-Request-Timestamp` to validate that the event request is not too old.
 
+<!-- warning: there is a link to the following paragraph in the help center documentation. Don't change the anchor -->
 ## Constraints on IP addresses 
 
 For security reasons, we block private IP and IP in the ranges that are marked as Reserved-By-Protocol in [RFC 6890](http://www.faqs.org/rfcs/rfc6890.html) as event API target. 
