@@ -49,7 +49,7 @@
             <ul>
                 <li>Step 1. <a href="how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></li>
                 <li>Step 2. <a href="how-to-retrieve-pim-structure.html" target="_blank" rel="noopener noreferrer">How to retrieve PIM structure</a></li>
-                <li>Step 3. <a href="how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a></li>
+                <li>Step 3. <a href="how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a></li>
                 <li>Step 4. <a href="how-to-get-pim-product-information.html" target="_blank" rel="noopener noreferrer">How to get PIM product information</a></li>
             </ul>
         </div>
@@ -130,7 +130,7 @@ function buildApiClient(): GuzzleHttp\Client
 #### 1. Collect product models
 ##### 1.1 You are following the App workflow?
 
-In the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>, we have stored a **family_code_list**. It’s time to use it!
+In the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>, we have stored a **family_code_list**. It’s time to use it!
 
 ```php [activate:PHP]
 
@@ -146,7 +146,7 @@ function getProductModels(): array
     $familyCodes = getFamilyCodes();
     
     // Get locales from storage
-    $locales = getLocales();
+    $locales = getLocales(); // ['en_US', 'fr_FR']
 
     $familyCodeChunks = array_chunk($familyCodes, $maxFamiliesPerQuery);
 
@@ -157,10 +157,17 @@ function getProductModels(): array
         . '&limit=' . $maxProductsPerPage;
 
 
-    // Collect product models from paginated API
+    // Collect product models from API
     $productModels = [];
     foreach ($familyCodeChunks as $familyCodes) {
-        $response = $client->get(sprintf($apiUrl, $locales, $scope, json_encode($familyCodes)));
+        $response = $client->get(
+            sprintf(
+                $apiUrl,
+                implode(',', $locales),
+                $scope,
+                json_encode($familyCodes)
+            )
+        );
         $data = json_decode($response->getBody()->getContents(), true);
         $productModels[] = $data['_embedded']['items'];
     }
@@ -209,12 +216,12 @@ function getProductModels(): array
 
 #### 2. Process product model
 ##### 2.1. Parse and store the product model
-Parse and store a product or a product model is definitely the same thing. Please have a how to our guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>.
+Parse and store a product or a product model is definitely the same thing. Please have a how to our guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>.
 
 ##### 2.2. Collect its family variant
 ###### 2.2.1 You are following the App workflow?
 
-Good news: you already store the family variant in the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>. Go ahead!
+Good news: you already store the family variant in the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>. Go ahead!
 
 ###### 2.2.2 You are not following the App workflow?
 Query the API.
@@ -282,7 +289,7 @@ function getProductVariants(): array
 
 ```
 
-Again, treat each product like a simple product. Please refer to the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>
+Again, treat each product like a simple product. Please refer to the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>
 
 ### Use case 2: Collect product variation information - set it all on 1 level
 
@@ -290,7 +297,7 @@ Again, treat each product like a simple product. Please refer to the guided tuto
 
 ##### 1.1 You are following the App workflow?
 
-In the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>, we have stored a **family_code_list**. It’s time to use it!
+In the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>, we have stored a **family_code_list**. It’s time to use it!
 
 ```php [activate:PHP]
 
@@ -302,9 +309,10 @@ function getProductModels(): array
     $maxFamiliesPerQuery = 3;
     $scope = 'ecommerce';
 
-    // Get family codes and locales from storage
+    // Get family codes from storage
     $familyCodes = getFamilyCodes();
-    $locales = getLocales('fr');
+    // Get locales from storage
+    $locales = getLocales(); // ['en_US', 'fr_FR']
 
     $familyCodeChunks = array_chunk($familyCodes, $maxFamiliesPerQuery);
 
@@ -318,7 +326,14 @@ function getProductModels(): array
     // Collect product models from API
     $productModels = [];
     foreach ($familyCodeChunks as $familyCodes) {
-        $response = $client->get(sprintf($apiUrl, $locales, $scope, json_encode($familyCodes)));
+        $response = $client->get(
+            sprintf(
+                $apiUrl,
+                implode(',', $locales),
+                $scope,
+                json_encode($familyCodes)
+            )
+        );
         $data = json_decode($response->getBody()->getContents(), true);
         $productModels[] = $data['_embedded']['items'];
     }
@@ -348,7 +363,7 @@ function getProductModels(): array
 ##### 1.2 - You are not following the App workflow?
 
 ::: warning
-Make sure to get the list of your family variants before continuing like in  <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families and attributes</a>
+Make sure to get the list of your family variants before continuing like in  <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>
 :::
 
 ```php [activate:PHP]
