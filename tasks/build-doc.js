@@ -838,9 +838,6 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
         "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
         "how-to-get-pim-product-information.md": "How to get PIM product information",
         "how-to-collect-product-variations.md": "How to collect product variations",
-        // "how-to-get-categories.md": "How to get categories",
-        // "how-to-collect-products.md": "How to collect products",
-        // "how-to-publish-your-app.md": "How to publish your App",
     };
 
     const useCases = [
@@ -888,24 +885,6 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
             'features': [features[1], features[2]],
             'use_cases': useCases
         },
-        // {
-        //     'title': 'How to get categories',
-        //     'link': '/tutorials/how-to-get-categories.html',
-        //     'features': [features[5]],
-        //     'use_cases': useCases
-        // },
-        // {
-        //     'title': 'How to collect products',
-        //     'link': '/tutorials/how-to-collect-products.html',
-        //     'features': [features[0]],
-        //     'use_cases': useCases
-        // },
-        // {
-        //     'title': 'How to publish your App',
-        //     'link': '/tutorials/how-to-publish-your-app.html',
-        //     'features': [],
-        //     'use_cases': useCases
-        // },
     ];
 
     const isOnePage = false;
@@ -943,9 +922,6 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
             "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
             "how-to-get-pim-product-information.md": "How to get PIM product information",
             "how-to-collect-product-variations.md": "How to collect product variations",
-            // "how-to-get-categories.md": "How to get categories",
-            // "how-to-collect-products.md": "How to collect products",
-            // "how-to-publish-your-app.md": "How to publish your App",
         };
 
         const isOnePage = false;
