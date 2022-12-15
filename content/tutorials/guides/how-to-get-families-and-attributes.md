@@ -147,16 +147,31 @@ const API_URL = '/api/rest/v1/families/%s/variants?limit=' . MAX_ITEMS;
 // Get family codes from storage
 $codes = getFamilyCodes();
 
-// Collect family variants from paginated API
-$variants = [];
+// Collect family variants from API
+$familyVariants = [];
 foreach ($codes as $code) {
     $response = $client->get(sprintf(API_URL, $code));
     $data = json_decode($response->getBody()->getContents(), true);
-    $variants = array_merge($variants, $data['_embedded']['items']);
+    $familyVariants[] = $data['_embedded']['items'];
+
+    while (array_key_exists('next', $data['_links'])) {
+        $response = $client->get($data['_links']['next']['href']);
+        $data = json_decode($response->getBody()->getContents(), true);
+        $familyVariants[] = $data['_embedded']['items'];
+    }
 }
 
-// Save variants into storage
-saveVariants($variants);
+$familyVariants = array_merge(...$familyVariants);
+
+//add index to $familyVariants
+$indexedFamilyVariants = [];
+foreach ($familyVariants as $familyVariant) {
+    $indexedFamilyVariants[$familyVariant['code']] = $familyVariant;
+}
+
+// Save family variants into storage
+saveFamilyVariants($indexedFamilyVariants);
+
 ```
 
 ### 3 - Collect attributes

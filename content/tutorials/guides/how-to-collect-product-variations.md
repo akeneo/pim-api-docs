@@ -100,8 +100,6 @@ In this tutorial, we will introduce you to the two use cases you may encounter f
 **Use case 2**
 <br>
 We noticed that many e-commerce solutions understand product variation on only one level. This means that for Akeneo **a special recollection of the variations must be done to have them all on the same level.**
-<br>
-Stay tuned! Our teams are currently working on this specific use case and should release it very soon.
 :::
 
 ### 0 - Initialization
@@ -340,23 +338,18 @@ function getProductModels(): array
 
     $productModels = array_merge(...$productModels);
 
-    // Get variants from storage
-    $variants = getVariants();
+    $familyVariants = getFamilyVariantsFromStorage();
     foreach ($productModels as $key => $productModel) {
-        foreach ($variants as $variant) {
-            if ($productModel['family_variant'] === $variant['code']) {
-                // extract all variations level
-                $axes = array_column($variant['variant_attribute_sets'], 'axes');
-                // build flat axes
-                $axes = array_column($axes, 0);
-                $productModels[$key]['axes'] = $axes;
-            }
-        }
+        $familyVariant = $familyVariants[$productModel['family_variant']];
+        // extract all variations level
+        $axes = array_column($familyVariant['variant_attribute_sets'], 'axes');
+        // build flat axes
+        $productModels[$key]['axes'] = array_merge(...$axes);
+
     }
 
     saveProductModels($productModels);
 }
-
 
 ```
 
@@ -394,18 +387,13 @@ function getProductModels(): array
 
     $productModels = array_merge(...$productModels);
 
-    // Get variants from storage
-    $variants = getVariants();
+    $familyVariants = getFamilyVariantsFromStorage();
     foreach ($productModels as $key => $productModel) {
-        foreach ($variants as $variant) {
-            if ($productModel['family_variant'] === $variant['code']) {
-                // extract all variations level
-                $axes = array_column($variant['variant_attribute_sets'], 'axes');
-                // build flat axes
-                $axes = array_column($axes, 0);
-                $productModels[$key]['axes'] = $axes;
-            }
-        }
+        $familyVariant = $familyVariants[$productModel['family_variant']];
+        // extract all variations level
+        $axes = array_column($familyVariant['variant_attribute_sets'], 'axes');
+        // build flat axes
+        $productModels[$key]['axes'] = array_merge(...$axes);
     }
 
     saveProductModels($productModels);
