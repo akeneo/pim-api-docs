@@ -153,6 +153,7 @@ foreach ($codes as $code) {
     $response = $client->get(sprintf(API_URL, $code));
     $data = json_decode($response->getBody()->getContents(), true);
     $familyVariants[] = $data['_embedded']['items'];
+
     while (array_key_exists('next', $data['_links'])) {
         $response = $client->get($data['_links']['next']['href']);
         $data = json_decode($response->getBody()->getContents(), true);
