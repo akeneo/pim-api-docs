@@ -6,7 +6,7 @@
   "dependencies": {
     "bootstrap": "3.4.1",
     "font-awesome": "4.7.0",
-    "jquery": "3.5.0",
+    "jquery": "3.5.1",
     "lato-font": "3.0.0",
     "isotope-layout": "3.0.6"
   },
