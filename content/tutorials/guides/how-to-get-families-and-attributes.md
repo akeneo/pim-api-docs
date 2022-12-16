@@ -226,7 +226,7 @@ attribute_code_list may be significant, very big! If you get an <a href="https:/
 :::
 
 <div class="block-next-steps block-next-steps-alt">
-    <img src="/img/illustrations/illus--Attribute.svg" width="140px">
+    <img src="/img/illustrations/illus--Attribute.svg" width="140px" class="hidden-xs">
     <div class="block-next-steps-column">
         <div class="block-next-steps-title">Next Step</div>
         <div class="block-next-steps-text">Well done! Keep digging into the “App workflow” and follow the next tutorial!</div>

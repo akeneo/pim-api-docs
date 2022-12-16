@@ -121,6 +121,11 @@ button {
     line-height: 41px;
     margin-bottom: 20px;
 }
+@media (max-width: 767px) {
+    .block-next-steps-title {
+        text-align: center;
+    }
+}
 .block-next-steps.block-next-steps-main .block-next-steps-text {
     margin-bottom: 30px;
     font-weight: 400;
