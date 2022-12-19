@@ -444,12 +444,12 @@
     .tile-list {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        //flex-wrap: wrap;
         margin-top: 21px;
         width: 770px;
     }
 
-    .mrb-30 {
+    .margin-tile {
         margin-right: 30px;
         margin-bottom: 30px;
     }
@@ -544,4 +544,66 @@
 
     .block-welcome-row .block-welcome-text {
         width: 68.5%;
+    }
+
+    @media only screen and (max-width: 820px) {
+        .container {
+            padding-right: 42px;
+            padding-left: 18px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .tutorial-title {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 36px;
+
+            text-align: center;
+        }
+
+        .guided-tutorials h1 {
+            margin-top: 20px;
+        }
+
+        .next-steps-button {
+            width: 135px;
+            height: 54px;
+            gap: 8px;
+            border-radius: 80px;
+            .next-steps-button-text{
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 17px;
+            }
+            .next-steps-button-number {
+                font-weight: 700;
+                font-size: 37px;
+                line-height: 44px;
+            }
+        }
+
+        .feature-list {
+            flex-wrap: wrap;
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        .filtered-result {
+            margin-top: 30px;
+        }
+
+        .tag-selectable {
+            margin-bottom: 16px;
+        }
+
+        .tile-list {
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .margin-tile {
+            margin-right: 0;
+        }
     }
