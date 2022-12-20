@@ -28,7 +28,7 @@ Implement the required parts of the App activation process and receive an App ac
             This pre-requisite section will follow you all along the tutorials
             marked with the use case <b>"App workflow"</b>.
         </div>
-        <img src="../../img/illustrations/illus--Attributegroup.svg" width="140px">
+        <img src="../../img/illustrations/illus--Attributegroup.svg" width="110px" class="hidden-xs">
     </div>
     <div class="block-welcome-text">
         The workflow starts with this tutorial that will guide you through the creation of a draft App.

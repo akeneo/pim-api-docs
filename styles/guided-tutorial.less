@@ -40,18 +40,15 @@
         font-weight: 500;
         margin-bottom: 13px;
     }
-    .block-requirements ul {
-        margin: 0;
-        list-style-type: none;
-        padding-left: 60px;
-    }
     .block-requirements-row {
         display: flex;
         justify-content: space-between;
+        gap: 60px;
     }
     .block-requirements-steps {
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        justify-content: center;
         font-weight: 500;
     }
     .block-requirements-steps a {
@@ -508,15 +505,15 @@
     }
 
     .block-welcome img {
-        position: absolute;
-        width: 110px;
-        right: 73px;
-        top: 24px;
+        margin-top: -31px;
+        margin-right: 27px;
+        margin-bottom: -11px;
     }
 
     .block-welcome-row {
         display: flex;
         align-items: center;
+        gap: 73px;
     }
 
     .block-welcome-title {
@@ -540,8 +537,4 @@
         margin-top: 30px;
 
         color: #677688;
-    }
-
-    .block-welcome-row .block-welcome-text {
-        width: 68.5%;
     }
