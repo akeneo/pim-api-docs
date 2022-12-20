@@ -113,6 +113,10 @@ In a nutshell:
 }
 ```
 
+## Workflow
+
+![schema_product_models](../../img/tutorials/how-to-get-pim-product-information/schema_workflow_product.svg)
+
 ## Fetch PIM products and parse values
 
 ### 0 - Initialization
