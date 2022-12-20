@@ -43,33 +43,68 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
-                <li class="{{#if active_apps}}active{{/if}}">
-                    <a href="/apps.html">Apps</a>
-                </li>
-                <li class="{{#if active_guides}}active{{/if}}">
-                    <a href="/guides-index.html">Guides</a>
-                </li>
-                <li class="dropdown{{#if active_documentation}} active{{/if}}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+                <li class="dropdown{{#if active_apps}} active{{/if}}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Apps <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-title">Documentation</li>
-                        <li><a href="/concepts/introduction.html">The concepts & resources</a></li>
-                        <li><a href="/documentation/introduction.html">The REST API basics</a></li>
-                        <li><a href="/events-documentation/overview.html">The Events API basics</a></li>
-                        <li><a href="/php-client/introduction.html">The PHP API client</a></li>
+                        <li class="dropdown-title"><a href="/apps.html">Apps</a></li>
+                        <li><a href="/apps/overview.html">Overview</a></li>
+                        <li><a href="/apps/authentication-and-authorization.html">Authentication and authorization</a></li>
+                        <li><a href="/apps/catalogs.html">Catalogs for Apps (beta)</a></li>
+                        <li><a href="/apps/app-developer-tools.html">Developer tools</a></li>
+                        <li><a href="/guides-index.html">App concepts and use cases</a></li>
                     </ul>
                 </li>
+
                 <li class="dropdown{{#if active_api_reference}} active{{/if}}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">References <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">API resources <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-title">References</li>
-                        <li><a href="/api-reference-index.html">REST API Reference</a></li>
-                        <li><a href="/events-reference/events-reference-serenity/products.html">Events API Reference</a></li>
+                        <li class="dropdown-title">API resources</li>
+                        <li><a href="/documentation/introduction.html">REST API</a></li>
+                        <li>
+                            <ul>
+                                <li><a href="/documentation/why-the-api.html">REST API basics</a></li>
+                                <li><a href="/documentation/api-reference-index.html">REST API reference</a></li>
+                                <li><a href="/getting-started/your-first-tutorial-4x/welcome.html">Your very first tutorial</a></li>
+                                <li><a href="/getting-started/connect-the-pim-4x/welcome.html">The "Connect the PIM" tutorial</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/events-reference/events-reference-serenity/products.html">Events API</a></li>
+                        <li>
+                            <ul>
+                                <li><a href="/events-documentation/overview.html">Events API basic</a></li>
+                                <li><a href="/events-reference/events-reference-serenity/products.html">Events API reference</a></li>
+                                <li><a href="/getting-started/events-api-best-practices-5x/welcome.html">Events API best practice</a></li>
+                                <li><a href="/getting-started/quick-start-my-first-webhook-5x/welcome.html">Quick start my first webhook</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/php-client/introduction.html">PIM Client</a></li>
+                        <li><a href="/concepts/introduction.html">PIM data concepts</a></li>
+                        <li>
+                            <ul>
+                                <li><a href="/concepts/products.html">Product</a></li>
+                                <li><a href="/getting-started/from-identifiers-to-uuid-7x/welcome.html">From product identifier to product UUID</a></li>
+                                <li><a href="/concepts/catalog-structure.html">Catalog structure</a></li>
+                                <li><a href="/concepts/target-market-settings.html">Target market settings</a></li>
+                                <li><a href="/concepts/reference-entities.html">Reference entities</a></li>
+                                <li><a href="/concepts/asset-manager.html">Asset manager</a></li>
+                                <li><a href="/concepts/pam.html">PAM - Deprecated</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
-                <li class="{{#if active_guided_tutorials}}active{{/if}}">
-                    <a href="/tutorials/homepage.html">Guided tutorials</a>
+
+                <li class="dropdown{{#if active_guided_tutorials}} active{{/if}}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Guided tutorials <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-title"><a href="/tutorials/homepage.html">Guided tutorials</a></li>
+                        <li><a href="/tutorials/how-to-get-your-app-token.html">How to get your App token</a></li>
+                        <li><a href="/tutorials/how-to-retrieve-pim-structure.html">How to retrieve PIM structure</a></li>
+                        <li><a href="/tutorials/how-to-get-families-and-attributes.html">How to get families, family variants, and attributes</a></li>
+                        <li><a href="/tutorials/how-to-get-pim-product-information.html">How to get PIM product information</a></li>
+                        <li><a href="/tutorials/how-to-collect-product-variations.html">How to collect product variations</a></li>
+                    </ul>
                 </li>
+
                 <li class="{{#if active_news}}active{{/if}}">
                     <a href="/news/2022.html">What's new?</a>
                 </li>
