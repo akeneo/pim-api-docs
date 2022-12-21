@@ -541,7 +541,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_api_resources: true,
                         title: 'The REST API basics',
                         mainContent: fs.readFileSync('tmp/documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -577,7 +577,7 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/events-documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_api_resources: true,
                         title: 'The Events API basics',
                         mainContent: fs.readFileSync('tmp/events-documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -690,7 +690,7 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_api_resources: true,
                         title: 'Concepts & resources',
                         mainContent: fs.readFileSync('tmp/concepts/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -789,7 +789,7 @@ gulp.task('build-php-client', ['clean-dist','less', 'create-resources-md'], func
             .on('end', function () {
                 return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation: true,
+                        active_api_resources: true,
                         title: 'PHP API Client documentation',
                         image: 'illustrations/illus--php-client.svg',
                         mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
@@ -817,7 +817,7 @@ gulp.task('build-misc-documentation', ['clean-dist','less'], function () {
                 .on('end', function () {
                     return gulp.src('src/partials/misc.handlebars')
                         .pipe(gulpHandlebars({
-                            active_documentation: true,
+                            active_api_resources: true,
                             title: 'Documentation',
                             mainContent: fs.readFileSync('tmp/misc/' + path.basename(file.path).replace(/\.md/, '.html'))
                         }, {
