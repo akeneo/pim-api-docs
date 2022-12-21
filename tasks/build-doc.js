@@ -591,41 +591,9 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('build-apps-homepage', ['clean-dist','less'], function () {
-    var pages = {
-        'overview.md': 'Overview',
-        'authentication-and-authorization.md': 'Authentication and authorization',
-        'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
-        'app-developer-tools.md': 'Developer tools',
-        'app-concepts-and-use-cases.md': 'App concepts and use cases'
-    };
-
-    var isOnePage = false;
-
-    return gulp.src('content/apps/apps.md')
-        .pipe(flatmap(function(stream, file){
-            return gulp.src('content/apps/apps.md')
-                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/apps') + "\n"))
-                .pipe(gulpMarkdownIt(md))
-                .pipe(gulp.dest('tmp/apps/'))
-                .on('end', function () {
-                    return gulp.src('src/partials/apps.handlebars')
-                        .pipe(gulpHandlebars({
-                            active_apps:  true,
-                            mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
-                        }, {
-                            partialsDirectory: ['./src/partials']
-                        }))
-                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
-                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                        .pipe(gulp.dest('./dist'));
-                })
-        }));
-});
-
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
+        'homepage.md': 'Start building your App',
         'overview.md': 'Overview',
         'authentication-and-authorization.md': 'Authentication and authorization',
         'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
@@ -635,9 +603,9 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
 
     var isOnePage = false;
 
-    return gulp.src(['content/apps/*.md','!content/apps/apps.md'])
+    return gulp.src(['content/apps/*.md'])
         .pipe(flatmap(function(stream, file){
-            return gulp.src(['content/apps/*.md','!content/apps/apps.md'])
+            return gulp.src(['content/apps/*.md'])
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
               .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/apps') + "\n"))
               .pipe(gulpMarkdownIt(md))
@@ -659,14 +627,21 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('build-redirections',[
+gulp.task('build-redirections', [
     'to-get-your-app-token-redirection',
+    'to-apps-homepage'
 ]);
 
 gulp.task('to-get-your-app-token-redirection', ['clean-dist','less'], function () {
     return gulp.src('content/redirections/to-get-your-app-token.html')
         .pipe(rename('apps-getting-started.html'))
         .pipe(gulp.dest('./dist/apps'))
+});
+
+gulp.task('to-apps-homepage', ['clean-dist', 'less'], function () {
+    return gulp.src('content/redirections/to-apps-homepage.html')
+        .pipe(rename('apps.html'))
+        .pipe(gulp.dest('./dist'))
 });
 
 gulp.task('build-concepts', ['clean-dist','less'], function () {
