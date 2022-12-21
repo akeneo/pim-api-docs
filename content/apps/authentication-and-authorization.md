@@ -1,10 +1,13 @@
 # Authorization and authentication
 
-## Overview
+This guide will give you information about OAuth 2.0 and the OpenID concept that you will need when starting the development of your App. 
 
-This guide explains the difference between authorization and authentication and gives you all information you need to understand how it works. Make sure that you understand the differences between authentication and authorization before you begin your development process.
+By following the “getting started” sections below, we will walk you through each of these concepts in a step by step process.
 
-### Authorization vs authentication
+:::tips If you just want to bootstrap an App with predefined authorization scopes to start your development, follow our dedicated tutorial.
+:::
+
+## Authorization vs authentication
 
 **Authorization** is the process of giving permissions to apps. Akeneo users authorize apps to access data in their PXM Studio. For example, an app might be authorized to access product and asset data in a PXM Studio.
 
@@ -15,19 +18,9 @@ This guide explains the difference between authorization and authentication and 
 - Akeneo PXM Studio uses OAuth 2.0 to manage app authorizations.
 - Any app can use the OpenID Connect protocol to authenticate users coming from Akeneo PXM Studio.
 
-### Next steps
-
-- Learn about [OAuth 2.0](/apps/authentication-and-authorization.html#oauth-20)
-- Learn [how to authenticate your app](/apps/authentication-and-authorization.html#getting-started-with-oauth)
-- Learn [how to use Open ID connect](/apps/authentication-and-authorization.html#getting-started-with-openid-connect) to authenticate users
-
 <!------------------------------ end of the Overview ------------------------------------>
 
 ## OAuth 2.0
-
-This guide introduces the OAuth flow for apps that are created in the Akeneo App Store.
-
-### Introduction to OAuth 2.0
 
 OAuth 2.0 is the industry-standard protocol for authorizing or giving permissions to apps. This differs from authentication, which is the process of verifying the identity of the user or the app.
 
