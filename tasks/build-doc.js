@@ -404,7 +404,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/getting-started.handlebars')
                     .pipe(gulpHandlebars({
-                        active_guides:  true,
+                        active_api_resources:  true,
                         title: pages[path.basename(path.dirname(file.path))].title,
                         image: pages[path.basename(path.dirname(file.path))].image,
                         gettingStartedName: pages[path.basename(path.dirname(file.path))].gettingStartedName,
@@ -501,7 +501,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_guides: true,
+                        active_apps: true,
                         title: pages[path.basename(path.dirname(file.path))].title,
                         mainContent: fs.readFileSync('tmp/guides/' + path.basename(path.dirname(file.path)) + '/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -596,7 +596,8 @@ gulp.task('build-apps-homepage', ['clean-dist','less'], function () {
         'overview.md': 'Overview',
         'authentication-and-authorization.md': 'Authentication and authorization',
         'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
-        'app-developer-tools.md': 'Developer tools'
+        'app-developer-tools.md': 'Developer tools',
+        'app-concepts-and-use-cases.md': 'App concepts and use cases'
     };
 
     var isOnePage = false;
@@ -628,7 +629,8 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'overview.md': 'Overview',
         'authentication-and-authorization.md': 'Authentication and authorization',
         'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
-        'app-developer-tools.md': 'Developer tools'
+        'app-developer-tools.md': 'Developer tools',
+        'app-concepts-and-use-cases.md': 'App concepts and use cases'
     };
 
     var isOnePage = false;
