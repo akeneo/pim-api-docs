@@ -404,7 +404,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/getting-started.handlebars')
                     .pipe(gulpHandlebars({
-                        active_guides:  true,
+                        active_api_resources:  true,
                         title: pages[path.basename(path.dirname(file.path))].title,
                         image: pages[path.basename(path.dirname(file.path))].image,
                         gettingStartedName: pages[path.basename(path.dirname(file.path))].gettingStartedName,
@@ -501,7 +501,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_guides: true,
+                        active_apps: true,
                         title: pages[path.basename(path.dirname(file.path))].title,
                         mainContent: fs.readFileSync('tmp/guides/' + path.basename(path.dirname(file.path)) + '/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -541,7 +541,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_api_resources: true,
                         title: 'The REST API basics',
                         mainContent: fs.readFileSync('tmp/documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -577,7 +577,7 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/events-documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_api_resources: true,
                         title: 'The Events API basics',
                         mainContent: fs.readFileSync('tmp/events-documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -591,51 +591,21 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('build-apps-homepage', ['clean-dist','less'], function () {
-    var pages = {
-        'overview.md': 'Overview',
-        'authentication-and-authorization.md': 'Authentication and authorization',
-        'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
-        'app-developer-tools.md': 'Developer tools'
-    };
-
-    var isOnePage = false;
-
-    return gulp.src('content/apps/apps.md')
-        .pipe(flatmap(function(stream, file){
-            return gulp.src('content/apps/apps.md')
-                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/apps') + "\n"))
-                .pipe(gulpMarkdownIt(md))
-                .pipe(gulp.dest('tmp/apps/'))
-                .on('end', function () {
-                    return gulp.src('src/partials/apps.handlebars')
-                        .pipe(gulpHandlebars({
-                            active_apps:  true,
-                            mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
-                        }, {
-                            partialsDirectory: ['./src/partials']
-                        }))
-                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
-                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                        .pipe(gulp.dest('./dist'));
-                })
-        }));
-});
-
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
+        'homepage.md': 'Start building your App',
         'overview.md': 'Overview',
         'authentication-and-authorization.md': 'Authentication and authorization',
         'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
-        'app-developer-tools.md': 'Developer tools'
+        'app-developer-tools.md': 'Developer tools',
+        'app-concepts-and-use-cases.md': 'App concepts and use cases'
     };
 
     var isOnePage = false;
 
-    return gulp.src(['content/apps/*.md','!content/apps/apps.md'])
+    return gulp.src(['content/apps/*.md'])
         .pipe(flatmap(function(stream, file){
-            return gulp.src(['content/apps/*.md','!content/apps/apps.md'])
+            return gulp.src(['content/apps/*.md'])
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
               .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/apps') + "\n"))
               .pipe(gulpMarkdownIt(md))
@@ -657,14 +627,28 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('build-redirections',[
+gulp.task('build-redirections', [
     'to-get-your-app-token-redirection',
+    'to-apps-homepage',
+    'to-app-concepts-and-use-cases',
 ]);
 
 gulp.task('to-get-your-app-token-redirection', ['clean-dist','less'], function () {
     return gulp.src('content/redirections/to-get-your-app-token.html')
         .pipe(rename('apps-getting-started.html'))
         .pipe(gulp.dest('./dist/apps'))
+});
+
+gulp.task('to-apps-homepage', ['clean-dist', 'less'], function () {
+    return gulp.src('content/redirections/to-apps-homepage.html')
+        .pipe(rename('apps.html'))
+        .pipe(gulp.dest('./dist'))
+});
+
+gulp.task('to-app-concepts-and-use-cases', ['clean-dist', 'less'], function () {
+    return gulp.src('content/redirections/to-app-concepts-and-use-cases.html')
+        .pipe(rename('guides-index.html'))
+        .pipe(gulp.dest('./dist'))
 });
 
 gulp.task('build-concepts', ['clean-dist','less'], function () {
@@ -690,7 +674,7 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_api_resources: true,
                         title: 'Concepts & resources',
                         mainContent: fs.readFileSync('tmp/concepts/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -789,7 +773,7 @@ gulp.task('build-php-client', ['clean-dist','less', 'create-resources-md'], func
             .on('end', function () {
                 return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation: true,
+                        active_api_resources: true,
                         title: 'PHP API Client documentation',
                         image: 'illustrations/illus--php-client.svg',
                         mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
@@ -817,7 +801,7 @@ gulp.task('build-misc-documentation', ['clean-dist','less'], function () {
                 .on('end', function () {
                     return gulp.src('src/partials/misc.handlebars')
                         .pipe(gulpHandlebars({
-                            active_documentation: true,
+                            active_api_resources: true,
                             title: 'Documentation',
                             mainContent: fs.readFileSync('tmp/misc/' + path.basename(file.path).replace(/\.md/, '.html'))
                         }, {
