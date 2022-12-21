@@ -629,7 +629,8 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
 
 gulp.task('build-redirections', [
     'to-get-your-app-token-redirection',
-    'to-apps-homepage'
+    'to-apps-homepage',
+    'to-app-concepts-and-use-cases',
 ]);
 
 gulp.task('to-get-your-app-token-redirection', ['clean-dist','less'], function () {
@@ -641,6 +642,12 @@ gulp.task('to-get-your-app-token-redirection', ['clean-dist','less'], function (
 gulp.task('to-apps-homepage', ['clean-dist', 'less'], function () {
     return gulp.src('content/redirections/to-apps-homepage.html')
         .pipe(rename('apps.html'))
+        .pipe(gulp.dest('./dist'))
+});
+
+gulp.task('to-app-concepts-and-use-cases', ['clean-dist', 'less'], function () {
+    return gulp.src('content/redirections/to-app-concepts-and-use-cases.html')
+        .pipe(rename('guides-index.html'))
         .pipe(gulp.dest('./dist'))
 });
 
