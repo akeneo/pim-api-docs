@@ -58,7 +58,7 @@ Want to know more about the app certification? [Contact us](https://www.akeneo.c
 
 Before starting to develop your app, we advise you to: 
 - Learn [how users connect their PIM with apps](https://help.akeneo.com/pim/serenity/articles/how-to-connect-my-pim-with-apps.html) and [how they manage their connected apps](https://help.akeneo.com/pim/serenity/articles/manage-your-apps.html)
-- Read our [guides](https://api.akeneo.com/guides-index.html) to better understand Akeneo and be aware of best pratices
+- Read our [guides](/apps/app-concepts-and-use-cases.html) to better understand Akeneo and be aware of best pratices
 - Check our REST API [Reference](https://api.akeneo.com/api-reference-index.html) & [basics](https://api.akeneo.com/documentation/introduction.html)
 - Use our [developer tools](https://api.akeneo.com/apps/app-developer-tools.html)
 
