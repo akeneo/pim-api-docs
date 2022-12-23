@@ -300,7 +300,7 @@ gulp.task('build-events-reference-page', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/events-reference.handlebars')
                     .pipe(gulpHandlebars({
-                        active_api_reference:  true,
+                        active_api_resources: true,
                         title: pages[path.basename(path.dirname(file.path))].title,
                         image: pages[path.basename(path.dirname(file.path))].image,
                         gettingStartedName: pages[path.basename(path.dirname(file.path))].gettingStartedName,
