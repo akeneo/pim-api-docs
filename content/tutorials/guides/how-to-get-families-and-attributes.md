@@ -44,12 +44,10 @@
         If you're starting to build your App, make sure you previously followed:
     </div>
     <div class="block-requirements-row">
-        <img src="../../img/illustrations/illus--Attributegroup.svg" width="110px">
+        <img src="../../img/illustrations/illus--Attributegroup.svg" width="110px" class="hidden-xs">
         <div class="block-requirements-steps">
-            <ul>
-                <li>Step 1. <a href="how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></li>
-                <li>Step 2. <a href="how-to-retrieve-pim-structure.html" target="_blank" rel="noopener noreferrer">How to retrieve PIM structure</a></li>
-            </ul>
+            <div>Step 1. <a href="how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></div>
+            <div>Step 2. <a href="how-to-retrieve-pim-structure.html" target="_blank" rel="noopener noreferrer">How to retrieve PIM structure</a></div>
         </div>
     </div>
 </div>
@@ -226,7 +224,7 @@ attribute_code_list may be significant, very big! If you get an <a href="https:/
 :::
 
 <div class="block-next-steps block-next-steps-alt">
-    <img src="/img/illustrations/illus--Attribute.svg" width="140px">
+    <img src="/img/illustrations/illus--Attribute.svg" width="140px" class="hidden-xs">
     <div class="block-next-steps-column">
         <div class="block-next-steps-title">Next Step</div>
         <div class="block-next-steps-text">Well done! Keep digging into the “App workflow” and follow the next tutorial!</div>

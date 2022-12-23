@@ -68,18 +68,15 @@ button {
     font-weight: 500;
     margin-bottom: 13px;
 }
-.block-requirements ul {
-    margin: 0;
-    list-style-type: none;
-    padding-left: 60px;
-}
 .block-requirements-row {
     display: flex;
     justify-content: space-between;
+    gap: 60px;
 }
 .block-requirements-steps {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     font-weight: 500;
 }
 .block-requirements-steps a {
@@ -120,6 +117,11 @@ button {
     font-size: 34px;
     line-height: 41px;
     margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+    .block-next-steps-title {
+        text-align: center;
+    }
 }
 .block-next-steps.block-next-steps-main .block-next-steps-text {
     margin-bottom: 30px;

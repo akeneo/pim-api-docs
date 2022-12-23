@@ -49,6 +49,12 @@ nav {
             li.dropdown {
                 .dropdown-menu {
                     top: 10px;
+
+                    ul > li > a {
+                        padding: 0 20px 0 40px;
+                        font-weight: 400;
+                        white-space: nowrap;
+                    }
                 }
                 a:hover:after {
                     content: none;
@@ -244,7 +250,7 @@ ul.nav ul {
 
 .search-bar-container{
     width: 100%;
-    height: 64px;
+    height: @search-bar-height;
     display: flex;
     align-items: center;
     justify-content: center;
