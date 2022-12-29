@@ -93,6 +93,15 @@ $client = new \GuzzleHttp\Client([
 
 const pimUrl = 'https://url-of-your-pim.com';
 const accessToken = 'your_app_token'; // Token provided during oAuth steps
+
+// Set your client for querying Akeneo API as follows
+async function get(url, accessToken) {
+    return await fetch(url, {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+}
 ```
 
 ### 1 - Collect families and attribute codes
@@ -144,11 +153,8 @@ let data = await response.json();
 const families = data['_embedded']['items'];
 
 while (data['_links'].hasOwnProperty('next')) {
-    const response = await fetch(data['_links']['next']['href'], {
-        headers: {
-            'Authorization': `Bearer ${accessToken}`
-        }
-    });
+    const response = await get(data['_links']['next']['href'], accessToken);
+
     data = await response.json();
 
     let newFamilies = data['_embedded']['items'];
