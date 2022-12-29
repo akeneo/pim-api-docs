@@ -738,13 +738,15 @@ function fetchProductMediaFileResources(array $productMediaFileValues): array
 ```javascript [activate:nodeJS]
 
 async function fetchProductMediaFileResources(productMediaFileValues) {
-  return Object.entries(productMediaFileValues).map(async ([locale, value]) => {
-    const apiUrl = pimUrl + '/api/rest/v1/media-files/' + value;
-    const response = await get(apiUrl, accessToken);
-    const data = await response.json();
+    let productMedias = {};
+    for (const [locale, value] of Object.entries(productMediaFileValues)) {
+        const apiUrl = pimUrl + '/api/rest/v1/media-files/' + value;
+        const response = await get(apiUrl, accessToken);
+        const data = await response.json();
+        productMedias = {[locale]: data};
+    }
 
-    return {[locale]: data}
-  });
+    return productMedias;
 }
 ```
 
