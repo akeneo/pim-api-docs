@@ -142,11 +142,7 @@ saveAttributesCodes($attributeCodes);
 const maxItems = 100;
 const apiUrl = 'api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}&limit=' + maxItems;
 
-const response = await fetch(`${pimUrl}/${apiUrl}`, {
-    headers: {
-        'Authorization': `Bearer ${accessToken}`
-    }
-});
+const response = await get(`${pimUrl}/${apiUrl}`, accessToken);
 
 let data = await response.json();
 
