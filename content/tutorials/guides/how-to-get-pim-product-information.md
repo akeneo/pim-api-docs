@@ -82,7 +82,7 @@ This `data` field is composed of the product information you want to extract. Th
 In a nutshell:
 
 <!-- todo find the right language for comments highlight -->
-```php [activate:PHP]
+```
 
 {
   "values": { # Contains all the product values, stored in associative arrays
@@ -137,6 +137,24 @@ function buildApiClient(): GuzzleHttp\Client
         'base_uri' => $pimUrl,
         'headers' => ['Authorization' => 'Bearer ' . $appToken],
     ]);
+}
+```
+```javascript [activate:NodeJS]
+
+// Install the node-fetch library by following the official documentation:
+// https://www.npmjs.com/package/node-fetch
+import fetch from 'node-fetch';
+
+const pimUrl = 'https://url-of-your-pim.com';
+const accessToken = 'your_app_token'; // Token provided during oAuth steps
+
+// Set your client for querying Akeneo API as follows
+async function get(url, accessToken) {
+    return await fetch(url, {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
 }
 ```
 
@@ -215,6 +233,51 @@ function fetchProducts(): array
     return array_merge(...$products);
 }
 ```
+```javascript [activate:NodeJS]
+
+async function fetchProducts() {
+
+  // Get locales from storage
+  const locales = await getlocales();
+  // Get family codes from storage
+  const familyCodes = await getFamilyCodes(); // ['en_US', 'fr_FR']
+  const scope = 'ecommerce'
+  const maxItems = 100;
+
+  let chunks = [];
+  for (let key = 0; key < familyCodes.length; key += maxItems) {
+    chunks.push(familyCodes.slice(key, key + maxItems));
+  }
+
+  const products = [];
+  for (const chunk of chunks) {
+    const apiUrl = `${pimUrl}/api/rest/v1/products-uuid`
+        + '?with_attribute_options=true'
+        + `&locales=${locales.join(',')}`
+        + `&scope=${scope}`
+        + '&search={"enabled":[{"operator":"=","value":true}],'
+        + `"family":[{"operator":"IN","value":${JSON.stringify(familyCodes)}}]}`
+        + '&pagination_type=search_after'
+        + `&limit=${maxItems}`;
+
+    const response = await get(apiUrl, accessToken);
+
+    let data = await response.json();
+
+    let newProducts = data['_embedded']['items'];
+    products.push(...newProducts);
+
+    while (data['_links'].hasOwnProperty('next')) {
+      const response = await get(data['_links']['next']['href'], accessToken);
+      data = await response.json();
+      newProducts = data['_embedded']['items'];
+      products.push(...newProducts);
+    }
+  }
+
+  return products;
+}
+```
 
 ##### 1.2.2. You aren't following the App workflow?
 
@@ -253,6 +316,33 @@ function fetchProducts(): array
     return array_merge(...$products);
 }
 ```
+```javascript [activate:NodeJS]
+
+async function fetchProducts() {
+  const maxItems = 100;
+
+  const apiUrl = `${pimUrl}/api/rest/v1/products-uuid`
+      + '?with_attribute_options=true'
+      + '&search={"enabled":[{"operator":"=","value":true}]}'
+      + '&pagination_type=search_after'
+      + `&limit=${maxItems}`;
+
+
+  const response = await get(apiUrl, accessToken);
+
+  let data = await response.json();
+
+  let products = data['_embedded']['items'];
+  while (data['_links'].hasOwnProperty('next')) {
+    const response = await get(data['_links']['next']['href'], accessToken);
+    data = await response.json();
+    let newProducts = data['_embedded']['items'];
+    products.push(...newProducts);
+  }
+
+  return products;
+}
+```
 
 ### 2 - Retrieve product values
 
@@ -269,6 +359,19 @@ Simply search your attribute in the **attribute_list**.
 function findAttributeTypeInAttributeList(string $attributeCode, array $attributeList): string
 {
     return $attributeList[$attributeCode]['type'];
+}
+```
+
+```javascript [activate:NodeJS]
+
+function findAttributeTypeInAttributeList(attributeCode, attributeList) {
+  const attribute = attributeList.filter(attribute => {
+    if (attributeCode === attribute['code']) {
+      return attribute;
+    }
+  });
+
+  return attribute[0]['type'];
 }
 ```
 
@@ -389,6 +492,98 @@ function extractData(string $attributeType, array $value): string|bool
     }
 }
 ```
+```javascript [activate:NodeJS]
+
+const PIM_CATALOG_IDENTIFIER = 'pim_catalog_identifier';
+const PIM_CATALOG_TEXT = 'pim_catalog_text';
+const PIM_CATALOG_TEXTAREA = 'pim_catalog_textarea';
+const PIM_CATALOG_NUMBER = 'pim_catalog_number';
+const PIM_CATALOG_BOOLEAN = 'pim_catalog_boolean';
+const PIM_CATALOG_DATE = 'pim_catalog_date';
+const PIM_CATALOG_PRICE_COLLECTION = 'pim_catalog_price_collection';
+const PIM_CATALOG_SIMPLESELECT = 'pim_catalog_simpleselect';
+const PIM_CATALOG_MULTISELECT = 'pim_catalog_multiselect';
+const PIM_CATALOG_METRIC = 'pim_catalog_metric';
+
+const PIM_CATALOG_FILE = 'pim_catalog_file';
+const PIM_CATALOG_IMAGE = 'pim_catalog_image';
+
+const FALLBACK_LOCALE = 'en_US';
+
+function getFormattedProductValues(values, attributeType) {
+  let data = {};
+  for (const value of values) {
+    let locale = value['locale'] ?? FALLBACK_LOCALE;
+    data['values'] = {[locale]: extractData(attributeType, value)};
+    data['type'] = attributeType;
+  }
+
+  return data;
+}
+
+function extractData(attributeType, value) {
+  let locale;
+  switch (attributeType) {
+    case PIM_CATALOG_IDENTIFIER:
+    case PIM_CATALOG_NUMBER:
+    case PIM_CATALOG_TEXTAREA:
+    case PIM_CATALOG_TEXT:
+    case PIM_CATALOG_FILE:
+    case PIM_CATALOG_IMAGE:
+      return value['data'].toString();
+
+    case PIM_CATALOG_BOOLEAN:
+      return !value['data'];
+
+    case PIM_CATALOG_DATE:
+      return new Date(value['data']).toLocaleDateString('en-US');
+
+    case PIM_CATALOG_PRICE_COLLECTION:
+      const prices = value['data'].map((data) => data['amount'] + ' ' + data['currency']);
+      return prices.join('; ');
+
+    case PIM_CATALOG_SIMPLESELECT:
+      locale = value['locale'] ?? FALLBACK_LOCALE;
+      const data = value['linked_data']['labels'][locale];
+
+      if (data === null) {
+        throw new Error(
+            `Option ${value['linked_data']['code']} of Attribute ${value['linked_data']['attribute']} has no translation for locale ${locale}.`,
+        );
+      }
+
+      return data;
+
+    case PIM_CATALOG_MULTISELECT:
+      locale = value['locale'] ?? FALLBACK_LOCALE;
+      const options = Object.entries(value['linked_data']).map((linkedDatas) => {
+        Object.entries(linkedDatas).map((linkedData) => {
+          if (linkedData.hasOwnProperty('labels')) {
+            const data = linkedData['labels'][locale];
+
+            if (data === null) {
+              throw new Error(
+                  `Option ${linkedData['code']} of Attribute ${linkedData['attribute']} has no translation for ${locale}.`
+              );
+            }
+            return data;
+          }
+        });
+      });
+
+      return options.join('; ');
+
+    case PIM_CATALOG_METRIC:
+      return value['data']['amount'] + ' ' + value['data']['unit'];
+
+    default:
+      if (typeof value['data'] !== 'object' && value['data'] !== null && !Array.isArray(value['data'])) {
+        return true;
+      }
+      return value['data'];
+  }
+}
+```
 
 Iterate over products to parse their value list one by one:
 ```php [activate:PHP]
@@ -409,6 +604,26 @@ foreach ($products as $key => $product) {
 }
 
 storeProducts($products);
+```
+
+```javascript [activate:NodeJS]
+
+const products = await fetchProducts();
+const attributes = await getAttributes();
+
+for (const [key, product] of Object.entries(products)) {
+  let formattedValuesList = {};
+  for (const [attributeCode, value] of Object.entries(product.values)) {
+    const type = findAttributeTypeInAttributeList(attributeCode, attributes);
+    const formattedValues = getFormattedProductValues(value, type);
+    
+    formattedValuesList[attributeCode] = formattedValues;
+  }
+
+  products[key] = {...products[key], values: {...formattedValuesList}};
+}
+
+saveProducts(products);
 ```
 
 Example output:
@@ -450,6 +665,48 @@ var_export($products);
     /* ... */
 ]
 ```
+```javascript [activate:NodeJS]
+
+console.log(products);
+
+// Output
+[
+    {
+        "uuid": "002acc58-c751-4f91-b614-18b029194d06",
+        "enabled": true,
+        "family": "it",
+        "categories": [],
+        "groups": [],
+        "parent": null,
+        "values":
+        {
+            "name":
+            {
+                "values":
+                {
+                    "en_US": "printer",
+                    "fr_FR": "imprimante"
+                },
+                "type": "pim_catalog_text"
+            },
+            "description":
+            {
+                "values":
+                {
+                    "en_US": "<p>Description of the product</p>",
+                    "fr_FR": "<p>Description du produit</p>"
+                },
+                "type": "pim_catalog_textarea"
+            }
+        },
+        "created": "2022-11-03T16:26:06+00:00",
+        "updated": "2022-11-03T16:26:07+00:00",
+        "associations": [],
+        "quantified_associations": [],
+        "metadata": []
+    }
+]
+```
 :::warning
 Disclaimer: The previous snippet doesn’t handle for now the following attribute types:
 
@@ -487,6 +744,21 @@ function fetchProductMediaFileResources(array $productMediaFileValues): array
 }
 ```
 
+```javascript [activate:NodeJS]
+
+async function fetchProductMediaFileResources(productMediaFileValues) {
+    let productMedias = {};
+    for (const [locale, value] of Object.entries(productMediaFileValues)) {
+        const apiUrl = pimUrl + '/api/rest/v1/media-files/' + value;
+        const response = await get(apiUrl, accessToken);
+        const data = await response.json();
+        productMedias = {[locale]: data};
+    }
+
+    return productMedias;
+}
+```
+
 Update the previous script from step 2.2 so media files are fetched in the same loop:
 ```php [activate:PHP]
 
@@ -515,6 +787,32 @@ foreach ($products as $key => $product) {
 saveProducts($products);
 saveMediaFiles($productMediaFileResources);
 ```
+```javascript [activate:NodeJS]
+
+    const products = await fetchProducts();
+    const attributes = await getAttributes();
+
+    let productMediaFileResources = {};
+    for (const [key, product] of Object.entries(products)) {
+      let formattedValuesList = {};
+      for (const [attributeCode, value] of Object.entries(product.values)) {
+        const type = findAttributeTypeInAttributeList(attributeCode, attributes);
+        const formattedValues = getFormattedProductValues(value, type);
+
+        if ([PIM_CATALOG_IMAGE, PIM_CATALOG_FILE].includes(type)) {
+          let productMedia = await fetchProductMediaFileResources(formattedValues['values']);
+          productMediaFileResources[product['uuid']] = {[attributeCode]: productMedia};
+        }
+
+        formattedValuesList[attributeCode] = formattedValues;
+      }
+
+      products[key] = {...products[key], values: {...formattedValuesList}};
+    }
+
+    saveProducts(products);
+    saveMediaFiles(productMediaFileResources);
+```
 
 Example output:
 ```php [activate:PHP]
@@ -537,6 +835,30 @@ var_export($productMediaFileResources);
         ]
     ],
     /* ... */
+]
+```
+```javascript [activate:NodeJS]
+
+console.log(productMediaFileResources);
+
+// Output
+[
+    {
+        "016f042a-4357-43d6-89aa-d62e1dd7fa6f":
+        {
+            "picture":
+            {
+                "en_US":
+                {
+                    "code": "b/5/0/c/b50cc5ee7ae06333e10d1796bc92cf6b7bacbf44_13387800_840.jpg",
+                    "original_filename": "13387800-840.jpg",
+                    "mime_type": "image/jpeg",
+                    "size": 14704,
+                    "extension": "jpg"
+                }
+            }
+        }
+    }
 ]
 ```
 

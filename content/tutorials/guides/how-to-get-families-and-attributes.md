@@ -89,14 +89,33 @@ $client = new \GuzzleHttp\Client([
 ]);
 ```
 
+```javascript [activate:NodeJS]
+
+// Install the node-fetch library by following the official documentation:
+// https://www.npmjs.com/package/node-fetch
+import fetch from 'node-fetch';
+
+const pimUrl = 'https://url-of-your-pim.com';
+const accessToken = 'your_app_token'; // Token provided during oAuth steps
+
+// Set your client for querying Akeneo API as follows
+async function get(url, accessToken) {
+    return await fetch(url, {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+}
+```
+
 ### 1 - Collect families and attribute codes
 
 Get families and attribute codes by requesting the PIM API
 
 ```php [activate:PHP]
 
-const API_URL = '/api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}';
-
+const MAX_ITEMS = 100;
+const API_URL = '/api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}&limit=' . MAX_ITEMS;
 // Make an authenticated call to the API
 $response = $client->get(API_URL);
 
@@ -120,6 +139,38 @@ $attributeCodes = array_unique($attributeCodes);
 // Save families and attribute codes into stores
 saveFamilies($families);
 saveAttributesCodes($attributeCodes);
+```
+
+```javascript [activate:NodeJS]
+
+const maxItems = 100;
+const apiUrl = 'api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}&limit=' + maxItems;
+
+const response = await get(`${pimUrl}/${apiUrl}`, accessToken);
+
+let data = await response.json();
+
+const families = data['_embedded']['items'];
+
+while (data['_links'].hasOwnProperty('next')) {
+    const response = await get(data['_links']['next']['href'], accessToken);
+
+    data = await response.json();
+
+    let newFamilies = data['_embedded']['items'];
+    families.push(...newFamilies);
+}
+
+// Collect attributes from all families
+const attributeCodes = families.reduce(
+    (acc, family) => [...acc, ...family.attributes],
+    []
+);
+const uniqueAttributeCodes = [...new Set(attributeCodes)];
+
+// Save families and attribute codes into stores
+saveFamilies(families);
+saveAttributeCodes(uniqueAttributeCodes);
 ```
 
 Store family codes in a <b>family_code_list</b> and attribute codes in a separate list (<b>attribute_code_list</b>). We will deal with <b>attribute_code_list</b> later in this tutorial.
@@ -172,6 +223,40 @@ saveFamilyVariants($indexedFamilyVariants);
 
 ```
 
+```javascript [activate:NodeJS]
+
+const maxItems = 100;
+
+// Get family codes from storage
+const familyCodes = await getFamilyCodes();
+
+let familyVariants = [];
+for (const code of familyCodes) {
+    const apiUrl = `api/rest/v1/families/${code}/variants?limit=` + maxItems;
+    const response = await get(`${pimUrl}/${apiUrl}`, accessToken);
+    let data = await response.json();
+    let newVariants = data['_embedded']['items'];
+    familyVariants.push(...newVariants);
+
+    while (data['_links'].hasOwnProperty('next')) {
+        const response = await get(data['_links']['next']['href'], accessToken);
+        data = await response.json();
+        newVariants = data['_embedded']['items'];
+        familyVariants.push(...newVariants);
+    }
+}
+
+// Only keep fields needed
+let indexedFamilyVariants = {};
+for (const familyVariant of familyVariants) {
+    indexedFamilyVariants[familyVariant['code']] = familyVariant;
+}
+
+// Save family variants into storage
+saveFamilyVariants(indexedFamilyVariants);
+```
+
+
 ### 3 - Collect attributes
 
 Remember your <b>attribute_code_list</b>? It’s (already) time to use it to retrieve attribute information
@@ -206,8 +291,47 @@ foreach ($rawAttributes as $rawAttribute) {
 saveAttributes($attributes);
 ```
 
+```javascript [activate:NodeJS]
+
+const maxItems = 100;
+
+// Get attributes codes from storage
+const attributeCodes = await getAttributeCodes();
+
+let chunks = [];
+for (let key = 0; key < attributeCodes.length; key += maxItems) {
+    chunks.push(attributeCodes.slice(key, key + maxItems));
+}
+
+let rawAttributes = [];
+for (const item of chunks) {
+    const apiUrl = `api/rest/v1/attributes?search={"code":[{"operator":"IN","value":${JSON.stringify(item)}}]}&limit=` + maxItems;
+    const response = await fetch(`${pimUrl}/${apiUrl}`, {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+    let data = await response.json();
+    let newRawAttributes = data['_embedded']['items']
+    rawAttributes.push(...newRawAttributes);
+}
+
+// Only keep fields needed
+let attributes = {};
+for (const rawAttribute of rawAttributes) {
+    attributes[rawAttribute['code']] = {
+        'code': rawAttribute['code'],
+        'type': rawAttribute['type'],
+        // Add additional fields if needed
+    };
+}
+
+//save attributes into storage
+saveAttributes(attributes);
+```
+
 Retrieved attribute list follows this structure:
-```php
+```php [activate:PHP]
 
 // Output
 [
@@ -216,6 +340,18 @@ Retrieved attribute list follows this structure:
             'type' => 'pim_catalog_text',
     ],
 ]
+```
+
+```javascript [activate:NodeJS]
+
+// Output
+{
+	"attribute_code":
+	{
+		"code": "attribute_code",
+		"type": "pim_catalog_text"
+	}
+}
 ```
 
 ::: warning
