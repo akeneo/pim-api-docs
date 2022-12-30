@@ -668,6 +668,8 @@ var_export($products);
 ``` json [activate:NodeJS]
 
 console.log(products);
+
+# Output
 [
     {
         "uuid": "002acc58-c751-4f91-b614-18b029194d06",
