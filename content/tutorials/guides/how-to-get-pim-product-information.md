@@ -141,6 +141,10 @@ function buildApiClient(): GuzzleHttp\Client
 ```
 ```javascript [activate:NodeJS]
 
+// Install the node-fetch library by following the official documentation:
+// https://www.npmjs.com/package/node-fetch
+import fetch from 'node-fetch';
+
 const pimUrl = 'https://url-of-your-pim.com';
 const accessToken = 'your_app_token'; // Token provided during oAuth steps
 
@@ -229,13 +233,16 @@ function fetchProducts(): array
     return array_merge(...$products);
 }
 ```
-```javascript [activate:nodeJS]
+```javascript [activate:NodeJS]
 
 async function fetchProducts() {
+
+  // Get locales from storage
   const locales = await getlocales();
-  const familyCodes = await getFamilyCodes();
+  // Get family codes from storage
+  const familyCodes = await getFamilyCodes(); // ['en_US', 'fr_FR']
   const scope = 'ecommerce'
-  const maxItems = 10;
+  const maxItems = 100;
 
   let chunks = [];
   for (let key = 0; key < familyCodes.length; key += maxItems) {
@@ -309,10 +316,10 @@ function fetchProducts(): array
     return array_merge(...$products);
 }
 ```
-```javascript [activate:nodeJS]
+```javascript [activate:NodeJS]
 
 async function fetchProducts() {
-  const maxItems = 10;
+  const maxItems = 100;
 
   const apiUrl = `${pimUrl}/api/rest/v1/products-uuid`
       + '?with_attribute_options=true'
@@ -355,7 +362,7 @@ function findAttributeTypeInAttributeList(string $attributeCode, array $attribut
 }
 ```
 
-```javascript [activate:nodeJS]
+```javascript [activate:NodeJS]
 
 function findAttributeTypeInAttributeList(attributeCode, attributeList) {
   const attribute = attributeList.filter(attribute => {
@@ -485,7 +492,7 @@ function extractData(string $attributeType, array $value): string|bool
     }
 }
 ```
-```javascript [activate:nodeJS]
+```javascript [activate:NodeJS]
 
 const PIM_CATALOG_IDENTIFIER = 'pim_catalog_identifier';
 const PIM_CATALOG_TEXT = 'pim_catalog_text';
@@ -599,7 +606,7 @@ foreach ($products as $key => $product) {
 storeProducts($products);
 ```
 
-```javascript [activate:nodeJS]
+```javascript [activate:NodeJS]
 
 const products = await fetchProducts();
 const attributes = await getAttributes();
@@ -658,9 +665,9 @@ var_export($products);
     /* ... */
 ]
 ```
-``` json [activate:JSON]
+``` json [activate:NodeJS]
 
-# Outpout
+console.log(products);
 [
     {
         "uuid": "002acc58-c751-4f91-b614-18b029194d06",
@@ -735,7 +742,7 @@ function fetchProductMediaFileResources(array $productMediaFileValues): array
 }
 ```
 
-```javascript [activate:nodeJS]
+```javascript [activate:NodeJS]
 
 async function fetchProductMediaFileResources(productMediaFileValues) {
     let productMedias = {};
@@ -778,7 +785,7 @@ foreach ($products as $key => $product) {
 saveProducts($products);
 saveMediaFiles($productMediaFileResources);
 ```
-```javascript [activate:nodeJS]
+```javascript [activate:NodeJS]
 
     const products = await fetchProducts();
     const attributes = await getAttributes();
@@ -830,7 +837,7 @@ var_export($productMediaFileResources);
 ```
 ```json [activate:JSON]
 
-# Outpout
+# Output
 [
     {
         "016f042a-4357-43d6-89aa-d62e1dd7fa6f":

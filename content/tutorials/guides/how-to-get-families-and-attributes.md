@@ -91,6 +91,10 @@ $client = new \GuzzleHttp\Client([
 
 ```javascript [activate:NodeJS]
 
+// Install the node-fetch library by following the official documentation:
+// https://www.npmjs.com/package/node-fetch
+import fetch from 'node-fetch';
+
 const pimUrl = 'https://url-of-your-pim.com';
 const accessToken = 'your_app_token'; // Token provided during oAuth steps
 
