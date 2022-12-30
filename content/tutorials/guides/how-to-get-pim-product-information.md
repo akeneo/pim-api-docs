@@ -665,11 +665,11 @@ var_export($products);
     /* ... */
 ]
 ```
-``` json [activate:NodeJS]
+```javascript [activate:NodeJS]
 
 console.log(products);
 
-# Output
+// Output
 [
     {
         "uuid": "002acc58-c751-4f91-b614-18b029194d06",
@@ -837,9 +837,11 @@ var_export($productMediaFileResources);
     /* ... */
 ]
 ```
-```json [activate:JSON]
+```javascript [activate:NodeJS]
 
-# Output
+console.log(productMediaFileResources);
+
+// Output
 [
     {
         "016f042a-4357-43d6-89aa-d62e1dd7fa6f":
