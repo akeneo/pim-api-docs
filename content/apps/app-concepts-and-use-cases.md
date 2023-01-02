@@ -104,5 +104,23 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-info panel-btn panel-slack">
+                    <a href="/getting-started/synchronize-pim-products-6x/welcome.html">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-offset-4 col-xs-4 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-2 col-lg-8">
+                                    <img width="100%" src="/img/illustrations/illus--first-request.svg">
+                                </div>
+                            </div>
+                            <div class="panel-btn-big">Synchronize PIM products with your App</div>
+                            <p class="text-center">Do you struggle to retrieve your PIM product data for feeding you
+                                amazing App? Don't worry anymore and follow this guide.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
