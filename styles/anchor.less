@@ -5,11 +5,11 @@
 a.anchor {
     display: block;
     position: relative;
-    top: -@spacing-base * 1.25;
+    top: -@spacing-base * 1.25 - @search-bar-height;
     visibility: hidden;
 }
 
-h1, h2, h3, h4{
+h1, h2, h3, h4, h5, h6{
     &:hover .markdownIt-Anchor{
         color: @brand-info;
     }

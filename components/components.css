@@ -68,18 +68,15 @@ button {
     font-weight: 500;
     margin-bottom: 13px;
 }
-.block-requirements ul {
-    margin: 0;
-    list-style-type: none;
-    padding-left: 60px;
-}
 .block-requirements-row {
     display: flex;
     justify-content: space-between;
+    gap: 60px;
 }
 .block-requirements-steps {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     font-weight: 500;
 }
 .block-requirements-steps a {
@@ -88,17 +85,24 @@ button {
 }
 
 .block-next-steps {
-    background-color: #F1F4F9;
     padding: 20px 50px;
     display: flex;
-    align-items: center;
 
     font-size: 16px;
     line-height: 24px;
 
+    background-color: #F1F4F9;
     color: #677688;
+    border-radius: 5px;
 }
-
+.block-next-steps.block-next-steps-main {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 25px;
+}
+.block-next-steps.block-next-steps-alt {
+    align-items: center;
+}
 .block-next-steps img {
     margin-right: 50px;
 }
@@ -114,7 +118,16 @@ button {
     line-height: 41px;
     margin-bottom: 20px;
 }
-.block-next-steps-text {
+@media (max-width: 767px) {
+    .block-next-steps-title {
+        text-align: center;
+    }
+}
+.block-next-steps.block-next-steps-main .block-next-steps-text {
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+.block-next-steps.block-next-steps-alt .block-next-steps-text {
     margin-bottom: 11px;
 }
 .block-next-steps ul {
@@ -317,4 +330,60 @@ button {
     src:
             url("../dist/fonts/lato-bold-italic.woff2") format("woff2"),
             url("../dist/fonts/lato-bold-italic.woff") format("woff");
+}
+
+.next-steps-button {
+    width: 261px;
+    height: 89px;
+    padding-top: 5px; /* Fix font not centered */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    background-color: #414D97;
+    color: #F1F4F9;
+
+    box-shadow: 0px 0px 6px rgba(37, 38, 52, 0.5);
+    border: none;
+    border-radius: 57px;
+}
+.next-steps-button:hover {
+    background-color: #2D366D;
+    text-decoration: none;
+    color: #F1F4F9;
+}
+
+.next-steps-button-number {
+    padding-top: 2px;  /* Fix inability to align-item baseline */
+    font-size: 63px;
+}
+.next-steps-button-smaller .next-steps-button-number {
+    padding-top: 4px;  /* Fix inability to align-item baseline */
+}
+
+.next-steps-button-text {
+    text-align: left;
+}
+
+.next-steps-button-smaller {
+    width: 177px;
+    height: 65px;
+    padding-top: 3px
+}
+
+.next-steps-button-smaller .next-steps-button-number {
+    font-size: 48px;
+}
+
+.next-steps-button-smaller .next-steps-button-text {
+    font-size: 18px;
+    line-height: 22px;
 }

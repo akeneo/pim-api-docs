@@ -44,12 +44,10 @@
         If you're starting to build your App, make sure you previously followed:
     </div>
     <div class="block-requirements-row">
-        <img src="../../img/illustrations/illus--Attributegroup.svg" width="110px">
+        <img src="../../img/illustrations/illus--Attributegroup.svg" width="110px" class="hidden-xs">
         <div class="block-requirements-steps">
-            <ul>
-                <li>Step 1. <a href="how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></li>
-                <li>Step 2. <a href="how-to-retrieve-pim-structure.html" target="_blank" rel="noopener noreferrer">How to retrieve PIM structure</a></li>
-            </ul>
+            <div>Step 1. <a href="how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></div>
+            <div>Step 2. <a href="how-to-retrieve-pim-structure.html" target="_blank" rel="noopener noreferrer">How to retrieve PIM structure</a></div>
         </div>
     </div>
 </div>
@@ -91,14 +89,33 @@ $client = new \GuzzleHttp\Client([
 ]);
 ```
 
+```javascript [activate:NodeJS]
+
+// Install the node-fetch library by following the official documentation:
+// https://www.npmjs.com/package/node-fetch
+import fetch from 'node-fetch';
+
+const pimUrl = 'https://url-of-your-pim.com';
+const accessToken = 'your_app_token'; // Token provided during oAuth steps
+
+// Set your client for querying Akeneo API as follows
+async function get(url, accessToken) {
+    return await fetch(url, {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+}
+```
+
 ### 1 - Collect families and attribute codes
 
 Get families and attribute codes by requesting the PIM API
 
 ```php [activate:PHP]
 
-const API_URL = '/api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}';
-
+const MAX_ITEMS = 100;
+const API_URL = '/api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}&limit=' . MAX_ITEMS;
 // Make an authenticated call to the API
 $response = $client->get(API_URL);
 
@@ -124,6 +141,38 @@ saveFamilies($families);
 saveAttributesCodes($attributeCodes);
 ```
 
+```javascript [activate:NodeJS]
+
+const maxItems = 100;
+const apiUrl = 'api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}&limit=' + maxItems;
+
+const response = await get(`${pimUrl}/${apiUrl}`, accessToken);
+
+let data = await response.json();
+
+const families = data['_embedded']['items'];
+
+while (data['_links'].hasOwnProperty('next')) {
+    const response = await get(data['_links']['next']['href'], accessToken);
+
+    data = await response.json();
+
+    let newFamilies = data['_embedded']['items'];
+    families.push(...newFamilies);
+}
+
+// Collect attributes from all families
+const attributeCodes = families.reduce(
+    (acc, family) => [...acc, ...family.attributes],
+    []
+);
+const uniqueAttributeCodes = [...new Set(attributeCodes)];
+
+// Save families and attribute codes into stores
+saveFamilies(families);
+saveAttributeCodes(uniqueAttributeCodes);
+```
+
 Store family codes in a <b>family_code_list</b> and attribute codes in a separate list (<b>attribute_code_list</b>). We will deal with <b>attribute_code_list</b> later in this tutorial.
 
 ::: tips
@@ -147,17 +196,66 @@ const API_URL = '/api/rest/v1/families/%s/variants?limit=' . MAX_ITEMS;
 // Get family codes from storage
 $codes = getFamilyCodes();
 
-// Collect family variants from paginated API
-$variants = [];
+// Collect family variants from API
+$familyVariants = [];
 foreach ($codes as $code) {
     $response = $client->get(sprintf(API_URL, $code));
     $data = json_decode($response->getBody()->getContents(), true);
-    $variants = array_merge($variants, $data['_embedded']['items']);
+    $familyVariants[] = $data['_embedded']['items'];
+
+    while (array_key_exists('next', $data['_links'])) {
+        $response = $client->get($data['_links']['next']['href']);
+        $data = json_decode($response->getBody()->getContents(), true);
+        $familyVariants[] = $data['_embedded']['items'];
+    }
 }
 
-// Save variants into storage
-saveVariants($variants);
+$familyVariants = array_merge(...$familyVariants);
+
+//add index to $familyVariants
+$indexedFamilyVariants = [];
+foreach ($familyVariants as $familyVariant) {
+    $indexedFamilyVariants[$familyVariant['code']] = $familyVariant;
+}
+
+// Save family variants into storage
+saveFamilyVariants($indexedFamilyVariants);
+
 ```
+
+```javascript [activate:NodeJS]
+
+const maxItems = 100;
+
+// Get family codes from storage
+const familyCodes = await getFamilyCodes();
+
+let familyVariants = [];
+for (const code of familyCodes) {
+    const apiUrl = `api/rest/v1/families/${code}/variants?limit=` + maxItems;
+    const response = await get(`${pimUrl}/${apiUrl}`, accessToken);
+    let data = await response.json();
+    let newVariants = data['_embedded']['items'];
+    familyVariants.push(...newVariants);
+
+    while (data['_links'].hasOwnProperty('next')) {
+        const response = await get(data['_links']['next']['href'], accessToken);
+        data = await response.json();
+        newVariants = data['_embedded']['items'];
+        familyVariants.push(...newVariants);
+    }
+}
+
+// Only keep fields needed
+let indexedFamilyVariants = {};
+for (const familyVariant of familyVariants) {
+    indexedFamilyVariants[familyVariant['code']] = familyVariant;
+}
+
+// Save family variants into storage
+saveFamilyVariants(indexedFamilyVariants);
+```
+
 
 ### 3 - Collect attributes
 
@@ -193,7 +291,83 @@ foreach ($rawAttributes as $rawAttribute) {
 saveAttributes($attributes);
 ```
 
+```javascript [activate:NodeJS]
+
+const maxItems = 100;
+
+// Get attributes codes from storage
+const attributeCodes = await getAttributeCodes();
+
+let chunks = [];
+for (let key = 0; key < attributeCodes.length; key += maxItems) {
+    chunks.push(attributeCodes.slice(key, key + maxItems));
+}
+
+let rawAttributes = [];
+for (const item of chunks) {
+    const apiUrl = `api/rest/v1/attributes?search={"code":[{"operator":"IN","value":${JSON.stringify(item)}}]}&limit=` + maxItems;
+    const response = await fetch(`${pimUrl}/${apiUrl}`, {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+    let data = await response.json();
+    let newRawAttributes = data['_embedded']['items']
+    rawAttributes.push(...newRawAttributes);
+}
+
+// Only keep fields needed
+let attributes = {};
+for (const rawAttribute of rawAttributes) {
+    attributes[rawAttribute['code']] = {
+        'code': rawAttribute['code'],
+        'type': rawAttribute['type'],
+        // Add additional fields if needed
+    };
+}
+
+//save attributes into storage
+saveAttributes(attributes);
+```
+
+Retrieved attribute list follows this structure:
+```php [activate:PHP]
+
+// Output
+[
+    'attribute_code' => [
+            'code' => 'attribute_code',
+            'type' => 'pim_catalog_text',
+    ],
+]
+```
+
+```javascript [activate:NodeJS]
+
+// Output
+{
+	"attribute_code":
+	{
+		"code": "attribute_code",
+		"type": "pim_catalog_text"
+	}
+}
+```
+
 ::: warning
 attribute_code_list may be significant, very big! If you get an <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.15" target="_blank" rel="noopener noreferrer">HTTP 414 error</a>
 , you probably hit these boundaries. A workaround is to split your attribute_code_list into different parts and call them independently.
 :::
+
+<div class="block-next-steps block-next-steps-alt">
+    <img src="/img/illustrations/illus--Attribute.svg" width="140px" class="hidden-xs">
+    <div class="block-next-steps-column">
+        <div class="block-next-steps-title">Next Step</div>
+        <div class="block-next-steps-text">Well done! Keep digging into the “App workflow” and follow the next tutorial!</div>
+        <div>
+            <ul>
+                <li><a href="/tutorials/how-to-get-pim-product-information.html">How to get PIM product information</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

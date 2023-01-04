@@ -40,18 +40,15 @@
         font-weight: 500;
         margin-bottom: 13px;
     }
-    .block-requirements ul {
-        margin: 0;
-        list-style-type: none;
-        padding-left: 60px;
-    }
     .block-requirements-row {
         display: flex;
         justify-content: space-between;
+        gap: 60px;
     }
     .block-requirements-steps {
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        justify-content: center;
         font-weight: 500;
     }
     .block-requirements-steps a {
@@ -60,15 +57,23 @@
     }
 
     .block-next-steps {
-        background-color: #F1F4F9;
         padding: 20px 50px;
         display: flex;
-        align-items: center;
 
         font-size: 16px;
         line-height: 24px;
 
+        background-color: #F1F4F9;
         color: #677688;
+        border-radius: 5px;
+    }
+    .block-next-steps.block-next-steps-main {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 25px;
+    }
+    .block-next-steps.block-next-steps-alt {
+        align-items: center;
     }
     .block-next-steps img {
         margin-right: 50px;
@@ -84,14 +89,82 @@
         font-size: 34px;
         line-height: 41px;
         margin-bottom: 20px;
+
+        @media (max-width: @screen-xs-max) {
+            text-align: center;
+        }
     }
-    .block-next-steps-text {
+    .block-next-steps.block-next-steps-main .block-next-steps-text {
+        margin-bottom: 30px;
+        font-weight: 400;
+    }
+    .block-next-steps.block-next-steps-alt .block-next-steps-text {
         margin-bottom: 11px;
     }
     .block-next-steps ul {
         margin: 0;
         padding: 0;
         list-style-type: none;
+    }
+
+    .next-steps-button {
+        width: 261px;
+        height: 89px;
+        padding-top: 5px; /* Fix font not centered */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        cursor: pointer;
+
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+        text-transform: uppercase;
+
+        background-color: #414D97;
+        color: #F1F4F9;
+
+        box-shadow: 0px 0px 6px rgba(37, 38, 52, 0.5);
+        border: none;
+        border-radius: 57px;
+    }
+    .next-steps-button:hover {
+        background-color: #2D366D;
+        text-decoration: none;
+        color: #F1F4F9;
+    }
+
+    .next-steps-button-number {
+        padding-top: 2px;  /* Fix inability to align-item baseline */
+        font-size: 63px;
+    }
+    .next-steps-button-smaller .next-steps-button-number {
+        padding-top: 4px;  /* Fix inability to align-item baseline */
+    }
+
+    .next-steps-button-text {
+        text-align: left;
+    }
+
+    .next-steps-button-smaller {
+        width: 177px;
+        height: 65px;
+        padding-top: 3px
+    }
+
+    .next-steps-button-smaller {
+        padding-top: 3px
+    }
+
+    .next-steps-button-smaller .next-steps-button-number {
+        font-size: 48px;
+    }
+
+    .next-steps-button-smaller .next-steps-button-text {
+        font-size: 18px;
+        line-height: 22px;
     }
 
     .back-button button {
@@ -113,11 +186,34 @@
         color: #414D97;
     }
 
-    .back-button button:hover {
+    .publish-app-button button{
+        box-sizing: border-box;
+
+        padding: 4px 12px;
+        margin: 14px 14px 0 0;
+
+        background: #FFFFFF;
+
+        border: 1px solid #414D97;
+        border-radius: 19px;
+
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+
+        color: #414D97;
+        img {
+            margin-left: 10px;
+            padding-bottom: 3px;
+        }
+    }
+
+    .back-button button:hover, .publish-app-button button:hover {
         background-color: #F1F4F9;
     }
 
-    .back-button:hover {
+    .back-button:hover, .publish-app-button:hover {
        text-decoration: none;
     }
 
@@ -169,6 +265,11 @@
     .tag-color-light-blue {
         background-color: #4CA8E0;
         border-color: #4CA8E0;
+    }
+
+    .tag-color-blue {
+        background-color: #8092D2;
+        border-color: #8092D2;
     }
 
     .tag-color-red {
@@ -265,7 +366,7 @@
     }
 
     .guided-tutorials h1 {
-        margin-top: 40px;
+        margin-top: 60px;
     }
 
     .td-features {
@@ -344,12 +445,11 @@
     .tile-list {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
         margin-top: 21px;
         width: 770px;
     }
 
-    .mrb-30 {
+    .margin-tile {
         margin-right: 30px;
         margin-bottom: 30px;
     }
@@ -408,15 +508,15 @@
     }
 
     .block-welcome img {
-        position: absolute;
-        width: 110px;
-        right: 73px;
-        top: 24px;
+        margin-top: -31px;
+        margin-right: 27px;
+        margin-bottom: -11px;
     }
 
     .block-welcome-row {
         display: flex;
         align-items: center;
+        gap: 73px;
     }
 
     .block-welcome-title {
@@ -441,7 +541,69 @@
 
         color: #677688;
     }
-
     .block-welcome-row .block-welcome-text {
         width: 68.5%;
+    }
+
+    @media only screen and (max-width: 820px) {
+
+        .container {
+            padding-right: 42px;
+            padding-left: 18px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .tutorial-title {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 36px;
+
+            text-align: center;
+        }
+
+        .guided-tutorials h1 {
+            margin-top: 20px;
+        }
+
+        .next-steps-button {
+            width: 135px;
+            height: 54px;
+            gap: 8px;
+            border-radius: 80px;
+            .next-steps-button-text{
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 17px;
+            }
+            .next-steps-button-number {
+                font-weight: 700;
+                font-size: 37px;
+                line-height: 44px;
+            }
+        }
+
+        .feature-list {
+            flex-wrap: wrap;
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        .filtered-result {
+            margin-top: 30px;
+        }
+
+        .tag-selectable {
+            margin-bottom: 16px;
+        }
+
+        .tile-list {
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .margin-tile {
+            margin-right: 0;
+        }
     }

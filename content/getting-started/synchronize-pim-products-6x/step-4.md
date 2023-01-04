@@ -1,5 +1,9 @@
 # Synchronize products and product models
 
+:::warning
+This guide is being deprecated and will soon be unpublished. Please go to the newest guide [here](/tutorials/how-to-get-pim-product-information.html).
+:::
+
 ## Products synchronization
 
 ### What do we synchronize?

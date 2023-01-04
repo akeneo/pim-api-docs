@@ -1,24 +1,26 @@
 .block-welcome {
     position: relative;
     background-color: #F1F4F9;
-    padding: 30px 50px;
+    padding: 30px 46px;
+    margin-top: 27px;
 
     font-size: 16px;
     line-height: 24px;
 
     color: #677688;
+    border-radius: 5px;
 }
 
 .block-welcome img {
-    position: absolute;
-    width: 110px;
-    right: 73px;
-    top: 24px;
+    margin-top: -31px;
+    margin-right: 27px;
+    margin-bottom: -11px;
 }
 
 .block-welcome-row {
     display: flex;
     align-items: center;
+    gap: 73px;
 }
 
 .block-welcome-title {
@@ -42,12 +44,4 @@
     margin-top: 30px;
 
     color: #677688;
-}
-
-.block-welcome-row .block-welcome-text {
-    width: 68.5%;
-}
-
-.bold {
-    font-weight: bold;
 }

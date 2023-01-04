@@ -23,7 +23,7 @@ Retrieve the PIM structure through a channel resource. This is usually the requi
         <td>PIM Features:</td>
         <td>
             <div class="tag-not-selectable">
-                <div class="tag-color tag-color-red"></div>
+                <div class="tag-color tag-color-coral"></div>
                 <div class="tag-label">Channel</div>
             </div>
         </td>
@@ -40,11 +40,9 @@ Retrieve the PIM structure through a channel resource. This is usually the requi
         If you're starting building your App, make sure you previously followed:
     </div>
     <div class="block-requirements-row">
-        <img src="../../img/illustrations/illus--Attributegroup.svg" width="110px">
+        <img src="../../img/illustrations/illus--Attributegroup.svg" width="110px" class="hidden-xs">
         <div class="block-requirements-steps">
-            <ul>
-                <li>Step 1. <a href="how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></li>
-            </ul>
+            <div>Step 1. <a href="how-to-get-your-app-token.html" target="_blank" rel="noopener noreferrer">Get your App token tutorial</a></div>
         </div>
     </div>
 </div>
@@ -201,3 +199,16 @@ storeCurrencies(channel.currencies);
 storeLocales(channel.locales);
 storeCategoryTree(channel.category_tree);
 ```
+
+<div class="block-next-steps block-next-steps-alt">
+    <img src="/img/illustrations/illus--Attribute.svg" width="140px" class="hidden-xs">
+    <div class="block-next-steps-column">
+        <div class="block-next-steps-title">Next Step</div>
+        <div class="block-next-steps-text">Well done! Keep digging into the “App workflow” and follow the next tutorial!</div>
+        <div>
+            <ul>
+                <li><a href="/tutorials/how-to-get-families-and-attributes.html">How to get families and attributes</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="components.css">
     <link rel="stylesheet" href="tile.css">
     <link rel="stylesheet" href="block-welcome.css">
+    <link rel="stylesheet" href="block-about-app.css">
+    <link rel="stylesheet" href="block-create-app.css">
 </head>
 <body>
 <div>
@@ -61,20 +63,18 @@
         If you're starting building your App, make sure you previously followed:
     </div>
     <div class="block-requirements-row">
-        <img src="../content/img/illustrations/illus--Attributegroup.svg" width="110px">
+        <img src="../content/img/illustrations/illus--Attributegroup.svg" width="110px" class="hidden-xs">
         <div class="block-requirements-steps">
-            <ul>
-                <li>Step 1. <a href="urllink">Get your App token tutorial</a></li>
-                <li>Step 2. <a href="urllink">Retrieve PIM structure tutorial</a></li>
-            </ul>
+            <div>Step 1. <a href="urllink">Get your App token tutorial</a></div>
+            <div>Step 2. <a href="urllink">Retrieve PIM structure tutorial</a></div>
         </div>
     </div>
 </div>
 
 <hr>
 
-<div class="block-next-steps">
-    <img src="../content/img/illustrations/illus--Attribute.svg" width="140px">
+<div class="block-next-steps block-next-steps-alt">
+    <img src="../content/img/illustrations/illus--Attribute.svg" width="140px" class="hidden-xs">
     <div class="block-next-steps-column">
         <div class="block-next-steps-title">Next Step</div>
         <div class="block-next-steps-text">Now that you collected your categories, we advise you to follow</div>
@@ -89,6 +89,30 @@
 
 <hr>
 
+<div class="block-next-steps block-next-steps-main">
+    <div class="block-next-steps-title">Next Step</div>
+    <div class="block-next-steps-text">Now that you’ve gotten your App token, continue the journey with Step 2!</div>
+    <a href="/" class="next-steps-button next-steps-button-smaller">
+        <div class="next-steps-button-number">2</div>
+        <div class="next-steps-button-text">
+            Develop<br>
+            your App
+        </div>
+    </a>
+</div>
+
+<hr>
+
+<a href="/" class="next-steps-button">
+    <div class="next-steps-button-number">1</div>
+    <div class="next-steps-button-text">
+        Get your<br>
+        App token
+    </div>
+</a>
+
+<hr>
+
 <iframe src="./tile.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
 
 </body>
@@ -96,5 +120,17 @@
 <hr>
 
 <iframe src="./block-welcome.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+
+<hr>
+
+<iframe src="./block-about-app.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+
+<hr>
+
+<iframe src="./block-create-app.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+
+<hr>
+
+<iframe src="./button-publish-your-app.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
 
 </html>

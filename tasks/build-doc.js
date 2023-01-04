@@ -404,7 +404,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/getting-started.handlebars')
                     .pipe(gulpHandlebars({
-                        active_guides:  true,
+                        active_api_resources:  true,
                         title: pages[path.basename(path.dirname(file.path))].title,
                         image: pages[path.basename(path.dirname(file.path))].image,
                         gettingStartedName: pages[path.basename(path.dirname(file.path))].gettingStartedName,
@@ -501,7 +501,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_guides: true,
+                        active_apps: true,
                         title: pages[path.basename(path.dirname(file.path))].title,
                         mainContent: fs.readFileSync('tmp/guides/' + path.basename(path.dirname(file.path)) + '/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -541,7 +541,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_api_resources: true,
                         title: 'The REST API basics',
                         mainContent: fs.readFileSync('tmp/documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -577,7 +577,7 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/events-documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_api_resources: true,
                         title: 'The Events API basics',
                         mainContent: fs.readFileSync('tmp/events-documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -593,17 +593,19 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
 
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
+        'homepage.md': 'Start building your App',
         'overview.md': 'Overview',
         'authentication-and-authorization.md': 'Authentication and authorization',
         'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
-        'app-developer-tools.md': 'Developer tools'
+        'app-developer-tools.md': 'Developer tools',
+        'app-concepts-and-use-cases.md': 'App concepts and use cases'
     };
 
     var isOnePage = false;
 
-    return gulp.src('content/apps/*.md')
+    return gulp.src(['content/apps/*.md'])
         .pipe(flatmap(function(stream, file){
-            return gulp.src('content/apps/*.md')
+            return gulp.src(['content/apps/*.md'])
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
               .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/apps') + "\n"))
               .pipe(gulpMarkdownIt(md))
@@ -626,14 +628,28 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('build-redirections',[
+gulp.task('build-redirections', [
     'to-get-your-app-token-redirection',
+    'to-apps-homepage',
+    'to-app-concepts-and-use-cases',
 ]);
 
 gulp.task('to-get-your-app-token-redirection', ['clean-dist','less'], function () {
     return gulp.src('content/redirections/to-get-your-app-token.html')
         .pipe(rename('apps-getting-started.html'))
         .pipe(gulp.dest('./dist/apps'))
+});
+
+gulp.task('to-apps-homepage', ['clean-dist', 'less'], function () {
+    return gulp.src('content/redirections/to-apps-homepage.html')
+        .pipe(rename('apps.html'))
+        .pipe(gulp.dest('./dist'))
+});
+
+gulp.task('to-app-concepts-and-use-cases', ['clean-dist', 'less'], function () {
+    return gulp.src('content/redirections/to-app-concepts-and-use-cases.html')
+        .pipe(rename('guides-index.html'))
+        .pipe(gulp.dest('./dist'))
 });
 
 gulp.task('build-concepts', ['clean-dist','less'], function () {
@@ -659,7 +675,7 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
               .on('end', function () {
                   return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation:  true,
+                        active_api_resources: true,
                         title: 'Concepts & resources',
                         mainContent: fs.readFileSync('tmp/concepts/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -758,7 +774,7 @@ gulp.task('build-php-client', ['clean-dist','less', 'create-resources-md'], func
             .on('end', function () {
                 return gulp.src('src/partials/documentation.handlebars')
                     .pipe(gulpHandlebars({
-                        active_documentation: true,
+                        active_api_resources: true,
                         title: 'PHP API Client documentation',
                         image: 'illustrations/illus--php-client.svg',
                         mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
@@ -786,7 +802,7 @@ gulp.task('build-misc-documentation', ['clean-dist','less'], function () {
                 .on('end', function () {
                     return gulp.src('src/partials/misc.handlebars')
                         .pipe(gulpHandlebars({
-                            active_documentation: true,
+                            active_api_resources: true,
                             title: 'Documentation',
                             mainContent: fs.readFileSync('tmp/misc/' + path.basename(file.path).replace(/\.md/, '.html'))
                         }, {
@@ -805,11 +821,8 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
         "how-to-get-your-app-token.md": "How to get your App token",
         "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
         "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
-        // "how-to-get-categories.md": "How to get categories",
-        // "how-to-parse-product-values.md": "How to parse product values",
-        // "how-to-collect-products.md": "How to collect products",
-        // "how-to-collect-product-variations.md": "How to collect product variations",
-        // "how-to-publish-your-app.md": "How to publish your App",
+        "how-to-get-pim-product-information.md": "How to get PIM product information",
+        "how-to-collect-product-variations.md": "How to collect product variations",
     };
 
     const useCases = [
@@ -822,7 +835,8 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
         {'color': 'light-green', 'feature': 'Variant Products'},
         {'color': 'pink', 'feature': 'Families'},
         {'color': 'orange', 'feature': 'Attributes'},
-        {'color': 'coral', 'feature': 'Categories'},
+        {'color': 'blue', 'feature': 'Categories'},
+        {'color': 'coral', 'feature': 'Channel'},
     ]
 
     const tutorials = [
@@ -835,7 +849,7 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
         {
             'title': 'How to retrieve PIM structure',
             'link': '/tutorials/how-to-retrieve-pim-structure.html',
-            'features': [],
+            'features': [features[6]],
             'use_cases': useCases
         },
         {
@@ -844,36 +858,18 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
             'features': [ features[4], features[3]],
             'use_cases': useCases
         },
-        // {
-        //     'title': 'How to get categories',
-        //     'link': '/apps/how-to-get-categories.html',
-        //     'features': [features[5]],
-        //     'use_cases': useCases
-        // },
-        // {
-        //     'title': 'How to parse product values',
-        //     'link': '/apps/how-to-parse-product-values.html',
-        //     'features': [features[0]],
-        //     'use_cases': useCases
-        // },
-        // {
-        //     'title': 'How to collect products',
-        //     'link': '/apps/how-to-collect-products.html',
-        //     'features': [features[0]],
-        //     'use_cases': useCases
-        // },
-        // {
-        //     'title': 'How to collect product variations',
-        //     'link': '/apps/how-to-collect-product-variations.html',
-        //     'features': [features[1], features[2]],
-        //     'use_cases': useCases
-        // },
-        // {
-        //     'title': 'How to publish your App',
-        //     'link': '/apps/how-to-publish-your-app.html',
-        //     'features': [],
-        //     'use_cases': useCases
-        // },
+        {
+            'title': 'How to get PIM product information',
+            'link': '/tutorials/how-to-get-pim-product-information.html',
+            'features': [features[0]],
+            'use_cases': useCases
+        },
+        {
+            'title': 'How to collect product variations',
+            'link': '/tutorials/how-to-collect-product-variations.html',
+            'features': [features[1], features[2]],
+            'use_cases': useCases
+        },
     ];
 
     const isOnePage = false;
@@ -909,11 +905,8 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
             "how-to-get-your-app-token.md": "How to get your App token",
             "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
             "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
-            // "how-to-get-categories.md": "How to get categories",
-            // "how-to-parse-product-values.md": "How to parse product values",
-            // "how-to-collect-products.md": "How to collect products",
-            // "how-to-collect-product-variations.md": "How to collect product variations",
-            // "how-to-publish-your-app.md": "How to publish your App",
+            "how-to-get-pim-product-information.md": "How to get PIM product information",
+            "how-to-collect-product-variations.md": "How to collect product variations",
         };
 
         // TODO: title and description in other files for easy edition
@@ -950,4 +943,36 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
                     })
             }));
     }
+);
+
+gulp.task('build-news', ['clean-dist','less'], function () {
+    var pages = {
+        '2022.md': '2022',
+        // 'whats-next.md': 'What\'s next?',
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/news/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/news/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/news') + "\n"))
+              .pipe(gulpMarkdownIt(md))
+              .pipe(gulp.dest('tmp/news/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/news.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_news:  true,
+                        title: 'What\'s new?',
+                        mainContent: fs.readFileSync('tmp/news/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/news'));
+              })
+        }));
+  }
 );

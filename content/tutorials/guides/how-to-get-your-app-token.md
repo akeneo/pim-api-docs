@@ -28,7 +28,7 @@ Implement the required parts of the App activation process and receive an App ac
             This pre-requisite section will follow you all along the tutorials
             marked with the use case <b>"App workflow"</b>.
         </div>
-        <img src="../../img/illustrations/illus--Attributegroup.svg" width="140px">
+        <img src="../../img/illustrations/illus--Attributegroup.svg" width="110px" class="hidden-xs">
     </div>
     <div class="block-welcome-text">
         The workflow starts with this tutorial that will guide you through the creation of a draft App.
@@ -181,16 +181,14 @@ At the end of this process, you receive the following response with an `access_t
 
 You can use this token to call the Akeneo PIM REST API.
 
-<div class="block-next-steps">
-    <img src="../../img/illustrations/illus--Attribute.svg" width="140px">
-    <div class="block-next-steps-column">
-        <div class="block-next-steps-title">Next Steps</div>
-        <div class="block-next-steps-text">Now that you collected your token, we advise you to follow</div>
-        <div>
-            <ul>
-                <li><a href="/apps/overview.html">Learn more about Apps</a></li>
-                <li><a href="/api-reference-index.html">Explore the REST API reference</a></li>
-            </ul>
+<div class="block-next-steps block-next-steps-main">
+    <div class="block-next-steps-title">Next Step</div>
+    <div class="block-next-steps-text">Now that you’ve gotten your App token, continue the journey with Step 2!</div>
+    <a href="/tutorials/how-to-retrieve-pim-structure.html" class="next-steps-button next-steps-button-smaller">
+        <div class="next-steps-button-number">2</div>
+        <div class="next-steps-button-text">
+            Develop<br>
+            your App
         </div>
-    </div>
+   </a>
 </div>
