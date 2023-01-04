@@ -57,6 +57,23 @@ workflows:
             - infrastructure_services_apply_with_plan
           target_stage_id: "dev"
           environment: "pr-${CIRCLE_PULL_REQUEST##*/}"
+      - destroy_pull_request?:
+          type: approval
+          filters:
+            branches:
+              ignore:
+                - master
+          requires:
+            - push_sources_to_bucket_dev            
+      - infrastructure: &infrastructure_services_destroy
+          name: "infrastructure_services_destroy"
+          requires:
+            - destroy_pull_request?
+          target_stage_id: "dev"
+          deployment_scope: "services"
+          terraform_action: "destroy"
+          pull_request: true
+          pull_request_id: "pr-${CIRCLE_PULL_REQUEST##*/}"                      
       - build:
           requires:
             - start?
