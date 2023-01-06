@@ -345,6 +345,10 @@ tampered with.
 To validate the signature, you must retrieve the public key available at the
 URL `{PIM}/connect/apps/v1/openid/public-key`.
 
+::: info
+This 2048-bit public key is self-signed with **RSASSA-PKCS1-v1_5** scheme.
+:::
+
 Then, follow the instructions of the library you are using.
 
 ::: warning
