@@ -256,6 +256,7 @@ md.use(require("markdown-it-include"));
 
 gulp.task('build-getting-started', ['clean-dist','less'], function () {
 
+    const synchronizePimProductsName = 'synchronize-pim-products';
     var pages = {
         'your-first-tutorial-4x': {
             gettingStartedName: 'your-first-tutorial',
@@ -362,7 +363,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             }
         },
         'synchronize-pim-products-6x': {
-            gettingStartedName: 'synchronize-pim-products',
+            gettingStartedName: synchronizePimProductsName,
             pimVersion: 'v6 / SaaS',
             title: 'Synchronize PIM products with your App',
             files: {
@@ -402,12 +403,15 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
               .pipe(gulpMarkdownIt(md))
               .pipe(gulp.dest('tmp/getting-started/'))
               .on('end', function () {
+                  const gettingStartedName = pages[path.basename(path.dirname(file.path))].gettingStartedName;
+
                   return gulp.src('src/partials/getting-started.handlebars')
                     .pipe(gulpHandlebars({
-                        active_api_resources:  true,
+                        active_api_resources: gettingStartedName !== synchronizePimProductsName,
+                        active_apps: gettingStartedName === synchronizePimProductsName,
                         title: pages[path.basename(path.dirname(file.path))].title,
                         image: pages[path.basename(path.dirname(file.path))].image,
-                        gettingStartedName: pages[path.basename(path.dirname(file.path))].gettingStartedName,
+                        gettingStartedName: gettingStartedName,
                         pimVersion: pages[path.basename(path.dirname(file.path))].pimVersion,
                         availability: pages[path.basename(path.dirname(file.path))].availability,
                         mainContent: fs.readFileSync('tmp/getting-started/' + path.basename(path.dirname(file.path)) + '/' + path.basename(file.path).replace(/\.md/, '.html'))
