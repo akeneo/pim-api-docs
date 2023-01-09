@@ -136,7 +136,7 @@ while (array_key_exists('next', $data['_links'])) {
 
 $attributeCodes = array_unique($attributeCodes);
 
-// Save families and attribute codes into stores
+// Save families and attribute codes into storage
 saveFamilies($families);
 saveAttributesCodes($attributeCodes);
 ```
@@ -168,7 +168,7 @@ const attributeCodes = families.reduce(
 );
 const uniqueAttributeCodes = [...new Set(attributeCodes)];
 
-// Save families and attribute codes into stores
+// Save families and attribute codes into storage
 saveFamilies(families);
 saveAttributeCodes(uniqueAttributeCodes);
 ```
