@@ -232,18 +232,16 @@ const familyCodes = await getFamilyCodes();
 
 let familyVariants = [];
 for (const code of familyCodes) {
-    const apiUrl = `api/rest/v1/families/${code}/variants?limit=` + maxItems;
-    const response = await get(`${pimUrl}/${apiUrl}`, accessToken);
-    let data = await response.json();
-    let newVariants = data['_embedded']['items'];
-    familyVariants.push(...newVariants);
-
-    while (data['_links'].hasOwnProperty('next')) {
-        const response = await get(data['_links']['next']['href'], accessToken);
-        data = await response.json();
-        newVariants = data['_embedded']['items'];
+    let nextUrl = `${pimUrl}/api/rest/v1/families/${code}/variants?limit=` + maxItems;
+    do {
+        // Collect family variants:wq from API
+        const response = await get(nextUrl, accessToken);
+        const data = await response.json();
+        const newVariants = data['_embedded']['items'];
         familyVariants.push(...newVariants);
-    }
+
+        nextUrl = data._links?.next?.href;
+    } while (nextUrl)
 }
 
 // Only keep fields needed
@@ -297,10 +295,12 @@ const maxItems = 100;
 
 // Get attributes codes from storage
 const attributeCodes = await getAttributeCodes();
+const maxAttributesPerQuery = 10;
 
-let chunks = [];
-for (let key = 0; key < attributeCodes.length; key += maxItems) {
-    chunks.push(attributeCodes.slice(key, key + maxItems));
+// split attributeCodes in chucks of $maxAttributesPerQuery elements
+const chunks = [];
+while (attributeCodes.length > 0) {
+    chunks.push(attributeCodes.splice(0, maxAttributesPerQuery));
 }
 
 let rawAttributes = [];
