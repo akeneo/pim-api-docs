@@ -120,6 +120,24 @@ function buildApiClient(): GuzzleHttp\Client
 }
 
 ```
+```javascript [activate:NodeJS]
+
+// Install the node-fetch library by following the official documentation:
+// https://www.npmjs.com/package/node-fetch
+import fetch from 'node-fetch';
+
+const pimUrl = 'https://url-of-your-pim.com';
+const accessToken = 'your_app_token'; // Token provided during oAuth steps
+
+// Set your client for querying Akeneo API as follows
+async function get(url, accessToken) {
+    return await fetch(url, {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+}
+```
 
 ### Use case 1: Collect product variation information - all levels
 
@@ -130,49 +148,80 @@ In the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.ht
 
 ```php [activate:PHP]
 
-function getProductModels(): array
-{
-    $client = buildApiClient();
+$client = buildApiClient();
 
-    $maxProductsPerPage = 100;
-    $maxFamiliesPerQuery = 3;
-    $scope = 'ecommerce';
+$maxProductsPerPage = 100;
+$maxFamiliesPerQuery = 10;
+$scope = 'ecommerce';
 
-    // Get family codes from storage
-    $familyCodes = getFamilyCodes();
-    
-    // Get locales from storage
-    $locales = getLocales(); // ['en_US', 'fr_FR']
+// Get family codes from storage
+$familyCodes = getFamilyCodes();
 
-    $familyCodeChunks = array_chunk($familyCodes, $maxFamiliesPerQuery);
+// Get locales from storage
+$locales = getLocales(); // ['en_US', 'fr_FR']
 
-    $apiUrl = '/api/rest/v1/product-models?'
-        . 'locales=%s'
-        . '&scope=%s'
-        . '&search={"family":[{"operator":"IN","value":%s}]}'
-        . '&limit=' . $maxProductsPerPage;
+$familyCodeChunks = array_chunk($familyCodes, $maxFamiliesPerQuery);
+
+$apiUrl = '/api/rest/v1/product-models?'
+    . 'locales=%s'
+    . '&scope=%s'
+    . '&search={"family":[{"operator":"IN","value":%s}]}'
+    . '&limit=' . $maxProductsPerPage;
 
 
-    // Collect product models from API
-    $productModels = [];
-    foreach ($familyCodeChunks as $familyCodes) {
-        $response = $client->get(
-            sprintf(
-                $apiUrl,
-                implode(',', $locales),
-                $scope,
-                json_encode($familyCodes)
-            )
-        );
-        $data = json_decode($response->getBody()->getContents(), true);
-        $productModels[] = $data['_embedded']['items'];
-    }
-
-    $productModels = array_merge(...$productModels);
-
-    saveProductModels($productModels);
+// Collect product models from API
+$productModels = [];
+foreach ($familyCodeChunks as $familyCodes) {
+    $response = $client->get(
+        sprintf(
+            $apiUrl,
+            implode(',', $locales),
+            $scope,
+            json_encode($familyCodes)
+        )
+    );
+    $data = json_decode($response->getBody()->getContents(), true);
+    $productModels[] = $data['_embedded']['items'];
 }
 
+$productModels = array_merge(...$productModels);
+
+// Save product models into storage
+saveProductModels($productModels);
+```
+```javascript [activate:NodeJS]
+
+const maxProductsPerPage = 100;
+const maxFamiliesPerQuery = 10;
+const scope = 'ecommerce';
+
+// Get family codes from storage
+const familyCodes = await getFamilyCodes();
+// Get locales from storage
+const locales = await getlocales(); // ['en_US', 'fr_FR']
+
+// split familyCodes in chucks of $maxFamiliesPerQuery elements
+const chunks = [];
+while (familyCodes.length > 0) {
+    chunks.push(familyCodes.splice(0, maxFamiliesPerQuery));
+}
+
+const productModels = [];
+for (const chunk of chunks) {
+    const response = await get(`${pimUrl}/`
+        + `api/rest/v1/product-models?`
+        + `&locales=${locales.join(',')}`
+        + `&scope=${scope}`
+        + `&search={"family":[{"operator":"IN","value":${JSON.stringify(chunk)}}]}`
+        + `&limit=${maxProductsPerPage}`,
+        accessToken);
+    const data = await response.json();
+    const newProductModels = data['_embedded']['items'];
+    productModels.push(...newProductModels);
+}
+
+// Save product models into storage
+saveProductModels(productModels);
 ```
 
 ##### 1.2 You are not following the App workflow?
@@ -180,34 +229,55 @@ Simply get the attribute type by requesting the API
 
 ```php [activate:PHP]
 
-function getProductModels(): array
-{
-    $client = buildApiClient();
+$client = buildApiClient();
 
-    $maxProductsPerPage = 100;
-    $scope = 'ecommerce';
+$maxProductsPerPage = 100;
+$scope = 'ecommerce';
 
-    $apiUrl = '/api/rest/v1/product-models?'
-        . '&scope=%s'
-        . '&limit=' . $maxProductsPerPage;
+$apiUrl = '/api/rest/v1/product-models?'
+    . '&scope=%s'
+    . '&limit=' . $maxProductsPerPage;
 
-    // Collect product models from paginated API
-    $response = $client->get(sprintf($apiUrl, $scope));
+// Collect product models from paginated API
+$response = $client->get(sprintf($apiUrl, $scope));
+$data = json_decode($response->getBody()->getContents(), true);
+
+$productModels = [];
+$productModels[] = $data['_embedded']['items'];
+while (array_key_exists('next', $data['_links'])) {
+    $response = $client->get($data['_links']['next']['href']);
     $data = json_decode($response->getBody()->getContents(), true);
-
-    $productModels = [];
     $productModels[] = $data['_embedded']['items'];
-    while (array_key_exists('next', $data['_links'])) {
-        $response = $client->get($data['_links']['next']['href']);
-        $data = json_decode($response->getBody()->getContents(), true);
-        $productModels[] = $data['_embedded']['items'];
-    }
-
-    $productModels = array_merge(...$productModels);
-
-    saveProductModels($productModels);
 }
 
+$productModels = array_merge(...$productModels);
+
+// Save product models into storage
+saveProductModels($productModels);
+```
+```javascript [activate:NodeJS]
+
+const maxProductsPerPage = 100;
+const scope = 'ecommerce';
+
+let nextUrl = `${pimUrl}/api/rest/v1/product-models?`
+    + `&scope=${scope}`
+    + `&limit=${maxProductsPerPage}`;
+
+const productModels = [];
+
+do {
+    // Collect product models from paginated API
+    const response = await get(nextUrl, accessToken);
+    const data = await response.json();
+    const newProductModels = data['_embedded']['items'];
+    productModels.push(...newProductModels);
+
+    nextUrl = data._links?.next?.href;
+} while (nextUrl)
+
+// Save product models into storage
+saveProductModels(productModels);
 ```
 
 #### 2. Process product model
@@ -224,30 +294,69 @@ Query the API.
 
 ```php [activate:PHP]
 
-function getFamilyVariants(): array
-{
-    $client = buildApiClient();
+$client = buildApiClient();
 
-    $maxProductsPerPage = 100;
-    $apiUrl = '/api/rest/v1/families/%s/variants?limit=' . $maxProductsPerPage;
+$maxProductsPerPage = 100;
+$apiUrl = '/api/rest/v1/families/%s/variants?limit=' . $maxProductsPerPage;
 
-    // Get family codes from storage
-    $codes = getFamilyCodes();
+// Get family codes from storage
+$codes = getFamilyCodes();
 
-    // Collect family variants from paginated API
-    $variants = [];
-    foreach ($codes as $code) {
-        $response = $client->get(sprintf($apiUrl, $code));
+// Collect family variants from API
+$familyVariants = [];
+foreach ($codes as $code) {
+    $response = $client->get(sprintf($apiUrl, $code));
+    $data = json_decode($response->getBody()->getContents(), true);
+    $familyVariants[] = $data['_embedded']['items'];
+
+    while (array_key_exists('next', $data['_links'])) {
+        $response = $client->get($data['_links']['next']['href']);
         $data = json_decode($response->getBody()->getContents(), true);
-        $variants[] = $data['_embedded']['items'];
+        $familyVariants[] = $data['_embedded']['items'];
     }
-
-    $variants = array_merge(...$variants);
-
-    // Save variants into storage
-    saveVariants($variants);
 }
 
+$familyVariants = array_merge(...$familyVariants);
+
+//add index to $familyVariants
+$indexedFamilyVariants = [];
+foreach ($familyVariants as $familyVariant) {
+    $indexedFamilyVariants[$familyVariant['code']] = $familyVariant;
+}
+
+// Save family variants into storage
+saveFamilyVariants($indexedFamilyVariants);
+
+```
+```javascript [activate:NodeJS]
+
+const maxItems = 100;
+
+// Get family codes from storage
+const familyCodes = await getFamilyCodes();
+
+let familyVariants = [];
+for (const code of familyCodes) {
+    let nextUrl = `${pimUrl}/api/rest/v1/families/${code}/variants?limit=` + maxItems;
+    do {
+        // Collect family variants from API
+        const response = await get(nextUrl, accessToken);
+        const data = await response.json();
+        const newVariants = data['_embedded']['items'];
+        familyVariants.push(...newVariants);
+
+        nextUrl = data._links?.next?.href;
+    } while (nextUrl)
+}
+
+//add index to familyVariants
+let indexedFamilyVariants = {};
+for (const familyVariant of familyVariants) {
+    indexedFamilyVariants[familyVariant['code']] = familyVariant;
+}
+
+// Save family variants into storage
+saveFamilyVariants(indexedFamilyVariants);
 ```
 
 ##### 2.2. Collect its product variants
@@ -256,33 +365,55 @@ To get product variants associated to a product model, ask to the API
 
 ```php [activate:PHP]
 
-function getProductVariants(): array
-{
-    $client = buildApiClient();
+$client = buildApiClient();
 
-    $maxProductsPerPage = 100;
-    $maxProductModelsPerQuery = 3;
+$maxProductsPerPage = 100;
+$maxProductModelsPerQuery = 10;
 
-    // Get product model codes from storage
-    $productModelCodes = getProductModelCodes();
+// Get product model codes from storage
+$productModelCodes = getProductModelCodes();
 
-    $productModelCodesChunks = array_chunk($productModelCodes, $maxProductModelsPerQuery);
+$productModelCodesChunks = array_chunk($productModelCodes, $maxProductModelsPerQuery);
 
-    $apiUrl = '/api/rest/v1/products-uuid?'
-        . 'search={"parent":[{"operator":"IN","value":%s}]}'
-        . '&limit=' . $maxProductsPerPage;
+$apiUrl = '/api/rest/v1/products-uuid?'
+    . 'search={"parent":[{"operator":"IN","value":%s}]}'
+    . '&limit=' . $maxProductsPerPage;
 
-    // Collect product models from API
-    $productVariants = [];
-    foreach ($productModelCodesChunks as $productModelCodes) {
-        $response = $client->get(sprintf($apiUrl, json_encode($productModelCodes)));
-        $data = json_decode($response->getBody()->getContents(), true);
-        $productVariants[] = $data['_embedded']['items'];
-    }
-
-    $productVariants = array_merge(...$productVariants);
+// Collect product models from API
+$productVariants = [];
+foreach ($productModelCodesChunks as $productModelCodes) {
+    $response = $client->get(sprintf($apiUrl, json_encode($productModelCodes)));
+    $data = json_decode($response->getBody()->getContents(), true);
+    $productVariants[] = $data['_embedded']['items'];
 }
 
+$productVariants = array_merge(...$productVariants);
+```
+```javascript [activate:NodeJS]
+
+const maxProductsPerPage = 100;
+const maxProductModelsPerQuery = 10;
+
+// Get product model codes from storage
+const productModelCodes = await getProductModelCodes();
+
+// split productModelCodes in chucks of $maxFamiliesPerQuery elements
+const chunks = [];
+while (productModelCodes.length > 0) {
+    chunks.push(productModelCodes.splice(0, maxProductModelsPerQuery));
+}
+
+const productVariants = [];
+for (const chunk of chunks) {
+    const response = await get(`${pimUrl}/`
+        + `api/rest/v1/products-uuid?`
+        + `&search={"parent":[{"operator":"IN","value":${JSON.stringify(chunk)}}]}`
+        + `&limit=${maxProductsPerPage}`,
+        accessToken);
+    const data = await response.json();
+    const newProductVariants = data['_embedded']['items'];
+    productVariants.push(...newProductVariants);
+}
 ```
 
 Again, treat each product like a simple product. Please refer to the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>
@@ -297,58 +428,102 @@ In the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.ht
 
 ```php [activate:PHP]
 
-function getProductModels(): array
-{
-    $client = buildApiClient();
+$client = buildApiClient();
 
-    $maxProductsPerPage = 100;
-    $maxFamiliesPerQuery = 3;
-    $scope = 'ecommerce';
+$maxProductsPerPage = 100;
+$maxFamiliesPerQuery = 10;
+$scope = 'ecommerce';
 
-    // Get family codes from storage
-    $familyCodes = getFamilyCodes();
-    // Get locales from storage
-    $locales = getLocales(); // ['en_US', 'fr_FR']
+// Get family codes from storage
+$familyCodes = getFamilyCodes();
+// Get locales from storage
+$locales = getLocales(); // ['en_US', 'fr_FR']
 
-    $familyCodeChunks = array_chunk($familyCodes, $maxFamiliesPerQuery);
+$familyCodeChunks = array_chunk($familyCodes, $maxFamiliesPerQuery);
 
-    $apiUrl = '/api/rest/v1/product-models?'
-        . 'locales=%s'
-        . '&scope=%s'
-        . '&search={"family":[{"operator":"IN","value":%s}],"parent":[{"operator":"EMPTY"}]}'
-        . '&limit=' . $maxProductsPerPage;
+$apiUrl = '/api/rest/v1/product-models?'
+    . 'locales=%s'
+    . '&scope=%s'
+    . '&search={"family":[{"operator":"IN","value":%s}],"parent":[{"operator":"EMPTY"}]}'
+    . '&limit=' . $maxProductsPerPage;
 
 
-    // Collect product models from API
-    $productModels = [];
-    foreach ($familyCodeChunks as $familyCodes) {
-        $response = $client->get(
-            sprintf(
-                $apiUrl,
-                implode(',', $locales),
-                $scope,
-                json_encode($familyCodes)
-            )
-        );
-        $data = json_decode($response->getBody()->getContents(), true);
-        $productModels[] = $data['_embedded']['items'];
-    }
-
-    $productModels = array_merge(...$productModels);
-
-    $familyVariants = getFamilyVariantsFromStorage();
-    foreach ($productModels as $key => $productModel) {
-        $familyVariant = $familyVariants[$productModel['family_variant']];
-        // extract all variations level
-        $axes = array_column($familyVariant['variant_attribute_sets'], 'axes');
-        // build flat axes
-        $productModels[$key]['axes'] = array_merge(...$axes);
-
-    }
-
-    saveProductModels($productModels);
+// Collect product models from API
+$productModels = [];
+foreach ($familyCodeChunks as $familyCodes) {
+    $response = $client->get(
+        sprintf(
+            $apiUrl,
+            implode(',', $locales),
+            $scope,
+            json_encode($familyCodes)
+        )
+    );
+    $data = json_decode($response->getBody()->getContents(), true);
+    $productModels[] = $data['_embedded']['items'];
 }
 
+$productModels = array_merge(...$productModels);
+
+$familyVariants = getFamilyVariantsFromStorage();
+foreach ($productModels as $key => $productModel) {
+    $familyVariant = $familyVariants[$productModel['family_variant']];
+    // extract all variations level
+    $axes = array_column($familyVariant['variant_attribute_sets'], 'axes');
+    // build flat axes
+    $productModels[$key]['axes'] = array_merge(...$axes);
+
+}
+// Save product models into storage
+saveProductModels($productModels);
+```
+```javascript [activate:NodeJS]
+
+const maxProductsPerPage = 100;
+const maxFamiliesPerQuery = 10;
+const scope = 'ecommerce';
+
+// Get family codes from storage
+const familyCodes = await getFamilyCodes();
+// Get locales from storage
+const locales = await getlocales(); // ['en_US', 'fr_FR']
+
+// split familyCodes in chucks of $maxFamiliesPerQuery elements
+const chunks = [];
+while (familyCodes.length > 0) {
+    chunks.push(familyCodes.splice(0, maxFamiliesPerQuery));
+}
+
+const productModels = [];
+for (const chunk of chunks) {
+    const response = await get(`${pimUrl}/`
+        + `api/rest/v1/product-models?`
+        + `&locales=${locales.join(',')}`
+        + `&scope=${scope}`
+        + `&search={"family":[{"operator":"IN","value":${JSON.stringify(chunk)}}],"parent":[{"operator":"EMPTY"}]}`
+        + `&limit=${maxProductsPerPage}`,
+        accessToken);
+    const data = await response.json();
+    const newProductModels = data['_embedded']['items'];
+    productModels.push(...newProductModels);
+}
+
+// Get variants from storage
+const variants = await getFamilyVariants();
+let productModelsWithAxes = [];
+for (const productModel of productModels) {
+    for (const [code, variant] of Object.entries(variants)) {
+        if (productModel['family_variant'] === code) {
+            // extract all variations level
+            productModelsWithAxes.push(
+                {...productModel, 'axes': variant['variant_attribute_sets'].map((value) => value.axes).flat()}
+            );
+        }
+    }
+}
+
+// Save product models into storage
+saveProductModels(productModelsWithAxes);
 ```
 
 ##### 1.2 - You are not following the App workflow?
@@ -359,44 +534,78 @@ Make sure to get the list of your family variants before continuing like in  <a 
 
 ```php [activate:PHP]
 
-function getProductModels(): array
-{
-    $client = buildApiClient();
+$client = buildApiClient();
 
-    $maxProductsPerPage = 100;
-    $scope = 'ecommerce';
+$maxProductsPerPage = 100;
+$scope = 'ecommerce';
 
-    $apiUrl = '/api/rest/v1/product-models?'
-        . '&scope=%s'
-        . '&search={"parent":[{"operator":"EMPTY"}]}'
-        . '&limit=' . $maxProductsPerPage;
+$apiUrl = '/api/rest/v1/product-models?'
+    . '&scope=%s'
+    . '&search={"parent":[{"operator":"EMPTY"}]}'
+    . '&limit=' . $maxProductsPerPage;
 
-    // Collect product models from paginated API
-    $response = $client->get(sprintf($apiUrl, $scope));
+// Collect product models from paginated API
+$response = $client->get(sprintf($apiUrl, $scope));
+$data = json_decode($response->getBody()->getContents(), true);
+
+$productModels = [];
+$productModels[] = $data['_embedded']['items'];
+while (array_key_exists('next', $data['_links'])) {
+    $response = $client->get($data['_links']['next']['href']);
     $data = json_decode($response->getBody()->getContents(), true);
-
-    $productModels = [];
     $productModels[] = $data['_embedded']['items'];
-    while (array_key_exists('next', $data['_links'])) {
-        $response = $client->get($data['_links']['next']['href']);
-        $data = json_decode($response->getBody()->getContents(), true);
-        $productModels[] = $data['_embedded']['items'];
-    }
-
-    $productModels = array_merge(...$productModels);
-
-    $familyVariants = getFamilyVariantsFromStorage();
-    foreach ($productModels as $key => $productModel) {
-        $familyVariant = $familyVariants[$productModel['family_variant']];
-        // extract all variations level
-        $axes = array_column($familyVariant['variant_attribute_sets'], 'axes');
-        // build flat axes
-        $productModels[$key]['axes'] = array_merge(...$axes);
-    }
-
-    saveProductModels($productModels);
 }
 
+$productModels = array_merge(...$productModels);
+
+$familyVariants = getFamilyVariantsFromStorage();
+foreach ($productModels as $key => $productModel) {
+    $familyVariant = $familyVariants[$productModel['family_variant']];
+    // extract all variations level
+    $axes = array_column($familyVariant['variant_attribute_sets'], 'axes');
+    // build flat axes
+    $productModels[$key]['axes'] = array_merge(...$axes);
+}
+
+// Save product models into storage
+saveProductModels($productModels);
+```
+```javascript [activate:NodeJS]
+
+const maxProductsPerPage = 100;
+const scope = 'ecommerce';
+
+let nextUrl = `${pimUrl}/api/rest/v1/product-models?`
+    + `&scope=${scope}`
+    + `&search={"parent":[{"operator":"EMPTY"}]}`
+    + `&limit=${maxProductsPerPage}`;
+
+const productModels = [];
+
+do {
+    // Collect product models from paginated API
+    const response = await get(nextUrl, accessToken);
+    const data = await response.json();
+    const newProductModels = data['_embedded']['items'];
+    productModels.push(...newProductModels);
+
+    nextUrl = data._links?.next?.href;
+} while (nextUrl)
+
+// Get variants from storage
+const variants = await getFamilyVariants();
+let productModelsWithAxes = [];
+for (const productModel of productModels) {
+    for (const [code, variant] of Object.entries(variants)) {
+        if (productModel['family_variant'] === code) {
+            // extract all variations level
+            productModelsWithAxes.push({...productModel, 'axes': variant['variant_attribute_sets'].map((value) => value.axes).flat()});
+        }
+    }
+}
+
+// Save product models into storage
+saveProductModels(productModelsWithAxes);
 ```
 
 #### 2. Process product model
