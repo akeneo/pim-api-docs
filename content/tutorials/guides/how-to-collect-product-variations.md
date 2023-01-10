@@ -330,14 +330,14 @@ saveFamilyVariants($indexedFamilyVariants);
 ```
 ```javascript [activate:NodeJS]
 
-const maxItems = 100;
+const maxProductsPerPage = 100;
 
 // Get family codes from storage
 const familyCodes = await getFamilyCodes();
 
 let familyVariants = [];
 for (const code of familyCodes) {
-    let nextUrl = `${pimUrl}/api/rest/v1/families/${code}/variants?limit=` + maxItems;
+    let nextUrl = `${pimUrl}/api/rest/v1/families/${code}/variants?limit=` + maxProductsPerPage;
     do {
         // Collect family variants from API
         const response = await get(nextUrl, accessToken);
