@@ -408,3 +408,16 @@ Parse and store the product model like in [**2.1. Parse and store the product mo
 ##### 2.2. Collect its product variants
 
 Collect product variants the same way than in [**2.2. Collect its product variants**](/tutorials/how-to-collect-product-variations.html#22-collect-its-product-variants)
+
+<div class="block-next-steps block-next-steps-alt">
+    <img src="/img/illustrations/illus--Attribute.svg" width="140px" class="hidden-xs">
+    <div class="block-next-steps-column">
+        <div class="block-next-steps-title">Next Step</div>
+        <div class="block-next-steps-text">Well done! Keep digging into the “App workflow” and follow the next tutorial!</div>
+        <div>
+            <ul>
+                <li><a href="/tutorials/how-to-get-pim-category-tree.html">How to get PIM category tree</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
