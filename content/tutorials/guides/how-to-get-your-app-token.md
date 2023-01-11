@@ -110,16 +110,16 @@ If everything goes well the command will output your public URL for your local a
 
 Your local app is now available at `https://46672a93dd64.lhrtunnel.link`. You may now use it for your development.
 
-## Step 3: Get your test app credentials
+## Step 3: Get your test App credentials
 
-To get credentials for your app, you need to create a test app on your developer sandbox.
+To get credentials for your app, you need to create a test App on your developer sandbox.
 
 First of all, go to `Connect`, then `App Store`
 
 ### Permissions
 
 If you see `Create a test App` skip to [Connect app](#connect-app), else please enable the `developer mode`.
-![Create a test app button](../../img/apps/create-a-test-app-button.png)
+![Create a test App button](../../img/apps/create-a-test-app-button.png)
 
 To do so, you need to:
 1. Go to `System`, then `Roles`
@@ -143,7 +143,7 @@ To create a test App:
 
 ## Step 4: Connect your test App and access its settings
 
-![Test app on the App Store](../../img/apps/marketplace-with-test-app.png)
+![Test App on the App Store](../../img/apps/marketplace-with-test-app.png)
 
 Connecting a test App is like connecting a published App. 
 
@@ -159,7 +159,7 @@ Now that your App is connected, you can enjoy all the available App features fro
 To access the settings of your connected App on Akeneo PIM, please go to `Connected Apps`, then click on `Manage App`. 
 You can also open your App from Akeneo PIM UI, to do so, click on `Open app`. 
 
-![Connected test app on Apps](../../img/apps/connected-test-app.png)
+![Connected test App on Apps](../../img/apps/connected-test-app.png)
 
 ::: info
 To know more about the step-by-step activation process, please read our article:  
