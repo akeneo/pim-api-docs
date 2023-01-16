@@ -76,17 +76,21 @@ Get the big picture <a href="/getting-started/synchronize-pim-products-6x/step-0
 
 ```php [activate:PHP]
 
-$pimUrl = 'https://url-of-your-pim.com';
-$appToken = 'your_app_token'; // Token provided during oAuth steps
+function buildApiClient(): GuzzleHttp\Client
+{
+    $pimUrl = 'https://url-of-your-pim.com';
+    $appToken = 'your_app_token'; // Token provided during oAuth steps
 
-// If you haven't done it yet, please follow the Guzzle official documentation for installing the client 
-// https://docs.guzzlephp.org/en/stable/overview.html#installation
+    // If you haven't done it yet,
+    // please follow the Guzzle official documentation to install the client 
+    // https://docs.guzzlephp.org/en/stable/overview.html#installation
 
-// Set your client for querying Akeneo API as follows
-$client = new \GuzzleHttp\Client([
-    'base_uri' => $pimUrl,
-    'headers' => ['Authorization' => 'Bearer ' . $appToken],
-]);
+    // Set your client for querying Akeneo API as follows
+    $client = new \GuzzleHttp\Client([
+        'base_uri' => $pimUrl,
+        'headers' => ['Authorization' => 'Bearer ' . $appToken],
+    ]);
+}
 ```
 
 ```javascript [activate:NodeJS]
@@ -114,31 +118,34 @@ Get families and attribute codes by requesting the PIM API
 
 ```php [activate:PHP]
 
+$client = buildApiClient();
+
 const MAX_ITEMS = 100;
-const API_URL = '/api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}&limit=' . MAX_ITEMS;
-// Make an authenticated call to the API
-$response = $client->get(API_URL);
 
-$data = json_decode($response->getBody()->getContents(), true);
+$nextUrl = '/api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}&limit=' . MAX_ITEMS;
 
-// Collect families and list of unique attribute codes from paginated API
-$families = $data['_embedded']['items'];
-$attributeCodes = array_merge(...array_column($data['_embedded']['items'], 'attributes'));
-while (array_key_exists('next', $data['_links'])) {
-    $response = $client->get($data['_links']['next']['href']);
+$families = $attributeCodes = [];
+do {
+    // Collect families and list of unique attribute codes from API
+    $response = $client->get($nextUrl);
     $data = json_decode($response->getBody()->getContents(), true);
-    $families = array_merge($families, $data['_embedded']['items']);
+    $families[] = $data['_embedded']['items'];
     $attributeCodes = array_merge(
         $attributeCodes,
-        ...array_column($data['_embedded']['items'], 'attributes')
-    );
-}
+        ...array_column($data['_embedded']['items'], 'attributes'));
+
+    $nextUrl = $data['_links']['next']['href'] ?? null;
+} while (
+    $nextUrl
+);
+
+$families = array_merge(...$families);
 
 $attributeCodes = array_unique($attributeCodes);
 
 // Save families and attribute codes into storage
-saveFamilies($families);
-saveAttributesCodes($attributeCodes);
+storeFamilies($families);
+storeAttributesCodes($attributeCodes);
 ```
 
 ```javascript [activate:NodeJS]
@@ -169,8 +176,8 @@ const attributeCodes = families.reduce(
 const uniqueAttributeCodes = [...new Set(attributeCodes)];
 
 // Save families and attribute codes into storage
-saveFamilies(families);
-saveAttributeCodes(uniqueAttributeCodes);
+storeFamilies(families);
+storeAttributeCodes(uniqueAttributeCodes);
 ```
 
 Store family codes in a <b>family_code_list</b> and attribute codes in a separate list (<b>attribute_code_list</b>). We will deal with <b>attribute_code_list</b> later in this tutorial.
@@ -190,8 +197,10 @@ Get family variants by requesting the PIM API for each families
 
 ```php [activate:PHP]
 
-const MAX_ITEMS = 100;
-const API_URL = '/api/rest/v1/families/%s/variants?limit=' . MAX_ITEMS;
+$client = buildApiClient();
+
+$maxProductsPerPage = 100;
+$apiUrl = '/api/rest/v1/families/%s/variants?limit=%s';
 
 // Get family codes from storage
 $codes = getFamilyCodes();
@@ -199,28 +208,29 @@ $codes = getFamilyCodes();
 // Collect family variants from API
 $familyVariants = [];
 foreach ($codes as $code) {
-    $response = $client->get(sprintf(API_URL, $code));
-    $data = json_decode($response->getBody()->getContents(), true);
-    $familyVariants[] = $data['_embedded']['items'];
-
-    while (array_key_exists('next', $data['_links'])) {
-        $response = $client->get($data['_links']['next']['href']);
+    $nextUrl = sprintf($apiUrl, $code, $maxProductsPerPage);
+    do {
+        // Collect family variants from API
+        $response = $client->get($nextUrl);
         $data = json_decode($response->getBody()->getContents(), true);
         $familyVariants[] = $data['_embedded']['items'];
-    }
+
+        $nextUrl = $data['_links']['next']['href'] ?? null;
+    } while (
+        $nextUrl
+    );
 }
 
 $familyVariants = array_merge(...$familyVariants);
 
-//add index to $familyVariants
+// add index to $familyVariants
 $indexedFamilyVariants = [];
 foreach ($familyVariants as $familyVariant) {
     $indexedFamilyVariants[$familyVariant['code']] = $familyVariant;
 }
 
 // Save family variants into storage
-saveFamilyVariants($indexedFamilyVariants);
-
+storeFamilyVariants($indexedFamilyVariants);
 ```
 
 ```javascript [activate:NodeJS]
@@ -251,7 +261,7 @@ for (const familyVariant of familyVariants) {
 }
 
 // Save family variants into storage
-saveFamilyVariants(indexedFamilyVariants);
+storeFamilyVariants(indexedFamilyVariants);
 ```
 
 
@@ -261,19 +271,23 @@ Remember your <b>attribute_code_list</b>? It’s (already) time to use it to ret
 
 ```php [activate:PHP]
 
+$client = buildApiClient();
+
 const MAX_ITEMS = 100;
 const API_URL = '/api/rest/v1/attributes?search={"code":[{"operator":"IN","value":%s}]}&limit=' . MAX_ITEMS;
 
 // Get attributes codes from storage
 $attributeCodes = getAttributesCodes();
 
-// Collect attributes from paginated API
+// Collect attributes from API
 $rawAttributes = [];
 foreach (array_chunk($attributeCodes, MAX_ITEMS) as $chunk) {
     $response = $client->get(sprintf(API_URL, json_encode($chunk)));
     $data = json_decode($response->getBody()->getContents(), true);
-    $rawAttributes = array_merge($rawAttributes, $data['_embedded']['items']);
+    $rawAttributes[] = $data['_embedded']['items'];
 }
+
+$rawAttributes = array_merge(...$rawAttributes);
 
 // Only keep fields needed
 $attributes = [];
@@ -286,7 +300,7 @@ foreach ($rawAttributes as $rawAttribute) {
 }
 
 // save attributes into storage
-saveAttributes($attributes);
+storeAttributes($attributes);
 ```
 
 ```javascript [activate:NodeJS]
@@ -327,7 +341,7 @@ for (const rawAttribute of rawAttributes) {
 }
 
 //save attributes into storage
-saveAttributes(attributes);
+storeAttributes(attributes);
 ```
 
 Retrieved attribute list follows this structure:

@@ -51,5 +51,9 @@ $response = $client->post($accessTokenUrl, ['form_params' => $accessTokenRequest
 // Convert json response to array
 $contents = json_decode($response->getBody()->getContents(), true);
 
-var_export($contents);
+// Save token into storage
+storeToken($contents['access_token']);
+
+//var_export($contents);
+
 ```

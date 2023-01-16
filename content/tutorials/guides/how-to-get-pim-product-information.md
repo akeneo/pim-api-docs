@@ -191,6 +191,7 @@ function fetchProducts(): array
 {
     $client = buildApiClient();
 
+    // Get locales from storage
     $locales = getLocales(); // ['en_US', 'fr_FR']
     $scope = 'ecommerce';
     $maxProductsPerPage = 100;
@@ -210,24 +211,23 @@ function fetchProducts(): array
     $products = [];
 
     foreach ($familyCodeChunks as $familyCodes) {
-        $response = $client->get(
-            sprintf(
-                $apiUrl,
-                implode(',', $locales),
-                $scope,
-                json_encode($familyCodes),
-                $maxProductsPerPage
-            )
+        $nextUrl = sprintf(
+            $apiUrl,
+            implode(',', $locales),
+            $scope,
+            json_encode($familyCodes),
+            $maxProductsPerPage
         );
-        $data = json_decode($response->getBody()->getContents(), true);
-
-        $products[] = $data['_embedded']['items'];
-
-        while (array_key_exists('next', $data['_links'])) {
-            $response = $client->get($data['_links']['next']['href']);
+        do {
+            // Collect products from API
+            $response = $client->get($nextUrl);
             $data = json_decode($response->getBody()->getContents(), true);
             $products[] = $data['_embedded']['items'];
-        }
+
+            $nextUrl = $data['_links']['next']['href'] ?? null;
+        } while (
+            $nextUrl
+        );
     }
 
     return array_merge(...$products);
@@ -291,27 +291,26 @@ function fetchProducts(): array
 
     $maxProductsPerPage = 100;
 
-    $apiUrl = '/api/rest/v1/products-uuid'
+    $nextUrl = sprintf(
+        '/api/rest/v1/products-uuid'
         . '?with_attribute_options=true'
         . '&search={"enabled":[{"operator":"=","value":true}]}'
         . '&pagination_type=search_after'
-        . '&limit=%s'
-    ;
+        . '&limit=%s',
+        $maxProductsPerPage
+    );
 
     $products = [];
-
-    $response = $client->get(
-        sprintf($apiUrl, $maxProductsPerPage)
-    );
-    $data = json_decode($response->getBody()->getContents(), true);
-
-    $products[] = $data['_embedded']['items'];
-
-    while (array_key_exists('next', $data['_links'])) {
-        $response = $client->get($data['_links']['next']['href']);
+    do {
+        // Collect products from API
+        $response = $client->get($nextUrl);
         $data = json_decode($response->getBody()->getContents(), true);
         $products[] = $data['_embedded']['items'];
-    }
+
+        $nextUrl = $data['_links']['next']['href'] ?? null;
+    } while (
+        $nextUrl
+    );
 
     return array_merge(...$products);
 }
@@ -623,7 +622,7 @@ for (const [key, product] of Object.entries(products)) {
   products[key] = {...products[key], values: {...formattedValuesList}};
 }
 
-saveProducts(products);
+storeProducts(products);
 ```
 
 Example output:
@@ -784,8 +783,9 @@ foreach ($products as $key => $product) {
     $products[$key]['values'] = $formattedValuesList;
 }
 
-saveProducts($products);
-saveMediaFiles($productMediaFileResources);
+// Save product and media files into storage
+storeProducts($products);
+storeMediaFiles($productMediaFileResources);
 ```
 ```javascript [activate:NodeJS]
 
@@ -810,8 +810,9 @@ saveMediaFiles($productMediaFileResources);
       products[key] = {...products[key], values: {...formattedValuesList}};
     }
 
-    saveProducts(products);
-    saveMediaFiles(productMediaFileResources);
+    // Save product and media files into storage
+    storeProducts(products);
+    storeMediaFiles(productMediaFileResources);
 ```
 
 Example output:

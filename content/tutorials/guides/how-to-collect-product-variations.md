@@ -187,7 +187,7 @@ foreach ($familyCodeChunks as $familyCodes) {
 $productModels = array_merge(...$productModels);
 
 // Save product models into storage
-saveProductModels($productModels);
+storeProductModels($productModels);
 ```
 ```javascript [activate:NodeJS]
 
@@ -221,7 +221,7 @@ for (const chunk of chunks) {
 }
 
 // Save product models into storage
-saveProductModels(productModels);
+storeProductModels(productModels);
 ```
 
 ##### 1.2 You are not following the App workflow?
@@ -234,26 +234,30 @@ $client = buildApiClient();
 $maxProductsPerPage = 100;
 $scope = 'ecommerce';
 
-$apiUrl = '/api/rest/v1/product-models?'
+$nextUrl = sprintf(
+    '/api/rest/v1/product-models?'
     . '&scope=%s'
-    . '&limit=' . $maxProductsPerPage;
-
-// Collect product models from paginated API
-$response = $client->get(sprintf($apiUrl, $scope));
-$data = json_decode($response->getBody()->getContents(), true);
+    . '&limit=%s',
+    $scope,
+    $maxProductsPerPage,
+);
 
 $productModels = [];
-$productModels[] = $data['_embedded']['items'];
-while (array_key_exists('next', $data['_links'])) {
-    $response = $client->get($data['_links']['next']['href']);
+do {
+    // Collect product models from API
+    $response = $client->get($nextUrl);
     $data = json_decode($response->getBody()->getContents(), true);
     $productModels[] = $data['_embedded']['items'];
-}
+
+    $nextUrl = $data['_links']['next']['href'] ?? null;
+} while (
+    $nextUrl
+);
 
 $productModels = array_merge(...$productModels);
 
 // Save product models into storage
-saveProductModels($productModels);
+storeProductModels($productModels);
 ```
 ```javascript [activate:NodeJS]
 
@@ -277,7 +281,7 @@ do {
 } while (nextUrl)
 
 // Save product models into storage
-saveProductModels(productModels);
+storeProductModels(productModels);
 ```
 
 #### 2. Process product model
@@ -297,7 +301,7 @@ Query the API.
 $client = buildApiClient();
 
 $maxProductsPerPage = 100;
-$apiUrl = '/api/rest/v1/families/%s/variants?limit=' . $maxProductsPerPage;
+$apiUrl = '/api/rest/v1/families/%s/variants?limit=%s';
 
 // Get family codes from storage
 $codes = getFamilyCodes();
@@ -305,28 +309,29 @@ $codes = getFamilyCodes();
 // Collect family variants from API
 $familyVariants = [];
 foreach ($codes as $code) {
-    $response = $client->get(sprintf($apiUrl, $code));
-    $data = json_decode($response->getBody()->getContents(), true);
-    $familyVariants[] = $data['_embedded']['items'];
-
-    while (array_key_exists('next', $data['_links'])) {
-        $response = $client->get($data['_links']['next']['href']);
+    $nextUrl = sprintf($apiUrl, $code, $maxProductsPerPage);
+    do {
+        // Collect family variants from API
+        $response = $client->get($nextUrl);
         $data = json_decode($response->getBody()->getContents(), true);
         $familyVariants[] = $data['_embedded']['items'];
-    }
+
+        $nextUrl = $data['_links']['next']['href'] ?? null;
+    } while (
+        $nextUrl
+    );
 }
 
 $familyVariants = array_merge(...$familyVariants);
 
-//add index to $familyVariants
+// add index to $familyVariants
 $indexedFamilyVariants = [];
 foreach ($familyVariants as $familyVariant) {
     $indexedFamilyVariants[$familyVariant['code']] = $familyVariant;
 }
 
 // Save family variants into storage
-saveFamilyVariants($indexedFamilyVariants);
-
+storeFamilyVariants($indexedFamilyVariants);
 ```
 ```javascript [activate:NodeJS]
 
@@ -356,7 +361,7 @@ for (const familyVariant of familyVariants) {
 }
 
 // Save family variants into storage
-saveFamilyVariants(indexedFamilyVariants);
+storeFamilyVariants(indexedFamilyVariants);
 ```
 
 ##### 2.2. Collect its product variants
@@ -465,17 +470,17 @@ foreach ($familyCodeChunks as $familyCodes) {
 
 $productModels = array_merge(...$productModels);
 
-$familyVariants = getFamilyVariantsFromStorage();
+$familyVariants = getFamilyVariants();
 foreach ($productModels as $key => $productModel) {
     $familyVariant = $familyVariants[$productModel['family_variant']];
     // extract all variations level
     $axes = array_column($familyVariant['variant_attribute_sets'], 'axes');
     // build flat axes
     $productModels[$key]['axes'] = array_merge(...$axes);
-
 }
+
 // Save product models into storage
-saveProductModels($productModels);
+storeProductModels($productModels);
 ```
 ```javascript [activate:NodeJS]
 
@@ -523,7 +528,7 @@ for (const productModel of productModels) {
 }
 
 // Save product models into storage
-saveProductModels(productModelsWithAxes);
+storeProductModels(productModelsWithAxes);
 ```
 
 ##### 1.2 - You are not following the App workflow?
@@ -539,26 +544,31 @@ $client = buildApiClient();
 $maxProductsPerPage = 100;
 $scope = 'ecommerce';
 
-$apiUrl = '/api/rest/v1/product-models?'
+$nextUrl = sprintf(
+    '/api/rest/v1/product-models?'
     . '&scope=%s'
     . '&search={"parent":[{"operator":"EMPTY"}]}'
-    . '&limit=' . $maxProductsPerPage;
+    . '&limit=%s',
+    $scope,
+    $maxProductsPerPage,
+);
 
-// Collect product models from paginated API
-$response = $client->get(sprintf($apiUrl, $scope));
-$data = json_decode($response->getBody()->getContents(), true);
-
+// Collect product models from API
 $productModels = [];
-$productModels[] = $data['_embedded']['items'];
-while (array_key_exists('next', $data['_links'])) {
-    $response = $client->get($data['_links']['next']['href']);
+do {
+    // Collect product models from API
+    $response = $client->get($nextUrl);
     $data = json_decode($response->getBody()->getContents(), true);
     $productModels[] = $data['_embedded']['items'];
-}
+
+    $nextUrl = $data['_links']['next']['href'] ?? null;
+} while (
+    $nextUrl
+);
 
 $productModels = array_merge(...$productModels);
 
-$familyVariants = getFamilyVariantsFromStorage();
+$familyVariants = getFamilyVariants();
 foreach ($productModels as $key => $productModel) {
     $familyVariant = $familyVariants[$productModel['family_variant']];
     // extract all variations level
@@ -568,7 +578,7 @@ foreach ($productModels as $key => $productModel) {
 }
 
 // Save product models into storage
-saveProductModels($productModels);
+storeProductModels($productModels);
 ```
 ```javascript [activate:NodeJS]
 
@@ -605,7 +615,7 @@ for (const productModel of productModels) {
 }
 
 // Save product models into storage
-saveProductModels(productModelsWithAxes);
+storeProductModels(productModelsWithAxes);
 ```
 
 #### 2. Process product model
