@@ -284,6 +284,65 @@ do {
 storeProductModels(productModels);
 ```
 
+Example output:
+```php [activate:PHP]
+
+var_export($productModels);
+
+// Output
+[
+    [
+        "_links" => [...],
+        "code" => "Acme Classic Mens Black PVC Work Boots",
+        "family" => "rubber_boots",
+        "family_variant" => "rubber_boots_by_size",
+        "parent" => null,
+        "categories" => [
+            "acme",
+            "master_clothing_footwear_footwear_rubber_boots"
+        ],
+        "values" => [...],
+        "created" => "2022-10-20T12:46:42+00:00",
+        "updated" => "2022-10-20T13:14:04+00:00",
+        "associations" => [...],
+        "quantified_associations" => [],
+        "metadata" => [
+            "workflow_status" => "working_copy"
+        ],
+    ],
+    /* ... */
+]; 
+```
+```javascript [activate:NodeJS]
+
+console.log(productModels);
+
+// Output
+[
+    {
+        "_links":{...},
+        "code":"Acme Classic Mens Black PVC Work Boots",
+        "family":"rubber_boots",
+        "family_variant":"rubber_boots_by_size",
+        "parent":null,
+        "categories":[
+            "acme",
+            "master_clothing_footwear_footwear_rubber_boots"
+        ],
+        "values":{...},
+        "created":"2022-10-20T12:46:42+00:00",
+        "updated":"2022-10-20T13:14:04+00:00",
+        "associations":{...},
+        "quantified_associations":[],
+        "metadata":{
+            "workflow_status":"working_copy"
+        }
+    },
+    /* ... */
+]
+```
+
+
 #### 2. Process product model
 ##### 2.1. Parse and store the product model
 Parse and store a product or a product model is definitely the same thing. Please have a how to our guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>.
@@ -616,6 +675,66 @@ for (const productModel of productModels) {
 
 // Save product models into storage
 storeProductModels(productModelsWithAxes);
+```
+
+Example output:
+```php [activate:PHP]
+
+var_export($productModels);
+
+// Output
+[
+    [
+        "_links" => [...],
+        "code" => "Acme Classic Mens Black PVC Work Boots",
+        "family" => "rubber_boots",
+        "family_variant" => "rubber_boots_by_size",
+        "parent" => null,
+        "categories" => [
+            "acme",
+            "master_clothing_footwear_footwear_rubber_boots"
+        ],
+        "values" => [...],
+        "created" => "2022-10-20T12:46:42+00:00",
+        "updated" => "2022-10-20T13:14:04+00:00",
+        "associations" => [...],
+        "quantified_associations" => [],
+        "metadata" => [
+            "workflow_status" => "working_copy"
+        ],
+        "axes" => ["shoe_size"]
+    ],
+    /* ... */
+]; 
+```
+```javascript [activate:NodeJS]
+
+console.log(productModels);
+
+// Output
+[
+    {
+        "_links":{...},
+        "code":"Acme Classic Mens Black PVC Work Boots",
+        "family":"rubber_boots",
+        "family_variant":"rubber_boots_by_size",
+        "parent":null,
+        "categories":[
+            "acme",
+            "master_clothing_footwear_footwear_rubber_boots"
+        ],
+        "values":{...},
+        "created":"2022-10-20T12:46:42+00:00",
+        "updated":"2022-10-20T13:14:04+00:00",
+        "associations":{...},
+        "quantified_associations":[],
+        "metadata":{
+            "workflow_status":"working_copy"
+        },
+        "axes":["shoe_size"]
+    },
+    /* ... */
+]
 ```
 
 #### 2. Process product model
