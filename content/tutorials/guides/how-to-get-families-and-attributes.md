@@ -151,33 +151,29 @@ storeAttributesCodes($attributeCodes);
 ```javascript [activate:NodeJS]
 
 const maxItems = 100;
-const apiUrl = 'api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}&limit=' + maxItems;
+let nextUrl = `${pimUrl}/api/rest/v1/families?search={"has_products":[{"operator":"=","value":true}]}&limit=${maxItems}`;
 
-const response = await get(`${pimUrl}/${apiUrl}`, accessToken);
-
-let data = await response.json();
-
-const families = data['_embedded']['items'];
-
-while (data['_links'].hasOwnProperty('next')) {
-    const response = await get(data['_links']['next']['href'], accessToken);
-
-    data = await response.json();
-
-    let newFamilies = data['_embedded']['items'];
+const families = [];
+do {
+    const response = await get(nextUrl, accessToken);
+    const data = await response.json();
+    const newFamilies = data['_embedded']['items']
     families.push(...newFamilies);
-}
+
+    nextUrl = data._links?.next?.href;
+} while (nextUrl)
 
 // Collect attributes from all families
 const attributeCodes = families.reduce(
     (acc, family) => [...acc, ...family.attributes],
     []
 );
-const uniqueAttributeCodes = [...new Set(attributeCodes)];
+
+const uniqueAttributes = [...new Set(attributeCodes)];
 
 // Save families and attribute codes into storage
 storeFamilies(families);
-storeAttributeCodes(uniqueAttributeCodes);
+storeAttributeCodes(uniqueAttributes);
 ```
 
 Store family codes in a <b>family_code_list</b> and attribute codes in a separate list (<b>attribute_code_list</b>). We will deal with <b>attribute_code_list</b> later in this tutorial.
@@ -235,16 +231,16 @@ storeFamilyVariants($indexedFamilyVariants);
 
 ```javascript [activate:NodeJS]
 
-const maxItems = 100;
+const maxProductsPerPage = 100;
 
 // Get family codes from storage
 const familyCodes = await getFamilyCodes();
 
 let familyVariants = [];
 for (const code of familyCodes) {
-    let nextUrl = `${pimUrl}/api/rest/v1/families/${code}/variants?limit=` + maxItems;
+    let nextUrl = `${pimUrl}/api/rest/v1/families/${code}/variants?limit=${maxProductsPerPage}`;
     do {
-        // Collect family variants:wq from API
+        // Collect family variants from API
         const response = await get(nextUrl, accessToken);
         const data = await response.json();
         const newVariants = data['_embedded']['items'];
@@ -254,7 +250,7 @@ for (const code of familyCodes) {
     } while (nextUrl)
 }
 
-// Only keep fields needed
+// add index to familyVariants
 let indexedFamilyVariants = {};
 for (const familyVariant of familyVariants) {
     indexedFamilyVariants[familyVariant['code']] = familyVariant;
@@ -317,14 +313,10 @@ while (attributeCodes.length > 0) {
     chunks.push(attributeCodes.splice(0, maxAttributesPerQuery));
 }
 
-let rawAttributes = [];
+const rawAttributes = [];
 for (const item of chunks) {
-    const apiUrl = `api/rest/v1/attributes?search={"code":[{"operator":"IN","value":${JSON.stringify(item)}}]}&limit=` + maxItems;
-    const response = await fetch(`${pimUrl}/${apiUrl}`, {
-        headers: {
-            'Authorization': `Bearer ${accessToken}`
-        }
-    });
+    const apiUrl = `${pimUrl}/api/rest/v1/attributes?search={"code":[{"operator":"IN","value":${JSON.stringify(item)}}]}&limit=${maxItems}`;
+    const response = await get(apiUrl, accessToken);
     let data = await response.json();
     let newRawAttributes = data['_embedded']['items']
     rawAttributes.push(...newRawAttributes);

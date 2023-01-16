@@ -120,12 +120,9 @@ const pimUrl = 'https://url-of-your-pim.com';
 const accessToken = 'your_app_token'; // Token provided during oAuth steps
 
 const channelCode = 'ecommerce';
+const apiUrl = `${pimUrl}/api/rest/v1/channels/${channelCode}`;
 
-const response = await fetch(`${pimUrl}/api/rest/v1/channels/${channelCode}`, {
-  headers: {
-    'Authorization': `Bearer ${accessToken}`
-  }
-});
+const response = await get(apiUrl, accessToken);
 
 const channel = await response.json();
 ```

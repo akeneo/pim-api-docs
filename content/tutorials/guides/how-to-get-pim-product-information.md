@@ -236,46 +236,42 @@ function fetchProducts(): array
 ```javascript [activate:NodeJS]
 
 async function fetchProducts() {
+    // Get locales from storage
+    const locales = await getlocales();
+    // Get family codes from storage
+    const familyCodes = await getFamilyCodes(); // ['en_US', 'fr_FR']
+    const scope = 'ecommerce'
+    const maxItems = 100;
+    const maxFamiliesPerQuery = 10;
 
-  // Get locales from storage
-  const locales = await getlocales();
-  // Get family codes from storage
-  const familyCodes = await getFamilyCodes(); // ['en_US', 'fr_FR']
-  const scope = 'ecommerce'
-  const maxItems = 100;
-
-  let chunks = [];
-  for (let key = 0; key < familyCodes.length; key += maxItems) {
-    chunks.push(familyCodes.slice(key, key + maxItems));
-  }
-
-  const products = [];
-  for (const chunk of chunks) {
-    const apiUrl = `${pimUrl}/api/rest/v1/products-uuid`
-        + '?with_attribute_options=true'
-        + `&locales=${locales.join(',')}`
-        + `&scope=${scope}`
-        + '&search={"enabled":[{"operator":"=","value":true}],'
-        + `"family":[{"operator":"IN","value":${JSON.stringify(familyCodes)}}]}`
-        + '&pagination_type=search_after'
-        + `&limit=${maxItems}`;
-
-    const response = await get(apiUrl, accessToken);
-
-    let data = await response.json();
-
-    let newProducts = data['_embedded']['items'];
-    products.push(...newProducts);
-
-    while (data['_links'].hasOwnProperty('next')) {
-      const response = await get(data['_links']['next']['href'], accessToken);
-      data = await response.json();
-      newProducts = data['_embedded']['items'];
-      products.push(...newProducts);
+    // split familyCodes in chucks of $maxFamiliesPerQuery elements
+    const chunks = [];
+    while (familyCodes.length > 0) {
+        chunks.push(familyCodes.splice(0, maxFamiliesPerQuery));
     }
-  }
 
-  return products;
+    const products = [];
+    for (const chunk of chunks) {
+        let nextUrl = `${pimUrl}/api/rest/v1/products-uuid`
+            + `?with_attribute_options=true`
+            + `&locales=${locales.join(',')}`
+            + `&scope=${scope}`
+            + `&search={"enabled":[{"operator":"=","value":true}],`
+            + `"family":[{"operator":"IN","value":${JSON.stringify(chunk)}}]}`
+            + `&pagination_type=search_after`
+            + `&limit=${maxItems}`;
+
+        do {
+            const response = await get(nextUrl, accessToken);
+            const data = await response.json();
+            let newProducts = data['_embedded']['items'];
+            products.push(...newProducts);
+
+            nextUrl = data._links?.next?.href;
+        } while (nextUrl)
+    }
+
+    return products;
 }
 ```
 
@@ -320,26 +316,23 @@ function fetchProducts(): array
 async function fetchProducts() {
   const maxItems = 100;
 
-  const apiUrl = `${pimUrl}/api/rest/v1/products-uuid`
-      + '?with_attribute_options=true'
-      + '&search={"enabled":[{"operator":"=","value":true}]}'
-      + '&pagination_type=search_after'
-      + `&limit=${maxItems}`;
+    let nextUrl = `${pimUrl}/api/rest/v1/products-uuid`
+        + '?with_attribute_options=true'
+        + '&search={"enabled":[{"operator":"=","value":true}]}'
+        + '&pagination_type=search_after'
+        + `&limit=${maxItems}`;
 
+    const products = [];
+    do {
+        const response = await get(nextUrl, accessToken);
+        const data = await response.json();
+        let newProducts = data['_embedded']['items'];
+        products.push(...newProducts);
 
-  const response = await get(apiUrl, accessToken);
+        nextUrl = data._links?.next?.href;
+    } while (nextUrl)
 
-  let data = await response.json();
-
-  let products = data['_embedded']['items'];
-  while (data['_links'].hasOwnProperty('next')) {
-    const response = await get(data['_links']['next']['href'], accessToken);
-    data = await response.json();
-    let newProducts = data['_embedded']['items'];
-    products.push(...newProducts);
-  }
-
-  return products;
+    return products;
 }
 ```
 

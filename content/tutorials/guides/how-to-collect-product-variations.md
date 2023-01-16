@@ -413,7 +413,7 @@ for (const code of familyCodes) {
     } while (nextUrl)
 }
 
-//add index to familyVariants
+// add index to familyVariants
 let indexedFamilyVariants = {};
 for (const familyVariant of familyVariants) {
     indexedFamilyVariants[familyVariant['code']] = familyVariant;
