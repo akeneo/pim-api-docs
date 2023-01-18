@@ -10,6 +10,7 @@ var insert = require('gulp-insert');
 var path = require('path');
 var gulpMarkdownIt = require('gulp-markdown-it-adapter');
 var highlightJs = require('highlightjs');
+var prism = require('prismjs');
 var hbs = require('handlebars');
 var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var fs = require('fs');
@@ -20,6 +21,9 @@ var revReplace = require('gulp-rev-replace');
 var swagger = require('gulp-swagger');
 var jsonTransform = require('gulp-json-transform');
 var _ = require('lodash');
+
+const loadLanguages = require('prismjs/components/');
+loadLanguages(['php','javascript','python', 'java', 'shell']);
 
 function getTocMarkdown(isOnePage, pages, currentPage, baseUrl) {
     if(isOnePage){
@@ -39,11 +43,20 @@ function highlight(str, lang) {
     if (lang && highlightJs.getLanguage(lang)) {
         try {
             return '<pre class="hljs"><code>' +
-              highlightJs.highlight(lang, str, true).value +
-              '</code></pre>';
+                highlightJs.highlight(lang, str, true).value +
+                '</code></pre>';
         } catch (__) {}
     }
     return '<pre class="hljs"><code>' + str + '</code></pre>';
+}
+
+function highlightGt(str, lang) {
+    if (lang && lang in prism.languages) {
+        try {
+            return prism.highlight(str, prism.languages[lang], lang);
+        } catch (__) {}
+    }
+    return '<pre><code>' + str + '</code></pre>';
 }
 
 function imageTokenOverride(tokens, idx, options, env, self) {
@@ -58,7 +71,18 @@ var optionsMd = {
     breaks: false,
     highlight: highlight
 };
+
+var optionsMdGt = {
+    html: true,
+    xhtmlOut: true,
+    typographer: false,
+    linkify: false,
+    breaks: false,
+    highlight: highlightGt
+};
+
 var md = new MarkdownIt('default', optionsMd);
+var mdGt = new MarkdownIt('default', optionsMdGt);
 
 var glogalOptionsToc = {
     toc: true,
@@ -70,189 +94,193 @@ var glogalOptionsToc = {
     tocClassName: 'nav'
 };
 
-md.renderer.rules['image'] = imageTokenOverride;
-md.renderer.rules.table_open = function(tokens, idx) {
-    return '<table class="table">';
-};
-md.renderer.rules.heading_open = function(tokens, idx) {
-    return '<a class="anchor" id="' + tokens[idx].attrs[0][1] + '"></a>'+
-        '<'+tokens[idx].tag+' title-id="' + tokens[idx].attrs[0][1] + '">';
-};
+initMd(md);
+initMd(mdGt);
+function initMd(markdown) {
+    markdown.renderer.rules['image'] = imageTokenOverride;
+    markdown.renderer.rules.table_open = function(tokens, idx) {
+        return '<table class="table">';
+    };
+    markdown.renderer.rules.heading_open = function(tokens, idx) {
+        return '<a class="anchor" id="' + tokens[idx].attrs[0][1] + '"></a>'+
+            '<'+tokens[idx].tag+' title-id="' + tokens[idx].attrs[0][1] + '">';
+    };
 
-md.use(mdEmoji);
-md.use(mdToc, glogalOptionsToc);
-md.use(require('markdown-it-container'), 'danger', {
-    validate: function(params) {
-        return params.trim().match(/^danger(.*)$/);
-    },
-    render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div class="alert alert-danger">' : '</div>\n';
-    }
-});
-md.use(require('markdown-it-container'), 'warning', {
-    validate: function(params) {
-        return params.trim().match(/^warning(.*)$/);
-    },
-    render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div class="alert alert-warning">' : '</div>\n';
-    }
-});
-md.use(require('markdown-it-container'), 'info', {
-    validate: function(params) {
-        return params.trim().match(/^info(.*)$/);
-    },
-    render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div class="alert alert-info">' : '</div>\n';
-    }
-});
-md.use(require('markdown-it-container'), 'tips', {
-    validate: function(params) {
-        return params.trim().match(/^tips(.*)$/);
-    },
-    render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div class="alert alert-tips">' : '</div>\n';
-    }
-});
-md.use(require('markdown-it-container'), 'availability', {
-    validate: function(params) {
-        return params.trim().match(/^availability(.*)$/);
-    },
-    render: function (tokens, idx) {
-        var versionsAndEditions = tokens[idx].info.trim().match(/^availability\sversions=(.*)\seditions=(.*)$/);
-        var html = '';
-        if(tokens[idx].nesting === 1) {
-            var versions = versionsAndEditions[1].split(',');
-            html += _.reduce(versions, function(res, version) {
-                return res + ' <span class="label label-version">' + version + '</span>';
-            }, '<p><em class="small text-primary">Available in the PIM versions:</em>');
-            var editions = versionsAndEditions[2].split(',');
-            html += _.reduce(editions, function(res, edition) {
-                return res + ' <span class="label label-info">' + edition + '</span>';
-            }, '<em class="small text-primary">&nbsp;&nbsp;|&nbsp;&nbsp;Available in the PIM editions:</em>');
-        } else {
-            html = '</p>';
+    markdown.use(mdEmoji);
+    markdown.use(mdToc, glogalOptionsToc);
+    markdown.use(require('markdown-it-container'), 'danger', {
+        validate: function(params) {
+            return params.trim().match(/^danger(.*)$/);
+        },
+        render: function (tokens, idx) {
+            return (tokens[idx].nesting === 1) ? '<div class="alert alert-danger">' : '</div>\n';
         }
-        return html;
-    }
-});
-md.use(require('markdown-it-container'), 'php-client-availability', {
-    validate: function(params) {
-        return params.trim().match(/^php-client-availability(.*)$/);
-    },
-    render: function (tokens, idx) {
-        let html = '';
-        if(tokens[idx].nesting === 1) {
-            const matchedAllVersions = tokens[idx].info.trim().match(/^php-client-availability.*all-versions(\s|$)/);
-            if (matchedAllVersions !== null) {
-                html += '<p><em class="small text-primary">Available in all client versions</em>';
-            }
-            const matchedVersions = tokens[idx].info.trim().match(/^php-client-availability.*versions=(.*?)(\s|$)/);
-            if (matchedVersions !== null) {
-                const versions = matchedVersions[1].split(',');
+    });
+    markdown.use(require('markdown-it-container'), 'warning', {
+        validate: function(params) {
+            return params.trim().match(/^warning(.*)$/);
+        },
+        render: function (tokens, idx) {
+            return (tokens[idx].nesting === 1) ? '<div class="alert alert-warning">' : '</div>\n';
+        }
+    });
+    markdown.use(require('markdown-it-container'), 'info', {
+        validate: function(params) {
+            return params.trim().match(/^info(.*)$/);
+        },
+        render: function (tokens, idx) {
+            return (tokens[idx].nesting === 1) ? '<div class="alert alert-info">' : '</div>\n';
+        }
+    });
+    markdown.use(require('markdown-it-container'), 'tips', {
+        validate: function(params) {
+            return params.trim().match(/^tips(.*)$/);
+        },
+        render: function (tokens, idx) {
+            return (tokens[idx].nesting === 1) ? '<div class="alert alert-tips">' : '</div>\n';
+        }
+    });
+    markdown.use(require('markdown-it-container'), 'availability', {
+        validate: function(params) {
+            return params.trim().match(/^availability(.*)$/);
+        },
+        render: function (tokens, idx) {
+            var versionsAndEditions = tokens[idx].info.trim().match(/^availability\sversions=(.*)\seditions=(.*)$/);
+            var html = '';
+            if(tokens[idx].nesting === 1) {
+                var versions = versionsAndEditions[1].split(',');
                 html += _.reduce(versions, function(res, version) {
                     return res + ' <span class="label label-version">' + version + '</span>';
-                }, '<p><em class="small text-primary">Available since client version:</em>');
+                }, '<p><em class="small text-primary">Available in the PIM versions:</em>');
+                var editions = versionsAndEditions[2].split(',');
+                html += _.reduce(editions, function(res, edition) {
+                    return res + ' <span class="label label-info">' + edition + '</span>';
+                }, '<em class="small text-primary">&nbsp;&nbsp;|&nbsp;&nbsp;Available in the PIM editions:</em>');
+            } else {
+                html = '</p>';
             }
-            const matchedEE = tokens[idx].info.trim().match(/^php-client-availability.*ee-only(\s|$)/);
-            if (matchedEE !== null) {
-                html += '<em class="small text-primary">&nbsp;&nbsp;|&nbsp;&nbsp;Only available for PIM </em><span class="label label-info">EE</span>'
-            }
-        } else {
-            html = '</p>';
+            return html;
         }
-        return html;
-    }
-});
-md.use(require('markdown-it-container'), 'version-screenshots', {
-    validate: function(params) {
-        return params.trim().match(/^version-screenshots(.*)$/);
-    },
-    render: function (tokens, idx) {
-        var id = tokens[idx].info.trim().match(/^version-screenshots\sid="(.*)"\s2\.x.*\s1\.7.*$/);
-        var source_v2x = tokens[idx].info.trim().match(/^version-screenshots\sid=".*"\s2\.x(.*)\s1\.7.*$/);
-        var source_v17 = tokens[idx].info.trim().match(/^version-screenshots\sid=".*"\s2\.x.*\s1\.7(.*)$/);
-        return (tokens[idx].nesting === 1) ? '<div>' +
-                    '<ul class="nav nav-tabs nav-tabs-versions" role="tablist">' +
-                        '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">Since v2</a></li>' +
-                        '<li role="presentation"><a href="#v17_' + id[1] + '" aria-controls="v17_' + id[1] + '" role="tab" data-toggle="tab">v1.7</a></li>' +
-                    '</ul>' +
-                    '<div class="panel panel-default">' +
-                        '<div class="panel-body">' +
-                            '<div class="row tab-content">'+
-                                '<div role="tabpanel" class="col-xs-12 tab-pane active" id="v2_' + id[1] + '">' + md.render(source_v2x[1]) + '</div>' +
-                                '<div role="tabpanel" class="col-xs-12 tab-pane" id="v17_' + id[1] + '">' + md.render(source_v17[1]) + '</div>'
-                         : '</div>\n</div>\n</div>\n</div>\n';
-    }
-});
-md.use(require('markdown-it-container'), 'toc', {
-    validate: function(params) {
-        return params.trim().match(/^toc$/);
-    },
-    render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div id="navbar" class="col-sm-3 hidden-xs sticky">' +
-        '<nav role="tablist" id="navbar-nav"><ul class="nav nav-stacked" style="counter-increment: step-counter;"><p class="pre-nav">Summary</p>' :
-                  "</ul></nav></div>\n";
+    });
+    markdown.use(require('markdown-it-container'), 'php-client-availability', {
+        validate: function(params) {
+            return params.trim().match(/^php-client-availability(.*)$/);
+        },
+        render: function (tokens, idx) {
+            let html = '';
+            if(tokens[idx].nesting === 1) {
+                const matchedAllVersions = tokens[idx].info.trim().match(/^php-client-availability.*all-versions(\s|$)/);
+                if (matchedAllVersions !== null) {
+                    html += '<p><em class="small text-primary">Available in all client versions</em>';
+                }
+                const matchedVersions = tokens[idx].info.trim().match(/^php-client-availability.*versions=(.*?)(\s|$)/);
+                if (matchedVersions !== null) {
+                    const versions = matchedVersions[1].split(',');
+                    html += _.reduce(versions, function(res, version) {
+                        return res + ' <span class="label label-version">' + version + '</span>';
+                    }, '<p><em class="small text-primary">Available since client version:</em>');
+                }
+                const matchedEE = tokens[idx].info.trim().match(/^php-client-availability.*ee-only(\s|$)/);
+                if (matchedEE !== null) {
+                    html += '<em class="small text-primary">&nbsp;&nbsp;|&nbsp;&nbsp;Only available for PIM </em><span class="label label-info">EE</span>'
+                }
+            } else {
+                html = '</p>';
             }
-});
-md.use(require('markdown-it-container'), 'preToc', {
-    validate: function(params) {
-        return params.trim().match(/^preToc .*/);
-    },
-    render: function (tokens, idx) {
-        var text = tokens[idx].info.trim().match(/^preToc (.*)$/);
-        return (tokens[idx].nesting === 1) ? '<li class="active"> <a href="#">' + text[1] + '</a>': '';
-    }
-});
-md.use(require('markdown-it-container'), 'postToc', {
-    validate: function(params) {
-        return params.trim().match(/^postToc$/);
-    },
-    render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '</li>' : '';
-    }
-});
-md.use(require('markdown-it-container'), 'mainContent', {
-    validate: function(params) {
-        return params.trim().match(/^mainContent$/);
-    },
-    render: function (tokens, idx) {
-        return (tokens[idx].nesting === 1) ? '<div class="col-xs-12 col-sm-offset-1 col-sm-8">' : '</div>';
-    }
-});
-md.use(require('markdown-it-container'), 'tocLink', {
-    validate: function(params) {
-        return params.trim().match(/^tocLink\s+(.*)$/);
-    },
-    render: function (tokens, idx) {
-        var linkTitle = tokens[idx].info.trim().match(/^tocLink.*\[(.*)\]\(.*\)$/);
-        var link = tokens[idx].info.trim().match(/^tocLink.*\((.*)\)$/);
-        return (tokens[idx].nesting === 1) ? '<li><a href="' + md.utils.escapeHtml(link[1]) + '">' + linkTitle[1] + '</a></li>' : '';
-    }
-});
-md.use(require('markdown-it-container'), 'panel-link', {
-    validate: function(params) {
-        return params.trim().match(/^panel-link\s+(.*)$/);
-    },
-    render: function (tokens, idx) {
-        var text = tokens[idx].info.trim().match(/^panel-link\s+(.*)\[.*\].*$/);
-        var linkTitle = tokens[idx].info.trim().match(/^panel-link\s+.*\[(.*)\].*$/);
-        var link = tokens[idx].info.trim().match(/^panel-link\s+.*\((.*)\)$/);
-        if (tokens[idx].nesting === 1) {
-            // opening tag
-            return '<div class="row" style="margin-top: 80px;"><div class="col-sm-offset-3 col-sm-6">' +
-                      '<div class="panel panel-default panel-btn">'+
-                      '<a href="' + md.utils.escapeHtml(link[1]) + '">' +
-                      '<div class="panel-body">' +
-                      '<div class="panel-btn-big">'+ md.utils.escapeHtml(text[1]) + '</div>'+
-                      '<p class="text-center">'+ md.utils.escapeHtml(linkTitle[1]) + '</p>';
-         } else {
-             // closing tag
-            return '</div></a></div></div></div>\n';
+            return html;
         }
-    }
-});
-md.use(require("markdown-it-codetabs"));
-md.use(require("markdown-it-include"));
+    });
+    markdown.use(require('markdown-it-container'), 'version-screenshots', {
+        validate: function(params) {
+            return params.trim().match(/^version-screenshots(.*)$/);
+        },
+        render: function (tokens, idx) {
+            var id = tokens[idx].info.trim().match(/^version-screenshots\sid="(.*)"\s2\.x.*\s1\.7.*$/);
+            var source_v2x = tokens[idx].info.trim().match(/^version-screenshots\sid=".*"\s2\.x(.*)\s1\.7.*$/);
+            var source_v17 = tokens[idx].info.trim().match(/^version-screenshots\sid=".*"\s2\.x.*\s1\.7(.*)$/);
+            return (tokens[idx].nesting === 1) ? '<div>' +
+                '<ul class="nav nav-tabs nav-tabs-versions" role="tablist">' +
+                '<li role="presentation" class="active"><a href="#v2_' + id[1] + '" aria-controls="v2_' + id[1] + '" role="tab" data-toggle="tab">Since v2</a></li>' +
+                '<li role="presentation"><a href="#v17_' + id[1] + '" aria-controls="v17_' + id[1] + '" role="tab" data-toggle="tab">v1.7</a></li>' +
+                '</ul>' +
+                '<div class="panel panel-default">' +
+                '<div class="panel-body">' +
+                '<div class="row tab-content">'+
+                '<div role="tabpanel" class="col-xs-12 tab-pane active" id="v2_' + id[1] + '">' + markdown.render(source_v2x[1]) + '</div>' +
+                '<div role="tabpanel" class="col-xs-12 tab-pane" id="v17_' + id[1] + '">' + markdown.render(source_v17[1]) + '</div>'
+                : '</div>\n</div>\n</div>\n</div>\n';
+        }
+    });
+    markdown.use(require('markdown-it-container'), 'toc', {
+        validate: function(params) {
+            return params.trim().match(/^toc$/);
+        },
+        render: function (tokens, idx) {
+            return (tokens[idx].nesting === 1) ? '<div id="navbar" class="col-sm-3 hidden-xs sticky">' +
+                '<nav role="tablist" id="navbar-nav"><ul class="nav nav-stacked" style="counter-increment: step-counter;"><p class="pre-nav">Summary</p>' :
+                "</ul></nav></div>\n";
+        }
+    });
+    markdown.use(require('markdown-it-container'), 'preToc', {
+        validate: function(params) {
+            return params.trim().match(/^preToc .*/);
+        },
+        render: function (tokens, idx) {
+            var text = tokens[idx].info.trim().match(/^preToc (.*)$/);
+            return (tokens[idx].nesting === 1) ? '<li class="active"> <a href="#">' + text[1] + '</a>': '';
+        }
+    });
+    markdown.use(require('markdown-it-container'), 'postToc', {
+        validate: function(params) {
+            return params.trim().match(/^postToc$/);
+        },
+        render: function (tokens, idx) {
+            return (tokens[idx].nesting === 1) ? '</li>' : '';
+        }
+    });
+    markdown.use(require('markdown-it-container'), 'mainContent', {
+        validate: function(params) {
+            return params.trim().match(/^mainContent$/);
+        },
+        render: function (tokens, idx) {
+            return (tokens[idx].nesting === 1) ? '<div class="col-xs-12 col-sm-offset-1 col-sm-8">' : '</div>';
+        }
+    });
+    markdown.use(require('markdown-it-container'), 'tocLink', {
+        validate: function(params) {
+            return params.trim().match(/^tocLink\s+(.*)$/);
+        },
+        render: function (tokens, idx) {
+            var linkTitle = tokens[idx].info.trim().match(/^tocLink.*\[(.*)\]\(.*\)$/);
+            var link = tokens[idx].info.trim().match(/^tocLink.*\((.*)\)$/);
+            return (tokens[idx].nesting === 1) ? '<li><a href="' + markdown.utils.escapeHtml(link[1]) + '">' + linkTitle[1] + '</a></li>' : '';
+        }
+    });
+    markdown.use(require('markdown-it-container'), 'panel-link', {
+        validate: function(params) {
+            return params.trim().match(/^panel-link\s+(.*)$/);
+        },
+        render: function (tokens, idx) {
+            var text = tokens[idx].info.trim().match(/^panel-link\s+(.*)\[.*\].*$/);
+            var linkTitle = tokens[idx].info.trim().match(/^panel-link\s+.*\[(.*)\].*$/);
+            var link = tokens[idx].info.trim().match(/^panel-link\s+.*\((.*)\)$/);
+            if (tokens[idx].nesting === 1) {
+                // opening tag
+                return '<div class="row" style="margin-top: 80px;"><div class="col-sm-offset-3 col-sm-6">' +
+                    '<div class="panel panel-default panel-btn">'+
+                    '<a href="' + markdown.utils.escapeHtml(link[1]) + '">' +
+                    '<div class="panel-body">' +
+                    '<div class="panel-btn-big">'+ markdown.utils.escapeHtml(text[1]) + '</div>'+
+                    '<p class="text-center">'+ markdown.utils.escapeHtml(linkTitle[1]) + '</p>';
+            } else {
+                // closing tag
+                return '</div></a></div></div></div>\n';
+            }
+        }
+    });
+    markdown.use(require("markdown-it-codetabs"));
+    markdown.use(require("markdown-it-include"));
+}
 
 gulp.task('build-getting-started', ['clean-dist','less'], function () {
 
@@ -911,37 +939,37 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
 );
 
 gulp.task('build-tutorials', ['clean-dist','less'], function () {
-        const pages = {
-            "how-to-get-your-app-token.md": "How to get your App token",
-            "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
-            "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
-            "how-to-get-pim-product-information.md": "How to get PIM product information",
-            "how-to-collect-product-variations.md": "How to collect product variations",
-            "how-to-get-pim-category-tree.md": "How to get PIM category tree",
-        };
+    const pages = {
+        "how-to-get-your-app-token.md": "How to get your App token",
+        "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
+        "how-to-get-families-and-attributes.md": "How to get families, family variants, and attributes",
+        "how-to-get-pim-product-information.md": "How to get PIM product information",
+        "how-to-collect-product-variations.md": "How to collect product variations",
+        "how-to-get-pim-category-tree.md": "How to get PIM category tree",
+    };
 
-        const isOnePage = false;
+    const isOnePage = false;
 
-        return gulp.src('content/tutorials/guides/*.md')
-            .pipe(flatmap(function (stream, file) {
-                return gulp.src('content/tutorials/guides/*.md')
-                    .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-                    .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/tutorials') + "\n"))
-                    .pipe(gulpMarkdownIt(md))
-                    .pipe(gulp.dest('tmp/tutorials/'))
-                    .on('end', function () {
-                        return gulp.src('src/partials/guided-tutorials.handlebars')
-                            .pipe(gulpHandlebars({
-                                active_guided_tutorials: true,
-                                mainContent: fs.readFileSync('tmp/tutorials/' + path.basename(file.path).replace(/\.md/, '.html'))
-                            }, {
-                                partialsDirectory: ['./src/partials']
-                            }))
-                            .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
-                            .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                            .pipe(gulp.dest('./dist/tutorials'));
-                    })
-            }));
+    return gulp.src('content/tutorials/guides/*.md')
+        .pipe(flatmap(function (stream, file) {
+            return gulp.src('content/tutorials/guides/*.md')
+                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/tutorials') + "\n"))
+                .pipe(gulpMarkdownIt(mdGt))
+                .pipe(gulp.dest('tmp/tutorials/'))
+                .on('end', function () {
+                    return gulp.src('src/partials/guided-tutorials.handlebars')
+                        .pipe(gulpHandlebars({
+                            active_guided_tutorials: true,
+                            mainContent: fs.readFileSync('tmp/tutorials/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        }, {
+                            partialsDirectory: ['./src/partials']
+                        }))
+                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                        .pipe(gulp.dest('./dist/tutorials'));
+                })
+        }));
     }
 );
 
