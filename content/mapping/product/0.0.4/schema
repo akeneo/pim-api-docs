@@ -40,6 +40,8 @@
       "type": "string"
     },
     "propertyWithSimpleType": {
+    },
+    "property": {
       "type": "object",
       "properties": {
         "title": { "$ref": "#/$defs/title" },
@@ -50,20 +52,6 @@
             "number",
             "boolean"
           ]
-        }
-      },
-      "additionalProperties": false,
-      "required": ["type"]
-    },
-    "propertyWithTypeAndFormat": {
-      "type": "object",
-      "properties": {
-        "title": { "$ref": "#/$defs/title" },
-        "description": { "$ref": "#/$defs/description" },
-        "type": {
-          "enum": [
-            "string"
-          ]
         },
         "format": {
           "enum": [
@@ -72,13 +60,19 @@
         }
       },
       "additionalProperties": false,
-      "required": ["type", "format"]
-    },
-    "property": {
-      "oneOf": [
-        { "$ref": "#/$defs/propertyWithSimpleType" },
-        { "$ref": "#/$defs/propertyWithTypeAndFormat" }
-      ]
+      "required": ["type"],
+      "dependentSchemas": {
+        "format": {
+          "properties": {
+            "type": {
+              "enum": [
+                "string"
+              ]
+            }
+          },
+          "required": ["type"]
+        }
+      }
     },
     "uriString": {
       "type": "string",
