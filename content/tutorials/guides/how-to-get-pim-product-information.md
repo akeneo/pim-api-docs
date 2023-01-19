@@ -195,7 +195,7 @@ function fetchProducts(): array
     $locales = getLocales(); // ['en_US', 'fr_FR']
     $scope = 'ecommerce';
     $maxProductsPerPage = 100;
-    $maxFamiliesPerQuery = 100;
+    $maxFamiliesPerQuery = 10;
     $familyCodeChunks = array_chunk(getFamilyCodes(), $maxFamiliesPerQuery);
 
     $apiUrl = '/api/rest/v1/products-uuid'
