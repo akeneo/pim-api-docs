@@ -10,7 +10,7 @@ var insert = require('gulp-insert');
 var path = require('path');
 var gulpMarkdownIt = require('gulp-markdown-it-adapter');
 var highlightJs = require('highlightjs');
-var prism = require('prismjs');
+var Prism = require('prismjs');
 var hbs = require('handlebars');
 var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var fs = require('fs');
@@ -51,12 +51,12 @@ function highlight(str, lang) {
 }
 
 function highlightGt(str, lang) {
-    if (lang && lang in prism.languages) {
+    if (lang && lang in Prism.languages) {
         try {
-            return prism.highlight(str, prism.languages[lang], lang);
+            return Prism.highlight(str, Prism.languages[lang], lang);
         } catch (__) {}
     }
-    return '<pre><code>' + str + '</code></pre>';
+    return '<pre><code class="language-markup">' + str + '</code></pre>';
 }
 
 function imageTokenOverride(tokens, idx, options, env, self) {

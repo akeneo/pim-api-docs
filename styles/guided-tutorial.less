@@ -539,8 +539,71 @@ ul.nav.nav-stacked {
     width: 68.5%;
 }
 
+/********************** SNIPPET *************************/
+
 pre {
     background-color: #272822;
+}
+
+div.code-tabs {
+    position: relative;
+    border: 0;
+    ul, li {
+        border: 0;
+        label {
+            font-family: 'Lato';
+            font-weight: normal;
+            font-size: 16px;
+            color: #0d6efd;
+            padding: 7px 13px;
+            margin: 0;
+        }
+    }
+    ul > li.active {
+        label {
+            color: white;
+            border-radius: 0.5em 0.5em 0 0;
+            background-color: #272822;
+            border-collapse: separate;
+        }
+    }
+}
+
+pre {
+    border: 0;
+    .copy-to-clipboard-button {
+        font-family: 'Lato';
+        z-index: 10;
+        position: absolute;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        top: 3.7em;
+        right: 0.4em;
+        width: 80px;
+        height: 35px;
+        transition: opacity .3s ease-in-out;
+        opacity: 0;
+        color: #bbb;
+        font-size: .8em;
+        padding: 0 0.5em;
+        background: rgba(224,224,224,.2);
+        border-radius: 0.5em;
+    }
+    border-top-left-radius: 0;
+}
+
+.copied {
+    border: 1px solid white;
+}
+
+pre:hover {
+    .copy-to-clipboard-button {
+        opacity: 100%;
+        &:hover {
+            border: 1px solid white;
+        }
+    }
 }
 
 @media only screen and (max-width: 820px) {

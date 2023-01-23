@@ -24,7 +24,8 @@ gulp.task('copy-assets', ['clean-dist'], function(){
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/handlebars/handlebars.min.js',
             'node_modules/bootstrap/dist/js/bootstrap.min.js',
-            'node_modules/isotope-layout/dist/isotope.pkgd.min.js'])
+            'node_modules/isotope-layout/dist/isotope.pkgd.min.js',
+            'node_modules/prismjs/prism.js'])
         .pipe(gulp.dest('dist/js/'));
     var img = gulp.src('content/img/**')
         .pipe(gulp.dest('dist/img/'));
