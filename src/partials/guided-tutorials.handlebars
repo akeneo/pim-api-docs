@@ -10,11 +10,12 @@
             $('.code-tabs li:first-child').addClass('active');
         });
         function copySnippetContent(event){
-            $(this).text("Copied!");
-            $(this).addClass("copied");
+            const copyToClipboard = $(this);
+            copyToClipboard.text("Copied!");
+            copyToClipboard.addClass("copied");
             setTimeout(function() {
-                $('.copy-to-clipboard-button').removeClass('copied');
-                $('.copy-to-clipboard-button').text("Copy");
+                copyToClipboard.removeClass('copied');
+                copyToClipboard.text("Copy");
             }, 2000);
 
             const parentTextContent = event.target.parentElement.firstChild.innerText;
