@@ -578,10 +578,10 @@ pre {
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        top: 3.7em;
-        right: 0.4em;
-        width: 80px;
-        height: 35px;
+        top: 4em;
+        right: 0.7em;
+        width: 60px;
+        height: 25px;
         transition: opacity .3s ease-in-out;
         opacity: 0;
         color: #bbb;
@@ -591,6 +591,9 @@ pre {
         border-radius: 0.5em;
     }
     border-top-left-radius: 0;
+    code[class*="language-"], pre[class*="language-"]    {
+        font-size: 0.88em !important;
+    }
 }
 
 .copied {
@@ -602,6 +605,7 @@ pre:hover {
         opacity: 100%;
         &:hover {
             border: 1px solid white;
+            cursor: pointer;
         }
     }
 }
