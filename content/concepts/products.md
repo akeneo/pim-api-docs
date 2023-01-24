@@ -471,7 +471,7 @@ Whenever the attribute's type is `pim_catalog_boolean`, the `data` field should 
       {
         "locale": null,
         "scope": null,
-        "data": "true"
+        "data": true
       }
     ]
   }
