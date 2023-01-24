@@ -16,7 +16,7 @@
             setTimeout(function() {
                 copyToClipboard.removeClass('copied');
                 copyToClipboard.text("Copy");
-            }, 2000);
+            }, 3000);
 
             const parentTextContent = event.target.parentElement.firstChild.innerText;
             navigator.clipboard.writeText(parentTextContent);
