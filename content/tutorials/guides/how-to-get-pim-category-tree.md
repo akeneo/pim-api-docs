@@ -150,7 +150,7 @@ function getCategories(): void
     $categories = array_merge(...$categoryPages);
 
     // Save categories into storage
-    saveCategories($categories);
+    storeCategories($categories);
 }
 
 function getRootCategory(string $code): array
@@ -199,7 +199,7 @@ async function fetchCategories() {
   categories.push(rootCategory);
 
   // Save categories into storage
-  saveCategories(categories);
+  storeCategories(categories);
 }
 
 async function getRootCategory(rootCategoryCode) {

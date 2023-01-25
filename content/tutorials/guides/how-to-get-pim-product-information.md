@@ -191,10 +191,11 @@ function fetchProducts(): array
 {
     $client = buildApiClient();
 
+    // Get locales from storage
     $locales = getLocales(); // ['en_US', 'fr_FR']
     $scope = 'ecommerce';
     $maxProductsPerPage = 100;
-    $maxFamiliesPerQuery = 100;
+    $maxFamiliesPerQuery = 10;
     $familyCodeChunks = array_chunk(getFamilyCodes(), $maxFamiliesPerQuery);
 
     $apiUrl = '/api/rest/v1/products-uuid'
@@ -210,24 +211,23 @@ function fetchProducts(): array
     $products = [];
 
     foreach ($familyCodeChunks as $familyCodes) {
-        $response = $client->get(
-            sprintf(
-                $apiUrl,
-                implode(',', $locales),
-                $scope,
-                json_encode($familyCodes),
-                $maxProductsPerPage
-            )
+        $nextUrl = sprintf(
+            $apiUrl,
+            implode(',', $locales),
+            $scope,
+            json_encode($familyCodes),
+            $maxProductsPerPage
         );
-        $data = json_decode($response->getBody()->getContents(), true);
-
-        $products[] = $data['_embedded']['items'];
-
-        while (array_key_exists('next', $data['_links'])) {
-            $response = $client->get($data['_links']['next']['href']);
+        do {
+            // Collect products from API
+            $response = $client->get($nextUrl);
             $data = json_decode($response->getBody()->getContents(), true);
             $products[] = $data['_embedded']['items'];
-        }
+
+            $nextUrl = $data['_links']['next']['href'] ?? null;
+        } while (
+            $nextUrl
+        );
     }
 
     return array_merge(...$products);
@@ -236,46 +236,42 @@ function fetchProducts(): array
 ```javascript [activate:NodeJS]
 
 async function fetchProducts() {
+    // Get locales from storage
+    const locales = await getlocales();
+    // Get family codes from storage
+    const familyCodes = await getFamilyCodes(); // ['en_US', 'fr_FR']
+    const scope = 'ecommerce'
+    const maxItems = 100;
+    const maxFamiliesPerQuery = 10;
 
-  // Get locales from storage
-  const locales = await getlocales();
-  // Get family codes from storage
-  const familyCodes = await getFamilyCodes(); // ['en_US', 'fr_FR']
-  const scope = 'ecommerce'
-  const maxItems = 100;
-
-  let chunks = [];
-  for (let key = 0; key < familyCodes.length; key += maxItems) {
-    chunks.push(familyCodes.slice(key, key + maxItems));
-  }
-
-  const products = [];
-  for (const chunk of chunks) {
-    const apiUrl = `${pimUrl}/api/rest/v1/products-uuid`
-        + '?with_attribute_options=true'
-        + `&locales=${locales.join(',')}`
-        + `&scope=${scope}`
-        + '&search={"enabled":[{"operator":"=","value":true}],'
-        + `"family":[{"operator":"IN","value":${JSON.stringify(familyCodes)}}]}`
-        + '&pagination_type=search_after'
-        + `&limit=${maxItems}`;
-
-    const response = await get(apiUrl, accessToken);
-
-    let data = await response.json();
-
-    let newProducts = data['_embedded']['items'];
-    products.push(...newProducts);
-
-    while (data['_links'].hasOwnProperty('next')) {
-      const response = await get(data['_links']['next']['href'], accessToken);
-      data = await response.json();
-      newProducts = data['_embedded']['items'];
-      products.push(...newProducts);
+    // split familyCodes in chucks of $maxFamiliesPerQuery elements
+    const chunks = [];
+    while (familyCodes.length > 0) {
+        chunks.push(familyCodes.splice(0, maxFamiliesPerQuery));
     }
-  }
 
-  return products;
+    const products = [];
+    for (const chunk of chunks) {
+        let nextUrl = `${pimUrl}/api/rest/v1/products-uuid`
+            + `?with_attribute_options=true`
+            + `&locales=${locales.join(',')}`
+            + `&scope=${scope}`
+            + `&search={"enabled":[{"operator":"=","value":true}],`
+            + `"family":[{"operator":"IN","value":${JSON.stringify(chunk)}}]}`
+            + `&pagination_type=search_after`
+            + `&limit=${maxItems}`;
+
+        do {
+            const response = await get(nextUrl, accessToken);
+            const data = await response.json();
+            let newProducts = data['_embedded']['items'];
+            products.push(...newProducts);
+
+            nextUrl = data._links?.next?.href;
+        } while (nextUrl)
+    }
+
+    return products;
 }
 ```
 
@@ -291,27 +287,26 @@ function fetchProducts(): array
 
     $maxProductsPerPage = 100;
 
-    $apiUrl = '/api/rest/v1/products-uuid'
+    $nextUrl = sprintf(
+        '/api/rest/v1/products-uuid'
         . '?with_attribute_options=true'
         . '&search={"enabled":[{"operator":"=","value":true}]}'
         . '&pagination_type=search_after'
-        . '&limit=%s'
-    ;
+        . '&limit=%s',
+        $maxProductsPerPage
+    );
 
     $products = [];
-
-    $response = $client->get(
-        sprintf($apiUrl, $maxProductsPerPage)
-    );
-    $data = json_decode($response->getBody()->getContents(), true);
-
-    $products[] = $data['_embedded']['items'];
-
-    while (array_key_exists('next', $data['_links'])) {
-        $response = $client->get($data['_links']['next']['href']);
+    do {
+        // Collect products from API
+        $response = $client->get($nextUrl);
         $data = json_decode($response->getBody()->getContents(), true);
         $products[] = $data['_embedded']['items'];
-    }
+
+        $nextUrl = $data['_links']['next']['href'] ?? null;
+    } while (
+        $nextUrl
+    );
 
     return array_merge(...$products);
 }
@@ -321,26 +316,23 @@ function fetchProducts(): array
 async function fetchProducts() {
   const maxItems = 100;
 
-  const apiUrl = `${pimUrl}/api/rest/v1/products-uuid`
-      + '?with_attribute_options=true'
-      + '&search={"enabled":[{"operator":"=","value":true}]}'
-      + '&pagination_type=search_after'
-      + `&limit=${maxItems}`;
+    let nextUrl = `${pimUrl}/api/rest/v1/products-uuid`
+        + '?with_attribute_options=true'
+        + '&search={"enabled":[{"operator":"=","value":true}]}'
+        + '&pagination_type=search_after'
+        + `&limit=${maxItems}`;
 
+    const products = [];
+    do {
+        const response = await get(nextUrl, accessToken);
+        const data = await response.json();
+        let newProducts = data['_embedded']['items'];
+        products.push(...newProducts);
 
-  const response = await get(apiUrl, accessToken);
+        nextUrl = data._links?.next?.href;
+    } while (nextUrl)
 
-  let data = await response.json();
-
-  let products = data['_embedded']['items'];
-  while (data['_links'].hasOwnProperty('next')) {
-    const response = await get(data['_links']['next']['href'], accessToken);
-    data = await response.json();
-    let newProducts = data['_embedded']['items'];
-    products.push(...newProducts);
-  }
-
-  return products;
+    return products;
 }
 ```
 
@@ -623,7 +615,7 @@ for (const [key, product] of Object.entries(products)) {
   products[key] = {...products[key], values: {...formattedValuesList}};
 }
 
-saveProducts(products);
+storeProducts(products);
 ```
 
 Example output:
@@ -784,8 +776,9 @@ foreach ($products as $key => $product) {
     $products[$key]['values'] = $formattedValuesList;
 }
 
-saveProducts($products);
-saveMediaFiles($productMediaFileResources);
+// Save product and media files into storage
+storeProducts($products);
+storeMediaFiles($productMediaFileResources);
 ```
 ```javascript [activate:NodeJS]
 
@@ -810,8 +803,9 @@ saveMediaFiles($productMediaFileResources);
       products[key] = {...products[key], values: {...formattedValuesList}};
     }
 
-    saveProducts(products);
-    saveMediaFiles(productMediaFileResources);
+    // Save product and media files into storage
+    storeProducts(products);
+    storeMediaFiles(productMediaFileResources);
 ```
 
 Example output:

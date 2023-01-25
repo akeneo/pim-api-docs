@@ -64,17 +64,20 @@ Get the big picture <a href="/getting-started/synchronize-pim-products-6x/step-0
 
 ```php [activate:PHP]
 
-$pimUrl = 'https://url-of-your-pim.com';
-$appToken = 'your_app_token'; // Token provided during oAuth steps
+function buildApiClient(): GuzzleHttp\Client
+{
+    $pimUrl = '<PIM_URL>';
+    $appToken = '<APP_TOKEN>'; // Token provided during oauth steps
 
-// If you haven't done it yet, please follow the Guzzle official documentation for installing the client 
-// https://docs.guzzlephp.org/en/stable/overview.html#installation
+    // If you haven't done it yet,
+    // please follow the Guzzle official documentation to install the client
+    // https://docs.guzzlephp.org/en/stable/overview.html#installation
 
-// Set your client for querying Akeneo API as follows
-$client = new \GuzzleHttp\Client([
-    'base_uri' => $pimUrl,
-    'headers' => ['Authorization' => 'Bearer ' . $appToken],
-]);
+    return new GuzzleHttp\Client([
+        'base_uri' => $pimUrl,
+        'headers' => ['Authorization' => 'Bearer ' . $appToken],
+    ]);
+}
 ```
 
 ```javascript [activate:NodeJS]
@@ -95,6 +98,8 @@ Collect channel from PIM API:
 
 ```php [activate:PHP]
 
+$client = buildApiClient();
+
 const API_URL = '/api/rest/v1/channels/%s';
 
 // Your own channel
@@ -102,7 +107,7 @@ $channelCode = 'ecommerce';
 
 // Make an authenticated call to the API
 $response = $client->get(
-	sprintf(API_URL, $channelCode)
+    sprintf(API_URL, $channelCode)
 );
 
 // Convert json response to array
@@ -115,12 +120,9 @@ const pimUrl = 'https://url-of-your-pim.com';
 const accessToken = 'your_app_token'; // Token provided during oAuth steps
 
 const channelCode = 'ecommerce';
+const apiUrl = `${pimUrl}/api/rest/v1/channels/${channelCode}`;
 
-const response = await fetch(`${pimUrl}/api/rest/v1/channels/${channelCode}`, {
-  headers: {
-    'Authorization': `Bearer ${accessToken}`
-  }
-});
+const response = await get(apiUrl, accessToken);
 
 const channel = await response.json();
 ```
