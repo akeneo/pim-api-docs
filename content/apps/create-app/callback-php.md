@@ -54,6 +54,4 @@ $contents = json_decode($response->getBody()->getContents(), true);
 // Save token into storage
 storeToken($contents['access_token']);
 
-//var_export($contents);
-
 ```

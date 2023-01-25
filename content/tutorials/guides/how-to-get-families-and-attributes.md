@@ -270,7 +270,7 @@ Remember your <b>attribute_code_list</b>? It’s (already) time to use it to ret
 $client = buildApiClient();
 
 const MAX_ITEMS = 100;
-const API_URL = '/api/rest/v1/attributes?search={"code":[{"operator":"IN","value":%s}]}&limit=' . MAX_ITEMS;
+const API_URL = '/api/rest/v1/attributes?search={"code":[{"operator":"IN","value":%s}]}&limit=%s';
 
 // Get attributes codes from storage
 $attributeCodes = getAttributesCodes();
@@ -278,7 +278,7 @@ $attributeCodes = getAttributesCodes();
 // Collect attributes from API
 $rawAttributes = [];
 foreach (array_chunk($attributeCodes, MAX_ITEMS) as $chunk) {
-    $response = $client->get(sprintf(API_URL, json_encode($chunk)));
+    $response = $client->get(sprintf(API_URL, json_encode($chunk), MAX_ITEMS));
     $data = json_decode($response->getBody()->getContents(), true);
     $rawAttributes[] = $data['_embedded']['items'];
 }

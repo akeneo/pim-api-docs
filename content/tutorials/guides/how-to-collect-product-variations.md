@@ -166,7 +166,7 @@ $apiUrl = '/api/rest/v1/product-models?'
     . 'locales=%s'
     . '&scope=%s'
     . '&search={"family":[{"operator":"IN","value":%s}]}'
-    . '&limit=' . $maxProductsPerPage;
+    . '&limit=%s';
 
 
 // Collect product models from API
@@ -177,7 +177,8 @@ foreach ($familyCodeChunks as $familyCodes) {
             $apiUrl,
             implode(',', $locales),
             $scope,
-            json_encode($familyCodes)
+            json_encode($familyCodes),
+            $maxProductsPerPage
         )
     );
     $data = json_decode($response->getBody()->getContents(), true);
@@ -441,12 +442,12 @@ $productModelCodesChunks = array_chunk($productModelCodes, $maxProductModelsPerQ
 
 $apiUrl = '/api/rest/v1/products-uuid?'
     . 'search={"parent":[{"operator":"IN","value":%s}]}'
-    . '&limit=' . $maxProductsPerPage;
+    . '&limit=%s';
 
 // Collect product models from API
 $productVariants = [];
 foreach ($productModelCodesChunks as $productModelCodes) {
-    $response = $client->get(sprintf($apiUrl, json_encode($productModelCodes)));
+    $response = $client->get(sprintf($apiUrl, json_encode($productModelCodes), $maxProductsPerPage));
     $data = json_decode($response->getBody()->getContents(), true);
     $productVariants[] = $data['_embedded']['items'];
 }
@@ -509,7 +510,7 @@ $apiUrl = '/api/rest/v1/product-models?'
     . 'locales=%s'
     . '&scope=%s'
     . '&search={"family":[{"operator":"IN","value":%s}],"parent":[{"operator":"EMPTY"}]}'
-    . '&limit=' . $maxProductsPerPage;
+    . '&limit=%s';
 
 
 // Collect product models from API
@@ -520,7 +521,8 @@ foreach ($familyCodeChunks as $familyCodes) {
             $apiUrl,
             implode(',', $locales),
             $scope,
-            json_encode($familyCodes)
+            json_encode($familyCodes),
+            $maxProductsPerPage
         )
     );
     $data = json_decode($response->getBody()->getContents(), true);
