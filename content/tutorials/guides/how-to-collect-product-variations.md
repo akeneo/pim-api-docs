@@ -628,6 +628,7 @@ do {
 
 $productModels = array_merge(...$productModels);
 
+// Get family variants from storage
 $familyVariants = getFamilyVariants();
 foreach ($productModels as $key => $productModel) {
     $familyVariant = $familyVariants[$productModel['family_variant']];
