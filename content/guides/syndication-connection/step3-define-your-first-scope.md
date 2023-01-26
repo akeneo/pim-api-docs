@@ -12,7 +12,7 @@ You can also consult our [release notes](https://www.akeneo.com/release-notes/) 
 
 ## Follow the guide to build an App!
 
-We have a ["complete guide"](https://api.akeneo.com/apps/introduction.html) to understand how to build an App.
+We have a ["complete guide"](https://api.akeneo.com/apps/overview.html) to understand how to build an App.
 
 ## Step by step
 
