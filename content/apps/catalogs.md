@@ -103,7 +103,7 @@ At any moment, you can verify if a catalog is enabled by calling the [get catalo
 
 ### Step 3: Get products using catalogs
 
-Once you have an enabled catalog, you can paginate the corresponding product UUIDs using this [endpoint](/api-reference.html#Appcatalogproduct).
+Once you have an enabled catalog, you can paginate the corresponding products using this [endpoint](/api-reference.html#get_app_catalog_products).
 
 ### Next steps
 - Learn [how to use the product mapping feature](/getting-started/synchronize-pim-products-6x/welcome.html)
@@ -133,9 +133,10 @@ The first step to using the mapping feature is determining the JSON schema you n
 **JSON Schema is a declarative language that allows to annotate and validate JSON documents.** It describes an existing data format, provides clear human- and machine-readable documentation, and allows to validate data which is useful for ensuring the quality of client-submitted data.
 :::
 
-To help you define your schema, we advise you to use the following JSON Schema validator: [https://www.jsonschemavalidator.net/](https://www.jsonschemavalidator.net/) before pushing it to the Akeneo PIM. 
+To help you define your schema, we advise you to use this online validator pre-configured with our latest meta-schema: [jsonschemavalidator.net](https://www.jsonschemavalidator.net/s/jlmmR4k6). The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints. 
 
-In the left panel, you can copy/paste our [product mapping meta-schema](/mapping/product/0.0.2/schema) and fill the right panel with your JSON schema. The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints. 
+You can also download the latest meta-schema at this url:  
+[product mapping meta-schema](/mapping/product/0.0.2/schema) - v0.0.2 (November 10, 2022)
 
 ::: warning
 **You can only ask for string properties, and map PIM text attributes with the alpha version**.  
