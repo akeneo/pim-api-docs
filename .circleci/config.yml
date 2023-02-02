@@ -28,7 +28,7 @@ workflows:
             - gcp_connect_dev
           target_stage_id: "dev"
           deployment_scope: "dependencies"
-          terraform_action: "apply_with_plan"          
+          terraform_action: "apply_with_plan"
       - deploy_pull_request?:
           type: approval
           filters:
@@ -57,6 +57,23 @@ workflows:
             - infrastructure_services_apply_with_plan
           target_stage_id: "dev"
           environment: "pr-${CIRCLE_PULL_REQUEST##*/}"
+      - destroy_pull_request?:
+          type: approval
+          filters:
+            branches:
+              ignore:
+                - master
+          requires:
+            - push_sources_to_bucket_dev
+      - infrastructure: &infrastructure_services_destroy
+          name: "infrastructure_services_destroy"
+          requires:
+            - destroy_pull_request?
+          target_stage_id: "dev"
+          deployment_scope: "services"
+          terraform_action: "destroy"
+          pull_request: true
+          pull_request_id: "pr-${CIRCLE_PULL_REQUEST##*/}"
       - build:
           requires:
             - start?
@@ -70,6 +87,24 @@ workflows:
           filters:
             branches:
               only: master
+
+  environment_cleaner:
+    jobs:
+      - gcp_connect: &gcp_connect_dev
+          name: "gcp_connect_dev"
+          context: MARSUS_SQUAD
+          project_number: 38178482637
+          filters:
+            branches:
+              only:
+                - master
+      - get_outdated_environment:
+          requires:
+            - gcp_connect_dev
+      - delete_outdated_environment:
+          requires:
+            - get_outdated_environment
+          envs_to_destroy: ${ENVS_TO_DESTROY}
 
 aliases:
   - &dockerExecutorWithPython
@@ -208,6 +243,92 @@ jobs:
       - run:
           name: Success
           command: echo "The build has run with success! Let's merge :)"
+
+  get_outdated_environment:
+    parameters:
+      target_stage_id:
+        type: string
+        default: "dev"
+      impersonate_service_account_name:
+        type: string
+        default: main-service-account
+      project_id_without_stage:
+        type: string
+        default: "akecld-prd-pim-api-docs"
+    <<: *dockerExecutorWithPython
+    environment:
+      GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
+      GOOGLE_COMPUTE_ZONE: europe-west3
+      GOOGLE_APPLICATION_CREDENTIALS: .<<parameters.target_stage_id>>/.gcp_cred_config.json
+      GOOGLE_IMPERSONATE_SERVICE_ACCOUNT: <<parameters.impersonate_service_account_name>>@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .<<parameters.target_stage_id>>
+      - run:
+          name: Install requirements
+          command: |
+            pip3 install -r .circleci/tools/requirements.txt
+      - run:
+          name: Generate config
+          command: |
+            echo export ENVS_TO_DESTROY=$(python3 .circleci/tools/destroyer/get_outdated_environment.py | tr -d '[] ') >> .<<parameters.target_stage_id>>/env.<<parameters.target_stage_id>>
+      - persist_to_workspace:
+          root: .<<parameters.target_stage_id>>
+          paths:
+            - env.<<parameters.target_stage_id>>
+
+  delete_outdated_environment:
+    parameters:
+      envs_to_destroy:
+        type: string
+      target_stage_id:
+        type: string
+        default: "dev"
+      impersonate_service_account_name:
+        type: string
+        default: main-service-account
+      project_id_without_stage:
+        type: string
+        default: "akecld-prd-pim-api-docs"
+      deployment_scope:
+        type: string
+        default: services
+      pull_request:
+        type: boolean
+        default: true
+    machine:
+      image: ubuntu-2004:202111-02
+    environment:
+      GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
+      GOOGLE_COMPUTE_ZONE: europe-west3
+      GOOGLE_APPLICATION_CREDENTIALS: .<<parameters.target_stage_id>>/.gcp_cred_config.json
+      GOOGLE_IMPERSONATE_SERVICE_ACCOUNT: <<parameters.impersonate_service_account_name>>@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .<<parameters.target_stage_id>>
+      - run:
+          name: Source environment
+          command: |
+            cat .<<parameters.target_stage_id>>/env.<<parameters.target_stage_id>> >> $BASH_ENV ; source $BASH_ENV
+      - run:
+          name: Install requirements
+          command: |
+            pip3 install -r .circleci/tools/requirements.txt
+      - run:
+          name: Perform environment destroying
+          command: |
+            mkdir -p deployments/secrets
+            cp ${GOOGLE_APPLICATION_CREDENTIALS} .<<parameters.target_stage_id>>/.oidc_token.json deployments/secrets/   
+            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/deployments\/secrets\/.oidc_token.json#" deployments/secrets/.gcp_cred_config.json         
+            envsToDestroy=($(echo "<< parameters.envs_to_destroy >>" | tr ',' ' '))
+            for envToDestroy in "${envsToDestroy[@]}"
+            do
+              echo "**** Environment: ${envToDestroy} ****"
+              python3 .circleci/tools/destroyer/terraform_destroy.py --first_install false --stage <<parameters.target_stage_id>> --app_version <<pipeline.git.revision>> --pull_request <<parameters.pull_request>> --pull_request_id ${envToDestroy}              
+              python3 .circleci/tools/destroyer/remove_state_folder.py --pull_request_id ${envToDestroy}            
+            done
 
 commands:
   terraform_handler:
