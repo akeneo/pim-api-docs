@@ -40,6 +40,7 @@ variable "app_version" {
 variable "pull_request" {
   type        = bool
   description = "Pull Request context?"
+  default     = false
 }
 
 variable "pull_request_id" {

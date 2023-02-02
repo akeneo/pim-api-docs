@@ -81,12 +81,77 @@ workflows:
           requires:
             - build
 
-  deployment:
+  master:
     jobs:
-      - deploy_production:
+      - build:
           filters:
             branches:
-              only: master
+              only:
+                - master
+      - gcp_connect: &gcp_connect_dev
+          name: "gcp_connect_dev"
+          context: MARSUS_SQUAD
+          project_number: 38178482637
+          target_stage_id: "dev"
+          filters:
+            branches:
+              only:
+                - master
+      - infrastructure: &infrastructure_dependencies_apply_with_plan
+          name: "infrastructure_dependencies_apply_with_plan_dev"
+          requires:
+            - gcp_connect_dev
+          target_stage_id: "dev"
+          deployment_scope: "dependencies"
+          terraform_action: "apply_with_plan"
+      - infrastructure: &infrastructure_services_apply_with_plan
+          name: "infrastructure_services_apply_with_plan_dev"
+          requires:
+            - infrastructure_dependencies_apply_with_plan_dev
+          target_stage_id: "dev"
+          deployment_scope: "services"
+          terraform_action: "apply_with_plan"
+      - push_sources_to_bucket:
+          name: "push_sources_to_bucket_dev"
+          requires:
+            - build
+            - infrastructure_services_apply_with_plan_dev
+          target_stage_id: "dev"
+          environment: "dev"
+      - continue_with_prod?:
+          type: approval
+          filters:
+            branches:
+              only:
+                - master
+      - gcp_connect: &gcp_connect_prd
+          name: "gcp_connect_prd"
+          context: MARSUS_SQUAD
+          requires:
+            - continue_with_prod?
+            - push_sources_to_bucket_dev
+          project_number: 598067739710
+          target_stage_id: "prd"
+      - infrastructure: &infrastructure_dependencies_apply_with_plan
+          name: "infrastructure_dependencies_apply_with_plan_prd"
+          requires:
+            - gcp_connect_prd
+          target_stage_id: "prd"
+          deployment_scope: "dependencies"
+          terraform_action: "apply_with_plan"
+      - infrastructure: &infrastructure_services_apply_with_plan
+          name: "infrastructure_services_apply_with_plan_prd"
+          requires:
+            - infrastructure_dependencies_apply_with_plan_prd
+          target_stage_id: "prd"
+          deployment_scope: "services"
+          terraform_action: "apply_with_plan"
+      - push_sources_to_bucket:
+          name: "push_sources_to_bucket_prd"
+          requires:
+            - infrastructure_services_apply_with_plan_prd
+          target_stage_id: "prd"
+          environment: "prd"
 
   environment_cleaner:
     jobs:
@@ -125,16 +190,6 @@ jobs:
           root: ~/project
           paths:
             - dist
-
-  deploy_production:
-    machine:
-      image: ubuntu-2004:202111-02
-    steps:
-      - checkout
-      - add_ssh_keys
-      - run:
-          name: Deploy on production server
-          command: HOSTNAME=$PROD_HOSTNAME PORT=$PROD_PORT make deploy
 
   push_sources_to_bucket:
     parameters:

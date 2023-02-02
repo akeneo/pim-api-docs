@@ -38,14 +38,3 @@ variable "app_version" {
   type        = string
   description = "Application version"
 }
-
-variable "pull_request" {
-  type        = bool
-  description = "Pull Request context?"
-  default     = false
-}
-
-variable "pull_request_id" {
-  type        = string
-  description = "Pull Request ID"
-}
