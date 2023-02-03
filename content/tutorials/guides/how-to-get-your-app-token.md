@@ -5,7 +5,7 @@
    </button>
 </a>
 
-# How to get your App token
+# Get your App token
 
 Implement the required parts of the App activation process and receive an App access token for querying your PIM API.
 
@@ -25,39 +25,48 @@ Implement the required parts of the App activation process and receive an App ac
     <div class="block-welcome-title">Welcome!</div>
     <div class="block-welcome-row">
         <div class="block-welcome-text">
-            This pre-requisite section will follow you all along the tutorials
+            This section will follow you all along the technical tutorials
             marked with the use case <b>"App workflow"</b>.
         </div>
         <img src="../../img/illustrations/illus--Attributegroup.svg" width="110px" class="hidden-xs">
     </div>
     <div class="block-welcome-text">
-        The workflow starts with this tutorial that will guide you through the creation of a draft App.
-        At the end of this tutorial, your draft App will receive an <b>access token and will be able to call
-        the REST API.</b>
+         The App workflow starts with this <b>quick start</b> tutorial that will walk you
+         through creating a draft App and receiving a permanent <b>access token to call the REST API.</b>
     </div>
     <div class="block-welcome-text">
-        Let's start!
+        <b>Let's start!</b>
     </div>
 </div>
 
 ## What you will learn
-In this tutorial, we provide a guide on how to implement the required parts of your App for the activation process based on OAuth 2.0 with Authorization Code.
-At the end of this tutorial, your App will receive an Access Token and will be able to call the REST API of a PXM Studio.
+At the end of this tutorial, you will have bootstrapped an App, received a permanent App access token to your PIM,
+and be ready for your very first API call with your brand-new token.
 
-::: warning
-Examples in this tutorial use languages without any framework or library and, consequently, don't follow all the recommended best practices. 
-We strongly encourage you to adapt those examples with the framework or library of your choice.
+::: info
+If you feel that you need to dig a bit more into the Authentication process, start reading our
+[dedicated guide](/apps/authentication-and-authorization.html#oauth-20). By following it you won’t have
+code snippets but a lot of guidance to implement the whole process.
 :::
 
-::: tips
-If you prefer to start with a functional App (in PHP), have a look [here](/apps/app-developer-tools.html)
-:::
+## Requirements
 
-## Step 1: Expose your activation and callback URLs
+- You’ve got a PIM developer sandbox. If not, please [contact us](https://www.akeneo.com/contact/)
+
+## Option 1: Get our Start App
+
+Do you want to quickly start developing? Good news: we have created Start Apps for that purpose!
+(Pick up your favorite technology and follow the guide). [link to sample Apps]
+
+## Option 2: Build your App with our snippets below
+
+In this section, we explain to you how to build your own App and provide you with snippets.
+
+### Step 1: Expose your activation and callback URLs
 
 First, your application must expose an **activation URL**.
 
-In our example, we won't do additional steps (like authentification), so we will launch the Authorization Request immediately in this Activation URL.
+In our example, we won't do additional steps (like authentication), so we will launch the Authorization Request immediately in this Activation URL.
 
 !!!include(content/apps/create-app/activate-php.md)!!!
 !!!include(content/apps/create-app/activate-nodejs.md)!!!
@@ -77,46 +86,31 @@ You can find more information about the authorization process and code challenge
 - [OAuth Authorization and authentication](/apps/authentication-and-authorization.html#)
 :::
 
-## Step 2: Get a public URL for your in development App
+### Step 2: Create a tunnel to expose your local App
 
 ::: info
 if you use a local version of PIM, skip this step
 :::
 
-Before proceeding to step 4 create a test App in your developer sandbox, you will need valid URLs to your App. This can be easily resolved with a tunnel to your localhost.
-
-There are several ways to create a tunnel to your localhost such as **localhost.run** or **ngrok**. We will use [localhost.run](https://localhost.run/) for its free and easy setup.
-
-### Initiate localhost tunnel
-
-Initiate localhost tunnel using the following command:
+Use ngrok to create a tunnel that allows your App to be accessed using a unique HTTPS URL.
+You need to [create an ngrok account](https://ngrok.com/) and [auth token](https://dashboard.ngrok.com/auth/your-authtoken) to preview your App.
 
 ```shell
 
-ssh -R 80:localhost:8080 localhost.run
+ngrok http 8000
 ```
 
-The command above assumes that your local App is available on port 8080 but you can specify any port you want.
+If everything goes well the command will output your public URL for your local App:
 
+![Ngrok result](../../img/apps/app-ngrok-result.png)
 
-### Extract URL from the output
-
-If everything goes well the command will output your public URL for your local app:
-
-```shell
-
-46672a93dd64.lhrtunnel.link tunneled with tls termination, https://46672a93dd64.lhrtunnel.link
-```
-
-Your local app is now available at `https://46672a93dd64.lhrtunnel.link`. You may now use it for your development.
-
-## Step 3: Get your test App credentials
+### Step 3: Declare your local App as a test App in your sandbox to generate credentials
 
 To get credentials for your app, you need to create a test App on your developer sandbox.
 
 First of all, go to `Connect`, then `App Store`
 
-### Permissions
+#### Permissions
 
 If you see `Create a test App` skip to [Connect app](#connect-app), else please enable the `developer mode`.
 ![Create a test App button](../../img/apps/create-a-test-app-button.png)
@@ -128,12 +122,15 @@ To do so, you need to:
 4. Select `Manage test apps`
 5. Don't forget to save your modifications
 
-### Connect app
+#### Connect app
 
 To create a test App:
-1. On the top right corner, click on `Create a test App`
-2. Fill in all the required information
-   ![Test_app_creation_credentials](../../img/apps/test-app-creation-info.png)
+1. In the top right corner, click on `Create a test App`
+2. Fill in all the required information<br />
+   &rarr; Paste your callback & activation URLs<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Activate URL: [your-ngrok-url]/activate<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Callback: [your-ngrok-url]/callback
+      ![Test_app_creation_credentials](../../img/apps/test-app-creation-info.png)
 3. Then click on `Create`
 4. Copy/paste credentials in your app configuration file
    ![Test_app_creation_credentials](../../img/apps/test-app-creation-credentials.png)
@@ -141,7 +138,7 @@ To create a test App:
 6. Your test App appears on the App Store page
 
 
-## Step 4: Connect your test App and access its settings
+### Step 4: Run your local App
 
 ![Test App on the App Store](../../img/apps/marketplace-with-test-app.png)
 
@@ -166,7 +163,7 @@ To know more about the step-by-step activation process, please read our article:
 [How to connect an App?](https://help.akeneo.com/pim/serenity/articles/how-to-connect-my-pim-with-apps.html#how-to-connect-an-app)
 :::
 
-## Step 5: Use your access token to call the API
+### Step 5: Use your access token to call the API
 
 At the end of this process, you receive the following response with an `access_token`:
 
