@@ -152,6 +152,10 @@ workflows:
             - infrastructure_services_apply_with_plan_prd
           target_stage_id: "prd"
           environment: "prd"
+      - deploy_stagging:
+          filters:
+            branches:
+              only: "7.0"
 
   environment_cleaner:
     jobs:
@@ -191,6 +195,29 @@ jobs:
           paths:
             - dist
 
+<<<<<<< HEAD
+=======
+  deploy_production:
+    machine:
+      image: ubuntu-2004:202111-02
+    steps:
+      - checkout
+      - add_ssh_keys
+      - run:
+          name: Deploy on production server
+          command: HOSTNAME=$PROD_HOSTNAME PORT=$PROD_PORT make deploy
+
+  deploy_stagging:
+    machine:
+      image: ubuntu-2004:202111-02
+    steps:
+      - checkout
+      - add_ssh_keys
+      - run:
+          name: Deploy on production server
+          command: HOSTNAME=$STAGING_HOSTNAME PORT=$STAGING_PORT make deploy
+
+>>>>>>> e64cb9b3 (Add temporarly deploy stagging into the CI)
   push_sources_to_bucket:
     parameters:
       impersonate_service_account_name:
@@ -220,7 +247,7 @@ jobs:
       - run:
           name: Configure credentials file for the orb and auth
           command: |
-            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/root\/project\/.<<parameters.target_stage_id>>\/.oidc_token.json#" .<<parameters.target_stage_id>>/.gcp_cred_config.json          
+            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/root\/project\/.<<parameters.target_stage_id>>\/.oidc_token.json#" .<<parameters.target_stage_id>>/.gcp_cred_config.json
             gcloud auth login --brief --cred-file ${GOOGLE_APPLICATION_CREDENTIALS}
       - run:
           name: Run rsync between local sources and the target bucket
@@ -246,7 +273,7 @@ jobs:
       - run:
           name: Generate custom config
           command: |
-            sed -i "s#.\/.oidc_token.json#.<<parameters.target_stage_id>>\/.oidc_token.json#" .gcp_cred_config.json  
+            sed -i "s#.\/.oidc_token.json#.<<parameters.target_stage_id>>\/.oidc_token.json#" .gcp_cred_config.json
             cp .gcp_cred_config.json .oidc_token.json .<<parameters.target_stage_id>>/
       - persist_to_workspace:
           root: .<<parameters.target_stage_id>>
@@ -375,14 +402,14 @@ jobs:
           name: Perform environment destroying
           command: |
             mkdir -p deployments/secrets
-            cp ${GOOGLE_APPLICATION_CREDENTIALS} .<<parameters.target_stage_id>>/.oidc_token.json deployments/secrets/   
-            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/deployments\/secrets\/.oidc_token.json#" deployments/secrets/.gcp_cred_config.json         
+            cp ${GOOGLE_APPLICATION_CREDENTIALS} .<<parameters.target_stage_id>>/.oidc_token.json deployments/secrets/
+            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/deployments\/secrets\/.oidc_token.json#" deployments/secrets/.gcp_cred_config.json
             envsToDestroy=($(echo "<< parameters.envs_to_destroy >>" | tr ',' ' '))
             for envToDestroy in "${envsToDestroy[@]}"
             do
               echo "**** Environment: ${envToDestroy} ****"
-              python3 .circleci/tools/destroyer/terraform_destroy.py --first_install false --stage <<parameters.target_stage_id>> --app_version <<pipeline.git.revision>> --pull_request <<parameters.pull_request>> --pull_request_id ${envToDestroy}              
-              python3 .circleci/tools/destroyer/remove_state_folder.py --pull_request_id ${envToDestroy}            
+              python3 .circleci/tools/destroyer/terraform_destroy.py --first_install false --stage <<parameters.target_stage_id>> --app_version <<pipeline.git.revision>> --pull_request <<parameters.pull_request>> --pull_request_id ${envToDestroy}
+              python3 .circleci/tools/destroyer/remove_state_folder.py --pull_request_id ${envToDestroy}
             done
 
 commands:
