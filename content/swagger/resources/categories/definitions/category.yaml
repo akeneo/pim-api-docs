@@ -17,7 +17,7 @@ properties:
     x-read-only: true
   position:
     type: integer
-    description: Position of the category in its level, start from 1 (only available on SaaS platforms and when query parameter "with_position" is set to "true")
+    description: Position of the category in its level, start from 1 (only available since 7.0 and when query parameter "with_position" is set to "true")
     x-read-only: true
   labels:
     type: object

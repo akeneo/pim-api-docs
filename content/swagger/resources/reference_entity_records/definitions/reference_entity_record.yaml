@@ -26,19 +26,19 @@ properties:
               description: Reference entity record value. See <a href='/concepts/reference-entities.html#the-data-format'>the `data` format</a> section for more details.
   created:
       type: string
-      description: Date of creation. (Only available on SaaS platforms)
+      description: Date of creation.
       format: dateTime
       default: null
       x-immutable: true
       x-read-only: true
-      x-from-version: "SaaS"
+      x-from-version: "5.0"
   updated:
       type: string
-      description: Date of the last update. (Only available on SaaS platforms)
+      description: Date of the last update.
       format: dateTime
       default: null
       x-read-only: true
-      x-from-version: "SaaS"
+      x-from-version: "5.0"
 example: {
   "code": "kartell",
   "values": {
