@@ -1,0 +1,10 @@
+application:
+  short_name: pim-api-docs
+gcp_project:
+  id: akecld-prd-pim-api-docs-dev
+  region: europe-west3
+  artifact_registry_name: docker-repository
+terraform:
+  version: 1.1.7
+  sources_path: /deployments
+  bucket_name: akecld-terraform-pim-api-docs-dev

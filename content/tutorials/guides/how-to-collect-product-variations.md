@@ -166,7 +166,7 @@ $apiUrl = '/api/rest/v1/product-models?'
     . 'locales=%s'
     . '&scope=%s'
     . '&search={"family":[{"operator":"IN","value":%s}]}'
-    . '&limit=' . $maxProductsPerPage;
+    . '&limit=%s';
 
 
 // Collect product models from API
@@ -177,7 +177,8 @@ foreach ($familyCodeChunks as $familyCodes) {
             $apiUrl,
             implode(',', $locales),
             $scope,
-            json_encode($familyCodes)
+            json_encode($familyCodes),
+            $maxProductsPerPage
         )
     );
     $data = json_decode($response->getBody()->getContents(), true);
@@ -187,7 +188,7 @@ foreach ($familyCodeChunks as $familyCodes) {
 $productModels = array_merge(...$productModels);
 
 // Save product models into storage
-saveProductModels($productModels);
+storeProductModels($productModels);
 ```
 ```javascript [activate:NodeJS]
 
@@ -221,7 +222,7 @@ for (const chunk of chunks) {
 }
 
 // Save product models into storage
-saveProductModels(productModels);
+storeProductModels(productModels);
 ```
 
 ##### 1.2 You are not following the App workflow?
@@ -234,26 +235,30 @@ $client = buildApiClient();
 $maxProductsPerPage = 100;
 $scope = 'ecommerce';
 
-$apiUrl = '/api/rest/v1/product-models?'
+$nextUrl = sprintf(
+    '/api/rest/v1/product-models?'
     . '&scope=%s'
-    . '&limit=' . $maxProductsPerPage;
-
-// Collect product models from paginated API
-$response = $client->get(sprintf($apiUrl, $scope));
-$data = json_decode($response->getBody()->getContents(), true);
+    . '&limit=%s',
+    $scope,
+    $maxProductsPerPage,
+);
 
 $productModels = [];
-$productModels[] = $data['_embedded']['items'];
-while (array_key_exists('next', $data['_links'])) {
-    $response = $client->get($data['_links']['next']['href']);
+do {
+    // Collect product models from API
+    $response = $client->get($nextUrl);
     $data = json_decode($response->getBody()->getContents(), true);
     $productModels[] = $data['_embedded']['items'];
-}
+
+    $nextUrl = $data['_links']['next']['href'] ?? null;
+} while (
+    $nextUrl
+);
 
 $productModels = array_merge(...$productModels);
 
 // Save product models into storage
-saveProductModels($productModels);
+storeProductModels($productModels);
 ```
 ```javascript [activate:NodeJS]
 
@@ -277,8 +282,67 @@ do {
 } while (nextUrl)
 
 // Save product models into storage
-saveProductModels(productModels);
+storeProductModels(productModels);
 ```
+
+Example output:
+```php [activate:PHP]
+
+var_export($productModels);
+
+// Output
+[
+    [
+        "_links" => [...],
+        "code" => "Acme Classic Mens Black PVC Work Boots",
+        "family" => "rubber_boots",
+        "family_variant" => "rubber_boots_by_size",
+        "parent" => null,
+        "categories" => [
+            "acme",
+            "master_clothing_footwear_footwear_rubber_boots"
+        ],
+        "values" => [...],
+        "created" => "2022-10-20T12:46:42+00:00",
+        "updated" => "2022-10-20T13:14:04+00:00",
+        "associations" => [...],
+        "quantified_associations" => [],
+        "metadata" => [
+            "workflow_status" => "working_copy"
+        ],
+    ],
+    /* ... */
+]; 
+```
+```javascript [activate:NodeJS]
+
+console.log(productModels);
+
+// Output
+[
+    {
+        "_links":{...},
+        "code":"Acme Classic Mens Black PVC Work Boots",
+        "family":"rubber_boots",
+        "family_variant":"rubber_boots_by_size",
+        "parent":null,
+        "categories":[
+            "acme",
+            "master_clothing_footwear_footwear_rubber_boots"
+        ],
+        "values":{...},
+        "created":"2022-10-20T12:46:42+00:00",
+        "updated":"2022-10-20T13:14:04+00:00",
+        "associations":{...},
+        "quantified_associations":[],
+        "metadata":{
+            "workflow_status":"working_copy"
+        }
+    },
+    /* ... */
+]
+```
+
 
 #### 2. Process product model
 ##### 2.1. Parse and store the product model
@@ -297,7 +361,7 @@ Query the API.
 $client = buildApiClient();
 
 $maxProductsPerPage = 100;
-$apiUrl = '/api/rest/v1/families/%s/variants?limit=' . $maxProductsPerPage;
+$apiUrl = '/api/rest/v1/families/%s/variants?limit=%s';
 
 // Get family codes from storage
 $codes = getFamilyCodes();
@@ -305,28 +369,29 @@ $codes = getFamilyCodes();
 // Collect family variants from API
 $familyVariants = [];
 foreach ($codes as $code) {
-    $response = $client->get(sprintf($apiUrl, $code));
-    $data = json_decode($response->getBody()->getContents(), true);
-    $familyVariants[] = $data['_embedded']['items'];
-
-    while (array_key_exists('next', $data['_links'])) {
-        $response = $client->get($data['_links']['next']['href']);
+    $nextUrl = sprintf($apiUrl, $code, $maxProductsPerPage);
+    do {
+        // Collect family variants from API
+        $response = $client->get($nextUrl);
         $data = json_decode($response->getBody()->getContents(), true);
         $familyVariants[] = $data['_embedded']['items'];
-    }
+
+        $nextUrl = $data['_links']['next']['href'] ?? null;
+    } while (
+        $nextUrl
+    );
 }
 
 $familyVariants = array_merge(...$familyVariants);
 
-//add index to $familyVariants
+// add index to $familyVariants
 $indexedFamilyVariants = [];
 foreach ($familyVariants as $familyVariant) {
     $indexedFamilyVariants[$familyVariant['code']] = $familyVariant;
 }
 
 // Save family variants into storage
-saveFamilyVariants($indexedFamilyVariants);
-
+storeFamilyVariants($indexedFamilyVariants);
 ```
 ```javascript [activate:NodeJS]
 
@@ -349,14 +414,14 @@ for (const code of familyCodes) {
     } while (nextUrl)
 }
 
-//add index to familyVariants
+// add index to familyVariants
 let indexedFamilyVariants = {};
 for (const familyVariant of familyVariants) {
     indexedFamilyVariants[familyVariant['code']] = familyVariant;
 }
 
 // Save family variants into storage
-saveFamilyVariants(indexedFamilyVariants);
+storeFamilyVariants(indexedFamilyVariants);
 ```
 
 ##### 2.2. Collect its product variants
@@ -377,12 +442,12 @@ $productModelCodesChunks = array_chunk($productModelCodes, $maxProductModelsPerQ
 
 $apiUrl = '/api/rest/v1/products-uuid?'
     . 'search={"parent":[{"operator":"IN","value":%s}]}'
-    . '&limit=' . $maxProductsPerPage;
+    . '&limit=%s';
 
 // Collect product models from API
 $productVariants = [];
 foreach ($productModelCodesChunks as $productModelCodes) {
-    $response = $client->get(sprintf($apiUrl, json_encode($productModelCodes)));
+    $response = $client->get(sprintf($apiUrl, json_encode($productModelCodes), $maxProductsPerPage));
     $data = json_decode($response->getBody()->getContents(), true);
     $productVariants[] = $data['_embedded']['items'];
 }
@@ -445,7 +510,7 @@ $apiUrl = '/api/rest/v1/product-models?'
     . 'locales=%s'
     . '&scope=%s'
     . '&search={"family":[{"operator":"IN","value":%s}],"parent":[{"operator":"EMPTY"}]}'
-    . '&limit=' . $maxProductsPerPage;
+    . '&limit=%s';
 
 
 // Collect product models from API
@@ -456,7 +521,8 @@ foreach ($familyCodeChunks as $familyCodes) {
             $apiUrl,
             implode(',', $locales),
             $scope,
-            json_encode($familyCodes)
+            json_encode($familyCodes),
+            $maxProductsPerPage
         )
     );
     $data = json_decode($response->getBody()->getContents(), true);
@@ -465,17 +531,18 @@ foreach ($familyCodeChunks as $familyCodes) {
 
 $productModels = array_merge(...$productModels);
 
-$familyVariants = getFamilyVariantsFromStorage();
+// Get family variants from storage
+$familyVariants = getFamilyVariants();
 foreach ($productModels as $key => $productModel) {
     $familyVariant = $familyVariants[$productModel['family_variant']];
     // extract all variations level
     $axes = array_column($familyVariant['variant_attribute_sets'], 'axes');
     // build flat axes
     $productModels[$key]['axes'] = array_merge(...$axes);
-
 }
+
 // Save product models into storage
-saveProductModels($productModels);
+storeProductModels($productModels);
 ```
 ```javascript [activate:NodeJS]
 
@@ -523,7 +590,7 @@ for (const productModel of productModels) {
 }
 
 // Save product models into storage
-saveProductModels(productModelsWithAxes);
+storeProductModels(productModelsWithAxes);
 ```
 
 ##### 1.2 - You are not following the App workflow?
@@ -539,26 +606,32 @@ $client = buildApiClient();
 $maxProductsPerPage = 100;
 $scope = 'ecommerce';
 
-$apiUrl = '/api/rest/v1/product-models?'
+$nextUrl = sprintf(
+    '/api/rest/v1/product-models?'
     . '&scope=%s'
     . '&search={"parent":[{"operator":"EMPTY"}]}'
-    . '&limit=' . $maxProductsPerPage;
+    . '&limit=%s',
+    $scope,
+    $maxProductsPerPage,
+);
 
-// Collect product models from paginated API
-$response = $client->get(sprintf($apiUrl, $scope));
-$data = json_decode($response->getBody()->getContents(), true);
-
+// Collect product models from API
 $productModels = [];
-$productModels[] = $data['_embedded']['items'];
-while (array_key_exists('next', $data['_links'])) {
-    $response = $client->get($data['_links']['next']['href']);
+do {
+    // Collect product models from API
+    $response = $client->get($nextUrl);
     $data = json_decode($response->getBody()->getContents(), true);
     $productModels[] = $data['_embedded']['items'];
-}
+
+    $nextUrl = $data['_links']['next']['href'] ?? null;
+} while (
+    $nextUrl
+);
 
 $productModels = array_merge(...$productModels);
 
-$familyVariants = getFamilyVariantsFromStorage();
+// Get family variants from storage
+$familyVariants = getFamilyVariants();
 foreach ($productModels as $key => $productModel) {
     $familyVariant = $familyVariants[$productModel['family_variant']];
     // extract all variations level
@@ -568,7 +641,7 @@ foreach ($productModels as $key => $productModel) {
 }
 
 // Save product models into storage
-saveProductModels($productModels);
+storeProductModels($productModels);
 ```
 ```javascript [activate:NodeJS]
 
@@ -605,7 +678,67 @@ for (const productModel of productModels) {
 }
 
 // Save product models into storage
-saveProductModels(productModelsWithAxes);
+storeProductModels(productModelsWithAxes);
+```
+
+Example output:
+```php [activate:PHP]
+
+var_export($productModels);
+
+// Output
+[
+    [
+        "_links" => [...],
+        "code" => "Acme Classic Mens Black PVC Work Boots",
+        "family" => "rubber_boots",
+        "family_variant" => "rubber_boots_by_size",
+        "parent" => null,
+        "categories" => [
+            "acme",
+            "master_clothing_footwear_footwear_rubber_boots"
+        ],
+        "values" => [...],
+        "created" => "2022-10-20T12:46:42+00:00",
+        "updated" => "2022-10-20T13:14:04+00:00",
+        "associations" => [...],
+        "quantified_associations" => [],
+        "metadata" => [
+            "workflow_status" => "working_copy"
+        ],
+        "axes" => ["shoe_size"]
+    ],
+    /* ... */
+]; 
+```
+```javascript [activate:NodeJS]
+
+console.log(productModels);
+
+// Output
+[
+    {
+        "_links":{...},
+        "code":"Acme Classic Mens Black PVC Work Boots",
+        "family":"rubber_boots",
+        "family_variant":"rubber_boots_by_size",
+        "parent":null,
+        "categories":[
+            "acme",
+            "master_clothing_footwear_footwear_rubber_boots"
+        ],
+        "values":{...},
+        "created":"2022-10-20T12:46:42+00:00",
+        "updated":"2022-10-20T13:14:04+00:00",
+        "associations":{...},
+        "quantified_associations":[],
+        "metadata":{
+            "workflow_status":"working_copy"
+        },
+        "axes":["shoe_size"]
+    },
+    /* ... */
+]
 ```
 
 #### 2. Process product model

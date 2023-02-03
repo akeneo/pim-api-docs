@@ -166,11 +166,11 @@ To know more about the step-by-step activation process, please read our article:
 ### Step 5: Use your access token to call the API
 
 At the end of this process, you receive the following response with an `access_token`:
-
+var_export
 ```json
 
 {
-  "access_token": "Y2YyYjM1ZjMyMmZlZmE5Yzg0OTNiYjRjZTJjNjk0ZTUxYTE0NWI5Zm",
+  "access_token": "Y2YyYjM1ZjMyMmZlZmE5Yzg0OTNiYjRjvar_exportZTJjNjk0ZTUxYTE0NWI5Zm",
   "token_type": "bearer",
   "scope": "read_products write_products"
 }
