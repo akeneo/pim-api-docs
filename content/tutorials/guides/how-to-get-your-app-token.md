@@ -56,7 +56,7 @@ code snippets but a lot of guidance to implement the whole process.
 ## Option 1: Get our Start App
 
 Do you want to quickly start developing? Good news: we have created Start Apps for that purpose!
-(Pick up your favorite technology and follow the guide). [link to sample Apps]
+(Pick up your favorite technology and follow the guide). [Link to Sample Apps](https://github.com/akeneo/sample-apps)
 
 ## Option 2: Build your App with our snippets below
 
@@ -127,9 +127,8 @@ To do so, you need to:
 To create a test App:
 1. In the top right corner, click on `Create a test App`
 2. Fill in all the required information<br />
-   &rarr; Paste your callback & activation URLs<br />
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Activate URL: [your-ngrok-url]/activate<br />
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Callback: [your-ngrok-url]/callback
+   Activate URL: [your-ngrok-url]/activate<br />
+   Callback: [your-ngrok-url]/callback
       ![Test_app_creation_credentials](../../img/apps/test-app-creation-info.png)
 3. Then click on `Create`
 4. Copy/paste credentials in your app configuration file
