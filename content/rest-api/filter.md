@@ -208,7 +208,7 @@ Here are the allowed operators you can use to filter by parent as well as the co
 | `NOT EMPTY` | no value                           | Only returns variant products                                                                                                                     |
 
 ::: warning
-The `IN`, `EMPTY` and `NOT EMPTY` operators are only available for SaaS customers
+The `IN`, `EMPTY` and `NOT EMPTY` operators are only available since the 7.0 version
 :::
 
 #### Examples
@@ -1068,7 +1068,7 @@ As seen previously, the attribute type determines which set of operators is avai
 | Allowed operators | Allowed value type                                 |
 | ----------------- | -------------------------------------------------- |
 | =, !=             | boolean                                            |
-| EMPTY, NOT EMPTY  | no value (only available since 5.0 and on SaaS versions) |
+| EMPTY, NOT EMPTY  | no value (only available since the 5.0 version) |
 
 **The `pim_catalog_date` attribute type**
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,Saas editions=CE,EE

@@ -412,7 +412,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "6x",
-                v7: "7x",
+                v7: "6x",
                 v6: "6x"
             }
         },

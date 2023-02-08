@@ -149,7 +149,7 @@ properties:
     description: Product completenesses for each channel/locale combination (only available since 7.0, and when the "with_completenesses" query parameter is set to "true")
     x-immutable: true
     x-read-only: true
-    x-from-version: 'SaaS'
+    x-from-version: '7.0'
     items:
       type: object
       properties:
