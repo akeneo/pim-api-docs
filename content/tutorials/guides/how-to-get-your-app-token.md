@@ -56,7 +56,7 @@ code snippets but a lot of guidance to implement the whole process.
 ## Option 1: Get our Start App
 
 Do you want to quickly start developing? Good news: we have created Start Apps for that purpose!
-(Pick up your favorite technology and follow the guide). [Link to Sample Apps](https://github.com/akeneo/sample-apps)
+([Pick up your favorite technology and follow the guide](https://github.com/akeneo/sample-apps)).
 
 ## Option 2: Build your App with our snippets below
 
