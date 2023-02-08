@@ -26,17 +26,17 @@ properties:
               description: Asset attribute value. See <a href='/concepts/asset-manager.html#the-data-format'>the `data` format</a> section for more details.
   created:
     type: string
-    description: Date of creation (Only available on SaaS versions)
+    description: Date of creation (Only available since the 7.0 version)
     format: dateTime
     x-immutable: true
     x-read-only: true
-    x-from-version: "SaaS"
+    x-from-version: "7.0"
   updated:
     type: string
-    description: Date of the last update (Only available on SaaS versions)
+    description: Date of the last update (Only available since the 7.0 version)
     format: dateTime
     x-read-only: true
-    x-from-version: "SaaS"
+    x-from-version: "7.0"
 example: {
   "code": "sku_54628_picture1",
   "values": {

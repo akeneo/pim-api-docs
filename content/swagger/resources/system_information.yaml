@@ -37,6 +37,7 @@ get:
     - System
   x-versions:
     - "6.0"
+    - "7.0"
     - "SaaS"
   x-no-token: true
   responses:

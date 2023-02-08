@@ -11,6 +11,7 @@ get:
     - "4.0"
     - "5.0"
     - "6.0"
+    - "7.0"
     - "SaaS"
   parameters:
     - $ref: '#/parameters/page'
@@ -124,6 +125,7 @@ post:
     - "4.0"
     - "5.0"
     - "6.0"
+    - "7.0"
     - "SaaS"
   parameters:
     - name: body
@@ -154,6 +156,7 @@ patch:
     - "4.0"
     - "5.0"
     - "6.0"
+    - "7.0"
     - "SaaS"
   description: This endpoint allows you to update and/or create several channels at once.
   x-body-by-line: Contains several lines, each line is a channel in JSON standard format

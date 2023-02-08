@@ -85,7 +85,7 @@ function determineCategory(tag){
 
 gulp.task('reference', ['clean-dist', 'less'], function() {
 
-    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3', '3.0', '3.1', '3.2', '4.0', '5.0', '6.0', 'SaaS'];
+    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3', '3.0', '3.1', '3.2', '4.0', '5.0', '6.0', '7.0', 'SaaS'];
     // We construct a reference index file and a complete reference file for each PIM version: 1.7, 2.0 and 2.1.
     // When we construct the 1.7 files, we filter to not include the new 2.0 and the 2.1 endpoints.
     // Same thing when we construct the 2.0 files, we filter to not include the 2.1 endpoints.
@@ -101,7 +101,8 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                         (version === '3.2') ? 'api-reference-index-32' :
                                         (version === '4.0') ? 'api-reference-index-40' :
                                         (version === '5.0') ? 'api-reference-index-50' :
-                                        (version === '6.0') ? 'api-reference-index-60' : 'api-reference-index';
+                                        (version === '6.0') ? 'api-reference-index-60' : 
+                                        (version === '7.0') ? 'api-reference-index-70' : 'api-reference-index';
         var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' :
                                     (version === '2.0') ? 'api-reference-20' :
                                     (version === '2.1') ? 'api-reference-21' :
@@ -112,7 +113,8 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                                     (version === '3.2') ? 'api-reference-32' :
                                     (version === '4.0') ? 'api-reference-40' :
                                     (version === '5.0') ? 'api-reference-50' :
-                                    (version === '6.0') ? 'api-reference-60' : 'api-reference';
+                                    (version === '6.0') ? 'api-reference-60' : 
+                                    (version === '7.0') ? 'api-reference-70' : 'api-reference';
 
         gulp.src('./content/swagger/akeneo-web-api.yaml')
             .pipe(swagger('akeneo-web-api.json'))

@@ -4,7 +4,7 @@ get:
   tags:
     - Product [uuid]
   x-versions:
-    - "SaaS"
+    - "7.0"
   x-ee: true
   description: This endpoint allows you to get the information about a given draft.
   parameters:
