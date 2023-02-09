@@ -186,7 +186,7 @@ aliases:
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202111-02
+      image: ubuntu-2204:2022.07.1
     steps:
       - checkout
       - run: make build
@@ -199,7 +199,7 @@ jobs:
 =======
   deploy_production:
     machine:
-      image: ubuntu-2004:202111-02
+      image: ubuntu-2204:2022.07.1
     steps:
       - checkout
       - add_ssh_keys
@@ -209,7 +209,7 @@ jobs:
 
   deploy_stagging:
     machine:
-      image: ubuntu-2004:202111-02
+      image: ubuntu-2204:2022.07.1
     steps:
       - checkout
       - add_ssh_keys
@@ -380,7 +380,7 @@ jobs:
         type: boolean
         default: true
     machine:
-      image: ubuntu-2004:202111-02
+      image: ubuntu-2204:2022.07.1
     environment:
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3

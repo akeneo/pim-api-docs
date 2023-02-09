@@ -30,13 +30,13 @@ properties:
     format: dateTime
     x-immutable: true
     x-read-only: true
-    x-from-version: "5.0"
+    x-from-version: "6.0"
   updated:
     type: string
     description: Date of the last update
     format: dateTime
     x-read-only: true
-    x-from-version: "5.0"
+    x-from-version: "6.0"
 example: {
   "code": "sku_54628_picture1",
   "values": {

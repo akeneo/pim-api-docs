@@ -146,7 +146,7 @@ properties:
     x-from-version: '5.0'
   completenesses:
     type: array
-    description: Product completenesses for each channel/locale combination (only available since 7.0, and when the "with_completenesses" query parameter is set to "true")
+    description: Product completenesses for each channel/locale combination (only available since the 7.0 version, and when the "with_completenesses" query parameter is set to "true")
     x-immutable: true
     x-read-only: true
     x-from-version: '7.0'

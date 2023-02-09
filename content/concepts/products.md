@@ -871,7 +871,7 @@ Note that the `family` field is only available since the 3.2 version.
 :::
 
 ::: warning
-Note that the `quality_scores` field is **only available since 7.0** and when the `with_quality_scores` query parameter is set to `true`.
+Note that the `quality_scores` field is **only available since the 7.0 version** and when the `with_quality_scores` query parameter is set to `true`.
 :::
 
 ::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodel)
