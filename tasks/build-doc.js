@@ -975,6 +975,7 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
 
 gulp.task('build-news', ['clean-dist','less'], function () {
     var pages = {
+        '2023.md': '2023',
         '2022.md': '2022',
         // 'whats-next.md': 'What\'s next?',
     };
