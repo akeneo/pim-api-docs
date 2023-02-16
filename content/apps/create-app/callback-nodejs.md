@@ -24,7 +24,7 @@ app.get('/callback', async (req, res, next) => {
     }
 
     // We check if the received state is the same as in the session, for security.
-    if (!state || state != session.state) {
+    if (!state || state !== session.state) {
       throw new Error("Invalid state");
     }
 
@@ -52,13 +52,17 @@ app.get('/callback', async (req, res, next) => {
     const accessTokenUrl = pimUrl + "/connect/apps/v1/oauth2/token";
     const response = await fetch(accessTokenUrl, {
       method: "post",
-      body: accessTokenRequestPayload,
+      body: accessTokenRequestPayload.toString(),
       headers: {"Content-Type": "application/x-www-form-urlencoded"},
     });
 
     const result = await response.json();
 
     const accessToken = result.access_token;
+
+    if (!accessToken) {
+        throw new LogicError("Missing access token in response");
+    }
 
     console.log(accessToken);
   } catch (err) {
