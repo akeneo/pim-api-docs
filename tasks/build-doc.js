@@ -623,6 +623,40 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
   }
 );
 
+gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
+    var pages = {
+        'homepage.md': 'Start building your App',
+        'overview.md': 'Overview',
+        'authentication-and-authorization.md': 'Authentication and authorization',
+        'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
+        'app-developer-tools.md': 'Developer tools',
+        'app-concepts-and-use-cases.md': 'App concepts and use cases'
+    };
+
+    var isOnePage = false;
+
+    return gulp.src(['content/apps/app-developer-tools.md'])
+        .pipe(flatmap(function (stream, file) {
+            return gulp.src('content/apps/app-developer-tools.md')
+                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/apps') + "\n"))
+                .pipe(gulpMarkdownIt(md))
+                .pipe(gulp.dest('tmp/apps/'))
+                .on('end', function () {
+                    return gulp.src('src/partials/apps-developer-tools.handlebars')
+                        .pipe(gulpHandlebars({
+                            mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        }, {
+                            partialsDirectory: ['./src/partials']
+                        }))
+                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                        .pipe(gulp.dest('./dist/apps'));
+                })
+        }));
+    }
+);
+
 gulp.task('build-apps', ['clean-dist','less'], function () {
     var pages = {
         'homepage.md': 'Start building your App',
@@ -635,7 +669,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
 
     var isOnePage = false;
 
-    return gulp.src(['content/apps/*.md'])
+    return gulp.src(['content/apps/*.md', '!content/apps/app-developer-tools.md'])
         .pipe(flatmap(function(stream, file){
             return gulp.src(['content/apps/*.md'])
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
