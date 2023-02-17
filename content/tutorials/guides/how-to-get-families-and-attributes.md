@@ -308,18 +308,21 @@ const attributeCodes = await getAttributeCodes();
 const maxAttributesPerQuery = 10;
 
 // split attributeCodes in chucks of $maxAttributesPerQuery elements
-const chunks = [];
+let chunks = [];
 while (attributeCodes.length > 0) {
     chunks.push(attributeCodes.splice(0, maxAttributesPerQuery));
 }
 
-const rawAttributes = [];
+let rawAttributes = [];
 for (const item of chunks) {
-    const apiUrl = `${pimUrl}/api/rest/v1/attributes?search={"code":[{"operator":"IN","value":${JSON.stringify(item)}}]}&limit=${maxItems}`;
-    const response = await get(apiUrl, accessToken);
-    let data = await response.json();
-    let newRawAttributes = data['_embedded']['items']
-    rawAttributes.push(...newRawAttributes);
+    let nextUrl = `${pimUrl}/api/rest/v1/attributes?search={"code":[{"operator":"IN","value":${JSON.stringify(item)}}]}&limit=` + maxItems;
+    do {
+        const response = await get(nextUrl, accessToken);
+        let data = await response.json();
+        let newRawAttributes = data['_embedded']['items']
+        rawAttributes.push(...newRawAttributes);
+        nextUrl = data._links?.next?.href;
+    } while (nextUrl);
 }
 
 // Only keep fields needed
