@@ -52,4 +52,5 @@ variable "pull_request" {
 variable "pull_request_id" {
   type        = string
   description = "Pull Request ID"
+  default     = ""
 }
