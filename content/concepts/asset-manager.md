@@ -1686,6 +1686,7 @@ There are several types of asset attributes, that will allow you to handle diffe
 - the [`number` attribute](#the-number-attribute),
 - the [`media file` attribute](#the-media_file-attribute),
 - the [`media link` attribute](#the-media-link-attribute).
+- the [`boolean` attribute](#the-boolean-attribute).
 
 ::: warning
 You can have a maximum of 100 attributes to describe the structure for one given asset family.    
@@ -1849,6 +1850,28 @@ The available media types that you can put in the `media_type` field are:
 - _"other"_.
 :::
 
+### The `boolean` attribute
+The boolean, or Yes/No, attribute is useful to hold binary information, such as whether the image should be used or not.
+
+Here is an example of a `boolean` attribute.
+![An example of a number asset attribute](/img/concepts/boolean-asset-attribute.svg)
+
+And here is the JSON format of the `boolean` attribute type.
+```json
+{
+  "code": "enabled",
+  "labels": {
+    "en_US": "Enabled",
+    "fr_FR": "Actif"
+  },
+  "type": "boolean",
+  "value_per_locale": false,
+  "value_per_channel": false,
+  "is_required_for_completeness": true,
+  "is_read_only": false
+}
+```
+
 ::: panel-link Want more details about the asset attribute resource? [Check its endpoints here!](/api-reference.html#Assetattribute)
 :::
 
@@ -2008,14 +2031,15 @@ In this formula:
 
 The table below describes the format of the `data` property for each [asset attribute](#asset-attribute) type.
 
-| Attribute type / Format| Example |
-| ----------------- | -------------- |
-| **Text** <br> _string_ | `"Scott, 2-seat sofa, grey"` |
-| **Media file** <br> _string_ | `"5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"` |
-| **Single option** <br> _string_ | `"s"` |
-| **Multiple options** <br> _Array[string]_ | `["leather", "cotton"]` |
-| **Number** <br> _string_ | `"1"` |
-| **Media link** <br> _string_ | `"sku_54628_picture1.jpg"` |
+| Attribute type / Format                   | Example                                                      |
+|-------------------------------------------|--------------------------------------------------------------|
+| **Text** <br> _string_                    | `"Scott, 2-seat sofa, grey"`                                 |
+| **Media file** <br> _string_              | `"5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"` |
+| **Single option** <br> _string_           | `"s"`                                                        |
+| **Multiple options** <br> _Array[string]_ | `["leather", "cotton"]`                                      |
+| **Number** <br> _string_                  | `"1"`                                                        |
+| **Media link** <br> _string_              | `"sku_54628_picture1.jpg"`                                   |
+| **Boolean** <br> _bool_                   | `true`                                                       |
 
 ### The `locale` and `channel` format
 
