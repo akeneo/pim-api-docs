@@ -346,7 +346,7 @@ console.log(productModels);
 
 #### 2. Process product model
 ##### 2.1. Parse and store the product model
-Parse and store a product or a product model is definitely the same thing. Please have a how to our guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>.
+Parse and store a product or a product model is definitely the same thing. Please have a look to our guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>.
 
 ##### 2.2. Collect its family variant
 ###### 2.2.1 You are following the App workflow?
