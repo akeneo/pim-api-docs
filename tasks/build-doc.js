@@ -633,6 +633,85 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
         'app-concepts-and-use-cases.md': 'App concepts and use cases'
     };
 
+    const startApp = {
+        'title': 'Start Apps',
+        'badge_name' : 'New',
+        'content': 'Starter for bootstraping your first Akeneo App quickly.',
+        'image': 'apps/dev-tools-langages.svg',
+        'rows': [
+            {
+                'image': 'icons/icon--github.png',
+                'content': 'Github repository:',
+                'breakline': true,
+                'link': 'https://github.com/akeneo/sample-apps',
+                'link_content': 'akeneo/sample-apps',
+            }
+        ],
+        'author': 'By Akeneo'
+    };
+
+    const apiTools = [
+        {
+            'title': 'Postman collection',
+            'badge_image' : 'apps/dev-tools-postman.svg',
+            'content': 'Test Akeneo APIs right away with our Postman collection.',
+            'rows': [
+                {
+                    'image': 'apps/dev-tools-download.svg',
+                    'link': '/files/Akeneo PIM API.postman_collection.json',
+                    'link_content': 'Download',
+                    'download': true,
+                },
+                {
+                    'image': 'apps/dev-tools-akeneo.svg',
+                    'breakline': true,
+                    'content': 'Documentation:',
+                    'link': '/getting-started/your-first-tutorial-4x/step-2.html',
+                    'link_content': 'Importing data into Postman',
+                },
+            ],
+            'author': 'By Akeneo'
+        },
+        {
+            'title': 'PHP API client',
+            'content': 'The PHP client eases the usage of the REST API in your PHP projects when building extensions and/or tools for your PIM.',
+            'rows': [
+                {
+                    'image': 'icons/icon--github.png',
+                    'content': 'Github repository:',
+                    'breakline': true,
+                    'link': 'https://github.com/akeneo/api-php-client',
+                    'link_content': 'akeneo/api-php-client',
+                },
+                {
+                    'image': 'apps/dev-tools-akeneo.svg',
+                    'content': 'Documentation:',
+                    'link': '/php-client/introduction.html',
+                    'link_content': 'PHP API client',
+                },
+            ],
+            'author': 'By Akeneo'
+        },
+    ];
+
+    const app = {
+        'title': 'Demo App',
+        'content': 'Our official and already-in-production ' +
+            'Demo App will help you to understand ' +
+            'how to use Akeneo App features.',
+        'image': 'apps/dev-tools-php.svg',
+        'rows': [
+            {
+                'image': 'icons/icon--github.png',
+                'content': 'Github repository:',
+                'breakline': true,
+                'link': 'https://github.com/akeneo/demo-app',
+                'link_content': 'akeneo/demo-app',
+            }
+        ],
+        'author': 'By Akeneo'
+    };
+
     var isOnePage = false;
 
     return gulp.src(['content/apps/app-developer-tools.md'])
@@ -645,6 +724,9 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
                 .on('end', function () {
                     return gulp.src('src/partials/apps-developer-tools.handlebars')
                         .pipe(gulpHandlebars({
+                            startApp : startApp,
+                            apiTools : apiTools,
+                            app : app,
                             mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
                         }, {
                             partialsDirectory: ['./src/partials']
