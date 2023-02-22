@@ -17,7 +17,7 @@ Catalogs are only created by apps and configured by Akeneo users from Akeneo PXM
 
 Using Catalogs helps you better manage the product information you get from the Akeneo PXM Studio. 
 
-Most of the time, developers must design, develop and maintain a filter interface to allow users to configure their product selection: which products must be taken into account and which don't. 
+Most of the time, developers must design, develop and maintain a filter interface to allow users to configure their product selection: which products must be considered and which don't. 
 Using catalogs for apps prevents you from adding this filtering interface to your app. When you retrieve product information related to a catalog, you only retrieve the data your app needs to process. 
 
 Moreover, with catalogs, you don't have to master the entire PIM structure anymore to deliver a relevant filtering interface, as the Akeneo PXM Studio already provides it to your users. 
@@ -31,9 +31,9 @@ To ensure Akeneo PXM Studio remains stable, we added some limits to catalogs:
 
 ### Troubleshooting
 
-#### Automatic deactivation on catalogs
+#### Automatic deactivation of catalogs
 
-When a product selection becomes invalid, e.g. a selected category no longer exists, the PIM automatically disables the catalog. 
+When a product selection becomes invalid, e.g., a selected category no longer exists, the PIM automatically disables the catalog. 
 
 In that case, your app receives an HTTP 200 response containing the following payload.
 
@@ -74,7 +74,7 @@ To manage catalogs, you need to ask for at least 4 scopes:
 In the documentation [Ask for authorizations](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations), 
 you can discover how to ask for scopes.
 
-Once Akeneo users accept these scopes during the app connection, you will be able to manage and use catalogs.
+Once Akeneo users accept these scopes during the app connection, you can manage and use catalogs.
 
 ### Step 2: Create catalogs
 
@@ -88,7 +88,7 @@ To help your users know how to configure a catalog, give it the most descriptive
 :::
 
 **By default, new catalogs are disabled and only users can enable a catalog.** 
-It means that until a user hasn't enabled it, you won't be able to retrieve products for this catalog. 
+It means that once a user has enabled it, you won't be able to retrieve products for this catalog. 
 
 <img class="img-responsive in-article" alt="Enable catalog field" src="../img/apps/app-catalog-enable-button.png" style="max-width: 600px;">
 
@@ -103,7 +103,7 @@ At any moment, you can verify if a catalog is enabled by calling the [get catalo
 
 ### Step 3: Get products using catalogs
 
-Once you have an enabled catalog, you can paginate the corresponding products using this [endpoint](/api-reference.html#get_app_catalog_products).
+Once you have an enabled catalog, paginate the related products using this [endpoint](/api-reference.html#get_app_catalog_products).
 
 ### Next steps
 - Learn [how to use the product mapping feature](/getting-started/synchronize-pim-products-6x/welcome.html)
@@ -130,18 +130,13 @@ After completing this tutorial, you'll be able to push your JSON mapping schema 
 The first step to using the mapping feature is determining the JSON schema you need to push to the Akeneo PIM to get mapped product data. 
 
 ::: info 
-**JSON Schema is a declarative language that allows to annotate and validate JSON documents.** It describes an existing data format, provides clear human- and machine-readable documentation, and allows to validate data which is useful for ensuring the quality of client-submitted data.
+**JSON Schema is a declarative language that allows annotating and validating JSON documents.** It describes an existing data format, provides clear human- and machine-readable documentation, and allows to validate data which is useful for ensuring the quality of client-submitted data.
 :::
 
-To help you define your schema, we advise you to use this online validator pre-configured with our latest meta-schema: [jsonschemavalidator.net](https://www.jsonschemavalidator.net/s/jlmmR4k6). The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints. 
+To help you define your schema, we advise you to use this online validator pre-configured with our latest meta-schema: [jsonschemavalidator.net](https://www.jsonschemavalidator.net/s/HAJa8hyS). The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints. 
 
-You can also download the latest meta-schema at this url:  
-[product mapping meta-schema](/mapping/product/0.0.2/schema) - v0.0.2 (November 10, 2022)
+You can also download the latest meta-schema at this url: [product mapping meta-schema - v0.0.9 (February, 2023)](/mapping/product/0.0.9/schema)
 
-::: warning
-**You can only ask for string properties, and map PIM text attributes with the alpha version**.  
-In the coming months, we will cover more property types and, therefore, more PIM attribute types.  
-:::
 
 ### Step 2: Push your product mapping schema
 
@@ -159,7 +154,8 @@ To do so, please:
 3. Go to the `Product mapping` tab 
 4. Fill in the mapping and enable the catalog using the `Enable catalog` button in the catalog header
 
-We use your product mapping schema to display a screen where your users will configure their catalog. Here is how we use the JSON schema data:
+We use your product mapping schema to display a screen where your users will configure their catalog. 
+Here is an example of an interface displayed using a JSON schema:
 
 <!-- TODO screenshot with helpers -->
 
