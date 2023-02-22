@@ -133,9 +133,9 @@ The first step to using the mapping feature is determining the JSON schema you n
 **JSON Schema is a declarative language that allows annotating and validating JSON documents.** It describes an existing data format, provides clear human- and machine-readable documentation, and allows to validate data which is useful for ensuring the quality of client-submitted data.
 :::
 
-To help you define your schema, we advise you to use this online validator pre-configured with our latest meta-schema: [jsonschemavalidator.net](https://www.jsonschemavalidator.net/s/HAJa8hyS). The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints. 
+To help you define your schema, we advise you to use this online validator pre-configured with our latest meta-schema: [jsonschemavalidator.net](https://www.jsonschemavalidator.net/s/D85OL1LE). The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints. 
 
-You can also download the latest meta-schema at this url: [product mapping meta-schema - v0.0.9 (February, 2023)](/mapping/product/0.0.9/schema)
+You can also download the latest meta-schema at this url: [product mapping meta-schema - v0.0.6 (February, 2023)](/mapping/product/0.0.6/schema)
 
 
 ### Step 2: Push your product mapping schema
