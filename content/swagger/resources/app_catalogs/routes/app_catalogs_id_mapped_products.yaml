@@ -59,25 +59,21 @@ get:
                         {
                             "uuid": "04f47a54-8cc9-4c51-90e9-eb9aace0865f",
                             "title": "Canon Video Visualiser RE-455X",
-                            "description": "",
                             "code": "sku-1234"
                         },
                         {
                             "uuid": "06dc8c5b-9e2f-4423-b9dd-31a3aaa0a048",
                             "title": "Trust Cuby Pro",
-                            "description": "",
                             "code": "sku-1235"
                         },
                         {
                             "uuid": "0c3635f9-fedc-4bbd-96ab-856f69746b56",
                             "title": "Trust Urban Revolt",
-                            "description": "",
                             "code": "sku-1236"
                         },
                         {
                             "uuid": "0e957ed4-fa44-48de-b6c7-7149d890fb3a",
                             "title": "Microsoft LifeCam Studio",
-                            "description": "",
                             "code": "sku-1237"
                         }
                     ]
