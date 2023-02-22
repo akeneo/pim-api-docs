@@ -88,7 +88,7 @@ To help your users know how to configure a catalog, give it the most descriptive
 :::
 
 **By default, new catalogs are disabled and only users can enable a catalog.**
-It means that  once a user has enabled it, you won't be able to retrieve products for this catalog. 
+It means that once a user has enabled it, you won't be able to retrieve products for this catalog. 
 
 <img class="img-responsive in-article" alt="Enable catalog field" src="../img/apps/app-catalog-enable-button.png" style="max-width: 600px;">
 
