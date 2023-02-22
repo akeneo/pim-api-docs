@@ -1,0 +1,45 @@
+type: object
+required: ["$schema","properties"]
+properties:
+    $id:
+        type: string
+        description: id of your schema
+    $schema:
+        type: string
+        description: $schema indicates which product mapping schema version your app uses
+    $comment:
+        type: string
+        description: allows you to add a comment
+    title:
+        type: string
+        description: allows you to add a title to your mapping schema
+    description:
+        type: string
+        description: allows you to add a description of your mapping schema
+    type:
+        type: string
+        description: should always be "object"
+    properties:
+        type: object
+        description: list and describe the targets your app expects
+example: {
+  "$id": "https://example.com/product",
+  "$schema": "https://api.akeneo.com/mapping/product/0.0.2/schema",
+  "$comment": "My first schema !",
+  "title": "Product Mapping",
+  "description": "JSON Schema describing the structure of products expected by the app",
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "body_html": {
+      "title": "Description",
+      "description": "Product description in raw HTML",
+      "type": "string"
+    }
+  }
+}

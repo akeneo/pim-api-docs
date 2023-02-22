@@ -78,6 +78,8 @@ function determineCategory(tag){
         case 'Catalogs':
         case 'Catalog products':
             return 'Catalogs for Apps <span class="label label-beta">Beta</span>';
+        case 'Mapping schema for products':
+            return 'Catalogs for Apps <span class="label label-beta">Beta</span>';
         default:
             return 'Utilities';
     }
