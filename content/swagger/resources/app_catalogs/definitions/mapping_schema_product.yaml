@@ -24,22 +24,61 @@ properties:
         description: list and describe the targets your app expects
 example: {
   "$id": "https://example.com/product",
-  "$schema": "https://api.akeneo.com/mapping/product/0.0.2/schema",
-  "$comment": "My first schema !",
+  "$schema": "https://api.akeneo.com/mapping/product/0.0.6/schema",
+  "$comment": "My schema !",
   "title": "Product Mapping",
-  "description": "JSON Schema describing the structure of products expected by the app",
+  "description": "JSON Schema describing the structure of products expected by our application",
   "type": "object",
   "properties": {
     "uuid": {
+      "title": "Product UUID",
+      "type": "string"
+    },
+    "sku": {
+      "title": "SKU (Stock Keeping Unit)",
+      "description": "Selling Partner SKU (stock keeping unit) identifier for the listing. \n SKU uniquely identifies a listing for a Selling Partner.",
       "type": "string"
     },
     "name": {
+      "title": "Product name",
       "type": "string"
     },
     "body_html": {
-      "title": "Description",
+      "title": "Description (textarea)",
       "description": "Product description in raw HTML",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255
+    },
+    "main_image": {
+      "title": "Main image",
+      "description": "Format: URI/link",
+      "type": "string",
+      "format": "uri"
+    },
+    "main_color": {
+      "title": "Main color",
+      "description": "The main color of the product, used by grid filters on your e-commerce website.",
       "type": "string"
+    },
+    "weight": {
+      "title": "Weight (g)",
+      "type": "number"
+    },
+    "available": {
+      "title": "Is available",
+      "description": "Used to display when a product is out of stock on your e-commerce website.",
+      "type": "boolean"
+    },
+    "price": {
+      "title": "Price (€)",
+      "type": "number"
+    },
+    "publication_date": {
+      "title": "Publication date",
+      "description": "Format: ISO 8601 standard. \nUsed to filter products that must be published on your e-commerce website depending on the current date.",
+      "type": "string",
+      "format": "date-time"
     }
   }
 }
