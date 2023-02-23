@@ -97,7 +97,7 @@ get:
                 "fr_FR": "Femme",
                 "de_DE": "Damen"
               },
-              "values": null
+              "values": {}
             },
             {
               "_links": {
@@ -114,7 +114,7 @@ get:
                 "fr_FR": "Homme",
                 "de_DE": "Herren"
               },
-              "values": null
+              "values": {}
             },
             {
               "_links": {
@@ -131,7 +131,7 @@ get:
                 "fr_FR": "Enfant",
                 "de_DE": "Kinder"
               },
-              "values": null
+              "values": {}
             },
             {
               "_links": {
@@ -148,7 +148,7 @@ get:
                 "fr_FR": "Collection été",
                 "de_DE": "Sommer-Kollektion"
               },
-              "values": null
+              "values": {}
             }
           ]
         }
