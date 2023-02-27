@@ -152,10 +152,6 @@ workflows:
             - infrastructure_services_apply_with_plan_prd
           target_stage_id: "prd"
           environment: "prd"
-      - deploy_stagging:
-          filters:
-            branches:
-              only: "7.0"
 
   environment_cleaner:
     jobs:
@@ -195,29 +191,6 @@ jobs:
           paths:
             - dist
 
-<<<<<<< HEAD
-=======
-  deploy_production:
-    machine:
-      image: ubuntu-2204:2022.07.1
-    steps:
-      - checkout
-      - add_ssh_keys
-      - run:
-          name: Deploy on production server
-          command: HOSTNAME=$PROD_HOSTNAME PORT=$PROD_PORT make deploy
-
-  deploy_stagging:
-    machine:
-      image: ubuntu-2204:2022.07.1
-    steps:
-      - checkout
-      - add_ssh_keys
-      - run:
-          name: Deploy on production server
-          command: HOSTNAME=$STAGING_HOSTNAME PORT=$STAGING_PORT make deploy
-
->>>>>>> e64cb9b3 (Add temporarly deploy stagging into the CI)
   push_sources_to_bucket:
     parameters:
       impersonate_service_account_name:
