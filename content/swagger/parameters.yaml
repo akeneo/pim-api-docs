@@ -160,3 +160,10 @@ with_enriched_attributes:
   required: false
   type: boolean
   x-from-version: "SaaS"
+with_enriched_attributes_coming_soon:
+  name: with_enriched_attributes
+  in: query
+  description: Return attribute values of the category (only available on SaaS platforms) <strong>[COMING SOON]<strong>
+  required: false
+  type: boolean
+  x-from-version: "SaaS"
