@@ -288,7 +288,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
     var pages = {
         'your-first-tutorial-4x': {
             gettingStartedName: 'your-first-tutorial',
-            pimVersion: 'v4 / v5 / v6 / SaaS',
+            pimVersion: 'v4 / v5 / v6 / v7 / SaaS',
             title: 'Your very first tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -299,6 +299,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v7: "4x",
                 v6: "4x",
                 v5: "4x",
                 v4: "4x",
@@ -318,6 +319,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v7: "4x",
                 v6: "4x",
                 v5: "4x",
                 v4: "4x",
@@ -326,7 +328,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         },
         'connect-the-pim-4x': {
             gettingStartedName: 'connect-the-pim',
-            pimVersion: 'v4 / v5 / v6 / SaaS',
+            pimVersion: 'v4 / v5 / v6 / v7 / SaaS',
             title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -337,6 +339,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v7: "4x",
                 v6: "4x",
                 v5: "4x",
                 v4: "4x",
@@ -356,6 +359,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v7: "4x",
                 v6: "4x",
                 v5: "4x",
                 v4: "4x",
@@ -364,7 +368,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         },
         'quick-start-my-first-webhook-5x': {
             gettingStartedName: 'quick-start-my-first-webhook',
-            pimVersion: 'v5 / v6 / SaaS',
+            pimVersion: 'v5 / v6 / v7/ SaaS',
             title: 'Quick start my first webhook',
             files: {
                 'welcome.md': 'Welcome',
@@ -373,26 +377,28 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "5x",
+                v7: "5x",
                 v6: "5x",
                 v5: "5x"
             }
         },
         'events-api-best-practices-5x': {
             gettingStartedName: 'events-api-best-practices',
-            pimVersion: 'v5 / v6 / SaaS',
+            pimVersion: 'v5 / v6 / v7 / SaaS',
             title: 'Events API best practices',
             files: {
                 'welcome.md': 'Best practices',
             },
             availability: {
                 serenity: "5x",
+                v7: "5x",
                 v6: "5x",
                 v5: "5x"
             }
         },
         'synchronize-pim-products-6x': {
             gettingStartedName: synchronizePimProductsName,
-            pimVersion: 'v6 / SaaS',
+            pimVersion: 'v6 / v7 / SaaS',
             title: 'Synchronize PIM products with your App',
             files: {
                 'welcome.md': 'Welcome',
@@ -406,18 +412,20 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "6x",
+                v7: "6x",
                 v6: "6x"
             }
         },
         'from-identifiers-to-uuid-7x': {
             gettingStartedName: 'from-identifiers-to-uuid',
-            pimVersion: 'SaaS',
+            pimVersion: 'v7 / SaaS',
             title: 'From product identifiers to UUID',
             files: {
                 'welcome.md': 'Guide',
             },
             availability: {
                 serenity: "7x",
+                v7: "7x",
             }
         },
     };

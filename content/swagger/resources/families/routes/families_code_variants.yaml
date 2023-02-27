@@ -10,6 +10,7 @@ get:
     - "4.0"
     - "5.0"
     - "6.0"
+    - "7.0"
     - "SaaS"
   parameters:
     - $ref: '#/parameters/family_code'
@@ -68,6 +69,7 @@ post:
     - "4.0"
     - "5.0"
     - "6.0"
+    - "7.0"
     - "SaaS"
   description: This endpoint allows you to create a family variant.
   parameters:
@@ -100,6 +102,7 @@ patch:
     - "4.0"
     - "5.0"
     - "6.0"
+    - "7.0"
     - "SaaS"
   description: This endpoint allows you to update and/or create several family variants at once, for a given family.
   x-body-by-line: Contains several lines, each line is a family in JSON standard format

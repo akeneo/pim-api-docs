@@ -17,7 +17,7 @@ Below you will find which PHP client version to use depending on your PIM versio
 | v3.0 - v3.1 | v4.0                        | August 2020                                                                       |
 | v3.2 - v4.0 | v5.0                        | August 2021                                                                       |
 | v5.0        | v6.0                        | September 2022                                                                    |
-| v6.0 - SaaS | v7.0 to current latest      |                                                                                   |
+| v6.0 - v7.0 - SaaS | v7.0 to current latest      |                                                                                   |
 
 ### Enterprise Edition
 
