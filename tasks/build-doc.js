@@ -638,7 +638,8 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'authentication-and-authorization.md': 'Authentication and authorization',
         'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
         'app-developer-tools.md': 'Developer tools',
-        'app-concepts-and-use-cases.md': 'App concepts and use cases'
+        'app-concepts-and-use-cases.md': 'App concepts and use cases',
+        'publish-your-app.md': 'Publish your app'
     };
 
     var isOnePage = false;
