@@ -1,7 +1,7 @@
 # From product identifier to product UUID
 
 ::: warning
-This guide only concerns Serenity users.
+This guide only concerns 7.0 and Serenity users.
 :::
 
 ::: info

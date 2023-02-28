@@ -102,11 +102,11 @@ with_attribute_options:
 with_table_select_options:
   name: with_table_select_options
   in: query
-  description: Return the options of 'select' column types (of a table attribute) in the response. (Only available on SaaS platforms)
+  description: Return the options of 'select' column types (of a table attribute) in the response. (Only available since the 7.0 version)
   default: false
   type: boolean
   required: false
-  x-from-version: "SaaS"
+  x-from-version: "7.0"
 with_quality_scores__products:
   name: with_quality_scores
   in: query
@@ -118,14 +118,14 @@ with_quality_scores__products:
 with_quality_scores__product_models:
   name: with_quality_scores
   in: query
-  description: Return product model quality scores in the response. <strong>(Only available on SaaS platforms)</strong>
+  description: Return product model quality scores in the response. <strong>(Only available since the 6.0 version)</strong>
   type: boolean
   required: false
   x-from-version: "6.0"
 with_completenesses:
   name: with_completenesses
   in: query
-  description: Return product completenesses in the response. (Only available on SaaS platforms)
+  description: Return product completenesses in the response. (Only available since the 6.0 version)
   default: false
   type: boolean
   required: false
@@ -133,10 +133,10 @@ with_completenesses:
 with_position:
   name: with_position
   in: query
-  description: Return information about category position into its category tree (only available on SaaS platforms)
+  description: Return information about category position into its category tree (only available since the 7.0 version)
   required: false
   type: boolean
-  x-from-version: "SaaS"
+  x-from-version: "7.0"
 updated_before:
   name: updated_before
   in: query
@@ -157,6 +157,13 @@ with_enriched_attributes:
   name: with_enriched_attributes
   in: query
   description: Return attribute values of the category (only available on SaaS platforms)
+  required: false
+  type: boolean
+  x-from-version: "SaaS"
+with_enriched_attributes_coming_soon:
+  name: with_enriched_attributes
+  in: query
+  description: Return attribute values of the category (only available on SaaS platforms) <strong>[COMING SOON]<strong>
   required: false
   type: boolean
   x-from-version: "SaaS"

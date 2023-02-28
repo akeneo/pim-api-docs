@@ -11,6 +11,7 @@ get:
     - "4.0"
     - "5.0"
     - "6.0"
+    - "7.0"
     - "SaaS"
   parameters:
     - $ref: '#/parameters/attribute_code'
@@ -115,6 +116,7 @@ post:
     - "4.0"
     - "5.0"
     - "6.0"
+    - "7.0"
     - "SaaS"
   parameters:
     - $ref: '#/parameters/attribute_code'
@@ -148,6 +150,7 @@ patch:
     - "4.0"
     - "5.0"
     - "6.0"
+    - "7.0"
     - "SaaS"
   description: This endpoint allows you to update several attribute options at once.
   x-body-by-line: Contains several lines, each line is an attribute option in JSON standard format

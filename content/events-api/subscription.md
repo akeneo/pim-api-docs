@@ -84,7 +84,7 @@ This request is JSON-based (`Content-Type: application/json`) and contains wrapp
 ## Debug events
 
 ::: warning
-The following features are only available for **SaaS customers**.
+The following features are **only available since the 6.0 version** and for **SaaS customers**.
 ::: 
 
 As you can read on our help center page [Subscribe and manage **events**](https://help.akeneo.com/pim/serenity/articles/manage-event-subscription.html#debug), we give you two ways to consult the logs related to all the event requests sent to a connection: 

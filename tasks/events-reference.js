@@ -238,7 +238,7 @@ md.use(require("markdown-it-container"), "event_api_reference", {
         if (tokens[idx].nesting !== 1) {
             return '';
         }
-        
+
         const m = tokens[idx].info.trim().match(/^event_api_reference(.*)$/);
         const referenceFilePath = m[1].trim();
 
@@ -266,7 +266,7 @@ gulp.task('build-events-reference-page', ['clean-dist','less'], function () {
                 'products.md': 'Products',
                 'product-models.md': 'Product models'
             }
-        }, 
+        },
         'events-reference-5.0': {
             gettingStartedName: 'events-api-reference',
             pimVersion: '5.0',
@@ -280,6 +280,16 @@ gulp.task('build-events-reference-page', ['clean-dist','less'], function () {
         'events-reference-6.0': {
             gettingStartedName: 'events-api-reference',
             pimVersion: '6.0',
+            title: 'Events API reference',
+            image: 'illustrations/illus--serenity.svg',
+            files: {
+                'products.md': 'Products',
+                'product-models.md': 'Product models'
+            }
+        },
+        'events-reference-7.0': {
+            gettingStartedName: 'events-api-reference',
+            pimVersion: '7.0',
             title: 'Events API reference',
             image: 'illustrations/illus--serenity.svg',
             files: {
