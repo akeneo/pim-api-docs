@@ -7,7 +7,7 @@ This guide will give you information about OAuth 2.0 and the OpenID concept that
 By following the “getting started” sections below, we will walk you through each of these concepts in a step by step process.
 
 ::: tips 
-If you just want to bootstrap an App with predefined authorization scopes to start your development, follow our [dedicated tutorial](/tutorials/how-to-get-your-app-token.html).
+If you simply want to bootstrap an App with predefined authorization scopes to start your development, follow our [Sample Apps](https://github.com/akeneo/sample-apps).
 :::
 
 ### Authorization vs authentication
