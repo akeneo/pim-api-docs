@@ -38,6 +38,6 @@
   </div>
   <div class="block-create-app-row block-create-app-text">
     <img class="block-create-app-github" src="/img/icons/icon--github.png" />
-    <p>Interested by the big picture? Check a&nbsp;<span class="block-link"><a href="https://github.com/akeneo/demo-app">PHP App example.</a></span></p>
+    <p>Use&nbsp;<span class="block-link"><a href="https://github.com/akeneo/sample-apps">Start App </a></span>to bootstrap your App in PHP, NodeJS or Python </p>
   </div>
 </div>

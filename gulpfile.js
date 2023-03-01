@@ -49,6 +49,7 @@ gulp.task('create-dist', [
   'build-guides',
   'build-getting-started',
   'build-events-reference-page',
+  'build-app-developer-tools',
   'build-apps',
   'build-tutorials-homepage',
   'build-tutorials',
