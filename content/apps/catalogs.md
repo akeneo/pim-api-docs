@@ -156,7 +156,7 @@ To do so, please:
 We use your product mapping schema to display a screen where your users will configure their catalog.
 Here is an example of an interface displayed using a JSON schema:
 
-<!-- TODO screenshot with helpers -->
+![Example of a mapping interface](../img/apps/mapping-interface.png)
 
 ### Next steps
 - Explore the [REST API reference](/api-reference-index.html) 
