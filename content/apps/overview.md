@@ -78,7 +78,7 @@ Your app is good to go?
 ## Develop an app for a custom need
 
 With **Custom apps**, we're introducing a SaaS-compliant way to have a one size fits one scenario.  
-When you don't find an on-the-shelf App answering your exact need on the Akeneo App Store, Custom apps allow you to develop your own app and benefit from all Apps features without having to publish it. 
+When you don't find an on-the-shelf App answering your exact need on the Akeneo App Store, Custom apps allow you to develop your own app and benefit from all app features without publishing it. 
 
 Discover our to create a custom app following our [How to get your app token](/tutorials/how-to-get-your-app-token.html) guided tutorial.
 
