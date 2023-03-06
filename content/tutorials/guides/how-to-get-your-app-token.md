@@ -104,58 +104,58 @@ If everything goes well the command will output your public URL for your local A
 
 ![Ngrok result](../../img/apps/app-ngrok-result.png)
 
-### Step 3: Declare your local App as a test App in your sandbox to generate credentials
+### Step 3: Declare your local App as a custom App in your sandbox to generate credentials
 
-To get credentials for your app, you need to create a test App on your developer sandbox.
+To get credentials for your app, you need to create a custom App on your developer sandbox.
 
 First of all, go to `Connect`, then `App Store`
 
 #### Permissions
 
-If you see `Create a test App` skip to [Connect app](#connect-app), else please enable the `developer mode`.
-![Create a test App button](../../img/apps/create-a-test-app-button.png)
+If you see `Create an App` skip to [Connect app](#connect-app), else please update your role permissions.
+![Create an app button](../../img/apps/create-a-custom-app-button.png) 
 
 To do so, you need to:
 1. Go to `System`, then `Roles`
 2. Choose the role you use for your user
-3. In the `Permissions` tab, scroll down and search for the `Developer mode` submenu
-4. Select `Manage test apps`
+3. In the `Permissions` tab, scroll down and search for the `Connect` submenu
+4. Select `Create and delete custom apps`
 5. Don't forget to save your modifications
 
 #### Connect app
 
-To create a test App:
-1. In the top right corner, click on `Create a test App`
+To create a Custom App:
+1. In the top right corner, click on `Create an App`
 2. Fill in all the required information<br />
    Activate URL: [your-ngrok-url]/activate<br />
    Callback: [your-ngrok-url]/callback
-      ![Test_app_creation_credentials](../../img/apps/test-app-creation-info.png)
+      ![Custom app creation screen](../../img/apps/custom-app-creation-info.png)
 3. Then click on `Create`
 4. Copy/paste credentials in your app configuration file
-   ![Test_app_creation_credentials](../../img/apps/test-app-creation-credentials.png)
+   ![Custom app credentials screen](../../img/apps/custom-app-creation-credentials.png)
 5. And click on `Done`
-6. Your test App appears on the App Store page
+6. Your custom App appears on the App Store page
 
 
 ### Step 4: Run your local App
 
-![Test App on the App Store](../../img/apps/marketplace-with-test-app.png)
+![Custom App on the App Store](../../img/apps/marketplace-with-custom-app.png)
 
-Connecting a test App is like connecting a published App. 
+Connecting a Custom App is like connecting a Published App. 
 
 1. Launch your APP
 2. Click on `Connect`
 3. Your App opens in a new tab of your browser
 4. Launch the connection process from your App
 5. Follow all the activation process steps, then `Confirm`
-6. Your test App is now connected with Akeneo PIM! 🔗
+6. Your custom App is now connected with Akeneo PIM! 🔗
 
 Now that your App is connected, you can enjoy all the available App features from the Akeneo PXM Studio UI and test that your App works well. 
 
 To access the settings of your connected App on Akeneo PIM, please go to `Connected Apps`, then click on `Manage App`. 
 You can also open your App from Akeneo PIM UI, to do so, click on `Open app`. 
 
-![Connected test App on Apps](../../img/apps/connected-test-app.png)
+![Connected custom App on Apps](../../img/apps/connected-custom-app.png)
 
 ::: info
 To know more about the step-by-step activation process, please read our article:  

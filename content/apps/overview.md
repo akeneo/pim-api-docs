@@ -59,8 +59,8 @@ Want to know more about the app certification? [Contact us](https://www.akeneo.c
 Before starting to develop your app, we advise you to: 
 - Learn [how users connect their PIM with apps](https://help.akeneo.com/pim/serenity/articles/how-to-connect-my-pim-with-apps.html) and [how they manage their connected apps](https://help.akeneo.com/pim/serenity/articles/manage-your-apps.html)
 - Read our [guides](/apps/app-concepts-and-use-cases.html) to better understand Akeneo and be aware of best pratices
-- Check our REST API [Reference](https://api.akeneo.com/api-reference-index.html) & [basics](https://api.akeneo.com/documentation/introduction.html)
-- Use our [developer tools](https://api.akeneo.com/apps/app-developer-tools.html)
+- Check our REST API [Reference](/api-reference-index.html) & [basics](/documentation/introduction.html)
+- Use our [developer tools](/apps/app-developer-tools.html)
 
 Then, you can [contact us](https://www.akeneo.com/contact/) to get your **App developer starter kit**: 
 - A developer sandbox with our [Serenity Enterprise version](https://help.akeneo.com/pim/serenity/versions-in-detail.html)
@@ -74,6 +74,13 @@ Your app is good to go?
 - [Contact us](https://www.akeneo.com/contact/) to demonstrate your app
 - Read our [how to publish your app](https://apps.akeneo.com/how-submit-extension-akeneo-app-store) guide
 - Consult our recommendations about [how to write your app information](https://apps.akeneo.com/how-write-akeneo-app-store-extension-information)
+
+## Develop an app for a custom need
+
+With **Custom apps**, we're introducing a SaaS-compliant way to have a one size fits one scenario.  
+When you don't find an on-the-shelf App answering your exact need on the Akeneo App Store, Custom apps allow you to develop your own app and benefit from all Apps features without having to publish it. 
+
+Discover our to create a custom app following our [How to get your app token](/tutorials/how-to-get-your-app-token.html) guided tutorial.
 
 ## Next steps
 
