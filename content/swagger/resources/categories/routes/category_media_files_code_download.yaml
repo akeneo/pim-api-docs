@@ -1,5 +1,5 @@
 get:
-  summary: Download a category media file [COMING SOON]
+  summary: Download a category media file
   operationId: "get_category_media_files__code__download"
   description: This endpoint allows you to download a given media file that is used as an attribute value of a enriched category.
   x-content-type: Mime-type of the media file
