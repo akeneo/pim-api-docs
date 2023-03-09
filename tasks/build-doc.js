@@ -732,6 +732,7 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
                 .on('end', function () {
                     return gulp.src('src/partials/apps-developer-tools.handlebars')
                         .pipe(gulpHandlebars({
+                            active_apps:  true,
                             startApp : startApp,
                             apiTools : apiTools,
                             app : app,
