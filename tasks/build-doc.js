@@ -288,7 +288,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
     var pages = {
         'your-first-tutorial-4x': {
             gettingStartedName: 'your-first-tutorial',
-            pimVersion: 'v4 / v5 / v6 / SaaS',
+            pimVersion: 'v4 / v5 / v6 / v7 / SaaS',
             title: 'Your very first tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -299,6 +299,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v7: "4x",
                 v6: "4x",
                 v5: "4x",
                 v4: "4x",
@@ -318,6 +319,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v7: "4x",
                 v6: "4x",
                 v5: "4x",
                 v4: "4x",
@@ -326,7 +328,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         },
         'connect-the-pim-4x': {
             gettingStartedName: 'connect-the-pim',
-            pimVersion: 'v4 / v5 / v6 / SaaS',
+            pimVersion: 'v4 / v5 / v6 / v7 / SaaS',
             title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -337,6 +339,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v7: "4x",
                 v6: "4x",
                 v5: "4x",
                 v4: "4x",
@@ -356,6 +359,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "4x",
+                v7: "4x",
                 v6: "4x",
                 v5: "4x",
                 v4: "4x",
@@ -364,7 +368,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         },
         'quick-start-my-first-webhook-5x': {
             gettingStartedName: 'quick-start-my-first-webhook',
-            pimVersion: 'v5 / v6 / SaaS',
+            pimVersion: 'v5 / v6 / v7/ SaaS',
             title: 'Quick start my first webhook',
             files: {
                 'welcome.md': 'Welcome',
@@ -373,26 +377,28 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "5x",
+                v7: "5x",
                 v6: "5x",
                 v5: "5x"
             }
         },
         'events-api-best-practices-5x': {
             gettingStartedName: 'events-api-best-practices',
-            pimVersion: 'v5 / v6 / SaaS',
+            pimVersion: 'v5 / v6 / v7 / SaaS',
             title: 'Events API best practices',
             files: {
                 'welcome.md': 'Best practices',
             },
             availability: {
                 serenity: "5x",
+                v7: "5x",
                 v6: "5x",
                 v5: "5x"
             }
         },
         'synchronize-pim-products-6x': {
             gettingStartedName: synchronizePimProductsName,
-            pimVersion: 'v6 / SaaS',
+            pimVersion: 'v6 / v7 / SaaS',
             title: 'Synchronize PIM products with your App',
             files: {
                 'welcome.md': 'Welcome',
@@ -406,18 +412,20 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
             },
             availability: {
                 serenity: "6x",
+                v7: "6x",
                 v6: "6x"
             }
         },
         'from-identifiers-to-uuid-7x': {
             gettingStartedName: 'from-identifiers-to-uuid',
-            pimVersion: 'SaaS',
+            pimVersion: 'v7 / SaaS',
             title: 'From product identifiers to UUID',
             files: {
                 'welcome.md': 'Guide',
             },
             availability: {
                 serenity: "7x",
+                v7: "7x",
             }
         },
     };
@@ -623,7 +631,7 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('build-apps', ['clean-dist','less'], function () {
+gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
     var pages = {
         'homepage.md': 'Start building your App',
         'overview.md': 'Overview',
@@ -633,9 +641,127 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'app-concepts-and-use-cases.md': 'App concepts and use cases'
     };
 
+    const startApp = {
+        'title': 'Start Apps',
+        'badge_name' : 'New',
+        'content': 'Starter for bootstraping your first Akeneo App quickly.',
+        'image': 'apps/dev-tools-langages.svg',
+        'rows': [
+            {
+                'image': 'icons/icon--github.png',
+                'content': 'Github repository:',
+                'breakline': true,
+                'link': 'https://github.com/akeneo/sample-apps',
+                'link_content': 'akeneo/sample-apps',
+            }
+        ],
+        'author': 'By Akeneo'
+    };
+
+    const apiTools = [
+        {
+            'title': 'Postman collection',
+            'badge_image' : 'apps/dev-tools-postman.svg',
+            'content': 'Test Akeneo APIs right away with our Postman collection.',
+            'rows': [
+                {
+                    'image': 'apps/dev-tools-download.svg',
+                    'link': '/files/Akeneo PIM API.postman_collection.json',
+                    'link_content': 'Download',
+                    'download': true,
+                },
+                {
+                    'image': 'apps/dev-tools-akeneo.svg',
+                    'breakline': true,
+                    'content': 'Documentation:',
+                    'link': '/getting-started/your-first-tutorial-4x/step-2.html',
+                    'link_content': 'Importing data into Postman',
+                },
+            ],
+            'author': 'By Akeneo'
+        },
+        {
+            'title': 'PHP API client',
+            'content': 'The PHP client eases the usage of the REST API in your PHP projects when building extensions and/or tools for your PIM.',
+            'rows': [
+                {
+                    'image': 'icons/icon--github.png',
+                    'content': 'Github repository:',
+                    'breakline': true,
+                    'link': 'https://github.com/akeneo/api-php-client',
+                    'link_content': 'akeneo/api-php-client',
+                },
+                {
+                    'image': 'apps/dev-tools-akeneo.svg',
+                    'content': 'Documentation:',
+                    'link': '/php-client/introduction.html',
+                    'link_content': 'PHP API client',
+                },
+            ],
+            'author': 'By Akeneo'
+        },
+    ];
+
+    const app = {
+        'title': 'Demo App',
+        'content': 'Our official and already-in-production ' +
+            'Demo App will help you to understand ' +
+            'how to use Akeneo App features.',
+        'image': 'apps/dev-tools-php.svg',
+        'rows': [
+            {
+                'image': 'icons/icon--github.png',
+                'content': 'Github repository:',
+                'breakline': true,
+                'link': 'https://github.com/akeneo/demo-app',
+                'link_content': 'akeneo/demo-app',
+            }
+        ],
+        'author': 'By Akeneo'
+    };
+
     var isOnePage = false;
 
-    return gulp.src(['content/apps/*.md'])
+    return gulp.src(['content/apps/app-developer-tools.md'])
+        .pipe(flatmap(function (stream, file) {
+            return gulp.src('content/apps/app-developer-tools.md')
+                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/apps') + "\n"))
+                .pipe(gulpMarkdownIt(md))
+                .pipe(gulp.dest('tmp/apps/'))
+                .on('end', function () {
+                    return gulp.src('src/partials/apps-developer-tools.handlebars')
+                        .pipe(gulpHandlebars({
+                            startApp : startApp,
+                            apiTools : apiTools,
+                            app : app,
+                            mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        }, {
+                            partialsDirectory: ['./src/partials']
+                        }))
+                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                        .pipe(gulp.dest('./dist/apps'));
+                })
+        }));
+    }
+);
+
+gulp.task('build-apps', ['clean-dist','less'], function () {
+    var pages = {
+        'homepage.md': 'Start building your App',
+        'overview.md': 'Overview',
+        'authentication-and-authorization.md': 'Authentication and authorization',
+        'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
+        'app-developer-tools.md': 'Developer tools',
+        'app-concepts-and-use-cases.md': 'App concepts and use cases',
+        'publish-your-app.md': 'Publish your app',
+        'certify-your-app.md': 'Certify your app'
+    };
+
+    var isOnePage = false;
+
+    return gulp.src(['content/apps/*.md', '!content/apps/app-developer-tools.md'])
         .pipe(flatmap(function(stream, file){
             return gulp.src(['content/apps/*.md'])
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))

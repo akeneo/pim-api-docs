@@ -1,13 +1,19 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link rel="stylesheet" href="components.css">
     <link rel="stylesheet" href="tile.css">
+    <link rel="stylesheet" href="tile-app.css">
     <link rel="stylesheet" href="block-welcome.css">
     <link rel="stylesheet" href="block-about-app.css">
-    <link rel="stylesheet" href="block-create-app.css">
 </head>
 <body>
+
+<hr>
+
+<iframe src="./tile-app.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+
 <div>
     <!-- WIP component -->
     <a href="https://google.com" class="back-button">
@@ -124,10 +130,6 @@
 <hr>
 
 <iframe src="./block-about-app.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
-
-<hr>
-
-<iframe src="./block-create-app.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
 
 <hr>
 

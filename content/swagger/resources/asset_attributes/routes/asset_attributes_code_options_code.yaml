@@ -9,6 +9,7 @@ get:
     - "4.0"
     - "5.0"
     - "6.0"
+    - "7.0"
     - "SaaS"
   x-ee: true
   parameters:
@@ -37,6 +38,7 @@ patch:
     - "4.0"
     - "5.0"
     - "6.0"
+    - "7.0"
     - "SaaS"
   x-ee: true
   description: This endpoint allows you to update a given option for a given attribute and a given asset family. Learn more about the <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if the option does not already exist for the given attribute of the given asset family, it creates it.

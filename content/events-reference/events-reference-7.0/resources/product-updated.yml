@@ -1,0 +1,135 @@
+type: object
+properties:
+  events:
+    type: array
+    items:
+      type: object
+      properties:
+        action:
+          type: string
+          description: Event type
+        event_id:
+          type: string
+          description: Unique event identifier
+        event_datetime:
+          type: string
+          description: Event datetime
+        author:
+          type: string
+          description: Author of the event
+        author_type:
+          type: string
+          description: Type of the author "ui" or "api"
+        pim_source:
+          type: string
+          description: URL of the PIM that sends the event
+        data:
+          type: object
+          properties:
+            resource:
+              type: object
+              properties:
+                uuid:
+                  type: string
+                  description: Product UUID
+                identifier:
+                  type: string
+                  description: Product identifier, i.e. the value of the only `pim_catalog_identifier` attribute
+                enabled:
+                  type: boolean
+                  description: Whether the product is enabled
+                family:
+                  type: string
+                  description: Family code from which the product inherits its attributes and attributes requirements
+                categories:
+                  type: array
+                  description: Codes of the categories in which the product is classified
+                  items:
+                    type: string
+                groups:
+                  type: array
+                  description: Codes of the groups to which the product belong
+                  items:
+                    type: string
+                parent:
+                  type: string
+                  description: Code of the parent product model when the product is a variant
+                values:
+                  type: object
+                  properties:
+                    attributeCode:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          scope:
+                            type: string
+                            description: Channel code of the product value
+                          locale:
+                            type: string
+                            description: Locale code of the product value
+                          data:
+                            type: object
+                            description: Product value
+                associations:
+                  type: object
+                  properties:
+                    associationTypeCode:
+                      type: object
+                      properties:
+                        groups:
+                          type: array
+                          description: Array of group codes with which the product is in relation
+                          items:
+                            type: string
+                        products:
+                          type: array
+                          description: Array of product identifiers with which the product is in relation
+                          items:
+                            type: string
+                        product_models:
+                          type: array
+                          description: Array of product model codes with which the product is in relation.
+                          items:
+                            type: string
+                quantified_associations:
+                  type: object
+                  properties:
+                    quantifiedAssociationTypeCode:
+                      type: object
+                      properties:
+                        products:
+                          type: array
+                          description: Array of objects containing product identifiers and quantities with which the product is in relation
+                          items:
+                            type: object
+                            properties:
+                              identifier:
+                                type: string
+                              quantity:
+                                type: integer
+                        product_models:
+                          type: array
+                          description: Array of objects containing product model codes and quantities with which the product is in relation
+                          items:
+                            type: object
+                            properties:
+                              code:
+                                type: string
+                              quantity:
+                                type: integer
+                created:
+                  type: string
+                  description: Product creation date
+                  format: dateTime
+                updated:
+                  type: string
+                  description: Date of the last product update
+                  format: dateTime
+                metadata:
+                  type: object
+                  description: More information around the product (only available in the Enterprise Edition)
+                  properties:
+                    workflow_status:
+                      description: Status of the product regarding the user permissions (only available in the Enterprise Edition)
+                      type: string
