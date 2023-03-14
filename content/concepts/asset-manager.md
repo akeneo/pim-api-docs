@@ -2031,7 +2031,7 @@ In this formula:
 
 The table below describes the format of the `data` property for each [asset attribute](#asset-attribute) type.
 
-| Attribute type / Format                   | Example                                                      |
+| Attribute type / format                   | Example                                                      |
 |-------------------------------------------|--------------------------------------------------------------|
 | **Text** <br> _string_                    | `"Scott, 2-seat sofa, grey"`                                 |
 | **Media file** <br> _string_              | `"5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"` |
@@ -2040,6 +2040,8 @@ The table below describes the format of the `data` property for each [asset attr
 | **Number** <br> _string_                  | `"1"`                                                        |
 | **Media link** <br> _string_              | `"sku_54628_picture1.jpg"`                                   |
 | **Boolean** <br> _bool_                   | `true`                                                       |
+| **Date** <br> _date_                      | `2023-03-01T00:00:00+00:00`                                  |
+
 
 ### The `locale` and `channel` format
 
