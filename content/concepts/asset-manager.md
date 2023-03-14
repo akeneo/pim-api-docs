@@ -2040,8 +2040,7 @@ The table below describes the format of the `data` property for each [asset attr
 | **Number** <br> _string_                  | `"1"`                                                        |
 | **Media link** <br> _string_              | `"sku_54628_picture1.jpg"`                                   |
 | **Boolean** <br> _bool_                   | `true`                                                       |
-| **Date** <br> _string_                      | `2023-03-01T00:00:00+00:00`                                |
-
+| **Date** <br> _string_                    | `2023-03-01T00:00:00+00:00`                              |
 
 ### The `locale` and `channel` format
 
