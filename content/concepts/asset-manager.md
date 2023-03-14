@@ -1934,11 +1934,11 @@ Below is the JSON format representing an example of an asset of the Asset Manage
         "data": ["red","purple"]
       }
     ],
-    "end_of_use_date": [
+    "model_height": [
       {
         "locale": null,
         "channel": "ecommerce",
-        "data": "02/03/2021"
+        "data": "1.65m"
       }
     ]
   },
@@ -2075,19 +2075,19 @@ Note that the `channel` property is set to `null` in this case.
 
 #### Asset values of a scopable attribute
 
-The `end_of_use_date` attribute is scopable but not localizable, so it can hold several data values, up to one per channel.
+The `model_height` attribute is scopable but not localizable, so it can hold several data values, up to one per channel.
 ```json
 {
-  "end_of_use_date": [
+  "model_height": [
     {
       "locale": null,
       "channel": "ecommerce",
-      "data": "02/03/2021"
+      "data": "1.65m"
     },
     {
       "locale": null,
       "channel": "print",
-      "data": "03/02/2021"
+      "data": "165cm"
     }
   ]
 }
