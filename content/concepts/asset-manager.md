@@ -1851,10 +1851,13 @@ The available media types that you can put in the `media_type` field are:
 :::
 
 ### The `boolean` attribute
+::: availability versions=SaaS editions=EE
+:::
+
 The boolean, or Yes/No, attribute is useful to hold binary information, such as whether the image should be used or not.
 
 Here is an example of a `boolean` attribute.
-![An example of a number asset attribute](/img/concepts/boolean-asset-attribute.svg)
+![An example of a boolean asset attribute](/img/concepts/boolean-asset-attribute.svg)
 
 And here is the JSON format of the `boolean` attribute type.
 ```json
@@ -1871,6 +1874,32 @@ And here is the JSON format of the `boolean` attribute type.
   "is_read_only": false
 }
 ```
+
+### The `date` attribute
+::: availability versions=SaaS editions=EE
+:::
+
+The date attribute is useful to hold date based information, such as when the asset is planned to be published.
+
+Here is an example of a `date` attribute.
+![An example of a date asset attribute](/img/concepts/date-asset-attribute.svg)
+
+And here is the JSON format of the `date` attribute type.
+```json
+{
+  "code": "publish_date",
+  "labels": {
+    "en_US": "Publish date",
+    "fr_FR": "Date de publication"
+  },
+  "type": "date",
+  "value_per_locale": false,
+  "value_per_channel": false,
+  "is_required_for_completeness": true,
+  "is_read_only": false
+}
+```
+
 
 ::: panel-link Want more details about the asset attribute resource? [Check its endpoints here!](/api-reference.html#Assetattribute)
 :::
