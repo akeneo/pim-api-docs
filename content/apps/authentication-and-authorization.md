@@ -317,24 +317,25 @@ Once you've decoded the payload, it will look like this:
 }
 ```
 
-| Field       | Description                          |
-|-------------|--------------------------------------|
-| `iss`       | URL of the token issuer              |
-| `jti`       | Unique identifier for the token      |
-| `sub`       | **Unique user id**                   |
-| `aud`       | Id of the OAuth 2.0 client           |
-| `iat`       | Timestamp of token creation          |
-| `exp`       | Timestamp of token expiration        |
-| `email`     | **(optional) Email of the user**     |
-| `firstname` | **(optional) Firstname of the user** |
-| `lastname`  | **(optional) Lastname of the user**  |
+| Field            | Description                                       |
+| ---------------- | ------------------------------------------------- |
+| `iss`            | URL of the token issuer                           |
+| `jti`            | Unique identifier for the token                   |
+| `sub`            | **Unique user id**                                |
+| `aud`            | Id of the OAuth 2.0 client                        |
+| `iat`            | Timestamp of token creation                       |
+| `exp`            | Timestamp of token expiration                     |
+| `email`          | **(optional) Email of the user**                  |
+| `email_verified` | **(optional) Boolean to indicate email validity** |
+| `firstname`      | **(optional) Firstname of the user**              |
+| `lastname`       | **(optional) Lastname of the user**               |
 
 Additional information (`email`, `firstname`, `lastname`, ...) are only present if you requested the corresponding
 authentication scopes and those were approved by the user.
 
 ::: warning
 `email`, `firstname` and `lastname` are values that can be edited on Akeneo PIM and are not verified by
-Akeneo. The only value that will truly identify a user is their unique user id in the subject claim (`sub`).
+Akeneo (`email_verified` is always false as a result). The only value that will truly identify a user is their unique user id in the subject claim (`sub`).
 :::
 
 #### Signature
