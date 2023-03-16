@@ -312,6 +312,7 @@ Once you've decoded the payload, it will look like this:
   "iat": 1643029678.467703,
   "exp": 1643033278.467703,
   "email": "john.doe@example.com",
+  "email_verified": false,
   "firstname": "John",
   "lastname": "Doe"
 }
