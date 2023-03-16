@@ -24,8 +24,11 @@ Discover the [Akeneo App Store and apps fundamentals course](https://akademy.ake
 Apps integrate with Akeneo in the following ways:
 
 - using **OAuth2.0 protocol** to connect with Akeneo
-- using app catalogs to provide a **consistent experience** to users
-- connecting with our **REST API** to read and write Akeneo data
+- benefits from the [catalogs for apps](/apps/catalogs.html) features: 
+    - easily **get a pre-filtered product selection** configured by your users from their PIM interface,
+    - push your app requirements and **get mapped product data** calling catalogs endpoints without developing any mapping interface
+    - provide a **consistent experience** to users
+- connecting with our **REST API** to read and write Akeneo data 
 
 ![App in Akeneo PXM Studio](../img/apps/apps-fit-akeneo.png)
 
