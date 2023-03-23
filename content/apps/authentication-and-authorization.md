@@ -266,7 +266,7 @@ https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
 ```
 
 ::: info
-To discover all the authentication scopes, please refer to the [Authorization and authentication scopes](/apps/authentication-and-authorization.html#available-authorization-scopes) section.
+Learn more about [available authentication scopes](/apps/authentication-and-authorization.html#available-authentication-scopes). 
 :::
 
 If a user tries to access your App from their Akeneo PXM Studio, and you want to authenticate them, start an [Authorization request](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations), even if you already are connected to their Akeneo PXM Studio.
