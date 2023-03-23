@@ -73,10 +73,10 @@ Then, you can [contact us](https://www.akeneo.com/contact/) to get your **App de
 
 Your app is good to go? 
 
-- Discover our [extension approval requirements](https://apps.akeneo.com/extensions-approval-requirements)
+- Discover our [extension approval requirements](/apps/publish-your-app.html#app-approval-requirements)
 - [Contact us](https://www.akeneo.com/contact/) to demonstrate your app
 - Read our [how to publish your app](https://apps.akeneo.com/how-submit-extension-akeneo-app-store) guide
-- Consult our recommendations about [how to write your app information](https://apps.akeneo.com/how-write-akeneo-app-store-extension-information)
+- Consult our recommendations about [how to write your app information](/apps/publish-your-app.html#compose-your-app-store-public-listing)
 
 ## Develop an app for a custom need
 
