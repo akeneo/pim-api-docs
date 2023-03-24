@@ -232,16 +232,17 @@ TODO - Shopify example
 
 ## Getting started with OpenID Connect
 
-Apps created in the Akeneo App Store can use the OpenID Connect protocol to authenticate users coming from an Akeneo PXM Studio.
+When building your public App, you can use the **OpenID Connect protocol** to authenticate users coming from an Akeneo PXM Studio.
 
-OpenID Connect is a simple identity layer on top of the OAuth 2.0 protocol. See [OpenID official website](https://openid.net/connect/) for more info.
-Basically, with OpenID Connect, you use the same process as for Authorization, but you request an additional scope and you receive, alongside the Access Token, an ID Token containing the information of the current user. 
+OpenID Connect is a simple identity layer on top of the OAuth 2.0 protocol. Basically, with OpenID Connect, you use the same process as for Authorization, but you **request an additional scope** and you receive, alongside the Access Token, an **ID Token containing the information of the current user**.
+
+::: info
+This is an optional feature in Apps, you can also use your own Authentication. Learn more about the [OpenID Connect protocol](https://openid.net/connect/).
+:::
+
 
 ![App authentication diagram](../img/apps/app-authentication-sequence-diagram.png)
 
-::: info
-This is an optional feature in Apps, you can also use your own Authentication.
-:::
 
 ### What you'll learn
 
@@ -252,6 +253,22 @@ After you've completed this tutorial, you'll be able to authenticate users comin
 - You have your [App developer starter kit](/apps/overview.html#app-developer-starter-kit)
 - You're familiar with [OpenID connect](https://openid.net/connect/)
 - You're familiar with the [app authentication process](/apps/authentication-and-authorization.html#getting-started-with-oauth-20)
+
+### Why use OpenID for your App
+OpenID feature is a facilitator:
+- To the user who can log into the App directly by clicking “Open App” in the Connected Apps section of the PIM without any authentication form to complete
+- To your App building experience as the PIM user's information (last name, first name, email) are retrieved automatically
+    - You can use those data in the UI to personalize some parts of your App. Example: “Welcome Peter”
+
+**Advice / Attention points**
+
+- Never trust the “first name”, “last name” or “email” value as a golden record, any user can update this data, and most importantly **the email is not verified by Akeneo PIM.**
+- The `sub` claim is the value you need to use to identify a specific User in the PIM.
+    - This value respects the OpenID spec, it is a **PPID**.
+
+::: info
+Pairwise pseudonymous identifiers (PPIDs) are defined in the OpenID Connect standard for representing users with opaque and random identifiers that are unique to different clients for increased user privacy.
+:::
 
 ### Step 1: Ask for authentication scopes
 
