@@ -640,7 +640,8 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
         'app-developer-tools.md': 'Developer tools',
         'app-concepts-and-use-cases.md': 'App concepts and use cases',
         'publish-your-app.md': 'Publish your app',
-        'certify-your-app.md': 'Certify your app'
+        'certify-your-app.md': 'Certify your app',
+        'create-custom-app.md': 'Custom apps'
     };
 
     const startApp = {
@@ -759,7 +760,8 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'app-developer-tools.md': 'Developer tools',
         'app-concepts-and-use-cases.md': 'App concepts and use cases',
         'publish-your-app.md': 'Publish your app',
-        'certify-your-app.md': 'Certify your app'
+        'certify-your-app.md': 'Certify your app',
+        'create-custom-app.md': 'Custom apps'
     };
 
     var isOnePage = false;
