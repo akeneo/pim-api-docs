@@ -54,7 +54,7 @@ Our Swagger spec is extended with [custom properties](https://swagger.io/docs/sp
 | Property                 | Type                                | Description                                                                                                                                                                          |
 |--------------------------|-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `x-from-version`         | `string`                            | Indicates the version the property was added to the API. In the user documentation, hides the property from payload descriptions that doesn't match the selected API version.        |
-| `x-examples-per-version` | [[Example object](#example-object)] | Allows to set a payload example for a specific version. Use as a [Response object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#responsesObject) property. |
+| `x-examples-per-version` | [[Example object](#example-object)] | Allows to set a payload example for a specific version. Use as a [Response object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#response-object) property. |
 
 #### Example object
 
