@@ -1851,10 +1851,13 @@ The available media types that you can put in the `media_type` field are:
 :::
 
 ### The `boolean` attribute
+::: availability versions=SaaS editions=EE
+:::
+
 The boolean, or Yes/No, attribute is useful to hold binary information, such as whether the image should be used or not.
 
 Here is an example of a `boolean` attribute.
-![An example of a number asset attribute](/img/concepts/boolean-asset-attribute.svg)
+![An example of a boolean asset attribute](/img/concepts/boolean-asset-attribute.svg)
 
 And here is the JSON format of the `boolean` attribute type.
 ```json
@@ -1871,6 +1874,32 @@ And here is the JSON format of the `boolean` attribute type.
   "is_read_only": false
 }
 ```
+
+### The `date` attribute
+::: availability versions=SaaS editions=EE
+:::
+
+The date attribute is useful to hold date based information, such as when the asset is planned to be published.
+
+Here is an example of a `date` attribute.
+![An example of a date asset attribute](/img/concepts/date-asset-attribute.svg)
+
+And here is the JSON format of the `date` attribute type.
+```json
+{
+  "code": "publish_date",
+  "labels": {
+    "en_US": "Publish date",
+    "fr_FR": "Date de publication"
+  },
+  "type": "date",
+  "value_per_locale": false,
+  "value_per_channel": false,
+  "is_required_for_completeness": true,
+  "is_read_only": false
+}
+```
+
 
 ::: panel-link Want more details about the asset attribute resource? [Check its endpoints here!](/api-reference.html#Assetattribute)
 :::
@@ -1934,11 +1963,11 @@ Below is the JSON format representing an example of an asset of the Asset Manage
         "data": ["red","purple"]
       }
     ],
-    "end_of_use_date": [
+    "model_height": [
       {
         "locale": null,
         "channel": "ecommerce",
-        "data": "02/03/2021"
+        "data": "1.65m"
       }
     ]
   },
@@ -2031,7 +2060,7 @@ In this formula:
 
 The table below describes the format of the `data` property for each [asset attribute](#asset-attribute) type.
 
-| Attribute type / Format                   | Example                                                      |
+| Attribute type / format                   | Example                                                      |
 |-------------------------------------------|--------------------------------------------------------------|
 | **Text** <br> _string_                    | `"Scott, 2-seat sofa, grey"`                                 |
 | **Media file** <br> _string_              | `"5/1/d/8/51d81dc778ba1501a8f998f3ab5797569f3b9e25_img.png"` |
@@ -2040,6 +2069,7 @@ The table below describes the format of the `data` property for each [asset attr
 | **Number** <br> _string_                  | `"1"`                                                        |
 | **Media link** <br> _string_              | `"sku_54628_picture1.jpg"`                                   |
 | **Boolean** <br> _bool_                   | `true`                                                       |
+| **Date** <br> _string_                    | `2023-03-01T00:00:00+00:00`                                  |
 
 ### The `locale` and `channel` format
 
@@ -2075,19 +2105,19 @@ Note that the `channel` property is set to `null` in this case.
 
 #### Asset values of a scopable attribute
 
-The `end_of_use_date` attribute is scopable but not localizable, so it can hold several data values, up to one per channel.
+The `model_height` attribute is scopable but not localizable, so it can hold several data values, up to one per channel.
 ```json
 {
-  "end_of_use_date": [
+  "model_height": [
     {
       "locale": null,
       "channel": "ecommerce",
-      "data": "02/03/2021"
+      "data": "1.65m"
     },
     {
       "locale": null,
       "channel": "print",
-      "data": "03/02/2021"
+      "data": "165cm"
     }
   ]
 }
