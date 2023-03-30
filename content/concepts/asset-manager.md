@@ -1687,6 +1687,7 @@ There are several types of asset attributes, that will allow you to handle diffe
 - the [`media file` attribute](#the-media_file-attribute),
 - the [`media link` attribute](#the-media-link-attribute).
 - the [`boolean` attribute](#the-boolean-attribute).
+- the [`date` attribute](#the-date-attribute).
 
 ::: warning
 You can have a maximum of 100 attributes to describe the structure for one given asset family.    
