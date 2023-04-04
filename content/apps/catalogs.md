@@ -60,7 +60,7 @@ After completing this tutorial, you'll be able to create and use catalogs to ret
 
 ### Requirements
 
-- You have your [App developer starter kit](/apps/overview.html#app-developer-starter-kit)
+- You have access to an Akeneo PIM ([get your App developer starter kit](/apps/overview.html#app-developer-starter-kit))
 - Your app already manages the authorization process
 
 ### Step 1: Ask for catalog scopes
@@ -121,7 +121,7 @@ After completing this tutorial, you'll be able to push your JSON mapping schema 
 
 ### Requirements
 
-- You have your [App developer starter kit](/apps/overview.html#app-developer-starter-kit)
+- You have access to an Akeneo PIM ([get your App developer starter kit](/apps/overview.html#app-developer-starter-kit))
 - Your app already manages the authorization process 
 - You followed the [Getting started with catalogs](#getting-started-with-catalogs) steps
 
