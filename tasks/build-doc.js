@@ -293,8 +293,8 @@ function getPageTitle(fileName, defaultTitle = '') {
     return title;
 }
 
-function getPageDescription(fileName) {
-    let description = 'Description';
+function getPageDescription(fileName, defaultDescription = 'Description') {
+    let description = defaultDescription;
     titleDescription.forEach(function (element) {
         if(fileName.replace('.md', '') === element.page) {
             description = element.description;
