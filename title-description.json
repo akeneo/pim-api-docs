@@ -1,67 +1,67 @@
 [
   {
-    "page": "homepage",
-    "title": "Guided tutorials | Akeneo APIs",
+    "content_dir": "tutorials/homepage/homepage",
+    "title": "Guided tutorials",
     "description": "Our guided tutorials take you through the steps of extracting the basic data from the PIM, and help you to become familiar with Akeneo PIM concepts at the same time!"
   },
   {
-    "page": "how-to-get-your-app-token",
-    "title": "How to get your access token | Akeneo APIs",
+    "content_dir": "tutorials/guides/how-to-get-your-app-token",
+    "title": "How to get your access token",
     "description": "Implement the required parts of the App activation process and receive an App access token for querying your PIM API."
   },
   {
-    "page": "how-to-retrieve-pim-structure",
-    "title": "How to retrieve PIM structure | Akeneo APIs",
+    "content_dir": "tutorials/guides/how-to-retrieve-pim-structure",
+    "title": "How to retrieve PIM structure",
     "description": "Retrieve the PIM structure through a channel resource. This is usually the required step before starting to read the PIM catalog data."
   },
   {
-    "page": "how-to-get-families-and-attributes",
-    "title": "How to get families, family variants, and attributes | Akeneo APIs",
+    "content_dir": "tutorials/guides/how-to-get-families-and-attributes",
+    "title": "How to get families, family variants, and attributes",
     "description": "Families and attributes are the basis of an Akeneo catalog structure: get them before retrieving the products from the PIM."
   },
   {
-    "page": "how-to-get-pim-product-information",
-    "title": "How to get PIM product information | Akeneo APIs",
+    "content_dir": "tutorials/guides/how-to-get-pim-product-information",
+    "title": "How to get PIM product information",
     "description": "The product resources hold all the information about your PIM product. Getting them will be done in two steps"
   },
   {
-    "page": "how-to-collect-product-variations",
-    "title": "How to collect product variations | Akeneo APIs",
+    "content_dir": "tutorials/guides/how-to-collect-product-variations",
+    "title": "How to collect product variations",
     "description": "In the PIM we handle product models and product variations."
   },
   {
-    "page": "how-to-get-pim-category-tree",
-    "title": "How to get pim category tree | Akeneo APIs",
+    "content_dir": "tutorials/guides/how-to-get-pim-category-tree",
+    "title": "How to get pim category tree",
     "description": "A category tree is typically a graph where nodes are categories with or without sub-categories. The first node - the root of the graph - is the root category of the category tree."
   },
   {
-    "page": "app-developer-tools",
-    "title": "App developer tools | Akeneo APIs",
+    "content_dir": "apps/app-developer-tools",
+    "title": "App developer tools",
     "description": "Getting Started with Sample Apps, API tools and Diving into an App"
   },
   {
-    "page": "homepage",
-    "title": "Apps | Akeneo APIs",
+    "content_dir": "apps/homepage",
+    "title": "Apps",
     "description": "Everything you need to start building Apps with Akeneo."
   },
   {
-    "page": "publish-your-app",
-    "title": "Publish your App | Akeneo APIs",
+    "content_dir": "apps/publish-your-app",
+    "title": "Publish your App",
     "description": "The Akeneo App Store's growth is due to the community's contributions, but maintaining quality standards has become increasingly important, with requirements that extensions must meet to be approved."
   },
   {
-    "page": "certify-your-app",
-    "title": "Certify your App | Akeneo APIs",
+    "content_dir": "apps/certify-your-app",
+    "title": "Certify your App",
     "description": "Akeneo App Certification is a certification program aiming at promoting partner Apps that meet the certification criteria defined by Akeneo as a part of its quality approach on the App Store."
   },
   {
-    "page": "create-custom-app",
-    "title": "Custom apps | Akeneo APIs",
+    "content_dir": "apps/create-custom-app",
+    "title": "Custom apps",
     "description": "A custom app can be connected to a PIM without being published on the Akeneo App Store, allowing integrators to utilize app features to meet specific customer needs that are not covered by existing PIM features or Akeneo App Store apps."
   },
   {
-    "page": "2023",
-    "title": "What’s new | Akeneo APIs",
+    "content_dir": "news/2023",
+    "title": "What’s new",
     "description": "You'll find below all the updates of our SaaS offers. Enjoy!"
   }
 ]
