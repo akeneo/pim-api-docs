@@ -21,6 +21,7 @@ var revReplace = require('gulp-rev-replace');
 var swagger = require('gulp-swagger');
 var jsonTransform = require('gulp-json-transform');
 var _ = require('lodash');
+var titleDescription = require('../title-description.json')
 
 const loadLanguages = require('prismjs/components/');
 loadLanguages(['php','javascript','python', 'java', 'shell']);
@@ -282,6 +283,32 @@ function initMd(markdown) {
     markdown.use(require("markdown-it-include"));
 }
 
+function getPageTitle(fileName, defaultTitle = '') {
+    let title = defaultTitle;
+    titleDescription.forEach(function (element) {
+        if(fileName
+            .replace('/opt/workdir/content/', '')
+            .replace('/opt/workdir/tmp/', '')
+            .replace('.md', '') === element.content_dir) {
+            title = element.title;
+        }
+    });
+    return title;
+}
+
+function getPageDescription(fileName, defaultDescription = 'Description') {
+    let description = defaultDescription;
+    titleDescription.forEach(function (element) {
+        if(fileName
+            .replace('/opt/workdir/content/', '')
+            .replace('/opt/workdir/tmp/', '')
+            .replace('.md', '') === element.content_dir) {
+            description = element.description;
+        }
+    });
+    return description;
+}
+
 gulp.task('build-getting-started', ['clean-dist','less'], function () {
 
     const synchronizePimProductsName = 'synchronize-pim-products';
@@ -446,6 +473,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                         active_api_resources: gettingStartedName !== synchronizePimProductsName,
                         active_apps: gettingStartedName === synchronizePimProductsName,
                         title: pages[path.basename(path.dirname(file.path))].title,
+                        description: getPageDescription(file.path),
                         image: pages[path.basename(path.dirname(file.path))].image,
                         gettingStartedName: gettingStartedName,
                         pimVersion: pages[path.basename(path.dirname(file.path))].pimVersion,
@@ -543,6 +571,7 @@ gulp.task('build-guides', ['clean-dist','less'], function () {
                     .pipe(gulpHandlebars({
                         active_apps: true,
                         title: pages[path.basename(path.dirname(file.path))].title,
+                        description: getPageDescription(file.path),
                         mainContent: fs.readFileSync('tmp/guides/' + path.basename(path.dirname(file.path)) + '/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -583,6 +612,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
                     .pipe(gulpHandlebars({
                         active_api_resources: true,
                         title: 'The REST API basics',
+                        description: getPageDescription(file.path),
                         mainContent: fs.readFileSync('tmp/documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -619,6 +649,7 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
                     .pipe(gulpHandlebars({
                         active_api_resources: true,
                         title: 'The Events API basics',
+                        description: getPageDescription(file.path),
                         mainContent: fs.readFileSync('tmp/events-documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -739,7 +770,9 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
                             startApp : startApp,
                             apiTools : apiTools,
                             app : app,
-                            mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
+                            mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html')),
+                            title: getPageTitle(file.path),
+                            description: getPageDescription(file.path),
                         }, {
                             partialsDirectory: ['./src/partials']
                         }))
@@ -777,7 +810,8 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
                   return gulp.src('src/partials/apps.handlebars')
                     .pipe(gulpHandlebars({
                         active_apps:  true,
-                        title: 'Apps',
+                        title: getPageTitle(file.path, 'Apps'),
+                        description: getPageDescription(file.path),
                         mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -839,6 +873,7 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
                     .pipe(gulpHandlebars({
                         active_api_resources: true,
                         title: 'Concepts & resources',
+                        description: getPageDescription(file.path),
                         mainContent: fs.readFileSync('tmp/concepts/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
@@ -938,6 +973,7 @@ gulp.task('build-php-client', ['clean-dist','less', 'create-resources-md'], func
                     .pipe(gulpHandlebars({
                         active_api_resources: true,
                         title: 'PHP API Client documentation',
+                        description: getPageDescription(file.path),
                         image: 'illustrations/illus--php-client.svg',
                         mainContent: fs.readFileSync('tmp/php-client/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
@@ -966,6 +1002,7 @@ gulp.task('build-misc-documentation', ['clean-dist','less'], function () {
                         .pipe(gulpHandlebars({
                             active_api_resources: true,
                             title: 'Documentation',
+                            description: getPageDescription(file.path),
                             mainContent: fs.readFileSync('tmp/misc/' + path.basename(file.path).replace(/\.md/, '.html'))
                         }, {
                             partialsDirectory: ['./src/partials']
@@ -1057,7 +1094,9 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
                             tutorials: tutorials,
                             features: features,
                             useCases: useCases,
-                            mainContent: fs.readFileSync('tmp/tutorials/' + path.basename(file.path).replace(/\.md/, '.html'))
+                            mainContent: fs.readFileSync('tmp/tutorials/' + path.basename(file.path).replace(/\.md/, '.html')),
+                            title: getPageTitle(file.path),
+                            description: getPageDescription(file.path),
                         }, {
                             partialsDirectory: ['./src/partials']
                         }))
@@ -1069,7 +1108,7 @@ gulp.task('build-tutorials-homepage', ['clean-dist','less'], function () {
     }
 );
 
-gulp.task('build-tutorials', ['clean-dist','less'], function () {
+gulp.task('build-tutorials', ['clean-dist', 'less'], function () {
     const pages = {
         "how-to-get-your-app-token.md": "How to get your App token",
         "how-to-retrieve-pim-structure.md": "How to retrieve PIM structure",
@@ -1092,7 +1131,9 @@ gulp.task('build-tutorials', ['clean-dist','less'], function () {
                     return gulp.src('src/partials/guided-tutorials.handlebars')
                         .pipe(gulpHandlebars({
                             active_guided_tutorials: true,
-                            mainContent: fs.readFileSync('tmp/tutorials/' + path.basename(file.path).replace(/\.md/, '.html'))
+                            mainContent: fs.readFileSync('tmp/tutorials/' + path.basename(file.path).replace(/\.md/, '.html')),
+                            title: getPageTitle(file.path),
+                            description: getPageDescription(file.path),
                         }, {
                             partialsDirectory: ['./src/partials']
                         }))
@@ -1124,8 +1165,9 @@ gulp.task('build-news', ['clean-dist','less'], function () {
                   return gulp.src('src/partials/news.handlebars')
                     .pipe(gulpHandlebars({
                         active_news:  true,
-                        title: 'What\'s new?',
-                        mainContent: fs.readFileSync('tmp/news/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        mainContent: fs.readFileSync('tmp/news/' + path.basename(file.path).replace(/\.md/, '.html')),
+                        title: getPageTitle(file.path),
+                        description: getPageDescription(file.path),
                     }, {
                         partialsDirectory: ['./src/partials']
                     }))
