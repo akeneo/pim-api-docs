@@ -81,12 +81,77 @@ workflows:
           requires:
             - build
 
-  deployment:
+  master:
     jobs:
-      - deploy_production:
+      - build:
           filters:
             branches:
-              only: master
+              only:
+                - master
+      - gcp_connect: &gcp_connect_dev
+          name: "gcp_connect_dev"
+          context: MARSUS_SQUAD
+          project_number: 38178482637
+          target_stage_id: "dev"
+          filters:
+            branches:
+              only:
+                - master
+      - infrastructure: &infrastructure_dependencies_apply_with_plan
+          name: "infrastructure_dependencies_apply_with_plan_dev"
+          requires:
+            - gcp_connect_dev
+          target_stage_id: "dev"
+          deployment_scope: "dependencies"
+          terraform_action: "apply_with_plan"
+      - infrastructure: &infrastructure_services_apply_with_plan
+          name: "infrastructure_services_apply_with_plan_dev"
+          requires:
+            - infrastructure_dependencies_apply_with_plan_dev
+          target_stage_id: "dev"
+          deployment_scope: "services"
+          terraform_action: "apply_with_plan"
+      - push_sources_to_bucket:
+          name: "push_sources_to_bucket_dev"
+          requires:
+            - build
+            - infrastructure_services_apply_with_plan_dev
+          target_stage_id: "dev"
+          environment: "dev"
+      - continue_with_prod?:
+          type: approval
+          filters:
+            branches:
+              only:
+                - master
+      - gcp_connect: &gcp_connect_prd
+          name: "gcp_connect_prd"
+          context: MARSUS_SQUAD
+          requires:
+            - continue_with_prod?
+            - push_sources_to_bucket_dev
+          project_number: 598067739710
+          target_stage_id: "prd"
+      - infrastructure: &infrastructure_dependencies_apply_with_plan
+          name: "infrastructure_dependencies_apply_with_plan_prd"
+          requires:
+            - gcp_connect_prd
+          target_stage_id: "prd"
+          deployment_scope: "dependencies"
+          terraform_action: "apply_with_plan"
+      - infrastructure: &infrastructure_services_apply_with_plan
+          name: "infrastructure_services_apply_with_plan_prd"
+          requires:
+            - infrastructure_dependencies_apply_with_plan_prd
+          target_stage_id: "prd"
+          deployment_scope: "services"
+          terraform_action: "apply_with_plan"
+      - push_sources_to_bucket:
+          name: "push_sources_to_bucket_prd"
+          requires:
+            - infrastructure_services_apply_with_plan_prd
+          target_stage_id: "prd"
+          environment: "prd"
 
   environment_cleaner:
     jobs:
@@ -117,7 +182,7 @@ aliases:
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202111-02
+      image: ubuntu-2204:2022.07.1
     steps:
       - checkout
       - run: make build
@@ -125,16 +190,6 @@ jobs:
           root: ~/project
           paths:
             - dist
-
-  deploy_production:
-    machine:
-      image: ubuntu-2004:202111-02
-    steps:
-      - checkout
-      - add_ssh_keys
-      - run:
-          name: Deploy on production server
-          command: HOSTNAME=$PROD_HOSTNAME PORT=$PROD_PORT make deploy
 
   push_sources_to_bucket:
     parameters:
@@ -165,7 +220,7 @@ jobs:
       - run:
           name: Configure credentials file for the orb and auth
           command: |
-            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/root\/project\/.<<parameters.target_stage_id>>\/.oidc_token.json#" .<<parameters.target_stage_id>>/.gcp_cred_config.json          
+            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/root\/project\/.<<parameters.target_stage_id>>\/.oidc_token.json#" .<<parameters.target_stage_id>>/.gcp_cred_config.json
             gcloud auth login --brief --cred-file ${GOOGLE_APPLICATION_CREDENTIALS}
       - run:
           name: Run rsync between local sources and the target bucket
@@ -191,7 +246,7 @@ jobs:
       - run:
           name: Generate custom config
           command: |
-            sed -i "s#.\/.oidc_token.json#.<<parameters.target_stage_id>>\/.oidc_token.json#" .gcp_cred_config.json  
+            sed -i "s#.\/.oidc_token.json#.<<parameters.target_stage_id>>\/.oidc_token.json#" .gcp_cred_config.json
             cp .gcp_cred_config.json .oidc_token.json .<<parameters.target_stage_id>>/
       - persist_to_workspace:
           root: .<<parameters.target_stage_id>>
@@ -298,7 +353,7 @@ jobs:
         type: boolean
         default: true
     machine:
-      image: ubuntu-2004:202111-02
+      image: ubuntu-2204:2022.07.1
     environment:
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
@@ -320,14 +375,14 @@ jobs:
           name: Perform environment destroying
           command: |
             mkdir -p deployments/secrets
-            cp ${GOOGLE_APPLICATION_CREDENTIALS} .<<parameters.target_stage_id>>/.oidc_token.json deployments/secrets/   
-            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/deployments\/secrets\/.oidc_token.json#" deployments/secrets/.gcp_cred_config.json         
+            cp ${GOOGLE_APPLICATION_CREDENTIALS} .<<parameters.target_stage_id>>/.oidc_token.json deployments/secrets/
+            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/deployments\/secrets\/.oidc_token.json#" deployments/secrets/.gcp_cred_config.json
             envsToDestroy=($(echo "<< parameters.envs_to_destroy >>" | tr ',' ' '))
             for envToDestroy in "${envsToDestroy[@]}"
             do
               echo "**** Environment: ${envToDestroy} ****"
-              python3 .circleci/tools/destroyer/terraform_destroy.py --first_install false --stage <<parameters.target_stage_id>> --app_version <<pipeline.git.revision>> --pull_request <<parameters.pull_request>> --pull_request_id ${envToDestroy}              
-              python3 .circleci/tools/destroyer/remove_state_folder.py --pull_request_id ${envToDestroy}            
+              python3 .circleci/tools/destroyer/terraform_destroy.py --first_install false --stage <<parameters.target_stage_id>> --app_version <<pipeline.git.revision>> --pull_request <<parameters.pull_request>> --pull_request_id ${envToDestroy}
+              python3 .circleci/tools/destroyer/remove_state_folder.py --pull_request_id ${envToDestroy}
             done
 
 commands:

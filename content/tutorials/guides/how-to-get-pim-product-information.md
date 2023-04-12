@@ -237,9 +237,9 @@ function fetchProducts(): array
 
 async function fetchProducts() {
     // Get locales from storage
-    const locales = await getlocales();
+    const locales = await getlocales(); // ['en_US', 'fr_FR']
     // Get family codes from storage
-    const familyCodes = await getFamilyCodes(); // ['en_US', 'fr_FR']
+    const familyCodes = await getFamilyCodes();
     const scope = 'ecommerce'
     const maxItems = 100;
     const maxFamiliesPerQuery = 10;
@@ -503,14 +503,17 @@ const PIM_CATALOG_IMAGE = 'pim_catalog_image';
 const FALLBACK_LOCALE = 'en_US';
 
 function getFormattedProductValues(values, attributeType) {
-  let data = {};
-  for (const value of values) {
-    let locale = value['locale'] ?? FALLBACK_LOCALE;
-    data['values'] = {[locale]: extractData(attributeType, value)};
-    data['type'] = attributeType;
-  }
+    let data = {
+        values: []
+    };
 
-  return data;
+    for (const value of values) {
+        let locale = value['locale'] ?? FALLBACK_LOCALE;
+        data['values'] = [...data['values'], {[locale]: extractData(attributeType, value)}];
+        data['type'] = attributeType;
+    }
+
+    return data;
 }
 
 function extractData(attributeType, value) {
@@ -739,12 +742,12 @@ function fetchProductMediaFileResources(array $productMediaFileValues): array
 ```javascript [activate:NodeJS]
 
 async function fetchProductMediaFileResources(productMediaFileValues) {
-    let productMedias = {};
-    for (const [locale, value] of Object.entries(productMediaFileValues)) {
-        const apiUrl = pimUrl + '/api/rest/v1/media-files/' + value;
+    let productMedias = [];
+    for (const obj of productMediaFileValues) {
+        const apiUrl = pimUrl + '/api/rest/v1/media-files/' + obj.value;
         const response = await get(apiUrl, accessToken);
         const data = await response.json();
-        productMedias = {[locale]: data};
+        productMedias = [...productMedias, {[obj.locale]: data}];
     }
 
     return productMedias;

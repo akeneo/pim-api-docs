@@ -4,6 +4,7 @@ get:
   tags:
     - Product [uuid]
   x-versions:
+    - "7.0"
     - "SaaS"
   description: This endpoint allows you to get the information about a given product. In the Entreprise Edition, permissions based on your user groups are applied to the product you request.
   parameters:
@@ -31,6 +32,7 @@ patch:
   tags:
     - Product [uuid]
   x-versions:
+    - "7.0"
     - "SaaS"
   description: This endpoint allows you to update a given product. Learn more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given uuid, it creates it. In the Entreprise Edition, permissions based on your user groups are applied to the product you try to update. It may result in the creation of a draft if you only have edit rights through the product's categories.
   parameters:
@@ -59,6 +61,7 @@ delete:
   tags:
     - Product [uuid]
   x-versions:
+    - "7.0"
     - "SaaS"
   description: This endpoint allows you to delete a given product. In the Enterprise Edition, permissions based on your user groups are applied to the product you try to delete.
   parameters:

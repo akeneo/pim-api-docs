@@ -17,7 +17,7 @@ properties:
     x-read-only: true
   position:
     type: integer
-    description: Position of the category in its level, start from 1 (only available on SaaS platforms and when query parameter "with_position" is set to "true")
+    description: Position of the category in its level, start from 1 (only available since the 7.0 version and when query parameter "with_position" is set to "true")
     x-read-only: true
   labels:
     type: object
@@ -28,6 +28,32 @@ properties:
       localeCode:
         type: string
         description: Category label for the locale `localeCode`
+  values:
+    type: object
+    description: Attribute values
+    x-read-only: true
+    default: null
+    properties:
+      attributeCode|attributeUuid|channelCode|localeCode:
+        type: array
+        items:
+          type: object
+          properties:
+            data:
+              type: object
+              description: Attribute value
+            type:
+              type: string
+              description: The attribute type
+            locale:
+              type: string
+              description: <a href='api-reference.html#Locale'>Locale</a> code of the attribute value
+            channel:
+              type: string
+              description: <a href='api-reference.html#Channel'>Channel</a> code of the attribute value
+            attribute_code:
+              type: string
+              description: The attribute code with its uuid (attributeCode|attributeUuid)
 example: {
   "code": "winter_collection",
   "parent": null,
@@ -36,5 +62,14 @@ example: {
   "labels": {
     "en_US": "Winter collection",
     "fr_FR": "Collection hiver"
+  },
+  "values": {
+    "description|96b88bf4-c2b7-4b64-a1f9-5d4876c02c26|ecommerce|en_US": {
+      "data": "<p>Winter collection description</p>\n",
+      "type": "textarea",
+      "channel": "ecommerce",
+      "locale": "en_US",
+      "attribute_code": "description|96b88bf4-c2b7-4b64-a1f9-5d4876c02c26"
+    }
   }
 }
