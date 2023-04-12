@@ -86,6 +86,15 @@ function buildApiClient(): GuzzleHttp\Client
 // https://www.npmjs.com/package/node-fetch
 
 import fetch from 'node-fetch';
+
+// Set your client for querying Akeneo API as follows
+async function get(url, accessToken) {
+    return await fetch(url, {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+}
 ```
 
 ### 1. Get the PIM structure by fetching a channel from API
