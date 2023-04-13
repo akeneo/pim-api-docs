@@ -426,7 +426,93 @@ for (const familyVariant of familyVariants) {
 storeFamilyVariants(indexedFamilyVariants);
 ```
 
-##### 2.2. Collect its product variants
+Example output:
+```php [activate:PHP]
+
+var_export($indexedFamilyVariants);
+
+// Output
+[
+    "beanies_by_color" => [
+        "_links" => [...]
+        "code" => "beanies_by_color",
+        "labels" => [
+            "en_US" => "Beanies by Color",
+            "en_GB" => "Beanies by Color",
+            "fr_FR" => "Beanies by Color",
+            "de_DE" => "Beanies by Color",
+            "ja_JP" => "\u8272\u5225\u30d3\u30fc\u30cb\u30fc"
+        ],
+        "variant_attribute_sets" => [
+            [
+                "level" => 1,
+                "axes" => [
+                    "color"
+                ],
+                "attributes" => [
+                    "sku",
+                    "erp_name",
+                    "price",
+                    "name",
+                    "best_seller",
+                    "clearance",
+                    "inventory_level",
+                    "badge",
+                    "color",
+                    "akeneo_onboarder_supplier",
+                    "akeneo_onboarder_supplier_reference"
+                ],
+            ],
+        ],
+    ],
+    /* ... */
+];
+
+```
+```javascript [activate:NodeJS]
+
+console.log(indexedFamilyVariants);
+
+// Output
+{
+    "beanies_by_color": {
+        "_links": {...},
+        "code": "beanies_by_color",
+            "labels": {
+            "en_US": "Beanies by Color",
+                "en_GB": "Beanies by Color",
+                "fr_FR": "Beanies by Color",
+                "de_DE": "Beanies by Color",
+                "ja_JP": "\u8272\u5225\u30d3\u30fc\u30cb\u30fc"
+            },
+        "variant_attribute_sets": [
+            {
+                "level": 1,
+                "axes": [
+                    "color"
+                ],
+                "attributes": [
+                    "sku",
+                    "erp_name",
+                    "price",
+                    "name",
+                    "best_seller",
+                    "clearance",
+                    "inventory_level",
+                    "badge",
+                    "color",
+                    "akeneo_onboarder_supplier",
+                    "akeneo_onboarder_supplier_reference"
+                ]
+            }
+        ]
+    },
+    /* ... */
+}
+
+```
+
+##### 2.3. Collect its product variants
 
 To get product variants associated to a product model, ask to the API
 
@@ -481,6 +567,99 @@ for (const chunk of chunks) {
     const newProductVariants = data['_embedded']['items'];
     productVariants.push(...newProductVariants);
 }
+```
+
+Example output:
+```php [activate:PHP]
+
+var_export($productVariants);
+
+// Output
+[
+    [
+        "_links" => [...],
+        "uuid" => "02a1d432-8bb7-4b4b-8d28-8b8f8d0e7b9f",
+        "enabled" => true,
+        "family" => "patio_furniture_sets",
+        "categories" => [
+            "erp_patio_furniture_sets",
+            "master_outdoors_patio_furniture_outdoor_lounge_furniture_patio_conversation_sets"
+        ],
+        "groups" => [],
+        "parent" => "Becker 4-Piece Dark Mocha Steel Outdoor Patio Seating Set with CushionGuard Cushions",
+        "values" => [
+            "fabric_type" => [
+                ["locale" => null...]
+            ],
+            "chair_design" => [
+                ["locale" => null...]
+            ],
+             "pattern_type" => [
+                ["locale" => null...]
+            ],
+            /* ... */
+        ],
+        "created" => "2022-08-11T09:20:19+00:00",
+        "updated" => "2022-08-11T09:20:19+00:00",
+        "associations" => [
+            "PACK" => [...],
+            "UPSELL" => [...],
+            "X_SELL" => [...],
+            "SUBSTITUTION" => [...]
+        ],
+        "quantified_associations" => [],
+        "metadata" => [
+            "workflow_status" => "working_copy"
+        ]
+    ], 
+  /* ... */
+]
+
+```
+```javascript [activate:NodeJS]
+
+console.log(productVariants);
+
+// Output
+[
+    {
+        "_links": {...},
+        "uuid": "02a1d432-8bb7-4b4b-8d28-8b8f8d0e7b9f",
+        "enabled": true,
+        "family": "patio_furniture_sets",
+        "categories": [
+            "erp_patio_furniture_sets",
+            "master_outdoors_patio_furniture_outdoor_lounge_furniture_patio_conversation_sets"
+        ],
+        "groups": [],
+        "parent": "Becker 4-Piece Dark Mocha Steel Outdoor Patio Seating Set with CushionGuard Cushions",
+        "values": {
+            "fabric_type": [
+                {"locale": null...}
+            ],
+            "chair_design": [
+                {"locale": null...}
+            ],
+            "pattern_type": [
+                {"locale": null...}
+            ]
+            /* ... */
+        },
+        "created": "2022-08-11T09:20:19+00:00",
+        "updated": "2022-08-11T09:20:19+00:00",
+        "associations": {
+            "PACK": {...},
+            "UPSELL": {...},
+            "X_SELL": {...},
+            "SUBSTITUTION": {...}
+        },
+        "quantified_associations": [],
+        "metadata": {
+            "workflow_status": "working_copy"
+        }
+    }
+]
+
 ```
 
 Again, treat each product like a simple product. Please refer to the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>
