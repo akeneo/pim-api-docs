@@ -439,11 +439,14 @@ $maxProductModelsPerQuery = 10;
 
 // Get product model codes from storage
 $productModelCodes = getProductModelCodes();
+// Get locales from storage
+$locales = getLocales(); // ['en_US', 'fr_FR']
 
 $productModelCodesChunks = array_chunk($productModelCodes, $maxProductModelsPerQuery);
 
 $apiUrl = '/api/rest/v1/products-uuid?'
-    . 'search={"parent":[{"operator":"IN","value":%s}]}'
+    . 'locales=%s'
+    . '&search={"parent":[{"operator":"IN","value":%s}]}'
     . '&limit=%s';
 
 // Collect product models from API
@@ -463,6 +466,8 @@ const maxProductModelsPerQuery = 10;
 
 // Get product model codes from storage
 const productModelCodes = await getProductModelCodes();
+// Get locales from storage
+const locales = await getlocales(); // ['en_US', 'fr_FR']
 
 // split productModelCodes in chucks of $maxFamiliesPerQuery elements
 const chunks = [];
@@ -474,6 +479,7 @@ const productVariants = [];
 for (const chunk of chunks) {
     const response = await get(`${pimUrl}/`
         + `api/rest/v1/products-uuid?`
+        + `locales=${locales.join(',')}`
         + `&search={"parent":[{"operator":"IN","value":${JSON.stringify(chunk)}}]}`
         + `&limit=${maxProductsPerPage}`,
         accessToken);
