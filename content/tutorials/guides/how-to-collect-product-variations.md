@@ -85,20 +85,22 @@ Get the big picture <a href="/getting-started/synchronize-pim-products-6x/step-0
 
 ## Collect product variations
 
-### Workflow
-
-![schema_product_models](../../img/tutorials/how-to-collect-product-variations/schema_product_models.svg)
-
 In this tutorial, we will introduce you to the two use cases you may encounter for retrieving products with variations.
 
 - **Use case 1**: Collect all product variation information, just as they are in the PIM (up to 2 possible levels)
 - **Use case 2**: Collect all product variation information on 1 level only)
 
-::: info
-**Use case 2**
-<br>
-We noticed that many e-commerce solutions understand product variation on only one level. This means that for Akeneo **a special recollection of the variations must be done to have them all on the same level.**
-:::
+The steps to follow are basically the same: 
+1. get the product model
+2. get its family variant (to get the variation information)
+3. Retrieve the product variants associated to this product model
+
+Only for use-case 2, you need to put on a single axis the variations once the product model and its family variant have been retrieved, and then get the associated product variants.
+
+### Workflow
+
+![schema_product_models](../../img/tutorials/how-to-collect-product-variations/schema_product_models.svg)
+
 
 ### 0 - Initialization
 
@@ -485,6 +487,8 @@ Again, treat each product like a simple product. Please refer to the guided tuto
 
 ### Use case 2: Collect product variation information - set it all on 1 level
 
+This use case follows the same logic, but here you will set all the variations of a product on one level only.
+
 #### 1. Collect product models
 
 ##### 1.1 You are following the App workflow?
@@ -750,6 +754,8 @@ Parse and store the product model like in [**2.1. Parse and store the product mo
 ##### 2.2. Collect its product variants
 
 Collect product variants the same way than in [**2.2. Collect its product variants**](/tutorials/how-to-collect-product-variations.html#22-collect-its-product-variants)
+
+The variations should be on one level now.
 
 <div class="block-next-steps block-next-steps-alt">
     <img src="/img/illustrations/illus--Attribute.svg" width="140px" class="hidden-xs">
