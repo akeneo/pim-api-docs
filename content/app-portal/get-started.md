@@ -1,4 +1,4 @@
-# Get started with the Apps portal
+# Get started with the App portal
 
 ## App Portal dashboard
 The home page provides access to all sections of the App Portal. Within each section, you have access only to the functionality that’s related to your user role.

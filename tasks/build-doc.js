@@ -820,7 +820,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('build-apps-portal', ['clean-dist','less'], function () {
+gulp.task('build-app-portal', ['clean-dist','less'], function () {
     var pages = {
         'get-started.md': 'Get started',
         'manage-your-team.md': 'Manage your team',
@@ -834,26 +834,26 @@ gulp.task('build-apps-portal', ['clean-dist','less'], function () {
 
     var isOnePage = false;
 
-    return gulp.src(['content/apps-portal/*.md'])
+    return gulp.src(['content/app-portal/*.md'])
         .pipe(flatmap(function(stream, file){
-            return gulp.src(['content/apps-portal/*.md'])
+            return gulp.src(['content/app-portal/*.md'])
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/apps-portal') + "\n"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/app-portal') + "\n"))
               .pipe(gulpMarkdownIt(md))
-              .pipe(gulp.dest('tmp/apps-portal/'))
+              .pipe(gulp.dest('tmp/app-portal/'))
               .on('end', function () {
-                  return gulp.src('src/partials/apps-portal.handlebars')
+                  return gulp.src('src/partials/app-portal.handlebars')
                     .pipe(gulpHandlebars({
                         active_apps_portal:  true,
-                        title: getPageTitle(file.path, 'Apps Portal'),
+                        title: getPageTitle(file.path, 'App portal'),
                         description: getPageDescription(file.path),
-                        mainContent: fs.readFileSync('tmp/apps-portal/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        mainContent: fs.readFileSync('tmp/app-portal/' + path.basename(file.path).replace(/\.md/, '.html'))
                     }, {
                         partialsDirectory: ['./src/partials']
                     }))
                     .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
                     .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                    .pipe(gulp.dest('./dist/apps-portal'));
+                    .pipe(gulp.dest('./dist/app-portal'));
               })
         }));
   }
