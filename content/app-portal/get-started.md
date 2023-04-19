@@ -1,4 +1,4 @@
-# Get started with the App portal
+# Get started in the App Portal
 
 ## App Portal dashboard
 The home page provides access to all sections of the App Portal. Within each section, you have access only to the functionality that’s related to your user role.
@@ -10,14 +10,14 @@ You can return to the App Portal homepage at any time by clicking Dashboard at t
 ### Sections:
 
 - Dashboard: get an overview of your app's analytics (views and activations) and manage your app list.
-- Activations: view all your app activations
+- Activations: view the number of times your app has been activated
 - My company: manage your company profile and members
 - Dev resources: redirects you to this website 
 - Technical blog: redirects you to our technical blog on Medium: [Akeneo Labs](https://medium.com/akeneo-labs)
 
 ## App Portal workflow
 
-You use App Portal to submit apps to the App Store, manage your apps, and view analytics. 
+Use the App Portal to submit apps to the App Store, manage your apps and view analytics. 
 
 ### Step 1: Create your password
 
@@ -25,7 +25,7 @@ You will receive an email from the platform when an Akeneo administrator invites
 
 ### Step 2: Add members and assign roles
 
-To delegate responsibilities to others, visit the My company section and invite members by entering their names and email addresses. They can then perform tasks based on the role you assign them. Learn about roles.
+To delegate responsibilities to others, visit the My Company section and invite members by entering their names and email addresses. They can then perform tasks based on the role you assign them. Learn about roles.
 
 ### Step 3: Add your app
 
