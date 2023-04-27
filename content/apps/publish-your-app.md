@@ -55,7 +55,7 @@ Please note these criteria don't apply to Coming Soon pages.
 ### Recommended tests
 
 Quality is a MUST, and we urge you to run as many tests as possible to ensure your extensions and add-ons work well for any type of product catalog.  
-Although we do not certify extensions on the Akeneo App Store, Akeneo teams will always expect durable, performant, and scalable extensions.  
+Akeneo teams will always expect durable, performant, and scalable extensions.  
 
 
 **Code quality tests**
