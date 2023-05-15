@@ -83,10 +83,12 @@ ReferenceEntityRecordList:
 
 Category:
   $ref: ./resources/categories/definitions/category.yaml
+CategoryUpdate:
+  $ref: ./resources/categories/definitions/category_update.yaml
 CategoryList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
+    - $ref: '#/definitions/ItemList'
     - $ref: '#/definitions/Category'
 
 MeasureFamily:

@@ -52,7 +52,7 @@ patch:
       in: body
       required: true
       schema:
-        $ref: "#/definitions/Category"
+        $ref: "#/definitions/CategoryUpdate"
   responses:
     201:
       $ref: "#/responses/Created"

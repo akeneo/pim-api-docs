@@ -1,0 +1,40 @@
+type: object
+required: ["code"]
+properties:
+  code:
+    type: string
+    description: Category code
+    x-immutable: true
+  parent:
+    type: string
+    description: Category code of the parent's category
+    x-validation-rules: "&bull; It is either equal to `null` or to an existing category code. &#10;&bull; If equal to an existing category code, it cannot reference itself."
+    default: "null"
+  updated:
+    type: string
+    description: Date of the last update
+    format: dateTime
+    x-read-only: true
+  position:
+    type: integer
+    description: Position of the category in its level, start from 1 (only available since the 7.0 version and when query parameter "with_position" is set to "true")
+    x-read-only: true
+  labels:
+    type: object
+    description: Category labels for each locale
+    x-validation-rules: The `localeCode` is the code of an existing and activated locale
+    default: {}
+    properties:
+      localeCode:
+        type: string
+        description: Category label for the locale `localeCode`
+example: {
+  "code": "winter_collection",
+  "parent": null,
+  "updated": "2021-05-22T12:48:00+02:00",
+  "position": 1,
+  "labels": {
+    "en_US": "Winter collection",
+    "fr_FR": "Collection hiver"
+  }
+}
