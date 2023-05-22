@@ -675,22 +675,39 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
         'create-custom-app.md': 'Custom apps'
     };
 
-    const startApp = {
-        'title': 'Start Apps',
-        'badge_name' : 'New',
-        'content': 'Starter for bootstraping your first Akeneo App quickly.',
-        'image': 'apps/dev-tools-langages.svg',
-        'rows': [
-            {
-                'image': 'icons/icon--github.png',
-                'content': 'Github repository:',
-                'breakline': true,
-                'link': 'https://github.com/akeneo/sample-apps',
-                'link_content': 'akeneo/sample-apps',
-            }
-        ],
-        'author': 'By Akeneo'
-    };
+    const sampleApps = [
+        {
+            'title': 'Start Apps',
+            'content': 'Starter for bootstraping your first Akeneo App quickly.',
+            'image': 'apps/dev-tools-langages.svg',
+            'rows': [
+                {
+                    'image': 'icons/icon--github.png',
+                    'content': 'Github repository:',
+                    'breakline': true,
+                    'link': 'https://github.com/akeneo/sample-apps',
+                    'link_content': 'akeneo/sample-apps',
+                }
+            ],
+            'author': 'By Akeneo'
+        },
+        {
+            'title': 'Dataset App',
+            'badge_name' : 'New',
+            'content': 'Automate the integration of large volumes of PIM data to test your App scalability and performance.',
+            'image': 'apps/dev-tools-php.svg',
+            'rows': [
+                {
+                    'image': 'icons/icon--github.png',
+                    'content': 'Github repository:',
+                    'breakline': true,
+                    'link': 'https://github.com/akeneo/dataset-app',
+                    'link_content': 'akeneo/dataset-app',
+                }
+            ],
+            'author': 'By Akeneo'
+        }
+    ];
 
     const apiTools = [
         {
@@ -767,7 +784,7 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
                     return gulp.src('src/partials/apps-developer-tools.handlebars')
                         .pipe(gulpHandlebars({
                             active_apps:  true,
-                            startApp : startApp,
+                            sampleApps : sampleApps,
                             apiTools : apiTools,
                             app : app,
                             mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html')),
