@@ -24,12 +24,12 @@ get:
         <tr>
           <td align="center">PaaS or onPrem EE</td>
           <td align="center">EE</td>
-          <td align="center">5.0.28</td>
+          <td align="center">6.0.28</td>
         </tr>
         <tr>
           <td align="center">PaaS or onPrem CE</td>
           <td align="center">CE</td>
-          <td align="center">5.0.28</td>
+          <td align="center">6.0.28</td>
         </tr>
       </tbody>
     </table>
