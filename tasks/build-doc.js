@@ -677,6 +677,8 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
 
     const sampleApps = [
         {
+            'anchor': 'sample-apps',
+            'section': 'Start with Sample Apps',
             'title': 'Start Apps',
             'content': 'Starter for bootstraping your first Akeneo App quickly.',
             'image': 'apps/dev-tools-langages.svg',
@@ -692,6 +694,8 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
             'author': 'By Akeneo'
         },
         {
+            'anchor': 'dataset-app',
+            'section': 'Test your App',
             'title': 'Dataset App',
             'badge_name' : 'New',
             'content': 'Automate the integration of large volumes of PIM data to test your App scalability and performance.',
