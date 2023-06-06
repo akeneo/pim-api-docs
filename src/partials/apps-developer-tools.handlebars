@@ -4,42 +4,51 @@
         <div class="row developer-tools">
             {{{mainContent}}}
             <div class="col-xs-12 col-sm-offset-1 col-sm-8">
-                <div class="tile-app">
-                    <div class="tile-app-title">
-                        {{startApp.title}}
-                        {{#if startApp.badge_name}}
-                            <span class="tile-app-bagde">{{startApp.badge_name}}</span>
-                        {{/if}}
-                        {{#if startApp.badge_image}}
-                            <span class="tile-app-title-image">
-                                <img class="dev-tools-image"
-                                     src="../content/img/{{startApp.badge_image}}"
-                                     alt=""/>
-                            </span>
-                        {{/if}}
-                    </div>
-                    <div class="tile-app-content">
-                        {{startApp.content}}
-                    </div>
-                    {{#if startApp.image}}
-                        <div class="tile-app-image">
-                            <img class="dev-tools-image" src="../../img/{{startApp.image}}" alt=""/>
-                        </div>
-                    {{/if}}
+                <div class="tile-app-list">
+                    {{#each sampleApps}}
+                        <div class="sample-apps">
+                            <a class="anchor" id="{{anchor}}"></a>
+                            <h2 class="sample-app-title" title-id="{{anchor}}"><a class="markdownIt-Anchor" href="#{{anchor}}">#</a>{{section}}</h2>
+                            <div class="tile-app">
+                                <div class="tile-app-title">
+                                    {{title}}
+                                    {{#if badge_name}}
+                                        <span class="tile-app-bagde">{{badge_name}}</span>
+                                    {{/if}}
+                                    {{#if badge_image}}
+                                        <span class="tile-app-title-image">
+                                            <img class="dev-tools-image"
+                                                src="../content/img/{{badge_image}}"
+                                                alt=""/>
+                                        </span>
+                                    {{/if}}
+                                </div>
+                                <div class="tile-app-content">
+                                    {{content}}
+                                </div>
+                                {{#if image}}
+                                    <div class="tile-app-image">
+                                        <img class="dev-tools-image" src="../../img/{{image}}" alt=""/>
+                                    </div>
+                                {{/if}}
 
-                    {{#each startApp.rows}}
-                        <div class="tile-app-row">
-                            <img class="tile-app-row-image" src="../../img/{{image}}" alt=""/>
-                            {{#if link}}
-                                <div>{{content}}&nbsp;{{#if breakline}}<br/>{{/if}}<a
-                                        href="{{link}}" target="_blank" {{#if download}}download{{/if}}>{{link_content}}</a></div>
-                            {{/if}}
+                                {{#each rows}}
+                                    <div class="tile-app-row">
+                                        <img class="tile-app-row-image" src="../../img/{{image}}" alt=""/>
+                                        {{#if link}}
+                                            <div>{{content}}&nbsp;{{#if breakline}}<br/>{{/if}}<a
+                                                    href="{{link}}" target="_blank" {{#if download}}download{{/if}}>{{link_content}}</a></div>
+                                        {{/if}}
+                                    </div>
+                                {{/each}}
+                                <div class="tile-app-author">{{author}}</div>
+                            </div>
                         </div>
-                    {{/each}}
-                    <div class="tile-app-author">{{startApp.author}}</div>
+                    {{/each}}    
                 </div>
+                
                 <a class="anchor" id="api-tools"></a>
-                <h2 title-id="api-tools"><a class="markdownIt-Anchor" href="#api-tools">#</a>API tools</h2>
+                <h2 title-id="api-tools"><a class="markdownIt-Anchor" href="#api-tools">#</a>Ease API access</h2>
                 <div class="tile-app-list">
                     {{#each apiTools}}
                         <div class="tile-app">
@@ -87,7 +96,7 @@
 
                 <a class="anchor" id="diving-into-an-app"></a>
                 <h2 title-id="diving-into-an-app">
-                    <a class="markdownIt-Anchor" href="#diving-into-an-app">#</a>Diving into an App
+                    <a class="markdownIt-Anchor" href="#diving-into-an-app">#</a>Dive into an App
                 </h2>
                 <div class="tile-app">
                     <div class="tile-app-title">
