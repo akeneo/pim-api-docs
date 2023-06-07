@@ -85,20 +85,22 @@ Get the big picture <a href="/getting-started/synchronize-pim-products-6x/step-0
 
 ## Collect product variations
 
-### Workflow
-
-![schema_product_models](../../img/tutorials/how-to-collect-product-variations/schema_product_models.svg)
-
 In this tutorial, we will introduce you to the two use cases you may encounter for retrieving products with variations.
 
 - **Use case 1**: Collect all product variation information, just as they are in the PIM (up to 2 possible levels)
 - **Use case 2**: Collect all product variation information on 1 level only)
 
-::: info
-**Use case 2**
-<br>
-We noticed that many e-commerce solutions understand product variation on only one level. This means that for Akeneo **a special recollection of the variations must be done to have them all on the same level.**
-:::
+The steps to follow are basically the same: 
+1. get the product model
+2. get its family variant (to get the variation information)
+3. Retrieve the product variants associated to this product model
+
+Only for use-case 2, you need to put on a single axis the variations once the product model and its family variant have been retrieved, and then get the associated product variants.
+
+### Workflow
+
+![schema_product_models](../../img/tutorials/how-to-collect-product-variations/schema_product_models.svg)
+
 
 ### 0 - Initialization
 
@@ -424,7 +426,93 @@ for (const familyVariant of familyVariants) {
 storeFamilyVariants(indexedFamilyVariants);
 ```
 
-##### 2.2. Collect its product variants
+Example output:
+```php [activate:PHP]
+
+var_export($indexedFamilyVariants);
+
+// Output
+[
+    "beanies_by_color" => [
+        "_links" => [...]
+        "code" => "beanies_by_color",
+        "labels" => [
+            "en_US" => "Beanies by Color",
+            "en_GB" => "Beanies by Color",
+            "fr_FR" => "Beanies by Color",
+            "de_DE" => "Beanies by Color",
+            "ja_JP" => "\u8272\u5225\u30d3\u30fc\u30cb\u30fc"
+        ],
+        "variant_attribute_sets" => [
+            [
+                "level" => 1,
+                "axes" => [
+                    "color"
+                ],
+                "attributes" => [
+                    "sku",
+                    "erp_name",
+                    "price",
+                    "name",
+                    "best_seller",
+                    "clearance",
+                    "inventory_level",
+                    "badge",
+                    "color",
+                    "akeneo_onboarder_supplier",
+                    "akeneo_onboarder_supplier_reference"
+                ],
+            ],
+        ],
+    ],
+    /* ... */
+];
+
+```
+```javascript [activate:NodeJS]
+
+console.log(indexedFamilyVariants);
+
+// Output
+{
+    "beanies_by_color": {
+        "_links": {...},
+        "code": "beanies_by_color",
+            "labels": {
+            "en_US": "Beanies by Color",
+                "en_GB": "Beanies by Color",
+                "fr_FR": "Beanies by Color",
+                "de_DE": "Beanies by Color",
+                "ja_JP": "\u8272\u5225\u30d3\u30fc\u30cb\u30fc"
+            },
+        "variant_attribute_sets": [
+            {
+                "level": 1,
+                "axes": [
+                    "color"
+                ],
+                "attributes": [
+                    "sku",
+                    "erp_name",
+                    "price",
+                    "name",
+                    "best_seller",
+                    "clearance",
+                    "inventory_level",
+                    "badge",
+                    "color",
+                    "akeneo_onboarder_supplier",
+                    "akeneo_onboarder_supplier_reference"
+                ]
+            }
+        ]
+    },
+    /* ... */
+}
+
+```
+
+##### 2.3. Collect its product variants
 
 To get product variants associated to a product model, ask to the API
 
@@ -437,11 +525,14 @@ $maxProductModelsPerQuery = 10;
 
 // Get product model codes from storage
 $productModelCodes = getProductModelCodes();
+// Get locales from storage
+$locales = getLocales(); // ['en_US', 'fr_FR']
 
 $productModelCodesChunks = array_chunk($productModelCodes, $maxProductModelsPerQuery);
 
 $apiUrl = '/api/rest/v1/products-uuid?'
-    . 'search={"parent":[{"operator":"IN","value":%s}]}'
+    . 'locales=%s'
+    . '&search={"parent":[{"operator":"IN","value":%s}]}'
     . '&limit=%s';
 
 // Collect product models from API
@@ -461,6 +552,8 @@ const maxProductModelsPerQuery = 10;
 
 // Get product model codes from storage
 const productModelCodes = await getProductModelCodes();
+// Get locales from storage
+const locales = await getlocales(); // ['en_US', 'fr_FR']
 
 // split productModelCodes in chucks of $maxFamiliesPerQuery elements
 const chunks = [];
@@ -472,6 +565,7 @@ const productVariants = [];
 for (const chunk of chunks) {
     const response = await get(`${pimUrl}/`
         + `api/rest/v1/products-uuid?`
+        + `locales=${locales.join(',')}`
         + `&search={"parent":[{"operator":"IN","value":${JSON.stringify(chunk)}}]}`
         + `&limit=${maxProductsPerPage}`,
         accessToken);
@@ -481,9 +575,104 @@ for (const chunk of chunks) {
 }
 ```
 
+Example output:
+```php [activate:PHP]
+
+var_export($productVariants);
+
+// Output
+[
+    [
+        "_links" => [...],
+        "uuid" => "02a1d432-8bb7-4b4b-8d28-8b8f8d0e7b9f",
+        "enabled" => true,
+        "family" => "patio_furniture_sets",
+        "categories" => [
+            "erp_patio_furniture_sets",
+            "master_outdoors_patio_furniture_outdoor_lounge_furniture_patio_conversation_sets"
+        ],
+        "groups" => [],
+        "parent" => "Becker 4-Piece Dark Mocha Steel Outdoor Patio Seating Set with CushionGuard Cushions",
+        "values" => [
+            "fabric_type" => [
+                ["locale" => null...]
+            ],
+            "chair_design" => [
+                ["locale" => null...]
+            ],
+             "pattern_type" => [
+                ["locale" => null...]
+            ],
+            /* ... */
+        ],
+        "created" => "2022-08-11T09:20:19+00:00",
+        "updated" => "2022-08-11T09:20:19+00:00",
+        "associations" => [
+            "PACK" => [...],
+            "UPSELL" => [...],
+            "X_SELL" => [...],
+            "SUBSTITUTION" => [...]
+        ],
+        "quantified_associations" => [],
+        "metadata" => [
+            "workflow_status" => "working_copy"
+        ]
+    ], 
+  /* ... */
+]
+
+```
+```javascript [activate:NodeJS]
+
+console.log(productVariants);
+
+// Output
+[
+    {
+        "_links": {...},
+        "uuid": "02a1d432-8bb7-4b4b-8d28-8b8f8d0e7b9f",
+        "enabled": true,
+        "family": "patio_furniture_sets",
+        "categories": [
+            "erp_patio_furniture_sets",
+            "master_outdoors_patio_furniture_outdoor_lounge_furniture_patio_conversation_sets"
+        ],
+        "groups": [],
+        "parent": "Becker 4-Piece Dark Mocha Steel Outdoor Patio Seating Set with CushionGuard Cushions",
+        "values": {
+            "fabric_type": [
+                {"locale": null...}
+            ],
+            "chair_design": [
+                {"locale": null...}
+            ],
+            "pattern_type": [
+                {"locale": null...}
+            ]
+            /* ... */
+        },
+        "created": "2022-08-11T09:20:19+00:00",
+        "updated": "2022-08-11T09:20:19+00:00",
+        "associations": {
+            "PACK": {...},
+            "UPSELL": {...},
+            "X_SELL": {...},
+            "SUBSTITUTION": {...}
+        },
+        "quantified_associations": [],
+        "metadata": {
+            "workflow_status": "working_copy"
+        }
+    }
+]
+
+```
+
 Again, treat each product like a simple product. Please refer to the guided tutorial <a href="/tutorials/how-to-get-families-and-attributes.html" target="_blank" rel="noopener noreferrer">How to get families, family variants, and attributes</a>
 
 ### Use case 2: Collect product variation information - set it all on 1 level
+
+This use case follows the same logic, but here you will set all the variations of a product on one level only.
 
 #### 1. Collect product models
 
@@ -750,6 +939,8 @@ Parse and store the product model like in [**2.1. Parse and store the product mo
 ##### 2.2. Collect its product variants
 
 Collect product variants the same way than in [**2.2. Collect its product variants**](/tutorials/how-to-collect-product-variations.html#22-collect-its-product-variants)
+
+The variations should be on one level now.
 
 <div class="block-next-steps block-next-steps-alt">
     <img src="/img/illustrations/illus--Attribute.svg" width="140px" class="hidden-xs">
