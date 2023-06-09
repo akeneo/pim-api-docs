@@ -18,13 +18,13 @@ Click Close. Your app is created.
 
 Once you click on Close, you access all available fields. Either you process and fill in the form or you can go back to Dashboard or any other section without adding more information.
 
-## Set your developer name on the Akeneo App Store
+## Set your Company name on the Akeneo App Store
 
 Required role: Partner administrator
 
-Your developer name appears under your app's name on your app's App Store product page. By default, your legal name is used. 
+Your company name appears under your app's name on your app's App Store product page. By default, your legal name is used. 
 
-You can set your developer name at any time.
+You can set your company name at any time.
 
 1. From My company, Company profile section, update your Company name.
 2. Click Save.
