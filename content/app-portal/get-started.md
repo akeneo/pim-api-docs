@@ -19,9 +19,9 @@ You can return to the App Portal homepage at any time by clicking Dashboard at t
 
 Use the App Portal to submit apps to the App Store, manage your apps and view analytics. 
 
-### Step 1: Create your password
+### Step 1: Create your account
 
-You will receive an email from the platform when an Akeneo administrator invites you to the platform. Click on the reset password link in this email or go to [apps.akeneo.com](http://apps.akeneo.com), click App Portal, then click reset password. Enter your email address to receive a link to reset your password. 
+As a Partner, you will receive an email from the platform when an Akeneo administrator invites you to the platform. Click on the Accept Invitation link in this email. Enter your firstname, lastname and email, then click on Create Account.
 
 ### Step 2: Add members and assign roles
 
