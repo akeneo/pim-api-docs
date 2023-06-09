@@ -33,7 +33,8 @@ In the Dashboard section, create an app record so your app’s information, suc
 
 ### Step 4: Test and submit your app
 
-Use our custom apps feature to test your app on an Akeneo PIM. When your app is ready for the App Store, check your app information, validate your app URLs, and submit it to App Store Review. You can continue improving your app by creating new versions periodically.
+When your app is ready for the App Store, check your app information, validate your app URLs, and submit it to App Store Review. You can continue improving your app by creating new versions periodically.
+Use our [custom apps feature](https://pr-815.api-dev.akeneo.com/apps/create-custom-app.html) to test your app on an Akeneo PIM.
 
 ### Step 5: Monitor your app's status and usage
 
