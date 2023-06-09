@@ -36,6 +36,12 @@ code:
   description: Code of the resource
   required: true
   type: string
+file_path:
+  name: file_path
+  in: path
+  description: Path of the resource
+  required: true
+  type: string
 uuid:
   name: uuid
   in: path

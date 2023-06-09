@@ -1,6 +1,6 @@
 get:
   summary: Download a category media file
-  operationId: "get_category_media_files__code__download"
+  operationId: "get_category_media_files__file_path__download"
   description: This endpoint allows you to download a given media file that is used as an attribute value of a enriched category.
   x-content-type: Mime-type of the media file
   tags:
@@ -8,7 +8,7 @@ get:
   x-versions:
     - "SaaS"
   parameters:
-    - $ref: '#/parameters/code'
+    - $ref: '#/parameters/file_path'
   responses:
     200:
       description: OK
