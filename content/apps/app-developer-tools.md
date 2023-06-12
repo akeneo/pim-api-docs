@@ -1,10 +1,12 @@
 # App developer tools
-
-## Getting Started with Sample Apps
 <div style="display:none" class="to-remove">
 
-## API tools
+## Start with Sample Apps
 
-## Diving into an App
+## Test your App
+
+## Ease API access
+
+## Dive into an App
 </div>
 
