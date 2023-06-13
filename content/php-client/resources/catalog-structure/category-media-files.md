@@ -26,7 +26,7 @@ $firstPage = $client->getCategoryApi()->listPerPage(50, true, ['with_enriched_at
 	            $mediaFile = $client->getCategoryMediaFileApi()->download($filePath);
 	            file_put_contents(
 	                '/tmp/' . $value['attribute_code'] . $value['data']['extension'],
-	                $image->getBody()
+	                $mediaFile->getBody()
 	            );
 	        }
 	    }
