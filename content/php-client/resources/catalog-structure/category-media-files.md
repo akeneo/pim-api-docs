@@ -8,5 +8,5 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
 
 $mediaFile = $client->getCategoryMediaFileApi()->download('code/example');
 
-file_put_contents('/tmp/ziggy.jpg', $image->getBody());
+file_put_contents('/tmp/ziggy.jpg', $mediaFile->getBody());
 ```
