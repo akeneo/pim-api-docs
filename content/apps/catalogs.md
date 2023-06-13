@@ -3,7 +3,7 @@
 ## Overview
 
 This guide introduces the catalog feature and explains why using catalogs to retrieve Akeneo data.  
-You will save time during development with catalogs because Akeneo PXM Studio manages your **product selection** and gives you direct access to the relevant data.
+You will save time during development with catalogs because Akeneo PXM Studio manages your **product selection** and gives you direct access to the relevant data. You can also leverage our **data mapping** feature to get product data in your chosen format.  
 
 ### What's a catalog?
 
@@ -18,9 +18,9 @@ Catalogs are only created by apps and configured by Akeneo users from Akeneo PXM
 Using Catalogs helps you better manage the product information you get from the Akeneo PXM Studio. 
 
 Most of the time, developers must design, develop and maintain a filter interface to allow users to configure their product selection: which products must be considered and which don't. 
-Using catalogs for apps prevents you from adding this filtering interface to your app. When you retrieve product information related to a catalog, you only retrieve the data your app needs to process. 
+Using catalogs for apps **prevents you from adding this filtering interface to your app**. When you retrieve product information related to a catalog, you **only retrieve the data your app needs to process**. 
 
-Moreover, with catalogs, you don't have to master the entire PIM structure anymore to deliver a relevant filtering interface, as the Akeneo PXM Studio already provides it to your users. 
+Moreover, with catalogs, you **don't have to master the entire PIM structure anymore** to deliver a relevant filtering interface, as the Akeneo PXM Studio already provides it to your users. 
 ![Product Selection](../img/apps/catalogs-product-selection.png)
 
 ### Limits
@@ -28,6 +28,10 @@ Moreover, with catalogs, you don't have to master the entire PIM structure anymo
 To ensure Akeneo PXM Studio remains stable, we added some limits to catalogs:
 - Each app can create up to **15 catalogs**.
 - A product selection can have up to **25 selection criteria**.
+
+::: info 
+To learn more about the functional scope, please visit our Help Center and read the [How to configure catalogs for Apps?](https://help.akeneo.com/serenity-connect-your-pim/how-to-configure-catalogs-for-apps)
+:::
 
 ### Troubleshooting
 
@@ -135,7 +139,7 @@ The first step to using the mapping feature is determining the JSON schema you n
 
 To help you define your schema, we advise you to use this online validator pre-configured with our latest meta-schema: [jsonschemavalidator.net](https://www.jsonschemavalidator.net/s/D85OL1LE). The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints. 
 
-You can also download the latest meta-schema at this url: [product mapping meta-schema - v0.0.12 (March, 2023)](/mapping/product/0.0.12/schema)
+You can also download the latest meta-schema at this url: [product mapping meta-schema - v0.0.13 (May, 2023)](/mapping/product/0.0.13/schema)
 
 JSON schema example: 
 
@@ -174,9 +178,10 @@ JSON schema example:
     },
     "main_image": {
       "title": "Main image",
-      "description": "Format: URI/link",
+      "description": "Format: URI/link. Allowed extensions: .png, .jpg",
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "pattern": ".*(png|jpg).*$"
     },
     "main_color": {
       "title": "Main color",
@@ -246,6 +251,10 @@ JSON schema example:
   ]
 }
 ```
+
+::: warning
+Please note that we use the `required` properties to filter products. If a product has an empty value for a required target, we don't send it as it doesn't match your app requirements. E.g. if a product has no value for the attributes mapped with your sku and/or name target, you won't receive it when requesting mapped products. 
+:::
 
 ### Step 2: Push your product mapping schema
 

@@ -670,8 +670,6 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
         'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
         'app-developer-tools.md': 'Developer tools',
         'app-concepts-and-use-cases.md': 'App concepts and use cases',
-        'publish-your-app.md': 'Publish your app',
-        'certify-your-app.md': 'Certify your app',
         'create-custom-app.md': 'Custom apps'
     };
 
@@ -792,8 +790,6 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
         'app-developer-tools.md': 'Developer tools',
         'app-concepts-and-use-cases.md': 'App concepts and use cases',
-        'publish-your-app.md': 'Publish your app',
-        'certify-your-app.md': 'Certify your app',
         'create-custom-app.md': 'Custom apps'
     };
 
@@ -819,6 +815,45 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
                     .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
                     .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                     .pipe(gulp.dest('./dist/apps'));
+              })
+        }));
+  }
+);
+
+gulp.task('build-app-portal', ['clean-dist','less'], function () {
+    var pages = {
+        'get-started.md': 'Get started',
+        'manage-your-team.md': 'Manage your team',
+        'create-app-record.md': 'Create an app record',
+        'manage-app-information.md': 'Manage app information',
+        'manage-app-availability.md': 'Manage your app\'s availability',
+        'publish-your-app.md': 'App Approval Requirements',
+        'certify-your-app.md': 'Certify your app',
+        'measure-app-performance.md': 'Measure app performance'
+    };
+
+    var isOnePage = false;
+
+    return gulp.src(['content/app-portal/*.md'])
+        .pipe(flatmap(function(stream, file){
+            return gulp.src(['content/app-portal/*.md'])
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/app-portal') + "\n"))
+              .pipe(gulpMarkdownIt(md))
+              .pipe(gulp.dest('tmp/app-portal/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/app-portal.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_apps_portal:  true,
+                        title: getPageTitle(file.path, 'App portal'),
+                        description: getPageDescription(file.path),
+                        mainContent: fs.readFileSync('tmp/app-portal/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/app-portal'));
               })
         }));
   }
