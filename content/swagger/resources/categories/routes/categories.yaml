@@ -80,6 +80,19 @@ get:
                   "channel": "ecommerce",
                   "locale": "en_US",
                   "attribute_code": "description|96b88bf4-c2b7-4b64-a1f9-5d4876c02c26"
+                },
+                "image_1|871b8686-79b5-415c-9c6f-a38f8732dfb7|ecommerce|en_US": {
+                  "data": {
+                    "size": 1401359,
+                    "extension": "jpg",
+                    "file_path": "2/d/c/7/2dc791671d726e7438219d5dc7fd51a53d6bf2bb_IMG_7860.jpg",
+                    "mime_type": "image/jpeg",
+                    "original_filename": "IMG_7860.jpg"
+                  },
+                  "type": "image",
+                  "channel": "ecommerce",
+                  "locale": "en_US",
+                  "attribute_code": "image_1|871b8686-79b5-415c-9c6f-a38f8732dfb7"
                 }
               }
             },
