@@ -56,12 +56,20 @@ The first step is to retrieve a **Client id** and a **Client secret**, which you
 
 If you've already created an app and generated API credentials, then proceed to [step 2](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations).
 
-1. Log in to your [Akeneo App Store](https://apps.akeneo.com/) account
-2. Scroll down to the bottom of the page and click [Submit your app for review](https://apps.akeneo.com/node/add/extension)
-3. Choose the `App` option
-4. Fill in all the required values including **activate and callback URLs** of your app
-5. Click on `Save`
-6. **Copy and paste your app credentials** and save them carefully as the Akeneo App Store displays them only once
+If you start developing your app, we advise you to use a custom app. To do so:
+1. In the top right corner, click on `Create an App`
+2. Fill in all the required information: Activate URL and Callback URL
+   ![Custom app creation screen](../../img/apps/custom-app-creation-info.png)
+3. Then click on `Create`
+4. Copy/paste credentials in your app configuration file
+   ![Custom app credentials screen](../../img/apps/custom-app-creation-credentials.png)
+5. And click on `Done`
+6. Your custom App appears on the App Store page
+
+::: tips
+**Your app is good to go?**  
+Connect to the <a href="https://manage.apps.akeneo.com/" target="_blank">App Portal</a> and follow the [Create an app record documentation](/app-portal/create-app-record.html). 
+::: 
 
 
 ### Step 2: Ask for authorizations
