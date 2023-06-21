@@ -1,6 +1,8 @@
 # Get started in the App Portal
 Welcome to our [App Store Admin Portal](https://manage.apps.akeneo.com/), a comprehensive platform empowering you to seamlessly manage, submit, and optimize your App extensions with ease.
-- Ask us to send you an App Portal access via apps@akeneo.com when you're ready to start or submit your extension.
+::: tips
+Ask us to send you an App Portal access via [apps@akeneo.com](mailto:apps@akeneo.com) when you're ready to start or submit your extension.
+:::
 
 ## App Portal dashboard
 The home page provides access to all sections of the App Portal. Within each section, you have access only to the functionality that’s related to your user role.
