@@ -1,4 +1,6 @@
 # Get started in the App Portal
+Welcome to our [App Store Admin Portal](https://manage.apps.akeneo.com/), a comprehensive platform empowering you to seamlessly manage, submit, and optimize your App extensions with ease.
+- Ask us to send you an App Portal access via apps@akeneo.com when you're ready to start or submit your extension.
 
 ## App Portal dashboard
 The home page provides access to all sections of the App Portal. Within each section, you have access only to the functionality that’s related to your user role.
@@ -21,7 +23,7 @@ Use the App Portal to submit apps to the App Store, manage your apps and view 
 
 ### Step 1: Create your account
 
-As a Partner, you will receive an email from the platform when an Akeneo administrator invites you to the platform. Click on the Accept Invitation link in this email. Enter your firstname, lastname and email, then click on Create Account.
+You should receive an email from the platform when an Akeneo administrator invites you to the platform. Click on the Accept Invitation link in this email. Enter your firstname, lastname and email, then click on Create Account.
 
 ### Step 2: Add members and assign roles
 
@@ -34,7 +36,7 @@ In the Dashboard section, create an app record so your app’s information, suc
 ### Step 4: Test and submit your app
 
 When your app is ready for the App Store, check your app information, validate your app URLs, and submit it to App Store Review. You can continue improving your app by creating new versions periodically.
-Use our [custom apps feature](https://pr-815.api-dev.akeneo.com/apps/create-custom-app.html) to test your app on an Akeneo PIM.
+Use our [custom apps feature](https://api.akeneo.com/apps/create-custom-app.html#custom-apps) to test your app on an Akeneo PIM.
 
 ### Step 5: Monitor your app's status and usage
 
