@@ -1,4 +1,4 @@
-# App Approval Requirements
+# App Publication Requirements
 
 Thanks to you, the Akeneo App Store continues to grow. It has become increasingly important for us to review the submission process for new Apps to maintain the quality standards that Akeneo users expect. By doing this, we will ensure that our Akeneo App Store remains a valuable resource for the Akeneo Community.
 
