@@ -827,7 +827,7 @@ gulp.task('build-app-portal', ['clean-dist','less'], function () {
         'create-app-record.md': 'Create an app record',
         'manage-app-information.md': 'Manage app information',
         'manage-app-availability.md': 'Manage your app\'s availability',
-        'publish-your-app.md': 'App Approval Requirements',
+        'publish-your-app.md': 'App Publication Requirements',
         'certify-your-app.md': 'Certify your app',
         'measure-app-performance.md': 'Measure app performance'
     };

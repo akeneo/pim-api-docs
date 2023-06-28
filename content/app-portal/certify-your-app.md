@@ -61,7 +61,7 @@ We require that all App partners verify the security of their App and take all t
 
 <b>How do we verify this criterion?</b>
 
-- We require that App partners sign the [App Security Charter](/apps/certify-your-app.html#app-security-charter) to commit to a certain number of security verification points for their App.
+- We require that App partners sign the [App Security Charter](/app-portal/certify-your-app.html#app-security-charter) to commit to a certain number of security verification points for their App.
 
 <h3>6- An App must have a standardized name</h3>
 
