@@ -72,3 +72,21 @@ If you cannot access a test platform corresponding to the PIM edition/version, p
 ::: info
 Price and Currency fields are related to your Price type. You may leave these fields empty.
 :::
+
+### Feature List
+Depending on the selected Category for your extension some extra "Feature List" select fields will be displayed to complete. 
+| Category | Sections |
+| --- | --- |
+| E-commerce, Syndication, Print | Akeneo PIM data/properties|
+| E-commerce, Syndication, Print | Connector/App capabilities |
+| E-commerce, Syndication | Data synchronization |
+| Translation | Akeneo PIM data managed by the extension |
+| Translation | Extension settings |
+| Translation | Extension capabilities |
+| DAM | PIM EE compatibility with asset manager |
+| DAM | PIM CE/GE compatibility |
+| DAM | Both ways metadata synchronization |
+
+::: info
+This step is crucial in ensuring a smooth and efficient validation process, as well as maximizing the potential success of your extension.
+:::
