@@ -30,7 +30,7 @@ Also, if you're dealing with REST API breaks that weren't announced and not docu
 
 Starting the v3 version of the PIM, we worked a lot on improving the performance of our PIM, including our REST API.
 
-As an example, starting from the v4, the REST API is 3 times faster than the traditionnal exports of flat files.
+As an example, starting from the v4, the REST API is 3 times faster than the traditional exports of flat files.
 Also regarding, the imports of products, if you want to gain speed, with the REST API you can easily parallelize your requests.
 
 Today, the REST API is officially the **most performant way** to connect the PIM.

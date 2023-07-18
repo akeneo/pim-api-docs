@@ -468,7 +468,7 @@ To get products that are purple, purple being an option of the simple select `ma
 /api/rest/v1/products-uuid?search={"main_color":[{"operator":"IN","value":["purple"]}]}
 ```
 
-To get products having a description begining with `Amazing` on the `en_US` locale, the `short_description` attribute being localizable but not scopable, you can use the following URL.
+To get products having a description beginning with `Amazing` on the `en_US` locale, the `short_description` attribute being localizable but not scopable, you can use the following URL.
 
 ```
 /api/rest/v1/products-uuid?search={"short_description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}]}
@@ -973,7 +973,7 @@ To get published products that are purple, purple being an option of the simple 
 /api/rest/v1/published-products?search={"main_color":[{"operator":"IN","value":["purple"]}]}
 ```
 
-To get published products having a description begining with `Amazing` on the `en_US` locale, the `short_description` attribute being localizable but not scopable, you can use the following URL.
+To get published products having a description beginning with `Amazing` on the `en_US` locale, the `short_description` attribute being localizable but not scopable, you can use the following URL.
 
 ```
 /api/rest/v1/published-products?search={"short_description":[{"operator":"STARTS WITH","value":"Amazing","locale":"en_US"}]}

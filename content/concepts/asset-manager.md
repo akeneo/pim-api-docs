@@ -3,7 +3,7 @@ The Asset Manager is a brand new and more efficient way to manage the assets lin
 
 The assets of the Asset Manager will be way more powerful than before. They will benefit from 4 major new features:
 - the possibility to define a flexible structure, thanks to the [asset families](#the-asset-family),
-- the possibility to automatize the link with your products, thanks to the [product link rules](#focus-on-the-product-link-rule) and the [naming convention](#focus-on-the-naming-convention),
+- the possibility to automate the link with your products, thanks to the [product link rules](#focus-on-the-product-link-rule) and the [naming convention](#focus-on-the-naming-convention),
 - the possibility to refer to both external and internal binaries, thanks to the [media link](#the-media-link-attribute) and the [media file](#the-media-file-attribute) attribute types,
 - the posibility to have flexible asset [transformations](#focus-on-the-transformations).
 
@@ -328,7 +328,7 @@ The JSON format of the product link rules is an array of product link rules. A p
 ```
 
 ::: warning
-A piece of advice: when defining two different rules on an asset family, make sure you define different product selections in each rule, as shown in the example above. Why? Because you could experience performance issues. If you want to assign your assets to two different product attributes on a given selection of products, use one single rule, with two assigments in the `assign_assets_to` field. See the [Product value assigment](#product-value-assignment) section for an example.
+A piece of advice: when defining two different rules on an asset family, make sure you define different product selections in each rule, as shown in the example above. Why? Because you could experience performance issues. If you want to assign your assets to two different product attributes on a given selection of products, use one single rule, with two assignments in the `assign_assets_to` field. See the [Product value assignment](#product-value-assignment) section for an example.
 :::
 
 Looks barbaric? Don't freak out! The following sections are here to help you understand this rule and how you can make the most of it. You'll see, it's super powerful! :)
@@ -1174,7 +1174,7 @@ If the `MEDIA_FILE_ATTRIBUTE_NAME` is the code of an attribute that is not scopa
 :::
 
 ::: info
-There are additionnal business rules regarding this `target` property whenever you have multiple transformations for the same asset family. See the [Dealing with several transformations](#dealing-with-several-transformations) section for more details.
+There are additional business rules regarding this `target` property whenever you have multiple transformations for the same asset family. See the [Dealing with several transformations](#dealing-with-several-transformations) section for more details.
 :::
 
 ### Target filename
@@ -1229,7 +1229,7 @@ The `operations` property follows this format:
 ```
 
 In this formula:
- - `OPERATION_NAME` is the name of the operation that should be perfomed on the source file. The complete list of available operations is detailed below.
+ - `OPERATION_NAME` is the name of the operation that should be performed on the source file. The complete list of available operations is detailed below.
  - `OPERATION_PARAMETERS` is the set of parameters for the operation. It depends on the `OPERATION_NAME` chosen before.
 
 ::: warning
