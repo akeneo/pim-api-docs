@@ -25,9 +25,8 @@ From November 2022, the product identifier value (pim_catalog_identifier attribu
 ## Why do we do that?
 
 A PIM used to contain one and only identification: the so-called field `identifier` (the only `pim_catalog_identifier` attribute of the whole product).
-In Serenity, this field value is the SKU (Stock Keeping Unit) of the product, but what if you need to identify your product with several product identifiers (SKU, EAN, GTIN,...)?
-Adding classic fields won't do the job: you need a kind of identifier field for each product.
-And how will you identify your product if its SKU has changed?
+In Serenity, this field value is the main identifier of the product. You can now change your main identifier and choose another identifier attribute instead of the SKU.
+But what if the main identifier for your catalog changes overtime? What if you would like to transition from the SKU to an EAN as the main identifier for example? The identifiers on your products would then change and this why we recommend using our UUID API endpoints. The product UUID (for Universally Unique Identifier) allows every product on the PIM to have a unique and immutable way to identify it.
 
 That's the purpose of the brand-new product UUID feature.
 

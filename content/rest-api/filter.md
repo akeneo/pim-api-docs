@@ -1803,7 +1803,7 @@ To get the attributes of types `pim_catalog_simpleselect` and `pim_catalog_multi
 
 ::: availability versions=SaaS editions=CE,EE
 
-You can filter the attributes that have are the main identifier or not.
+You can filter the attributes that are the main identifier or not.
 
 Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
