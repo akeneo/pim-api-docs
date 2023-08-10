@@ -190,6 +190,9 @@ properties:
           description: Defines if the column should be entirely filled for the attribute to be considered complete
           x-warning: This value is always true for the first column in a table configuration
           default: false
+  is_main_identifier:
+    type: boolean
+    description: Is this attribute main identifier when attribute type is `pim_catalog_identifier`
 example: {
   "code": "release_date",
   "type": "pim_catalog_date",

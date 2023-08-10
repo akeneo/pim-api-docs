@@ -1799,6 +1799,26 @@ To get the attributes of types `pim_catalog_simpleselect` and `pim_catalog_multi
 /api/rest/v1/attributes?search={"type":[{"operator":"IN","value":["pim_catalog_simpleselect","pim_catalog_multiselect"]}]}
 ```
 
+### By the main identifier
+
+::: availability versions=SaaS editions=CE,EE
+
+You can filter the attributes that are the main identifier or not.
+
+Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
+
+| Operator | Allowed value type                                                                 | Filter description                                                                                                   |
+|----------| ---------------------------------------------------------------------------------- |----------------------------------------------------------------------------------------------------------------------|
+| `=`      | boolean          | When true, only returns the main identifier attribute (true) or attributes that are not the main identifier (false). |
+
+#### Example
+
+To get the main identifier attribute, you can use the following URL.
+
+```
+/api/rest/v1/attributes?search={"is_main_identifier":[{"operator":"=","value":true}]}
+```
+
 ## Filter attribute groups
 
 When you request specific attribute groups, you can use filters to select only the ones you want.

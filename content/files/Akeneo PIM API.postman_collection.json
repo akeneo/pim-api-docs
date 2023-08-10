@@ -426,6 +426,12 @@
                   "disabled": true
                 },
                 {
+                  "key": "search",
+                  "value": "{\"is_main_identifier\":[{\"operator\":\"=\",\"value\":true}]}",
+                  "description": "Get the main identifier attribute.",
+                  "disabled": true
+                },
+                {
                   "key": "page",
                   "value": "1",
                   "description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type.",
