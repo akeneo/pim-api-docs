@@ -33,12 +33,14 @@ This parameter is not available on all list endpoints. Check our [reference](/ap
 
 ## The `Search-after` method
 
-For high volume entities, such as the products, product models, published products, assets, reference entities and reference entity records, we provide another pagination method, the `Search-after` method. We recommend to use this method if you want to have good performances, instead of the [`Offset` method](/documentation/pagination.html#the-offset-method).
+We provide another pagination method, the 'Search-after' method, for high-volume entities, such as products, product models, published products, assets, reference entities, and reference entity records. 
 
-When using this method, the entities you will get, will then be sorted by product primary key to speed up performance. Also, there is a `search_after` query parameter that is used as a cursor.
+We **strongly recommend using this method if you want to have good performances** instead of the [`Offset` method](/documentation/pagination.html#the-offset-method). 
+
+Please note that when you use this method, entities are sorted by product primary key, and the `with_count` parameter is unavailable to speed up performance. Also, a `search_after` query parameter is used as a cursor.
 
 :::danger
-The `search_after` query parameter should never be set manually. If you want to navigate through the pages, use the links provided in `_links` property of the response of your first request. Take a look at the example below to see these links.
+When using this method, a `search_after` query parameter is used as a cursor. This query parameter **should never be set manually**. If you want to navigate through pages, use the links provided in `_links` property of the response of your first request. Take a look at the example below to see these links.
 :::
 
 :::warning
