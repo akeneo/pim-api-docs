@@ -829,7 +829,8 @@ gulp.task('build-app-portal', ['clean-dist','less'], function () {
         'manage-app-availability.md': 'Manage your app\'s availability',
         'publish-your-app.md': 'App Publication Requirements',
         'certify-your-app.md': 'Certify your app',
-        'measure-app-performance.md': 'Measure app performance'
+        'measure-app-performance.md': 'Measure app performance',
+        'manage-app-notifications.md': 'Manage your app notifications'
     };
 
     var isOnePage = false;
