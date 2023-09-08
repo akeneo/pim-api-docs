@@ -831,7 +831,7 @@ gulp.task('build-app-portal', ['clean-dist','less'], function () {
         'publish-your-app.md': 'App Publication Requirements',
         'certify-your-app.md': 'Certify your app',
         'measure-app-performance.md': 'Measure app performance'
-    }
+    };
 
     var isOnePage = false;
 
