@@ -15,7 +15,7 @@ As part of the Certification Program, your Akeneo Certified App will benefit fro
 - Your App will be promoted by Akeneo
 
 ## Application Process
-:::To be considered for this program, your app must be listed in the Akeneo App Store. [Learn more](https://api.akeneo.com/app-portal/publish-your-app.html).::::
+::: tips To be considered for this program, your app must be listed in the Akeneo App Store. [Learn more](https://api.akeneo.com/app-portal/publish-your-app.html). :::
 
 At Akeneo, we believe that an App that has never been used by a customer has not lived long enough. Thus, any App applying for the Certification Program should have been used in a production environment for **a minimum of two months by two different Akeneo clients**.
 
