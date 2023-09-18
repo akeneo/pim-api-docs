@@ -14,9 +14,9 @@ As part of the Certification Program, your Akeneo Certified App will benefit fro
 - Your App will be promoted by Akeneo
 
 ## Application Process
-::: To be considered for this program, your app must be listed in the Akeneo App Store. [Learn more](https://api.akeneo.com/app-portal/publish-your-app.html).
+:::To be considered for this program, your app must be listed in the Akeneo App Store. [Learn more](https://api.akeneo.com/app-portal/publish-your-app.html).
 
-[Become a Partner](https://www.akeneo.com/become-an-akeneo-partner/) ::::
+[Become a Partner](https://www.akeneo.com/become-an-akeneo-partner/)::::
 
 At Akeneo, we believe that an App that has never been used by a customer has not lived long enough.
 
@@ -63,16 +63,15 @@ An Akeneo PIM user should be able to report a bug or a problem with your App, an
 As part of the App Certification Program, your company must perform at least an annual security assessment of your app, including but not limited to vulnerability assessments and penetration tests to guarantee:
 We require that App partners sign the **App Security Charter** (details below) to commit to a certain number of security verification points for their App:
 
-| PIM accesses scope | The App owner commits to offering the PIM user only the PIM permissions the App needs to work properly (no unused access granted). |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| OAuth 2 security   | The App owner commits to storing the “OAuth 2.0 client credentials” delivered by the App Store (client_secret) and the “access token” securely and to make every effort to ensure that no third party can retrieve this information. [Learn more](https://api.akeneo.com/apps/authentication-and-authorization.html#oauth-20) |
-| Hosting                | The App owner commits to checking that the App hosting service guarantees that no unwanted access to the App can be made. |
-| Code                    | The App owner commits to making every effort to ensure that its code does not contain any security vulnerabilities. The App owner commits to keeping up-to-date to the least maintained version of external libraries (not owned by the App owner) but used by the App. The App owner commits to fixing in the shortest possible time any security vulnerability that is communicated to him. |
-| PIM data fair usage | The App owner commits to performing sufficient testing to avoid unwanted changes to PIM data that could result in product data corruption. |
-| API fair usage        | The App owner commits to respect PIM [API fair usage recommendations](https://api.akeneo.com/documentation/overview.html#fair-usage-protection). |
+| PIM accesses scope   | The App owner commits to offering the PIM user only the PIM permissions the App needs to work properly (no unused access granted). |
+| OAuth 2 security     | The App owner commits to storing the “OAuth 2.0 client credentials” delivered by the App Store (client_secret) and the “access token” securely and to make every effort to ensure that no third party can retrieve this information. [Learn more](https://api.akeneo.com/apps/authentication-and-authorization.html#oauth-20) |
+| Hosting                  | The App owner commits to checking that the App hosting service guarantees that no unwanted access to the App can be made. |
+| Code                      | The App owner commits to making every effort to ensure that its code does not contain any security vulnerabilities. The App owner commits to keeping up-to-date to the least maintained version of external libraries (not owned by the App owner) but used by the App. The App owner commits to fixing in the shortest possible time any security vulnerability that is communicated to him. |
+| PIM data fair usage   | The App owner commits to performing sufficient testing to avoid unwanted changes to PIM data that could result in product data corruption. |
+| API fair usage          | The App owner commits to respect PIM [API fair usage recommendations](https://api.akeneo.com/documentation/overview.html#fair-usage-protection). |
 
 ### 5- Have a Standardized Name
 
 An App should have a name that is clearly identifiable by App Store users to avoid any confusion regarding the third-party solution it addresses.
-- Technology partner's App name: Your third-party solution name + “App” (e.g., Bynder App)
-- Solution partner's App name: Your third-party solution name + “App by” + partner name (e.g., Commercetools App by Viamo)
+- Technology partner's App name: **Your third-party solution name + “App”** (e.g., Bynder App)
+- Solution partner's App name: **Your third-party solution name + “App by” + partner name** (e.g., Commercetools App by Viamo)
