@@ -5,6 +5,7 @@ Akeneo App Certification is a certification program aiming at promoting Partner 
 ## Program Scope
 
 Only Apps are concerned by the Program - Bundles or Connectors are excluded from the scope of the App Certification Program.
+[Become a Partner](https://www.akeneo.com/become-an-akeneo-partner/)
 
 ## Benefits of Certification
 
@@ -14,21 +15,14 @@ As part of the Certification Program, your Akeneo Certified App will benefit fro
 - Your App will be promoted by Akeneo
 
 ## Application Process
-:::To be considered for this program, your app must be listed in the Akeneo App Store. [Learn more](https://api.akeneo.com/app-portal/publish-your-app.html).
+:::To be considered for this program, your app must be listed in the Akeneo App Store. [Learn more](https://api.akeneo.com/app-portal/publish-your-app.html).::::
 
-[Become a Partner](https://www.akeneo.com/become-an-akeneo-partner/)::::
+At Akeneo, we believe that an App that has never been used by a customer has not lived long enough. Thus, any App applying for the Certification Program should have been used in a production environment for **a minimum of two months by two different Akeneo clients**.
 
-At Akeneo, we believe that an App that has never been used by a customer has not lived long enough.
+After you confirm that you meet all of [the certification requirements](#certification-requirements), you're ready to apply: [Apply for Certification Program](https://apps-support.akeneo.com/)
+Once you submit your application request, the Akeneo App Certification Team will work with you to ensure that all certification criteria are met. This process may take up to one month.
 
-And so, any App applying for the Certification Program should have been used in a production environment for a minimum of two months by two different Akeneo clients.
-
-After you confirm that you meet all of [the certification requirements](#certification-requirements), you're ready to apply:
-
-- [Apply for Certification Program](https://apps-support.akeneo.com/)
-
-After submitting your application request, the Akeneo App Certification Team will work with you to ensure that all certification criteria are met. This process could last a maximum of one month.
-
-If your App meets the requirements, Akeneo grants you an Akeneo App Certification label valid for one year. This label can be renewed if the partner passes the certification again.
+**If your App meets the requirements, Akeneo grants you an Akeneo App Certification label valid for one year**. This label can be renewed if the partner passes the certification again.
 
 In the event that the App does not comply with the certification criteria, Akeneo has the authority to withdraw the certification from the App partner. However, the partner can regain certification once all necessary corrections have been implemented and validated by Akeneo. It's important to note that Akeneo may modify its certification process and criteria on an annual basis.
 
@@ -66,7 +60,7 @@ We require that App partners sign the **App Security Charter** (details below) t
 | PIM accesses scope   | The App owner commits to offering the PIM user only the PIM permissions the App needs to work properly (no unused access granted). |
 | OAuth 2 security     | The App owner commits to storing the “OAuth 2.0 client credentials” delivered by the App Store (client_secret) and the “access token” securely and to make every effort to ensure that no third party can retrieve this information. [Learn more](https://api.akeneo.com/apps/authentication-and-authorization.html#oauth-20) |
 | Hosting                  | The App owner commits to checking that the App hosting service guarantees that no unwanted access to the App can be made. |
-| Code                      | The App owner commits to making every effort to ensure that its code does not contain any security vulnerabilities. The App owner commits to keeping up-to-date to the least maintained version of external libraries (not owned by the App owner) but used by the App. The App owner commits to fixing in the shortest possible time any security vulnerability that is communicated to him. |
+| Code                      | The App owner commits to making every effort to ensure that its code does not contain any security vulnerabilities. The App owner commits to keeping up-to-date to the least maintained version of external libraries (not owned by the App owner) but used by the App. The App owner commits to fixing in the shortest possible time any security vulnerability communicated to him. |
 | PIM data fair usage   | The App owner commits to performing sufficient testing to avoid unwanted changes to PIM data that could result in product data corruption. |
 | API fair usage          | The App owner commits to respect PIM [API fair usage recommendations](https://api.akeneo.com/documentation/overview.html#fair-usage-protection). |
 
