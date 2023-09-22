@@ -125,7 +125,7 @@ patch:
         x-example-1:
           '{"line":1,"uuid":"fc24e6c3-933c-4a93-8a81-e5c703d134d5","status_code":204}'
         x-example-2:
-          '{"line":2,"uuid":"573dd613-0c7f-4143-83d5-63cc5e535966","status_code":422,"message":"Property "group" does not exist."}'
+          '{"line":2,"uuid":"573dd613-0c7f-4143-83d5-63cc5e535966","status_code":422,"message":"Property \"group\" does not exist."}'
         x-example-3:
           '{"line":3,"uuid":"25566245-55c3-42ce-86d9-8610ac459fa8","status_code":201}'
     401:

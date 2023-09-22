@@ -178,7 +178,7 @@ patch:
         x-example-1:
           '{"line":1,"code":"black","status_code":201}'
         x-example-2:
-          '{"line":2,"code":"red","status_code":422,"message":"Property "label" does not exist. Check the API format documentation."}'
+          '{"line":2,"code":"red","status_code":422,"message":"Property \"label\" does not exist. Check the API format documentation."}'
         x-example-3:
           '{"line":3,"code":"yellow","status_code":204}'
     401:
