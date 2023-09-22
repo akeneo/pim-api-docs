@@ -292,7 +292,7 @@ patch:
         x-example-1:
           '{"line":1,"code":"description","status_code":201}'
         x-example-2:
-          '{"line":2,"code":"short_description","status_code":422,"message":"Group "marketig" does not exist."}'
+          '{"line":2,"code":"short_description","status_code":422,"message":"Group \"marketig\" does not exist."}'
         x-example-3:
           '{"line":3,"code":"release_date","status_code":204}'
     401:

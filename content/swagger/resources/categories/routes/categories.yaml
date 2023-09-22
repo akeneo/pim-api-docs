@@ -245,7 +245,7 @@ patch:
         x-example-1:
           '{"line":1,"code":"spring_collection","status_code":201}'
         x-example-2:
-          '{"line":2,"code":"woman","status_code":422,"message":"Category "spring_collectionn" does not exist."}'
+          '{"line":2,"code":"woman","status_code":422,"message":"Category \"spring_collectionn\" does not exist."}'
         x-example-3:
           '{"line":3,"code":"man","status_code":204}'
     401:

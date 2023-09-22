@@ -132,7 +132,7 @@ patch:
         x-example-2:
           '{"line":2,"code":"shoes_by_color","status_code":204}'
         x-example-3:
-          '{"line":3,"code":"mug","status_code":422, "message":"There should be at least one attribute defined as axis for the attribute set for level "1""}'
+          '{"line":3,"code":"mug","status_code":422, "message":"There should be at least one attribute defined as axis for the attribute set for level \"1\""}'
     401:
       $ref: "#/responses/401Error"
     403:

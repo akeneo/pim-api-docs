@@ -154,7 +154,7 @@ patch:
         x-example-1:
           '{"line":1,"identifier":"cap","status_code":204}'
         x-example-2:
-          '{"line":2,"identifier":"mug","status_code":422,"message":"Property "group" does not exist."}'
+          '{"line":2,"identifier":"mug","status_code":422,"message":"Property \"group\" does not exist."}'
         x-example-3:
           '{"line":3,"identifier":"tshirt","status_code":201}'
     401:
