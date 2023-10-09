@@ -274,7 +274,7 @@ In the above url :
 
 #### Examples
 
-To filter product models on their identifier, use the `identifier` property.
+To filter product models on their code, use the `identifier` property.
 Here are the allowed operators you can use to filter on the identifier as well as the corresponding type of value expected in the `search` query parameter.
 
 | Allowed operators | Allowed value type           |
