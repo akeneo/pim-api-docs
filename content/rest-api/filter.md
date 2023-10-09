@@ -274,22 +274,16 @@ In the above url :
 
 #### Examples
 
-To only retrieve product models of the `winter_collection` category, you can use the following URL.
+To filter product models on their code, use the `identifier` property.
+Here are the allowed operators you can use to filter on the identifier as well as the corresponding type of value expected in the `search` query parameter.
+
+| Allowed operators | Allowed value type           |
+| ----------------- |------------------------------|
+| IN, NOT IN        | list of strings (identifier) |
+
 
 ```
-/api/rest/v1/product-models?search={"categories":[{"operator":"IN","value":["winter_collection"]}]}
-```
-
-Of course, you can combine as many filters as you want. The example below will get you the product models being 100% complete on the en_US locale.
-
-```
-/api/rest/v1/product-models?search={"categories":[{"operator":"IN","value":["winter_collection"]}],"completeness":[{"operator":"ALL COMPLETE","locale":"en_US","scope":"ecommerce"}]}
-```
-
-You can even combine several filters on the same product model properties. The example below will get you the product models created both the 4th and the 5th of July 2016.
-
-```
-/api/rest/v1/product-models?search={"created":[{"operator":"=","value":"2016-07-04"},{"operator":"=","value":"2016-07-05"}]}
+/api/rest/v1/product-models?search={"identifier":[{"operator":"IN","value":["amor","apollon"]}]}
 ```
 
 ### On categories
