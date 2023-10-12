@@ -30,7 +30,9 @@ Files located in the content and src directories are watched for changes, so whe
 
 ### Automatic
 
-Once you merge a PR into the `master` branch, it is automatically deployed on the production server. You have nothing to do.
+To deploy the content of your PR, first merge your PR, and then trigger the CircleCI task `continue_with_prod?`.
+
+> **_NOTE:_**  Once the "continue_with_prod?" task is completed, there is a delay before the new version of the documentation becomes visible.
 
 ### Manual
 
