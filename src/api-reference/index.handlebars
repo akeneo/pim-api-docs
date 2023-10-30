@@ -39,11 +39,11 @@
                         <p class="pre-nav rest"> <img class="pull-left" style="margin-right: 5px; height: 27px;" src="/img/icons/icon--rest.svg"> REST API endpoints</p>
                         {{#each categories as |category categoryId|}}
                             <li class="main-nav">
-                                <a href="#{{{categoryId}}}">{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</a>
+                                <a href="#{{{categoryId}}}">{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}{{#if isPublishedProduct}}<em> - Deprecated</em>{{/if}}</a>
                                 <ul class="nav">
                                     {{#each category.resources as |resource resourceId|}}
                                         <li class="sub-nav">
-                                            <a href="#{{{resourceId}}}">{{{resourceName}}}</a>
+                                            <a href="#{{{resourceId}}}">{{{resourceName}}}{{#if ../isPublishedProduct}}<em> - Deprecated</em>{{/if}}</a>
                                         </li>
                                     {{/each}}
                                 </ul>
@@ -67,6 +67,13 @@
                             <img src="img/illustrations/illus--{{{resourceId}}}.svg"/>
                             {{{resourceName}}}{{#if ../categoryDeprecated}}<em> - Deprecated</em>{{/if}}
                         </h3>
+                        {{#if ../isPublishedProduct}}
+                            <a class="anchor" id="{{{categoryId}}}"></a>
+                            <div class="alert alert-danger">
+                                <p><b>Important update: Published Products discontinuation.</b> After careful consideration and in alignment with our long-term product vision,
+                                    we have made the decision to remove this feature on February 28, 2024. <a target="_blank" href="https://help.akeneo.com/en_US/serenity-take-the-power-over-your-products/important-update-deprecation-of-the-published-products-feature-from-akeneo-pim">Learn more in the help center.</a></p>
+                            </div>
+                        {{/if}}
                         <div class="list-group">
                             {{#each resource.operations as |operation operationId|}}
                                 <a class="list-group-item" href="{{../../../htmlReferencefileName}}.html#{{{operationId}}}">

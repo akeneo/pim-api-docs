@@ -877,8 +877,13 @@ Note that the `quality_scores` field is **only available since the 7.0 version**
 ::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodel)
 :::
 
-## Published product
+## Published product _- Deprecated_
 ::: availability versions=2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=EE
+:::
+
+::: danger
+**Important update: Published Products discontinuation.** After careful consideration and in alignment with our long-term product vision,
+we have made the decision to remove this feature on February 28, 2024. [Learn more in the help center](https://help.akeneo.com/en_US/serenity-take-the-power-over-your-products/important-update-deprecation-of-the-published-products-feature-from-akeneo-pim)
 :::
 
 A published product is a product that was published by a user in order to freeze a given version of the product. It can be very useful when you want to work on a new version of your product for the next collection for example, but in the meantime, you still want to export the previous version of your product to your channels.

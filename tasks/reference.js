@@ -144,6 +144,9 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                             if(category.includes('Catalogs for Apps')) {
                                 data.categories[escapeCategory].isAppCategory = true;
                             }
+                            if(category.includes('Published products')) {
+                                data.categories[escapeCategory].isPublishedProduct = true;
+                            }
                             data.categories[escapeCategory].resources[escapeTag].operations[operation.operationId] = _.extend(operation, {
                                 verb: verb,
                                 path: pathUri
@@ -191,6 +194,9 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                             }
                             if(category.includes('Catalogs for Apps')) {
                                 data.categories[escapeCategory].isAppCategory = true;
+                            }
+                            if(category.includes('Published products')) {
+                                data.categories[escapeCategory].isPublishedProduct = true;
                             }
                             var groupedParameters = _.groupBy(operation.parameters, function(parameter) {
                                 return parameter.in;
