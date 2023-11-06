@@ -1,7 +1,12 @@
-### Published product
+### Published product _- Deprecated_
 
 #### Get a published product 
 ::: php-client-availability all-versions ee-only
+
+::: danger
+**Important update: Published Products discontinuation.** After careful consideration and in alignment with our long-term product vision,
+we have made the decision to remove this feature on February 28, 2024. [Learn more in the help center](https://help.akeneo.com/en_US/serenity-take-the-power-over-your-products/important-update-deprecation-of-the-published-products-feature-from-akeneo-pim)
+:::
 
 ```php
 $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')->buildAuthenticatedByPassword('client_id', 'secret', 'admin', 'admin');
