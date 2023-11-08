@@ -3,23 +3,22 @@
 Here, you will connect an event subscription to a fake endpoint and receive your first data. :rocket:
 
 ::: tips
-When testing your app, we advise you to check our [Constraints on IP addresses](/events-documentation/security.html#constraints-on-ip-addresses) and use [Mockbin](#create-a-bin-on-mockbin) or a comparable tool instead.
+When testing your app, we advise you to check our [Constraints on IP addresses](/events-documentation/security.html#constraints-on-ip-addresses) and use [Webhook.site](#create-a-bin-on-mockbin) or a comparable tool instead.
 ::: 
 
-## Create a Bin on Mockbin
+## Create a test URL on Webhook.site
 
-[Mockbin](http://mockbin.org/) allows you to generate custom endpoints to test, mock, and track HTTP requests & responses between libraries, sockets and APIs.
-Go to [mockbin.org/bin/create](http://mockbin.org/bin/create) to create your Bin and if needed change the configuration to respond with a 200 status.
+[Webhook.site](https://webhook.site/) allows you to easily inspect, test and run scripts and workflows for any incoming HTTP request.
+Go to [Webhook.site](https://webhook.site/) to create a test URL and if needed change the configuration to respond with a 200 status.
 
-![Create Bin on Mockbin](/img/getting-started/quick-start-my-first-webhook/create-mockbin.png)
+![Create a test URL](/img/getting-started/quick-start-my-first-webhook/create-webhook-site.png)
 
-Then click on `Create Bin` and go to the history of your Bin.
-Alright! Mockbin is ready to receive our first piece of data from PIM webhooks.
+Alright! You are ready to receive our first piece of data from PIM webhooks.
 
-## Send data to Mockbin
+## Send data to your test URL
 Now, log into your 5.0 or SaaS Akeneo PIM then go to the `Event subscriptions` page of the connection you created before.
-Fill in the URL field with the URL of your bin and click on `Test`. 
-_To access your connection settings, click on `Connect`, then on `Connection settings`._
+Fill in the URL field with the URL of your test URL and click `Test`.  
+_To access your connection settings, click `Connect`, then `Connection settings`._
 
 ::: warning
 Don't forget to save your configuration before leaving the page.
@@ -27,25 +26,22 @@ Don't forget to save your configuration before leaving the page.
 
 ![Event subscriptions configuration](/img/getting-started/quick-start-my-first-webhook/event-subscription-configuration.png)
 
-You should see that the response of Mockbin is 200! :tada:
+You should see that the response is 200! :tada:
 
-## Receive data on Mockbin
+## Receive data
 
-Go back to your Bin history, refresh it and let's see how the magic happens!
+Go back to your Webhook.site history, refresh it and let's see how the magic happens!
 You are going to be amazed by the first piece of data you just received. Click on details and tada :tada:
 
-![Mockbin test details](/img/getting-started/quick-start-my-first-webhook/mockbin-test-details.png)
+![Webhook.site test details](/img/getting-started/quick-start-my-first-webhook/webhook-site-test-details.png)
 
-Now you can play with the API and update a product to receive the event in your Bin! If you don't know how to run an API call follow this guide: [Your first tutorial](/getting-started/your-first-tutorial-4x/welcome.html).
+Now you can play with the API and update a product to receive the event in your Webhook.site! If you don't know how to run an API call follow this guide: [Your first tutorial](/getting-started/your-first-tutorial-4x/welcome.html).
 
 ::: tips
 If you're in a SaaS or a Flexibility environment, your server is correctly configured by us. :rocket: So it must be a permission problem!  
 If you are on an Enterprise Edition, you may want to take a look at your permissions. To do so, follow check out our [What is an event subscription?](https://help.akeneo.com/pim/serenity/articles/what-is-an-event-subscription.html) page to find out more about the configuration.  
-If it's not a permission issue, you may want to make sure your server is able to send data. You can check by using a curl on the Bin URL from your server.    
-In the details of your Mockbin Bin, you will find the curl command you need to run!
+If it's not a permission issue, you may want to make sure your server is able to send data. You can check by using a curl on your test URL from your server.
 :::
-
-![Product created details](/img/getting-started/quick-start-my-first-webhook/product-created-details.png)
 
 ::: panel-link Let's move on the second step of this tutorial [Create your own Symfony app to display event subscriptions data](/getting-started/quick-start-my-first-webhook-5x/step-2.html) 
 :::
