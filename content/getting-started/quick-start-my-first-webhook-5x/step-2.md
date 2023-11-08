@@ -81,7 +81,7 @@ class WebhookController
 For the need of this quick start, I'm using Docker, that's why I map and expose the `8000` port. My Symfony binary is located in `bin`.
 :::
 
-4. Almost done! Go back to your Akeneo PIM and configure the connection event subscriptions by replacing the Mockbin URL with your new URL. Then save and test it. Here is mine:
+4. Almost done! Go back to your Akeneo PIM and configure the connection event subscriptions by replacing your test URL with your new URL. Then save and test it. Here is mine:
 
 ![Server running](/img/getting-started/quick-start-my-first-webhook/event-subscription-configuration-sf-project.png)
 
