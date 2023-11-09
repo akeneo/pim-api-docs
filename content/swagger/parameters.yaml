@@ -105,6 +105,14 @@ with_attribute_options:
   type: boolean
   required: false
   x-from-version: "5.0"
+with_attribute_options__product_models:
+  name: with_attribute_options
+  in: query
+  description: Return labels of attribute options in the response. <strong>(Only available on SaaS platforms)</strong>
+  default: false
+  type: boolean
+  required: false
+  x-from-version: "SaaS"
 with_table_select_options:
   name: with_table_select_options
   in: query
