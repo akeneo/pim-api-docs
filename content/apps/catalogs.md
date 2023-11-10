@@ -137,123 +137,192 @@ The first step to using the mapping feature is determining the JSON schema you n
 **JSON Schema is a declarative language that allows annotating and validating JSON documents.** It describes an existing data format, provides clear human- and machine-readable documentation, and allows to validate data which is useful for ensuring the quality of client-submitted data.
 :::
 
+<!-- TODO update the jsonschemavalidator link -->
 To help you define your schema, we advise you to use this online validator pre-configured with our latest meta-schema: [jsonschemavalidator.net](https://www.jsonschemavalidator.net/s/D85OL1LE). The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints. 
 
-You can also download the latest meta-schema at this url: [product mapping meta-schema - v0.0.13 (May, 2023)](/mapping/product/0.0.13/schema)
+<!-- TODO update the metaschema link -->
+You can also download the latest meta-schema at this url: [product mapping meta-schema - v0.1.0 (November, 2023)](/mapping/product/0.0.13/schema) 
 
 JSON schema example: 
 
 ```
 {
-  "$id": "https://example.com/product",
-  "$schema": "https://api.akeneo.com/mapping/product/0.0.12/schema",
-  "$comment": "My schema !",
-  "title": "Product Mapping",
-  "description": "JSON Schema describing the structure of products expected by our application",
-  "type": "object",
-  "properties": {
-    "uuid": {
-      "title": "Product UUID",
-      "type": "string"
-    },
-    "type": {
-      "title": "Product type",
-      "type": "string"
-    },
-    "sku": {
-      "title": "SKU (Stock Keeping Unit)",
-      "description": "Selling Partner SKU (stock keeping unit) identifier for the listing. \n SKU uniquely identifies a listing for a Selling Partner.",
-      "type": "string"
-    },
-    "name": {
-      "title": "Product name",
-      "type": "string"
-    },
-    "body_html": {
-      "title": "Description (textarea)",
-      "description": "Product description in raw HTML",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 255
-    },
-    "main_image": {
-      "title": "Main image",
-      "description": "Format: URI/link. Allowed extensions: .png, .jpg",
-      "type": "string",
-      "format": "uri",
-      "pattern": ".*(png|jpg).*$"
-    },
-    "main_color": {
-      "title": "Main color",
-      "description": "The main color of the product, used by grid filters on your e-commerce website.",
-      "type": "string"
-    },
-    "colors": {
-      "title": "Colors",
-      "description": "List of colors separated by a comma.",
-      "type": "array",
-      "items": {
-        "type": "string",
-        "enum": ["blue", "red", "green", "yellow"]
+   "$id":"https://example.com/product",
+   "$schema":"https://api.akeneo.com/mapping/product/0.1.0/schema",
+   "$comment":"My schema !",
+   "title":"Product Mapping",
+   "description":"JSON Schema describing the structure of products expected by our application",
+   "type":"object",
+   "properties":{
+      "uuid":{
+         "title":"Product UUID",
+         "type":"string"
+      },
+      "type":{
+         "title":"Product type",
+         "type":"string"
+      },
+      "sku":{
+         "title":"SKU (Stock Keeping Unit)",
+         "description":"Selling Partner SKU (stock keeping unit) identifier for the listing. \n SKU uniquely identifies a listing for a Selling Partner.",
+         "type":"string"
+      },
+      "name":{
+         "title":"Product name",
+         "type":"string"
+      },
+      "body_html":{
+         "title":"Description (textarea)",
+         "description":"Product description in raw HTML",
+         "type":"string",
+         "minLength":0,
+         "maxLength":255
+      },
+      "main_image":{
+         "title":"Main image",
+         "description":"Format: URI/link. Allowed extensions: .png, .jpg",
+         "type":"string",
+         "format":"uri",
+         "pattern":".*(png|jpg).*$"
+      },
+      "product_photos_media_file":{
+         "title":"Photos (asset links)",
+         "type":"array",
+         "items":{
+            "type":"string",
+            "format":"uri"
+         }
+      },
+      "main_color":{
+         "title":"Main color",
+         "description":"The main color of the product, used by grid filters on your e-commerce website.",
+         "type":"string"
+      },
+      "colors":{
+         "title":"Colors",
+         "description":"List of colors separated by a comma.",
+         "type":"array",
+         "items":{
+            "type":"string",
+            "enum":[
+               "blue",
+               "red",
+               "green",
+               "yellow"
+            ]
+         }
+      },
+      "available":{
+         "title":"Is available",
+         "description":"Used to display when a product is out of stock on your e-commerce website.",
+         "type":"boolean"
+      },
+      "price_number":{
+         "title":"Price (€ / EUR)",
+         "type":"number",
+         "minimum":0,
+         "maximum":10000
+      },
+      "price_object":{
+         "title":"Price object (mono currency)",
+         "type":"object",
+         "properties":{
+            "amount":{
+               "type":"number"
+            },
+            "currency":{
+               "type":"string"
+            }
+         },
+         "required":[
+            "amount",
+            "currency"
+         ]
+      },
+      "list_of_prices_target":{
+         "title":"List of Price objects (multi-currencies)",
+         "type":"array",
+         "items":{
+            "type":"object",
+            "properties":{
+               "amount":{
+                  "type":"number"
+               },
+               "currency":{
+                  "type":"string"
+               }
+            },
+            "required":[
+               "amount",
+               "currency"
+            ]
+         }
+      },
+      "publication_date":{
+         "title":"Publication date",
+         "description":"Format: ISO 8601 standard. \nUsed to filter products that must be published on your e-commerce website depending on the current date.",
+         "type":"string",
+         "format":"date-time"
+      },
+      "certification_number":{
+         "title":"Certification number",
+         "type":"string",
+         "pattern":"^([0-9]{5})-([0-9]):([0-9]{4})$"
+      },
+      "size_letter":{
+         "title":"Size (letter)",
+         "type":"string",
+         "enum":[
+            "S",
+            "M",
+            "L",
+            "XL"
+         ]
+      },
+      "size_number":{
+         "title":"Size",
+         "type":"number",
+         "enum":[
+            36,
+            38,
+            40,
+            42
+         ]
+      },
+      "weight":{
+         "title":"Weight (grams)",
+         "type":"number",
+         "minimum":0
+      },
+      "categories_string":{
+         "title":"Categories (string)",
+         "type":"string"
+      },
+      "categories_array":{
+         "title":"Categories (array)",
+         "type":"array",
+         "items":{
+            "type":"string"
+         }
+      },
+      "product_photos_label":{
+         "title":"Photos (asset labels)",
+         "type":"array",
+         "items":{
+            "type":"string"
+         }
       }
-    },
-    "available": {
-      "title": "Is available",
-      "description": "Used to display when a product is out of stock on your e-commerce website.",
-      "type": "boolean"
-    },
-    "price": {
-      "title": "Price (€)",
-      "type": "number",
-      "minimum": 0,
-      "maximum": 10000
-    },
-    "publication_date": {
-      "title": "Publication date",
-      "description": "Format: ISO 8601 standard. \nUsed to filter products that must be published on your e-commerce website depending on the current date.",
-      "type": "string",
-      "format": "date-time"
-    },
-    "certification_number": {
-      "title": "Certification number",
-      "type": "string",
-      "pattern": "^([0-9]{5})-([0-9]):([0-9]{4})$"
-    },
-    "size_letter": {
-      "title": "Size (letter)",
-      "type": "string",
-      "enum": ["S", "M", "L", "XL"]
-    },
-    "size_number": {
-      "title": "Size",
-      "type": "number",
-      "enum": [36, 38, 40, 42]
-    },
-    "weight": {
-      "title": "Weight (grams)",
-      "type": "number",
-      "minimum": 0
-    },
-    "categories_string": {
-      "title": "Categories (string)",
-      "type": "string"
-    },
-    "categories_array": {
-      "title": "Categories (array)",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    }
-  },
-  "required": [
-    "sku", "name"
-  ]
+   },
+   "required":[
+      "sku",
+      "name"
+   ]
 }
 ```
 
 ::: warning
-Please note that we use the `required` properties to filter products. If a product has an empty value for a required target, we don't send it as it doesn't match your app requirements. E.g. if a product has no value for the attributes mapped with your sku and/or name target, you won't receive it when requesting mapped products. 
+Please note that **we don't return empty values**.  
+When the mapped attribute is empty on the Akeneo PIM side, you won't receive the target property for this product in the API response.
 :::
 
 ### Step 2: Push your product mapping schema

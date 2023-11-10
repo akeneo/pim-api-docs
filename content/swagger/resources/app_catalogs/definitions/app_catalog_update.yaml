@@ -4,6 +4,12 @@ properties:
     name:
         type: string
         description: Catalog name
+    managed_currencies:
+        type: array
+        description: List of currency codes
+        items:
+            type: string
 example: {
-    "name": "My app catalog"
+    "name": "My app catalog",
+    "managed_currencies": ["EUR", "USD", "GBP"]
 }
