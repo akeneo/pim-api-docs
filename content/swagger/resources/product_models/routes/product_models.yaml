@@ -38,6 +38,7 @@ get:
     - $ref: '#/parameters/search_after'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
+    - $ref: '#/parameters/with_attribute_options__product_models'
     - $ref: '#/parameters/with_quality_scores__product_models'
   responses:
     200:
