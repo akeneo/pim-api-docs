@@ -1,0 +1,510 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.akeneo.com/mapping/product/0.2.0/schema",
+  "type": "object",
+  "properties": {
+    "$id": { "$ref": "#/$defs/$id" },
+    "$schema": { "$ref": "#/$defs/$schema" },
+    "$comment": { "$ref": "#/$defs/$comment" },
+    "$defs": { "$ref": "#/$defs/$defs" },
+    "title": { "$ref": "#/$defs/title" },
+    "description": { "$ref": "#/$defs/description" },
+    "type": { "const": "object" },
+    "properties": {
+      "type": "object",
+      "oneOf": [
+        { "$ref": "#/$defs/flatProductsMode" },
+        { "$ref": "#/$defs/productsWithVariantsMode" }
+      ],
+      "default": {}
+    },
+    "required": { "$ref": "#/$defs/requiredConstraint" }
+  },
+  "$defs": {
+    "$id": {
+      "$comment": "Non-empty fragments not allowed.",
+      "pattern": "^[^#]*#?$"
+    },
+    "$schema": { "$ref": "#/$defs/uriString" },
+    "$comment": {
+      "type": "string"
+    },
+    "$defs": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/property" }
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "property": {
+      "type": "object",
+      "properties": {
+        "title": { "$ref": "#/$defs/title" },
+        "description": { "$ref": "#/$defs/description" },
+        "type": {
+          "enum": [
+            "string",
+            "number",
+            "boolean",
+            "array",
+            "object"
+          ]
+        },
+        "format": {
+          "enum": [
+            "date-time",
+            "uri"
+          ]
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "type":  {
+              "enum": ["string", "object"]
+            },
+            "format": {
+              "enum": ["uri"]
+            },
+            "enum": {
+              "type": "array"
+            },
+            "properties": {
+              "type": "object",
+              "properties": {
+                "amount": { "$ref": "#/$defs/amountProperty" },
+                "currency": { "$ref": "#/$defs/currencyProperty" }
+              },
+              "required": ["amount", "currency"]
+            },
+            "required": { "$ref": "#/$defs/priceRequiredProperty" }
+          },
+          "if": {
+            "properties": {
+              "type": {
+                "const": "object"
+              }
+            }
+          },
+          "then": {
+            "required": ["properties", "required"]
+          },
+          "dependentSchemas": {
+            "format": {
+              "properties": {
+                "type": {
+                  "enum": [
+                    "string"
+                  ]
+                }
+              },
+              "required": ["type"]
+            },
+            "enum": {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "string"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "enum": {
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "required": ["type"]
+            },
+            "properties": {
+              "properties": {
+                "type": {
+                  "const": "object"
+                }
+              }
+            },
+            "required": {
+              "properties": {
+                "type": {
+                  "const": "object"
+                }
+              }
+            }
+          },
+          "required": ["type"]
+        },
+        "minLength": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxLength": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pattern": {
+          "type": "string",
+          "format": "regex"
+        },
+        "minimum": {
+          "type": "number"
+        },
+        "maximum": {
+          "type": "number"
+        },
+        "enum": {
+          "type": "array"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "amount": { "$ref": "#/$defs/amountProperty" },
+            "currency": { "$ref": "#/$defs/currencyProperty" }
+          },
+          "required": ["amount", "currency"]
+        },
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "array"
+              }
+            }
+          },
+          "then": {
+            "required": ["items"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "object"
+              }
+            }
+          },
+          "then": {
+            "required": ["properties", "required"],
+            "properties": {
+              "required": { "$ref": "#/$defs/priceRequiredProperty" }
+            }
+          }
+        }
+      ],
+      "required": ["type"],
+      "dependentSchemas": {
+        "format": {
+          "properties": {
+            "type": {
+              "enum": [
+                "string"
+              ]
+            }
+          },
+          "required": ["type"]
+        },
+        "items": {
+          "properties": {
+            "type": {
+              "enum": [
+                "array"
+              ]
+            }
+          },
+          "required": ["type"]
+        },
+        "minLength": {
+          "properties": {
+            "type": {
+              "enum": [
+                "string"
+              ]
+            }
+          },
+          "required": ["type"]
+        },
+        "maxLength": {
+          "properties": {
+            "type": {
+              "enum": [
+                "string"
+              ]
+            }
+          },
+          "required": ["type"]
+        },
+        "pattern": {
+          "properties": {
+            "type": {
+              "enum": [
+                "string"
+              ]
+            }
+          },
+          "required": ["type"]
+        },
+        "minimum": {
+          "properties": {
+            "type": {
+              "enum": [
+                "number"
+              ]
+            }
+          },
+          "required": ["type"]
+        },
+        "maximum": {
+          "properties": {
+            "type": {
+              "enum": [
+                "number"
+              ]
+            }
+          },
+          "required": ["type"]
+        },
+        "enum": {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "string"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "enum": {
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "else": {
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "number"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "enum": {
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          },
+          "required": ["type"]
+        },
+        "type": {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "object"
+              }
+            }
+          },
+          "then": {
+            "required": ["properties", "required"]
+          }
+        },
+        "properties": {
+          "properties": {
+            "type": {
+              "const": "object"
+            }
+          }
+        }
+      }
+    },
+    "amountProperty": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "number"
+        }
+      },
+      "required": ["type"]
+    },
+    "currencyProperty": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "string"
+        },
+        "enum": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["type"]
+    },
+    "priceRequiredProperty": {
+      "type": "array",
+      "items": {
+        "enum": ["amount", "currency"]
+      },
+      "minItems": 2,
+      "uniqueItems": true
+    },
+    "uriString": {
+      "type": "string",
+      "format": "uri"
+    },
+    "flatProductsMode": {
+      "properties": {
+        "uuid": { "$ref": "#/$defs/uuidProperty" },
+        "id": false,
+        "attribute_axes": false,
+        "variants": false
+      },
+      "additionalProperties": { "$ref": "#/$defs/property" },
+      "required": ["uuid"]
+    },
+    "productsWithVariantsMode": {
+      "properties": {
+        "uuid": false,
+        "id": { "$ref": "#/$defs/idProperty" },
+        "attribute_axes": { "$ref": "#/$defs/attributeAxesProperty" },
+        "variants": { "$ref": "#/$defs/variantsConstraint" }
+      },
+      "additionalProperties": { "$ref": "#/$defs/property" },
+      "required": [
+        "id",
+        "attribute_axes",
+        "variants"
+      ]
+    },
+    "uuidProperty": {
+      "type": "object",
+      "properties": {
+        "title": { "$ref": "#/$defs/title" },
+        "description": { "$ref": "#/$defs/description" },
+        "type": { "const": "string" }
+      },
+      "additionalProperties": false,
+      "required": ["type"]
+    },
+    "idProperty": {
+      "type": "object",
+      "properties": {
+        "title": { "$ref": "#/$defs/title" },
+        "description": { "$ref": "#/$defs/description" },
+        "type": { "const": ["string", "null"] }
+      },
+      "additionalProperties": false,
+      "required": ["type"]
+    },
+    "attributeAxesProperty": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "object" },
+        "properties": {
+          "type": "object",
+          "patternProperties": {
+            "^(axis_([1-9]|10))+$": {
+              "type": "object",
+              "properties": {
+                "type": { "const": "string" }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "required": ["type", "properties"]
+    },
+    "variantsConstraint": {
+      "type": "object",
+      "properties": {
+        "oneOf": {
+          "type": "array",
+          "prefixItems": [
+            { "$ref": "#/$defs/variantsAsURI" },
+            { "$ref": "#/$defs/variantsAsList" }
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "additionalProperties": false,
+      "required": ["oneOf"]
+    },
+    "variantsAsURI": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "string" },
+        "format": { "const": "uri" }
+      },
+      "additionalProperties": false,
+      "required": ["type", "format"]
+    },
+    "variantsAsList": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "array" },
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": { "const": "object" },
+            "properties": { "$ref": "#/$defs/variantsProperty" },
+            "required": { "$ref": "#/$defs/requiredConstraint" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "required": ["type", "items"]
+    },
+    "variantsProperty": {
+      "type": "object",
+      "properties": {
+        "uuid": { "$ref": "#/$defs/uuidProperty" }
+      },
+      "additionalProperties": { "$ref": "#/$defs/property" },
+      "default": {},
+      "required": ["uuid"],
+      "patternProperties": {
+        "^(axis_([1-9]|10))+$": {
+          "type": "object",
+          "allOf": [
+            { "$ref": "#/$defs/property" },
+            {
+              "properties": {
+                "type": { "enum": ["string", "number", "boolean"] }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requiredConstraint": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "default": [],
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false
+}
