@@ -58,6 +58,13 @@ get:
               "managed_currencies": [
                 "EUR",
                 "GBP"
+              ],
+              "managed_locales": [
+                "fr_FR", 
+                "en_UK",
+                "de_DE",
+                "it_IT",
+                "es_ES"
               ]
             },{
               "id": "092c5f22-ecd8-485f-97e9-3b78098e1386",
@@ -65,6 +72,10 @@ get:
               "enabled": true,
               "managed_currencies": [
                 "USD"
+              ],
+              "managed_locales": [
+                "en_US",
+                "es_ES"
               ]
             }
           ]

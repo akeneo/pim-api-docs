@@ -16,6 +16,11 @@ properties:
         description: List of currency codes
         items:
             type: string
+    managed_locales:
+        type: array
+        description: List of locale codes
+        items:
+            type: string
 example: {
     "_links": {
         "self": {
@@ -29,5 +34,9 @@ example: {
         "EUR",
         "USD",
         "GBP"
+    ],
+    "managed_locales": [
+        "fr_FR", 
+        "en_US"
     ]
 }
