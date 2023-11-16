@@ -1,4 +1,4 @@
-# Catalogs for Apps <span class="label label-beta">Beta</span>
+# Catalogs for Apps
 
 ## Overview
 
@@ -26,8 +26,9 @@ Moreover, with catalogs, you **don't have to master the entire PIM structure any
 ### Limits
 
 To ensure Akeneo PXM Studio remains stable, we added some limits to catalogs:
-- Each app can create up to **15 catalogs**.
+- Each app can create up to **200 catalogs**.
 - A product selection can have up to **25 selection criteria**.
+- A product mapping schema can have up to **200 targets**.
 
 ::: info 
 To learn more about the functional scope, please visit our Help Center and read the [How to configure catalogs for Apps?](https://help.akeneo.com/serenity-connect-your-pim/how-to-configure-catalogs-for-apps)
@@ -139,182 +140,418 @@ The first step to using the mapping feature is determining the JSON schema you n
 
 To help you define your schema, we advise you to use this online validator pre-configured with our latest meta-schema: [jsonschemavalidator.net](https://www.jsonschemavalidator.net/s/sj7VwD3l). The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints. 
 
-You can also download the latest meta-schema at this url: [product mapping meta-schema - v0.1.0 (November, 2023)](/mapping/product/0.1.0/schema) 
+You can also download the latest meta-schema at this url: [product mapping meta-schema - v1.0.0 (December, 2023)](/mapping/product/1.0.0/schema) 
 
 JSON schema example: 
 
 ```
 {
-   "$id":"https://example.com/product",
-   "$schema":"https://api.akeneo.com/mapping/product/0.1.0/schema",
-   "$comment":"My schema !",
-   "title":"Product Mapping",
-   "description":"JSON Schema describing the structure of products expected by our application",
-   "type":"object",
-   "properties":{
-      "uuid":{
-         "title":"Product UUID",
-         "type":"string"
-      },
-      "type":{
-         "title":"Product type",
-         "type":"string"
-      },
-      "sku":{
-         "title":"SKU (Stock Keeping Unit)",
-         "description":"Selling Partner SKU (stock keeping unit) identifier for the listing. \n SKU uniquely identifies a listing for a Selling Partner.",
-         "type":"string"
-      },
-      "name":{
-         "title":"Product name",
-         "type":"string"
-      },
-      "body_html":{
-         "title":"Description (textarea)",
-         "description":"Product description in raw HTML",
-         "type":"string",
-         "minLength":0,
-         "maxLength":255
-      },
-      "main_image":{
-         "title":"Main image",
-         "description":"Format: URI/link. Allowed extensions: .png, .jpg",
-         "type":"string",
-         "format":"uri",
-         "pattern":".*(png|jpg).*$"
-      },
-      "product_photos_media_file":{
-         "title":"Photos (asset links)",
-         "type":"array",
-         "items":{
+  "$id":"https://example.com/product",
+  "$schema":"https://api.akeneo.com/mapping/product/1.0.0/schema",
+  "type":"object",
+  "properties":{
+    "id":{
+      "title":"Product ID",
+      "type":[
+        "string",
+        "null"
+      ]
+    },
+    "localized_name":{
+      "title":"Product name",
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"string"
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
+    },
+    "localized_body_html":{
+      "title":"Description",
+      "description":"Product description in raw HTML",
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"string"
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
+    },
+    "localized_number":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"number"
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
+    },
+    "localized_link":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
             "type":"string",
-            "format":"uri"
-         }
-      },
-      "main_color":{
-         "title":"Main color",
-         "description":"The main color of the product, used by grid filters on your e-commerce website.",
-         "type":"string"
-      },
-      "colors":{
-         "title":"Colors",
-         "description":"List of colors separated by a comma.",
-         "type":"array",
-         "items":{
+            "format": "uri"
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
+    },
+    "localized_datetime":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
             "type":"string",
-            "enum":[
-               "blue",
-               "red",
-               "green",
-               "yellow"
-            ]
-         }
-      },
-      "available":{
-         "title":"Is available",
-         "description":"Used to display when a product is out of stock on your e-commerce website.",
-         "type":"boolean"
-      },
-      "price_number":{
-         "title":"Price (€ / EUR)",
-         "type":"number",
-         "minimum":0,
-         "maximum":10000
-      },
-      "price_object":{
-         "title":"Price object (mono currency)",
-         "type":"object",
-         "properties":{
-            "amount":{
-               "type":"number"
-            },
-            "currency":{
-               "type":"string"
+            "format": "date-time"
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
+    },
+    "localized_boolean":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"boolean"
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
+    },
+    "localized_array_strings":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"array",
+            "items":{
+              "type":"string"
             }
-         },
-         "required":[
-            "amount",
-            "currency"
-         ]
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
+    },
+    "localized_array_links":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"array",
+            "items":{
+              "type":"string",
+              "format": "uri"
+            }
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
+    },
+    "height":{
+      "title":"Height",
+      "description":"Expected unit: cm",
+      "type":"number",
+      "minimum":0,
+      "maximum":1000
+    },
+    "width":{
+      "title":"Width",
+      "description":"Expected unit: cm",
+      "type":"number",
+      "minimum":0,
+      "maximum":1000
+    },
+    "meta_description":{
+      "type":"string",
+      "minLength":50,
+      "maxLength":160
+    },
+    "default_price":{
+      "title":"Price",
+      "type":"object",
+      "properties":{
+        "amount":{
+          "type":"number"
+        },
+        "currency":{
+          "type":"string",
+          "enum":[
+            "EUR",
+            "USD",
+            "GBP"
+          ]
+        }
       },
-      "list_of_prices_target":{
-         "title":"List of Price objects (multi-currencies)",
-         "type":"array",
-         "items":{
+      "required":[
+        "amount",
+        "currency"
+      ]
+    },
+    "localized_price":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
             "type":"object",
             "properties":{
-               "amount":{
-                  "type":"number"
-               },
-               "currency":{
-                  "type":"string"
-               }
+              "amount":{
+                "type":"number"
+              },
+              "currency":{
+                "type":"string"
+              }
             },
             "required":[
-               "amount",
-               "currency"
+              "amount",
+              "currency"
             ]
-         }
-      },
-      "publication_date":{
-         "title":"Publication date",
-         "description":"Format: ISO 8601 standard. \nUsed to filter products that must be published on your e-commerce website depending on the current date.",
-         "type":"string",
-         "format":"date-time"
-      },
-      "certification_number":{
-         "title":"Certification number",
-         "type":"string",
-         "pattern":"^([0-9]{5})-([0-9]):([0-9]{4})$"
-      },
-      "size_letter":{
-         "title":"Size (letter)",
-         "type":"string",
-         "enum":[
-            "S",
-            "M",
-            "L",
-            "XL"
-         ]
-      },
-      "size_number":{
-         "title":"Size",
-         "type":"number",
-         "enum":[
-            36,
-            38,
-            40,
-            42
-         ]
-      },
-      "weight":{
-         "title":"Weight (grams)",
-         "type":"number",
-         "minimum":0
-      },
-      "categories_string":{
-         "title":"Categories (string)",
-         "type":"string"
-      },
-      "categories_array":{
-         "title":"Categories (array)",
-         "type":"array",
-         "items":{
-            "type":"string"
-         }
-      },
-      "product_photos_label":{
-         "title":"Photos (asset labels)",
-         "type":"array",
-         "items":{
-            "type":"string"
-         }
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
       }
-   },
-   "required":[
-      "sku",
-      "name"
-   ]
+    },
+    "localized_multicurrency_price":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"array",
+            "items":{
+              "type":"object",
+              "properties":{
+                "amount":{
+                  "type":"number"
+                },
+                "currency":{
+                  "type":"string"
+                }
+              },
+              "required":[
+                "amount",
+                "currency"
+              ]
+            }
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
+    },
+    "attribute_axes":{
+      "type":"object",
+      "properties":{
+        "axis_1":{
+          "type":"string"
+        },
+        "axis_2":{
+          "type":"string"
+        }
+      }
+    },
+    "variants":{
+      "oneOf":[
+        {
+          "type":"string",
+          "format":"uri"
+        },
+        {
+          "type":"array",
+          "items":{
+            "type":"object",
+            "properties":{
+              "uuid":{
+                "title":"UUID",
+                "type":"string"
+              },
+              "axis_1":{
+                "title":"Main color code - variant axis",
+                "type":"string",
+                "enum":[
+                  "red",
+                  "green",
+                  "blue",
+                  "yellow",
+                  "black",
+                  "white"
+                ]
+              },
+              "colors":{
+                "title":"Product colors code",
+                "description":"List of product color codes matching expected ecommerce color codes",
+                "type":"array",
+                "items":{
+                  "type":"string",
+                  "enum":[
+                    "red",
+                    "green",
+                    "blue",
+                    "yellow",
+                    "black",
+                    "white"
+                  ]
+                }
+              },
+              "axis_2":{
+                "title":"Size - variant axis",
+                "type":"string",
+                "enum":[
+                  "XXS",
+                  "XS",
+                  "S",
+                  "M",
+                  "L",
+                  "XL",
+                  "XXL"
+                ]
+              },
+              "sku":{
+                "title":"SKU",
+                "type":"string"
+              },
+              "is_published":{
+                "title":"Published?",
+                "type":"boolean"
+              },
+              "release_date":{
+                "title":"E-commerce launch date",
+                "type":"string",
+                "format":"date-time"
+              },
+              "thumbnail":{
+                "type":"string",
+                "format":"uri"
+              },
+              "image_list":{
+                "type":"array",
+                "items":{
+                  "type":"string",
+                  "format":"uri"
+                },
+                "title":"Thumbnails"
+              },
+              "prices":{
+                "title":"Price with multiple currencies",
+                "type":"array",
+                "items":{
+                  "type":"object",
+                  "properties":{
+                    "amount":{
+                      "type":"number"
+                    },
+                    "currency":{
+                      "type":"string",
+                      "enum":[
+                        "EUR",
+                        "USD",
+                        "GBP"
+                      ]
+                    }
+                  },
+                  "required":[
+                    "amount",
+                    "currency"
+                  ]
+                }
+              }
+            },
+            "required":[
+              "uuid",
+              "sku",
+              "is_published",
+              "release_date",
+              "thumbnail"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "required":[
+    "localized_name",
+    "localized_body_html",
+    "height",
+    "width",
+    "default_price"
+  ]
 }
 ```
 
@@ -342,7 +579,8 @@ To do so, please:
 We use your product mapping schema to display a screen where your users will configure their catalog.
 Here is an example of an interface displayed using a JSON schema:
 
-![Example of a mapping interface](../img/apps/mapping-interface.png)
+![Example of a mapping interface](../img/apps/mapping-interface.png) 
+<!-- TODO Update screenshot -->
 
 ### Next steps
 - Explore the [REST API reference](/api-reference-index.html) 
