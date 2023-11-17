@@ -140,7 +140,7 @@ The first step to using the mapping feature is determining the JSON schema you n
 
 To help you define your schema, we advise you to use this online validator pre-configured with our latest meta-schema: [jsonschemavalidator.net](https://www.jsonschemavalidator.net/s/sj7VwD3l). The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints. 
 
-You can also download the latest meta-schema at this url: [product mapping meta-schema - v1.0.0 (December, 2023)](/mapping/product/0.1.0/schema) and a product mapping schema example: [example v1.0.0](/mapping/product/1.0.0/example)  
+You can also download the [lastest product mapping meta-schema - v1.0.0 (December, 2023)](/mapping/product/0.1.0/schema) and the [related product mapping schema example](/mapping/product/1.0.0/example).  
 
 ::: warning
 Please note that **we don't return empty values**.  
