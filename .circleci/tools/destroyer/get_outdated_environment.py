@@ -1,10 +1,9 @@
-import google.oauth2.id_token
-import google.auth
-import google.auth.transport.requests
-import os
-from google.auth import impersonated_credentials
+from google.oauth2.credentials import Credentials
+
 from google.cloud import storage
 from github import Github
+
+import os
 import settings
 
 
@@ -34,19 +33,12 @@ def get_open_pull_requests(access_token, username, reponame):
 
 if __name__ == "__main__":
     try:
-        region = settings.settings.gcp_project_region
         bucket_name = settings.settings.terraform_bucket_name
-        request = google.auth.transport.requests.Request()
-        source_credentials, project_id = google.auth.default()
-        impersonate_service_account = (
-            f"main-service-account@{project_id}.iam.gserviceaccount.com"
+        credentials = Credentials(
+            token=os.environ["GOOGLE_OAUTH_ACCESS_TOKEN"],
+            scopes=["https://www.googleapis.com/auth/cloud-platform"]
         )
-        target_scopes = ["https://www.googleapis.com/auth/cloud-platform"]
-        credentials = impersonated_credentials.Credentials(
-            source_credentials=source_credentials,
-            target_principal=impersonate_service_account,
-            target_scopes=target_scopes,
-        )
+
         GITHUB_ACCESS_TOKEN = os.environ["GITHUB_ACCESS_TOKEN"]
         CIRCLE_PROJECT_USERNAME = os.environ["CIRCLE_PROJECT_USERNAME"]
         CIRCLE_PROJECT_REPONAME = os.environ["CIRCLE_PROJECT_REPONAME"]
