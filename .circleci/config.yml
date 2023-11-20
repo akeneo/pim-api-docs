@@ -155,10 +155,10 @@ workflows:
     jobs:
       - get_outdated_environment:
           context: MARSUS_SQUAD
-          project_number: 38178482637
+          project_number: "38178482637"
       - delete_outdated_environment:
           context: MARSUS_SQUAD
-          project_number: 38178482637
+          project_number: "38178482637"
           envs_to_destroy: ${ENVS_TO_DESTROY}
           requires:
             - get_outdated_environment
