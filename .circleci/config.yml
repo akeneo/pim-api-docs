@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  terraform: circleci/terraform@3.0.1
+  terraform: circleci/terraform@3.2.1
   security-hunter: akeneo-orbs/security-hunter@2.6.4
 
 aliases:
