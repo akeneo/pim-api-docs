@@ -407,7 +407,7 @@ commands:
                   cat \<< EOF > deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>/backend.hcl
                   prefix = "<<parameters.deployment_scope>>/<<parameters.pull_request_id>>"
                   EOF
-            - tf_init:
+            - run:
                 name: "terraform/init"
                 command: |
                   source $BASH_ENV
