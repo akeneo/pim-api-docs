@@ -95,7 +95,7 @@ workflows:
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan_dev"
           context: MARSUS_SQUAD
-          project_number: 38178482637
+          project_number: "38178482637"
           target_stage_id: "dev"
           deployment_scope: "dependencies"
           terraform_action: "apply_with_plan"
@@ -104,7 +104,7 @@ workflows:
           requires:
             - infrastructure_dependencies_apply_with_plan_dev
           context: MARSUS_SQUAD
-          project_number: 38178482637
+          project_number: "38178482637"
           target_stage_id: "dev"
           deployment_scope: "services"
           terraform_action: "apply_with_plan"
@@ -114,7 +114,7 @@ workflows:
             - build
             - infrastructure_services_apply_with_plan_dev
           context: MARSUS_SQUAD
-          project_number: 38178482637
+          project_number: "38178482637"
           target_stage_id: "dev"
           environment: "dev"
       - continue_with_prod?:
@@ -129,7 +129,7 @@ workflows:
             - continue_with_prod?
             - push_sources_to_bucket_dev
           context: MARSUS_SQUAD
-          project_number: 598067739710
+          project_number: "598067739710"
           target_stage_id: "prd"
           deployment_scope: "dependencies"
           terraform_action: "apply_with_plan"
@@ -138,7 +138,7 @@ workflows:
           requires:
             - infrastructure_dependencies_apply_with_plan_prd
           context: MARSUS_SQUAD
-          project_number: 598067739710
+          project_number: "598067739710"
           target_stage_id: "prd"
           deployment_scope: "services"
           terraform_action: "apply_with_plan"
@@ -147,7 +147,7 @@ workflows:
           requires:
             - infrastructure_services_apply_with_plan_prd
           context: MARSUS_SQUAD
-          project_number: 598067739710
+          project_number: "598067739710"
           target_stage_id: "prd"
           environment: "prd"
 
