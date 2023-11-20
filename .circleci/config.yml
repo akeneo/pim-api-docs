@@ -368,7 +368,7 @@ commands:
         default: ""
       cmd:
         type: enum
-        enum: [fmt, init, plan, apply, destroy]
+        enum: [fmt, validate, init, plan, apply, destroy]
     steps:
       - run:
           name: "terraform/<< parameters.cmd >>"
