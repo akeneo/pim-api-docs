@@ -378,10 +378,12 @@ commands:
             if [ "<< parameters.cmd >>" != "fmt" ] && [ "<< parameters.cmd >>" != "validate" ]; then
               TF_PARAMS="-input=false"
 
-              if [ "<< parameters.backend >>" = "" ]; then
-                TF_PARAMS="${TF_PARAMS} -backend"
-              else
-                TF_PARAMS="${TF_PARAMS} -backend-config=<< parameters.backend >>"
+              if [ "<< parameters.cmd >>" = "init" ]; then
+                if [ "<< parameters.backend >>" = "" ]; then
+                  TF_PARAMS="${TF_PARAMS} -backend"
+                else
+                  TF_PARAMS="${TF_PARAMS} -backend-config=<< parameters.backend >>"
+                fi
               fi
 
               if [ -n "<< parameters.vars >>" ]; then
