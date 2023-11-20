@@ -470,9 +470,14 @@ commands:
                   app_version   = "<<pipeline.git.revision>>"
                   EOF
                   cat deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>/env.tfvars
-            - terraform/init:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                backend: true
+            - run:
+                name: "terraform/init"
+                command: |
+                  source $BASH_ENV
+                  terraform -chdir="deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>" \
+                            init \
+                            -input=false \
+                            -backend
             - terraform/fmt:
                 path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
             - terraform/validate:
