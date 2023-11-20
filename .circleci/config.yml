@@ -4,6 +4,14 @@ orbs:
   terraform: circleci/terraform@3.0.1
   security-hunter: akeneo-orbs/security-hunter@2.6.4
 
+aliases:
+  - &dockerExecutorWithPython
+    docker:
+      - image: cimg/python:3.7
+  - &dockerExecutorWithAlpineGit
+    docker:
+      - image: alpine/git
+
 workflows:
   version: 2
 
@@ -15,17 +23,12 @@ workflows:
             branches:
               ignore:
                 - master
-      - gcp_connect: &gcp_connect_dev
-          name: "gcp_connect_dev"
-          context: MARSUS_SQUAD
-          requires:
-            - start?
-          project_number: 38178482637
-          target_stage_id: "dev"
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan"
           requires:
-            - gcp_connect_dev
+            - start?
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
           target_stage_id: "dev"
           deployment_scope: "dependencies"
           terraform_action: "apply_with_plan"
@@ -35,17 +38,14 @@ workflows:
             branches:
               ignore:
                 - master
-      - gcp_connect:
-          name: "gcp_connect_dev_to_deploy"
-          <<: *gcp_connect_dev
+      - infrastructure: &infrastructure_services_apply_with_plan
+          name: "infrastructure_services_apply_with_plan"
           requires:
             - deploy_pull_request?
             - build
             - infrastructure_dependencies_apply_with_plan
-      - infrastructure: &infrastructure_services_apply_with_plan
-          name: "infrastructure_services_apply_with_plan"
-          requires:
-            - gcp_connect_dev_to_deploy
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
           target_stage_id: "dev"
           deployment_scope: "services"
           terraform_action: "apply_with_plan"
@@ -69,6 +69,8 @@ workflows:
           name: "infrastructure_services_destroy"
           requires:
             - destroy_pull_request?
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
           target_stage_id: "dev"
           deployment_scope: "services"
           terraform_action: "destroy"
@@ -171,14 +173,6 @@ workflows:
             - get_outdated_environment
           envs_to_destroy: ${ENVS_TO_DESTROY}
 
-aliases:
-  - &dockerExecutorWithPython
-    docker:
-      - image: cimg/python:3.7
-  - &dockerExecutorWithAlpineGit
-    docker:
-      - image: alpine/git
-
 jobs:
   build:
     machine:
@@ -193,9 +187,8 @@ jobs:
 
   push_sources_to_bucket:
     parameters:
-      impersonate_service_account_name:
+      project_number:
         type: string
-        default: "main-service-account"
       project_id_without_stage:
         type: string
         default: "akecld-prd-pim-api-docs"
@@ -206,59 +199,29 @@ jobs:
         type: string
         default: "dev"
     environment:
+      GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
+      OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      GCP_SERVICE_ACCOUNT_EMAIL_TO_IMPERSONATE: "main-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      OIDC_POOL: "circleci-pool"
+      OIDC_PROVIDER: "circleci-jwt"
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
-      GOOGLE_APPLICATION_CREDENTIALS: /root/project/.<<parameters.target_stage_id>>/.gcp_cred_config.json
-      GOOGLE_IMPERSONATE_SERVICE_ACCOUNT: <<parameters.impersonate_service_account_name>>@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
     docker:
       - image: google/cloud-sdk
     steps:
       - attach_workspace:
-          at: .<<parameters.target_stage_id>>
-      - attach_workspace:
           at: ~/project
-      - run:
-          name: Configure credentials file for the orb and auth
-          command: |
-            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/root\/project\/.<<parameters.target_stage_id>>\/.oidc_token.json#" .<<parameters.target_stage_id>>/.gcp_cred_config.json
-            gcloud auth login --brief --cred-file ${GOOGLE_APPLICATION_CREDENTIALS}
+      - security-hunter/gcp_oidc_auth:
+          impersonate: true
       - run:
           name: Run rsync between local sources and the target bucket
           command: |
-            gsutil -i ${GOOGLE_IMPERSONATE_SERVICE_ACCOUNT} -m rsync -r dist gs://<<parameters.environment>>-${GOOGLE_CLOUD_PROJECT}-front
-
-  gcp_connect: &gcp_connect
-    parameters:
-      project_id_without_stage:
-        type: string
-        default: "akecld-prd-pim-api-docs"
-      target_stage_id:
-        type: string
-        default: "dev"
-      project_number:
-        type: integer
-    <<: *dockerExecutorWithPython
-    steps:
-      - run: mkdir -p .<<parameters.target_stage_id>>
-      - security-hunter/gcp_auth_using_oidc:
-          gcp_service_account_mail: ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
-          workload_identity_provider_url: projects/<<parameters.project_number>>/locations/global/workloadIdentityPools/circleci-pool/providers/circleci-jwt
-      - run:
-          name: Generate custom config
-          command: |
-            sed -i "s#.\/.oidc_token.json#.<<parameters.target_stage_id>>\/.oidc_token.json#" .gcp_cred_config.json
-            cp .gcp_cred_config.json .oidc_token.json .<<parameters.target_stage_id>>/
-      - persist_to_workspace:
-          root: .<<parameters.target_stage_id>>
-          paths:
-            - .gcp_cred_config.json
-            - .oidc_token.json
+            gcloud storage rsync --recursive dist gs://<<parameters.environment>>-${GOOGLE_CLOUD_PROJECT}-front
 
   infrastructure: &infrastructure
     parameters:
-      impersonate_service_account_name:
+      project_number:
         type: string
-        default: "main-service-account"
       project_id_without_stage:
         type: string
         default: "akecld-prd-pim-api-docs"
@@ -277,14 +240,19 @@ jobs:
         type: string
         default: ""
     environment:
+      GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
+      OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      GCP_SERVICE_ACCOUNT_EMAIL_TO_IMPERSONATE: "main-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      OIDC_POOL: "circleci-pool"
+      OIDC_PROVIDER: "circleci-jwt"
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
-      GOOGLE_APPLICATION_CREDENTIALS: /root/project/.<<parameters.target_stage_id>>/.gcp_cred_config.json
-      GOOGLE_IMPERSONATE_SERVICE_ACCOUNT: <<parameters.impersonate_service_account_name>>@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
     executor:
       name: terraform/default
       tag: 1.1.7
     steps:
+      - security-hunter/gcp_oidc_auth:
+          impersonate: true
       - terraform_handler:
           target_stage_id: <<parameters.target_stage_id>>
           deployment_scope: <<parameters.deployment_scope>>
