@@ -23,10 +23,17 @@ workflows:
             branches:
               ignore:
                 - master
+      - security-hunter/detect-secrets-in-latest-commits:
+            name: "secops/secrets/scan"
+            context: SECOPS_SQUAD
+            leave_comment: always
+            checkout_code: true
+            soft_fail: false
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan"
           requires:
             - start?
+            - secops/secrets/scan
           context: MARSUS_SQUAD
           project_number: "38178482637"
           target_stage_id: "dev"
