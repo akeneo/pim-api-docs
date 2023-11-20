@@ -375,19 +375,19 @@ commands:
           command: |
             source $BASH_ENV
 
-            TF_PARAMS="-chdir=<< parameters.chdir >> -input=false"
+            TF_PARAMS="-chdir=<< parameters.chdir >>"
 
             if [ "<< parameters.backend >>" = "" ]; then
               TF_PARAMS="${TF_PARAMS} -backend"
             else
-              TF_PARAMS="${TF_PARAMS} -backend=<< parameters.backend >>"
+              TF_PARAMS="${TF_PARAMS} -backend-config=<< parameters.backend >>"
             fi
 
             if [ -n "<< parameters.vars >>" ]; then
               TF_PARAMS="${TF_PARAMS} -var-file=<< parameters.vars >>"
             fi
 
-            terraform << parameters.cmd >> $TF_PARAMS
+            terraform $TF_PARAMS << parameters.cmd >> -input=false
 
   terraform_handler:
     parameters:
