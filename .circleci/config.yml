@@ -378,7 +378,7 @@ commands:
             if [ "<< parameters.cmd >>" != "fmt" ] && [ "<< parameters.cmd >>" != "validate" ]; then
               TF_PARAMS="-input=false"
 
-              if [ "<< parameters.cmd >>" != "init" ]; then
+              if [ "<< parameters.cmd >>" != "init" ] && [ "<< parameters.cmd >>" != "plan" ]; then
                 TF_PARAMS="${TF_PARAMS} -auto-approve"
               fi
 
