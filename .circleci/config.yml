@@ -7,10 +7,13 @@ orbs:
 aliases:
   - &dockerExecutorWithPython
     docker:
-      - image: cimg/python:3.7
+      - image: 'cimg/python@sha256:fe156bd9d3262e6e7825bd5b0537ed908e5c1380dcaf4dc3f901a60f2cd7af66'
   - &dockerExecutorWithAlpineGit
     docker:
       - image: alpine/git
+  - &dockerExecutorWithGoogleCloud
+    docker:
+    - image: google/cloud-sdk:alpine
 
 workflows:
   version: 2
@@ -227,8 +230,7 @@ jobs:
       OIDC_PROVIDER: "circleci-jwt"
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
-    docker:
-      - image: google/cloud-sdk:alpine
+    <<: *dockerExecutorWithGoogleCloud
     steps:
       - attach_workspace:
           at: ~/
@@ -347,8 +349,7 @@ jobs:
       pull_request:
         type: boolean
         default: true
-    machine:
-      image: ubuntu-2204:2022.07.1
+    <<: *dockerExecutorWithPython
     environment:
       GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
       OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
