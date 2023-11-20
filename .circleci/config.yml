@@ -23,12 +23,15 @@ workflows:
             branches:
               ignore:
                 - master
+      - checkout-with-persist
       - security-hunter/detect-secrets-in-latest-commits:
             name: "secops/secrets/scan"
             context: SECOPS_SQUAD
             leave_comment: always
-            checkout_code: true
+            checkout_code: false
             soft_fail: false
+            requires:
+              - checkout-with-persist
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan"
           requires:
@@ -179,6 +182,15 @@ workflows:
             - get_outdated_environment
 
 jobs:
+  checkout-with-persist:
+    <<: *dockerExecutorWithAlpineGit
+    steps:
+      - checkout
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project
+
   build:
     machine:
       image: ubuntu-2204:2022.07.1
