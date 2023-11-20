@@ -237,7 +237,7 @@ jobs:
       - run:
           name: Run rsync between local sources and the target bucket
           command: |
-            gcloud storage rsync --recursive dist gs://<<parameters.environment>>-${GOOGLE_CLOUD_PROJECT}-front
+            gcloud storage rsync --recursive ~/dist gs://<<parameters.environment>>-${GOOGLE_CLOUD_PROJECT}-front
 
   infrastructure: &infrastructure
     parameters:
@@ -362,7 +362,7 @@ jobs:
       - run:
           name: Source environment
           command: |
-            cat .<<parameters.target_stage_id>>/env.<<parameters.target_stage_id>> >> $BASH_ENV ; source $BASH_ENV
+            cat ~/env.<<parameters.target_stage_id>> >> $BASH_ENV ; source $BASH_ENV
       - run:
           name: Install requirements
           command: |
