@@ -376,8 +376,6 @@ commands:
         type: string
     steps:
       - checkout
-      - attach_workspace:
-          at: .<<parameters.target_stage_id>>
       - run:
           name: Install Python 3, pip and curl
           command: |
@@ -409,11 +407,14 @@ commands:
                   cat \<< EOF > deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>/backend.hcl
                   prefix = "<<parameters.deployment_scope>>/<<parameters.pull_request_id>>"
                   EOF
+            - tf_init:
+                name: "terraform/init"
+                command: |
                   source $BASH_ENV
-            - terraform/init:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                backend: true
-                backend_config_file: "backend.hcl"
+                  terraform -chdir="deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>" \
+                            init \
+                            -input=false \
+                            -backend=backend.hcl
             - terraform/fmt:
                 path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
             - terraform/validate:
