@@ -409,6 +409,7 @@ commands:
                   cat \<< EOF > deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>/backend.hcl
                   prefix = "<<parameters.deployment_scope>>/<<parameters.pull_request_id>>"
                   EOF
+                  source $BASH_ENV
             - terraform/init:
                 path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
                 backend: true
