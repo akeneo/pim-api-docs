@@ -249,8 +249,6 @@ jobs:
       name: terraform/default
       tag: 1.1.7
     steps:
-      - security-hunter/gcp_oidc_auth:
-          impersonate: true
       - terraform_handler:
           target_stage_id: <<parameters.target_stage_id>>
           deployment_scope: <<parameters.deployment_scope>>
@@ -389,6 +387,8 @@ commands:
       - run:
           name: Link Python 3 as Python
           command: ln -s /usr/bin/python3 /usr/local/bin/python
+      - security-hunter/gcp_oidc_auth:
+          impersonate: true
       - when:
           condition: <<parameters.pull_request>>
           steps:
