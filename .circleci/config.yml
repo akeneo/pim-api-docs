@@ -205,10 +205,13 @@ jobs:
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
     docker:
-      - image: google/cloud-sdk
+      - image: google/cloud-sdk:alpine
     steps:
       - attach_workspace:
           at: ~/project
+      - run:
+          name: python/pip/install
+          command: apk --no-cache add py3-pip
       - security-hunter/gcp_oidc_auth:
           impersonate: true
       - run:
