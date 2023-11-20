@@ -153,21 +153,15 @@ workflows:
 
   environment_cleaner:
     jobs:
-      - gcp_connect: &gcp_connect_dev
-          name: "gcp_connect_dev"
+      - get_outdated_environment:
           context: MARSUS_SQUAD
           project_number: 38178482637
-          filters:
-            branches:
-              only:
-                - master
-      - get_outdated_environment:
-          requires:
-            - gcp_connect_dev
       - delete_outdated_environment:
+          context: MARSUS_SQUAD
+          project_number: 38178482637
+          envs_to_destroy: ${ENVS_TO_DESTROY}
           requires:
             - get_outdated_environment
-          envs_to_destroy: ${ENVS_TO_DESTROY}
 
 jobs:
   build:
@@ -265,25 +259,27 @@ jobs:
 
   get_outdated_environment:
     parameters:
+      project_number:
+        type: string
       target_stage_id:
         type: string
         default: "dev"
-      impersonate_service_account_name:
-        type: string
-        default: main-service-account
       project_id_without_stage:
         type: string
         default: "akecld-prd-pim-api-docs"
     <<: *dockerExecutorWithPython
     environment:
+      GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
+      OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      GCP_SERVICE_ACCOUNT_EMAIL_TO_IMPERSONATE: "main-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      OIDC_POOL: "circleci-pool"
+      OIDC_PROVIDER: "circleci-jwt"
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
-      GOOGLE_APPLICATION_CREDENTIALS: .<<parameters.target_stage_id>>/.gcp_cred_config.json
-      GOOGLE_IMPERSONATE_SERVICE_ACCOUNT: <<parameters.impersonate_service_account_name>>@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
     steps:
       - checkout
-      - attach_workspace:
-          at: .<<parameters.target_stage_id>>
+      - security-hunter/gcp_oidc_auth:
+          impersonate: true
       - run:
           name: Install requirements
           command: |
@@ -291,6 +287,7 @@ jobs:
       - run:
           name: Generate config
           command: |
+            mkdir .<<parameters.target_stage_id>>
             echo export ENVS_TO_DESTROY=$(python3 .circleci/tools/destroyer/get_outdated_environment.py | tr -d '[] ') >> .<<parameters.target_stage_id>>/env.<<parameters.target_stage_id>>
       - persist_to_workspace:
           root: .<<parameters.target_stage_id>>
@@ -299,14 +296,13 @@ jobs:
 
   delete_outdated_environment:
     parameters:
+      project_number:
+        type: string
       envs_to_destroy:
         type: string
       target_stage_id:
         type: string
         default: "dev"
-      impersonate_service_account_name:
-        type: string
-        default: main-service-account
       project_id_without_stage:
         type: string
         default: "akecld-prd-pim-api-docs"
@@ -319,12 +315,17 @@ jobs:
     machine:
       image: ubuntu-2204:2022.07.1
     environment:
+      GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
+      OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      GCP_SERVICE_ACCOUNT_EMAIL_TO_IMPERSONATE: "main-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      OIDC_POOL: "circleci-pool"
+      OIDC_PROVIDER: "circleci-jwt"
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
-      GOOGLE_APPLICATION_CREDENTIALS: .<<parameters.target_stage_id>>/.gcp_cred_config.json
-      GOOGLE_IMPERSONATE_SERVICE_ACCOUNT: <<parameters.impersonate_service_account_name>>@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
     steps:
       - checkout
+      - security-hunter/gcp_oidc_auth:
+          impersonate: true
       - attach_workspace:
           at: .<<parameters.target_stage_id>>
       - run:
@@ -339,8 +340,7 @@ jobs:
           name: Perform environment destroying
           command: |
             mkdir -p deployments/secrets
-            cp ${GOOGLE_APPLICATION_CREDENTIALS} .<<parameters.target_stage_id>>/.oidc_token.json deployments/secrets/
-            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/deployments\/secrets\/.oidc_token.json#" deployments/secrets/.gcp_cred_config.json
+
             envsToDestroy=($(echo "<< parameters.envs_to_destroy >>" | tr ',' ' '))
             for envToDestroy in "${envsToDestroy[@]}"
             do
@@ -372,10 +372,6 @@ commands:
       - checkout
       - attach_workspace:
           at: .<<parameters.target_stage_id>>
-      # - run:
-      #     name: Source environment
-      #     command: |
-      #       cat .<<parameters.target_stage_id>>/env.<<parameters.target_stage_id>> >> $BASH_ENV ; source $BASH_ENV
       - run:
           name: Install Python 3, pip and curl
           command: |
@@ -385,10 +381,6 @@ commands:
       - run:
           name: Link Python 3 as Python
           command: ln -s /usr/bin/python3 /usr/local/bin/python
-      - run:
-          name: Configure credentials file for the Terraform orb
-          command: |
-            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/root\/project\/.<<parameters.target_stage_id>>\/.oidc_token.json#" .<<parameters.target_stage_id>>/.gcp_cred_config.json
       - when:
           condition: <<parameters.pull_request>>
           steps:
