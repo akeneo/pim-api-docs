@@ -94,6 +94,10 @@ workflows:
                 - master
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan_dev"
+          filters:
+            branches:
+              only:
+                - master
           context: MARSUS_SQUAD
           project_number: "38178482637"
           target_stage_id: "dev"
@@ -154,6 +158,10 @@ workflows:
   environment_cleaner:
     jobs:
       - get_outdated_environment:
+          filters:
+            branches:
+              only:
+                - master
           context: MARSUS_SQUAD
           project_number: "38178482637"
       - delete_outdated_environment:
