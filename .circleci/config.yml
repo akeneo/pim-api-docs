@@ -55,6 +55,8 @@ workflows:
           name: "push_sources_to_bucket_dev"
           requires:
             - infrastructure_services_apply_with_plan
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
           target_stage_id: "dev"
           environment: "pr-${CIRCLE_PULL_REQUEST##*/}"
       - destroy_pull_request?:
