@@ -356,6 +356,39 @@ jobs:
             done
 
 commands:
+  tf_cmd:
+    parameters:
+      chdir:
+        type: string
+      backend:
+        type: string
+        default: ""
+      vars:
+        type: string
+        default: ""
+      cmd:
+        type: enum
+        enum: [fmt, init, plan, apply, destroy]
+    steps:
+      - run:
+          name: "terraform/<< parameters.cmd >>"
+          command: |
+            source $BASH_ENV
+
+            TF_PARAMS="-chdir=<< parameters.chdir >> -input=false"
+
+            if [ "<< parameters.backend >>" = "" ]; then
+              TF_PARAMS="${TF_PARAMS} -backend"
+            else
+              TF_PARAMS="${TF_PARAMS} -backend=<< parameters.backend >>"
+            fi
+
+            if [ -n "<< parameters.vars >>" ]; then
+              TF_PARAMS="${TF_PARAMS} -var-file=<< parameters.vars >>"
+            fi
+
+            terraform << parameters.cmd >> $TF_PARAMS
+
   terraform_handler:
     parameters:
       project_id_without_stage:
@@ -407,56 +440,60 @@ commands:
                   cat \<< EOF > deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>/backend.hcl
                   prefix = "<<parameters.deployment_scope>>/<<parameters.pull_request_id>>"
                   EOF
-            - run:
-                name: "terraform/init"
-                command: |
-                  source $BASH_ENV
-                  terraform -chdir="deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>" \
-                            init \
-                            -input=false \
-                            -backend=backend.hcl
-            - terraform/fmt:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-            - terraform/validate:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                backend: "backend.hcl"
+                cmd: init
+                vars: ""
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                cmd: fmt
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                cmd: validate
             - when:
                 condition:
                   equal: ["plan", << parameters.terraform_action >>]
                 steps:
-                  - terraform/plan:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                      backend_config_file: "backend.hcl"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: "backend.hcl"
+                      cmd: plan
+                      vars: "env.tfvars"
             - when:
                 condition:
                   equal: ["apply", << parameters.terraform_action >>]
                 steps:
-                  - terraform/apply:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                      backend_config_file: "backend.hcl"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: "backend.hcl"
+                      cmd: apply
+                      vars: "env.tfvars"
             - when:
                 condition:
                   equal: ["apply_with_plan", << parameters.terraform_action >>]
                 steps:
-                  - terraform/plan:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                      backend_config_file: "backend.hcl"
-                  - terraform/apply:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                      backend_config_file: "backend.hcl"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: "backend.hcl"
+                      cmd: plan
+                      vars: "env.tfvars"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: "backend.hcl"
+                      cmd: apply
+                      vars: "env.tfvars"
             - when:
                 condition:
                   and:
                     - equal: ["services", <<parameters.deployment_scope>>]
                     - equal: ["destroy", <<parameters.terraform_action>>]
                 steps:
-                  - terraform/destroy:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                      backend_config_file: "backend.hcl"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: "backend.hcl"
+                      cmd: destroy
+                      vars: "env.tfvars"
       - when:
           condition:
             not: <<parameters.pull_request>>
@@ -470,39 +507,48 @@ commands:
                   app_version   = "<<pipeline.git.revision>>"
                   EOF
                   cat deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>/env.tfvars
-            - run:
-                name: "terraform/init"
-                command: |
-                  source $BASH_ENV
-                  terraform -chdir="deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>" \
-                            init \
-                            -input=false \
-                            -backend
-            - terraform/fmt:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-            - terraform/validate:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                backend: ""
+                vars: ""
+                cmd: init
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                backend: ""
+                cmd: fmt
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                backend: ""
+                cmd: validate
             - when:
                 condition:
                   equal: ["plan", << parameters.terraform_action >>]
                 steps:
-                  - terraform/plan:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: ""
+                      cmd: plan
+                      vars: "env.tfvars"
             - when:
                 condition:
                   equal: ["apply", << parameters.terraform_action >>]
                 steps:
-                  - terraform/apply:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: ""
+                      cmd: apply
+                      vars: "env.tfvars"
             - when:
                 condition:
                   equal: ["apply_with_plan", << parameters.terraform_action >>]
                 steps:
-                  - terraform/plan:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                  - terraform/apply:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: ""
+                      cmd: plan
+                      vars: "env.tfvars"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: ""
+                      cmd: apply
+                      vars: "env.tfvars"
