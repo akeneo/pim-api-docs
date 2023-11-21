@@ -101,17 +101,17 @@ workflows:
 
   master:
     jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - master
+      - build
+          # filters:
+          #   branches:
+          #     only:
+          #       - master
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan_dev"
-          filters:
-            branches:
-              only:
-                - master
+          # filters:
+          #   branches:
+          #     only:
+          #       - master
           context: MARSUS_SQUAD
           project_number: "38178482637"
           target_stage_id: "dev"
@@ -171,11 +171,11 @@ workflows:
 
   environment_cleaner:
     jobs:
-      - checkout-with-persist
-          # filters:
-          #   branches:
-          #     only:
-          #       - master
+      - checkout-with-persist:
+          filters:
+            branches:
+              only:
+                - master
       - get_outdated_environment:
           context: MARSUS_SQUAD
           project_number: "38178482637"
