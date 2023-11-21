@@ -26,7 +26,15 @@ workflows:
             branches:
               ignore:
                 - master
-      - checkout-with-persist
+      - deploy_pull_request?:
+          type: approval
+          filters:
+            branches:
+              ignore:
+                - master
+      - checkout-with-persist:
+          requires:
+            - start?
       - security-hunter/detect-secrets-in-latest-commits:
             name: "secops/secrets/scan"
             context: SECOPS_SQUAD
@@ -37,24 +45,19 @@ workflows:
               - checkout-with-persist
       - build:
           requires:
-            - start?
             - secops/secrets/scan
+      - workflow_success:
+          requires:
+            - build
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan"
           requires:
-            - start?
             - secops/secrets/scan
           context: MARSUS_SQUAD
           project_number: "38178482637"
           target_stage_id: "dev"
           deployment_scope: "dependencies"
           terraform_action: "apply_with_plan"
-      - deploy_pull_request?:
-          type: approval
-          filters:
-            branches:
-              ignore:
-                - master
       - infrastructure: &infrastructure_services_apply_with_plan
           name: "infrastructure_services_apply_with_plan"
           requires:
@@ -95,28 +98,26 @@ workflows:
           terraform_action: "destroy"
           pull_request: true
           pull_request_id: "pr-${CIRCLE_PULL_REQUEST##*/}"
-      - workflow_success:
-          requires:
-            - build
 
   master:
     jobs:
+      - checkout-with-persist
+          # filters:
+          #   branches:
+          #     only:
+          #       - master
       - build:
-          filters:
-            branches:
-              only:
-                - master
+          requires:
+            - checkout-with-persist
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan_dev"
-          filters:
-            branches:
-              only:
-                - master
           context: MARSUS_SQUAD
           project_number: "38178482637"
           target_stage_id: "dev"
           deployment_scope: "dependencies"
           terraform_action: "apply_with_plan"
+          requires:
+            - checkout-with-persist
       - infrastructure: &infrastructure_services_apply_with_plan
           name: "infrastructure_services_apply_with_plan_dev"
           requires:
@@ -137,15 +138,16 @@ workflows:
           environment: "dev"
       - continue_with_prod?:
           type: approval
-          filters:
-            branches:
-              only:
-                - master
+          requires:
+            - push_sources_to_bucket_dev
+          # filters:
+          #   branches:
+          #     only:
+          #       - master
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan_prd"
           requires:
             - continue_with_prod?
-            - push_sources_to_bucket_dev
           context: MARSUS_SQUAD
           project_number: "598067739710"
           target_stage_id: "prd"
@@ -202,7 +204,8 @@ jobs:
     machine:
       image: ubuntu-2204:2022.07.1
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/
       - run: make build
       - persist_to_workspace:
           root: ~/project
@@ -447,7 +450,6 @@ commands:
       pull_request_id:
         type: string
     steps:
-      - checkout
       - run:
           name: Install Python 3, pip and curl
           command: |
