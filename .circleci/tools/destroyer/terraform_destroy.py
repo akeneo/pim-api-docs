@@ -54,7 +54,6 @@ if __name__ == "__main__":
 
     chdir = f"{sources_path}/stages/{stage}/services"
     backend_config = f"prefix=services/{pull_request_id}"
-    credential_filename = ".gcp_cred_config.json"
     client = docker.from_env()
     client.images.pull(f"hashicorp/terraform:{terraform_version}")
 
