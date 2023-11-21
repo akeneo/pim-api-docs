@@ -173,11 +173,11 @@ workflows:
 
   environment_cleaner:
     jobs:
-      - checkout-with-persist
-          # filters:
-          #   branches:
-          #     only:
-          #       - master
+      - checkout-with-persist:
+          filters:
+            branches:
+              only:
+                - master
       - get_outdated_environment:
           context: MARSUS_SQUAD
           project_number: "38178482637"
