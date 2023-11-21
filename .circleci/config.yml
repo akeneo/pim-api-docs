@@ -362,6 +362,7 @@ jobs:
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
     steps:
+      - setup_remote_docker
       - attach_workspace:
           at: ~/
       - security-hunter/gcp_oidc_auth:
