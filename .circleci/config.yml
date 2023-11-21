@@ -101,11 +101,11 @@ workflows:
 
   master:
     jobs:
-      - checkout-with-persist
-          # filters:
-          #   branches:
-          #     only:
-          #       - master
+      - checkout-with-persist:
+          filters:
+            branches:
+              only:
+                - master
       - build:
           requires:
             - checkout-with-persist
@@ -140,10 +140,10 @@ workflows:
           type: approval
           requires:
             - push_sources_to_bucket_dev
-          # filters:
-          #   branches:
-          #     only:
-          #       - master
+          filters:
+            branches:
+              only:
+                - master
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan_prd"
           requires:
