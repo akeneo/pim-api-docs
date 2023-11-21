@@ -4,6 +4,7 @@ import argparse
 import settings
 
 pwd = os.getcwd()
+print(f"+ running from {pwd} ...")
 
 
 def docker_streamer(terraform_handler):
@@ -45,8 +46,7 @@ if __name__ == "__main__":
 
     project_id = settings.settings.gcp_project_id
     terraform_version = settings.settings.terraform_version
-    pwd = os.getcwd()
-    sources_path = f'{pwd}/{settings.settings.terraform_sources_path}'
+    sources_path = settings.settings.terraform_sources_path
     first_install = args.first_install
     stage = args.stage
     app_version = args.app_version
