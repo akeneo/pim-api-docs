@@ -17,12 +17,13 @@ def docker_streamer(terraform_handler):
 
 @docker_streamer
 def terraform_handler(terraform_version, sources_path, command):
+    token = os.getenv('GOOGLE_OAUTH_ACCESS_TOKEN', '')
+
     return client.containers.run(
         f"hashicorp/terraform:{terraform_version}",
         command,
         environment=[
-            f"GOOGLE_CREDENTIALS={sources_path}/secrets/{credential_filename}",
-            f"GOOGLE_IMPERSONATE_SERVICE_ACCOUNT=main-service-account@{project_id}.iam.gserviceaccount.com",
+            f"GOOGLE_OAUTH_ACCESS_TOKEN={token}",
         ],
         volumes=[f"{pwd}{sources_path}:{sources_path}"],
         working_dir=f"{sources_path}",

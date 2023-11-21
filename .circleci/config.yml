@@ -1,8 +1,19 @@
 version: 2.1
 
 orbs:
-  terraform: circleci/terraform@3.0.1
-  security-hunter: akeneo-orbs/security-hunter@1.1.7
+  terraform: circleci/terraform@3.2.1
+  security-hunter: akeneo-orbs/security-hunter@2.6.4
+
+aliases:
+  - &dockerExecutorWithPython
+    docker:
+      - image: 'cimg/python@sha256:fe156bd9d3262e6e7825bd5b0537ed908e5c1380dcaf4dc3f901a60f2cd7af66'
+  - &dockerExecutorWithAlpineGit
+    docker:
+      - image: alpine/git
+  - &dockerExecutorWithGoogleCloud
+    docker:
+    - image: google/cloud-sdk:alpine
 
 workflows:
   version: 2
@@ -15,37 +26,46 @@ workflows:
             branches:
               ignore:
                 - master
-      - gcp_connect: &gcp_connect_dev
-          name: "gcp_connect_dev"
-          context: MARSUS_SQUAD
-          requires:
-            - start?
-          project_number: 38178482637
-          target_stage_id: "dev"
-      - infrastructure: &infrastructure_dependencies_apply_with_plan
-          name: "infrastructure_dependencies_apply_with_plan"
-          requires:
-            - gcp_connect_dev
-          target_stage_id: "dev"
-          deployment_scope: "dependencies"
-          terraform_action: "apply_with_plan"
       - deploy_pull_request?:
           type: approval
           filters:
             branches:
               ignore:
                 - master
-      - gcp_connect:
-          name: "gcp_connect_dev_to_deploy"
-          <<: *gcp_connect_dev
+      - checkout-with-persist:
+          requires:
+            - start?
+      - security-hunter/detect-secrets-in-latest-commits:
+            name: "secops/secrets/scan"
+            context: SECOPS_SQUAD
+            leave_comment: always
+            checkout_code: false
+            soft_fail: false
+            requires:
+              - checkout-with-persist
+      - build:
+          requires:
+            - secops/secrets/scan
+      - workflow_success:
+          requires:
+            - build
+      - infrastructure: &infrastructure_dependencies_apply_with_plan
+          name: "infrastructure_dependencies_apply_with_plan"
+          requires:
+            - secops/secrets/scan
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
+          target_stage_id: "dev"
+          deployment_scope: "dependencies"
+          terraform_action: "apply_with_plan"
+      - infrastructure: &infrastructure_services_apply_with_plan
+          name: "infrastructure_services_apply_with_plan"
           requires:
             - deploy_pull_request?
             - build
             - infrastructure_dependencies_apply_with_plan
-      - infrastructure: &infrastructure_services_apply_with_plan
-          name: "infrastructure_services_apply_with_plan"
-          requires:
-            - gcp_connect_dev_to_deploy
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
           target_stage_id: "dev"
           deployment_scope: "services"
           terraform_action: "apply_with_plan"
@@ -55,6 +75,8 @@ workflows:
           name: "push_sources_to_bucket_dev"
           requires:
             - infrastructure_services_apply_with_plan
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
           target_stage_id: "dev"
           environment: "pr-${CIRCLE_PULL_REQUEST##*/}"
       - destroy_pull_request?:
@@ -69,45 +91,39 @@ workflows:
           name: "infrastructure_services_destroy"
           requires:
             - destroy_pull_request?
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
           target_stage_id: "dev"
           deployment_scope: "services"
           terraform_action: "destroy"
           pull_request: true
           pull_request_id: "pr-${CIRCLE_PULL_REQUEST##*/}"
-      - build:
-          requires:
-            - start?
-      - workflow_success:
-          requires:
-            - build
 
   master:
     jobs:
+      - checkout-with-persist:
+          filters:
+            branches:
+              only:
+                - master
       - build:
-          filters:
-            branches:
-              only:
-                - master
-      - gcp_connect: &gcp_connect_dev
-          name: "gcp_connect_dev"
-          context: MARSUS_SQUAD
-          project_number: 38178482637
-          target_stage_id: "dev"
-          filters:
-            branches:
-              only:
-                - master
+          requires:
+            - checkout-with-persist
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan_dev"
-          requires:
-            - gcp_connect_dev
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
           target_stage_id: "dev"
           deployment_scope: "dependencies"
           terraform_action: "apply_with_plan"
+          requires:
+            - checkout-with-persist
       - infrastructure: &infrastructure_services_apply_with_plan
           name: "infrastructure_services_apply_with_plan_dev"
           requires:
             - infrastructure_dependencies_apply_with_plan_dev
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
           target_stage_id: "dev"
           deployment_scope: "services"
           terraform_action: "apply_with_plan"
@@ -116,26 +132,24 @@ workflows:
           requires:
             - build
             - infrastructure_services_apply_with_plan_dev
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
           target_stage_id: "dev"
           environment: "dev"
       - continue_with_prod?:
           type: approval
+          requires:
+            - push_sources_to_bucket_dev
           filters:
             branches:
               only:
                 - master
-      - gcp_connect: &gcp_connect_prd
-          name: "gcp_connect_prd"
-          context: MARSUS_SQUAD
-          requires:
-            - continue_with_prod?
-            - push_sources_to_bucket_dev
-          project_number: 598067739710
-          target_stage_id: "prd"
       - infrastructure: &infrastructure_dependencies_apply_with_plan
           name: "infrastructure_dependencies_apply_with_plan_prd"
           requires:
-            - gcp_connect_prd
+            - continue_with_prod?
+          context: MARSUS_SQUAD
+          project_number: "598067739710"
           target_stage_id: "prd"
           deployment_scope: "dependencies"
           terraform_action: "apply_with_plan"
@@ -143,6 +157,8 @@ workflows:
           name: "infrastructure_services_apply_with_plan_prd"
           requires:
             - infrastructure_dependencies_apply_with_plan_prd
+          context: MARSUS_SQUAD
+          project_number: "598067739710"
           target_stage_id: "prd"
           deployment_scope: "services"
           terraform_action: "apply_with_plan"
@@ -150,41 +166,46 @@ workflows:
           name: "push_sources_to_bucket_prd"
           requires:
             - infrastructure_services_apply_with_plan_prd
+          context: MARSUS_SQUAD
+          project_number: "598067739710"
           target_stage_id: "prd"
           environment: "prd"
 
   environment_cleaner:
     jobs:
-      - gcp_connect: &gcp_connect_dev
-          name: "gcp_connect_dev"
-          context: MARSUS_SQUAD
-          project_number: 38178482637
+      - checkout-with-persist:
           filters:
             branches:
               only:
                 - master
       - get_outdated_environment:
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
           requires:
-            - gcp_connect_dev
+            - checkout-with-persist
       - delete_outdated_environment:
+          context: MARSUS_SQUAD
+          project_number: "38178482637"
+          envs_to_destroy: ${ENVS_TO_DESTROY}
           requires:
             - get_outdated_environment
-          envs_to_destroy: ${ENVS_TO_DESTROY}
-
-aliases:
-  - &dockerExecutorWithPython
-    docker:
-      - image: cimg/python:3.7
-  - &dockerExecutorWithAlpineGit
-    docker:
-      - image: alpine/git
 
 jobs:
+  checkout-with-persist:
+    <<: *dockerExecutorWithAlpineGit
+    steps:
+      - checkout
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project
+
   build:
     machine:
       image: ubuntu-2204:2022.07.1
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/
       - run: make build
       - persist_to_workspace:
           root: ~/project
@@ -193,9 +214,8 @@ jobs:
 
   push_sources_to_bucket:
     parameters:
-      impersonate_service_account_name:
+      project_number:
         type: string
-        default: "main-service-account"
       project_id_without_stage:
         type: string
         default: "akecld-prd-pim-api-docs"
@@ -206,59 +226,31 @@ jobs:
         type: string
         default: "dev"
     environment:
+      GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
+      OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      GCP_SERVICE_ACCOUNT_EMAIL_TO_IMPERSONATE: "main-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      OIDC_POOL: "circleci-pool"
+      OIDC_PROVIDER: "circleci-jwt"
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
-      GOOGLE_APPLICATION_CREDENTIALS: /root/project/.<<parameters.target_stage_id>>/.gcp_cred_config.json
-      GOOGLE_IMPERSONATE_SERVICE_ACCOUNT: <<parameters.impersonate_service_account_name>>@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
-    docker:
-      - image: google/cloud-sdk
+    <<: *dockerExecutorWithGoogleCloud
     steps:
       - attach_workspace:
-          at: .<<parameters.target_stage_id>>
-      - attach_workspace:
-          at: ~/project
+          at: ~/
       - run:
-          name: Configure credentials file for the orb and auth
-          command: |
-            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/root\/project\/.<<parameters.target_stage_id>>\/.oidc_token.json#" .<<parameters.target_stage_id>>/.gcp_cred_config.json
-            gcloud auth login --brief --cred-file ${GOOGLE_APPLICATION_CREDENTIALS}
+          name: python/pip/install
+          command: apk --no-cache add py3-pip
+      - security-hunter/gcp_oidc_auth:
+          impersonate: true
       - run:
           name: Run rsync between local sources and the target bucket
           command: |
-            gsutil -i ${GOOGLE_IMPERSONATE_SERVICE_ACCOUNT} -m rsync -r dist gs://<<parameters.environment>>-${GOOGLE_CLOUD_PROJECT}-front
-
-  gcp_connect: &gcp_connect
-    parameters:
-      project_id_without_stage:
-        type: string
-        default: "akecld-prd-pim-api-docs"
-      target_stage_id:
-        type: string
-        default: "dev"
-      project_number:
-        type: integer
-    <<: *dockerExecutorWithPython
-    steps:
-      - run: mkdir -p .<<parameters.target_stage_id>>
-      - security-hunter/gcp_auth_using_oidc:
-          gcp_service_account_mail: ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
-          workload_identity_provider_url: projects/<<parameters.project_number>>/locations/global/workloadIdentityPools/circleci-pool/providers/circleci-jwt
-      - run:
-          name: Generate custom config
-          command: |
-            sed -i "s#.\/.oidc_token.json#.<<parameters.target_stage_id>>\/.oidc_token.json#" .gcp_cred_config.json
-            cp .gcp_cred_config.json .oidc_token.json .<<parameters.target_stage_id>>/
-      - persist_to_workspace:
-          root: .<<parameters.target_stage_id>>
-          paths:
-            - .gcp_cred_config.json
-            - .oidc_token.json
+            gcloud storage rsync --recursive ~/dist gs://<<parameters.environment>>-${GOOGLE_CLOUD_PROJECT}-front
 
   infrastructure: &infrastructure
     parameters:
-      impersonate_service_account_name:
+      project_number:
         type: string
-        default: "main-service-account"
       project_id_without_stage:
         type: string
         default: "akecld-prd-pim-api-docs"
@@ -277,14 +269,19 @@ jobs:
         type: string
         default: ""
     environment:
+      GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
+      OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      GCP_SERVICE_ACCOUNT_EMAIL_TO_IMPERSONATE: "main-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      OIDC_POOL: "circleci-pool"
+      OIDC_PROVIDER: "circleci-jwt"
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
-      GOOGLE_APPLICATION_CREDENTIALS: /root/project/.<<parameters.target_stage_id>>/.gcp_cred_config.json
-      GOOGLE_IMPERSONATE_SERVICE_ACCOUNT: <<parameters.impersonate_service_account_name>>@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
     executor:
       name: terraform/default
       tag: 1.1.7
     steps:
+      - attach_workspace:
+          at: ~/
       - terraform_handler:
           target_stage_id: <<parameters.target_stage_id>>
           deployment_scope: <<parameters.deployment_scope>>
@@ -301,25 +298,28 @@ jobs:
 
   get_outdated_environment:
     parameters:
+      project_number:
+        type: string
       target_stage_id:
         type: string
         default: "dev"
-      impersonate_service_account_name:
-        type: string
-        default: main-service-account
       project_id_without_stage:
         type: string
         default: "akecld-prd-pim-api-docs"
     <<: *dockerExecutorWithPython
     environment:
+      GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
+      OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      GCP_SERVICE_ACCOUNT_EMAIL_TO_IMPERSONATE: "main-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      OIDC_POOL: "circleci-pool"
+      OIDC_PROVIDER: "circleci-jwt"
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
-      GOOGLE_APPLICATION_CREDENTIALS: .<<parameters.target_stage_id>>/.gcp_cred_config.json
-      GOOGLE_IMPERSONATE_SERVICE_ACCOUNT: <<parameters.impersonate_service_account_name>>@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
     steps:
-      - checkout
       - attach_workspace:
-          at: .<<parameters.target_stage_id>>
+          at: ~/
+      - security-hunter/gcp_oidc_auth:
+          impersonate: true
       - run:
           name: Install requirements
           command: |
@@ -327,6 +327,7 @@ jobs:
       - run:
           name: Generate config
           command: |
+            mkdir .<<parameters.target_stage_id>>
             echo export ENVS_TO_DESTROY=$(python3 .circleci/tools/destroyer/get_outdated_environment.py | tr -d '[] ') >> .<<parameters.target_stage_id>>/env.<<parameters.target_stage_id>>
       - persist_to_workspace:
           root: .<<parameters.target_stage_id>>
@@ -335,14 +336,13 @@ jobs:
 
   delete_outdated_environment:
     parameters:
+      project_number:
+        type: string
       envs_to_destroy:
         type: string
       target_stage_id:
         type: string
         default: "dev"
-      impersonate_service_account_name:
-        type: string
-        default: main-service-account
       project_id_without_stage:
         type: string
         default: "akecld-prd-pim-api-docs"
@@ -352,21 +352,24 @@ jobs:
       pull_request:
         type: boolean
         default: true
-    machine:
-      image: ubuntu-2204:2022.07.1
+    <<: *dockerExecutorWithPython
     environment:
+      GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
+      OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      GCP_SERVICE_ACCOUNT_EMAIL_TO_IMPERSONATE: "main-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
+      OIDC_POOL: "circleci-pool"
+      OIDC_PROVIDER: "circleci-jwt"
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
-      GOOGLE_APPLICATION_CREDENTIALS: .<<parameters.target_stage_id>>/.gcp_cred_config.json
-      GOOGLE_IMPERSONATE_SERVICE_ACCOUNT: <<parameters.impersonate_service_account_name>>@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com
     steps:
-      - checkout
       - attach_workspace:
-          at: .<<parameters.target_stage_id>>
+          at: ~/
+      - security-hunter/gcp_oidc_auth:
+          impersonate: true
       - run:
           name: Source environment
           command: |
-            cat .<<parameters.target_stage_id>>/env.<<parameters.target_stage_id>> >> $BASH_ENV ; source $BASH_ENV
+            cat ~/env.<<parameters.target_stage_id>> >> $BASH_ENV ; source $BASH_ENV
       - run:
           name: Install requirements
           command: |
@@ -375,8 +378,7 @@ jobs:
           name: Perform environment destroying
           command: |
             mkdir -p deployments/secrets
-            cp ${GOOGLE_APPLICATION_CREDENTIALS} .<<parameters.target_stage_id>>/.oidc_token.json deployments/secrets/
-            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/deployments\/secrets\/.oidc_token.json#" deployments/secrets/.gcp_cred_config.json
+
             envsToDestroy=($(echo "<< parameters.envs_to_destroy >>" | tr ',' ' '))
             for envToDestroy in "${envsToDestroy[@]}"
             do
@@ -386,6 +388,49 @@ jobs:
             done
 
 commands:
+  tf_cmd:
+    parameters:
+      chdir:
+        type: string
+      backend:
+        type: string
+        default: ""
+      vars:
+        type: string
+        default: ""
+      cmd:
+        type: enum
+        enum: [fmt, validate, init, plan, apply, destroy]
+    steps:
+      - run:
+          name: "terraform/<< parameters.cmd >>"
+          command: |
+            source $BASH_ENV
+
+            if [ "<< parameters.cmd >>" != "fmt" ] && [ "<< parameters.cmd >>" != "validate" ]; then
+              TF_PARAMS="-input=false"
+
+              if [ "<< parameters.cmd >>" != "init" ] && [ "<< parameters.cmd >>" != "plan" ]; then
+                TF_PARAMS="${TF_PARAMS} -auto-approve"
+              fi
+
+              if [ "<< parameters.cmd >>" = "init" ]; then
+                if [ "<< parameters.backend >>" = "" ]; then
+                  TF_PARAMS="${TF_PARAMS} -backend"
+                else
+                  TF_PARAMS="${TF_PARAMS} -backend-config=<< parameters.backend >>"
+                fi
+              fi
+
+              if [ -n "<< parameters.vars >>" ]; then
+                TF_PARAMS="${TF_PARAMS} -var-file=<< parameters.vars >>"
+              fi
+            else
+              TF_PARAMS=""
+            fi
+
+            terraform -chdir=<< parameters.chdir >> << parameters.cmd >> $TF_PARAMS
+
   terraform_handler:
     parameters:
       project_id_without_stage:
@@ -405,13 +450,6 @@ commands:
       pull_request_id:
         type: string
     steps:
-      - checkout
-      - attach_workspace:
-          at: .<<parameters.target_stage_id>>
-      # - run:
-      #     name: Source environment
-      #     command: |
-      #       cat .<<parameters.target_stage_id>>/env.<<parameters.target_stage_id>> >> $BASH_ENV ; source $BASH_ENV
       - run:
           name: Install Python 3, pip and curl
           command: |
@@ -421,10 +459,8 @@ commands:
       - run:
           name: Link Python 3 as Python
           command: ln -s /usr/bin/python3 /usr/local/bin/python
-      - run:
-          name: Configure credentials file for the Terraform orb
-          command: |
-            sed -i "s#.<<parameters.target_stage_id>>\/.oidc_token.json#\/root\/project\/.<<parameters.target_stage_id>>\/.oidc_token.json#" .<<parameters.target_stage_id>>/.gcp_cred_config.json
+      - security-hunter/gcp_oidc_auth:
+          impersonate: true
       - when:
           condition: <<parameters.pull_request>>
           steps:
@@ -445,52 +481,60 @@ commands:
                   cat \<< EOF > deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>/backend.hcl
                   prefix = "<<parameters.deployment_scope>>/<<parameters.pull_request_id>>"
                   EOF
-            - terraform/init:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                backend: true
-                backend_config_file: "backend.hcl"
-            - terraform/fmt:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-            - terraform/validate:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                backend: "backend.hcl"
+                cmd: init
+                vars: ""
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                cmd: fmt
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                cmd: validate
             - when:
                 condition:
                   equal: ["plan", << parameters.terraform_action >>]
                 steps:
-                  - terraform/plan:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                      backend_config_file: "backend.hcl"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: "backend.hcl"
+                      cmd: plan
+                      vars: "env.tfvars"
             - when:
                 condition:
                   equal: ["apply", << parameters.terraform_action >>]
                 steps:
-                  - terraform/apply:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                      backend_config_file: "backend.hcl"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: "backend.hcl"
+                      cmd: apply
+                      vars: "env.tfvars"
             - when:
                 condition:
                   equal: ["apply_with_plan", << parameters.terraform_action >>]
                 steps:
-                  - terraform/plan:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                      backend_config_file: "backend.hcl"
-                  - terraform/apply:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                      backend_config_file: "backend.hcl"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: "backend.hcl"
+                      cmd: plan
+                      vars: "env.tfvars"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: "backend.hcl"
+                      cmd: apply
+                      vars: "env.tfvars"
             - when:
                 condition:
                   and:
                     - equal: ["services", <<parameters.deployment_scope>>]
                     - equal: ["destroy", <<parameters.terraform_action>>]
                 steps:
-                  - terraform/destroy:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                      backend_config_file: "backend.hcl"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: "backend.hcl"
+                      cmd: destroy
+                      vars: "env.tfvars"
       - when:
           condition:
             not: <<parameters.pull_request>>
@@ -504,34 +548,48 @@ commands:
                   app_version   = "<<pipeline.git.revision>>"
                   EOF
                   cat deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>/env.tfvars
-            - terraform/init:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                backend: true
-            - terraform/fmt:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-            - terraform/validate:
-                path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                backend: ""
+                vars: ""
+                cmd: init
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                backend: ""
+                cmd: fmt
+            - tf_cmd:
+                chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                backend: ""
+                cmd: validate
             - when:
                 condition:
                   equal: ["plan", << parameters.terraform_action >>]
                 steps:
-                  - terraform/plan:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: ""
+                      cmd: plan
+                      vars: "env.tfvars"
             - when:
                 condition:
                   equal: ["apply", << parameters.terraform_action >>]
                 steps:
-                  - terraform/apply:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: ""
+                      cmd: apply
+                      vars: "env.tfvars"
             - when:
                 condition:
                   equal: ["apply_with_plan", << parameters.terraform_action >>]
                 steps:
-                  - terraform/plan:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
-                  - terraform/apply:
-                      path: deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>
-                      var_file: "env.tfvars"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: ""
+                      cmd: plan
+                      vars: "env.tfvars"
+                  - tf_cmd:
+                      chdir: "deployments/stages/<<parameters.target_stage_id>>/<<parameters.deployment_scope>>"
+                      backend: ""
+                      cmd: apply
+                      vars: "env.tfvars"
