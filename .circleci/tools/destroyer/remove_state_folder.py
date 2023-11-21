@@ -1,8 +1,7 @@
-import google.oauth2.id_token
-import google.auth
-import google.auth.transport.requests
-from google.auth import impersonated_credentials
+from google.oauth2.credentials import Credentials
+
 from google.cloud import storage
+
 import argparse
 import settings
 
@@ -25,15 +24,9 @@ if __name__ == "__main__":
         pull_request_id = args.pull_request_id
         region = settings.settings.gcp_project_region
         bucket_name = settings.settings.terraform_bucket_name
-        request = google.auth.transport.requests.Request()
-        source_credentials, project_id = google.auth.default()
-        impersonate_service_account = (
-            f"main-service-account@{project_id}.iam.gserviceaccount.com"
-        )
-        target_scopes = ["https://www.googleapis.com/auth/cloud-platform"]
-        credentials = impersonated_credentials.Credentials(
-            source_credentials=source_credentials,
-            target_principal=impersonate_service_account,
-            target_scopes=target_scopes,
+
+        credentials = Credentials(
+            token=os.environ["GOOGLE_OAUTH_ACCESS_TOKEN"],
+            scopes=["https://www.googleapis.com/auth/cloud-platform"]
         )
         remove_state_folder(credentials, bucket_name, pull_request_id)
