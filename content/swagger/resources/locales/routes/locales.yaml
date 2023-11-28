@@ -16,7 +16,7 @@ get:
   parameters:
     - name: search
       in: query
-      description: Filter locales, for more details see the <a href="/documentation/filter.html">Filters</a> section
+      description: Filter locales, for more details see the <a href="/documentation/filter.html#filter-locales">Filters</a> section
       required: false
       type: string
     - $ref: '#/parameters/page'
