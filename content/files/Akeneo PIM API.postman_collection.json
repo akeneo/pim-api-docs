@@ -1356,7 +1356,7 @@
                 {
                   "key": "search",
                   "value": "{\"enabled\":[{\"operator\":\"=\",\"value\":true}]}",
-                  "description": "Get enabled locales",
+                  "description": "Get enabled currencies",
                   "disabled": true
                 }
               ]
