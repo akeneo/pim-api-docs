@@ -22,7 +22,7 @@ get:
       required: false
       type: integer
       minimum: 1
-      maximum: 1000
+      maximum: 100
       default: 100
     - $ref: '#/parameters/updated_before'
     - $ref: '#/parameters/updated_after'
