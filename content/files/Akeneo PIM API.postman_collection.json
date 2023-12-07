@@ -1351,6 +1351,14 @@
                 "rest",
                 "v1",
                 "currencies"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "{\"enabled\":[{\"operator\":\"=\",\"value\":true}]}",
+                  "description": "Get enabled currencies",
+                  "disabled": true
+                }
               ]
             }
           },
