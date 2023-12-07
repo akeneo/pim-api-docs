@@ -4,3 +4,5 @@
 # "refresh_token": "M2FlODI0OTE3ODMyNjViMzRiOWE5ODMyNWViMThkNDU5YzJjNjFiZjNkZWFjMzIyYjc4YTgzZWY1MjE5ZTY5Mw"
 # But this is a false refresh token
 42b254eff593a443bcae6dc213311815fcdc27c4/content/swagger/akeneo-web-api.json#L1
+42b254eff593a443bcae6dc213311815fcdc27c4:content/swagger/akeneo-web-api.json:generic-api-key:1
+102210752fd117ed311f48fe98e18a5de22933f3:.gitleaksignore:generic-api-key:4
