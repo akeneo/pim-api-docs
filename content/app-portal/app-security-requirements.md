@@ -6,7 +6,7 @@ As your App will either pull data from Akeneo to external services or push data 
 
 ### OAuth2 PIM Access Scope
 
-Your App needs to ask for scopes during the [authentication process](https://api.akeneo.com/apps/authentication-and-authorization.html#authorization-and-authentication-scopes). The scopes requested **MUST** follow the least privilege principle and solely the ones your App needs to function. You can find all the scopes available [here](https://api.akeneo.com/apps/authentication-and-authorization.html#available-authorization-scopes) to determine which ones suit your business needs.
+Your App needs to ask for scopes during the [authentication process](https://api.akeneo.com/apps/authentication-and-authorization.html#authorization-and-authentication-scopes). The scopes requested **MUST** follow the least privilege principle and **MUST** solely be the ones your App needs to function. You can find all the scopes available [here](https://api.akeneo.com/apps/authentication-and-authorization.html#available-authorization-scopes) to determine which ones suit your business needs.
 
 ### Secrets management
 
@@ -37,10 +37,10 @@ Your App **MUST** comply with Akeneo PIM API [fair use](https://api.akeneo.com/
 
 To ensure the compliance with the different subjects aforementionned, Akeneo will perform security tests prior to your App publication.
 - You must provide your App source code to Akeneo
-    - The source code **MUST** be provided as a .zip archive.
-    - You can also give access to your Source Version Control tool to your Akeneo contact
-- Akeneo will perform security tests on your source code based on the requirements presented on this page
-- You will then be contacted to discuss the results of the tests
+    - The source code **MUST** be provided as a .zip archive, under the format <name_of_your_app>.zip.
+    - You can also give access to your Source Version Control tool to your Akeneo contact.
+- Akeneo will perform security tests on your source code based on the requirements presented on this page.
+- You will then be contacted to discuss the results of the tests.
 
 ### Confidentiality
 
