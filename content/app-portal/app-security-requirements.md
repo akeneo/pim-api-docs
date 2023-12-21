@@ -20,12 +20,12 @@ The App owner **MUST** ensure that the code of the App does not contain any vuln
 
 ### Third-Party Dependencies
 
-Your App third-party dependencies & external library versions **MUST** be supported and not be vulnerable to any CVEs. In case of a vulnerability discovered, the latter MUST be patched in a timely manner whenever a fix is available. We encourage you to use a [Source Composition Analyzer](https://owasp.org/www-community/Component_Analysis) to detect if your code base has any vulnerable dependencies.
+Your App third-party dependencies & external library versions **MUST** be supported and not be vulnerable to any CVEs. In case of a vulnerability discovered, the latter **MUST** be patched in a timely manner whenever a fix is available. We encourage you to use a [Source Composition Analyzer](https://owasp.org/www-community/Component_Analysis) to detect if your code base has any vulnerable dependencies.
 
 
 ### Hardening
 
-Your infrastructure (web server, docker images, IaC, hosting ...) **MUST** follow industry-best practices in terms of security hardening to mitigate security risks. For a more thorough analysis, the [CIS](https://www.cisecurity.org/cis-benchmarks) benchmarks are widely used to ensure that compliance with well-known best practices.
+Your infrastructure (web server, docker images, IaC, hosting ...) **MUST** follow industry-best practices in terms of security hardening to mitigate security risks. For a more thorough analysis, the [CIS](https://www.cisecurity.org/cis-benchmarks) benchmarks are widely used to ensure that compliance with well-known best practices. You can use tools based on these rules to detect potential vulnerabilities.
 
 ### Fair Use
 
@@ -37,7 +37,7 @@ Your App **MUST** comply with Akeneo PIM API [fair use](https://api.akeneo.com/
 
 To ensure the compliance with the different subjects aforementionned, Akeneo will perform security tests prior to your App publication.
 - You must provide your App source code to Akeneo
-    - The source code **MUST** be provided as a .zip archive, under the format <name_of_your_app>.zip.
+    - The source code **MUST** be provided as a .zip archive, under the format *<name_of_your_app>*.zip.
     - You can also give access to your Source Version Control tool to your Akeneo contact.
 - Akeneo will perform security tests on your source code based on the requirements presented on this page.
 - You will then be contacted to discuss the results of the tests.
