@@ -40,7 +40,7 @@ To ensure the compliance with the different subjects aforementionned, Akeneo wil
     - The source code **MUST** be provided as a .zip archive, under the format *<name_of_your_app>*.zip.
     - You can also give access to your Source Version Control tool to your Akeneo contact.
 - Akeneo will perform security tests on your source code based on the requirements presented on this page.
-- You will then be contacted to discuss the results of the tests.
+- You will then be contacted to discuss the results of the tests in case vulnerabilities are detected.  
 
 ### Confidentiality
 
