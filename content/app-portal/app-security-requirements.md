@@ -6,7 +6,7 @@ As your App will either pull data from Akeneo to external services or push data 
 
 ### OAuth2 PIM Access Scope
 
-The scopes requested by your App during the [authentication process](https://api.akeneo.com/apps/authentication-and-authorization.html#authorization-and-authentication-scopes) **MUST** follow the least privilege principle and **MUST** solely be the ones your App needs to function. You can find all the scopes available [here](https://api.akeneo.com/apps/authentication-and-authorization.html#available-authorization-scopes) to determine which ones suit your business needs.
+The scopes requested by your App during the [authentication process](https://api.akeneo.com/apps/authentication-and-authorization.html#authorization-and-authentication-scopes) **MUST** follow the least privilege principle and thus solely be the ones your App needs to function. You can find all the scopes available [here](https://api.akeneo.com/apps/authentication-and-authorization.html#available-authorization-scopes) to determine which ones suit your business needs.
 
 ### Secrets management
 
