@@ -13,6 +13,11 @@ get:
     - "7.0"
     - "SaaS"
   parameters:
+    - name: search
+      in: query
+      description: Filter currencies, for more details see the <a href="/documentation/filter.html#filter-currencies">Filters</a> section
+      required: false
+      type: string
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
