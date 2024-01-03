@@ -24,38 +24,30 @@ properties:
     description: list and describe the targets your app expects
 example: {
   "$id":"https://example.com/product",
-  "$schema":"https://api.akeneo.com/mapping/product/0.3.0/schema",
+  "$schema":"https://api.akeneo.com/mapping/product/1.0.0/schema",
   "type":"object",
   "properties":{
-    "id":{
-      "title":"Product ID",
-      "type":[
-        "string",
-        "null"
-      ]
+    "code":{
+      "title":"Model ID",
+      "type":"string"
     },
-    "localized_name":{
-      "title":"Product name",
+    "brand":{
+      "title":"Brand name",
+      "type":"string"
+    },
+    "description":{
+      "title":"Product description",
+      "type":"string"
+    },
+    "fabrics":{
+      "title":"Fabrics",
       "type":"array",
       "items":{
-        "type":"object",
-        "properties":{
-          "locale":{
-            "type":"string"
-          },
-          "value":{
-            "type":"string"
-          }
-        },
-        "required":[
-          "locale",
-          "value"
-        ]
+        "type":"string"
       }
     },
-    "localized_body_html":{
-      "title":"Description",
-      "description":"Product description in raw HTML",
+    "localized_names":{
+      "title":"Name with multiple locales",
       "type":"array",
       "items":{
         "type":"object",
@@ -101,7 +93,7 @@ example: {
           },
           "value":{
             "type":"string",
-            "format": "uri"
+            "format":"uri"
           }
         },
         "required":[
@@ -120,7 +112,7 @@ example: {
           },
           "value":{
             "type":"string",
-            "format": "date-time"
+            "format":"date-time"
           }
         },
         "required":[
@@ -147,160 +139,28 @@ example: {
         ]
       }
     },
-    "localized_array_strings":{
+    "variation_axes":{
       "type":"array",
       "items":{
         "type":"object",
         "properties":{
-          "locale":{
+          "code":{
             "type":"string"
           },
-          "value":{
-            "type":"array",
-            "items":{
-              "type":"string"
-            }
-          }
-        },
-        "required":[
-          "locale",
-          "value"
-        ]
-      }
-    },
-    "localized_array_links":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "properties":{
-          "locale":{
-            "type":"string"
-          },
-          "value":{
-            "type":"array",
-            "items":{
-              "type":"string",
-              "format": "uri"
-            }
-          }
-        },
-        "required":[
-          "locale",
-          "value"
-        ]
-      }
-    },
-    "height":{
-      "title":"Height",
-      "description":"Expected unit: cm",
-      "type":"number",
-      "minimum":0,
-      "maximum":1000
-    },
-    "width":{
-      "title":"Width",
-      "description":"Expected unit: cm",
-      "type":"number",
-      "minimum":0,
-      "maximum":1000
-    },
-    "meta_description":{
-      "type":"string",
-      "minLength":50,
-      "maxLength":160
-    },
-    "default_price":{
-      "title":"Price",
-      "type":"object",
-      "properties":{
-        "amount":{
-          "type":"number"
-        },
-        "currency":{
-          "type":"string",
-          "enum":[
-            "EUR",
-            "USD",
-            "GBP"
-          ]
-        }
-      },
-      "required":[
-        "amount",
-        "currency"
-      ]
-    },
-    "localized_price":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "properties":{
-          "locale":{
-            "type":"string"
-          },
-          "value":{
-            "type":"object",
-            "properties":{
-              "amount":{
-                "type":"number"
-              },
-              "currency":{
-                "type":"string"
-              }
-            },
-            "required":[
-              "amount",
-              "currency"
-            ]
-          }
-        },
-        "required":[
-          "locale",
-          "value"
-        ]
-      }
-    },
-    "localized_multicurrency_price":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "properties":{
-          "locale":{
-            "type":"string"
-          },
-          "value":{
+          "label":{
             "type":"array",
             "items":{
               "type":"object",
               "properties":{
-                "amount":{
-                  "type":"number"
+                "locale":{
+                  "type":"string"
                 },
-                "currency":{
+                "value":{
                   "type":"string"
                 }
-              },
-              "required":[
-                "amount",
-                "currency"
-              ]
+              }
             }
           }
-        },
-        "required":[
-          "locale",
-          "value"
-        ]
-      }
-    },
-    "attribute_axes":{
-      "type":"object",
-      "properties":{
-        "axis_1":{
-          "type":"string"
-        },
-        "axis_2":{
-          "type":"string"
         }
       }
     },
@@ -315,118 +175,136 @@ example: {
           "items":{
             "type":"object",
             "properties":{
-              "uuid":{
-                "title":"UUID",
-                "type":"string"
-              },
-              "axis_1":{
-                "title":"Main color code - variant axis",
-                "type":"string",
-                "enum":[
-                  "red",
-                  "green",
-                  "blue",
-                  "yellow",
-                  "black",
-                  "white"
-                ]
-              },
-              "colors":{
-                "title":"Product colors code",
-                "description":"List of product color codes matching expected ecommerce color codes",
+              "variation_axes_values":{
                 "type":"array",
                 "items":{
-                  "type":"string",
-                  "enum":[
-                    "red",
-                    "green",
-                    "blue",
-                    "yellow",
-                    "black",
-                    "white"
-                  ]
+                  "type":"object",
+                  "properties":{
+                    "code":{
+                      "type":"string"
+                    },
+                    "value":{
+                      "oneOf":[
+                        {
+                          "type":[
+                            "string",
+                            "boolean"
+                          ]
+                        },
+                        {
+                          "type":"object",
+                          "properties":{
+                            "amount":{
+                              "type":"number"
+                            },
+                            "unit":{
+                              "type":"string"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "label":{
+                      "type":"array",
+                      "items":{
+                        "type":"object",
+                        "properties":{
+                          "locale":{
+                            "type":"string"
+                          },
+                          "value":{
+                            "type":"string"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               },
-              "axis_2":{
-                "title":"Size - variant axis",
-                "type":"string",
-                "enum":[
-                  "XXS",
-                  "XS",
-                  "S",
-                  "M",
-                  "L",
-                  "XL",
-                  "XXL"
-                ]
+              "uuid":{
+                "title":"uuid",
+                "type":"string"
               },
               "sku":{
                 "title":"SKU",
                 "type":"string"
               },
-              "is_published":{
-                "title":"Published?",
-                "type":"boolean"
+              "position":{
+                "title":"Position",
+                "type":"number"
               },
-              "release_date":{
-                "title":"E-commerce launch date",
-                "type":"string",
-                "format":"date-time"
+              "price":{
+                "title":"Price",
+                "type":"string"
               },
-              "thumbnail":{
-                "type":"string",
-                "format":"uri"
+              "response_time":{
+                "title":"Response time",
+                "type":"string"
               },
-              "image_list":{
-                "type":"array",
-                "items":{
-                  "type":"string",
-                  "format":"uri"
-                },
-                "title":"Thumbnails"
-              },
-              "prices":{
-                "title":"Price with multiple currencies",
+              "localized_product_photos_media_file":{
+                "title":"Photos with value per locale(links)",
                 "type":"array",
                 "items":{
                   "type":"object",
                   "properties":{
-                    "amount":{
-                      "type":"number"
+                    "locale":{
+                      "type":"string"
                     },
-                    "currency":{
-                      "type":"string",
-                      "enum":[
-                        "EUR",
-                        "USD",
-                        "GBP"
-                      ]
+                    "value":{
+                      "type":"array",
+                      "items":{
+                        "type":"string",
+                        "format":"uri"
+                      }
                     }
                   },
                   "required":[
-                    "amount",
-                    "currency"
+                    "locale",
+                    "value"
+                  ]
+                }
+              },
+              "localized_prices":{
+                "title":"Price in multiple currencies with value per locale",
+                "type":"array",
+                "items":{
+                  "type":"object",
+                  "properties":{
+                    "locale":{
+                      "type":"string"
+                    },
+                    "value":{
+                      "type":"array",
+                      "items":{
+                        "type":"object",
+                        "properties":{
+                          "amount":{
+                            "type":"number"
+                          },
+                          "currency":{
+                            "type":"string"
+                          }
+                        },
+                        "required":[
+                          "amount",
+                          "currency"
+                        ]
+                      }
+                    }
+                  },
+                  "required":[
+                    "locale",
+                    "value"
                   ]
                 }
               }
             },
             "required":[
-              "uuid",
-              "sku",
-              "is_published",
-              "release_date",
-              "thumbnail"
+              "uuid"
             ]
           }
         }
       ]
     }
-  },
-  "required":[
-    "localized_name",
-    "localized_body_html",
-    "height",
-    "width",
-    "default_price"
-  ]
+  }
 }

@@ -3,37 +3,59 @@
     "$id": "https://api.akeneo.com/mapping/product/1.0.0/schema",
     "type": "object",
     "properties": {
-        "$id": { "$ref": "#/$defs/$id" },
-        "$schema": { "$ref": "#/$defs/$schema" },
-        "$comment": { "$ref": "#/$defs/$comment" },
-        "$defs": { "$ref": "#/$defs/$defs" },
-        "title": { "$ref": "#/$defs/title" },
-        "description": { "$ref": "#/$defs/description" },
+        "$id": {
+            "$ref": "#/$defs/$id"
+        },
+        "$schema": {
+            "$ref": "#/$defs/$schema"
+        },
+        "$comment": {
+            "$ref": "#/$defs/$comment"
+        },
+        "$defs": {
+            "$ref": "#/$defs/$defs"
+        },
+        "title": {
+            "$ref": "#/$defs/title"
+        },
+        "description": {
+            "$ref": "#/$defs/description"
+        },
         "type": {
             "const": "object"
         },
         "properties": {
             "type": "object",
             "oneOf": [
-                { "$ref": "#/$defs/flatProductsMode" },
-                { "$ref": "#/$defs/productsWithVariantsMode" }
+                {
+                    "$ref": "#/$defs/flatProductsMode"
+                },
+                {
+                    "$ref": "#/$defs/productsWithVariantsMode"
+                }
             ],
             "default": {}
         },
-        "required": { "$ref": "#/$defs/requiredConstraint" }
+        "required": {
+            "$ref": "#/$defs/requiredConstraint"
+        }
     },
     "$defs": {
         "$id": {
             "$comment": "Non-empty fragments not allowed.",
             "pattern": "^[^#]*#?$"
         },
-        "$schema": { "$ref": "#/$defs/uriString" },
+        "$schema": {
+            "$ref": "#/$defs/uriString"
+        },
         "$comment": {
             "type": "string"
         },
         "$defs": {
             "type": "object",
-            "additionalProperties": { "$ref": "#/$defs/property" }
+            "additionalProperties": {
+                "$ref": "#/$defs/property"
+            }
         },
         "title": {
             "type": "string"
@@ -44,53 +66,104 @@
         "property": {
             "type": "object",
             "properties": {
-                "title": { "$ref": "#/$defs/title" },
-                "description": { "$ref": "#/$defs/description" },
-                "type": {
-                    "enum": ["string", "number", "boolean", "array", "object"]
+                "title": {
+                    "$ref": "#/$defs/title"
                 },
-                "format": { "$ref": "#/$defs/format" },
+                "description": {
+                    "$ref": "#/$defs/description"
+                },
+                "type": {
+                    "enum": [
+                        "string",
+                        "number",
+                        "boolean",
+                        "array",
+                        "object"
+                    ]
+                },
+                "format": {
+                    "$ref": "#/$defs/format"
+                },
                 "items": {
                     "type": "object",
                     "properties": {
                         "type": {
-                            "enum": ["string", "object"]
+                            "enum": [
+                                "string",
+                                "object"
+                            ]
                         },
                         "format": {
-                            "enum": ["uri"]
+                            "enum": [
+                                "uri"
+                            ]
                         },
-                        "enum": { "$ref": "#/$defs/enum" },
+                        "enum": {
+                            "$ref": "#/$defs/enum"
+                        },
                         "properties": {
                             "type": "object",
                             "properties": {
-                                "amount": { "$ref": "#/$defs/amountProperty" },
-                                "currency": { "$ref": "#/$defs/currencyProperty" },
-                                "locale": { "$ref": "#/$defs/localizableProperty" },
-                                "value": { "$ref": "#/$defs/localizableValueProperty" }
+                                "amount": {
+                                    "$ref": "#/$defs/amountProperty"
+                                },
+                                "currency": {
+                                    "$ref": "#/$defs/currencyProperty"
+                                },
+                                "locale": {
+                                    "$ref": "#/$defs/localizableProperty"
+                                },
+                                "value": {
+                                    "$ref": "#/$defs/localizableValueProperty"
+                                }
                             },
                             "dependencies": {
                                 "amount": {
                                     "not": {
                                         "anyOf": [
-                                            { "required": ["locale"] },
-                                            { "required": ["value"] }
+                                            {
+                                                "required": [
+                                                    "locale"
+                                                ]
+                                            },
+                                            {
+                                                "required": [
+                                                    "value"
+                                                ]
+                                            }
                                         ]
                                     }
                                 },
                                 "locale": {
                                     "not": {
                                         "anyOf": [
-                                            { "required": ["amount"] },
-                                            { "required": ["currency"] }
+                                            {
+                                                "required": [
+                                                    "amount"
+                                                ]
+                                            },
+                                            {
+                                                "required": [
+                                                    "currency"
+                                                ]
+                                            }
                                         ]
                                     }
                                 }
                             },
                             "dependentRequired": {
-                                "amount": ["currency"],
-                                "currency": ["amount"],
-                                "locale": ["value"],
-                                "value": ["locale"]
+                                "amount": [
+                                    "currency"
+                                ],
+                                "currency": [
+                                    "amount"
+                                ],
+                                "locale": [
+                                    "value"
+                                ],
+                                "value": [
+                                    "locale"
+                                ]
                             }
                         },
                         "required": {
@@ -105,16 +178,23 @@
                         }
                     },
                     "then": {
-                        "required": ["properties", "required"]
+                        "required": [
+                            "properties",
+                            "required"
+                        ]
                     },
                     "dependentSchemas": {
                         "format": {
                             "properties": {
                                 "type": {
-                                    "enum": ["string"]
+                                    "enum": [
+                                        "string"
+                                    ]
                                 }
                             },
-                            "required": ["type"]
+                            "required": [
+                                "type"
+                            ]
                         },
                         "enum": {
                             "if": {
@@ -133,31 +213,41 @@
                                     }
                                 }
                             },
-                            "required": ["type"]
+                            "required": [
+                                "type"
+                            ]
                         },
                         "properties": {
                             "allOf": [
                                 {
                                     "if": {
                                         "properties": {
-                                            "properties": { "$ref": "#/$defs/priceFullProperty" }
+                                            "properties": {
+                                                "$ref": "#/$defs/priceFullProperty"
+                                            }
                                         }
                                     },
                                     "then": {
                                         "properties": {
-                                            "required": { "$ref": "#/$defs/priceRequiredProperty" }
+                                            "required": {
+                                                "$ref": "#/$defs/priceRequiredProperty"
+                                            }
                                         }
                                     }
                                 },
                                 {
                                     "if": {
                                         "properties": {
-                                            "properties": { "$ref": "#/$defs/localizedFullProperty" }
+                                            "properties": {
+                                                "$ref": "#/$defs/localizedFullProperty"
+                                            }
                                         }
                                     },
                                     "then": {
                                         "properties": {
-                                            "required": { "$ref": "#/$defs/localizableRequiredProperty" }
+                                            "required": {
+                                                "$ref": "#/$defs/localizableRequiredProperty"
+                                            }
                                         }
                                     }
                                 }
@@ -175,23 +265,43 @@
                         "type"
                     ]
                 },
-                "minLength": { "$ref": "#/$defs/minLength" },
-                "maxLength": { "$ref": "#/$defs/maxLength" },
-                "pattern": { "$ref": "#/$defs/pattern" },
-                "minimum": { "$ref": "#/$defs/minimum" },
-                "maximum": { "$ref": "#/$defs/maximum" },
-                "enum": { "$ref": "#/$defs/enum" },
+                "minLength": {
+                    "$ref": "#/$defs/minLength"
+                },
+                "maxLength": {
+                    "$ref": "#/$defs/maxLength"
+                },
+                "pattern": {
+                    "$ref": "#/$defs/pattern"
+                },
+                "minimum": {
+                    "$ref": "#/$defs/minimum"
+                },
+                "maximum": {
+                    "$ref": "#/$defs/maximum"
+                },
+                "enum": {
+                    "$ref": "#/$defs/enum"
+                },
                 "properties": {
                     "type": "object",
                     "properties": {
-                        "amount": { "$ref": "#/$defs/amountProperty" },
-                        "currency": { "$ref": "#/$defs/currencyProperty" },
-                        "locale": { "$ref": "#/$defs/localizableProperty" },
-                        "value": { "$ref": "#/$defs/localizableValueProperty" }
+                        "amount": {
+                            "$ref": "#/$defs/amountProperty"
+                        },
+                        "currency": {
+                            "$ref": "#/$defs/currencyProperty"
+                        },
+                        "locale": {
+                            "$ref": "#/$defs/localizableProperty"
+                        },
+                        "value": {
+                            "$ref": "#/$defs/localizableValueProperty"
+                        }
                     },
                     "dependencies": {
                         "amount": {
-                            "properties" : {
+                            "properties": {
                                 "locale": false,
                                 "value": false
                             }
@@ -204,10 +314,18 @@
                         }
                     },
                     "dependentRequired": {
-                        "amount": ["currency"],
-                        "currency": ["amount"],
-                        "locale": ["value"],
-                        "value": ["locale"]
+                        "amount": [
+                            "currency"
+                        ],
+                        "currency": [
+                            "amount"
+                        ],
+                        "locale": [
+                            "value"
+                        ],
+                        "value": [
+                            "locale"
+                        ]
                     }
                 },
                 "required": {
@@ -228,7 +346,9 @@
                         }
                     },
                     "then": {
-                        "required": ["items"]
+                        "required": [
+                            "items"
+                        ]
                     }
                 },
                 {
@@ -240,79 +360,115 @@
                         }
                     },
                     "then": {
-                        "required": ["properties"],
+                        "required": [
+                            "properties"
+                        ],
                         "oneOf": [
                             {
                                 "properties": {
-                                    "required": { "$ref": "#/$defs/priceRequiredProperty" }
+                                    "required": {
+                                        "$ref": "#/$defs/priceRequiredProperty"
+                                    }
                                 }
                             },
                             {
                                 "properties": {
-                                    "required": { "$ref": "#/$defs/localizableRequiredProperty" }
+                                    "required": {
+                                        "$ref": "#/$defs/localizableRequiredProperty"
+                                    }
                                 }
                             }
                         ]
                     }
                 }
             ],
-            "required": ["type"],
+            "required": [
+                "type"
+            ],
             "dependentSchemas": {
                 "format": {
                     "properties": {
                         "type": {
-                            "enum": ["string"]
+                            "enum": [
+                                "string"
+                            ]
                         }
                     },
-                    "required": ["type"]
+                    "required": [
+                        "type"
+                    ]
                 },
                 "items": {
                     "properties": {
                         "type": {
-                            "enum": ["array"]
+                            "enum": [
+                                "array"
+                            ]
                         }
                     },
-                    "required": ["type"]
+                    "required": [
+                        "type"
+                    ]
                 },
                 "minLength": {
                     "properties": {
                         "type": {
-                            "enum": ["string"]
+                            "enum": [
+                                "string"
+                            ]
                         }
                     },
-                    "required": ["type"]
+                    "required": [
+                        "type"
+                    ]
                 },
                 "maxLength": {
                     "properties": {
                         "type": {
-                            "enum": ["string"]
+                            "enum": [
+                                "string"
+                            ]
                         }
                     },
-                    "required": ["type"]
+                    "required": [
+                        "type"
+                    ]
                 },
                 "pattern": {
                     "properties": {
                         "type": {
-                            "enum": ["string"]
+                            "enum": [
+                                "string"
+                            ]
                         }
                     },
-                    "required": ["type"]
+                    "required": [
+                        "type"
+                    ]
                 },
                 "minimum": {
                     "properties": {
                         "type": {
-                            "enum": ["number"]
+                            "enum": [
+                                "number"
+                            ]
                         }
                     },
-                    "required": ["type"]
+                    "required": [
+                        "type"
+                    ]
                 },
                 "maximum": {
                     "properties": {
                         "type": {
-                            "enum": ["number"]
+                            "enum": [
+                                "number"
+                            ]
                         }
                     },
-                    "required": ["type"]
+                    "required": [
+                        "type"
+                    ]
                 },
                 "enum": {
                     "if": {
@@ -362,7 +518,10 @@
                         }
                     },
                     "then": {
-                        "required": ["properties", "required"]
+                        "required": [
+                            "properties",
+                            "required"
+                        ]
                     }
                 },
                 "properties": {
@@ -381,7 +540,9 @@
                     "const": "number"
                 }
             },
-            "required": ["type"]
+            "required": [
+                "type"
+            ]
         },
         "currencyProperty": {
             "type": "object",
@@ -396,21 +557,33 @@
                     }
                 }
             },
-            "required": ["type"]
+            "required": [
+                "type"
+            ]
         },
         "priceFullProperty": {
             "type": "object",
             "properties": {
-                "amount": { "$ref": "#/$defs/amountProperty" },
-                "currency": { "$ref": "#/$defs/currencyProperty" }
+                "amount": {
+                    "$ref": "#/$defs/amountProperty"
+                },
+                "currency": {
+                    "$ref": "#/$defs/currencyProperty"
+                }
             },
-            "required": ["amount", "currency"],
+            "required": [
+                "amount",
+                "currency"
+            ],
             "additionalProperties": false
         },
         "priceRequiredProperty": {
             "type": "array",
             "items": {
-                "enum": ["amount", "currency"]
+                "enum": [
+                    "amount",
+                    "currency"
+                ]
             },
             "minItems": 2,
             "maxItems": 2,
@@ -423,7 +596,9 @@
                     "const": "string"
                 }
             },
-            "required": ["type"],
+            "required": [
+                "type"
+            ],
             "additionalProperties": false
         },
         "localizableValueProperty": {
@@ -436,17 +611,28 @@
                 }
             },
             "then": {
-                "required": ["items"]
+                "required": [
+                    "items"
+                ]
             },
             "properties": {
                 "type": {
-                    "enum": ["string", "array", "boolean", "number", "object"]
+                    "enum": [
+                        "string",
+                        "array",
+                        "boolean",
+                        "number",
+                        "object"
+                    ]
                 },
                 "items": {
                     "type": "object",
                     "properties": {
                         "type": {
-                            "enum": ["string", "object"]
+                            "enum": [
+                                "string",
+                                "object"
+                            ]
                         },
                         "enum": {
                             "type": "object",
@@ -454,18 +640,28 @@
                                 "^[a-z]{2}_[A-Z]{2}$": {
                                     "type": "array",
                                     "items": {
-                                        "type": ["string", "number"]
+                                        "type": [
+                                            "string",
+                                            "number"
+                                        ]
                                     }
                                 }
                             },
                             "additionalProperties": false
                         },
-                        "format": { "$ref": "#/$defs/format" },
-                        "properties": { "$ref": "#/$defs/priceFullProperty" },
+                        "format": {
+                            "$ref": "#/$defs/format"
+                        },
+                        "properties": {
+                            "$ref": "#/$defs/priceFullProperty"
+                        },
                         "required": {
                             "type": "array",
                             "items": {
-                                "enum": ["amount", "currency"]
+                                "enum": [
+                                    "amount",
+                                    "currency"
+                                ]
                             },
                             "minItems": 2,
                             "maxItems": 2,
@@ -474,71 +670,71 @@
                     },
                     "dependentSchemas": {
                         "properties": {
-                            "required": ["required"]
+                            "required": [
+                                "required"
+                            ]
                         }
                     },
                     "additionalProperties": false
                 },
-                "format": { "$ref": "#/$defs/format" },
-                "minLength": { "$ref": "#/$defs/minLength" },
-                "maxLength": { "$ref": "#/$defs/maxLength" },
-                "pattern": { "$ref": "#/$defs/pattern" },
-                "minimum": { "$ref": "#/$defs/minimum" },
-                "maximum": { "$ref": "#/$defs/maximum" },
+                "format": {
+                    "$ref": "#/$defs/format"
+                },
+                "minLength": {
+                    "$ref": "#/$defs/minLength"
+                },
+                "maxLength": {
+                    "$ref": "#/$defs/maxLength"
+                },
+                "pattern": {
+                    "$ref": "#/$defs/pattern"
+                },
+                "minimum": {
+                    "$ref": "#/$defs/minimum"
+                },
+                "maximum": {
+                    "$ref": "#/$defs/maximum"
+                },
                 "properties": {
                     "type": "object",
                     "$ref": "#/$defs/priceFullProperty"
                 }
             },
-            "required": ["type"]
+            "required": [
+                "type"
+            ]
         },
         "localizedFullProperty": {
             "type": "object",
             "properties": {
-                "locale": { "$ref": "#/$defs/localizableProperty" },
-                "value": { "$ref": "#/$defs/localizableValueProperty" }
+                "locale": {
+                    "$ref": "#/$defs/localizableProperty"
+                },
+                "value": {
+                    "$ref": "#/$defs/localizableValueProperty"
+                }
             },
-            "required": ["locale", "value"],
+            "required": [
+                "locale",
+                "value"
+            ],
             "additionalProperties": false
         },
         "localizableRequiredProperty": {
             "type": "array",
             "items": {
-                "enum": ["locale", "value"]
+                "enum": [
+                    "locale",
+                    "value"
+                ]
             },
             "minItems": 2,
             "maxItems": 2,
             "uniqueItems": true
         },
-        "uriString": {
-            "type": "string",
-            "format": "uri"
-        },
-        "flatProductsMode": {
-            "properties": {
-                "uuid": { "$ref": "#/$defs/uuidProperty" },
-                "id": false,
-                "attribute_axes": false,
-                "variants": false
-            },
-            "additionalProperties": { "$ref": "#/$defs/property" },
-            "required": ["uuid"]
-        },
-        "productsWithVariantsMode": {
-            "properties": {
-                "uuid": false,
-                "id": { "$ref": "#/$defs/idProperty" },
-                "attribute_axes": { "$ref": "#/$defs/attributeAxesProperty" },
-                "variants": { "$ref": "#/$defs/variantsConstraint" }
-            },
-            "additionalProperties": { "$ref": "#/$defs/property" },
-            "required": ["id", "attribute_axes", "variants"]
-        },
-        "uuidProperty": {
+        "stringPropertyConstraint": {
             "type": "object",
             "properties": {
-                "title": {"$ref": "#/$defs/title" },
-                "description": {"$ref": "#/$defs/description" },
                 "type": {
                     "const": "string"
                 }
@@ -548,19 +744,19 @@
                 "type"
             ]
         },
-        "idProperty": {
+        "numberPropertyConstraint": {
             "type": "object",
             "properties": {
-                "title": { "$ref": "#/$defs/title" },
-                "description": { "$ref": "#/$defs/description" },
                 "type": {
-                    "const": ["string", "null"]
+                    "const": "number"
                 }
             },
             "additionalProperties": false,
-            "required": ["type"]
+            "required": [
+                "type"
+            ]
         },
-        "attributeAxesProperty": {
+        "measurementValueConstraint": {
             "type": "object",
             "properties": {
                 "type": {
@@ -568,21 +764,267 @@
                 },
                 "properties": {
                     "type": "object",
-                    "patternProperties": {
-                        "^(axis_([1-9]|10))+$": {
-                            "type": "object",
-                            "properties": {
-                                "type": {
-                                    "const": "string"
-                                }
-                            }
+                    "properties": {
+                        "amount": {
+                            "$ref": "#/$defs/numberPropertyConstraint"
+                        },
+                        "unit": {
+                            "$ref": "#/$defs/stringPropertyConstraint"
                         }
                     },
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "required": [
+                        "amount",
+                        "unit"
+                    ]
                 }
             },
             "additionalProperties": false,
-            "required": ["type", "properties"]
+            "required": [
+                "type",
+                "properties"
+            ]
+        },
+        "variationAxisValueConstraint": {
+            "type": "object",
+            "properties": {
+                "oneOf": {
+                    "type": "array",
+                    "prefixItems": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "const": [
+                                        "string",
+                                        "boolean"
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false,
+                            "required": [
+                                "type"
+                            ]
+                        },
+                        {
+                            "$ref": "#/$defs/measurementValueConstraint"
+                        }
+                    ],
+                    "minItems": 2,
+                    "maxItems": 2
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "oneOf"
+            ]
+        },
+        "localizedLabelConstraint": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "array"
+                },
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "object"
+                        },
+                        "properties": {
+                            "type": "object",
+                            "properties": {
+                                "locale": {
+                                    "$ref": "#/$defs/stringPropertyConstraint"
+                                },
+                                "value": {
+                                    "$ref": "#/$defs/stringPropertyConstraint"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "required": [
+                                "locale",
+                                "value"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "type",
+                        "properties"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "items"
+            ]
+        },
+        "variationAxesConstraint": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "array"
+                },
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "object"
+                        },
+                        "properties": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "$ref": "#/$defs/stringPropertyConstraint"
+                                },
+                                "label": {
+                                    "$ref": "#/$defs/localizedLabelConstraint"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "required": [
+                                "code",
+                                "label"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "type",
+                        "properties"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "items"
+            ]
+        },
+        "variationAxesValuesConstraint": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "array"
+                },
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "object"
+                        },
+                        "properties": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "$ref": "#/$defs/stringPropertyConstraint"
+                                },
+                                "value": {
+                                    "$ref": "#/$defs/variationAxisValueConstraint"
+                                },
+                                "label": {
+                                    "$ref": "#/$defs/localizedLabelConstraint"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "required": [
+                                "code",
+                                "value",
+                                "label"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "type",
+                        "properties"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "items"
+            ]
+        },
+        "uriString": {
+            "type": "string",
+            "format": "uri"
+        },
+        "flatProductsMode": {
+            "properties": {
+                "uuid": {
+                    "$ref": "#/$defs/uuidProperty"
+                },
+                "variation_axes": false,
+                "variants": false
+            },
+            "additionalProperties": {
+                "$ref": "#/$defs/property"
+            },
+            "required": [
+                "uuid"
+            ]
+        },
+        "productsWithVariantsMode": {
+            "properties": {
+                "uuid": false,
+                "code": {
+                    "$ref": "#/$defs/codePropertyConstraint"
+                },
+                "variation_axes": {
+                    "$ref": "#/$defs/variationAxesConstraint"
+                },
+                "variants": {
+                    "$ref": "#/$defs/variantsConstraint"
+                }
+            },
+            "additionalProperties": {
+                "$ref": "#/$defs/property"
+            },
+            "required": [
+                "code",
+                "variation_axes",
+                "variants"
+            ]
+        },
+        "uuidProperty": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "$ref": "#/$defs/title"
+                },
+                "description": {
+                    "$ref": "#/$defs/description"
+                },
+                "type": {
+                    "const": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type"
+            ]
+        },
+        "codePropertyConstraint": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "$ref": "#/$defs/title"
+                },
+                "description": {
+                    "$ref": "#/$defs/description"
+                },
+                "type": {
+                    "const": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type"
+            ]
         },
         "variantsConstraint": {
             "type": "object",
@@ -590,15 +1032,21 @@
                 "oneOf": {
                     "type": "array",
                     "prefixItems": [
-                        { "$ref": "#/$defs/variantsAsURI" },
-                        { "$ref": "#/$defs/variantsAsList" }
+                        {
+                            "$ref": "#/$defs/variantsAsURI"
+                        },
+                        {
+                            "$ref": "#/$defs/variantsAsList"
+                        }
                     ],
                     "minItems": 2,
                     "maxItems": 2
                 }
             },
             "additionalProperties": false,
-            "required": ["oneOf"]
+            "required": [
+                "oneOf"
+            ]
         },
         "variantsAsURI": {
             "type": "object",
@@ -611,7 +1059,10 @@
                 }
             },
             "additionalProperties": false,
-            "required": ["type", "format"]
+            "required": [
+                "type",
+                "format"
+            ]
         },
         "variantsAsList": {
             "type": "object",
@@ -625,38 +1076,43 @@
                         "type": {
                             "const": "object"
                         },
-                        "properties": { "$ref": "#/$defs/variantsProperty" },
-                        "required": { "$ref": "#/$defs/requiredConstraint" }
+                        "properties": {
+                            "$ref": "#/$defs/variantsProperty"
+                        },
+                        "required": {
+                            "$ref": "#/$defs/requiredConstraint"
+                        }
                     },
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "required": [
+                        "type",
+                        "properties"
+                    ]
                 }
             },
             "additionalProperties": false,
-            "required": ["type", "items"]
+            "required": [
+                "type",
+                "items"
+            ]
         },
         "variantsProperty": {
             "type": "object",
             "properties": {
-                "uuid": { "$ref": "#/$defs/uuidProperty" }
-            },
-            "additionalProperties": { "$ref": "#/$defs/property" },
-            "default": {},
-            "required": ["uuid"],
-            "patternProperties": {
-                "^(axis_([1-9]|10))+$": {
-                    "type": "object",
-                    "allOf": [
-                        { "$ref": "#/$defs/property" },
-                        {
-                            "properties": {
-                                "type": {
-                                    "enum": ["string", "number", "boolean"]
-                                }
-                            }
-                        }
-                    ]
+                "variation_axes_values": {
+                    "$ref": "#/$defs/variationAxesValuesConstraint"
+                },
+                "uuid": {
+                    "$ref": "#/$defs/uuidProperty"
                 }
-            }
+            },
+            "additionalProperties": {
+                "$ref": "#/$defs/property"
+            },
+            "required": [
+                "variation_axes_values",
+                "uuid"
+            ]
         },
         "requiredConstraint": {
             "type": "array",
@@ -668,7 +1124,10 @@
             "minItems": 1
         },
         "format": {
-            "enum": ["date-time", "uri"]
+            "enum": [
+                "date-time",
+                "uri"
+            ]
         },
         "minimum": {
             "type": "number"
