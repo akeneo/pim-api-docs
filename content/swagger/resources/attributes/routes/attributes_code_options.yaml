@@ -152,7 +152,7 @@ patch:
     - "6.0"
     - "7.0"
     - "SaaS"
-  description: This endpoint allows you to update several attribute options at once.
+  description: This endpoint allows you to update several attribute options at once. Please note that this endpoint applies a rate limit of 3 concurrent API requests per second.
   x-body-by-line: Contains several lines, each line is an attribute option in JSON standard format
   parameters:
     - $ref: '#/parameters/attribute_code'
@@ -189,3 +189,5 @@ patch:
       $ref: "#/responses/413Error"
     415:
       $ref: "#/responses/415ErrorStream"
+    429:
+      $ref: "#/responses/429Error"
