@@ -76,7 +76,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Store US\"\n}"
+              "raw": "{\n \"name\": \"Store US\",\n \"managed_locales\": [\"en_US\", \"fr_FR\"],\n \"managed_currencies\": [\"USD\", \"EUR\"]\n}"
             },
             "url": {
               "raw": "{{url}}/api/rest/v1/catalogs",
@@ -109,7 +109,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"New Store US\"\n}"
+              "raw": "{\n \"name\": \"New Store US\",\n \"managed_locales\": [\"en_US\"],\n \"managed_currencies\": [\"USD\"]\n}"
             },
             "url": {
               "raw": "{{url}}/api/rest/v1/catalogs/6c046434-4501-4f85-94b7-d0194b3d9fb1",
