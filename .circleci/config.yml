@@ -448,10 +448,6 @@ commands:
       pull_request_id:
         type: string
     steps:
-      - run:
-          name: Install curl
-          command: |
-            apk add --no-cache --update curl
       - security-hunter/install_terraform
       - security-hunter/gcp_oidc_auth:
           impersonate: true
