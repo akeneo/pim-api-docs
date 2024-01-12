@@ -17,5 +17,5 @@ terraform {
     bucket = "akecld-terraform-pim-api-docs-sdx"
     prefix = "services/sdx"
   }
-  required_version = "= 1.1.7"
+  required_version = "= 1.6.5"
 }
