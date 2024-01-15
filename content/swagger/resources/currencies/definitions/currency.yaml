@@ -8,7 +8,11 @@ properties:
   enabled:
     type: boolean
     description: Whether the currency is enabled
+  label:
+    type: string
+    description: Currency label
 example: {
   "code": "EUR",
-  "enabled": true
+  "enabled": true,
+  "label": "EUR (Euro)"
 }
