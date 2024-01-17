@@ -231,7 +231,7 @@ This step is crucial in ensuring a smooth and efficient validation process, as w
 
 ## Your app must guarantee a certain level of security
 
-As your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must be compliant with Akeneo security policies. Each app which will be submitted to publication will be reviewed according to the security requirements described below.
+As your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must be compliant with Akeneo security policies. Each app which will be submitted to publication will be reviewed according to the security requirements described below and more thoroughly on the [security  requirements page](/apps/secure-your-app.html).
 
 ### Security Publication Process
 
