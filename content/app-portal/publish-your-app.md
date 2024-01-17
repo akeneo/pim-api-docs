@@ -199,15 +199,17 @@ Please be sure also to update regularly this information following the new PIM r
 
 ### Price
 
-    | Property | Description | Tips |
-    | --- | --- | --- |
-    | Price type | Your pricing model. | You can choose between 3 options: "Free", "Fixed price" and "Quote based". |
-    | Price | Your app price. | Depending on your price type |
-    | Currency | Price currency. | Depending on your price type |
+Please indicate the price model of your app.
 
-    ::: info
-    Price and Currency fields are related to your Price type. You may leave these fields empty.
-    :::
+| Property | Description | Tips |
+| --- | --- | --- |
+| Price type | Your pricing model. | You can choose between 3 options: "Free", "Fixed price" and "Quote based". |
+| Price | Your app price. | Depending on your price type |
+| Currency | Price currency. | Depending on your price type |
+
+::: info
+Price and Currency fields are related to your Price type. You may leave these fields empty.
+:::
 
 ### Feature List (Mandatory)
 Depending on the selected Category for your extension some extra "Feature List" select fields will be displayed to complete.
