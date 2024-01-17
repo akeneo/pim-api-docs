@@ -11,35 +11,33 @@ Otherwise, your app submission will not be approved.
 
 ## Your app must bring value to our joint customers
 
-We know that it can be challenging to create a first version of an app that is functionally comprehensive enough to suit all of our joint customers.
+We know that it can be challenging to create a first version of an app that is  comprehensive enough to suit all of our joint customers.
 
 Investing in an app can be costly depending on its complexity, and we recommend an agile approach to gradually address all needed use cases.
 
-Also we can help you to
-
-That being said, **Akeneo will be particularly attentive to ensure that your app meets the following criteria:**
+That being said, **Akeneo will be particularly vigilant to ensure that your app meets the following criteria:**
 
 ::: warning
-**From the first version of your app, it must bring value to our joint customers.**
+**The first version of your app must already bring value to our joint customers.**
  From its very first version, your integration must offer a way to help PIM users to **import, enrich or export** product information.
-We will not accept 'promotional' app that simply indicates a partnership between you and Akeneo.
+We will not accept 'promotional' apps to simply showcase a partnership between you and Akeneo.
 
-**Your app must also bring value compared to the apps already present on the App Store. We won't accept duplicates**
+**Your app must also bring value compared to the apps already featured on the App Store. We won't accept duplicates.**
 It's important to compare your app features with those of your competitors. We believe it's not in the interest of our joint customers to find two apps on the App Store that do exactly the same thing in the same manner.
 Please list your differentiators on your App Store listing.
 :::
 
 ## Your app must have comprehensive information
 
-We want to ensure that before choosing your app, our joint customers have everything they need to understand how your app will help them accelerate their business.
+We want to make sure that our joint customers have all the information they need to understand how your app will help them accelerate their business.
 
 We also want our customers to understand what your app does but also what it doesn’t do yet.
 
-This should help prevent any blocking situations due to lack of information in your app description or documentation.
+This should help prevent any blocking situations due to a lack of information in your app description or documentation.
 
-Also this information should be kept up to date: please, regularly update your app information following your app updates.
+Also this information should be kept up to date: don't forget to regularly update your app information each time you release a new app update.
 
-**Akeneo will be particularly attentive to ensure that your app meets the following criteria:**
+**Akeneo will be particularly vigilant to ensure that your app meets the following criteria:**
 
 ### App Name (Mandatory)
 
@@ -64,10 +62,10 @@ Also this information should be kept up to date: please, regularly update your a
 
 ### Version (Mandatory)
 
-- If your app has a version be sure to use a **Semantic Versioning** https://semver.org/.
+- If your app has a version number, be sure to use a **Semantic Versioning system** https://semver.org/.
 - **50** characters max.
 - You don’t need to add a "V" letter before your version number.
-- If you have no version on your app (because you may have a SaaS continuous integration logic on your app), please indicate "SaaS".
+- If your app does not have any version number (because you may have a SaaS continuous integration logic on your app), please indicate "SaaS".
 
 ### Logo (Mandatory)
 
@@ -78,7 +76,7 @@ Also this information should be kept up to date: please, regularly update your a
 
 ### Short description (Mandatory)
 
-- **The “short description” should be a punchy catchphrase that explains what your app can help our joint customer in a very impactful way.**
+- **The “short description” should be a punchy catchphrase that explains what your app can help our joint customers in a very impactful way.**
 - 500 characters max.
 - Text only (no layout, no links, no images).
 
@@ -88,8 +86,8 @@ Also this information should be kept up to date: please, regularly update your a
     - The **use-cases** addressed by your app
     - The **benefits** users will get from your app
     - The **exact scope** of your app
-    - if your integration is a Bundle, a Connector or a custom app, your documentation must aslo indicate **where you can download it**.
-- Reach text (please add titles to separate your text, links to redirect to your website page or documentation, and some images to illustrate your point)
+    - If your integration is a Bundle, a Connector or a custom app, your documentation must also indicate **where you can download it**.
+- Rich text (please add titles to separate your text, links to redirect to your website page or documentation, and some images to illustrate your point)
 - The more complete the description of your app is, the more likely Akeneo users will connect/install and use it.
 
 ### Video link (Optional)
@@ -104,7 +102,7 @@ If you'd like to add a more detailed video presenting an exhaustive demonstratio
 
 ### Visuals (Mandatory)
 
-- **Your visuals must give an overview of your app UI. It will also help our joint customers to understand what your app looks like and if it is easy to use.**
+- **Your visuals must give an overview of your app UI. It will also help our joint customers understand what your app looks like and if it is easy to use.**
 - File format: JPG, PNG, SVG, WEBP
 - File size: 2048 kB max
 
@@ -115,22 +113,22 @@ If you'd like to add a more detailed video presenting an exhaustive demonstratio
 
 ### Categories (Mandatory)
 
-- You app categories must represent the use-cases addressed by your app
+- You app categories must represent the use cases addressed by your app
 - You can select multiple categories
 
 ::: info
-Akeneo may modify the categories of your app in order to maintain the App Store consistent user experience.
+Akeneo may modify the categories of your app in order to maintain a consistent user experience on the App Store.
 :::
 
 ### Release notes (Optional)
 
-- The release notes of your app should give all the details about bug fixes and new features you release.
-- If you added or modified a feature, please add a link to your related online documentation.
+- Your app release notes should give all the details about bug fixes and newly released features.
+- If you added or modified a feature, please add a link to the related online documentation.
 
 ### Activation Button Set up (Mandatory, Only for app integrations)
 
-- **Activate Url:** Following the **[App authentication](/apps/authentication-and-authorization.html)** process, you must indicate the “activate” URL of your app
-- **Callback Url:** Following the **[App authentication](/apps/authentication-and-authorization.html)** process, you must indicate the “callback” URL of your app
+- **Activate Url:** As per the **[App authentication](/apps/authentication-and-authorization.html)** process, you must indicate the “activate” URL of your app
+- **Callback Url:** As per the **[App authentication](/apps/authentication-and-authorization.html)** process, you must indicate the “callback” URL of your app
 
 ::: warning
 Please double check that your Activate and Callback URLs are public before submitting your app.
@@ -138,44 +136,43 @@ Please double check that your Activate and Callback URLs are public before submi
 
 ### Requirements (Mandatory)
 
-- **Akeneo PIM editions and versions:** You must indicate the Akeneo PIM editions and versions compatibility of your app.
+- **Akeneo PIM editions and versions:** You must specify which Akeneo PIM editions and versions your app is compatible with.
 
-Define your app PIM edition and version compatibility by following the current process:
+Define your app PIM edition and version compatibility as follows:
 
 - List all API end-points you use on your app
 - Check the PIM edition and version compatibility of these API end-points via our [API reference documentation](/api-reference-index.html).
-- Therefore deduce the Akeneo PIM edition/version compatibility of your app.
+- And from that, you can figure out with which Akeneo PIM edition/version compatibility your app is compatible.
 
-- **Third-party software name, editions, versions:** If your app enables to connect Akeneo PIM to a third-party software, please indicates here all information needed to understand the third-party compatibility of your app.
+- **Third-party software name, editions, versions:** If your app enables the connection of Akeneo PIM to a third-party software, please write here all the information needed to understand which third-party software your app is compatible with.
 
 ::: warning
 Setting your app PIM Editions/Versions compatibility correctly is **strategic** for your app visibility.
-The PIM-integrated App Store **will only display** your app on PIM Editions/Editions you declared.
-Please be sure also to update regularly this information following the new PIM releases.
+The PIM-integrated App Store **will only display** your app on the PIM Editions/Editions you declared.
+Please be sure to update this information regularly after each new PIM release.
 :::
 
 ### Help and support (Mandatory)
 
 **Support**
 
-- **Support contact (Optional):** You should indicate a support contact (email) allowing users to contact you when they need support. **If you have another way to contact your support your must add this related process to your documentation.**
+- **Support contact (Optional):** You should indicate a support contact person (email) that users can contact for assistance. **If you offer another way to contact your support, your must add the corresponding process to your documentation.**
 
 **Documentation**
 
-- **Documentation and documentation file (Mandatory):** With this part you must indicate where your app documentation is located:
-    - **Online documentation:** If your app documentation is online and you want to set a link to this one or if you want to write your documentation directly on the App Store: please use the “documentation” reach text editor field.
-    - **PDF documentation:** if your app documentation is a PDF file, please upload this one on the “documentation file” field.
+- **Documentation and documentation file (Mandatory):** Here you must indicate where your app documentation is located:
+    - **Online documentation:** If your app documentation is online and you want to set a link to it or if you want to write your documentation directly on the App Store: please use the “documentation” rich text editor field.
+    - **PDF documentation:** If your app documentation is a PDF file, please upload it in the “documentation file” field.
 
 
-    As for the description, we expect our joint users to be as autonomous as possible to get the most out of your app.
-    This documentation should be an install guide or a user guide to go through all features.
+    This documentation should be an install guide and a user guide to present all your app features.
 
-    **As a benefit, this documentation will also significantly reduce your workload on your app support!**
+    **As a benefit, this documentation will also significantly reduce your workload for your app support team!**
 
     **Important requirements about your documentation:**
 
     ::: warning
-    Your documentation must be **in English**. Akeneo is a global company and even if you target local customers from your country only, all our joint customers should be able to understand your documentation. 😊
+    Your documentation must be **in English**. Akeneo is a global company and even if you target local customers exclusively in your country, all our joint customers should be able to understand your documentation. 😊
     :::
 
     ::: warning
@@ -185,7 +182,7 @@ Please be sure also to update regularly this information following the new PIM r
     :::
 
     ::: warning
-    Your documentation must also explain **how to configure** your app with all required details.
+    Your documentation must also explain **how to configure** your app with all the required details.
     :::
 
     ::: warning
@@ -212,7 +209,7 @@ Price and Currency fields are related to your Price type. You may leave these fi
 :::
 
 ### Feature List (Mandatory)
-Depending on the selected Category for your extension some extra "Feature List" select fields will be displayed to complete.
+Depending on the selected Category for your app, a few extra "Feature List" select fields will be displayed for you to complete.
 | Category | Sections |
 | --- | --- |
 | E-commerce, Syndication, Print | Akeneo PIM data/properties|
@@ -226,71 +223,72 @@ Depending on the selected Category for your extension some extra "Feature List" 
 | DAM | Both ways metadata synchronization |
 
 ::: info
-This step is crucial in ensuring a smooth and efficient validation process, as well as maximizing the potential success of your extension.
+This step is crucial in ensuring a smooth and efficient validation process, as well as maximizing the potential success of your app.
 :::
 
 ## Your app must guarantee a certain level of security
 
-As your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must be compliant with Akeneo security policies. Each app which will be submitted to publication will be reviewed according to the security requirements described below and more thoroughly on the [security  requirements page](/apps/secure-your-app.html).
+Because your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must comply with Akeneo security policies. Each app which will be submitted for publication will be reviewed and will need to meet the security requirements described below. You'll also find more information on the [security  requirements page](/apps/secure-your-app.html).
 
 ### Security Publication Process
 
-To ensure the compliance with the different subjects aforementionned, Akeneo will perform security tests on your application source code prior to your app publication.
+To ensure compliance with the different subjects mentionned above, Akeneo must perform security tests on your application source code prior to your app publication.
 
 **To perform this action:**
 
 - You must provide your app source code to Akeneo
-    - The source code **MUST** be provided as a .zip archive, under the format *<name_of_your_app>*.zip.
-    - You can also give access to your Source Version Control tool to your Akeneo contact.
+    - The source code **MUST** be provided as a .zip archive, following this specific format: *<name_of_your_app>*.zip.
+    - You can also give your Akeneo contact access to your Source Version Control tool.
 - Akeneo will perform security tests on your source code based on the requirements presented on this page.
 - You will then be contacted to discuss the results of the tests in case vulnerabilities are detected.
 
 ### Confidentiality
 
-Akeneo commits to only use the source code for this very use. Your source code will be deleted at the end of the publication process or a month after the first scan.
+Akeneo commits to use the source code solely for security audit purposes. Your source code will be deleted at the end of the publication process or a month after the first scan.
 
 ::: warning
-**Important: In order to check the security of your app, you must deliver your app code to Akeneo as a Zip archive (or an access to your Github)**
+**Important: In order to check the security of your app, you must deliver your app code to Akeneo as a Zip archive (or give us access to your Github)**
 
 Akeneo will then perform a security scan on your code and provide you with the corresponding Security report.
 
 **Confidentiality: Akeneo commits to not sharing your source code with any third party, and to deleting it once the scan has been completed.**
 :::
 
-## You must guarantee a certain level of service around your app
+## You must guarantee a certain level of service related to your app
 
-### Lead management and commitment on responsiveness
+### Lead management and commitment to responsiveness
 
 We want to be sure you’re not going to miss out on important opportunities you may have via the App Store.
 
 Your app page has a "Request more information" button and by default, all members of your organization on the App Store will receive an email notification each time a new client requests more information.
 
-After your App submission, please check that, on the App Store, in your company organization, you invited all people needed to perform this action (commercial or presale contacts).
+Once your App has been submitted, please make sure that all the business or presale contact persons in your organization have been added on the App Store.
+**Double-check that the notifications are correctly directly to the interested parties**.
 
-**Akeneo will be particularly attentive to ensure that your service meets the following criteria:**
+**Akeneo will be particularly vigilant to ensure that your service meets the following criteria:**
 ::: warning
 We ask all our App partners to commit to a quick response within 24 business hours to any customer request made via the “Request more information” button.
 :::
 
 ### Support and SLA
 
-We pay particular attention to the satisfaction of our joint customers when it comes to the maintenance of your App.
+We pay particular attention to the satisfaction of our joint customers when it comes to the maintenance of your app.
 
 That's why we feel it's important for you to commit to the availability of your support teams and their ability to respond to any bugs reported on your App.
 
-**Akeneo will be particularly attentive to ensure that your support service meets the following criteria:**
+**Akeneo will be particularly vigilant to ensure that your support service meets the following criteria:**
 ::: warning
-- You must offer a quality support service related to the App.
-- The exact condition of this support service must be clear and available via the App documentation or via a dedicated support contract.
+- You must offer a quality support service for your app.
+- The specific terms of your support service must be clear and available via the app documentation or via a dedicated support contract.
 - The support service must have associated SLA (**Service-level agreement**).
 :::
 
 
-## Your App must have passed the necessary tests to guarantee a certain level of quality.
+## Your app must have passed the necessary tests to guarantee a certain level of quality.
 
-**Functional tests have been performed on your App before submission to confirm it works with an Akeneo PIM instance.**
+**Functional tests must have been performed on your app before submission to confirm it works with an Akeneo PIM instance.**
 
-Before we approve your App on Akeneo App Store, we will check whether you performed functional tests or not. These tests will ensure your App is ready to install on a PIM environment.    
+Before we approve your app on Akeneo App Store, we will check whether you performed functional tests or not. These tests will ensure your App is ready for installation on a PIM environment.    
 
 ::: warning
 You must also demonstrate your contribution to Akeneo App Store team through a live demo or a video hosted on a streaming platform.**
@@ -300,14 +298,14 @@ You must also demonstrate your contribution to Akeneo App Store team through a l
 
 Quality is a MUST, and we urge you to run as many tests as possible to ensure your App works well for any type of product catalog.  
 
-Although we do not certify App on the Akeneo App Store, Akeneo teams will always expect durable, performant, and scalable extensions.  
+Although we do not certify apps on the Akeneo App Store, Akeneo teams will always expect durable, efficient, and scalable apps.  
 
 
 **Code quality tests**
 
 Are you using the proper coding conventions?
 
-Ensure you take advantage of online tools, such as [PHPCheckstyle](http://phpcheckstyle.github.io/), for those using PHP language.  
+Make sure you take advantage of online tools, such as [PHPCheckstyle](http://phpcheckstyle.github.io/), for those using PHP language.  
 To check if your code has common programming flaws like unused variables, empty cache blocks, or unnecessary object creation, you could also rely on [PMD](https://pmd.github.io/) to improve your developments.  
 
 These tests will be essential if your extension aims to be open-source, as it will help others to contribute.  
@@ -315,14 +313,14 @@ These tests will be essential if your extension aims to be open-source, as it wi
 
 **Unit tests**
 
-Each menu and each feature of your extensions should work properly in a PIM environment.  
+Each menu and each feature of your app should work properly in a PIM environment.  
 
 Tools like [PHPunit](https://phpunit.de/) or [PHPSpec](http://www.phpspec.net/en/stable/) will help you conduct unit tests to confirm it does.  
 
 
 **Functional tests**
 
-Functional tests should be conducted based on the user stories you have defined during the scoping of your extension.  
+Functional tests should be conducted based on the user stories you have defined during the scoping of your app.  
 
 
 **Scalability and Performance tests**
