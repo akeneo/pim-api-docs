@@ -1,6 +1,6 @@
 # App Publication Security
 
-Because your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must be compliant with Akeneo security policies. Each app which will be submitted f publication will be reviewed according to the security requirements described below.
+Because your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must be compliant with Akeneo security policies. Each app which will be submitted will be reviewed according to the security requirements described below.
 
 ## Security Requirements   
 

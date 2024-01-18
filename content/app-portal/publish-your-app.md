@@ -228,31 +228,28 @@ This step is crucial in ensuring a smooth and efficient validation process, as w
 
 ## Your app must guarantee a certain level of security
 
-Because your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must comply with Akeneo security policies. Each app which will be submitted for publication will be reviewed and will need to meet the security requirements described below. You'll also find more information on the [security  requirements page](/apps/secure-your-app.html).
+Because your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must comply with Akeneo security policies. Each app which will be submitted for publication will be reviewed and will need to meet the security requirements described below. You'll also find more information and tips on the [security requirements page](/apps/secure-your-app.html) to improve the security of your app.
 
 ### Security Publication Process
 
-To ensure compliance with the different subjects mentioned above, Akeneo must perform security tests on your application source code prior to your app publication.
+Before any app is accepted into our App Store, we scan it for potential security issues.
+The Akeneo Security team will perform the following tests on the source code of the app to be published: 
 
-**To perform this action:**
+- Source Composition Analysis to detect vulnerabilities on the dependencies your code is using.
+- Secrets Scanning to detect potential secret management security flaws.
+- OWASP Top 10-based Static Application Security Testing (SAST). 
+- Docker image vulnerability scanning if applicable.
 
-- You must provide your app source code to Akeneo
-    - The source code **MUST** be provided as a .zip archive, following this specific format: *<name_of_your_app>*.zip.
-    - You can also give your Akeneo contact access to your Source Version Control tool.
-- Akeneo will perform security tests on your source code based on the requirements presented on this page.
-- You will then be contacted to discuss the results of the tests in case vulnerabilities are detected.
-
-### Confidentiality
-
-Akeneo commits to use the source code solely for security audit purposes. Your source code will be deleted at the end of the publication process or a month after the first scan.
+If a potential security issue is detected on your app during the tests, we'll notify you to help you quickly address the issue and help keep your users safe.
 
 ::: warning
-**Important: In order to check the security of your app, you must deliver your app code to Akeneo as a Zip archive (or give us access to your Github)**
-
-Akeneo will then perform a security scan on your code and provide you with the corresponding Security report.
-
-**Confidentiality: Akeneo commits to not sharing your source code with any third party, and to deleting it once the scan has been completed.**
+**Important**: In order to check the security of your app, you must deliver your app code to Akeneo. **Akeneo commits to not sharing your source code with any third party, and to deleting it once the scan has been completed**.
 :::
+
+### Submitting your code
+
+Your App source code must be provided as part as the App Submission process.
+- The source code **MUST** be provided as a .zip archive, following this specific format: *<name_of_your_app>*.zip. Please reach your Akeneo contact for more information.
 
 ## You must guarantee a certain level of service related to your app
 
