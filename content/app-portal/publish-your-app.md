@@ -232,7 +232,7 @@ Because your app will either pull data from Akeneo to external services or push 
 
 ### Security Publication Process
 
-To ensure compliance with the different subjects mentionned above, Akeneo must perform security tests on your application source code prior to your app publication.
+To ensure compliance with the different subjects mentioned above, Akeneo must perform security tests on your application source code prior to your app publication.
 
 **To perform this action:**
 
