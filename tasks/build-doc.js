@@ -787,6 +787,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'homepage.md': 'Start building your App',
         'overview.md': 'Overview',
         'authentication-and-authorization.md': 'Authentication and authorization',
+        'secure-your-app.md': 'Secure your App',
         'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
         'app-developer-tools.md': 'Developer tools',
         'app-concepts-and-use-cases.md': 'App concepts and use cases',
