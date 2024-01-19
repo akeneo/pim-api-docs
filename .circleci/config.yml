@@ -1,7 +1,6 @@
 version: 2.1
 
 orbs:
-  terraform: circleci/terraform@3.2.1
   security-hunter: akeneo-orbs/security-hunter@2.6.14
 
 aliases:
@@ -276,9 +275,7 @@ jobs:
       OIDC_PROVIDER: "circleci-jwt"
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
-    executor:
-      name: terraform/default
-      tag: 1.1.7
+    <<: *dockerExecutorWithPython
     steps:
       - attach_workspace:
           at: ~/
@@ -451,15 +448,7 @@ commands:
       pull_request_id:
         type: string
     steps:
-      - run:
-          name: Install Python 3, pip and curl
-          command: |
-            if command -v apk &> /dev/null; then
-                apk add --no-cache --update python3 py3-pip curl
-            fi
-      - run:
-          name: Link Python 3 as Python
-          command: ln -s /usr/bin/python3 /usr/local/bin/python
+      - security-hunter/install_terraform
       - security-hunter/gcp_oidc_auth:
           impersonate: true
       - when:
