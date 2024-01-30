@@ -396,7 +396,7 @@ If you want to select the products which are both enabled and classified in the 
 As you can see above, you can use multiple conditions to make your selection. Those conditions are cumulated. In the example, we select the products that are **both** enabled and in the `men` category.
 :::
 
-Here is the list of the fields you can use to select your products:
+Here is the defined list of the fields you can use to select your products (we can't guarantee other custom filters will work):
 - among the product properties:
   + the [product family](#selection-via-product-family),
   + the [product categories](#selection-via-product-categories),
