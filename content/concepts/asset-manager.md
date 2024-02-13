@@ -198,8 +198,8 @@ The `channel` property should be set to `null` if:
 The `pattern` property allows you to define how the PIM should split the [source string](#the-source-string). Then, the result of the split will automatically populate the corresponding asset attributes.
 
 The split pattern should be a string. It should be given as a regular expression.  
-In order for the PIM to know into which asset attributes the result of the split should be sent, this regular expression should contain one or several named capture groups.  
-Note that the names of these capture groups should be equal to the code of existing asset attribute of the family and these asset attributes can only be [`text` attributes](#the-text-attribute) and [`number` attributes](#the-number-attribute).
+For the PIM to know into which asset attributes the result of the split should be sent, this regular expression should contain one or several named capture groups.  
+Note that the names of these capture groups should be equal to the code of existing asset attributes of the family and these asset attributes can only be [`text` attributes](#the-text-attribute), [`single option attributes`](#the-single-and-multiple-options-attributes), and [`number` attributes](#the-number-attribute).
 
 ::: warning
 These asset attributes cannot be localizable neither scopable.
@@ -220,7 +220,7 @@ Let's say our source string is equal to `allie_jean-picture-packshot.png`. After
 
 ### Abortion on error
 
-Sometimes, the application of the naming convention will fail. For example, it is the case if the regular expression did not capture any group. In this case, you can choose if you still want the corresponding asset to be created. As a result, the asset won't be created and you will be able to submit it again with a better filename/code for example.
+Sometimes, the application of the naming convention will fail. For example, it is the case if the regular expression does not capture any group. In this case, you can choose if you still want the corresponding asset to be created. As a result, the asset won't be created, and you can submit it again with a better filename/code for example.
 
 To allow this behavior, set the `abort_asset_creation_on_error` to `true`.
 
