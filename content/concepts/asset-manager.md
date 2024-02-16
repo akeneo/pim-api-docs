@@ -401,6 +401,7 @@ Here is the defined list of the fields you can use to select your products (we c
   + the [product family](#selection-via-product-family),
   + the [product categories](#selection-via-product-categories),
   + the [product status](#select-via-the-product-status),
+  + the [parent](#select-via-the-product-parent),
 - among the product attributes:
   + the [identifier attribute](#select-via-identifier-attribute),
   + the [text attributes](#select-via-text-attribute),
@@ -484,18 +485,49 @@ The following selection will select the products that are enabled.
 }
 ```
 
+#### Selection via product parent
+To associate your assets with a given set of product variants, you can use their parents (product models). In this case, use the keyword `parent` as the `FIELD_NAME`.
+
+The table below summarizes the operators available when you select per categories as well as the allowed value type you can have as a `VALUE`.
+
+| Operator | Allowed value type | Selection description |
+| ----------------- | -------------- | ------------------ |
+| `IN` | _Array of existing product model codes_ | Selects the product variants and product models that have a parent from the given list |
+| `EMPTY` | _No value needed to specify, empty array ([]) or empty string ("") can be used_ | Selects the simple products, the product variants and product models that don’t have a parent |
+| `NOT EMPTY` | _No value needed to specify, empty array ([]) or empty string ("") can be used_ | Selects the product variants and product models that have a parent |
+
+**Example**  
+The following selection will select the products in the `bohemian_style` category.
+
+```json
+{
+  "product_selections": [
+    {
+      "field": "parent",
+      "operator": "IN",
+      "value": ["product_model_bicycle_REF012345"]
+    }
+  ]
+}
+```
+
 #### Selection per identifier attribute
 
-To associate your assets to a given set of products, you can use their identifier. In this case, use the code of the identifier attribute you have in your product family as the `FIELD_NAME`.
+To associate your assets to a given set of products, you can use their identifiers. In this case, use the code of the identifier attribute you have in your product family as the `FIELD_NAME`. You can also use the generic keyword `identifier` to select the main identifier.
 
 The table below summarizes the operators available when you select per identifier attribute as well as the allowed value type you can have as a `VALUE`.
 
 | Operator | Allowed value type | Selection description |
 | ----------------- | -------------- | ------------------ |
+| `STARTS WITH`  | _String_ | Selects products and product models whose identifier begins with the given value |
 | `CONTAINS`  | _String_ | Selects products whose identifier contains a specific value |
 | `DOES NOT CONTAIN` | _String_ | Selects products whose identifier does not contain a specific value  |
-| `=`  | _String_ | Selects products that have exactly the given identifier |
-| `!=` | _String_ | Selects products whose identifier is not the given one |
+| `=`  | _String_ | Selects simple products and product models which match exactly the given identifier |
+| `!=` | _String_ | Selects simple products and product models whose identifier is not the given one |
+| `IN` | _Array of existing simple product and product model identifiers_ | Selects simple products and product models whose identifier is in the given list |
+| `NOT IN` | _Array of existing simple product and product model identifiers_ | Selects simple products and product models whose identifier is not in the given list |
+| `EMPTY` | _No value needed to specify, empty string ("") can be used _ | Selects simple products and product models whose main identifier is empty |
+| `NOT EMPTY` | _No value needed to specify, empty string ("") can be used _ | Selects simple products and product models whose main identifier is not empty (note that this could select all your product catalog) |
 
 **Example**  
 The following selection will select the product with the `sku_54628` SKU, knowing that `sku` is the code of the identifier attribute.
