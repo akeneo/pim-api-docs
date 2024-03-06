@@ -34,6 +34,7 @@ get:
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
     - $ref: '#/parameters/with_attribute_options'
+    - $ref: '#/parameters/with_asset_share_links'
     - $ref: '#/parameters/with_quality_scores__products'
     - $ref: '#/parameters/with_completenesses'
   responses:

@@ -54,7 +54,7 @@ properties:
             linked_data:
               type: object
               x-read-only: true
-              description: Object containing labels of attribute options (only available since the 5.0 and when query parameter "with_attribute_options" is set to "true"). See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
+              description: Object containing additional data when a related query parameter is enabled. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (only available since the 5.0)
               x-from-version: '5.0'
               properties:
                 attribute:

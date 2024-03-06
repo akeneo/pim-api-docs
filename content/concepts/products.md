@@ -795,6 +795,49 @@ Whenever the attribute type is `pim_catalog_multiselect`, the `linked_data` fiel
 }
 ```
 
+#### Asset collection attribute
+Whenever the attribute type is `pim_catalog_asset_collection`, the `linked_data` field will contain an object.
+
+**Example**
+```json
+{
+  "asset_collection": [
+    {
+      "locale": null,
+      "scope": null,
+      "data": [
+        "left_side",
+        "right_side"
+      ],
+      "linked_data": {
+        "left_side": {
+          "share_links": [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://asset-delivery.akeneo.com/asset_family/left_side.png"
+                }
+              }
+            }
+          ]
+        },
+        "right_side": {
+          "share_links": [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://asset-delivery.akeneo.com/asset_family/right_side.png"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
 ## Product model
 ::: availability versions=2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
 :::

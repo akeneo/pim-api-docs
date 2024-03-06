@@ -100,7 +100,7 @@ with_count:
 with_attribute_options:
   name: with_attribute_options
   in: query
-  description: Return labels of attribute options in the response. (Only available since the 5.0 version)
+  description: Return labels of attribute options in the response. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (Only available since the 5.0 version)
   default: false
   type: boolean
   required: false
@@ -121,6 +121,14 @@ with_table_select_options:
   type: boolean
   required: false
   x-from-version: "7.0"
+with_asset_share_links:
+  name: with_asset_share_links
+  in: query
+  description: Return asset collection share link urls in the response. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (Only available in the SaaS version)
+  default: false
+  type: boolean
+  required: false
+  x-from-version: "SaaS"
 with_quality_scores__products:
   name: with_quality_scores
   in: query
