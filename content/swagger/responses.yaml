@@ -134,6 +134,15 @@ NoContent:
       }
     }
   }
+429Error:
+  description: Too many requests
+  x-details: There are too many requests on this endpoint
+  schema:
+    $ref: "#/definitions/Error"
+  examples: {
+    "code": 429,
+    "message": "You have exceeded the limit of API requests per second."
+  }
 DeprecatedAssetReferenceFileUploaded:
   description: Uploaded
   x-details: Means that the reference file upload was successful. Beware that even if the reference file upload is complete, some variation files generations could have failed. If so, you will see a warning message in the response body.

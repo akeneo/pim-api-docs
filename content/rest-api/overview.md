@@ -157,7 +157,7 @@ Our recommendations on maximum usage are:
 - a maximum of 4 concurrent API calls per PIM Connection
 - a maximum of 10 concurrent API calls in total on a PIM instance
 
-Our PIM Cloud service has currently no rate limit based on API requests per unit of time or per IP. 
+Our PIM Cloud service has currently no rate limit based on API requests per unit of time or per IP, except for the API dedicated to [updating & creating attribute options](https://api.akeneo.com/api-reference.html#patch_attributes__attribute_code__options).
 
 However, our platform is protected through a number of preservation mechanisms to avoid impacting the user experience and platform stability in case of over-usage.
 

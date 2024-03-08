@@ -198,8 +198,8 @@ The `channel` property should be set to `null` if:
 The `pattern` property allows you to define how the PIM should split the [source string](#the-source-string). Then, the result of the split will automatically populate the corresponding asset attributes.
 
 The split pattern should be a string. It should be given as a regular expression.  
-In order for the PIM to know into which asset attributes the result of the split should be sent, this regular expression should contain one or several named capture groups.  
-Note that the names of these capture groups should be equal to the code of existing asset attribute of the family and these asset attributes can only be [`text` attributes](#the-text-attribute) and [`number` attributes](#the-number-attribute).
+For the PIM to know into which asset attributes the result of the split should be sent, this regular expression should contain one or several named capture groups.  
+Note that the names of these capture groups should be equal to the code of existing asset attributes of the family and these asset attributes can only be [`text` attributes](#the-text-attribute), [`single option attributes`](#the-single-and-multiple-options-attributes), and [`number` attributes](#the-number-attribute).
 
 ::: warning
 These asset attributes cannot be localizable neither scopable.
@@ -220,7 +220,7 @@ Let's say our source string is equal to `allie_jean-picture-packshot.png`. After
 
 ### Abortion on error
 
-Sometimes, the application of the naming convention will fail. For example, it is the case if the regular expression did not capture any group. In this case, you can choose if you still want the corresponding asset to be created. As a result, the asset won't be created and you will be able to submit it again with a better filename/code for example.
+Sometimes, the application of the naming convention will fail. For example, it is the case if the regular expression does not capture any group. In this case, you can choose if you still want the corresponding asset to be created. As a result, the asset won't be created, and you can submit it again with a better filename/code for example.
 
 To allow this behavior, set the `abort_asset_creation_on_error` to `true`.
 
@@ -396,11 +396,12 @@ If you want to select the products which are both enabled and classified in the 
 As you can see above, you can use multiple conditions to make your selection. Those conditions are cumulated. In the example, we select the products that are **both** enabled and in the `men` category.
 :::
 
-Here is the list of the fields you can use to select your products:
+Here is the defined list of the fields you can use to select your products (we can't guarantee other custom filters will work):
 - among the product properties:
   + the [product family](#selection-via-product-family),
   + the [product categories](#selection-via-product-categories),
   + the [product status](#select-via-the-product-status),
+  + the [parent](#select-via-the-product-parent),
 - among the product attributes:
   + the [identifier attribute](#select-via-identifier-attribute),
   + the [text attributes](#select-via-text-attribute),
@@ -484,18 +485,49 @@ The following selection will select the products that are enabled.
 }
 ```
 
+#### Selection via product parent
+To associate your assets with a given set of product variants, you can use their parents (product models). In this case, use the keyword `parent` as the `FIELD_NAME`.
+
+The table below summarizes the operators available when you select per categories as well as the allowed value type you can have as a `VALUE`.
+
+| Operator | Allowed value type | Selection description |
+| ----------------- | -------------- | ------------------ |
+| `IN` | _Array of existing product model codes_ | Selects the product variants and product models that have a parent from the given list |
+| `EMPTY` | _No value needed to specify, empty array ([]) or empty string ("") can be used_ | Selects the simple products, the product variants and product models that don’t have a parent |
+| `NOT EMPTY` | _No value needed to specify, empty array ([]) or empty string ("") can be used_ | Selects the product variants and product models that have a parent |
+
+**Example**  
+The following selection will select the products in the `bohemian_style` category.
+
+```json
+{
+  "product_selections": [
+    {
+      "field": "parent",
+      "operator": "IN",
+      "value": ["product_model_bicycle_REF012345"]
+    }
+  ]
+}
+```
+
 #### Selection per identifier attribute
 
-To associate your assets to a given set of products, you can use their identifier. In this case, use the code of the identifier attribute you have in your product family as the `FIELD_NAME`.
+To associate your assets to a given set of products, you can use their identifiers. In this case, use the code of the identifier attribute you have in your product family as the `FIELD_NAME`. You can also use the generic keyword `identifier` to select the main identifier.
 
 The table below summarizes the operators available when you select per identifier attribute as well as the allowed value type you can have as a `VALUE`.
 
 | Operator | Allowed value type | Selection description |
 | ----------------- | -------------- | ------------------ |
+| `STARTS WITH`  | _String_ | Selects products and product models whose identifier begins with the given value |
 | `CONTAINS`  | _String_ | Selects products whose identifier contains a specific value |
 | `DOES NOT CONTAIN` | _String_ | Selects products whose identifier does not contain a specific value  |
-| `=`  | _String_ | Selects products that have exactly the given identifier |
-| `!=` | _String_ | Selects products whose identifier is not the given one |
+| `=`  | _String_ | Selects simple products and product models which match exactly the given identifier |
+| `!=` | _String_ | Selects simple products and product models whose identifier is not the given one |
+| `IN` | _Array of existing simple product and product model identifiers_ | Selects simple products and product models whose identifier is in the given list |
+| `NOT IN` | _Array of existing simple product and product model identifiers_ | Selects simple products and product models whose identifier is not in the given list |
+| `EMPTY` | _No value needed to specify, empty string ("") can be used _ | Selects simple products and product models whose main identifier is empty |
+| `NOT EMPTY` | _No value needed to specify, empty string ("") can be used _ | Selects simple products and product models whose main identifier is not empty (note that this could select all your product catalog) |
 
 **Example**  
 The following selection will select the product with the `sku_54628` SKU, knowing that `sku` is the code of the identifier attribute.

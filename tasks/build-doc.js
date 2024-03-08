@@ -787,6 +787,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'homepage.md': 'Start building your App',
         'overview.md': 'Overview',
         'authentication-and-authorization.md': 'Authentication and authorization',
+        'secure-your-app.md': 'Secure your App',
         'catalogs.md': 'Catalogs for Apps',
         'app-developer-tools.md': 'Developer tools',
         'app-concepts-and-use-cases.md': 'App concepts and use cases',
@@ -825,11 +826,9 @@ gulp.task('build-app-portal', ['clean-dist','less'], function () {
         'get-started.md': 'Get started',
         'manage-your-team.md': 'Manage your team',
         'create-app-record.md': 'Create an app record',
-        'manage-app-information.md': 'Manage app information',
+        'publish-your-app.md': 'App Publication Requirements',
         'manage-app-notifications.md': 'Manage your app notifications',
         'manage-app-availability.md': 'Manage your app\'s availability',
-        'publish-your-app.md': 'App Publication Requirements',
-        'certify-your-app.md': 'Certify your app',
         'measure-app-performance.md': 'Measure app performance'
     };
 
@@ -1183,6 +1182,7 @@ gulp.task('build-tutorials', ['clean-dist', 'less'], function () {
 
 gulp.task('build-news', ['clean-dist','less'], function () {
     var pages = {
+        '2024.md': '2024',
         '2023.md': '2023',
         '2022.md': '2022',
         // 'whats-next.md': 'What\'s next?',

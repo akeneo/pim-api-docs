@@ -15,5 +15,5 @@ terraform {
     bucket = "akecld-terraform-pim-api-docs-prd"
     prefix = "services/prd"
   }
-  required_version = "= 1.1.7"
+  required_version = "= 1.6.5"
 }
