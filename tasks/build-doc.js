@@ -667,7 +667,7 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
         'homepage.md': 'Start building your App',
         'overview.md': 'Overview',
         'authentication-and-authorization.md': 'Authentication and authorization',
-        'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
+        'catalogs.md': 'Catalogs for Apps',
         'app-developer-tools.md': 'Developer tools',
         'app-concepts-and-use-cases.md': 'App concepts and use cases',
         'create-custom-app.md': 'Custom apps'
@@ -788,7 +788,7 @@ gulp.task('build-apps', ['clean-dist','less'], function () {
         'overview.md': 'Overview',
         'authentication-and-authorization.md': 'Authentication and authorization',
         'secure-your-app.md': 'Secure your App',
-        'catalogs.md': 'Catalogs for Apps <span class="label label-beta">Beta</span>',
+        'catalogs.md': 'Catalogs for Apps',
         'app-developer-tools.md': 'Developer tools',
         'app-concepts-and-use-cases.md': 'App concepts and use cases',
         'create-custom-app.md': 'Custom apps'
@@ -924,7 +924,7 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
 gulp.task('create-app-catalog-md', function () {
     return gulp.src(['content/php-client/resources/app-catalog/app-catalog.md','content/php-client/resources/app-catalog/app-catalog.md','content/php-client/resources/app-catalog/*.md'])
         .pipe(concat('app-catalog.md'))
-        .pipe(insert.prepend('## Catalogs for Apps <span class="label label-beta">Beta</span>\n'))
+        .pipe(insert.prepend('## Catalogs for Apps\n'))
         .pipe(gulp.dest('tmp/php-client-resources/'));
 });
 

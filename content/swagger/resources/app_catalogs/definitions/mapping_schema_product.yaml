@@ -1,84 +1,310 @@
 type: object
 required: ["$schema","properties"]
 properties:
-    $id:
-        type: string
-        description: id of your schema
-    $schema:
-        type: string
-        description: $schema indicates which product mapping schema version your app uses
-    $comment:
-        type: string
-        description: allows you to add a comment
-    title:
-        type: string
-        description: allows you to add a title to your mapping schema
-    description:
-        type: string
-        description: allows you to add a description of your mapping schema
-    type:
-        type: string
-        description: should always be "object"
-    properties:
-        type: object
-        description: list and describe the targets your app expects
+  $id:
+    type: string
+    description: id of your schema
+  $schema:
+    type: string
+    description: $schema indicates which product mapping schema version your app uses
+  $comment:
+    type: string
+    description: allows you to add a comment
+  title:
+    type: string
+    description: allows you to add a title to your mapping schema
+  description:
+    type: string
+    description: allows you to add a description of your mapping schema
+  type:
+    type: string
+    description: should always be "object"
+  properties:
+    type: object
+    description: list and describe the targets your app expects
 example: {
-  "$id": "https://example.com/product",
-  "$schema": "https://api.akeneo.com/mapping/product/0.0.6/schema",
-  "$comment": "My schema !",
-  "title": "Product Mapping",
-  "description": "JSON Schema describing the structure of products expected by our application",
-  "type": "object",
-  "properties": {
-    "uuid": {
-      "title": "Product UUID",
-      "type": "string"
+  "$id":"https://example.com/product",
+  "$schema":"https://api.akeneo.com/mapping/product/1.0.0/schema",
+  "type":"object",
+  "properties":{
+    "code":{
+      "title":"Model ID",
+      "type":"string"
     },
-    "sku": {
-      "title": "SKU (Stock Keeping Unit)",
-      "description": "Selling Partner SKU (stock keeping unit) identifier for the listing. \n SKU uniquely identifies a listing for a Selling Partner.",
-      "type": "string"
+    "brand":{
+      "title":"Brand name",
+      "type":"string"
     },
-    "name": {
-      "title": "Product name",
-      "type": "string"
+    "description":{
+      "title":"Product description",
+      "type":"string"
     },
-    "body_html": {
-      "title": "Description (textarea)",
-      "description": "Product description in raw HTML",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 255
+    "fabrics":{
+      "title":"Fabrics",
+      "type":"array",
+      "items":{
+        "type":"string"
+      }
     },
-    "main_image": {
-      "title": "Main image",
-      "description": "Format: URI/link",
-      "type": "string",
-      "format": "uri"
+    "localized_names":{
+      "title":"Name with multiple locales",
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"string"
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
     },
-    "main_color": {
-      "title": "Main color",
-      "description": "The main color of the product, used by grid filters on your e-commerce website.",
-      "type": "string"
+    "localized_number":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"number"
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
     },
-    "weight": {
-      "title": "Weight (g)",
-      "type": "number"
+    "localized_link":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"string",
+            "format":"uri"
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
     },
-    "available": {
-      "title": "Is available",
-      "description": "Used to display when a product is out of stock on your e-commerce website.",
-      "type": "boolean"
+    "localized_datetime":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"string",
+            "format":"date-time"
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
     },
-    "price": {
-      "title": "Price (€)",
-      "type": "number"
+    "localized_boolean":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "locale":{
+            "type":"string"
+          },
+          "value":{
+            "type":"boolean"
+          }
+        },
+        "required":[
+          "locale",
+          "value"
+        ]
+      }
     },
-    "publication_date": {
-      "title": "Publication date",
-      "description": "Format: ISO 8601 standard. \nUsed to filter products that must be published on your e-commerce website depending on the current date.",
-      "type": "string",
-      "format": "date-time"
+    "variation_axes":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "code":{
+            "type":"string"
+          },
+          "label":{
+            "type":"array",
+            "items":{
+              "type":"object",
+              "properties":{
+                "locale":{
+                  "type":"string"
+                },
+                "value":{
+                  "type":"string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "variants":{
+      "oneOf":[
+        {
+          "type":"string",
+          "format":"uri"
+        },
+        {
+          "type":"array",
+          "items":{
+            "type":"object",
+            "properties":{
+              "variation_axes_values":{
+                "type":"array",
+                "items":{
+                  "type":"object",
+                  "properties":{
+                    "code":{
+                      "type":"string"
+                    },
+                    "value":{
+                      "oneOf":[
+                        {
+                          "type":[
+                            "string",
+                            "boolean"
+                          ]
+                        },
+                        {
+                          "type":"object",
+                          "properties":{
+                            "amount":{
+                              "type":"number"
+                            },
+                            "unit":{
+                              "type":"string"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "label":{
+                      "type":"array",
+                      "items":{
+                        "type":"object",
+                        "properties":{
+                          "locale":{
+                            "type":"string"
+                          },
+                          "value":{
+                            "type":"string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "uuid":{
+                "title":"uuid",
+                "type":"string"
+              },
+              "sku":{
+                "title":"SKU",
+                "type":"string"
+              },
+              "position":{
+                "title":"Position",
+                "type":"number"
+              },
+              "price":{
+                "title":"Price",
+                "type":"string"
+              },
+              "response_time":{
+                "title":"Response time",
+                "type":"string"
+              },
+              "localized_product_photos_media_file":{
+                "title":"Photos with value per locale(links)",
+                "type":"array",
+                "items":{
+                  "type":"object",
+                  "properties":{
+                    "locale":{
+                      "type":"string"
+                    },
+                    "value":{
+                      "type":"array",
+                      "items":{
+                        "type":"string",
+                        "format":"uri"
+                      }
+                    }
+                  },
+                  "required":[
+                    "locale",
+                    "value"
+                  ]
+                }
+              },
+              "localized_prices":{
+                "title":"Price in multiple currencies with value per locale",
+                "type":"array",
+                "items":{
+                  "type":"object",
+                  "properties":{
+                    "locale":{
+                      "type":"string"
+                    },
+                    "value":{
+                      "type":"array",
+                      "items":{
+                        "type":"object",
+                        "properties":{
+                          "amount":{
+                            "type":"number"
+                          },
+                          "currency":{
+                            "type":"string"
+                          }
+                        },
+                        "required":[
+                          "amount",
+                          "currency"
+                        ]
+                      }
+                    }
+                  },
+                  "required":[
+                    "locale",
+                    "value"
+                  ]
+                }
+              }
+            },
+            "required":[
+              "uuid"
+            ]
+          }
+        }
+      ]
     }
   }
 }

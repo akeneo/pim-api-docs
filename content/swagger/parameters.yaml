@@ -162,7 +162,7 @@ with_position:
 updated_before:
   name: updated_before
   in: query
-  description: Filter products that have been updated BEFORE the provided date (Only available on Catalogs endpoints)
+  description: Filter products that have been updated BEFORE the provided date (Only available on Catalogs endpoints). This filter uses the PIM products updated date.
   type: string
   format: date
   required: false
@@ -170,7 +170,7 @@ updated_before:
 updated_after:
   name: updated_after
   in: query
-  description: Filter products that have been updated AFTER the provided date (Only available on Catalogs endpoints)
+  description: Filter products that have been updated AFTER the provided date (Only available on Catalogs endpoints). This filter uses the PIM products updated date.
   type: string
   format: date
   required: false
