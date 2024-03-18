@@ -4,8 +4,7 @@
 ::: php-client-availability all-versions ee-only
 
 ::: danger
-**Important update: Published Products discontinuation.** After careful consideration and in alignment with our long-term product vision,
-we have made the decision to remove this feature on February 28, 2024. [Learn more in the help center](https://help.akeneo.com/en_US/serenity-take-the-power-over-your-products/important-update-deprecation-of-the-published-products-feature-from-akeneo-pim)
+**Important update: Published Products discontinuation.** This feature is no longer actively supported and will soon be retired. We recommend exploring alternative solutions. [Learn more in the help center](https://help.akeneo.com/en_US/serenity-take-the-power-over-your-products/important-update-deprecation-of-the-published-products-feature-from-akeneo-pim)
 :::
 
 ```php
