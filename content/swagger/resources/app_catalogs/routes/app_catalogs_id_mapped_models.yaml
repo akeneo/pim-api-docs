@@ -47,36 +47,85 @@ get:
         - x-version: 'SaaS'
           x-example: {
                 "_links": {
-                    "self": {
-                        "href": "https://demo.akeneo.com/api/rest/v1/catalogs/d259aecf-3ec1-4b07-ae0f-ce234b86c025/mapped-products?limit=100"
-                    },
                     "first": {
-                        "href": "https://demo.akeneo.com/api/rest/v1/catalogs/d259aecf-3ec1-4b07-ae0f-ce234b86c025/mapped-products?limit=100"
+                        "href": "https://demo.akeneo.com/api/rest/v1/catalogs/232be0b2-093c-4591-a506-2a2ed5176721/mapped-models?limit=3"
+                    },
+                    "next": {
+                        "href": "https://demo.akeneo.com/api/rest/v1/catalogs/232be0b2-093c-4591-a506-2a2ed5176721/mapped-models?search_after=apollon&limit=3"
+                    },
+                    "self": {
+                        "href": "https://demo.akeneo.com/api/rest/v1/catalogs/232be0b2-093c-4591-a506-2a2ed5176721/mapped-models?limit=3"
                     }
                 },
                 "_embedded": {
                     "items": [
-                        {
-                            "uuid": "04f47a54-8cc9-4c51-90e9-eb9aace0865f",
-                            "title": "Canon Video Visualiser RE-455X",
-                            "code": "sku-1234"
-                        },
-                        {
-                            "uuid": "06dc8c5b-9e2f-4423-b9dd-31a3aaa0a048",
-                            "title": "Trust Cuby Pro",
-                            "code": "sku-1235"
-                        },
-                        {
-                            "uuid": "0c3635f9-fedc-4bbd-96ab-856f69746b56",
-                            "title": "Trust Urban Revolt",
-                            "code": "sku-1236"
-                        },
-                        {
-                            "uuid": "0e957ed4-fa44-48de-b6c7-7149d890fb3a",
-                            "title": "Microsoft LifeCam Studio",
-                            "code": "sku-1237"
-                        }
-                    ]
+                      {
+                        "code": "tshirt_akeneo",
+                        "title": "Beautiful t-shirt with Akeneo logo",
+                        "variants": "https://demo.akeneo.com/api/rest/v1/catalogs/232be0b2-093c-4591-a506-2a2ed5176721/mapped-models/tshirt_akeneo/variants",
+                        "variation_axes": [
+                          {
+                            "code": "color",
+                            "label": [
+                              {
+                                "locale": "en_US",
+                                "value": "Color"
+                              },
+                              {
+                                "locale": "fr_FR",
+                                "value": "Couleur"
+                              }
+                            ]
+                          },
+                          {
+                            "code": "size",
+                            "label": [
+                              {
+                                "locale": "en_US",
+                                "value": "Size"
+                              },
+                              {
+                                "locale": "fr_FR",
+                                "value": "Taille"
+                              }
+                            ]
+                          }
+                        ],
+                      },
+                      {
+                        "code": "tshirt_pim",
+                        "title": "Beautiful t-shirt with PIM logo",
+                        "variants": "https://demo.akeneo.com/api/rest/v1/catalogs/232be0b2-093c-4591-a506-2a2ed5176721/mapped-models/tshirt_pim/variants",
+                        "variation_axes": [
+                          {
+                            "code": "color",
+                            "label": [
+                              {
+                                "locale": "en_US",
+                                "value": "Color"
+                              },
+                              {
+                                "locale": "fr_FR",
+                                "value": "Couleur"
+                              }
+                            ]
+                          },
+                          {
+                            "code": "size",
+                            "label": [
+                              {
+                                "locale": "en_US",
+                                "value": "Size"
+                              },
+                              {
+                                "locale": "fr_FR",
+                                "value": "Taille"
+                              }
+                            ]
+                          }
+                        ],
+                      }
+                   ]
                 }
             }
     401:

@@ -51,36 +51,86 @@ get:
       x-examples-per-version:
         - x-version: 'SaaS'
           x-example: {
-                "_links": {
-                    "self": {
-                        "href": "https://demo.akeneo.com/api/rest/v1/catalogs/d259aecf-3ec1-4b07-ae0f-ce234b86c025/mapped-products?limit=100"
-                    },
-                    "first": {
-                        "href": "https://demo.akeneo.com/api/rest/v1/catalogs/d259aecf-3ec1-4b07-ae0f-ce234b86c025/mapped-products?limit=100"
-                    }
-                },
-                "_embedded": {
+              "_links": {
+                  "first": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/catalogs/232be0b2-093c-4591-a506-2a2ed5176721/mapped-models/tshirt_akeneo/variants?limit=100"
+                  },
+                  "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/catalogs/232be0b2-093c-4591-a506-2a2ed5176721/mapped-models/tshirt_akeneo/variants?limit=100"
+                  }
+              },
+              "_embedded": {
                     "items": [
-                        {
-                            "uuid": "04f47a54-8cc9-4c51-90e9-eb9aace0865f",
-                            "title": "Canon Video Visualiser RE-455X",
-                            "code": "sku-1234"
-                        },
-                        {
-                            "uuid": "06dc8c5b-9e2f-4423-b9dd-31a3aaa0a048",
-                            "title": "Trust Cuby Pro",
-                            "code": "sku-1235"
-                        },
-                        {
-                            "uuid": "0c3635f9-fedc-4bbd-96ab-856f69746b56",
-                            "title": "Trust Urban Revolt",
-                            "code": "sku-1236"
-                        },
-                        {
-                            "uuid": "0e957ed4-fa44-48de-b6c7-7149d890fb3a",
-                            "title": "Microsoft LifeCam Studio",
-                            "code": "sku-1237"
-                        }
+                      {
+                        "is_published": true,
+                        "sku": "AK10BLXL",
+                        "uuid": "6b025a71-537f-48d4-aa26-a6617d6199e9",
+                        "variant_axes_values": [
+                          {
+                            "code": "color",
+                            "label": [
+                              {
+                                "locale": "en_US",
+                                "value": "Blue"
+                              },
+                              {
+                                "locale": "fr_FR",
+                                "value": "Bleu"
+                              }
+                            ],
+                            "value": "blue"
+                          },
+                          {
+                            "code": "size",
+                            "label": [
+                              {
+                                "locale": "en_US",
+                                "value": "XL"
+                              },
+                              {
+                                "locale": "fr_FR",
+                                "value": "XL"
+                              }
+                            ],
+                            "value": "xl"
+                          }
+                        ]
+                      },
+                      {
+                          "is_published": true,
+                          "sku": "AK10YEXL",
+                          "uuid": "6b025a71-537f-48d4-aa26-a6617d6199e9",
+                          "variant_axes_values": [
+                              {
+                                  "code": "color",
+                                  "label": [
+                                      {
+                                        "locale": "en_US",
+                                        "value": "Yellow"
+                                      },
+                                      {
+                                        "locale": "fr_FR",
+                                        "value": "Jaune"
+                                      }
+                                  ],
+                                  "value": "yellow"
+                              },
+                              {
+                                  "code": "size",
+                                  "label": [
+                                      {
+                                        "locale": "en_US",
+                                        "value": "XL"
+                                      },
+                                      {
+                                        "locale": "fr_FR",
+                                        "value": "XL"
+                                      }
+                                  ],
+                                  "value": "xl"
+                              }
+                          ]
+                      }
                     ]
                 }
             }
