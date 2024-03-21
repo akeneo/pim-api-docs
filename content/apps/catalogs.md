@@ -153,7 +153,7 @@ Once your product mapping schema is ready, use the endpoint to [create or update
 
 ### Step 3:  Get mapped product data
 
-Finally, get product data using the endpoint to [get the list of mapped products related to a catalog](/api-reference.html#get_app_catalog_mapped_products).
+Finally, get product data using the three endpoints you could find [here](/api-reference.html#get_app_catalog_mapped_products).
 
 ### Step 4: Test your implementation
 
