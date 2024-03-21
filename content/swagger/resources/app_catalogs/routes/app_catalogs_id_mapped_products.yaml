@@ -1,12 +1,12 @@
 get:
-  summary: Get the list of mapped fattened products or simple products related to a catalog
+  summary: Get the list of mapped flattened products or simple products related to a catalog
   operationId: "get_app_catalog_mapped_products"
   tags:
     - Catalog products
   x-versions:
     - "SaaS"
   description: This endpoint is available when the mapping is enabled on a specified catalog. When the mapping is in a
-    basic mode, this endpoint allows you to get the list of all fattened products related to the catalog. When it's in
+    basic mode, this endpoint allows you to get the list of all flattened products related to the catalog. When it's in
     models/variants mode, this endpoint allows you to get the list of simple products with all specified targets in the
     two levels of the mapping schema. Please, note that a disabled catalog can return an HTTP 200 with a payload 
     containing an error message, for more details see the <a href="apps/catalogs.html#troubleshooting">App Catalog</a> 
