@@ -1,0 +1,142 @@
+get:
+  summary: Get the list of mapped variants of a model related to a catalog
+  operationId: "get_app_catalog_mapped_variants"
+  tags:
+    - Catalog products
+  x-versions:
+    - "SaaS"
+  description: This endpoint allows you to get the list of variants of a model related to a catalog when the mapping is
+    enabled. Please, note that a disabled catalog can return an HTTP 200 with a payload containing an error message,
+    for more details see the <a href="apps/catalogs.html#troubleshooting">App Catalog</a> section.
+  parameters:
+    - name: id
+      in: path
+      description: Catalog ID
+      required: true
+      type: string
+      format: uuid
+    - $ref: '#/parameters/search_after'
+    - name: limit
+      in: query
+      description: Number of results by page, see <a href="/documentation/pagination.html">Pagination</a> section
+      required: false
+      type: integer
+      minimum: 1
+      maximum: 100
+      default: 100
+    - name: model_code
+      in: path
+      description: Model code
+      required: true
+      type: string
+    - $ref: '#/parameters/updated_before'
+    - $ref: '#/parameters/updated_after'
+  responses:
+    200:
+      description: Return the paginated **mapped** variants
+      schema:
+        title: Products
+        type: object
+        allOf:
+          - $ref: '#/definitions/SearchAfterPagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: string
+                      format: uuid
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {
+              "_links": {
+                  "first": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/catalogs/232be0b2-093c-4591-a506-2a2ed5176721/mapped-models/tshirt_akeneo/variants?limit=100"
+                  },
+                  "self": {
+                      "href": "https://demo.akeneo.com/api/rest/v1/catalogs/232be0b2-093c-4591-a506-2a2ed5176721/mapped-models/tshirt_akeneo/variants?limit=100"
+                  }
+              },
+              "_embedded": {
+                    "items": [
+                      {
+                        "is_published": true,
+                        "sku": "AK10BLXL",
+                        "uuid": "6b025a71-537f-48d4-aa26-a6617d6199e9",
+                        "variant_axes_values": [
+                          {
+                            "code": "color",
+                            "label": [
+                              {
+                                "locale": "en_US",
+                                "value": "Blue"
+                              },
+                              {
+                                "locale": "fr_FR",
+                                "value": "Bleu"
+                              }
+                            ],
+                            "value": "blue"
+                          },
+                          {
+                            "code": "size",
+                            "label": [
+                              {
+                                "locale": "en_US",
+                                "value": "XL"
+                              },
+                              {
+                                "locale": "fr_FR",
+                                "value": "XL"
+                              }
+                            ],
+                            "value": "xl"
+                          }
+                        ]
+                      },
+                      {
+                          "is_published": true,
+                          "sku": "AK10YEXL",
+                          "uuid": "6b025a71-537f-48d4-aa26-a6617d6199e9",
+                          "variant_axes_values": [
+                              {
+                                  "code": "color",
+                                  "label": [
+                                      {
+                                        "locale": "en_US",
+                                        "value": "Yellow"
+                                      },
+                                      {
+                                        "locale": "fr_FR",
+                                        "value": "Jaune"
+                                      }
+                                  ],
+                                  "value": "yellow"
+                              },
+                              {
+                                  "code": "size",
+                                  "label": [
+                                      {
+                                        "locale": "en_US",
+                                        "value": "XL"
+                                      },
+                                      {
+                                        "locale": "fr_FR",
+                                        "value": "XL"
+                                      }
+                                  ],
+                                  "value": "xl"
+                              }
+                          ]
+                      }
+                    ]
+                }
+            }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403CatalogError"
+    404:
+      $ref: "#/responses/404CatalogError"

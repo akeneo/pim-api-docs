@@ -177,6 +177,10 @@
   $ref: ./resources/app_catalogs/routes/app_catalogs_mapping_schema_product.yaml
 /api/rest/v1/catalogs/{id}/mapped-products:
   $ref: ./resources/app_catalogs/routes/app_catalogs_id_mapped_products.yaml
+/api/rest/v1/catalogs/{id}/mapped-models:
+  $ref: ./resources/app_catalogs/routes/app_catalogs_id_mapped_models.yaml
+/api/rest/v1/catalogs/{id}/mapped-models/{model_code}/variants:
+  $ref: ./resources/app_catalogs/routes/app_catalogs_id_mapped_variants.yaml
 
 /api/rest/v1:
   $ref: ./resources/list_endpoints.yaml
