@@ -24,19 +24,22 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  *             [
  *                 'locale' => null,
  *                 'scope' => null,
- *                 'data' => 'top'
+ *                 'data' => 'top',
+ *                 'attribute_type' => 'pim_catalog_identifier'
  *             ]
  *         ],
  *         'name' => [
  *              [
  *                  'data' => 'Top',
  *                  'locale' => 'en_US',
- *                  'scope' => null
+ *                  'scope' => null,
+ *                  'attribute_type' => 'pim_catalog_text'
  *              ],
  *              [
  *                  'data' => 'Débardeur',
  *                  'locale' => 'fr_FR',
- *                  'scope' => null
+ *                  'scope' => null,
+ *                  'attribute_type' => 'pim_catalog_text'
  *              ],
  *         ],
  *     ],

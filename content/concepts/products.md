@@ -174,7 +174,7 @@ A product value follows this format:
         "data": DATA_INFORMATION,
         "linked_data": LINKED_DATA,
         "attribute_type": ATTRIBUTE_TYPE,
-        "reference_data_name": REFERENCE_DATA_NAME,
+        "reference_data_name": REFERENCE_DATA_NAME
       }
     ]
   }
@@ -186,8 +186,12 @@ In this formula:
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
  - `LINKED_DATA` containing the attribute option labels if the attribute is a simple or multi select. [Check some examples here.](#the-linked_data-format) This property is only available since the 5.0.
- - `ATTRIBUTE_TYPE` is the type of the value's attribute
- - `REFERENCE_DATA_NAME` is the code of the referenced data if the attribute is an asset collection or reference entity (multi and simple).
+ - `ATTRIBUTE_TYPE` is the type of the value's attribute. (Only available in the SaaS version)
+ - `REFERENCE_DATA_NAME` is the reference entity code when the attribute type is `akeneo_reference_entity` or `akeneo_reference_entity_collection` OR Asset family code when the attribute type is `pim_catalog_asset_collection`. (Only available in the SaaS version)
+
+:::info
+Note that `attribute_type` and `reference_data_name` properties are read-only. You won't be able to patch or post it.
+:::
 
 ### The `data` format
 The sections below describe the format of the `data` property for each [product attribute](/concepts/catalog-structure.html#attribute) type.

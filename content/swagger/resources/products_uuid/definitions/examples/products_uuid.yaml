@@ -34,6 +34,7 @@ x-SaaS: {
               "data": "top",
               "locale": null,
               "scope": null,
+              "attribute_type": "pim_catalog_identifier"
             }
           ],
           "name": [
@@ -41,33 +42,39 @@ x-SaaS: {
               "data": "Top",
               "locale": "en_US",
               "scope": null,
+              "attribute_type": "pim_catalog_text"
             },
             {
               "data": "Débardeur",
               "locale": "fr_FR",
               "scope": null,
+              "attribute_type": "pim_catalog_text"
             }
           ],
           "description": [
             {
               "data": "Summer top",
               "locale": "en_US",
-              "scope": "ecommerce"
+              "scope": "ecommerce",
+              "attribute_type": "pim_catalog_textarea"
             },
             {
               "data": "Top",
               "locale": "en_US",
-              "scope": "tablet"
+              "scope": "tablet",
+              "attribute_type": "pim_catalog_textarea"
             },
             {
               "data": "Débardeur pour l'été",
               "locale": "fr_FR",
-              "scope": "ecommerce"
+              "scope": "ecommerce",
+              "attribute_type": "pim_catalog_textarea"
             },
             {
               "data": "Débardeur",
               "locale": "fr_FR",
-              "scope": "tablet"
+              "scope": "tablet",
+              "attribute_type": "pim_catalog_textarea"
             }
           ],
           "price": [
@@ -81,7 +88,8 @@ x-SaaS: {
                 {
                   "amount": "15", "currency": "USD"
                 }
-              ]
+              ],
+              "attribute_type": "pim_catalog_price_collection"
             }
           ],
           "color": [
@@ -96,7 +104,8 @@ x-SaaS: {
                   "en_US": "Black",
                   "fr_FR": "Noir"
                 }
-              }
+              },
+              "attribute_type": "pim_catalog_simpleselect"
             }
           ],
           "size": [
@@ -111,7 +120,8 @@ x-SaaS: {
                   "en_US": "M",
                   "fr_FR": "M"
                 }
-              }
+              },
+              "attribute_type": "pim_catalog_simpleselect"
             }
           ],
           "collection": [
@@ -130,7 +140,8 @@ x-SaaS: {
                     "fr_FR": "Hiver 2016"
                   }
                 }
-              }
+              },
+              "attribute_type": "pim_catalog_multiselect"
             }
           ]
         },
