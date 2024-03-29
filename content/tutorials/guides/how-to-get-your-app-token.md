@@ -93,7 +93,7 @@ if you use a local version of PIM, skip this step
 :::
 
 Use ngrok to create a tunnel that allows your App to be accessed using a unique HTTPS URL.
-You need to [create an ngrok account](https://ngrok.com/) and [auth token](https://dashboard.ngrok.com/auth/your-authtoken) to preview your App.
+You need to [create an ngrok account](https://ngrok.com/) and [set up it](https://dashboard.ngrok.com/get-started/setup).
 
 ```shell
 
