@@ -97,6 +97,13 @@ with_count:
   default: false
   type: boolean
   required: false
+with_count_for_catalogs:
+  name: with_count
+  in: query
+  description: Return the count of items in the response.
+  default: false
+  type: boolean
+  required: false
 with_attribute_options:
   name: with_attribute_options
   in: query
