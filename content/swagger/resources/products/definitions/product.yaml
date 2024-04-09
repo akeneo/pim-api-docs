@@ -68,6 +68,17 @@ properties:
                   type: string
                 labels:
                   type: object
+            attribute_type:
+                type: string
+                x-read-only: true
+                x-from-version: "SaaS"
+                description: The type of the value's attribute. See <a href='/concepts/catalog-structure.html#attribute'>type</a> section for more details.
+            reference_data_name:
+                type: string
+                x-read-only: true
+                x-from-version: "SaaS"
+                description: Reference entity code when the attribute type is `akeneo_reference_entity` or `akeneo_reference_entity_collection` OR Asset family code when the attribute type is `pim_catalog_asset_collection`
+                x-warning: Only for `akeneo_reference_entity` or `akeneo_reference_entity_collection` or `pim_catalog_asset_collection` attribute types
   associations:
     type: object
     description: Several associations related to groups, product models and/or other products, grouped by association types
@@ -178,33 +189,39 @@ example: {
         "data": "Top",
         "locale": "en_US",
         "scope": null,
+        "attribute_type": "pim_catalog_text"
       },
       {
         "data": "Débardeur",
         "locale": "fr_FR",
         "scope": null,
+        "attribute_type": "pim_catalog_text"
       }
     ],
     "description": [
       {
         "data": "Summer top",
         "locale": "en_US",
-        "scope": "ecommerce"
+        "scope": "ecommerce",
+        "attribute_type": "pim_catalog_textarea"
       },
       {
         "data": "Top",
         "locale": "en_US",
-        "scope": "tablet"
+        "scope": "tablet",
+        "attribute_type": "pim_catalog_textarea"
       },
       {
         "data": "Débardeur pour l'été",
         "locale": "fr_FR",
-        "scope": "ecommerce"
+        "scope": "ecommerce",
+        "attribute_type": "pim_catalog_textarea"
       },
       {
         "data": "Débardeur",
         "locale": "fr_FR",
-        "scope": "tablet"
+        "scope": "tablet",
+        "attribute_type": "pim_catalog_textarea"
       }
     ],
     "price": [
@@ -218,7 +235,8 @@ example: {
           {
             "amount": "15", "currency": "USD"
           }
-        ]
+        ],
+        "attribute_type": "pim_catalog_price_collection"
       }
     ],
     "color": [
@@ -233,7 +251,8 @@ example: {
             "en_US": "Black",
             "fr_FR": "Noir"
           }
-        }
+        },
+        "attribute_type": "pim_catalog_simpleselect"
       }
     ],
     "size": [
@@ -248,7 +267,8 @@ example: {
             "en_US": "M",
             "fr_FR": "M"
           }
-        }
+        },
+        "attribute_type": "pim_catalog_simpleselect"
       }
     ],
     "collection": [
@@ -267,7 +287,8 @@ example: {
               "fr_FR": "Hiver 2016"
             }
           }
-        }
+        },
+        "attribute_type": "pim_catalog_multiselect"
       }
     ]
   },

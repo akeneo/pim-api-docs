@@ -172,7 +172,9 @@ A product value follows this format:
         "locale": LOCALE_CODE,
         "scope": CHANNEL_CODE,
         "data": DATA_INFORMATION,
-        "linked_data": LINKED_DATA
+        "linked_data": LINKED_DATA,
+        "attribute_type": ATTRIBUTE_TYPE,
+        "reference_data_name": REFERENCE_DATA_NAME
       }
     ]
   }
@@ -184,6 +186,12 @@ In this formula:
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable, should be equal to `null` otherwise. [Check some examples here.](#the-locale-and-scope-format)
  - `DATA_INFORMATION` is the value stored for this attribute for this locale (if attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
  - `LINKED_DATA` containing the attribute option labels if the attribute is a simple or multi select. [Check some examples here.](#the-linked_data-format) This property is only available since the 5.0.
+ - `ATTRIBUTE_TYPE` is the type of the value's attribute. (Only available in the SaaS version)
+ - `REFERENCE_DATA_NAME` is the reference entity code when the attribute type is `akeneo_reference_entity` or `akeneo_reference_entity_collection` OR Asset family code when the attribute type is `pim_catalog_asset_collection`. (Only available in the SaaS version)
+
+:::info
+Note that `attribute_type` and `reference_data_name` properties are read-only. You won't be able to patch or post it.
+:::
 
 ### The `data` format
 The sections below describe the format of the `data` property for each [product attribute](/concepts/catalog-structure.html#attribute) type.
@@ -202,7 +210,8 @@ Whenever the attribute's type is either `pim_catalog_text` or `pim_catalog_texta
       {
         "locale": null,
         "scope": null,
-        "data": "Tshirt long sleeves\nWinter special, 100% whool"
+        "data": "Tshirt long sleeves\nWinter special, 100% whool",
+        "attribute_type": "pim_catalog_text"
       }
     ]
   }
@@ -223,7 +232,8 @@ Whenever the attribute's type is either `pim_catalog_file` or `pim_catalog_image
       {
         "locale": null,
         "scope": null,
-        "data": "f/2/e/6/f2e6674e0766acdc70f814_myFile.pdf"
+        "data": "f/2/e/6/f2e6674e0766acdc70f814_myFile.pdf",
+        "attribute_type": "pim_catalog_file"
       }
     ]
   }
@@ -244,7 +254,8 @@ Whenever the attribute's type is `pim_catalog_date`, the `data` field should con
       {
         "locale": null,
         "scope": null,
-        "data": "2021-04-29T08:58:00.101Z"
+        "data": "2021-04-29T08:58:00.101Z",
+        "attribute_type": "pim_catalog_date"
       }
     ]
   }
@@ -265,7 +276,8 @@ Whenever the attribute's type is `pim_catalog_simpleselect`, the `data` field sh
       {
         "locale": null,
         "scope": null,
-        "data": "blue"
+        "data": "blue",
+        "attribute_type": "pim_catalog_simpleselect"
       }
     ]
   }
@@ -282,7 +294,8 @@ Whenever the attribute's type is `pim_catalog_multiselect`, the `data` field sho
       {
         "locale": null,
         "scope": null,
-        "data": ["leather", "cotton"]
+        "data": ["leather", "cotton"],
+        "attribute_type": "pim_catalog_multiselect"
       }
     ]
   }
@@ -309,7 +322,9 @@ Whenever the attribute's type is `pim_catalog_reference_data_simpleselect`, the 
       {
         "locale": null,
         "scope": null,
-        "data": "bouroullec"
+        "data": "bouroullec",
+        "attribute_type": "pim_catalog_reference_data_simpleselect",
+        "reference_data_name": "designer_ref"
       }
     ]
   }
@@ -326,7 +341,8 @@ Whenever the attribute's type is `pim_catalog_reference_data_multiselect`, the `
       {
         "locale": null,
         "scope": null,
-        "data": ["winter_2019", "spring_2020"]
+        "data": ["winter_2019", "spring_2020"],
+        "attribute_type": "pim_catalog_reference_data_multiselect"
       }
     ]
   }
@@ -349,7 +365,8 @@ Whenever the attribute's type is `pim_catalog_number`, the `data` field should c
       {
         "locale": null,
         "scope": null,
-        "data": 40
+        "data": 40,
+        "attribute_type": "pim_catalog_number"
       }
     ]
   }
@@ -362,7 +379,8 @@ Whenever the attribute's type is `pim_catalog_number`, the `data` field should c
       {
         "locale": null,
         "scope": null,
-        "data": "89.897"
+        "data": "89.897",
+        "attribute_type": "pim_catalog_number"
       }
     ]
   }
@@ -388,7 +406,8 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
         "data": {
           "amount":10,
           "unit": "KILOWATT"
-        }
+        },
+        "attribute_type": "pim_catalog_metric"
       }
     ]
   }
@@ -404,7 +423,8 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
         "data": {
           "amount":"25.45",
           "unit": "CENTIMETER"
-        }
+        },
+        "attribute_type": "pim_catalog_metric"
       }
     ]
   }
@@ -432,7 +452,8 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
             "amount":200,
             "currency": "USD"
           }
-        ]
+        ],
+        "attribute_type": "pim_catalog_price"
       }
     ]
   }
@@ -450,7 +471,8 @@ Whenever the attribute's type is `pim_catalog_price`, the `data` field should co
             "amount":"25.50",
             "currency": "EUR"
           }
-        ]
+        ],
+        "attribute_type": "pim_catalog_price"
       }
     ]
   }
@@ -471,7 +493,8 @@ Whenever the attribute's type is `pim_catalog_boolean`, the `data` field should 
       {
         "locale": null,
         "scope": null,
-        "data": true
+        "data": true,
+        "attribute_type": "pim_catalog_boolean"
       }
     ]
   }
@@ -492,7 +515,9 @@ Whenever the attribute's type is `akeneo_reference_entity`, the `data` field sho
       {
         "locale": null,
         "scope": null,
-        "data": "bouroullec"
+        "data": "bouroullec",
+        "attribute_type": "akeneo_reference_entity",
+        "reference_data_name": "designer_ref"
       }
     ]
   }
@@ -509,7 +534,9 @@ Whenever the attribute's type is `akeneo_reference_entity_collection`, the `data
       {
         "locale": null,
         "scope": null,
-        "data": ["winter_2019", "spring_2020"]
+        "data": ["winter_2019", "spring_2020"],
+        "attribute_type": "akeneo_reference_entity_collection",
+        "reference_data_name": "designer_ref"
       }
     ]
   }
@@ -530,7 +557,9 @@ Whenever the attribute's type is `pim_assets_collection`, the `data` field shoul
       {
         "locale": null,
         "scope": null,
-        "data": ["guarantee_notice", "how_to_guide"]
+        "data": ["guarantee_notice", "how_to_guide"],
+        "attribute_type": "pim_assets_collection",
+        "reference_data_name": "guides_images"
       }
     ]
   }
@@ -551,7 +580,9 @@ Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` fiel
       {
         "locale": null,
         "scope": null,
-        "data": ["allie_jean_frontview", "allie_jean_backview"]
+        "data": ["allie_jean_frontview", "allie_jean_backview"],
+        "attribute_type": "pim_assets_collection",
+        "reference_data_name": "packshots"
       }
     ]
   }
@@ -603,7 +634,8 @@ Whenever the attribute type is `pim_catalog_table`, the `data` field should cont
           {
               "composition": "Frozen"
           }
-        ]
+        ],
+        "attribute_type": "pim_catalog_table"
       }
     ]
   }
@@ -635,12 +667,14 @@ The `short_description` attribute is localizable but not scopable, so it can hol
     {
       "locale": "en_US",
       "scope": null,
-      "data": "Tshirt long sleeves"
+      "data": "Tshirt long sleeves",
+      "attribute_type": "pim_catalog_textarea"
     },
     {
       "locale": "fr_FR",
       "scope": null,
-      "data": "Tshirt manches longues"
+      "data": "Tshirt manches longues",
+      "attribute_type": "pim_catalog_textarea"
     }
   ]
 }
@@ -658,12 +692,14 @@ The `release_date` attribute is scopable but not localizable, so it can hold sev
     {
       "locale": null,
       "scope": "ecommerce",
-      "data": "2012-03-13T00:00:00+01:00"
+      "data": "2012-03-13T00:00:00+01:00",
+      "attribute_type": "pim_catalog_date"
     },
     {
       "locale": null,
       "scope": "mobile",
-      "data": "2012-04-23T00:00:00+01:00"
+      "data": "2012-04-23T00:00:00+01:00",
+      "attribute_type": "pim_catalog_date"
     }
   ]
 }
@@ -681,32 +717,38 @@ The `description` attribute is both scopable and localizable, so it can hold sev
     {
       "locale": "de_DE",
       "scope": "mobile",
-      "data": "Akeneo Mug"
+      "data": "Akeneo Mug",
+      "attribute_type": "pim_catalog_textarea"
     },
     {
       "locale": "de_DE",
       "scope": "print",
-      "data": "Akeneo Mug"
+      "data": "Akeneo Mug",
+      "attribute_type": "pim_catalog_textarea"
     },
     {
       "locale": "en_US",
       "scope": "mobile",
-      "data": "Akeneo Mug"
+      "data": "Akeneo Mug",
+      "attribute_type": "pim_catalog_textarea"
     },
     {
       "locale": "en_US",
       "scope": "print",
-      "data": "Akeneo Mug"
+      "data": "Akeneo Mug",
+      "attribute_type": "pim_catalog_textarea"
     },
     {
       "locale": "fr_FR",
       "scope": "mobile",
-      "data": "Mug Akeneo"
+      "data": "Mug Akeneo",
+      "attribute_type": "pim_catalog_textarea"
     },
     {
       "locale": "fr_FR",
       "scope": "print",
-      "data": "Mug Akeneo"
+      "data": "Mug Akeneo",
+      "attribute_type": "pim_catalog_textarea"
     }
   ]
 }
@@ -721,7 +763,8 @@ The `main_color` attribute is neither scopable nor localizable, so it can hold o
     {
       "locale": null,
       "scope": null,
-      "data": "black"
+      "data": "black",
+      "attribute_type": "pim_catalog_simpleselect"
     }
   ]
 }
@@ -832,7 +875,9 @@ Whenever the attribute type is `pim_catalog_asset_collection`, the `linked_data`
             }
           ]
         }
-      }
+      },
+      "attribute_type": "pim_catalog_asset_collection",
+      "reference_data_name": "asset_ref"
     }
   ]
 }
