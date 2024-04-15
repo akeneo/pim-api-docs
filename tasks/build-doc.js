@@ -625,6 +625,78 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
   }
 );
 
+gulp.task('build-graphql-essentials', ['clean-dist','less'], function () {
+        var pages = {
+            'what-is-graphql.md': "What is the GraphQL API?",
+            'compatibility.md': 'Compatibility',
+            'limitations.md': 'Limitations'
+        };
+
+        var isOnePage = false;
+
+        return gulp.src('content/graphql/essentials/*.md')
+            .pipe(flatmap(function(stream, file){
+                return gulp.src('content/graphql/essentials/*.md')
+                    .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                    .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/graphql/essentials') + "\n"))
+                    .pipe(gulpMarkdownIt(md))
+                    .pipe(gulp.dest('tmp/graphql/essentials/'))
+                    .on('end', function () {
+                        return gulp.src('src/partials/graphql-documentation.handlebars')
+                            .pipe(gulpHandlebars({
+                                active_api_resources: true,
+                                title: 'The GraphQL API',
+                                description: getPageDescription(file.path),
+                                mainContent: fs.readFileSync('tmp/graphql/essentials/' + path.basename(file.path).replace(/\.md/, '.html'))
+                            }, {
+                                partialsDirectory: ['./src/partials']
+                            }))
+                            .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                            .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                            .pipe(gulp.dest('./dist/graphql/essentials'));
+                    })
+            }));
+    }
+);
+
+gulp.task('build-graphql-set-up', ['clean-dist','less'], function () {
+        var pages = {
+            'getting-started.md': "Getting started",
+            'graphiql.md': "How to use GraphiQL?",
+            'integration.md': "Integrate GraphQL into your project",
+            'aliases.md': "Customize output field name with aliases",
+            'pagination.md': "Working with pagination",
+            'error-codes.md': "Status and error codes",
+            'complexity.md': "Complexity calculation"
+        };
+
+        var isOnePage = false;
+
+        return gulp.src('content/graphql/setup/*.md')
+            .pipe(flatmap(function(stream, file){
+                return gulp.src('content/graphql/setup/*.md')
+                    .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                    .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/graphql/setup') + "\n"))
+                    .pipe(gulpMarkdownIt(md))
+                    .pipe(gulp.dest('tmp/graphql/setup/'))
+                    .on('end', function () {
+                        return gulp.src('src/partials/graphql-documentation.handlebars')
+                            .pipe(gulpHandlebars({
+                                active_api_resources: true,
+                                title: 'The GraphQL API',
+                                description: getPageDescription(file.path),
+                                mainContent: fs.readFileSync('tmp/graphql/setup/' + path.basename(file.path).replace(/\.md/, '.html'))
+                            }, {
+                                partialsDirectory: ['./src/partials']
+                            }))
+                            .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                            .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                            .pipe(gulp.dest('./dist/graphql/setup'));
+                    })
+            }));
+    }
+);
+
 gulp.task('build-events-api', ['clean-dist','less'], function () {
 
     var pages = {
