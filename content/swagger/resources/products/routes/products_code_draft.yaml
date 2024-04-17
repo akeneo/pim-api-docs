@@ -13,6 +13,7 @@ get:
     - "SaaS"
   x-ee: true
   description: This endpoint allows you to get the information about a given draft.
+  x-information: TODO PRODUCT DRAFT
   parameters:
     - $ref: '#/parameters/code'
   responses:

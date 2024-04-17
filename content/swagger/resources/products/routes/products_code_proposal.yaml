@@ -13,6 +13,7 @@ post:
     - "SaaS"
   x-ee: true
   description: This endpoint allows you to submit a draft for approval.
+  x-information: TODO PRODUCT CODE PROPOSAL
   parameters:
     - $ref: '#/parameters/code'
   responses:

@@ -83,6 +83,7 @@ delete:
     - "7.0"
     - "SaaS"
   description: This endpoint allows you to delete a given product. In the Enterprise Edition, since the 2.0, permissions based on your user groups are applied to the product you try to delete.
+  x-information: TODO PRODUCTS CODE
   parameters:
     - $ref: '#/parameters/code'
   responses:

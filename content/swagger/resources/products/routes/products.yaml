@@ -13,6 +13,7 @@ get:
     - "7.0"
     - "SaaS"
   description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered. In the Enterprise Edition, since the 2.0, permissions based on your user groups are applied to the set of products you request.
+  x-information: This endpoint is useful when you already have a product identifier within your systems. This identifier, which could be a SKU or internal code, can be used to directly interact with the corresponding product in our API. This simplifies integration for workflows that rely on existing product identification methods.
   parameters:
     - name: search
       in: query

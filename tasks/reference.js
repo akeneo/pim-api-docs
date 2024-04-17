@@ -147,6 +147,10 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                             if(category.includes('Published products')) {
                                 data.categories[escapeCategory].isPublishedProduct = true;
                             }
+
+                            // TODO : REMOVE
+                            console.log(data.categories[escapeCategory]);
+
                             data.categories[escapeCategory].resources[escapeTag].operations[operation.operationId] = _.extend(operation, {
                                 verb: verb,
                                 path: pathUri

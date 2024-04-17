@@ -929,8 +929,9 @@ gulp.task('create-app-catalog-md', function () {
 });
 
 gulp.task('create-products-md', function () {
-    return gulp.src(['content/php-client/resources/products/products.md',
+    return gulp.src([
         'content/php-client/resources/products/products-uuid.md',
+        'content/php-client/resources/products/products.md',
         'content/php-client/resources/products/product-models.md',
         'content/php-client/resources/products/product-drafts-uuid.md',
         'content/php-client/resources/products/*.md'])

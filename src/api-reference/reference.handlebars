@@ -107,6 +107,11 @@
                                                 {{/if}}
                                             </h3>
                                             <p>{{{description}}}</p>
+                                            {{#if x-information}}
+                                                <p>
+                                                    {{x-information}}
+                                                </p>
+                                            {{/if}}
                                             <p>
                                                 <em class="small text-primary">Available in PIM versions:</em>
                                                 {{#each x-versions as |version versionId|}}

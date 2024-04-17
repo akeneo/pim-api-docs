@@ -74,6 +74,23 @@
                                     We recommend exploring alternative solutions. <a target="_blank" href="https://help.akeneo.com/en_US/serenity-take-the-power-over-your-products/important-update-deprecation-of-the-published-products-feature-from-akeneo-pim">Learn more in the help center.</a></p>
                             </div>
                         {{/if}}
+                        {{#ifEquals resourceId "Productidentifier"}}
+                            <a class="anchor" id="{{{categoryId}}}"></a>
+                                <div class="alert alert-danger">
+                                    This endpoint is useful when you already have a product identifier within your systems.
+                                    This identifier, which could be a SKU or internal code, can be used to directly interact with the corresponding product in our API.
+                                    This simplifies integration for workflows that rely on existing product identification methods.
+                                </div>
+                        {{/ifEquals}}
+                        {{#ifEquals resourceId "Productuuid"}}
+                            <a class="anchor" id="{{{categoryId}}}"></a>
+                                <div class="alert alert-danger">
+                                    We strongly recommend using this endpoint for its reliability and flexibility.
+                                    UUIDs, or Universally Unique Identifiers, are guaranteed to be unique and never change, even if other product identifiers like SKUs are modified.
+                                    This ensures consistent product identification regardless of future changes.
+                                    Additionally, UUIDs allow interaction with products that lack a traditional identifier.
+                                </div>
+                        {{/ifEquals}}
                         <div class="list-group">
                             {{#each resource.operations as |operation operationId|}}
                                 <a class="list-group-item" href="{{../../../htmlReferencefileName}}.html#{{{operationId}}}">
