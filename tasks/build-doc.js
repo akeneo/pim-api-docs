@@ -639,7 +639,7 @@ gulp.task('build-graphql-essentials', ['clean-dist','less'], function () {
                 return gulp.src('content/graphql/essentials/*.md')
                     .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
                     .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/graphql/essentials') + "\n"))
-                    .pipe(gulpMarkdownIt(md))
+                    .pipe(gulpMarkdownIt(mdGt))
                     .pipe(gulp.dest('tmp/graphql/essentials/'))
                     .on('end', function () {
                         return gulp.src('src/partials/graphql-documentation.handlebars')
@@ -677,7 +677,7 @@ gulp.task('build-graphql-set-up', ['clean-dist','less'], function () {
                 return gulp.src('content/graphql/setup/*.md')
                     .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
                     .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/graphql/setup') + "\n"))
-                    .pipe(gulpMarkdownIt(md))
+                    .pipe(gulpMarkdownIt(mdGt))
                     .pipe(gulp.dest('tmp/graphql/setup/'))
                     .on('end', function () {
                         return gulp.src('src/partials/graphql-documentation.handlebars')
