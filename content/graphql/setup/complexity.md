@@ -225,14 +225,14 @@ query MyQuery {
 
 `QueryInformation` is always free of cost.
 
-The calculation start in the `items` node.
-`items` cost 5 for the basic cost of requesting an object.
-`items.uuid` cost 1, the scalarCost.
-`item.variationValues` cost 5 because it’s a special field that costs more than a classic scalar.
+The calculation starts in the `items` node.
+`items` costs 5 for the basic cost of requesting an object.
+`items.uuid` costs 1, the scalarCost.
+`item.variationValues` costs 5 because it’s a special field that costs more than a classic scalar.
 `item.attributes` total cost is 9 and is computed as follows :
-- `item.attributes` alone cost 5  for the cost of requesting an entity
-- `item.attributes.code` cost 1x2 (depthcostFactor) = 2
-- `item.attributes.value` cost 1x2 (depthcostFactor) = 2
+- `item.attributes` alone costs 5  for the cost of requesting an entity
+- `item.attributes.code` costs 1x2 (depthcostFactor) = 2
+- `item.attributes.value` costs 1x2 (depthcostFactor) = 2
 
 The result is `5 + 1 + 5 + 9 = 20`
 
