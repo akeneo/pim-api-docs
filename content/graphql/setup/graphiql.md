@@ -176,7 +176,7 @@ curl -X POST https://graphql.sdk.akeneo.cloud \
 [GraphiQL live example](https://graphql.sdk.akeneo.cloud?query=%7B%0A++products%28search%3A+%22%7B%5C%22updated%5C%22%3A%5B%7B%5C%22operator%5C%22%3A%5C%22SINCE+LAST+N+DAYS%5C%22%2C%5C%22value%5C%22%3A4%7D%5D%7D%22%29+%7B%0A++++links+%7B%0A++++++next%0A++++%7D%0A++++items+%7B%0A++++++uuid%0A++++%7D%0A++%7D%0A%7D)
 :::
 
-When we follow the documentation on the filters https://api.akeneo.com/documentation/filter.html we can see some examples of searches :
+When we follow the documentation on the filters https://api.akeneo.com/documentation/filter.html we can see some examples of searches:
 
 - `{"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}`
 - `{"created":[{"operator":"=","value":"2016-07-04 10:00:00"}]}`
