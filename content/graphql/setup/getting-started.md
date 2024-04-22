@@ -1,38 +1,19 @@
 # Getting started
 
-To use the **GraphQL API**, you need a PIM token that will allow the API to connect with a PIM of your choice. 
-Follow the steps below to obtain it.
+As GraphQL aggregates the GET Rest API calls, a Rest API Token is required to use GraphQL.
 
-# Step 1: Create a connection
+## Step 1: Get your token
+### Using a connection
+To generate a token from a connection you will need:
 
-- Log in to your PIM, go to Connect > Connection settings, and click “Create” to create a new connection.
-- Enter a label for your connection and let “Data source” for your Flow type.
+* A **clientId/clientSecret** in addition of a **username/password**, you can find all the detail [here](https://api.akeneo.com/getting-started/your-first-tutorial-4x/step-1.html#step-1-create-a-connection)
 
-![Create a connection](../../img/graphql/create-a-connection.png)
+You can now ask for a token using a dedicated GraphQL query, to execute it:
 
-- Your new connection has been successfully created! You should see a screen similar to the one shown below.
-
-![New connection](../../img/graphql/new-connection.png)
-
-:::warning
-Don’t close this page without putting it in a secure place the password. You will not be able to recover it later. In case it happens, you can always regenerate it.
-:::
-
-:::warning
-Set the role and group correctly before closing, or you may not have access to particular data.
-:::
-
-# Step 2: Ask for an access token
-
-We have created a GraphQL query that retrieves one-hour validation access tokens.
-
-To execute this query:
-
-- Go to [https://graphql.sdk.akeneo.cloud](https://graphql.sdk.akeneo.cloud/).
+- Go to [https://graphql.sdk.akeneo.cloud](https://graphql.sdk.akeneo.cloud/), a GraphQL in browser will be displayed and allow you to execute queries.
 - Replace `my-username`, `my-password`, `my-client-id`, and `my-client-secret` found on the connection page in the following query.
 
 ```graphql [snippet:GraphQL]
-
 {
   token(
     username: "my-username"
@@ -46,34 +27,91 @@ To execute this query:
   }
 }
 ```
+- Enter the previous query on the left panel
 
-- Add header information.
+- Add header information on the bottom left panel
 
 ```json [snippet:JSON]
-
 {
-  "X-PIM-URL": "your-pim-url",
+  "X-PIM-URL": "https://your-pim-url",
   "X-PIM-CLIENT-ID": "your-client-id",
 }
 ```
 
-- Execute. Check the output: you should receive a result similar to the one below.
+- You can now click on the **play** button, you should receive the following response:
 
 ```json [snippet:JSON]
-
 {
   "data": {
     "token": {
       "data": {
-        "accessToken": "xxxxxxxxxxxxxxxxxxMzQyYWNhYjc5NjcyOGU3ZGRiMTkwNWM3Mzg0NjEwY2Y2NWJjZGFiNWM2Ng"
+        "accessToken": "xxxxxxxxxxxxxxxxxxMzQyYWNhYjc5Nxxxxxxxxxxxxxxxxxxxxxxxx"
       }
     }
   }
 }
 ```
 
-Congratulations! You now have an access token! You’re ready to query your PIM using GraphQL.
+- Here is a screenshot that correspond to the previous steps
+
+![Graphql-Token-Query](../../img/graphql/query-token.png)
+
+**Congratulations!** You now have an access token! You’re ready to query your PIM using GraphQL.
 
 :::info
-We have multiple ways to obtain access tokens without using GraphQL. Please refer to our documentation on [Apps](https://api.akeneo.com/apps/homepage.html) or [connectors](https://api.akeneo.com/getting-started/your-first-tutorial-4x/welcome.html).
+A token generated using a connection will have a **1hour lifetime**
+:::
+
+### Using an app token
+When we connect a PIM with an APP using the oauth flow, a permanent token is created.
+
+All the required steps are documented [here](https://api.akeneo.com/tutorials/how-to-get-your-app-token.html#)
+
+:::info
+A token generated when connecting an APP will be **permanent without any expiration**
+:::
+
+
+## Step 2: Make your first query
+
+In the previous step you got the following configuration:
+* A pim URL
+* A client id 
+* A token (previously generated)
+
+You can now execute your first query to get a list of product with their categories code & labels
+
+- Go to [https://graphql.sdk.akeneo.cloud](https://graphql.sdk.akeneo.cloud/), a GraphQL in browser will be displayed and allow you to execute queries.
+- Enter the following query on the left panel
+
+```graphql [snippet:GraphQL]
+{
+  products {
+    items {
+      uuid
+      categories {
+        code
+        labels
+      }
+    }
+  }
+}
+```
+
+- Add header information on the bottom left panel
+
+```json [snippet:JSON]
+{
+  "X-PIM-URL": "https://your-pim-url",
+  "X-PIM-CLIENT-ID": "your-client-id",
+  "X-PIM-TOKEN": "your-token"
+}
+```
+
+- You can now click on the **play** button
+- Here is a screenshot that correspond to the previous steps
+
+![Graphql-First-Query](../../img/graphql/query-getting-started.png)
+
+::: panel-link And now, let's discover all the GraphQL capabilities using the in browser [GraphiQL](/graphql/setup/browse-graphql-capabilities.html)
 :::

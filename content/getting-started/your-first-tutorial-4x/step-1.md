@@ -40,5 +40,4 @@ _Sidenote: Interested in knowing more about what is the use of the flow type? Re
 You're done! :tada:  
 Your connection is now created. The screen displays the setting page of your connection, as well as the automatically generated credentials of the connection. You will need them in the next step.
 
-::: panel-link And now, let's configure the tool that will make the REST API request [The Postman set up](/getting-started/your-first-tutorial-4x/step-2.html)
-:::
+w

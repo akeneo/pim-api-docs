@@ -17,50 +17,27 @@ List of common arguments:
 
 Here’s an example:
 
-```graphql [snippet:GraphQL]
-
-# This query fetches 10 products, after the first 10, with their UUID, enabled, family code and sku attribute information by using pagination.
-query MyProductQueryWithPagination {
-  products(
-    limit: 10
-    locales: "en_US"
-    page: "0187ed82-17cc-4dec-b287-75ca581bad46"
-    attributesToLoad: "sku"
-  ) {
-    links {
-      next
-    }
-    items {
-      uuid
-      enabled
-      family {
-        code
-      }
-      attribute(code: "sku")
-    }
-  }
-}
-```
+![Common filters](../../img/graphql/query-common-filters.png)
 
 :::info
 `Product` and `ProductModel` queries have a special argument called `attributesToLoad`.
 This argument is not mandatory but will greatly improve the response time. If you request a specific attribute in your query (such as `sku` in this example) you should pass it to `attributeToLoad`.
-More details are available in the [Rest API documentation](https://api.akeneo.com/documentation/filter.html#filter-product-values).
+More details are available in the [Best practices](/graphql/setup/best-practices.html#restrict-loaded-attributes).
 :::
 
+
 :::info
-[GraphiQL live example](https://graphql.sdk.akeneo.cloud?query=query+MyQuery+%7B%0A++products%28%0A++++limit%3A+10%0A++++locales%3A+%22en_US%22%0A++++page%3A+%220187ed82-17cc-4dec-b287-75ca581bad46%22%0A++++attributesToLoad%3A+%22sku%22%0A++%29+%7B%0A++++links+%7B%0A++++++next%0A++++%7D%0A++++items+%7B%0A++++++uuid%0A++++++enabled%0A++++++family+%7B%0A++++++++code%0A++++++%7D%0A++++++attribute%28code%3A+%22sku%22%29%0A++++%7D%0A++%7D%0A%7D)
+[Try-it or copy the query](https://graphql.sdk.akeneo.cloud/?query=query+MyProductQuery+%7B%0A++products%28%0A++++limit%3A+10%0A++++%23+Only+the+SKU+attribute+will+be+loaded+from+the+PIM%0A++++attributesToLoad%3A+%5B%22sku%22%5D%0A++%29+%7B%0A++++links+%7B%0A++++++next%0A++++%7D%0A++++items+%7B%0A++++++uuid%0A++++++enabled%0A++++++family+%7B%0A++++++++code%0A++++++%7D%0A++++++attribute%28code%3A+%22sku%22%29%0A++++%7D%0A++%7D%0A%7D)
 :::
 
 ## Query using variables in GraphiQL or cURL
 
-:::info
-[GraphiQL live example](https://graphql.sdk.akeneo.cloud?query=query+MyProductQuery%28%24limit%3A+Int%29+%7B%0A++products%28limit%3A+%24limit%29+%7B%0A++++items+%7B%0A++++++uuid%0A++++%7D%0A++%7D%0A%7D) (Please note that you must add the variable yourself, just like the screenshot below.)
+![Common filters](../../img/graphql/query-common-variables.png)
+
+:::warning
+[Try-it or copy the query](https://graphql.sdk.akeneo.cloud?query=query+MyProductQuery%28%24limit%3A+Int%29+%7B%0A++products%28limit%3A+%24limit%29+%7B%0A++++items+%7B%0A++++++uuid%0A++++%7D%0A++%7D%0A%7D) 
+**(Please note that you must add the variable by yourself)**
 :::
-
-The request does not need to be dynamically generated, you can also use static request with parameters like in the example below, we use the $limit variable defined.
-
-![My Product Query](../../img/graphql/my-product-query.png)
 
 You can also run this query using cURL or your favourite development language.
 
@@ -81,8 +58,17 @@ curl -X POST https://graphql.sdk.akeneo.cloud \
 
 ## Working with pagination
 
-In our **GraphQL API**, we implement pagination in most queries to manage large datasets efficiently. Pagination breaks down query results into smaller, manageable chunks, improving performance and user experience. In the majority of our queries, there are by default 10 results per page, ensuring a balance between fetching sufficient data and maintaining optimal performance.
-Pagination is facilitated by the `limit` argument when available, allowing users to specify the maximum number of results per page. The `limit` argument accepts values between 1 and 100, determining the maximum number of results returned on a single page.
+In our **GraphQL API**, we implement pagination in most queries to manage large datasets efficiently. 
+
+Pagination breaks down query results into smaller, manageable chunks, improving performance and user experience. 
+
+In the majority of our queries, there are by default 10 results per page, ensuring a balance between fetching sufficient data and maintaining optimal performance.
+
+Pagination is facilitated by the `limit` argument when available, allowing users to specify the maximum number of results per page. 
+
+The `limit` argument accepts values between 1 and 100, determining the maximum number of results returned on a single page.
+
+
 This is a simple example:
 
 ```graphql [snippet:GraphQL]

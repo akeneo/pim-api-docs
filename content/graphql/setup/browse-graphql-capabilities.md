@@ -79,3 +79,6 @@ Some headers are required to do API calls :
 You will see the **GraphQL response** here, displayed in JSON format (you can collapse & expand the items).
 
 Errors are also displayed in this section.
+
+::: panel-link You can now browse the GraphQL [common notions](/graphql/setup/common-notions.html)
+:::
