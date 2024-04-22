@@ -43,7 +43,7 @@ gulp.task('create-dist', [
   'landings',
   'build-concepts',
   'build-rest-api',
-  'build-graphql-essentials',
+  'build-graphql-basics',
   'build-graphql-set-up',
   'build-events-api',
   'build-php-client',
