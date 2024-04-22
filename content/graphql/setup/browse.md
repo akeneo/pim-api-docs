@@ -5,8 +5,8 @@ GraphiQL will also help you execute your first queries.
 
 ## What is GraphiQL?
 
-GraphiQL is **an interactive, in-browser IDE specifically designed for working with GraphQL APIs**.
-It streamlines the process of querying, exploring, and testing GraphQL APIs, making development faster and more efficient.
+GraphiQL is **an interactive, in-browser IDE specifically designed for working with GraphQL API**.
+It streamlines the process of querying, exploring, and testing **GraphQL API**, making development faster and more efficient.
 
 ## How to access it?
 

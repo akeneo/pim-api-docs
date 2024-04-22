@@ -81,7 +81,7 @@ curl -X POST https://graphql.sdk.akeneo.cloud \
 
 ## Working with pagination
 
-In our GraphQL API, we implement pagination in most queries to manage large datasets efficiently. Pagination breaks down query results into smaller, manageable chunks, improving performance and user experience. In the majority of our queries, there are by default 10 results per page, ensuring a balance between fetching sufficient data and maintaining optimal performance.
+In our **GraphQL API**, we implement pagination in most queries to manage large datasets efficiently. Pagination breaks down query results into smaller, manageable chunks, improving performance and user experience. In the majority of our queries, there are by default 10 results per page, ensuring a balance between fetching sufficient data and maintaining optimal performance.
 Pagination is facilitated by the `limit` argument when available, allowing users to specify the maximum number of results per page. The `limit` argument accepts values between 1 and 100, determining the maximum number of results returned on a single page.
 This is a simple example:
 

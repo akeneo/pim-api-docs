@@ -1,6 +1,6 @@
 # Limitations
 
-GraphQL APIs offer great flexibility by allowing clients to request precisely the data they need. 
+**GraphQL API** offer great flexibility by allowing clients to request precisely the data they need. 
 However, certain limitations are in place to ensure optimal performance. 
 By setting boundaries, we avoid complex or large queries that could potentially slow down the system. 
 This is a balancing act between flexibility and performance.
@@ -9,11 +9,11 @@ This is a balancing act between flexibility and performance.
 
 :::warning
 Understanding that the limitations are not static and will adapt over time-based on usage and requirements is vital. 
-With the GraphQL API being a recent addition to Akeneo, our priority is to ensure the stability of the PIM by carefully assessing all risks. 
+With the **GraphQL API** being a recent addition to Akeneo, our priority is to ensure the stability of the PIM by carefully assessing all risks. 
 If you encounter any challenges with the rate limits, please don't hesitate to reach out by opening a support ticket. 
 Your insights are invaluable in fine-tuning our system for optimal performance.
 :::
-The GraphQL API is limited to **two queries per second** per **PIM URL.**
+The **GraphQL API** is limited to **two queries per second** per **PIM URL.**
 
 ## Query complexity limitations
 

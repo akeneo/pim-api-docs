@@ -1,6 +1,6 @@
 # Getting started
 
-To use the GraphQL API, you need a PIM token that will allow the API to connect with a PIM of your choice. 
+To use the **GraphQL API**, you need a PIM token that will allow the API to connect with a PIM of your choice. 
 Follow the steps below to obtain it.
 
 # Step 1: Create a connection
