@@ -1,7 +1,7 @@
 # Integrate GraphQL into your project
 
 Here’s some code snippets to help you get started with GraphQL depending on the language you use.
-To begin, replace the placeholders for x-pim-client-id, **X-PIM-TOKEN** and x-pim-url in the headers to make your first call.
+To begin, replace the placeholders for **x-pim-client-id**, **X-PIM-TOKEN** and **X-PIM-TOKEN** in the headers to make your first call.
 
 ## Code snippets for your first GraphQL call
 
