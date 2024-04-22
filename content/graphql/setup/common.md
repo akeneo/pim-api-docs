@@ -259,7 +259,7 @@ The next request should be something like:
 The result should show a max of 5 new results with potentially a new value for the `next` attribute.
 When no more pages are available, the `next` value is set to `null`.
 
-# Customize output field name with aliases
+## Customize output field name with aliases
 
 Aliases in GraphQL provide a way to request multiple fields with different names from the same root field, including the possibility to rename a field without necessarily fetching it multiple times.
 This allows clients to customize the structure of the response without changing the structure of the query.
