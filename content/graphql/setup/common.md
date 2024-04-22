@@ -24,7 +24,7 @@ query MyProductQueryWithPagination {
   products(
     limit: 10
     locales: "en_US"
-    page: "with_count=false&pagination_type=search_after&limit=10&search_after=0187ed82-17cc-4dec-b287-75ca581bad46"
+    page: "0187ed82-17cc-4dec-b287-75ca581bad46"
     attributesToLoad: "sku"
   ) {
     links {

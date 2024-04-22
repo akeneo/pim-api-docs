@@ -72,7 +72,7 @@ Clicking on the **▶️** (or using `ctrl+enter`) will send the query for execu
 Some headers are required to do API calls :
 - **`X-PIM-URL`** is your PIM URL `https://my-awesome-pim.sandbox.cloud.akeneo.com/`
 - **`X-PIM-CLIENT-ID`** is your client_id
-- **`X-PIM-TOKEN`** please check [this section](https://www.notion.so/How-to-use-GraphiQL-the-GraphQL-IDE-e8d5d9a19dca418494a74ffd5b39fa5b?pvs=21) to know more about it.
+- **`X-PIM-TOKEN`** is your authentication token
 
 ### Section 6: Query result panel.
 
