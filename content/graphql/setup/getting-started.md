@@ -12,7 +12,7 @@ To connect to the PIM API, you can use two types of tokens:
 We recommend using an App token for development purposes. However, for testing purposes, **we suggest using a connection token**.
 :::
 
-### Using a connection token
+### 1. Using a connection token
 To generate a token from a connection you will need:
 
 * A **clientId/clientSecret** in addition of a **username/password**, you can find all the detail [here](https://api.akeneo.com/getting-started/your-first-tutorial-4x/step-1.html#step-1-create-a-connection)
@@ -70,7 +70,7 @@ You can now ask for a token using a dedicated GraphQL query, to execute it:
 
 **Congratulations!** You now have an access token! You’re ready to query your PIM using GraphQL.
 
-### Using an app token
+### 2. Using an App token
 
 All the required steps are documented [here](https://api.akeneo.com/tutorials/how-to-get-your-app-token.html#)
 
