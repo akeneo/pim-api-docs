@@ -1,3 +1,7 @@
+## Ask only what you need
+Design queries to request only the data required, avoiding over-fetching and under-fetching scenarios. Use field-level granularity to specify precisely which fields are needed for each request.  
+By asking only for essential data, you minimize network traffic, reduce server load, and optimize overall API performance.
+
 ## Gzip compression
 We support request compression. Feel free to utilize it by including the following code in your request header: 
 `Accept-Encoding: gzip, deflate, br, zstd`
@@ -38,10 +42,6 @@ On queries you have several ways to get this information.
 - The `queryInformation` field holds a `deprecations` field that contains all the deprecated arguments and fields for this particular query.
 - Query logs also have three entries to expose deprecation information: deprecations, deprecations_keys, deprecations_count.
 - To finish the `deprecations_count` value is also added to the response header under `X-DEPRECATION-NUMBER`.
-
-## Ask only what you need
-Design queries to request only the data required, avoiding over-fetching and under-fetching scenarios. Use field-level granularity to specify precisely which fields are needed for each request.  
-By asking only for essential data, you minimize network traffic, reduce server load, and optimize overall API performance.
 
 ## Restrict loaded attributes
 Product and ProductModel queries have a special argument called `attributesToLoad`.
