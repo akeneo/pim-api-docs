@@ -72,6 +72,7 @@ The `limit` argument accepts values between 1 and 100, determining the maximum n
 This is a simple example:
 
 ```graphql [snippet:GraphQL]
+
 {
   products(limit: 5) {
     items {
@@ -80,10 +81,8 @@ This is a simple example:
   }
 }
 ```
+```json [snippet:Result]
 
-The result should be similar to the next one:
-
-```json [result:JSON]
 {
   "data": {
     "products": {
@@ -147,6 +146,7 @@ The result should be similar to the next one:
 To request multiple pages of data one by one in GraphQL, additional information needs to be requested from GraphQL. At the top level inside the query, it's essential to include the `links` object with at least the `next` attribute, like this:
 
 ```graphql [snippet:GraphQL]
+
 {
   products(limit: 5) {
     links {
@@ -158,10 +158,9 @@ To request multiple pages of data one by one in GraphQL, additional information 
   }
 }
 ```
+```json [snippet:Result]
 
-The result should be similar to the next one:
 
-```json [result:JSON]
 {
   "data": {
     "products": {
@@ -230,6 +229,7 @@ The value of the `next` attribute obtained from the `links` object should be ins
 The next request should be something like:
 
 ```graphql [snippet:GraphQL]
+
 {
   products(limit: 5, page: "d64e70f0-3b14-4e70-bce9-2711d8a3b7c1") {
     links {
@@ -255,6 +255,7 @@ The syntax is really simple. You just need to prefix the field or function name 
 For example, you might want to call the same function (`attribute` here) multiple times:
 
 ```graphql [snippet:GraphQL]
+
 {
   products (limit: 2) {
     items {
@@ -264,10 +265,7 @@ For example, you might want to call the same function (`attribute` here) multipl
   }
 }
 ```
-
-The result should be similar to the next one:
-
-```json [snippet:JSON]
+```json [snippet:Result]
 {
   "data": {
     "products": {
