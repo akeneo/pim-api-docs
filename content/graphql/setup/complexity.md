@@ -1,10 +1,11 @@
 # Complexity calculation
 
 # Overview
-Each query you make has an assigned cost used to determine its complexity; it is based on the **requested object, fields and subfields**, and the maximal query cost is 5,000.
-If your calculated query cost is above 5,000, the query will be refused, and you will receive an error message instead.
+Each query you make has an assigned cost used to determine its complexity; it is based on the **requested object, fields and subfields**, and the maximal query cost is **5,000**.
+If your calculated query cost is above **5,000**, the query will be refused, and you will receive an error message instead.
 
 ```json [snippet:JSON]
+
 {
   "errors": [
     {
@@ -18,6 +19,7 @@ If your calculated query cost is above 5,000, the query will be refused, and you
 You can check the cost of any given query by requesting the fields `requestComplexity` in the `queryInformation` node available for all queries.
 
 ```graphql [snippet:GraphQL]
+
 query MyQuery {
   channels {
     items {
@@ -29,7 +31,8 @@ query MyQuery {
   }
 }
 ```
-```json [result:JSON]
+```json [snippet:Result]
+
 {
   "data": {
     "channels": {
@@ -39,12 +42,17 @@ query MyQuery {
       "items": [
         {
           "code": "b2b"
-        },
+        }
+      ]
+    }
+  }
+}
 ```
 
 You can also have a more detailed view of the cost of each requested object & field by requesting `requestComplexityDetail` .
 
 ```graphql [snippet:GraphQL]
+
 query MyQuery {
   channels {
     items {
@@ -57,7 +65,8 @@ query MyQuery {
   }
 }
 ```
-```json [result:JSON]
+```json [snippet:Result]
+
 {
   "data": {
     "channels": {
@@ -76,7 +85,11 @@ query MyQuery {
       "items": [
         {
           "code": "b2b"
-        },
+        }
+      ]
+    }
+  }
+}
 ```
 
 # Calculation method overview
@@ -120,6 +133,7 @@ In this example, we request two objects in a product query :
 - `items` with the field `uuid`
 
 ```graphql [snippet:GraphQL]
+
 query MyQuery {
   products {
     queryInformation {
@@ -131,7 +145,8 @@ query MyQuery {
   }
 }
 ```
-```json [result:JSON]
+```json [snippet:Result]
+
 {
   "data": {
     "products": {
@@ -141,7 +156,11 @@ query MyQuery {
       "items": [
         {
           "uuid": "002844f9-a470-42e2-8268-ddfd8f646593"
-        },
+        }
+      ]
+    }
+  }
+}
 ```
 
 Requesting `items` added 5 to the cost.
@@ -165,6 +184,7 @@ The default cost of requesting a field is 1.
 In this example, we request the field `uuid` of the `items` object:
 
 ```graphql [snippet:GraphQL]
+
 query MyQuery {
   products {
     queryInformation {
@@ -176,7 +196,8 @@ query MyQuery {
   }
 }
 ```
-```json [result:JSON]
+```json [snippet:Result]
+
 {
   "data": {
     "products": {
@@ -186,7 +207,11 @@ query MyQuery {
       "items": [
         {
           "uuid": "002844f9-a470-42e2-8268-ddfd8f646593"
-        },
+        }
+      ]
+    }
+  }
+}
 ```
 
 Requesting `uuid` added 1 to the cost.
@@ -205,6 +230,7 @@ In addition, a depth cost factor is applied to the object and field cost; this d
 For the given query :
 
 ```graphql [snippet:GraphQL]
+
 query MyQuery {
   products(limit: 2) {
     items {

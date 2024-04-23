@@ -24,7 +24,7 @@ var _ = require('lodash');
 var titleDescription = require('../title-description.json')
 
 const loadLanguages = require('prismjs/components/');
-loadLanguages(['php','javascript','python', 'java', 'shell']);
+loadLanguages(['php','javascript','python', 'java', 'shell','json', 'graphql']);
 
 function getTocMarkdown(isOnePage, pages, currentPage, baseUrl) {
     if(isOnePage){
