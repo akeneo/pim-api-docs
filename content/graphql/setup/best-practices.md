@@ -1,5 +1,6 @@
 ## Ask only what you need
-Design queries to request only the data required, avoiding over-fetching and under-fetching scenarios. Use field-level granularity to specify precisely which fields are needed for each request.  
+Design queries to request only the data required, avoiding over-fetching and under-fetching scenarios. 
+Use field-level granularity to specify precisely which fields are needed for each request.  
 By asking only for essential data, you minimize network traffic, reduce server load, and optimize overall API performance.
 
 ## Gzip compression
@@ -9,8 +10,9 @@ We support request compression. Feel free to utilize it by including the followi
 Our tests have shown noticeable improvements, so don't hesitate to take advantage of it!
 
 ## Variables usages
-Requests do not need to be dynamically generated. You can also use static request with variable parameters, like the example below with the $limit variable.
+Requests do not need to be dynamically generated. You can also use static requests with variable parameters, like the example below with the $limit variable.
 ```graphql [snippet:GraphQL]
+
 query MyQuery($limit: Int) {
   products(limit:$limit ) {
     items {
@@ -21,6 +23,7 @@ query MyQuery($limit: Int) {
 ```
 You can also run this query using cURL or your favorite development language.
 ``` bash [snippet:Bash]
+
 curl -X POST https://graphql.sdk.akeneo.cloud \
 -H 'Content-Type: application/json' \
 -H 'X-PIM-URL: https://xxxxxxx.demo.cloud.akeneo.com' \
@@ -35,10 +38,10 @@ curl -X POST https://graphql.sdk.akeneo.cloud \
 ```
 
 ## Deprecations
-While deprectaed fields and arguments are higly visible using the graphiQL interface, it is less obvious using a client library.  
-On the graphiQL ui deprecated fields will appears in orange with an underline and a deprecation message.
+While deprecated fields and arguments are highly visible using the graphic interface, it is less obvious using a client library.  
+On the graphiQL ui deprecated fields will appear in orange with an underline and a deprecation message.
 
-On queries you have several ways to get this information.
+On queries, you have several ways to get this information.
 - The `queryInformation` field holds a `deprecations` field that contains all the deprecated arguments and fields for this particular query.
 - Query logs also have three entries to expose deprecation information: deprecations, deprecations_keys, deprecations_count.
 - To finish the `deprecations_count` value is also added to the response header under `X-DEPRECATION-NUMBER`.
