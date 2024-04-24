@@ -666,10 +666,10 @@ gulp.task('build-graphql-set-up', ['clean-dist','less'], function () {
             'common-notions.md': "Common notions",
             'use-cases.md': "Use cases examples",
             'integration.md': "Integrate GraphQL into your project",
-            'error-codes.md': "Status and error codes",
+            'best-practices.md': "Best practices",
             'limitations.md': "Limitations",
+            'error-codes.md': "Status and error codes",
             'complexity.md': "Complexity calculation",
-            'best-practices.md': "Best practices"
         };
 
         var isOnePage = false;

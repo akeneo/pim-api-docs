@@ -1,9 +1,12 @@
 # Integrate GraphQL into your project
 
 Here’s some code snippets to help you get started with GraphQL depending on the language you use.
-To begin, replace the placeholders for **x-pim-client-id**, **X-PIM-TOKEN** and **X-PIM-TOKEN** in the headers to make your first call.
+Your will need:
+* Your `PIM Url` to put in the header `x-pim-url`
+* Your `PIM Client ID` to put in the header `x-pim-client-id`
+* Your `PIM Token` to put in the header `x-pim-token`
 
-## Code snippets for your first GraphQL call
+## Code snippets to make GraphQL Queries
 
 The most straightforward way to make your first call with GraphQL would be to type something like this in your terminal
 
@@ -11,40 +14,44 @@ The most straightforward way to make your first call with GraphQL would be to ty
 
 # Write the query to list the products "uuid" and their attributes' labels for the "en_US" and "fr_FR" locales# /!\ 
 # Do not forget to include the correct headers.
-curl -X POST \
--H "Content-Type: application/json" \
+curl -X POST https://graphql.sdk.akeneo.cloud \
+-H 'Content-Type: application/json' \
+-H "x-pim-url: the-pim-url" \
 -H "x-pim-client-id: the-client-id" \
 -H "x-pim-token: the-pim-token" \
--H "x-pim-url: the-pim-url" \
---data '{ "query": "{ products(locales:[\"fr_FR\", \"en_US\"]) { items { uuid } attributes { labels } } }" }' \
-https://graphql.sdk.akeneo.cloud
-
-# Will output {"data":{"products":{"items":[{"uuid": ... }]}}
+-d '{
+    "query": "query myProductQuery($limit: Int) {products(limit: $limit) {items {uuid}}}",
+    "variables": {
+        "limit": 10
+    }
+}'
 ```
 
 See the following snippets for the main languages used by our partners
 ```php [snippet:PHP]
 
 // Take the HTTP client of your choice. This example uses GuzzleHttp.
-use GuzzleHttp\Client
+use GuzzleHttp\Client;
 
 $client = new Client([
 	'base_uri' => 'https://graphql.sdk.akeneo.cloud',
- ]);
+]);
  
 // Write the query to list the products "uuid" & their attributes's labels for the "en_US" and "fr_FR" locales
 $query = <<<GQL
-  query nameOfTheQuery {
-		  products(locales: $locales) {
-		    items {
-		      uuid
-		      attributes {
-	          labels
-	        }
-		    }
-		  }
-		}
- GQL;
+  query nameOfTheQuery($locales: [String]) {
+    products(locales: $locales) {
+        items {
+            uuid
+            attributes {
+                code
+                type
+                values
+            }
+        }
+    }
+  }
+GQL;
  
  // Make a POST request to the GraphQL server
  $response = $client->request('POST', '/', [
@@ -72,14 +79,16 @@ const axios = require('axios');
 
 // Write the query to list the products "uuid" & their attributes's labels for the "en_US" and "fr_FR" locales
 const query = `
-  query nameOfTheQuery($locales: [String!]!) {
+  query nameOfTheQuery($locales: [String]) {
     products(locales: $locales) {
-	    items {
-	      uuid
-	      attributes {
-          labels
+        items {
+            uuid
+            attributes {
+                code
+                type
+                values
+            }
         }
-      }
     }
   }
 `;
@@ -117,12 +126,16 @@ import requests
 
 # Write the query to list the products "uuid" and their attributes' labels for the "en_US" and "fr_FR" locales
 query = """
-  query nameofTheQuery($locales: [String!]!) {
-    localizedStrings(locales: $locales) {
-      uuid
-      attributes {
-	      labels
-      }
+  query nameOfTheQuery($locales: [String]) {
+    products(locales: $locales) {
+        items {
+            uuid
+            attributes {
+                code
+                type
+                values
+            }
+        }
     }
   }
 """
@@ -156,3 +169,7 @@ else:
 ## Other languages
 
 Please check examples from [the community tools & libraries](https://graphql.org/community/tools-and-libraries/?tags=client)
+
+
+::: panel-link And now, check the [best practices to integrate into your project](/graphql/setup/best-practices.html)
+:::

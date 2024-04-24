@@ -72,3 +72,6 @@ The parameter `withRelatedObjectValues` is here to allow users to load linked at
 Please keep in mind that it can impact the performance.
 
 The second solution provides the same result as the first but allows the requested asset or reference entity attribute to filter more precisely.
+
+::: panel-link And now, [Integrate GraphQL into your project](/graphql/setup/integration.html)
+:::

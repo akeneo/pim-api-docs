@@ -48,3 +48,6 @@ Product and ProductModel queries have a special argument called `attributesToLoa
 This argument is not mandatory but will greatly improve the response time. If you need only a limited number of attributes in your query, you should pass it to attributeToLoad.  
 More details are available in the [Rest API documentation](https://api.akeneo.com/documentation/filter.html#filter-product-values).
 
+
+::: panel-link And now, check the existing [limitations](/graphql/setup/limitations.html)
+:::

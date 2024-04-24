@@ -4,24 +4,25 @@ A few things are common to all queries (or a significant number of them).
 
 List of common arguments:
 
-- `limit` is used to ask for a specific number of results, default and maximum is 100.
-  ex: `limit: 50`
-- `page` is used to ask for a specific page.
-  ex: `page:"0187ed82-17cc-4dec-b287-75ca581bad46"`
-  The products after this uuid will be returned. You can use what `next` returned instead of inputting manually an uuid, please check below.
+- `limit` is used to ask for a specific number of results, `default:10` `maximum:100`. ex: `limit: 50`
 - `links` contains `first` `next` `self`. It is used for retrieving page links.
-- `locales` is used to ask for the results for specified locales (one or many at once).
-  ex :`locales: "en_US”`, ex for multiple : `locales: ["fr_FR","en_US"]`
+- `page` is used to ask for a specific page. You can find the next page when requesting the links.
+  ex: `page: "<<links.next>>"`
+![Pagination](../../img/graphql/common-notions-pagination.png)
+
+- `locales` is used to get data results for specified locales (one or many at once).
+  ex :`locales: ["en_US”]`, ex for multiple : `locales: ["fr_FR","en_US"]`
 - `search` is used for more detailed search parameters in your query, the syntax to use can be found [here](https://api.akeneo.com/documentation/filter.html#filters).
-  You can use any example that exists in the documentation, you have to escape the quotes on the string.
+  You can use any example that exists in the documentation, the value must be escaped. You can use **any JSON Escaper** online for this.
 
 Here’s an example:
-
-![Common filters](../../img/graphql/query-common-filters.png)
+![Common filters](../../img/graphql/common-filters.png)
 
 :::info
 `Product` and `ProductModel` queries have a special argument called `attributesToLoad`.
+
 This argument is not mandatory but will greatly improve the response time. If you request a specific attribute in your query (such as `sku` in this example) you should pass it to `attributeToLoad`.
+
 More details are available in the [Best practices](/graphql/setup/best-practices.html#restrict-loaded-attributes).
 :::
 
@@ -30,11 +31,23 @@ More details are available in the [Best practices](/graphql/setup/best-practices
 [Try-it or copy the query](https://graphql.sdk.akeneo.cloud/?query=query+MyProductQuery+%7B%0A++products%28%0A++++limit%3A+10%0A++++%23+Only+the+SKU+attribute+will+be+loaded+from+the+PIM%0A++++attributesToLoad%3A+%5B%22sku%22%5D%0A++%29+%7B%0A++++links+%7B%0A++++++next%0A++++%7D%0A++++items+%7B%0A++++++uuid%0A++++++enabled%0A++++++family+%7B%0A++++++++code%0A++++++%7D%0A++++++attribute%28code%3A+%22sku%22%29%0A++++%7D%0A++%7D%0A%7D)
 :::
 
-## Query using variables in GraphiQL or cURL
+## Using variables in GraphiQL or cURL
+**Variables in GraphQL** will allow you to make your query dynamic and avoid string concatenation or extrapolation.
+For example variables can be usefull in:
+* **The pagination**: to allow you to pass each time the next page
+* **The locales**: to be able to add easily more locales in the result
+* ...
+
+On **GraphiQL** (in browser IDE) you need to put your variables in the **bottom left tab** ```Variables```
 
 ![Common filters](../../img/graphql/query-common-variables.png)
 
-:::warning
+:::info
+If you build your query with variables but omit the value for variable or put a null value, the variables are ignored.
+The result will be the same as omitting variables
+:::
+
+:::info
 [Try-it or copy the query](https://graphql.sdk.akeneo.cloud?query=query+MyProductQuery%28%24limit%3A+Int%29+%7B%0A++products%28limit%3A+%24limit%29+%7B%0A++++items+%7B%0A++++++uuid%0A++++%7D%0A++%7D%0A%7D) 
 **(Please note that you must add the variable by yourself)**
 :::
@@ -62,8 +75,6 @@ In our **GraphQL API**, we implement pagination in most queries to manage large 
 
 Pagination breaks down query results into smaller, manageable chunks, improving performance and user experience. 
 
-In the majority of our queries, there are by default 10 results per page, ensuring a balance between fetching sufficient data and maintaining optimal performance.
-
 Pagination is facilitated by the `limit` argument when available, allowing users to specify the maximum number of results per page. 
 
 The `limit` argument accepts values between 1 and 100, determining the maximum number of results returned on a single page.
@@ -71,12 +82,13 @@ The `limit` argument accepts values between 1 and 100, determining the maximum n
 
 This is a simple example:
 
-```graphql [snippet:GraphQL]
+```graphql [snippet:Query]
 
 {
   products(limit: 5) {
     items {
-      name: attribute(code: "name")
+      uuid
+      created
     }
   }
 }
@@ -88,54 +100,24 @@ This is a simple example:
     "products": {
       "items": [
         {
-          "name": [
-            {
-              "locale": "en_US",
-              "data": "Striped Cotton Button-Up Shirt",
-              "attribute_type": "pim_catalog_text",
-              "channel": null
-            }
-          ]
+          "uuid": "002844f9-a470-42e2-8268-ddfd8f646593",
+          "created": "2023-10-10T07:08:57+00:00"
         },
         {
-          "name": [
-            {
-              "locale": "en_US",
-              "data": "Slim Fit Denim Jeans",
-              "attribute_type": "pim_catalog_text",
-              "channel": null
-            }
-          ]
+          "uuid": "002e7b83-c81b-4d28-a0c4-b0806c04eeea",
+          "created": "2023-10-10T07:07:42+00:00"
         },
         {
-          "name": [
-            {
-              "locale": "en_US",
-              "data": "Knit Cardigan Sweater with Pockets",
-              "attribute_type": "pim_catalog_text",
-              "channel": null
-            }
-          ]
+          "uuid": "00859783-a85a-4825-b0a9-93ffce57b1f2",
+          "created": "2023-10-10T07:06:32+00:00"
         },
         {
-          "name": [
-            {
-              "locale": "en_US",
-              "data": "Tailored Wool Blend Blazer",
-              "attribute_type": "pim_catalog_text",
-              "channel": null
-            }
-          ]
+          "uuid": "00df7dde-c745-4590-8c17-01a6ae36d172",
+          "created": "2023-10-10T07:06:27+00:00"
         },
         {
-          "name": [
-            {
-              "locale": "en_US",
-              "data": "Printed Floral Maxi Dress",
-              "attribute_type": "pim_catalog_text",
-              "channel": null
-            }
-          ]
+          "uuid": "00fd49f2-c417-4a40-8a7b-439a6e51923b",
+          "created": "2023-10-10T07:09:00+00:00"
         }
       ]
     }
@@ -143,9 +125,9 @@ This is a simple example:
 }
 ```
 
-To request multiple pages of data one by one in GraphQL, additional information needs to be requested from GraphQL. At the top level inside the query, it's essential to include the `links` object with at least the `next` attribute, like this:
+To request the next page of data in GraphQL, you need to include the `links` object with at least the `next` attribute, like this:
 
-```graphql [snippet:GraphQL]
+```graphql [snippet:Query]
 
 {
   products(limit: 5) {
@@ -153,70 +135,40 @@ To request multiple pages of data one by one in GraphQL, additional information 
       next
     }
     items {
-      name: attribute(code: "name")
+      uuid
+      created
     }
   }
 }
 ```
 ```json [snippet:Result]
-
 
 {
   "data": {
     "products": {
       "links": {
-        "next": "d64e70f0-3b14-4e70-bce9-2711d8a3b7c1"
+        "next": "00fd49f2-c417-4a40-8a7b-439a6e51923b"
       },
       "items": [
         {
-          "name": [
-            {
-              "locale": "en_US",
-              "data": "Striped Cotton Button-Up Shirt",
-              "attribute_type": "pim_catalog_text",
-              "channel": null
-            }
-          ]
+          "uuid": "002844f9-a470-42e2-8268-ddfd8f646593",
+          "created": "2023-10-10T07:08:57+00:00"
         },
         {
-          "name": [
-            {
-              "locale": "en_US",
-              "data": "Slim Fit Denim Jeans",
-              "attribute_type": "pim_catalog_text",
-              "channel": null
-            }
-          ]
+          "uuid": "002e7b83-c81b-4d28-a0c4-b0806c04eeea",
+          "created": "2023-10-10T07:07:42+00:00"
         },
         {
-          "name": [
-            {
-              "locale": "en_US",
-              "data": "Knit Cardigan Sweater with Pockets",
-              "attribute_type": "pim_catalog_text",
-              "channel": null
-            }
-          ]
+          "uuid": "00859783-a85a-4825-b0a9-93ffce57b1f2",
+          "created": "2023-10-10T07:06:32+00:00"
         },
         {
-          "name": [
-            {
-              "locale": "en_US",
-              "data": "Tailored Wool Blend Blazer",
-              "attribute_type": "pim_catalog_text",
-              "channel": null
-            }
-          ]
+          "uuid": "00df7dde-c745-4590-8c17-01a6ae36d172",
+          "created": "2023-10-10T07:06:27+00:00"
         },
         {
-          "name": [
-            {
-              "locale": "en_US",
-              "data": "Printed Floral Maxi Dress",
-              "attribute_type": "pim_catalog_text",
-              "channel": null
-            }
-          ]
+          "uuid": "00fd49f2-c417-4a40-8a7b-439a6e51923b",
+          "created": "2023-10-10T07:09:00+00:00"
         }
       ]
     }
@@ -225,18 +177,22 @@ To request multiple pages of data one by one in GraphQL, additional information 
 
 ```
 
-The value of the `next` attribute obtained from the `links` object should be inserted into the `page` argument of the subsequent request. This `next` value serves as a pointer or reference to the next page of data in the dataset. By passing this value to the `page` argument in the next query, the GraphQL server understands which portion of the dataset the client is requesting.
-The next request should be something like:
+The value of the `next` attribute obtained from the `links` object should be inserted into the `page` argument of the subsequent request. 
+
+This `next` value serves as a pointer or reference to the next page of data in the dataset. 
+
+By passing this value to the `page` argument in the next query, the result of the next page will be returned :
 
 ```graphql [snippet:GraphQL]
 
 {
-  products(limit: 5, page: "d64e70f0-3b14-4e70-bce9-2711d8a3b7c1") {
+  products(limit: 5, page: "00fd49f2-c417-4a40-8a7b-439a6e51923b") {
     links {
       next
     }
     items {
-      name: attribute(code: "name")
+      uuid
+      created
     }
   }
 }
@@ -245,22 +201,29 @@ The next request should be something like:
 The result should show a max of 5 new results with potentially a new value for the `next` attribute.
 When no more pages are available, the `next` value is set to `null`.
 
-## Customize output field name with aliases
+## Aliasing fields in response
 
-Aliases in GraphQL provide a way to request multiple fields with different names from the same root field, including the possibility to rename a field without necessarily fetching it multiple times.
-This allows clients to customize the structure of the response without changing the structure of the query.
-By assigning unique aliases to each field, clients can disambiguate between identically named fields and simplify data processing on the client side.
-The syntax is really simple. You just need to prefix the field or function name with the alias followed by a colon.
+Aliases in GraphQL provide a way to:
+* Rename a field in the response to get object as needed
+* Duplicate a field with two different name
 
-For example, you might want to call the same function (`attribute` here) multiple times:
+To alias a field you only need to prefix the field with `your-desired-alias: `, example:
 
 ```graphql [snippet:GraphQL]
 
 {
   products (limit: 2) {
     items {
-      sku: attribute(code: "sku")
-      erpName: attribute(code: "erp_name")
+      identifier: uuid
+      createdAt: created
+      updatedAt: updated
+      active: enabled
+      associations: simpleAssociations {
+        type
+        products {
+          uuid
+        }
+      }
     }
   }
 }
@@ -271,49 +234,36 @@ For example, you might want to call the same function (`attribute` here) multipl
     "products": {
       "items": [
         {
-          "sku": [
+          "identifier": "002844f9-a470-42e2-8268-ddfd8f646593",
+          "createdAt": "2023-10-10T07:08:57+00:00",
+          "updatedAt": "2024-04-11T14:30:04+00:00",
+          "active": "true",
+          "associations": [
             {
-              "locale": null,
-              "data": "ABC12345",
-              "channel": null
-            }
-          ],
-          "erpName": [
-            {
-              "locale": "en_US",
-              "data": "Plaid shirt",
-              "channel": null
-            },
-            {
-              "locale": "fr_FR",
-              "data": "Chemise à carreaux",
-              "channel": null
+              "type": "UPSELL",
+              "products": [
+                {
+                  "uuid": "acf44c18-213f-44b3-aade-52e8d27fa58b"
+                },
+                {
+                  "uuid": "c9940072-30a2-4886-af73-3285b1c9e17e"
+                }
+              ]
             }
           ]
         },
         {
-          "sku": [
-            {
-              "locale": null,
-              "data": "XYZ98765",
-              "channel": null
-            }
-          ],
-          "erpName": [
-            {
-              "locale": "en_US",
-              "data": "Denim jeans",
-              "channel": null
-            },
-            {
-              "locale": "fr_FR",
-              "data": "Pantalon en jean",
-              "channel": null
-            }
-          ]
+          "identifier": "002e7b83-c81b-4d28-a0c4-b0806c04eeea",
+          "createdAt": "2023-10-10T07:07:42+00:00",
+          "updatedAt": "2023-10-10T07:23:30+00:00",
+          "active": "true",
+          "associations": []
         }
       ]
     }
   }
 }
 ```
+
+::: panel-link And now, let's discover how to resolve some usecases with [GraphQL](/graphql/setup/use-cases.html)
+:::
