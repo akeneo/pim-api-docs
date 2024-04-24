@@ -26,7 +26,7 @@ The **GraphQL API** is limited to `2req/s` **two queries per second** per **PIM 
 Each query will have a cost complexity depending on the requested data.
 A detailed explanation can be found on [Complexity calculation](/graphql/setup/complexity.html).
 
-## Nested limitations
+## Depth limitations
 A query depth is how much level of data you have.
 For example, you can make the following query
 
@@ -70,22 +70,20 @@ For example, you can make the following query
 
 | Query                    | Max Depth |
 |--------------------------|-----------|
-| assetFamilies            | 4         |
-| assetsRecords            | 3         |
-| attributeOptions         | 3         |
+| productModels            | 6         |
+| products                 | 6         |
+| families                 | 5         |
 | attributes               | 4         |
 | categories               | 4         |
 | channels                 | 4         |
-| currencies               | 3         |
-| families                 | 5         |
-| locales                  | 3         |
-| measurementFamilies      | 4         |
-| productModels            | 6         |
-| products                 | 6         |
+| assetFamilies            | 4         |
 | referenceEntities        | 4         |
+| measurementFamilies      | 4         |
+| assetsRecords            | 3         |
 | referenceEntitiesRecords | 3         |
-| systemInformation        | 3         |
-| token                    | 3         |
+| attributeOptions         | 3         |
+| currencies               | 3         |
+| locales                  | 3         |
 
 :::info
 Remember that every time you open a bracket, the level of depth increases. 
@@ -105,6 +103,7 @@ Your insights are invaluable in fine-tuning our system for optimal performance.
 
 ## One-query limitation
 By default, GraphQL allow to execute several queries by one call.
+
 This is disabled and `only one query will be allowed at once`.
 
 You will get an error as following when executing multiple queries in one call.
@@ -112,11 +111,13 @@ You will get an error as following when executing multiple queries in one call.
 ```graphql [snippet:Two queries in one call]
 
 {
+  # This is the first query
   products {
     items {
       uuid
     }
   }
+  # This is the second query
   categories {
     items {
       code
