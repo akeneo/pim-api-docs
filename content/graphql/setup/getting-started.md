@@ -19,7 +19,7 @@ To generate a token from a connection you will need:
 
 You can now ask for a token using a dedicated GraphQL query, to execute it:
 
-- Go to [https://graphql.sdk.akeneo.cloud](https://graphql.sdk.akeneo.cloud/), a GraphQL in browser will be displayed and allow you to execute queries.
+- Go to [https://graphql.sdk.akeneo.cloud](https://graphql.sdk.akeneo.cloud/), a **GraphQL in browser IDE** will be displayed and allow you to execute queries.
 - Replace `my-username`, `my-password`, `my-client-id`, and `my-client-secret` found on the connection page in the following query.
 
 ```graphql [snippet:GraphQL]
@@ -36,10 +36,11 @@ You can now ask for a token using a dedicated GraphQL query, to execute it:
     }
   }
 }
-```
-- Enter the previous query on the left panel
 
-- Add header information on the bottom left panel
+```
+- Enter the previous query on the **left panel**
+
+- Add header information on the **bottom left panel**
 
 ```json [snippet:JSON]
 
@@ -49,7 +50,7 @@ You can now ask for a token using a dedicated GraphQL query, to execute it:
 }
 ```
 
-- You can now click on the **play** button, you should receive the following response:
+- You can now click on the **▶️** button, you should receive the following **response**:
 
 ```json [snippet:JSON]
 
@@ -77,9 +78,8 @@ All the required steps are documented [here](https://api.akeneo.com/tutorials/ho
 ## Step 2: Make your first query
 
 In the previous step you got the following configuration:
-* A pim URL
-* A client id 
-* A token (previously generated)
+* Your pim URL
+* Your client id & token (previously generated)
 
 You can now execute your first query to get a list of product with their categories code & labels
 
