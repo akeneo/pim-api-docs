@@ -1,7 +1,7 @@
 # How to browse the GraphQL capabilities
 
 To browse the Akeneo GraphQL capabilities, you can use the in browser IDE (GraphiQL).
-GraphiQL will also help you execute your first queries.
+**GraphiQL** will also help you execute your first queries.
 
 ## What is GraphiQL?
 

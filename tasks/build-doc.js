@@ -627,7 +627,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
 
 gulp.task('build-graphql-basics', ['clean-dist','less'], function () {
         var pages = {
-            'what-is-graphql.md': "What is the GraphQL API?",
+            'getting-started.md': "Getting started",
             'compatibility.md': 'Compatibility',
             'recommendations.md': 'Usage recommendations'
         };
@@ -661,7 +661,6 @@ gulp.task('build-graphql-basics', ['clean-dist','less'], function () {
 
 gulp.task('build-graphql-set-up', ['clean-dist','less'], function () {
         var pages = {
-            'getting-started.md': "Getting started",
             'browse-graphql-capabilities.md': "Browse GraphQL capabilities",
             'common-notions.md': "Common notions",
             'use-cases.md': "Use cases examples",

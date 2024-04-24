@@ -1,16 +1,95 @@
-## Ask only what you need
+## Query only what you need
 Design queries to request only the data required, avoiding over-fetching and under-fetching scenarios. 
-Use field-level granularity to specify precisely which fields are needed for each request.  
+Use field-level granularity to specify precisely which fields are needed for each request.
 By asking only for essential data, you minimize network traffic, reduce server load, and optimize overall API performance.
 
+```graphql [snippet:GraphQL]
+    {
+    products {
+        items {
+            uuid
+            enabled
+            created
+            updated
+            # If you don't need the family detail for your use case
+            # It's a best practice to don't include it
+            family {
+                code
+                labels
+                attributeRequirements {
+                    channelCode
+                    attributesRequirements
+                }
+            }
+        }
+    }
+}
+```
+
+## Load only required product attributes
+Product and ProductModel queries have a special argument called `attributesToLoad` that allow you to fetch only the specified attributes.
+This argument is not mandatory but will greatly improve the response time. 
+More details are available in the [Rest API documentation](https://api.akeneo.com/documentation/filter.html#filter-product-values).
+
+```graphql [snippet:Query]
+    {
+    products(attributesToLoad: ["condition", "name"]) {
+        items {
+            uuid
+            attributes {
+                code
+                values
+            }
+        }
+    }
+}
+```
+```json[snippet:Response]
+{
+  "data": {
+    "products": {
+      "items": [
+        {
+          "uuid": "0187ed82-17cc-4dec-b287-75ca581bad46",
+          "attributes": [
+            {
+              "code": "name",
+              "values": [
+                {
+                  "locale": "en_US",
+                  "data": "Dickies Men's Size 40 Black Industrial Strength Metal Logo Tab Belt",
+                  "channel": null
+                }
+              ]
+            },
+            {
+              "code": "condition",
+              "values": [
+                {
+                  "locale": null,
+                  "data": "new",
+                  "channel": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+
 ## Gzip compression
-We support request compression. Feel free to utilize it by including the following code in your request header: 
+We support **request compression**. 
+Feel free to utilize it by including the following code in your request header: 
 `Accept-Encoding: gzip, deflate, br, zstd`
 
-Our tests have shown noticeable improvements, so don't hesitate to take advantage of it!
-
 ## Variables usages
-Requests do not need to be dynamically generated. You can also use static requests with variable parameters, like the example below with the $limit variable.
+Requests do not need to be dynamically generated. 
+You can also use static requests with variable parameters, like the example below with the $limit variable.
+
 ```graphql [snippet:GraphQL]
 
 query MyQuery($limit: Int) {
@@ -39,18 +118,27 @@ curl -X POST https://graphql.sdk.akeneo.cloud \
 
 ## Deprecations
 While deprecated fields and arguments are highly visible using the graphic interface, it is less obvious using a client library.  
-On the graphiQL ui deprecated fields will appear in orange with an underline and a deprecation message.
+On the GraphiQL ui deprecated fields will appear in orange with an underline and a deprecation message.
 
 On queries, you have several ways to get this information.
 - The `queryInformation` field holds a `deprecations` field that contains all the deprecated arguments and fields for this particular query.
 - Query logs also have three entries to expose deprecation information: deprecations, deprecations_keys, deprecations_count.
 - To finish the `deprecations_count` value is also added to the response header under `X-DEPRECATION-NUMBER`.
 
-## Restrict loaded attributes
-Product and ProductModel queries have a special argument called `attributesToLoad`.
-This argument is not mandatory but will greatly improve the response time. If you need only a limited number of attributes in your query, you should pass it to attributeToLoad.  
-More details are available in the [Rest API documentation](https://api.akeneo.com/documentation/filter.html#filter-product-values).
+In **GraphiQL** the `deprecations` will be displayed as following:
 
+![Deprecations In GraphiQL](../../img/graphql/deprecations-in-graphiql.png)
+
+The deprecations count can also be found as a header in the response
+```
+HTTP/1.1 200 OK
+content-type: application/json; charset=utf-8
+content-length: 773
+x-request-complexity: 70
+x-transaction-id: cef6aadc-eedb-49f5-8199-dbfbe3689fa3
+# This is the header
+x-deprecations-count: 1
+```
 
 ::: panel-link And now, check the existing [limitations](/graphql/setup/limitations.html)
 :::

@@ -17,7 +17,7 @@ For example, you’ll get a “200” code if the PIM URL or the headers you sen
 ![Check the response code](../../img/graphql/api-error.png)
 
 *An error raised by the “final” API.
-We can see in “extensions” that a “401“ code was sent from this API, but we get a “200” from GraphQL.*
+We can see in “extensions” that a "401" code was sent from this API, but we get a “200” from GraphQL.*
 
 According to the error message, it can also mean that there’s an error on the API that GraphQL tried to reach: it could be an edge case that was not handled yet on GraphQL side (bug).
 :::

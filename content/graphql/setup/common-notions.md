@@ -265,5 +265,5 @@ To alias a field you only need to prefix the field with `your-desired-alias: `, 
 }
 ```
 
-::: panel-link And now, let's discover how to resolve some usecases with [GraphQL](/graphql/setup/use-cases.html)
+::: panel-link And now, let's discover how to resolve some use cases with [GraphQL](/graphql/setup/use-cases.html)
 :::
