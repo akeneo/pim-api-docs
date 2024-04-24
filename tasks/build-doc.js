@@ -625,47 +625,16 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
   }
 );
 
-gulp.task('build-graphql-basics', ['clean-dist','less'], function () {
+gulp.task('build-graphql', ['clean-dist','less'], function () {
         var pages = {
             'getting-started.md': "Getting started",
-            'compatibility.md': 'Compatibility',
-            'recommendations.md': 'Usage recommendations'
-        };
-
-        var isOnePage = false;
-
-        return gulp.src('content/graphql/basics/*.md')
-            .pipe(flatmap(function(stream, file){
-                return gulp.src('content/graphql/basics/*.md')
-                    .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-                    .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/graphql/basics') + "\n"))
-                    .pipe(gulpMarkdownIt(mdGt))
-                    .pipe(gulp.dest('tmp/graphql/basics/'))
-                    .on('end', function () {
-                        return gulp.src('src/partials/graphql-documentation.handlebars')
-                            .pipe(gulpHandlebars({
-                                active_api_resources: true,
-                                title: 'The GraphQL API',
-                                description: getPageDescription(file.path),
-                                mainContent: fs.readFileSync('tmp/graphql/basics/' + path.basename(file.path).replace(/\.md/, '.html'))
-                            }, {
-                                partialsDirectory: ['./src/partials']
-                            }))
-                            .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
-                            .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                            .pipe(gulp.dest('./dist/graphql/basics'));
-                    })
-            }));
-    }
-);
-
-gulp.task('build-graphql-set-up', ['clean-dist','less'], function () {
-        var pages = {
-            'browse-graphql-capabilities.md': "Browse GraphQL capabilities",
+            'browse-graphql-capabilities.md': "Browse capabilities",
             'common-notions.md': "Common notions",
             'use-cases.md': "Use cases examples",
             'integration.md': "Integrate GraphQL into your project",
             'best-practices.md': "Best practices",
+            'compatibility.md': "Pim compatibility",
+            'recommendations.md': "Usage recommendations",
             'limitations.md': "Limitations",
             'error-codes.md': "Status and error codes",
             'complexity.md': "Complexity calculation",
@@ -673,26 +642,26 @@ gulp.task('build-graphql-set-up', ['clean-dist','less'], function () {
 
         var isOnePage = false;
 
-        return gulp.src('content/graphql/setup/*.md')
+        return gulp.src('content/graphql/*.md')
             .pipe(flatmap(function(stream, file){
-                return gulp.src('content/graphql/setup/*.md')
+                return gulp.src('content/graphql/*.md')
                     .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-                    .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/graphql/setup') + "\n"))
+                    .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/graphql') + "\n"))
                     .pipe(gulpMarkdownIt(mdGt))
-                    .pipe(gulp.dest('tmp/graphql/setup/'))
+                    .pipe(gulp.dest('tmp/graphql/'))
                     .on('end', function () {
                         return gulp.src('src/partials/graphql-documentation.handlebars')
                             .pipe(gulpHandlebars({
                                 active_api_resources: true,
                                 title: 'The GraphQL API',
                                 description: getPageDescription(file.path),
-                                mainContent: fs.readFileSync('tmp/graphql/setup/' + path.basename(file.path).replace(/\.md/, '.html'))
+                                mainContent: fs.readFileSync('tmp/graphql/' + path.basename(file.path).replace(/\.md/, '.html'))
                             }, {
                                 partialsDirectory: ['./src/partials']
                             }))
                             .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
                             .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                            .pipe(gulp.dest('./dist/graphql/setup'));
+                            .pipe(gulp.dest('./dist/graphql'));
                     })
             }));
     }

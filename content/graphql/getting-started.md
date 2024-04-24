@@ -67,7 +67,7 @@ You can now ask for a token using a dedicated GraphQL query, to execute it:
 
 - Here is a screenshot that correspond to the previous steps
 
-![Graphql-Token-Query](../../img/graphql/query-token.png)
+![Graphql-Token-Query](../img/graphql/query-token.png)
 
 **Congratulations!** You now have an access token! You’re ready to query your PIM using GraphQL.
 
@@ -115,7 +115,7 @@ You can now execute your first query to get a list of product with their categor
 - You can now click on the **play** button
 - Here is a screenshot that correspond to the previous steps
 
-![Graphql-First-Query](../../img/graphql/query-getting-started.png)
+![Graphql-First-Query](../img/graphql/query-getting-started.png)
 
-::: panel-link And now, let's discover all the GraphQL capabilities using the in browser [GraphiQL](/graphql/setup/browse-graphql-capabilities.html)
+::: panel-link And now, let's discover all the GraphQL capabilities using the in browser [GraphiQL](/graphql/browse-graphql-capabilities.html)
 :::

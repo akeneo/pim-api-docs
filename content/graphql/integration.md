@@ -171,5 +171,5 @@ else:
 Please check examples from [the community tools & libraries](https://graphql.org/community/tools-and-libraries/?tags=client)
 
 
-::: panel-link And now, check the [best practices to integrate into your project](/graphql/setup/best-practices.html)
+::: panel-link And now, check the [best practices to integrate into your project](/graphql/best-practices.html)
 :::

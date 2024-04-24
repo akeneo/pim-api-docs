@@ -1,6 +1,11 @@
-
 :::info
 Most bellow `responses` have been truncated to make them more readable
+:::
+
+:::info
+We highly recommand to use `variables` to make your query dynamic.
+
+[More details](/graphql/best-practices.html#variables-usages)
 :::
 
 :::warning

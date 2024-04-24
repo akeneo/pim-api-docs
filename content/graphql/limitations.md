@@ -19,12 +19,12 @@ If you encounter any **challenges** with the `rate limits`, please don't hesitat
 
 Your insights are invaluable in fine-tuning our system for optimal performance.
 :::
-The **GraphQL API** is limited to `2req/s` **two queries per second** per **PIM URL.**
+The **GraphQL API** is limited to `2req/s` per **PIM URL.**
 
 ## Query complexity limitations
 
 Each query will have a cost complexity depending on the requested data.
-A detailed explanation can be found on [Complexity calculation](/graphql/setup/complexity.html).
+A detailed explanation can be found on [Complexity calculation](/graphql/complexity.html).
 
 ## Depth limitations
 A query depth is how much level of data you have.

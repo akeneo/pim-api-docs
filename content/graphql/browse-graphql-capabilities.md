@@ -18,7 +18,7 @@ You will probably spend most of the time writing queries in the **GraphiQL Query
 
 Here’s a screenshot of the GraphiQL IDE, please refer to the corresponding numbered section to know more about the interface:
 
-![The GraphiQL interface](../../img/graphql/graphiql-ide.jpg)
+![The GraphiQL interface](../img/graphql/graphiql-ide.jpg)
 
 ### Section 1: Link to the **Documentation Explorer.**
 
@@ -80,5 +80,5 @@ You will see the **GraphQL response** here, displayed in JSON format (you can co
 
 Errors are also displayed in this section.
 
-::: panel-link You can now browse the GraphQL [common notions](/graphql/setup/common-notions.html)
+::: panel-link You can now browse the GraphQL [common notions](/graphql/common-notions.html)
 :::

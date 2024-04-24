@@ -87,8 +87,10 @@ Feel free to utilize it by including the following code in your request header:
 `Accept-Encoding: gzip, deflate, br, zstd`
 
 ## Variables usages
-Requests do not need to be dynamically generated. 
-You can also use static requests with variable parameters, like the example below with the $limit variable.
+**Arguments** don't need to be written **inside the query string**. 
+You can instead use static query with variables.
+
+The following example show how to use a `$limit` variable.
 
 ```graphql [snippet:GraphQL]
 
@@ -127,7 +129,7 @@ On queries, you have several ways to get this information.
 
 In **GraphiQL** the `deprecations` will be displayed as following:
 
-![Deprecations In GraphiQL](../../img/graphql/deprecations-in-graphiql.png)
+![Deprecations In GraphiQL](../img/graphql/deprecations-in-graphiql.png)
 
 The deprecations count can also be found as a header in the response
 ```bash
@@ -141,5 +143,5 @@ x-transaction-id: cef6aadc-eedb-49f5-8199-dbfbe3689fa3
 x-deprecations-count: 1
 ```
 
-::: panel-link And now, check the existing [limitations](/graphql/setup/limitations.html)
+::: panel-link And now, check the existing [limitations](/graphql/limitations.html)
 :::

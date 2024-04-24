@@ -2,7 +2,7 @@
 
 All queries performed through GraphQL return HTTP status codes containing more information about the response.
 
-![Check the response code](../../img/graphql/check-response-code.jpg)
+![Check the response code](../img/graphql/check-response-code.jpg)
 You can check the response code of a query in your favorite browser’s developer tools
 
 ## `200 OK`
@@ -14,7 +14,7 @@ Nice, you get a “200 OK” code… But under the hood, it is possible that som
 If you did not receive a nicely formatted json “products” (or any other attribute you requested) response, please check the “errors” key to know more.
 For example, you’ll get a “200” code if the PIM URL or the headers you sent are invalid:
 
-![Check the response code](../../img/graphql/api-error.png)
+![Check the response code](../img/graphql/api-error.png)
 
 *An error raised by the “final” API.
 We can see in “extensions” that a "401" code was sent from this API, but we get a “200” from GraphQL.*

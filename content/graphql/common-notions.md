@@ -8,7 +8,7 @@ List of common arguments:
 - `links` contains `first` `next` `self`. It is used for retrieving page links.
 - `page` is used to ask for a specific page. You can find the next page when requesting the links.
   ex: `page: "<<links.next>>"`
-![Pagination](../../img/graphql/common-notions-pagination.png)
+![Pagination](../img/graphql/common-notions-pagination.png)
 
 - `locales` is used to get data results for specified locales (one or many at once).
   ex :`locales: ["en_US”]`, ex for multiple : `locales: ["fr_FR","en_US"]`
@@ -16,14 +16,14 @@ List of common arguments:
   You can use any example that exists in the documentation, the value must be escaped. You can use **any JSON Escaper** online for this.
 
 Here’s an example:
-![Common filters](../../img/graphql/common-filters.png)
+![Common filters](../img/graphql/common-filters.png)
 
 :::info
 `Product` and `ProductModel` queries have a special argument called `attributesToLoad`.
 
 This argument is not mandatory but will greatly improve the response time. If you request a specific attribute in your query (such as `sku` in this example) you should pass it to `attributeToLoad`.
 
-More details are available in the [Best practices](/graphql/setup/best-practices.html#restrict-loaded-attributes).
+More details are available in the [Best practices](/graphql/best-practices.html#restrict-loaded-attributes).
 :::
 
 
@@ -40,7 +40,7 @@ For example variables can be usefull in:
 
 On **GraphiQL** (in browser IDE) you need to put your variables in the **bottom left tab** ```Variables```
 
-![Common filters](../../img/graphql/query-common-variables.png)
+![Common filters](../img/graphql/query-common-variables.png)
 
 :::info
 If you build your query with variables but omit the value for variable or put a null value, the variables are ignored.
@@ -265,5 +265,5 @@ To alias a field you only need to prefix the field with `your-desired-alias: `, 
 }
 ```
 
-::: panel-link And now, let's discover how to resolve some use cases with [GraphQL](/graphql/setup/use-cases.html)
+::: panel-link And now, let's discover how to resolve some use cases with [GraphQL](/graphql/use-cases.html)
 :::

@@ -1,8 +1,8 @@
-# Compatibility
+# Pim Compatibility
 
-The compatibility of the Akeneo **GraphQL API** with various editions of Akeneo PIM is explained below.
+The compatibility of the Akeneo `GraphQL API` with `various editions` of Akeneo PIM is explained below.
 
-| Akeneo PIM Edition        |               |
+| Akeneo PIM Edition        | Supported ?   |
 |---------------------------|---------------|
 | ENTERPRISE EDITION (SAAS) | Supported     |
 | ENTERPRISE EDITION (PAAS) | Not supported |
