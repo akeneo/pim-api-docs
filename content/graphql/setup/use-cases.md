@@ -1,77 +1,822 @@
-## Products updated in last 4 days using search
 
 :::info
-[GraphiQL live example](https://graphql.sdk.akeneo.cloud?query=%7B%0A++products%28search%3A+%22%7B%5C%22updated%5C%22%3A%5B%7B%5C%22operator%5C%22%3A%5C%22SINCE+LAST+N+DAYS%5C%22%2C%5C%22value%5C%22%3A4%7D%5D%7D%22%29+%7B%0A++++links+%7B%0A++++++next%0A++++%7D%0A++++items+%7B%0A++++++uuid%0A++++%7D%0A++%7D%0A%7D)
+Most bellow `responses` have been truncated to make them more readable
 :::
 
-When we follow the documentation on the filters https://api.akeneo.com/documentation/filter.html we can see some examples of searches:
-
-- `{"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}`
-- `{"created":[{"operator":"=","value":"2016-07-04 10:00:00"}]}`
-
-We need to escape the quotes if we want to use these searches. You can use an online escaper for help. The result will be:
-
-- `{\"created\":[{\"operator\":\"=\",\"value\":\"2016-07-04 10:00:00\"}]}`
-- `{\"updated\":[{\"operator\":\"SINCE LAST N DAYS\",\"value\":4}]}`
+:::warning
+All bellow example are demo data, and you must adapt the queries regarding your `attributes codes`, `locales`, `product model code` ...
+:::
 
 ## Product model and their variation axis + family information
 
-:::info
-[GraphiQL live example](https://graphql.sdk.akeneo.cloud?query=query+ProductModelWithVariationAxisAndFamily+%7B%0A++productModels%28limit%3A+10%29+%7B%0A++++links+%7B%0A++++++next%0A++++%7D%0A++++items+%7B%0A++++++variationAxes%0A++++++code%0A++++++family+%7B%0A++++++++code%0A++++++++familyVariant+%7B%0A++++++++++code%0A++++++++%7D%0A++++++%7D%0A++++++attribute%28code%3A+%22brand%22%29%0A++++%7D%0A++%7D%0A%7D)
-:::
+``` graphql [snippet: Query] 
 
-## All the variations of a product model with variation values & specific attribute values
+{
+  productModels(limit: 1) {
+    links {
+      next
+    }
+    items {
+      variationAxes
+      code
+      family {
+        code
+        labels
+      }
+    }
+  }
+}
+```
+```json [snippet: Response] 
 
-:::info
-[GraphiQL live example](https://graphql.sdk.akeneo.cloud?query=query+VariationOfAModelWithVariationValueAndAttributeValue+%7B%0A++products%28%0A++++limit%3A+10%0A++++parent%3A+%22Acme+Classic+Mens+Black+PVC+Work+Boots%22%0A++++locales%3A+%22en_US%22%2C%0A++++attributesToLoad%3A+%5B%22name%22%2C%22sku%22%2C%22brand%22%2C%22shoe_size%22%2C%22erp_name%22%5D%0A++%29+%7B%0A++++links+%7B%0A++++++next%0A++++%7D%0A++++items+%7B%0A++++++uuid%0A++++++enabled%0A++++++variationValues%0A++++++name%3A+attribute%28code%3A+%22name%22%29%0A++++++sku%3A+attribute%28code%3A+%22sku%22%29%0A++++++brand%3A+attribute%28code%3A+%22brand%22%29%0A++++++formatedErpName%3A+attribute%28code%3A+%22erp_name%22%29%0A++++%7D%0A++%7D%0A%7D)
-:::
+{
+  "data": {
+    "productModels": {
+      "links": {
+        "next": "Acme Classic Mens Black PVC Work Boots"
+      },
+      "items": [
+        {
+          "code": "Acme Classic Mens Black PVC Work Boots",
+          "variationAxes": [
+            "shoe_size"
+          ],
+          "family": {
+            "code": "rubber_boots",
+            "labels": [
+              {
+                "localeCode": "en_US",
+                "localeValue": "Rubber Boots"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+```
 
-If you want to get all attributes, you can include `attributes` in your query with the necessary fields.
+## Variations of a product model with variation values & attribute values
 
-When retrieving attribute values with the `attribute` keyword, we use aliases to ensure that every retrieved data document has the desired format in the response.
+``` graphql [snippet: Query] 
 
-![Formated ERP Name](../../img/graphql/formated-erp-name.png)
+{
+  products(
+    limit: 1
+    locales: ["en_US"]
+    # You must use the code of the model
+    parent: "Acme Classic Mens Black PVC Work Boots"
+  ) {
+    links {
+      next
+    }
+    items {
+      uuid
+      enabled
+      variationValues
+      attributes {
+        code
+        type
+        values
+      }
+    }
+  }
+}
+```
+```json [snippet: Response] 
 
-## Enabled locales
+{
+  "data": {
+    "products": {
+      "links": {
+        "next": "0aa5198a-7442-4722-a4be-d874640d792a"
+      },
+      "items": [
+        {
+          "uuid": "0aa5198a-7442-4722-a4be-d874640d792a",
+          "enabled": "true",
+          "variationValues": [
+            {
+              "attributeType": "pim_catalog_simpleselect",
+              "attributeCode": "shoe_size",
+              "value": {
+                "locale": null,
+                "data": "10",
+                "channel": null
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "code": "brand",
+              "type": "akeneo_reference_entity",
+              "values": [
+                {
+                  "locale": null,
+                  "data": "acme",
+                  "channel": null
+                }
+              ]
+            },
+            {
+              "code": "color",
+              "type": "akeneo_reference_entity",
+              "values": [
+                {
+                  "locale": null,
+                  "data": "black",
+                  "channel": null
+                }
+              ]
+            },
+            {
+              "code": "packshot",
+              "type": "pim_catalog_asset_collection",
+              "values": [
+                {
+                  "locale": null,
+                  "data": [
+                    "images_image_1_acme_classic_mens_black_pvc_work_boots_1_jpg_products"
+                  ],
+                  "channel": null
+                }
+              ]
+            },
+            {
+              "code": "sku",
+              "type": "pim_catalog_identifier",
+              "values": [
+                {
+                  "locale": null,
+                  "data": "1273192978",
+                  "channel": null
+                }
+              ]
+            },
+            {
+              "code": "name",
+              "type": "pim_catalog_text",
+              "values": [
+                {
+                  "locale": "en_US",
+                  "data": "Acme Classic Mens Size 10 Black PVC Work Boots",
+                  "channel": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
 
-:::info
-[GraphiQL live example](https://graphql.sdk.akeneo.cloud?query=query+EnabledLocales+%7B%0A++locales%28enabled%3A+true%29+%7B%0A++++items+%7B%0A++++++code%0A++++%7D%0A++%7D%0A%7D)
-:::
+## Product with attributes, family, group & categories ...
 
-## Enabled currencies
+``` graphql [snippet: Query] 
 
-:::info
-[GraphiQL live example](https://graphql.sdk.akeneo.cloud?query=query+EnabledCurrencies+%7B%0A++currencies%28enabled%3A+true%29+%7B%0A++++items+%7B%0A++++++code%0A++++%7D%0A++%7D%0A%7D)
-:::
+{
+  products(
+    limit: 1
+    locales: "en_US"
+  ) {
+    items {
+      uuid
+      variationValues
+      parent {
+        code
+      }
+      family {
+        code
+        labels
+      }
+      categories {
+        code
+        labels
+      }
+      attributes {
+        code
+        labels
+        sortOrder
+        type
+        group {
+          code
+          labels
+          sortOrder
+        }
+      }
+    }
+  }
+}
+```
+```json [snippet: Response] 
 
-## Families and their belonging attributes code & type
-
-:::info
-[GraphiQL live example](https://graphql.sdk.akeneo.cloud?query=query+FamiliesWithAttributeCodeAndType+%7B%0A++families+%7B%0A++++links+%7B%0A++++++next%0A++++%7D%0A++++items+%7B%0A++++++code%0A++++++attributes+%7B%0A++++++++code%0A++++++++type%0A++++++%7D%0A++++%7D%0A++%7D%0A%7D)
-:::
-
-## Product with attributes, family, group & categories with all labels
-
-:::info
-[GraphiQL live example](https://graphql.sdk.akeneo.cloud?query=query+ProductWithAttributesFamilyCategoriesAndLabels+%7B%0A++products%28limit%3A+1%2C+locales%3A+%22en_US%22%29+%7B%0A++++items+%7B%0A++++++attributes+%7B%0A++++++++code%0A++++++++labels%0A++++++++sortOrder%0A++++++++type%0A++++++++group+%7B%0A++++++++++code%0A++++++++++labels%0A++++++++++sortOrder%0A++++++++%7D%0A++++++%7D%0A++++++family+%7B%0A++++++++code%0A++++++++labels%0A++++++%7D%0A++++++categories+%7B%0A++++++++code%0A++++++++labels%0A++++++%7D%0A++++++uuid%0A++++++variationValues%0A++++%7D%0A++%7D%0A%7D)
-:::
+{
+  "data": {
+    "products": {
+      "items": [
+        {
+          "uuid": "002844f9-a470-42e2-8268-ddfd8f646593",
+          "variationValues": null,
+          "parent": null,
+          "attributes": [
+            {
+              "code": "condition",
+              "labels": [
+                {
+                  "localeCode": "en_US",
+                  "localeValue": "Condition"
+                }
+              ],
+              "sortOrder": 93,
+              "type": "pim_catalog_simpleselect",
+              "group": {
+                "code": "specifications",
+                "labels": [
+                  {
+                    "localeCode": "en_US",
+                    "localeValue": "Specifications"
+                  }
+                ],
+                "sortOrder": 10
+              }
+            },
+            {
+              "code": "returnable",
+              "labels": [
+                {
+                  "localeCode": "en_US",
+                  "localeValue": "Returnable"
+                }
+              ],
+              "sortOrder": 29,
+              "type": "pim_catalog_simpleselect",
+              "group": {
+                "code": "warranty",
+                "labels": [
+                  {
+                    "localeCode": "en_US",
+                    "localeValue": "Warranty"
+                  }
+                ],
+                "sortOrder": 12
+              }
+            },
+            {
+              "code": "description",
+              "labels": [
+                {
+                  "localeCode": "en_US",
+                  "localeValue": "Description"
+                }
+              ],
+              "sortOrder": 6,
+              "type": "pim_catalog_textarea",
+              "group": {
+                "code": "marketing",
+                "labels": [
+                  {
+                    "localeCode": "en_US",
+                    "localeValue": "Marketing"
+                  }
+                ],
+                "sortOrder": 2
+              }
+            }
+          ],
+          "categories": [
+            {
+              "code": "erp_roofing_nailers",
+              "labels": [
+                {
+                  "localeCode": "en_US",
+                  "localeValue": "Roofing Nailers"
+                }
+              ]
+            },
+            {
+              "code": "master_tools_air_compressors_tools_accessories_nail_guns_roofing_nailers",
+              "labels": [
+                {
+                  "localeCode": "en_US",
+                  "localeValue": "Roofing Nailers"
+                }
+              ]
+            },
+            {
+              "code": "print_roofing_nailers",
+              "labels": [
+                {
+                  "localeCode": "en_US",
+                  "localeValue": "Roofing Nailers"
+                }
+              ]
+            },
+            {
+              "code": "ridgid",
+              "labels": [
+                {
+                  "localeCode": "en_US",
+                  "localeValue": "RIDGID"
+                }
+              ]
+            }
+          ],
+          "family": {
+            "code": "roofing_nailers",
+            "labels": [
+              {
+                "localeCode": "en_US",
+                "localeValue": "Roofing Nailers"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+```
 
 ## Product with assets and reference entity attributes
 
+When fetching product, you can automatically load:
+* The linked `reference entity` or `asset family` linked to a product by requesting the object `relatedObject`
+* The linked `reference entity records` or `asset` linked to a product by adding the parameter `withRelatedObjectValues: true` when requesting the `values`
+
 :::info
-[GraphiQL live example](https://graphql.sdk.akeneo.cloud?query=query+ProductWithAssetsAndReferenceEntityAttributes+%7B%0A++products%28attributesToLoad%3A+%5B%22packshot%22%5D%29+%7B%0A++++items+%7B%0A++++++attributes+%7B%0A++++++++code%0A++++++++relatedObject+%7B%0A++++++++++code%0A++++++++++labels%0A++++++++%7D%0A++++++++values%28withRelatedObjectValues%3A+true%29%0A++++++%7D++++%7D%0A++%7D%0A%7D)
+To make the response more readable, we load only two attributes `packshot` and `badge`
 :::
 
-To load assets and reference entity records on product queries there are two ways:
+``` graphql [snippet: Query] 
 
-- Using Attributes fields with the withRelatedObjectValues argument on values
-- Using Assets and ReferenceEntities fields using the attribute argument
+{
+  products(
+    attributesToLoad: ["packshot", "badge"]
+    locales: ["en_US"]
+    limit: 1
+  ){
+    items {
+      uuid
+      updated
+      attributes {
+        code
+        type
+        relatedObject {
+          code
+          labels
+        }
+        values(withRelatedObjectValues: true)
+      }
+    }
+  }
+}
+```
+```json [snippet: Response] 
+{
+  "data": {
+    "products": {
+      "items": [
+        {
+          "uuid": "002844f9-a470-42e2-8268-ddfd8f646593",
+          "updated": "2024-04-11T14:30:04+00:00",
+          "attributes": [
+            {
+              "code": "badge",
+              "type": "akeneo_reference_entity_collection",
+              "relatedObject": {
+                "code": "badges",
+                "labels": [
+                  {
+                    "localeCode": "en_US",
+                    "localeValue": "Badges"
+                  }
+                ]
+              },
+              "values": [
+                {
+                  "locale": null,
+                  "data": [
+                    {
+                      "code": "best_seller",
+                      "values": {
+                        "label": [
+                          {
+                            "locale": "en_US",
+                            "channel": null,
+                            "data": "Best Seller"
+                          }
+                        ],
+                        "image": [
+                          {
+                            "locale": null,
+                            "channel": null,
+                            "data": "8/2/1/7/82178657041bde23d152365b37028f8246aed25d_bestseller.png"
+                          }
+                        ]
+                      },
+                      "created": "2023-10-10T06:41:49+00:00",
+                      "updated": "2024-03-08T15:42:24+00:00"
+                    },
+                    {
+                      "code": "sale",
+                      "values": {
+                        "label": [
+                          {
+                            "locale": "en_US",
+                            "channel": null,
+                            "data": "Sale"
+                          }
+                        ],
+                        "image": [
+                          {
+                            "locale": null,
+                            "channel": null,
+                            "data": "5/c/4/3/5c431f4422c94ecd2e4bc63923c0843cf4c7519a_sale.png"
+                          }
+                        ]
+                      },
+                      "created": "2023-10-10T06:41:50+00:00",
+                      "updated": "2023-10-10T06:41:50+00:00"
+                    }
+                  ],
+                  "channel": null
+                }
+              ]
+            },
+            {
+              "code": "packshot",
+              "type": "pim_catalog_asset_collection",
+              "relatedObject": {
+                "code": "products",
+                "labels": [
+                  {
+                    "localeCode": "en_US",
+                    "localeValue": "Product Media"
+                  }
+                ]
+              },
+              "values": [
+                {
+                  "locale": null,
+                  "data": [
+                    {
+                      "code": "images_image_2_1583540357_1370_2_jpg_products",
+                      "values": {
+                        "label": [
+                          {
+                            "locale": "en_US",
+                            "channel": null,
+                            "data": "RIDGID 15-Degree 1-3/4 in. Coil Roofing Nailer"
+                          }
+                        ],
+                        "media": [
+                          {
+                            "locale": null,
+                            "channel": null,
+                            "data": "a/f/0/0/af0078e036905c5f16f35ceb36000d5f2b6d7e8c_1583540357_1370__2.jpg",
+                            "links": {
+                              "shareLink": "https://pim-url/products/images_image_2_1583540357_1370_2_jpg_products.jpg"
+                            }
+                          }
+                        ],
+                        "thumbnail": [
+                          {
+                            "locale": null,
+                            "channel": null,
+                            "data": "7/d/6/c/7d6ccf8e2e972bc7c43ad6e4a3cd336324aace8f_1583540357_1370__2_thumbnail.png"
+                          }
+                        ],
+                        "ecommerce": [
+                          {
+                            "locale": null,
+                            "channel": null,
+                            "data": "b/0/c/5/b0c5fca0b3430ce6edabce5b94f769bda623a762_1583540357_1370__2_ecomm.png"
+                          }
+                        ],
+                        "high_res": [
+                          {
+                            "locale": null,
+                            "channel": null,
+                            "data": "b/7/f/2/b7f25b32cd00bca45b2f4f01e5baa7faca723f86_1583540357_1370__2_highres.png"
+                          }
+                        ],
+                        "b2b_thumbnail": [
+                          {
+                            "locale": null,
+                            "channel": null,
+                            "data": "5/5/f/1/55f1f31633bd23cf24108065cd861242e1fe04fb_1583540357_1370__2_b2b.png"
+                          }
+                        ],
+                        "test_media_file": [
+                          {
+                            "locale": null,
+                            "channel": null,
+                            "data": "4/1/7/1/4171ed2c8551e4b6a0c7e15a41542e04de1204f6_Domain_Driven_Aggregate_Design___Training.pdf"
+                          }
+                        ]
+                      },
+                      "created": "2023-10-10T07:04:12+00:00",
+                      "updated": "2024-04-17T13:26:51+00:00"
+                    },
+                    {
+                      "code": "images_image_3_1583536696_1007_3_jpg_products",
+                      "values": {
+                        "label": [
+                          {
+                            "locale": "en_US",
+                            "channel": null,
+                            "data": "Dickies Nylon Work Suspenders"
+                          }
+                        ],
+                        "media": [
+                          {
+                            "locale": null,
+                            "channel": null,
+                            "data": "4/2/c/0/42c0a1a53e3aae31716fcc41b769b6ba62ada25f_1583536696_1007__3.jpg",
+                            "links": {
+                              "shareLink": "https://pim-url/products/images_image_3_1583536696_1007_3_jpg_products.jpg"
+                            }
+                          }
+                        ]
+                      },
+                      "created": "2023-10-10T07:04:36+00:00",
+                      "updated": "2023-10-10T07:04:36+00:00"
+                    }
+                  ],
+                  "channel": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
 
-The first solution will get you all the attributes from the product (or the one listed in the parameter `attributesToLoad`).
-The parameter `withRelatedObjectValues` is here to allow users to load linked attributes assets and reference entity records.
-Please keep in mind that it can impact the performance.
+## GraphQL query with search
 
-The second solution provides the same result as the first but allows the requested asset or reference entity attribute to filter more precisely.
+**AS GraphQL use the Rest API**, all available filters can be used in the **Graphql queries** `search` **argument**
 
-::: panel-link And now, [Integrate GraphQL into your project](/graphql/setup/integration.html)
-:::
+You can a look at [all available filters](https://api.akeneo.com/documentation/filter.html)
+
+Some examples:
+- `{"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}`
+- `{"created":[{"operator":"=","value":"2016-07-04 10:00:00"}]}`
+
+This filters need to be `json escaped` before being able to be usable inside GraphQL.
+
+You can use **your preferred online json escaper**.
+
+The previous escaped filters will be:
+- `{\"created\":[{\"operator\":\"=\",\"value\":\"2016-07-04 10:00:00\"}]}`
+- `{\"updated\":[{\"operator\":\"SINCE LAST N DAYS\",\"value\":4}]}`
+
+```graphql [snippet: Query]
+
+{
+  products(search: "{\"updated\":[{\"operator\":\"SINCE LAST N DAYS\",\"value\":30}]}") {
+    links {
+      next
+    }
+    items {
+      uuid
+      updated
+    }
+  }
+}
+```
+```json [snippet: Response]
+
+{
+  "data": {
+    "products": {
+      "links": {
+        "next": null
+      },
+      "items": [
+        {
+          "uuid": "002844f9-a470-42e2-8268-ddfd8f646593",
+          "updated": "2024-04-11T14:30:04+00:00"
+        },
+        {
+          "uuid": "16874385-4cd5-45e6-a9de-8c13b75e1b34",
+          "updated": "2024-03-26T10:41:15+00:00"
+        },
+        {
+          "uuid": "25eb00d6-d58a-4b04-8ddb-e32cf4eca17b",
+          "updated": "2024-01-23T17:06:52+00:00"
+        }
+      ]
+    }
+  }
+}
+```
+
+## Families and their belonging attributes informations
+
+``` graphql [snippet: Query] 
+{
+  families(
+    locales: ["en_US"]
+    limit: 1
+  ) {
+    links {
+      next
+    }
+    items {
+      code
+      labels
+      attributeAsLabel
+      attributeAsImage
+      attributes {
+        code
+        labels
+        type
+        sortOrder
+        group {
+          code
+          labels
+          sortOrder
+        }
+      }
+    }
+  }
+}
+```
+```json [snippet: Response] 
+
+{
+  "data": {
+    "families": {
+      "links": {
+        "next": "2"
+      },
+      "items": [
+        {
+          "code": "air_purifiers",
+          "labels": [
+            {
+              "localeCode": "en_US",
+              "localeValue": "Air Purifiers"
+            }
+          ],
+          "attributeAsLabel": "name",
+          "attributeAsImage": "packshot",
+          "attributes": [
+            {
+              "code": "badge",
+              "labels": [
+                {
+                  "localeCode": "en_US",
+                  "localeValue": "Badge(s)"
+                }
+              ],
+              "type": "akeneo_reference_entity_collection",
+              "sortOrder": 9,
+              "group": {
+                "code": "ecommerce",
+                "labels": [
+                  {
+                    "localeCode": "en_US",
+                    "localeValue": "Ecommerce"
+                  }
+                ],
+                "sortOrder": 5
+              }
+            },
+            {
+              "code": "best_seller",
+              "labels": [
+                {
+                  "localeCode": "en_US",
+                  "localeValue": "Best Seller"
+                }
+              ],
+              "type": "pim_catalog_boolean",
+              "sortOrder": 10,
+              "group": {
+                "code": "ecommerce",
+                "labels": [
+                  {
+                    "localeCode": "en_US",
+                    "localeValue": "Ecommerce"
+                  }
+                ],
+                "sortOrder": 5
+              }
+            },
+            {
+              "code": "brand",
+              "labels": [
+                {
+                  "localeCode": "en_US",
+                  "localeValue": "Brand"
+                }
+              ],
+              "type": "akeneo_reference_entity",
+              "sortOrder": 1,
+              "group": {
+                "code": "erp",
+                "labels": [
+                  {
+                    "localeCode": "en_US",
+                    "localeValue": "ERP"
+                  }
+                ],
+                "sortOrder": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+## Enabled locales
+
+``` graphql [snippet: Query] 
+
+{
+  locales(enabled: true) {
+    items {
+      code
+      enabled
+    }
+  }
+}
+```
+```json [snippet: Response] 
+
+{
+  "data": {
+    "locales": {
+      "items": [
+        {
+          "code": "de_DE",
+          "enabled": true
+        },
+        {
+          "code": "en_GB",
+          "enabled": true
+        },
+        {
+          "code": "en_US",
+          "enabled": true
+        },
+        {
+          "code": "fr_FR",
+          "enabled": true
+        },
+        {
+          "code": "ja_JP",
+          "enabled": true
+        }
+      ]
+    }
+  }
+}
+```
+
+## Enabled currencies
+
+``` graphql [snippet: Query] 
+
+{
+  currencies(enabled: true) {
+    items {
+      code
+      enabled
+    }
+  }
+}
+```
+```json [snippet: Response] 
+
+{
+  "data": {
+    "currencies": {
+      "items": [
+        {
+          "code": "EUR",
+          "enabled": true
+        },
+        {
+          "code": "GBP",
+          "enabled": true
+        },
+        {
+          "code": "USD",
+          "enabled": true
+        }
+      ]
+    }
+  }
+}
+```
