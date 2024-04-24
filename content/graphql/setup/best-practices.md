@@ -122,15 +122,16 @@ On the GraphiQL ui deprecated fields will appear in orange with an underline and
 
 On queries, you have several ways to get this information.
 - The `queryInformation` field holds a `deprecations` field that contains all the deprecated arguments and fields for this particular query.
-- Query logs also have three entries to expose deprecation information: deprecations, deprecations_keys, deprecations_count.
-- To finish the `deprecations_count` value is also added to the response header under `X-DEPRECATION-NUMBER`.
+- **GraphiQL** show deprecations in `orange` with more informations in hover
+- A response header `x-deprecations-count` is also added
 
 In **GraphiQL** the `deprecations` will be displayed as following:
 
 ![Deprecations In GraphiQL](../../img/graphql/deprecations-in-graphiql.png)
 
 The deprecations count can also be found as a header in the response
-```
+```bash
+
 HTTP/1.1 200 OK
 content-type: application/json; charset=utf-8
 content-length: 773
