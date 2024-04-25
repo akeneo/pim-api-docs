@@ -94,31 +94,31 @@ const query = `
 `;
 
 const variables = {
-  locales: ["fr_FR", "en_US"]
+    locales: ["fr_FR", "en_US"]
 };
 
 const graphqlEndpoint = 'https://graphql.sdk.akeneo.cloud';
 
 // Don't forget to change the headers
 const headers = {
-	'x-pim-client-id'  : 'the-client-id',
-	'x-pim-token'      : 'the-pim-token',
-	'x-pim-url'        : 'the-pim-url'
+    'x-pim-client-id'  : 'the-client-id',
+    'x-pim-token'      : 'the-pim-token',
+    'x-pim-url'        : 'the-pim-url'
 }
 
 // Make a POST request to the GraphQL server
 axios.post(graphqlEndpoint, {
-  query,
-  variables,
-  headers,
+    query,
+    variables,
+    headers,
 })
-.then(response => {
-  // Handle the response data
-  console.log('GraphQL Response:', response.data);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
+    .then(response => {
+        // Handle the response data
+        console.log('GraphQL Response:', response.data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 ```
 ```python [snippet:Python]
 
@@ -171,5 +171,5 @@ else:
 Please check examples from [the community tools & libraries](https://graphql.org/community/tools-and-libraries/?tags=client)
 
 
-::: panel-link And now, check the [best practices to integrate into your project](/graphql/best-practices.html)
+::: panel-link And now, check the best practices to integrate into your project [Next](/graphql/best-practices.html)
 :::

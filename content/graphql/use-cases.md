@@ -1,3 +1,5 @@
+# Use cases examples
+
 :::info
 Most bellow `responses` have been truncated to make them more readable
 :::
@@ -825,3 +827,6 @@ The previous escaped filters will be:
   }
 }
 ```
+
+::: panel-link And now, let's discover how to integrate GraphQL into your project GraphQL [Next](/graphql/integration.html)
+:::

@@ -1,6 +1,6 @@
 # How to browse the GraphQL capabilities
 
-To browse the Akeneo GraphQL capabilities, you can use the in browser IDE (GraphiQL).
+To browse the Akeneo GraphQL capabilities, you can use the in-browser IDE GraphiQL.
 **GraphiQL** will also help you execute your first queries.
 
 ## What is GraphiQL?
@@ -41,9 +41,9 @@ It displays types, fields, and their relationships in a hierarchical manner.
 You can expand or collapse tree nodes to navigate the schema. Clicking on a type or field expands it to reveal its children.
 :::
 
-:::info 
+:::info
 Clicking on a field adds it to the query in the centre panel.
-If a field has subfields, you can click on them to add them to the query.**
+If a field has subfields, you can click on them to add them to the query.
 As you add fields, the Explorer automatically structures them in a nested manner, reflecting the hierarchy of your query.
 When you click on a field, the Explorer shows any available arguments or directives.
 :::
@@ -63,14 +63,14 @@ Auto-completion is available using the `ctrl+space` shortcut.
 At the top of the panel, you can create new queries. GraphiQL keeps them in local storage to allow access and reuse previously executed queries.
 :::
 
-:::info 
+:::info
 Clicking on the **▶️** (or using `ctrl+enter`) will send the query for execution.
 :::
 
 ### Section 5: Headers & Variables.
 
 Some headers are required to do API calls :
-- **`X-PIM-URL`** is your PIM URL `https://my-awesome-pim.sandbox.cloud.akeneo.com/`
+- **`X-PIM-URL`** is your PIM URL (for example, `https://my-awesome-pim.sandbox.cloud.akeneo.com/`)
 - **`X-PIM-CLIENT-ID`** is your client_id
 - **`X-PIM-TOKEN`** is your authentication token
 
@@ -80,5 +80,5 @@ You will see the **GraphQL response** here, displayed in JSON format (you can co
 
 Errors are also displayed in this section.
 
-::: panel-link You can now browse the GraphQL [common notions](/graphql/common-notions.html)
+::: panel-link You can now browse the GraphQL comon notions [Next](/graphql/common-notions.html)
 :::

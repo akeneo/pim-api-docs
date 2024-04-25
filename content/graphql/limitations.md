@@ -1,6 +1,6 @@
 # Limitations
 
-**GraphQL API** offer great flexibility by allowing clients to request precisely the data they need.
+**GraphQL API** offers great flexibility by allowing clients to request precisely the data they need.
 
 However, **certain limitations** are in place to ensure optimal performance.
 
@@ -11,9 +11,9 @@ By setting boundaries, we avoid complex or large queries that could potentially 
 ## Rate limiting
 
 :::warning
-Understanding **that the limitations are not static and will adapt over time-based on usage and requirements is vital**. 
+Understanding **that the limitations are not static and will adapt over time-based on usage and requirements is vital**.
 
-With the **GraphQL API** being a recent addition to Akeneo, our priority is to ensure the stability of the PIM by carefully assessing all risks. 
+With the **GraphQL API** being a recent addition to Akeneo, our priority is to ensure the stability of the PIM by carefully assessing all risks.
 
 If you encounter any **challenges** with the `rate limits`, please don't hesitate to reach out by opening a support ticket.
 
@@ -86,7 +86,7 @@ For example, you can make the following query
 | locales                  | 3         |
 
 :::info
-Remember that every time you open a bracket, the level of depth increases. 
+Remember that every time you open a bracket, the level of depth increases.
 This is an important tip to keep in mind.
 :::
 
@@ -102,7 +102,7 @@ Your insights are invaluable in fine-tuning our system for optimal performance.
 
 
 ## One-query limitation
-By default, GraphQL allow to execute several queries by one call.
+By default, GraphQL allows to execute several queries by one call.
 
 This is disabled and `only one query will be allowed at once`.
 
@@ -135,3 +135,6 @@ You will get an error as following when executing multiple queries in one call.
     ]
 }
 ```
+
+::: panel-link Next step: status and error codes [Next](/graphql/error-codes.html)
+:::
