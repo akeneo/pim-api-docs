@@ -654,7 +654,7 @@ gulp.task('build-graphql', ['clean-dist','less'], function () {
                             .pipe(gulpHandlebars({
                                 active_api_resources: true,
                                 title: 'The GraphQL API',
-                                description: getPageDescription(file.path),
+                                description: getPageDescription(file.path, "The Akeneo GraphQL API"),
                                 mainContent: fs.readFileSync('tmp/graphql/' + path.basename(file.path).replace(/\.md/, '.html'))
                             }, {
                                 partialsDirectory: ['./src/partials']
