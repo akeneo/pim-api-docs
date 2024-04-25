@@ -1,3 +1,5 @@
+# Common notions
+
 ## Common arguments for all queries
 
 A few things are common to all queries (or a significant number of them).
@@ -8,12 +10,12 @@ List of common arguments:
 - `links` contains `first` `next` `self`. It is used for retrieving page links.
 - `page` is used to ask for a specific page. You can find the next page when requesting the links.
   ex: `page: "<<links.next>>"`
-![Pagination](../img/graphql/common-notions-pagination.png)
+  ![Pagination](../img/graphql/common-notions-pagination.png)
 
 - `locales` is used to get data results for specified locales (one or many at once).
   ex :`locales: ["en_US”]`, ex for multiple : `locales: ["fr_FR","en_US"]`
 - `search` is used for more detailed search parameters in your query, the syntax to use can be found [here](https://api.akeneo.com/documentation/filter.html#filters).
-  You can use any example that exists in the documentation, the value must be escaped. You can use **any JSON Escaper** online for this.
+  You can use any example that exists in the documentation, the value must be escaped. You can use **any online JSON Escaper** for this.
 
 Here’s an example:
 ![Common filters](../img/graphql/common-filters.png)
@@ -38,7 +40,7 @@ For example variables can be usefull in:
 * **The locales**: to be able to add easily more locales in the result
 * ...
 
-On **GraphiQL** (in browser IDE) you need to put your variables in the **bottom left tab** ```Variables```
+On **GraphiQL** (the in-browser IDE) you need to put your variables in the **bottom left tab** ```Variables```
 
 ![Common filters](../img/graphql/query-common-variables.png)
 
@@ -48,7 +50,7 @@ The result will be the same as omitting variables
 :::
 
 :::info
-[Try-it or copy the query](https://graphql.sdk.akeneo.cloud?query=query+MyProductQuery%28%24limit%3A+Int%29+%7B%0A++products%28limit%3A+%24limit%29+%7B%0A++++items+%7B%0A++++++uuid%0A++++%7D%0A++%7D%0A%7D) 
+[Try-it or copy the query](https://graphql.sdk.akeneo.cloud?query=query+MyProductQuery%28%24limit%3A+Int%29+%7B%0A++products%28limit%3A+%24limit%29+%7B%0A++++items+%7B%0A++++++uuid%0A++++%7D%0A++%7D%0A%7D)
 **(Please note that you must add the variable by yourself)**
 :::
 
@@ -71,13 +73,13 @@ curl -X POST https://graphql.sdk.akeneo.cloud \
 
 ## Working with pagination
 
-In our **GraphQL API**, we implement pagination in most queries to manage large datasets efficiently. 
+In our **GraphQL API**, we implement pagination in most queries to manage large datasets efficiently.
 
-Pagination breaks down query results into smaller, manageable chunks, improving performance and user experience. 
+Pagination breaks down query results into smaller, manageable chunks, improving performance and user experience.
 
-Pagination is facilitated by the `limit` argument when available, allowing users to specify the maximum number of results per page. 
+Pagination is facilitated by the `limit` argument when available, allowing users to specify the maximum number of results per page.
 
-The `limit` argument accepts values between 1 and 100, determining the maximum number of results returned on a single page.
+The `limit` argument accepts values between **1** and **100**, determining the maximum number of results returned on a single page.
 
 
 This is a simple example:
@@ -177,9 +179,9 @@ To request the next page of data in GraphQL, you need to include the `links` obj
 
 ```
 
-The value of the `next` attribute obtained from the `links` object should be inserted into the `page` argument of the subsequent request. 
+The value of the `next` attribute obtained from the `links` object should be inserted into the `page` argument of the subsequent request.
 
-This `next` value serves as a pointer or reference to the next page of data in the dataset. 
+This `next` value serves as a pointer or reference to the next page of data in the dataset.
 
 By passing this value to the `page` argument in the next query, the result of the next page will be returned :
 
@@ -205,7 +207,7 @@ When no more pages are available, the `next` value is set to `null`.
 
 Aliases in GraphQL provide a way to:
 * Rename a field in the response to get object as needed
-* Duplicate a field with two different name
+* Duplicate a field with two different names
 
 To alias a field you only need to prefix the field with `your-desired-alias: `, example:
 
@@ -265,5 +267,5 @@ To alias a field you only need to prefix the field with `your-desired-alias: `, 
 }
 ```
 
-::: panel-link And now, let's discover how to resolve some use cases with [GraphQL](/graphql/use-cases.html)
+::: panel-link And now, let's discover how to resolve some use cases with GraphQL [Next](/graphql/use-cases.html)
 :::

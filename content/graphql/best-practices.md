@@ -1,11 +1,12 @@
+# Best practices
+
 ## Query only what you need
-Design queries to request only the data required, avoiding over-fetching and under-fetching scenarios. 
+Design queries to request only the data required, avoiding over-fetching and under-fetching scenarios.
 Use field-level granularity to specify precisely which fields are needed for each request.
 By asking only for essential data, you minimize network traffic, reduce server load, and optimize overall API performance.
 
 ```graphql [snippet:GraphQL]
-
-{
+    {
     products {
         items {
             uuid
@@ -29,12 +30,11 @@ By asking only for essential data, you minimize network traffic, reduce server l
 
 ## Load only required product attributes
 Product and ProductModel queries have a special argument called `attributesToLoad` that allow you to fetch only the specified attributes.
-This argument is not mandatory but will greatly improve the response time. 
+This argument is not mandatory but will greatly improve the response time.
 More details are available in the [Rest API documentation](https://api.akeneo.com/documentation/filter.html#filter-product-values).
 
 ```graphql [snippet:Query]
-
-{
+    {
     products(attributesToLoad: ["condition", "name"]) {
         items {
             uuid
@@ -47,7 +47,6 @@ More details are available in the [Rest API documentation](https://api.akeneo.co
 }
 ```
 ```json[snippet:Response]
-
 {
   "data": {
     "products": {
@@ -83,13 +82,14 @@ More details are available in the [Rest API documentation](https://api.akeneo.co
 }
 ```
 
+
 ## Gzip compression
-We support **request compression**. 
-Feel free to utilize it by including the following code in your request header: 
+We support **request compression**.
+Feel free to utilize it by including the following code in your request header:
 `Accept-Encoding: gzip, deflate, br, zstd`
 
 ## Variables usages
-**Arguments** don't need to be written **inside the query string**. 
+**Arguments** don't need to be written **inside the query string**.
 You can instead use static query with variables.
 
 The following example show how to use a `$limit` variable.
@@ -145,5 +145,5 @@ x-transaction-id: cef6aadc-eedb-49f5-8199-dbfbe3689fa3
 x-deprecations-count: 1
 ```
 
-::: panel-link And now, check the existing [limitations](/graphql/limitations.html)
+::: panel-link And now, check the PIM compatibility [Next](/graphql/compatibility.html)
 :::

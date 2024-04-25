@@ -65,7 +65,7 @@ You can now ask for a token using a dedicated GraphQL query, to execute it:
 }
 ```
 
-- Here is a screenshot that correspond to the previous steps
+- Here is a screenshot that corresponds to the previous steps
 
 ![Graphql-Token-Query](../img/graphql/query-token.png)
 
@@ -78,7 +78,7 @@ All the required steps are documented [here](https://api.akeneo.com/tutorials/ho
 ## Step 2: Make your first query
 
 In the previous step you got the following configuration:
-* Your pim URL
+* Your PIM URL
 * Your client id & token (previously generated)
 
 You can now execute your first query to get a list of product with their categories code & labels
@@ -113,9 +113,9 @@ You can now execute your first query to get a list of product with their categor
 ```
 
 - You can now click on the **play** button
-- Here is a screenshot that correspond to the previous steps
+- Here is a screenshot that corresponds to the previous steps
 
 ![Graphql-First-Query](../img/graphql/query-getting-started.png)
 
-::: panel-link And now, let's discover all the GraphQL capabilities using the in browser [GraphiQL](/graphql/browse-graphql-capabilities.html)
+::: panel-link And now, let's discover all the GraphQL capabilities using the browser [Next](/graphql/browse-graphql-capabilities.html)
 :::

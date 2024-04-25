@@ -109,7 +109,7 @@ Your query has a cost of **100** when requesting **10** products :
 - Using the same query to request **100** products will cost you **1000**.
 - Using the same query to request **50** products will cost you **500**.
 - Using the same query to request **1** product will cost you **10**.
-:::
+  :::
 
 Most queries have a limit argument, allowing you to control exactly how much result you want to retrieve to be sure not to cross the limitation.
 
