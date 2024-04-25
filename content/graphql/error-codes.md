@@ -3,8 +3,6 @@
 All GraphQL queries will always return a `HTTP status code 200` unlike most APIs, where error handling is almost synonymous with `HTTP codes. 401 - Unauthorized`, `200 - OK`. 
 Handling errors in GraphQL is different with some challenges, and some ways to tackle them.
 
-![Check the response code](../img/graphql/check-response-code.jpg)
-
 The status code `200 - Ok` doesn't always mean that the GraphQL server was able to process the query.
 Whenever an error occur while processing a GraphQL query, its response to the client includes an `errors array` that contains each error that occurred.
 
