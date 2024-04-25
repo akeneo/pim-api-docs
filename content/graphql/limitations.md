@@ -24,7 +24,40 @@ The **GraphQL API** is limited to `2req/s` per **PIM URL.**
 ## Query complexity limitations
 
 Each query will have a cost complexity depending on the requested data.
-A detailed explanation can be found on [Complexity calculation](/graphql/complexity.html).
+A detailed explanation can be found on [Complexity calculation](/graphql/advanced.html).
+
+```graphql [snippet: Query] 
+
+{
+  products(limit: 100) {
+    items {
+      uuid
+      categories {
+        code
+      }
+      simpleAssociations {
+        type
+        products {
+          uuid
+          parent {
+            code
+          }
+        }
+      }
+    }
+  }
+}
+```
+```json [snippet: Response] 
+
+{
+  "errors": [
+    {
+      "message": "Cost Error: Query Cost limit of 5000 exceeded, found 6200. Reduce the limit argument, or the requested fields"
+    }
+  ]
+}
+```
 
 ## Depth limitations
 A query depth is how much level of data you have.

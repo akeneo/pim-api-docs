@@ -1,6 +1,6 @@
-# Complexity calculation
+## Complexity calculation
 
-# Overview
+### Overview
 Each query you make has an assigned cost used to determine its complexity; it is based on the **requested object, fields and subfields**, and the maximal query cost is **5,000**.
 If your calculated query cost is above **5,000**, the query will be refused, and you will receive an error message instead.
 
@@ -15,7 +15,7 @@ If your calculated query cost is above **5,000**, the query will be refused, and
 }
 ```
 
-# How to know your query complexity
+### How to know your query complexity
 You can check the cost of any given query by requesting the fields `requestComplexity` in the `queryInformation` node available for all queries.
 
 ```graphql [snippet:GraphQL]
@@ -92,14 +92,14 @@ query MyQuery {
 }
 ```
 
-# Calculation method overview
+### Calculation method overview
 The calculation method follows a set of rules described below. Its main components are :
 - The number of request results are called the **limit factor**
 - the nested level of requested objects and fields called the **depth factor**
 - The objects requested are called **object cost**
 - The fields requested for each object are called **fields cost**
 
-## Limit factor
+#### Limit factor
 The limit factor is applied after the query cost has been calculated.
 It multiplies the cost of the query by the number of requested results.
 
@@ -113,9 +113,9 @@ Your query has a cost of **100** when requesting **10** products :
 
 Most queries have a limit argument, allowing you to control exactly how much result you want to retrieve to be sure not to cross the limitation.
 
-## Object cost
+#### Object cost
 
-### What is considered an object
+##### What is considered an object
 An object represent an entity inside a query, it can’t be requested alone as it will provoke an error, it must at least include one field.
 
 Most queries have at least three objects :
@@ -125,7 +125,7 @@ Most queries have at least three objects :
 
 Objects can then have sub-objects; they work the same way as their parent and can have other sub-objects.
 
-### How object cost is calculated
+##### How object cost is calculated
 The default cost of requesting an object is 5.
 
 In this example, we request two objects in a product query :
@@ -166,20 +166,20 @@ query MyQuery {
 Requesting `items` added 5 to the cost.
 Requesting `queryInformation` added 0 to the cost because it is a special object.
 
-### Special object
+##### Special object
 Some objects have a special cost assigned to them and don’t cost the default 5:
 
 - `queryInformation` always costs 0, same for its subfields
 - `links` always cost 0, same for their subfields
 
-## Fields cost
+#### Fields cost
 
-### What is considered a field
+##### What is considered a field
 A field represents an object property or an object method.
 You must always request at least one of the object fields when requesting an object.
 A field is final and does not have any sub-entity.
 
-### How field cost is calculated
+##### How field cost is calculated
 The default cost of requesting a field is 1.
 In this example, we request the field `uuid` of the `items` object:
 
@@ -216,13 +216,13 @@ query MyQuery {
 
 Requesting `uuid` added 1 to the cost.
 
-### Special fields
+##### Special fields
 
 Some fields have a special cost assigned to them and don’t cost the default 1
 `variationValues` in the `product` query cost 5
 `variationAxes` in the `productModel` query cost 5
 
-## Depth cost factor
+#### Depth cost factor
 
 In addition, a depth cost factor is applied to the object and field cost; this depth cost factor multiplies the cost of the object and field depending on how deep they are in the query.
 **The depth cost factor is exponential, starts at 2, and is not applied to the first level of the object `items` .**

@@ -190,6 +190,9 @@ You can find more detail on the [Limitations - Query complexity](/graphql/setup/
 For these errors, the `extensions` **field will always be present**.
 
 ### Wrong data Extensions[http-code]: 422
+This error occur mainly when the data sent to the PIM are invalid. More detail available on [Api Rest - Response codes - 422](/documentation/responses.html#422-error)
+
+
 ```graphql [snippet: Query]
 
 query MyQuery {
@@ -235,6 +238,8 @@ query MyQuery {
 ```
 
 ### Invalid token Extensions[http-code]: 401
+This error occur mainly when authentication headers are invalid. More detail available on [Api Rest - Response codes - 401](/documentation/responses.html#401-error)
+
 ```graphql [snippet: Query]
 
 query MyQuery {

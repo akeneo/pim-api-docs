@@ -637,7 +637,7 @@ gulp.task('build-graphql', ['clean-dist','less'], function () {
             'recommendations.md': "Usage recommendations",
             'limitations.md': "Limitations",
             'error-codes.md': "Status and error codes",
-            'complexity.md': "Complexity calculation",
+            'advanced.md': "Advanced",
         };
 
         var isOnePage = false;
