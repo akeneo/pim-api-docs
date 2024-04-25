@@ -1,4 +1,4 @@
-# Status and error codes
+## Status and error codes
 
 All GraphQL queries will always return a `HTTP status code 200` unlike most APIs, where error handling is almost synonymous with `HTTP codes. 401 - Unauthorized`, `200 - OK`. 
 Handling errors in GraphQL is different with some challenges, and some ways to tackle them.
@@ -274,13 +274,13 @@ query MyQuery {
 }
 ```
 
-# Specific errors
+## Specific errors
 In some cases we can get **status code different** from `200 - Ok`
 
-## `429 Too Many Requests`
+### `429 Too Many Requests`
 This status indicates that the user has sent too many requests in a given amount of time ("rate limiting").
 More details are available on [Limitations - Rate limiting](/graphql/setup/limitations.html#rate-limiting)
 
-## `500 Internal Server Error`
+### `500 Internal Server Error`
 This status indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
 The status of the service can be found on https://status.akeneo.com/
