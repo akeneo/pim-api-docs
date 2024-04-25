@@ -286,3 +286,6 @@ More details are available on [Limitations - Rate limiting](/graphql/setup/limit
 ## `500 Internal Server Error`
 This status indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
 The status of the service can be found on https://status.akeneo.com/
+
+::: panel-link Let's finish with more advanced notions [Next](/graphql/advanced.html)
+:::
