@@ -1,50 +1,181 @@
 # Status and error codes
 
-All queries performed through GraphQL return HTTP status codes containing more information about the response.
+All GraphQL queries will always return a `HTTP status code 200` unlike most APIs, where error handling is almost synonymous with `HTTP codes. 401 - Unauthorized`, `200 - OK`. 
+Handling errors in GraphQL is different with some challenges, and some ways to tackle them.
 
 ![Check the response code](../img/graphql/check-response-code.jpg)
-You can check the response code of a query in your favorite browser’s developer tools
 
-## `200 OK`
+The status code `200 - Ok` doesn't always mean that the GraphQL server was able to process the query.
+Whenever an error occur while processing a GraphQL query, its response to the client includes an `errors array` that contains each error that occurred.
 
-*Most of the time, this response code will be sent. It means that the request was successful.*
+The error will include these fields :
+* `message`: The message of the error
+* `location`: The location of the error in the query `line` and `column`
+* `path`: The path to the field that caused the error on the query
+* `extensions`: Additional details on the error. When the error come from the PIM, this `extensions` field will also include two field `http_code` and also `http_message` 
 
-:::warning
-Nice, you get a “200 OK” code… But under the hood, it is possible that something did not work as expected, so pay attention to the response you received.
-If you did not receive a nicely formatted json “products” (or any other attribute you requested) response, please check the “errors” key to know more.
-For example, you’ll get a “200” code if the PIM URL or the headers you sent are invalid:
+Here is some examples of errors: 
 
-![Check the response code](../img/graphql/api-error.png)
+## Error regarding invalid query
+Generally for these errors, the `extensions` **field will be missing**. 
 
-*An error raised by the “final” API.
-We can see in “extensions” that a "401" code was sent from this API, but we get a “200” from GraphQL.*
+### Wrong query
+```graphql [snippet: Query]
 
-According to the error message, it can also mean that there’s an error on the API that GraphQL tried to reach: it could be an edge case that was not handled yet on GraphQL side (bug).
-:::
-
-## `400 (4xx)`
-
-A query syntax error likely causes this code.
-In this situation, the query did not even reach the underlying service, and GraphQL triggered this error code.
-For example, it can happen if you perform such a query:
-
-```graphql [snippet:GraphQL]
 {
-   products() {
-       i_do_not_exist {
-           uuid
-       }
-   }
+    referenceEntitiesRecords(referenceEntity: "designers")
+}
+```
+```json [snippet: Response]
+
+{
+  "errors": [
+    {
+      "message": "Field \"referenceEntitiesRecords\" of type \"ReferenceEntityRecordsCollection\" must have a selection of subfields. Did you mean \"referenceEntitiesRecords { ... }\"?",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ]
+    }
+  ]
+}
+```
+### Wrong query parameter
+```graphql [snippet: Query]
+
+query MyQuery {
+    # The search must be a valid JSON
+    products(limit: 100, search: "parent!=null") {
+        items {
+            uuid
+            parent {
+                code
+            }
+        }
+    }
+}
+```
+```json [snippet: Response]
+
+{
+  "errors": [
+    {
+      "message": "the \"search\" parameter is not a valid JSON. Please see the documentation for help.",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "products"
+      ]
+    }
+  ],
+  "data": {
+    "products": null
+  }
 }
 ```
 
-If you encounter a “400”, please check the `message` string in the `errors` key that will be displayed. It should be self-explanatory and will help you find the solution:
 
-```graphql [snippet:GraphQL]
-"message": "Cannot query field \"i_do_not_exist\" on type \"ProductCollection\"."
+## Error from the PIM
+For these errors, the `extensions` **field will always be present**.
+
+### Wrong data Extensions[http-code]: 422
+```graphql [snippet: Query]
+
+query MyQuery {
+  products(limit: 100, channel: "abc") {
+    items {
+      uuid
+      parent {
+        code
+      }
+      categories {
+        code
+        values
+      }
+    }
+  }
+}
+```
+```json [snippet: Response]
+
+{
+  "errors": [
+    {
+      "message": "Scope \"abc\" does not exist.",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "products"
+      ],
+      "extensions": {
+        "http_code": 422,
+        "http_message": "Request failed with status code 422"
+      }
+    }
+  ],
+  "data": {
+    "products": null
+  }
+}
 ```
 
-## `500 (5xx)`
 
-This error code can be caused by an application error or an infrastructure problem and is usually more severe.
-Please try again later or check the status page of GraphQL: https://status.akeneo.com/.
+### Invalid token Extensions[http-code]: 401
+```graphql [snippet: Query]
+
+query MyQuery {
+  products(limit: 100, channel: "abc") {
+    items {
+      uuid
+  }
+}
+```
+```json [snippet: Response]
+
+{
+  "errors": [
+    {
+      "message": "The access token provided is invalid.",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "products"
+      ],
+      "extensions": {
+        "http_code": 401,
+        "http_message": "Request failed with status code 401"
+      }
+    }
+  ],
+  "data": {
+    "products": null
+  }
+}
+```
+
+
+
+# Specific errors
+In some cases we can get **status code different** from `200 - Ok`
+
+## `429 Too Many Requests`
+This status indicates that the user has sent too many requests in a given amount of time ("rate limiting").
+More details are available on [Limitations - Rate limiting](/graphql/setup/limitations.html#rate-limiting)
+
+## `500 Internal Server Error`
+This status indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
+The status of the service can be found on https://status.akeneo.com/

@@ -4,7 +4,8 @@ Use field-level granularity to specify precisely which fields are needed for eac
 By asking only for essential data, you minimize network traffic, reduce server load, and optimize overall API performance.
 
 ```graphql [snippet:GraphQL]
-    {
+
+{
     products {
         items {
             uuid
@@ -32,7 +33,8 @@ This argument is not mandatory but will greatly improve the response time.
 More details are available in the [Rest API documentation](https://api.akeneo.com/documentation/filter.html#filter-product-values).
 
 ```graphql [snippet:Query]
-    {
+
+{
     products(attributesToLoad: ["condition", "name"]) {
         items {
             uuid
@@ -45,6 +47,7 @@ More details are available in the [Rest API documentation](https://api.akeneo.co
 }
 ```
 ```json[snippet:Response]
+
 {
   "data": {
     "products": {
@@ -79,7 +82,6 @@ More details are available in the [Rest API documentation](https://api.akeneo.co
   }
 }
 ```
-
 
 ## Gzip compression
 We support **request compression**. 
