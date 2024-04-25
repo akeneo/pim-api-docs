@@ -42,6 +42,7 @@ Generally for these errors, the `extensions` **field will be missing**.
   ]
 }
 ```
+
 ### Wrong query parameter
 ```graphql [snippet: Query]
 
@@ -77,6 +78,110 @@ query MyQuery {
   "data": {
     "products": null
   }
+}
+```
+
+### One-query limitation
+You can find more detail on the [Limitations - One-query](/graphql/setup/limitations.html#one-query-limitation)
+
+```graphql [snippet: Query]
+
+{
+    products {
+        items {
+            uuid
+        }
+    }
+    categories {
+        items {
+            code
+        }
+    }
+}
+```
+```json [snippet: Response]
+
+{
+  "errors": [
+    {
+      "message": "Operation Error: Only one selection is allowed at once, found 2"
+    }
+  ]
+}
+```
+
+### Depth limitation
+You can find more detail on the [Limitations - Depth](/graphql/setup/limitations.html#depth-limitations)
+
+```graphql [snippet: Query]
+
+{
+    products {
+        items {
+            uuid
+            categories {
+                code
+            }
+            simpleAssociations {
+                type
+                products {
+                    uuid
+                    parent {
+                        code
+                        categories {
+                            code
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+```json [snippet: Response]
+
+{
+  "errors": [
+    {
+      "message": "Depth Error: Query depth limit of 6 for query: [products] exceeded, found 7."
+    }
+  ]
+}
+```
+
+### Complexity limitation
+You can find more detail on the [Limitations - Query complexity](/graphql/setup/limitations.html#query-complexity-limitations)
+
+```graphql [snippet: Query]
+
+{
+    products(limit: 100) {
+        items {
+            uuid
+            categories {
+                code
+            }
+            simpleAssociations {
+                type
+                products {
+                    uuid
+                    parent {
+                        code
+                    }
+                }
+            }
+        }
+    }
+}
+```
+```json [snippet: Response]
+
+{
+  "errors": [
+    {
+      "message": "Cost Error: Query Cost limit of 5000 exceeded, found 6200. Reduce the limit argument, or the requested fields"
+    }
+  ]
 }
 ```
 
@@ -129,7 +234,6 @@ query MyQuery {
 }
 ```
 
-
 ### Invalid token Extensions[http-code]: 401
 ```graphql [snippet: Query]
 
@@ -166,8 +270,6 @@ query MyQuery {
   }
 }
 ```
-
-
 
 # Specific errors
 In some cases we can get **status code different** from `200 - Ok`
