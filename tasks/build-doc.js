@@ -24,7 +24,7 @@ var _ = require('lodash');
 var titleDescription = require('../title-description.json')
 
 const loadLanguages = require('prismjs/components/');
-loadLanguages(['php','javascript','python', 'java', 'shell']);
+loadLanguages(['php','javascript','python', 'java', 'shell', 'json', 'graphql']);
 
 function getTocMarkdown(isOnePage, pages, currentPage, baseUrl) {
     if(isOnePage){
@@ -623,6 +623,48 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
               })
         }));
   }
+);
+
+gulp.task('build-graphql', ['clean-dist','less'], function () {
+        var pages = {
+            'getting-started.md': "Getting started",
+            'browse-graphql-capabilities.md': "Browse capabilities",
+            'common-notions.md': "Common notions",
+            'use-cases.md': "Use cases examples",
+            'integration.md': "Integrate GraphQL into your project",
+            'best-practices.md': "Best practices",
+            'compatibility.md': "Pim compatibility",
+            'recommendations.md': "Usage recommendations",
+            'limitations.md': "Limitations",
+            'error-codes.md': "Status and error codes",
+            'advanced.md': "Advanced",
+        };
+
+        var isOnePage = false;
+
+        return gulp.src('content/graphql/*.md')
+            .pipe(flatmap(function(stream, file){
+                return gulp.src('content/graphql/*.md')
+                    .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                    .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/graphql') + "\n"))
+                    .pipe(gulpMarkdownIt(mdGt))
+                    .pipe(gulp.dest('tmp/graphql/'))
+                    .on('end', function () {
+                        return gulp.src('src/partials/graphql-documentation.handlebars')
+                            .pipe(gulpHandlebars({
+                                active_api_resources: true,
+                                title: 'The GraphQL API',
+                                description: getPageDescription(file.path, "The Akeneo GraphQL API"),
+                                mainContent: fs.readFileSync('tmp/graphql/' + path.basename(file.path).replace(/\.md/, '.html'))
+                            }, {
+                                partialsDirectory: ['./src/partials']
+                            }))
+                            .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                            .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                            .pipe(gulp.dest('./dist/graphql'));
+                    })
+            }));
+    }
 );
 
 gulp.task('build-events-api', ['clean-dist','less'], function () {

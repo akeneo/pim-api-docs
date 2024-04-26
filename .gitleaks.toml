@@ -8,4 +8,6 @@ description = 'Custom global allow list'
 paths = [
     # These files generate alerts but they are test files
     '''content/swagger/akeneo-web-api.json''',
+    # GraphQL documentation
+    '''content/graphql/setup/getting-started.md''',
 ]
