@@ -1,76 +1,3 @@
-# Common notions
-
-## Common arguments for all queries
-
-A few things are common to all queries (or a significant number of them).
-
-List of common arguments:
-
-- `limit` is used to ask for a specific number of results, `default:10` `maximum:100`. ex: `limit: 50`
-- `links` contains `first` `next` `self`. It is used for retrieving page links.
-- `page` is used to ask for a specific page. You can find the next page when requesting the links.
-  ex: `page: "<<links.next>>"`
-  ![Pagination](../img/graphql/common-notions-pagination.png)
-
-- `locales` is used to get data results for specified locales (one or many at once).
-  ex :`locales: ["en_US”]`, ex for multiple : `locales: ["fr_FR","en_US"]`
-- `search` is used for more detailed search parameters in your query, the syntax to use can be found [here](https://api.akeneo.com/documentation/filter.html#filters).
-  You can use any example that exists in the documentation, the value must be escaped. You can use **any online JSON Escaper** for this.
-
-Here’s an example:
-![Common filters](../img/graphql/common-filters.png)
-
-:::info
-`Product` and `ProductModel` queries have a special argument called `attributesToLoad`.
-
-This argument is not mandatory but will greatly improve the response time. If you request a specific attribute in your query (such as `sku` in this example) you should pass it to `attributeToLoad`.
-
-More details are available in the [Best practices](/graphql/best-practices.html#restrict-loaded-attributes).
-:::
-
-
-:::info
-[Try-it or copy the query](https://graphql.sdk.akeneo.cloud/?query=query+MyProductQuery+%7B%0A++products%28%0A++++limit%3A+10%0A++++%23+Only+the+SKU+attribute+will+be+loaded+from+the+PIM%0A++++attributesToLoad%3A+%5B%22sku%22%5D%0A++%29+%7B%0A++++links+%7B%0A++++++next%0A++++%7D%0A++++items+%7B%0A++++++uuid%0A++++++enabled%0A++++++family+%7B%0A++++++++code%0A++++++%7D%0A++++++attribute%28code%3A+%22sku%22%29%0A++++%7D%0A++%7D%0A%7D)
-:::
-
-## Using variables in GraphiQL or cURL
-**Variables in GraphQL** will allow you to make your query dynamic and avoid string concatenation or extrapolation.
-For example variables can be usefull in:
-* **The pagination**: to allow you to pass each time the next page
-* **The locales**: to be able to add easily more locales in the result
-* ...
-
-On **GraphiQL** (the in-browser IDE) you need to put your variables in the **bottom left tab** ```Variables```
-
-![Common filters](../img/graphql/query-common-variables.png)
-
-:::info
-If you build your query with variables but omit the value for variable or put a null value, the variables are ignored.
-The result will be the same as omitting variables
-:::
-
-:::info
-[Try-it or copy the query](https://graphql.sdk.akeneo.cloud?query=query+MyProductQuery%28%24limit%3A+Int%29+%7B%0A++products%28limit%3A+%24limit%29+%7B%0A++++items+%7B%0A++++++uuid%0A++++%7D%0A++%7D%0A%7D)
-**(Please note that you must add the variable by yourself)**
-:::
-
-You can also run this query using cURL or your favourite development language.
-
-```bash [snippet:Bash]
-
-curl -X POST https://graphql.sdk.akeneo.cloud \
--H 'Content-Type: application/json' \
--H 'X-PIM-URL: https://xxxxxxx.demo.cloud.akeneo.com' \
--H 'X-PIM-CLIENT-ID: xxxxxx' \
--H 'X-PIM-TOKEN: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
--d '{
-    "query": "query myProductQuery($limit: Int) {products(limit: $limit) {items {uuid}}}",
-    "variables": {
-        "limit": 10
-    }
-}'
-```
-
 ## Working with pagination
 
 In our **GraphQL API**, we implement pagination in most queries to manage large datasets efficiently.
@@ -267,5 +194,66 @@ To alias a field you only need to prefix the field with `your-desired-alias: `, 
 }
 ```
 
-::: panel-link And now, let's discover how to resolve some use cases with GraphQL [Next](/graphql/use-cases.html)
+## Query with search
+
+**AS GraphQL use the Rest API**, all available filters can be used in the **Graphql queries** `search` **argument**
+
+You can a look at [all available filters](https://api.akeneo.com/documentation/filter.html)
+
+Some examples:
+- `{"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}`
+- `{"created":[{"operator":"=","value":"2016-07-04 10:00:00"}]}`
+
+This filters need to be `json escaped` before being able to be usable inside GraphQL.
+
+You can use **your preferred online json escaper**.
+
+The previous escaped filters will be:
+- `{\"created\":[{\"operator\":\"=\",\"value\":\"2016-07-04 10:00:00\"}]}`
+- `{\"updated\":[{\"operator\":\"SINCE LAST N DAYS\",\"value\":4}]}`
+
+Here is an example of query with search:
+
+```graphql [snippet: Query]
+
+{
+  products(search: "{\"updated\":[{\"operator\":\"SINCE LAST N DAYS\",\"value\":30}]}") {
+    links {
+      next
+    }
+    items {
+      uuid
+      updated
+    }
+  }
+}
+```
+```json [snippet: Response]
+
+{
+  "data": {
+    "products": {
+      "links": {
+        "next": null
+      },
+      "items": [
+        {
+          "uuid": "002844f9-a470-42e2-8268-ddfd8f646593",
+          "updated": "2024-04-11T14:30:04+00:00"
+        },
+        {
+          "uuid": "16874385-4cd5-45e6-a9de-8c13b75e1b34",
+          "updated": "2024-03-26T10:41:15+00:00"
+        },
+        {
+          "uuid": "25eb00d6-d58a-4b04-8ddb-e32cf4eca17b",
+          "updated": "2024-01-23T17:06:52+00:00"
+        }
+      ]
+    }
+  }
+}
+```
+
+::: panel-link And now, let's discover the available queries inside GraphQL [Next](/graphql/queries-and-arguments.html)
 :::

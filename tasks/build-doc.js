@@ -630,6 +630,7 @@ gulp.task('build-graphql', ['clean-dist','less'], function () {
             'getting-started.md': "Getting started",
             'browse-graphql-capabilities.md': "Browse capabilities",
             'common-notions.md': "Common notions",
+            'queries-and-arguments.md': "Available queries & arguments",
             'use-cases.md': "Use cases examples",
             'integration.md': "Integrate GraphQL into your project",
             'best-practices.md': "Best practices",
