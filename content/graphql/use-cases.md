@@ -565,65 +565,6 @@ To make the response more readable, we load only two attributes `packshot` and `
 }
 ```
 
-## GraphQL query with search
-
-**AS GraphQL use the Rest API**, all available filters can be used in the **Graphql queries** `search` **argument**
-
-You can a look at [all available filters](https://api.akeneo.com/documentation/filter.html)
-
-Some examples:
-- `{"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}`
-- `{"created":[{"operator":"=","value":"2016-07-04 10:00:00"}]}`
-
-This filters need to be `json escaped` before being able to be usable inside GraphQL.
-
-You can use **your preferred online json escaper**.
-
-The previous escaped filters will be:
-- `{\"created\":[{\"operator\":\"=\",\"value\":\"2016-07-04 10:00:00\"}]}`
-- `{\"updated\":[{\"operator\":\"SINCE LAST N DAYS\",\"value\":4}]}`
-
-```graphql [snippet: Query]
-
-{
-  products(search: "{\"updated\":[{\"operator\":\"SINCE LAST N DAYS\",\"value\":30}]}") {
-    links {
-      next
-    }
-    items {
-      uuid
-      updated
-    }
-  }
-}
-```
-```json [snippet: Response]
-
-{
-  "data": {
-    "products": {
-      "links": {
-        "next": null
-      },
-      "items": [
-        {
-          "uuid": "002844f9-a470-42e2-8268-ddfd8f646593",
-          "updated": "2024-04-11T14:30:04+00:00"
-        },
-        {
-          "uuid": "16874385-4cd5-45e6-a9de-8c13b75e1b34",
-          "updated": "2024-03-26T10:41:15+00:00"
-        },
-        {
-          "uuid": "25eb00d6-d58a-4b04-8ddb-e32cf4eca17b",
-          "updated": "2024-01-23T17:06:52+00:00"
-        }
-      ]
-    }
-  }
-}
-```
-
 ## Families and their belonging attributes informations
 
 ``` graphql [snippet: Query] 
