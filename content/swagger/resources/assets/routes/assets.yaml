@@ -87,7 +87,12 @@ get:
                   {
                     "locale": null,
                     "channel": null,
-                    "data": "https://example.com/allie_jean_model_picture.png"
+                    "data": "allie_jean_model_picture.png",
+                    "linked_data": {
+                      "full_url": "https://example.com/allie_jean_model_picture.png",
+                      "prefix": "https://example.com/",
+                      "suffix": null
+                    }
                   }
                 ],
                 "model_is_wearing_size": [
@@ -140,7 +145,12 @@ get:
                   {
                     "locale": null,
                     "channel": null,
-                    "data": "https://example.com/amy_socks_model_picture.png"
+                    "data": "amy_socks_model_picture.png",
+                    "linked_data": {
+                      "full_url": "https://example.com/amy_socks_model_picture.png",
+                      "prefix": "https://example.com/",
+                      "suffix": null
+                    }
                   }
                 ],
                 "model_is_wearing_size": [
@@ -193,7 +203,12 @@ get:
                   {
                     "locale": null,
                     "channel": null,
-                    "data": "https://example.com/alice_blouse_model_picture.png"
+                    "data": "alice_blouse_model_picture.png",
+                    "linked_data": {
+                      "full_url": "https://example.com/alice_blouse_model_picture.png",
+                      "prefix": "https://example.com/",
+                      "suffix": null
+                    }
                   }
                 ],
                 "model_is_wearing_size": [
