@@ -198,15 +198,15 @@ To alias a field you only need to prefix the field with `your-desired-alias: `, 
 
 **AS GraphQL use the Rest API**, all available filters can be used in the **Graphql queries** `search` **argument**
 
-You can a look at [all available filters](https://api.akeneo.com/documentation/filter.html)
+You can have a look at [all available filters](https://api.akeneo.com/documentation/filter.html)
 
 Some examples:
 - `{"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}`
 - `{"created":[{"operator":"=","value":"2016-07-04 10:00:00"}]}`
 
-This filters need to be `json escaped` before being able to be usable inside GraphQL.
+This filters need to be `JSON-escaped` before being able to be usable inside GraphQL.
 
-You can use **your preferred online json escaper**.
+You can use **your preferred online JSON escaper**.
 
 The previous escaped filters will be:
 - `{\"created\":[{\"operator\":\"=\",\"value\":\"2016-07-04 10:00:00\"}]}`

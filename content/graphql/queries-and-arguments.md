@@ -1,4 +1,4 @@
-This page present **all available arguments** for **the different queries**.
+This page presents **all available arguments** for **the different queries**.
 
 ## products
 Get a list of products (simple/variants).
@@ -9,11 +9,11 @@ The following arguments are available:
 
 | Argument           | Type         | Description                                                                                                                                                                           |
 |--------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `limit`            | **Int**      | Limit the number of result<br/>example `limit: 5`                                                                                                                                     |
+| `limit`            | **Int**      | Limit the number of results<br/>example `limit: 5`                                                                                                                                    |
 | `page`             | **String**   | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
-| `locales`          | **String[]** | Filter values to keep only the one related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                 |
-| `channel`          | **String**   | Filter values to keep only the one related to this channel<br/>example `channel: "b2b"`                                                                                               |
-| `currencies`       | **String[]** | Filter values to keep only the one related to these currencies<br/>example `currencies: ["USD", "EUR"]`                                                                               |
+| `locales`          | **String[]** | Filter values to keep only the ones related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                |
+| `channel`          | **String**   | Filter values to keep only the ones related to this channel<br/>example `channel: "b2b"`                                                                                              |
+| `currencies`       | **String[]** | Filter values to keep only the ones related to these currencies<br/>example `currencies: ["USD", "EUR"]`                                                                              |
 | `search`           | **String**   | Filter results based on specific search<br/>more details on [Common notions - query with search](/graphql/common-notions.html#query-with-search)                                      |
 | `categories`       | **String[]** | Get product associated with these categories based on categories codes<br/>example `categories: ["categ-code1", "categ-code2"]`                                                       |
 | `families`         | **String[]** | Get product associated with these families based on families codes<br/>example `families: ["family-code1", "family-code2"]`                                                           |
@@ -35,11 +35,11 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Produ
 
 | Argument           | Type         | Description                                                                                                                                                                               |
 |--------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `limit`            | **Int**      | Limit the number of result<br/>example `limit: 5`                                                                                                                                         |
+| `limit`            | **Int**      | Limit the number of results<br/>example `limit: 5`                                                                                                                                        |
 | `page`             | **String**   | Display a specific page, the value must come from the **links{next/self/first}**<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
-| `channel`          | **String**   | Filter values to keep only the one related to this channel<br/>example `channel: "b2b"`                                                                                                   |
-| `locales`          | **String[]** | Filter values to keep only the one related to this locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                      |
-| `currencies`       | **String[]** | Filter values to keep only the one related to these currencies<br/>example `currencies: ["USD", "EUR"]`                                                                                   |
+| `channel`          | **String**   | Filter values to keep only the ones related to this channel<br/>example `channel: "b2b"`                                                                                                  |
+| `locales`          | **String[]** | Filter values to keep only the ones related to this locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                     |
+| `currencies`       | **String[]** | Filter values to keep only the ones related to these currencies<br/>example `currencies: ["USD", "EUR"]`                                                                                  |
 | `search`           | **String**   | Filter results based on specific search<br/>more details on [Common notions - query with search](/graphql/common-notions.html#query-with-search)                                          |
 | `codes`            | **String[]** | Get only specific items based on their codes<br/>example `codes: ["code1", "code-2"]`                                                                                                     |
 | `categories`       | **String[]** | Get product associated with these categories based on categories codes<br/>example `categories: ["categ-code1", "categ-code2"]`                                                           |
@@ -59,7 +59,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Famil
 
 | Argument  | Type         | Description                                                                                                                                                                           |
 |-----------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `limit`   | **Int**      | Limit the number of result<br/>example `limit: 5`                                                                                                                                     |
+| `limit`   | **Int**      | Limit the number of results<br/>example `limit: 5`                                                                                                                                    |
 | `page`    | **String**   | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
 | `codes`   | **String[]** | Get only specific items based on their codes<br/>example `codes: ["code1", "code-2"]`                                                                                                 |
 | `locales` | **String[]** | Filter values to keep only the one related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                 |
@@ -71,10 +71,10 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Categ
 
 | Argument  | Type         | Description                                                                                                                                                                           |
 |-----------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `limit`   | **Int**      | Limit the number of result<br/>example `limit: 5`                                                                                                                                     |
+| `limit`   | **Int**      | Limit the number of results<br/>example `limit: 5`                                                                                                                                    |
 | `page`    | **String**   | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
 | `search`  | **String**   | Filter results based on specific search<br/>more details on [Common notions - query with search](/graphql/common-notions.html#query-with-search)                                      |
-| `locales` | **String[]** | Filter values to keep only the one related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                 |
+| `locales` | **String[]** | Filter values to keep only the ones related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                |
 | `root`    | **Boolean**  | Get only category that are root `true` or not `false`                                                                                                                                 |
 | `parent`  | **String**   | Get children categories of a `parent` category<br/>example `parent: "code-parent-category"`                                                                                           |
 | `codes`   | **String[]** | Get only specific items based on their codes<br/>example `codes: ["code1", "code-2"]`                                                                                                 |
@@ -86,10 +86,10 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Attri
 
 | Argument     | Type         | Description                                                                                                                                                                           |
 |--------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `limit`      | **Int**      | Limit the number of result<br/>example `limit: 5`                                                                                                                                     |
+| `limit`      | **Int**      | Limit the number of results<br/>example `limit: 5`                                                                                                                                    |
 | `page`       | **String**   | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
 | `search`     | **String**   | Filter results based on specific search<br/>more details on [Common notions - query with search](/graphql/common-notions.html#query-with-search)                                      |
-| `locales`    | **String[]** | Filter labels to keep only the one related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                 |
+| `locales`    | **String[]** | Filter labels to keep only the ones related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                |
 | `codes`      | **String[]** | Get only specific items based on their codes<br/>example `codes: ["code1", "code-2"]`                                                                                                 |
 | `types`      | **String[]** | Get only specific items based on their types<br/>example `types: ["pim_catalog_simpleselect"]`                                                                                        |
 | `identifier` | **Boolean**  | Get only items that correspond to this filter<br/>example `identifier: true`                                                                                                          |
@@ -102,7 +102,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html#Attrib
 | Argument        | Type         | Description                                                                                                                                                                           |
 |-----------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `attributeCode` | **String**   | *required* Get attribute options linked to a specific attribute                                                                                                                       |
-| `locales`       | **String[]** | Filter labels to keep only the one related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                 |
+| `locales`       | **String[]** | Filter labels to keep only the ones related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                |
 | `page`          | **String**   | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
 
 ## locales
@@ -112,7 +112,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Local
 
 | Argument  | Type        | Description                                                                                                                                                                           |
 |-----------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `limit`   | **Int**     | Limit the number of result<br/>example `limit: 5`                                                                                                                                     |
+| `limit`   | **Int**     | Limit the number of results<br/>example `limit: 5`                                                                                                                                    |
 | `page`    | **String**  | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
 | `enabled` | **Boolean** | Get only items that correspond to the value (true/false)<br/>example `enabled: true`                                                                                                  |
 
@@ -123,7 +123,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Curre
 
 | Argument  | Type        | Description                                                                                                                                                                           |
 |-----------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `limit`   | **Int**     | Limit the number of result<br/>example `limit: 5`                                                                                                                                     |
+| `limit`   | **Int**     | Limit the number of results<br/>example `limit: 5`                                                                                                                                    |
 | `page`    | **String**  | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
 | `enabled` | **Boolean** | Get only items that correspond to the value (true/false)<br/>example `enabled: true`                                                                                                  |
 
@@ -134,18 +134,18 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Chann
 
 | Argument  | Type         | Description                                                                                                                                                                           |
 |-----------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `limit`   | **Int**      | Limit the number of result<br/>example `limit: 5`                                                                                                                                     |
+| `limit`   | **Int**      | Limit the number of results<br/>example `limit: 5`                                                                                                                                    |
 | `page`    | **String**   | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
-| `locales` | **String[]** | Filter labels to keep only the one related to this locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                  |
+| `locales` | **String[]** | Filter labels to keep only the ones related to this locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                 |
 
 ## measurementFamilies
 Get a list of measurement families. 
 
 Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Measurementfamily](https://api.akeneo.com/api-reference.html?#Measurementfamily)
 
-| Argument  | Type         | Description                                                                                          |
-|-----------|--------------|------------------------------------------------------------------------------------------------------|
-| `locales` | **String[]** | Filter labels to keep only the one related to this locales<br/>example `locales: ["fr_FR", "en_US"]` |
+| Argument  | Type         | Description                                                                                           |
+|-----------|--------------|-------------------------------------------------------------------------------------------------------|
+| `locales` | **String[]** | Filter labels to keep only the ones related to this locales<br/>example `locales: ["fr_FR", "en_US"]` |
 
 ## assetFamilies
 Get a list of asset families. 
@@ -156,7 +156,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Asset
 |-----------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `code`    | **String**   | Get a specific asset family <br/>example `code: "code-of-asset-family"`                                                                                                               |
 | `page`    | **String**   | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
-| `locales` | **String[]** | Filter labels to keep only the one related to this locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                  |
+| `locales` | **String[]** | Filter labels to keep only the ones related to this locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                 |
 
 ## assetsRecords
 Get a list of assets for a given asset family. 
@@ -167,8 +167,8 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Asset
 | Argument      | Type         | Description                                                                                                                                                                           |
 |---------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `assetFamily` | **String**   | **required** Get assets linked to an assetFamily<br/>example `assetFamily: "code-parent-asset-family"`                                                                                |                                                                                                                                                                                       |
-| `channel`     | **String**   | Filter values to keep only the one related to this channel<br/>example `channel: "b2b"`                                                                                               |
-| `locales`     | **String[]** | Filter labels to keep only the one related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                 |
+| `channel`     | **String**   | Filter values to keep only the ones related to this channel<br/>example `channel: "b2b"`                                                                                              |
+| `locales`     | **String[]** | Filter labels to keep only the ones related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                |
 | `page`        | **String**   | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
 | `search`      | **String**   | Filter results based on specific search<br/>more details on [Common notions - query with search](/graphql/common-notions.html#query-with-search)                                      |
 | `codes`       | **String[]** | Get only specific items based on their codes<br/>example `codes: ["code1", "code-2"]`                                                                                                 |
@@ -182,7 +182,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Refer
 |-----------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `code`    | **String**   | Get a specific reference entity <br/>example `code: "code-of-ref-entity"`                                                                                                             |
 | `page`    | **String**   | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
-| `locales` | **String[]** | Filter labels to keep only the one related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                 |
+| `locales` | **String[]** | Filter labels to keep only the ones related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                |
 
 ## referenceEntitiesRecords
 Get a list of records for a given reference entity.
@@ -192,8 +192,8 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Refer
 | Argument          | Type         | Description                                                                                                                                                                           |
 |-------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `referenceEntity` | **String**   | **required** Get reference entity records linked to a referenceEntity<br/>example `referenceEntity: "code-parent-ref-entity"`                                                         |                                                                                                                                                                                       |
-| `channel`         | **String**   | Filter values to keep only the one related to this channel<br/>example `channel: "b2b"`                                                                                               |
-| `locales`         | **String[]** | Filter values to keep only the one related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                 |
+| `channel`         | **String**   | Filter values to keep only the ones related to this channel<br/>example `channel: "b2b"`                                                                                              |
+| `locales`         | **String[]** | Filter values to keep only the ones related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                |
 | `page`            | **String**   | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
 | `search`          | **String**   | Filter results based on specific search<br/>more details on [Common notions - query with search](/graphql/common-notions.html#query-with-search)                                      |
 | `codes`           | **String[]** | Get only specific items based on their codes<br/>example `codes: ["code1", "code-2"]`                                                                                                 |
