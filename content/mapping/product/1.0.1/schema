@@ -1,0 +1,1344 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://api.akeneo.com/mapping/product/1.0.1/schema",
+    "type": "object",
+    "properties": {
+        "$id": {
+            "$ref": "#/$defs/$id"
+        },
+        "$schema": {
+            "$ref": "#/$defs/$schema"
+        },
+        "$comment": {
+            "$ref": "#/$defs/$comment"
+        },
+        "$defs": {
+            "$ref": "#/$defs/$defs"
+        },
+        "title": {
+            "$ref": "#/$defs/title"
+        },
+        "description": {
+            "$ref": "#/$defs/description"
+        },
+        "type": {
+            "const": "object"
+        },
+        "properties": {
+            "type": "object",
+            "oneOf": [
+                {
+                    "$ref": "#/$defs/flatProductsMode"
+                },
+                {
+                    "$ref": "#/$defs/productsWithVariantsMode"
+                }
+            ],
+            "default": {}
+        },
+        "required": {
+            "$ref": "#/$defs/requiredConstraint"
+        }
+    },
+    "required": ["type"],
+    "$defs": {
+        "$id": {
+            "$comment": "Non-empty fragments not allowed.",
+            "pattern": "^[^#]*#?$"
+        },
+        "$schema": {
+            "$ref": "#/$defs/uriString"
+        },
+        "$comment": {
+            "type": "string"
+        },
+        "$defs": {
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "#/$defs/property"
+            }
+        },
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "property": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "$ref": "#/$defs/title"
+                },
+                "description": {
+                    "$ref": "#/$defs/description"
+                },
+                "type": {
+                    "enum": [
+                        "string",
+                        "number",
+                        "boolean",
+                        "array",
+                        "object"
+                    ]
+                },
+                "format": {
+                    "$ref": "#/$defs/format"
+                },
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "string",
+                                "object"
+                            ]
+                        },
+                        "format": {
+                            "enum": [
+                                "uri"
+                            ]
+                        },
+                        "enum": {
+                            "$ref": "#/$defs/enum"
+                        },
+                        "properties": {
+                            "type": "object",
+                            "properties": {
+                                "amount": {
+                                    "$ref": "#/$defs/amountProperty"
+                                },
+                                "currency": {
+                                    "$ref": "#/$defs/currencyProperty"
+                                },
+                                "locale": {
+                                    "$ref": "#/$defs/localizableProperty"
+                                },
+                                "value": {
+                                    "$ref": "#/$defs/localizableValueProperty"
+                                }
+                            },
+                            "dependencies": {
+                                "amount": {
+                                    "not": {
+                                        "anyOf": [
+                                            {
+                                                "required": [
+                                                    "locale"
+                                                ]
+                                            },
+                                            {
+                                                "required": [
+                                                    "value"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                "locale": {
+                                    "not": {
+                                        "anyOf": [
+                                            {
+                                                "required": [
+                                                    "amount"
+                                                ]
+                                            },
+                                            {
+                                                "required": [
+                                                    "currency"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            "dependentRequired": {
+                                "amount": [
+                                    "currency"
+                                ],
+                                "currency": [
+                                    "amount"
+                                ],
+                                "locale": [
+                                    "value"
+                                ],
+                                "value": [
+                                    "locale"
+                                ]
+                            }
+                        },
+                        "required": {
+                            "type": "array"
+                        }
+                    },
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "object"
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "properties",
+                            "required"
+                        ]
+                    },
+                    "dependentSchemas": {
+                        "format": {
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "string"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "type"
+                            ]
+                        },
+                        "enum": {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "string"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "enum": {
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "type"
+                            ]
+                        },
+                        "properties": {
+                            "allOf": [
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "properties": {
+                                                "$ref": "#/$defs/priceFullProperty"
+                                            }
+                                        }
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "required": {
+                                                "$ref": "#/$defs/priceRequiredProperty"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "properties": {
+                                                "$ref": "#/$defs/localizedFullProperty"
+                                            }
+                                        }
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "required": {
+                                                "$ref": "#/$defs/localizableRequiredProperty"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "required": {
+                            "properties": {
+                                "type": {
+                                    "const": "object"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                "minLength": {
+                    "$ref": "#/$defs/minLength"
+                },
+                "maxLength": {
+                    "$ref": "#/$defs/maxLength"
+                },
+                "pattern": {
+                    "$ref": "#/$defs/pattern"
+                },
+                "minimum": {
+                    "$ref": "#/$defs/minimum"
+                },
+                "maximum": {
+                    "$ref": "#/$defs/maximum"
+                },
+                "enum": {
+                    "$ref": "#/$defs/enum"
+                },
+                "properties": {
+                    "type": "object",
+                    "properties": {
+                        "amount": {
+                            "$ref": "#/$defs/amountProperty"
+                        },
+                        "currency": {
+                            "$ref": "#/$defs/currencyProperty"
+                        },
+                        "locale": {
+                            "$ref": "#/$defs/localizableProperty"
+                        },
+                        "value": {
+                            "$ref": "#/$defs/localizableValueProperty"
+                        }
+                    },
+                    "dependencies": {
+                        "amount": {
+                            "properties": {
+                                "locale": false,
+                                "value": false
+                            }
+                        },
+                        "locale": {
+                            "properties": {
+                                "amount": false,
+                                "currency": false
+                            }
+                        }
+                    },
+                    "dependentRequired": {
+                        "amount": [
+                            "currency"
+                        ],
+                        "currency": [
+                            "amount"
+                        ],
+                        "locale": [
+                            "value"
+                        ],
+                        "value": [
+                            "locale"
+                        ]
+                    }
+                },
+                "required": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "array"
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "items"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "object"
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "properties"
+                        ],
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "required": {
+                                        "$ref": "#/$defs/priceRequiredProperty"
+                                    }
+                                }
+                            },
+                            {
+                                "properties": {
+                                    "required": {
+                                        "$ref": "#/$defs/localizableRequiredProperty"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "required": [
+                "type"
+            ],
+            "dependentSchemas": {
+                "format": {
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                "items": {
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "array"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                "minLength": {
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                "maxLength": {
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                "pattern": {
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                "minimum": {
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "number"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                "maximum": {
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "number"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                "enum": {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "string"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "enum": {
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "else": {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "number"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "enum": {
+                                    "items": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                "type": {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "object"
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "properties",
+                            "required"
+                        ]
+                    }
+                },
+                "properties": {
+                    "properties": {
+                        "type": {
+                            "const": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "amountProperty": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "number"
+                }
+            },
+            "required": [
+                "type"
+            ]
+        },
+        "currencyProperty": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "string"
+                },
+                "enum": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "type"
+            ]
+        },
+        "priceFullProperty": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "$ref": "#/$defs/amountProperty"
+                },
+                "currency": {
+                    "$ref": "#/$defs/currencyProperty"
+                }
+            },
+            "required": [
+                "amount",
+                "currency"
+            ],
+            "additionalProperties": false
+        },
+        "priceRequiredProperty": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "amount",
+                    "currency"
+                ]
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true
+        },
+        "localizableProperty": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "string"
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "additionalProperties": false
+        },
+        "localizableValueProperty": {
+            "type": "object",
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "array"
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "items"
+                ]
+            },
+            "properties": {
+                "type": {
+                    "enum": [
+                        "string",
+                        "array",
+                        "boolean",
+                        "number",
+                        "object"
+                    ]
+                },
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "string",
+                                "object"
+                            ]
+                        },
+                        "enum": {
+                            "type": "object",
+                            "patternProperties": {
+                                "^[a-z]{2}_[A-Z]{2}$": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": [
+                                            "string",
+                                            "number"
+                                        ]
+                                    }
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "format": {
+                            "$ref": "#/$defs/format"
+                        },
+                        "properties": {
+                            "$ref": "#/$defs/priceFullProperty"
+                        },
+                        "required": {
+                            "type": "array",
+                            "items": {
+                                "enum": [
+                                    "amount",
+                                    "currency"
+                                ]
+                            },
+                            "minItems": 2,
+                            "maxItems": 2,
+                            "uniqueItems": true
+                        }
+                    },
+                    "dependentSchemas": {
+                        "properties": {
+                            "required": [
+                                "required"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "format": {
+                    "$ref": "#/$defs/format"
+                },
+                "minLength": {
+                    "$ref": "#/$defs/minLength"
+                },
+                "maxLength": {
+                    "$ref": "#/$defs/maxLength"
+                },
+                "pattern": {
+                    "$ref": "#/$defs/pattern"
+                },
+                "minimum": {
+                    "$ref": "#/$defs/minimum"
+                },
+                "maximum": {
+                    "$ref": "#/$defs/maximum"
+                },
+                "properties": {
+                    "type": "object",
+                    "$ref": "#/$defs/priceFullProperty"
+                }
+            },
+            "required": [
+                "type"
+            ]
+        },
+        "localizedFullProperty": {
+            "type": "object",
+            "properties": {
+                "locale": {
+                    "$ref": "#/$defs/localizableProperty"
+                },
+                "value": {
+                    "$ref": "#/$defs/localizableValueProperty"
+                }
+            },
+            "required": [
+                "locale",
+                "value"
+            ],
+            "additionalProperties": false
+        },
+        "localizableRequiredProperty": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "locale",
+                    "value"
+                ]
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true
+        },
+        "stringPropertyConstraint": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type"
+            ]
+        },
+        "numberPropertyConstraint": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "number"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type"
+            ]
+        },
+        "measurementValueConstraint": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "object"
+                },
+                "properties": {
+                    "type": "object",
+                    "properties": {
+                        "amount": {
+                            "$ref": "#/$defs/numberPropertyConstraint"
+                        },
+                        "unit": {
+                            "$ref": "#/$defs/stringPropertyConstraint"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "amount",
+                        "unit"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "properties"
+            ]
+        },
+        "variationAxisValueConstraint": {
+            "type": "object",
+            "properties": {
+                "oneOf": {
+                    "type": "array",
+                    "prefixItems": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "const": [
+                                        "string",
+                                        "boolean"
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false,
+                            "required": [
+                                "type"
+                            ]
+                        },
+                        {
+                            "$ref": "#/$defs/measurementValueConstraint"
+                        }
+                    ],
+                    "minItems": 2,
+                    "maxItems": 2
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "oneOf"
+            ]
+        },
+        "localizedLabelConstraint": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "array"
+                },
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "object"
+                        },
+                        "properties": {
+                            "type": "object",
+                            "properties": {
+                                "locale": {
+                                    "$ref": "#/$defs/stringPropertyConstraint"
+                                },
+                                "value": {
+                                    "$ref": "#/$defs/stringPropertyConstraint"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "required": [
+                                "locale",
+                                "value"
+                            ]
+                        },
+                        "required": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": ["locale", "value"]
+                            },
+                            "minItems": 2,
+                            "maxItems": 2,
+                            "uniqueItems": true
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "type",
+                        "properties"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "items"
+            ]
+        },
+        "variationAxesConstraint": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "array"
+                },
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "object"
+                        },
+                        "properties": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "$ref": "#/$defs/stringPropertyConstraint"
+                                },
+                                "label": {
+                                    "$ref": "#/$defs/localizedLabelConstraint"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "required": [
+                                "code",
+                                "label"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "type",
+                        "properties"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "items"
+            ]
+        },
+        "variationAxesValuesConstraint": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "array"
+                },
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "object"
+                        },
+                        "properties": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "$ref": "#/$defs/stringPropertyConstraint"
+                                },
+                                "value": {
+                                    "$ref": "#/$defs/variationAxisValueConstraint"
+                                },
+                                "label": {
+                                    "$ref": "#/$defs/localizedLabelConstraint"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "required": [
+                                "code",
+                                "value",
+                                "label"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "type",
+                        "properties"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "items"
+            ]
+        },
+        "uriString": {
+            "type": "string",
+            "format": "uri"
+        },
+        "flatProductsMode": {
+            "properties": {
+                "uuid": {
+                    "$ref": "#/$defs/uuidProperty"
+                },
+                "variation_axes": false,
+                "variants": false,
+                "pim_associations": {
+                    "$ref": "#/$defs/pimAssociationsProperty"
+                }
+            },
+            "additionalProperties": {
+                "$ref": "#/$defs/property"
+            },
+            "required": [
+                "uuid"
+            ]
+        },
+        "productsWithVariantsMode": {
+            "properties": {
+                "uuid": false,
+                "code": {
+                    "$ref": "#/$defs/codePropertyConstraint"
+                },
+                "variation_axes": {
+                    "$ref": "#/$defs/variationAxesConstraint"
+                },
+                "variants": {
+                    "$ref": "#/$defs/variantsConstraint"
+                },
+                "pim_associations": {
+                    "$ref": "#/$defs/pimAssociationsProperty"
+                }
+            },
+            "additionalProperties": {
+                "$ref": "#/$defs/property"
+            },
+            "required": [
+                "code",
+                "variation_axes",
+                "variants"
+            ]
+        },
+        "pimAssociationsProperty": {
+            "type": "object",
+            "properties": {
+                "type": { "const":  "array" },
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": { "const":  "object" },
+                        "properties": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": { "const":  "string" }
+                                    }
+                                },
+                                "label": {
+                                    "$ref": "#/$defs/localizedLabelConstraint"
+                                },
+                                "associated_objects": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": { "const":  "array" },
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "oneOf": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "oneOf": [
+                                                            {
+                                                                "properties": {
+                                                                    "type": {
+                                                                        "const": "object"
+                                                                    },
+                                                                    "properties": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "type": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "const": {
+                                                                                        "const": "model"
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "quantity": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "type": {
+                                                                                        "const": "number"
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "code": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "type": {
+                                                                                        "const": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "required": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "string",
+                                                                            "enum": [
+                                                                                "type",
+                                                                                "code"
+                                                                            ]
+                                                                        },
+                                                                        "minItems": 2,
+                                                                        "maxItems": 2,
+                                                                        "uniqueItems": true
+                                                                    },
+                                                                    "additionalProperties": {
+                                                                        "const": false
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "type",
+                                                                    "properties",
+                                                                    "required",
+                                                                    "additionalProperties"
+                                                                ]
+                                                            },
+                                                            {
+                                                                "properties": {
+                                                                    "type": {
+                                                                        "const": "object"
+                                                                    },
+                                                                    "properties": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "type": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "enum": {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "string",
+                                                                                            "enum": ["variant", "simple_product"]
+                                                                                        },
+                                                                                        "minItems": 2,
+                                                                                        "maxItems": 2,
+                                                                                        "uniqueItems": true
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "quantity": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "type": {
+                                                                                        "const": "number"
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "uuid": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "type": {
+                                                                                        "const": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "required": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "string",
+                                                                            "enum": [
+                                                                                "type",
+                                                                                "uuid"
+                                                                            ]
+                                                                        },
+                                                                        "minItems": 2,
+                                                                        "maxItems": 2,
+                                                                        "uniqueItems": true
+                                                                    },
+                                                                    "additionalProperties": {
+                                                                        "const": false
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "type",
+                                                                    "properties",
+                                                                    "required",
+                                                                    "additionalProperties"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            "required": ["oneOf"]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "uuidProperty": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "$ref": "#/$defs/title"
+                },
+                "description": {
+                    "$ref": "#/$defs/description"
+                },
+                "type": {
+                    "const": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type"
+            ]
+        },
+        "codePropertyConstraint": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "$ref": "#/$defs/title"
+                },
+                "description": {
+                    "$ref": "#/$defs/description"
+                },
+                "type": {
+                    "const": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type"
+            ]
+        },
+        "variantsConstraint": {
+            "type": "object",
+            "properties": {
+                "oneOf": {
+                    "type": "array",
+                    "prefixItems": [
+                        {
+                            "$ref": "#/$defs/variantsAsURI"
+                        },
+                        {
+                            "$ref": "#/$defs/variantsAsList"
+                        }
+                    ],
+                    "minItems": 2,
+                    "maxItems": 2
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "oneOf"
+            ]
+        },
+        "variantsAsURI": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "string"
+                },
+                "format": {
+                    "const": "uri"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "format"
+            ]
+        },
+        "variantsAsList": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "array"
+                },
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "object"
+                        },
+                        "properties": {
+                            "$ref": "#/$defs/variantsProperty"
+                        },
+                        "required": {
+                            "$ref": "#/$defs/requiredConstraint"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "type",
+                        "properties"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "items"
+            ]
+        },
+        "variantsProperty": {
+            "type": "object",
+            "properties": {
+                "variation_axes_values": {
+                    "$ref": "#/$defs/variationAxesValuesConstraint"
+                },
+                "uuid": {
+                    "$ref": "#/$defs/uuidProperty"
+                },
+                "pim_associations": {
+                    "$ref": "#/$defs/pimAssociationsProperty"
+                }
+            },
+            "additionalProperties": {
+                "$ref": "#/$defs/property"
+            },
+            "required": [
+                "variation_axes_values",
+                "uuid"
+            ]
+        },
+        "requiredConstraint": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "uniqueItems": true,
+            "default": [],
+            "minItems": 1
+        },
+        "format": {
+            "enum": [
+                "date-time",
+                "uri"
+            ]
+        },
+        "minimum": {
+            "type": "number"
+        },
+        "maximum": {
+            "type": "number"
+        },
+        "pattern": {
+            "type": "string",
+            "format": "regex"
+        },
+        "maxLength": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "minLength": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "enum": {
+            "type": "array"
+        }
+    },
+    "additionalProperties": false
+}
