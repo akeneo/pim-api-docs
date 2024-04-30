@@ -43,7 +43,7 @@ get:
           }
         },
         _embedded: {
-          _items: [
+          items: [
             {
               "_links": {
                 "self": {
