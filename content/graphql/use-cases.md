@@ -1,7 +1,7 @@
 # Uses case examples
 
 :::info
-Most below `responses` have been truncated to make them more readable
+Most `responses` below have been truncated to make them more readable
 :::
 
 :::info
