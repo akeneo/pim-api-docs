@@ -11,7 +11,7 @@ By setting boundaries, we avoid complex or large queries that could potentially 
 ## Rate limiting
 
 :::warning
-Understanding **that the limitations are not static and will adapt over time-based on usage and requirements is vital**.
+Understanding **that the limitations are not static and will adapt over time based on usage and requirements is vital**.
 
 With the **GraphQL API** being a recent addition to Akeneo, our priority is to ensure the stability of the PIM by carefully assessing all risks.
 
@@ -53,7 +53,7 @@ A detailed explanation can be found on [Complexity calculation](/graphql/advance
 {
   "errors": [
     {
-      "message": "Cost Error: Query Cost limit of 5000 exceeded, found 6200. Reduce the limit argument, or the requested fields"
+      "message": "Cost Error: Query Cost limit of 5000 exceeded, found 6200. Reduce the limit argument or the requested fields"
     }
   ]
 }
@@ -124,7 +124,7 @@ This is an important tip to keep in mind.
 :::
 
 :::warning
-Understanding **that the limitations are not static and will adapt over time-based on usage and requirements is vital**.
+Understanding **that the limitations are not static and will adapt over time based on usage and requirements is vital**.
 
 With the **GraphQL API** being a recent addition to Akeneo, our priority is to ensure the stability of the PIM by carefully assessing all risks.
 
@@ -135,11 +135,11 @@ Your insights are invaluable in fine-tuning our system for optimal performance.
 
 
 ## One-query limitation
-By default, GraphQL allows to execute several queries by one call.
+By default, GraphQL allows the execution of several queries by one call.
 
 This is disabled and `only one query will be allowed at once`.
 
-You will get an error as following when executing multiple queries in one call.
+You will get an error as follows when executing multiple queries in one call.
 
 ```graphql [snippet:Two queries in one call]
 

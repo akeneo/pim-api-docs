@@ -9,14 +9,14 @@ If your calculated query cost is above **5,000**, the query will be refused, and
 {
   "errors": [
     {
-      "message": "Cost Error: Query Cost limit of 5000 exceeded, found 6200. Reduce the limit argument, or the requested fields"
+      "message": "Cost Error: Query Cost limit of 5000 exceeded, found 6200. Reduce the limit argument or the requested fields"
     }
   ]
 }
 ```
 
 ### How to know your query complexity
-You can check the cost of any given query by requesting the fields `requestComplexity` in the `queryInformation` node available for all queries.
+You can check the cost of any given query by requesting the field `requestComplexity` in the `queryInformation` node available for all queries.
 
 ```graphql [snippet:GraphQL]
 
@@ -49,7 +49,7 @@ query MyQuery {
 }
 ```
 
-You can also have a more detailed view of the cost of each requested object & field by requesting `requestComplexityDetail` .
+You can also have a more detailed view of the cost of each requested object & field by requesting `requestComplexityDetail`.
 
 ```graphql [snippet:GraphQL]
 
@@ -94,7 +94,7 @@ query MyQuery {
 
 ### Calculation method overview
 The calculation method follows a set of rules described below. Its main components are :
-- The number of request results are called the **limit factor**
+- The number of request results is called the **limit factor**
 - the nested level of requested objects and fields called the **depth factor**
 - The objects requested are called **object cost**
 - The fields requested for each object are called **fields cost**
@@ -116,10 +116,10 @@ Most queries have a limit argument, allowing you to control exactly how much res
 #### Object cost
 
 ##### What is considered an object
-An object represent an entity inside a query, it can’t be requested alone as it will provoke an error, it must at least include one field.
+An object represents an entity inside a query, it can’t be requested alone as it will provoke an error, it must at least include one field.
 
 Most queries have at least three objects :
-- **`items`** allowing you to select fields and sub-objects
+- **`items`** allowing you to select fields, and sub-objects
 - **`links`** allowing you to retrieve the pagination information
 - **`queryInformation`** allowing you to retrieve the query information (mostly cost and warning)
 

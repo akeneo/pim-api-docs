@@ -77,11 +77,11 @@ All the required steps are documented [here](https://api.akeneo.com/tutorials/ho
 
 ## Step 2: Make your first query
 
-In the previous step you got the following configuration:
+In the previous step, you got the following configuration:
 * Your PIM URL
 * Your client id & token (previously generated)
 
-You can now execute your first query to get a list of product with their categories code & labels
+You can now execute your first query to get a list of products with their category codes & labels
 
 - Go to [https://graphql.sdk.akeneo.cloud](https://graphql.sdk.akeneo.cloud/), a GraphQL in browser will be displayed and allow you to execute queries.
 - Enter the following query on the left panel

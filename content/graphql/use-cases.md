@@ -1,17 +1,17 @@
-# Use cases examples
+# Uses case examples
 
 :::info
-Most bellow `responses` have been truncated to make them more readable
+Most below `responses` have been truncated to make them more readable
 :::
 
 :::info
-We highly recommand to use `variables` to make your query dynamic.
+We highly recommend using `variables` to make your query dynamic.
 
 [More details](/graphql/best-practices.html#variables-usages)
 :::
 
 :::warning
-All bellow example are demo data, and you must adapt the queries regarding your `attributes codes`, `locales`, `product model code` ...
+All the below examples are demo data, and you must adapt the queries regarding your `attributes codes`, `locales`, `product model code` ...
 :::
 
 ## Product model and their variation axis + family information

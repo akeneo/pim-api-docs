@@ -1,7 +1,7 @@
 # Integrate GraphQL into your project
 
-Here’s some code snippets to help you get started with GraphQL depending on the language you use.
-Your will need:
+Here are some code snippets to help you get started with GraphQL depending on the language you use.
+You will need:
 * Your `PIM Url` to put in the header `x-pim-url`
 * Your `PIM Client ID` to put in the header `x-pim-client-id`
 * Your `PIM Token` to put in the header `x-pim-token`
