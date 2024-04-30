@@ -13,7 +13,7 @@ By asking only for essential data, you minimize network traffic, reduce server l
             enabled
             created
             updated
-            # If you don't need the family detail for your use case
+            # If you don't need the family details for your use case
             # It's a best practice to don't include it
             family {
                 code
@@ -29,7 +29,7 @@ By asking only for essential data, you minimize network traffic, reduce server l
 ```
 
 ## Load only required product attributes
-Product and ProductModel queries have a special argument called `attributesToLoad` that allow you to fetch only the specified attributes.
+Product and ProductModel queries have a special argument called `attributesToLoad` that allows you to fetch only the specified attributes.
 This argument is not mandatory but will greatly improve the response time.
 More details are available in the [Rest API documentation](https://api.akeneo.com/documentation/filter.html#filter-product-values).
 
@@ -90,9 +90,9 @@ Feel free to utilize it by including the following code in your request header:
 
 ## Variables usages
 **Arguments** don't need to be written **inside the query string**.
-You can instead use static query with variables.
+You can instead use static queries with variables.
 
-The following example show how to use a `$limit` variable.
+The following example shows how to use a `$limit` variable.
 
 ```graphql [snippet:GraphQL]
 
@@ -126,10 +126,10 @@ On the GraphiQL ui deprecated fields will appear in orange with an underline and
 
 On queries, you have several ways to get this information.
 - The `queryInformation` field holds a `deprecations` field that contains all the deprecated arguments and fields for this particular query.
-- **GraphiQL** show deprecations in `orange` with more informations in hover
+- **GraphiQL** shows deprecations in `orange` with more information in the hover
 - A response header `x-deprecations-count` is also added
 
-In **GraphiQL** the `deprecations` will be displayed as following:
+In **GraphiQL** the `deprecations` will be displayed as follows:
 
 ![Deprecations In GraphiQL](../img/graphql/deprecations-in-graphiql.png)
 

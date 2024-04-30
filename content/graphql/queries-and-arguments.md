@@ -20,12 +20,12 @@ The following arguments are available:
 | `uuid`             | **String[]** | Get only specific items based on their uuid<br/>example `uuid: ["002844f9-a470-42e2-8268-ddfd8f646593", "002844f9-3648-8268-8268-ddfd8f6411545"]`                                     |
 | `parent`           | **String**   | Get **product variants** linked to the product models base on its **code**<br/>example `code: "code1"`                                                                                |
 | `noParent`         | **Boolean**  | Only accepted value `true`, will return **only simple products**.                                                                                                                     |
-| `attributesToLoad` | **String[]** | Restrict the attribute values we will load on product, more details on [Best practices](/graphql/best-practices.html#load-only-required-product-attributes)                           |
+| `attributesToLoad` | **String[]** | Restrict the attribute values loadded on the product, more details on [Best practices](/graphql/best-practices.html#load-only-required-product-attributes)                       |
 
 :::info
-The `categories`, `families` and `uuid` use under the hood the `Rest API search capabilities` to ease the data fetching.
+The `categories`, `families`, and `uuid` are using under the hood of the `Rest API search capabilities` to ease the data fetching.
 
-More arguments to abstract the search will be added over the time.
+More arguments to abstract the search will be added over time.
 :::
 
 ## productModels
@@ -75,7 +75,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Categ
 | `page`    | **String**   | Display a specific page, the value must come from the links{next/self/first}<br/>more details on [Common notions - paginations](/graphql/common-notions.html#working-with-pagination) |
 | `search`  | **String**   | Filter results based on specific search<br/>more details on [Common notions - query with search](/graphql/common-notions.html#query-with-search)                                      |
 | `locales` | **String[]** | Filter values to keep only the ones related to these locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                |
-| `root`    | **Boolean**  | Get only category that are root `true` or not `false`                                                                                                                                 |
+| `root`    | **Boolean**  | Get only category that is root `true` or not `false`                                                                                                                                  |
 | `parent`  | **String**   | Get children categories of a `parent` category<br/>example `parent: "code-parent-category"`                                                                                           |
 | `codes`   | **String[]** | Get only specific items based on their codes<br/>example `codes: ["code1", "code-2"]`                                                                                                 |
 
@@ -95,7 +95,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Attri
 | `identifier` | **Boolean**  | Get only items that correspond to this filter<br/>example `identifier: true`                                                                                                          |
 
 ## attributeOptions
-Get a list of options of a given attribute. 
+Get a list of options for a given attribute. 
 
 Based on the REST API endpoint [https://api.akeneo.com/api-reference.html#Attributeoption](https://api.akeneo.com/api-reference.html#Attributeoption)
 
@@ -201,7 +201,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Refer
 ## token
 Get an authentication token.
 
-More details on the authentication process available on the [Getting started](/graphql/getting-started.html#step-1-get-your-token)
+More details on the authentication process are available on the [Getting started](/graphql/getting-started.html#step-1-get-your-token)
 
 Based on the REST API endpoint [https://api.akeneo.com/api-reference.html#Authentication](https://api.akeneo.com/api-reference.html#Authentication)
 
@@ -217,7 +217,7 @@ Get the version and the edition of the PIM.
 
 Based on the REST API endpoint https://api.akeneo.com/api-reference.html?#System
 
-No arguments needed.
+No arguments are needed.
 
 ::: panel-link And now, let's discover how to resolve some use cases with GraphQL [Next](/graphql/use-cases.html)
 :::

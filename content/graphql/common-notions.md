@@ -133,7 +133,7 @@ When no more pages are available, the `next` value is set to `null`.
 ## Aliasing fields in response
 
 Aliases in GraphQL provide a way to:
-* Rename a field in the response to get object as needed
+* Rename a field in the response to get an object as needed
 * Duplicate a field with two different names
 
 To alias a field you only need to prefix the field with `your-desired-alias: `, example:
@@ -204,7 +204,7 @@ Some examples:
 - `{"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}`
 - `{"created":[{"operator":"=","value":"2016-07-04 10:00:00"}]}`
 
-This filters need to be `JSON-escaped` before being able to be usable inside GraphQL.
+These filters need to be `JSON-escaped` before being able to be usable inside GraphQL.
 
 You can use **your preferred online JSON escaper**.
 

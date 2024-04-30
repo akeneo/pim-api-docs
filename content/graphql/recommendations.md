@@ -14,5 +14,5 @@ We encourage you to use the Akeneo **GraphQL API** as follows:
   - Without UI ⇒ **GraphQL API** with **the search parameter**
   - Using UI ⇒ **GraphQL API** + **CatalogsForApps** (on the roadmap)
 
-::: panel-link And now, have a look to the GraphQL API limitations [Next](/graphql/limitations.html)
+::: panel-link And now, have a look at the GraphQL API limitations [Next](/graphql/limitations.html)
 :::

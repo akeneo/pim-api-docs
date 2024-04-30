@@ -42,7 +42,7 @@ You can expand or collapse tree nodes to navigate the schema. Clicking on a type
 :::
 
 :::info
-Clicking on a field adds it to the query in the centre panel.
+Clicking on a field adds it to the query in the center panel.
 If a field has subfields, you can click on them to add them to the query.
 As you add fields, the Explorer automatically structures them in a nested manner, reflecting the hierarchy of your query.
 When you click on a field, the Explorer shows any available arguments or directives.
@@ -80,5 +80,5 @@ You will see the **GraphQL response** here, displayed in JSON format (you can co
 
 Errors are also displayed in this section.
 
-::: panel-link You can now browse the GraphQL comon notions [Next](/graphql/common-notions.html)
+::: panel-link You can now browse the GraphQL common notions [Next](/graphql/common-notions.html)
 :::
