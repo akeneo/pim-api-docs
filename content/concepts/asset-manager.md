@@ -1720,6 +1720,7 @@ There are several types of asset attributes, that will allow you to handle diffe
 - the [`media link` attribute](#the-media-link-attribute).
 - the [`boolean` attribute](#the-boolean-attribute).
 - the [`date` attribute](#the-date-attribute).
+- the [`record` attribute](#the-record-attribute).
 
 ::: warning
 You can have a maximum of 100 attributes to describe the structure for one given asset family.    
@@ -1933,6 +1934,31 @@ And here is the JSON format of the `date` attribute type.
 }
 ```
 
+### The `record` attribute
+::: availability versions=SaaS editions=EE
+:::
+
+The record attribute is used to link the asset to a [Reference entity record](/concepts/reference-entities.html#reference-entity-record).
+
+Here is an example of a `record` attribute.
+![An example of a date asset attribute](/img/concepts/record-asset-attribute.svg)
+
+And here is the JSON format of the `record` attribute type.
+```json
+{
+  "code": "brand",
+  "labels": {
+    "en_US": "Brand",
+    "fr_FR": "Marque"
+  },
+  "type": "record",
+  "value_per_locale": false,
+  "value_per_channel": false,
+  "is_required_for_completeness": true,
+  "is_read_only": false,
+  "reference_entity": "brand"
+}
+```
 
 ::: panel-link Want more details about the asset attribute resource? [Check its endpoints here!](/api-reference.html#Assetattribute)
 :::
@@ -2103,6 +2129,28 @@ The table below describes the format of the `data` property for each [asset attr
 | **Media link** <br> _string_              | `"sku_54628_picture1.jpg"`                                   |
 | **Boolean** <br> _bool_                   | `true`                                                       |
 | **Date** <br> _string_                    | `2023-03-01T00:00:00+00:00`                                  |
+| **Record** <br> _string_                  | `"brand"`                                                    |
+
+#### Record attributes
+::: availability versions=SaaS editions=EE
+:::
+
+Whenever the attribute's type is `record`, the `data` field references a [Reference entity record](/concepts/reference-entities.html#reference-entity-record) code.
+
+**Example**
+```json
+{
+  "values": {
+    "brand": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "kartell"
+      }
+    ]
+  }
+}
+```
 
 ### The `locale` and `channel` format
 
