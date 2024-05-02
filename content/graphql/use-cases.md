@@ -1,4 +1,4 @@
-# Uses case examples
+# Use cases examples
 
 :::info
 Most `responses` below have been truncated to make them more readable
@@ -11,7 +11,7 @@ We highly recommend using `variables` to make your query dynamic.
 :::
 
 :::warning
-All the below examples are demo data, and you must adapt the queries regarding your `attributes codes`, `locales`, `product model code` ...
+All the examples below are demo data, and you must adapt the queries regarding your `attributes codes`, `locales`, `product model code` ...
 :::
 
 ## Product model and their variation axis + family information
