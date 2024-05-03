@@ -20,10 +20,10 @@ The following arguments are available:
 | `uuid`             | **String[]** | Get only specific items based on their uuid<br/>example `uuid: ["002844f9-a470-42e2-8268-ddfd8f646593", "002844f9-3648-8268-8268-ddfd8f6411545"]`                                     |
 | `parent`           | **String**   | Get **product variants** linked to the product models base on its **code**<br/>example `code: "code1"`                                                                                |
 | `noParent`         | **Boolean**  | Only accepted value `true`, will return **only simple products**.                                                                                                                     |
-| `attributesToLoad` | **String[]** | Restrict the attribute values loadded on the product, more details on [Best practices](/graphql/best-practices.html#load-only-required-product-attributes)                       |
+| `attributesToLoad` | **String[]** | Restrict the attribute values loaded on the product, more details on [Best practices](/graphql/best-practices.html#load-only-required-product-attributes)                       |
 
 :::info
-The `categories`, `families`, and `uuid` are using under the hood of the `Rest API search capabilities` to ease the data fetching.
+The `categories`, `families`, and `uuid` use the `Rest API search capabilities` under the hood to ease the data fetching.
 
 More arguments to abstract the search will be added over time.
 :::
