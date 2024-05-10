@@ -1,0 +1,40 @@
+post:
+  summary: Create a category media file
+  operationId: "post_category_media_files"
+  description: This endpoint allows you to create a new media file and associate it to an attribute value of a given enriched category.
+  tags:
+    - Category
+  x-versions:
+    - "SaaS"
+  parameters:
+    - name: Content-type
+      in: header
+      type: string
+      description: Equal to 'multipart/form-data'.
+      required: true
+    - name: body
+      in: body
+      x-form-data: true
+      schema:
+        required: ["file"]
+        properties:
+          category:
+            type: string
+            description: The category to which the media file will be associated. It is a JSON string that follows this format '{"code":"category code", "attribute_code":"attribute code", "channel":"channel code or null", "locale":"locale code or null"}'.
+          file:
+            type: string
+            description: The binary of the file.
+            format: binary
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415ErrorMultipart"
+    422:
+      $ref: "#/responses/422Error"

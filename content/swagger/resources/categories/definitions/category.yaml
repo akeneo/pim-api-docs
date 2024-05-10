@@ -31,7 +31,6 @@ properties:
   values:
     type: object
     description: Attribute values
-    x-read-only: true
     default: null
     properties:
       attributeCode|attributeUuid|channelCode|localeCode:
