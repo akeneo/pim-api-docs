@@ -7,7 +7,7 @@ properties:
     x-immutable: true
   parent:
     type: string
-    description: Category code of the parent"s category
+    description: Category code of the parent's category
     x-validation-rules: "&bull; It is either equal to `null` or to an existing category code. &#10;&bull; If equal to an existing category code, it cannot reference itself."
     default: "null"
   updated:
