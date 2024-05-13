@@ -28,13 +28,52 @@ properties:
       localeCode:
         type: string
         description: Category label for the locale `localeCode`
-example: {
-  "code": "winter_collection",
-  "parent": null,
-  "updated": "2021-05-22T12:48:00+02:00",
-  "position": 1,
-  "labels": {
-    "en_US": "Winter collection",
-    "fr_FR": "Collection hiver"
+  values:
+    type: array
+    description: Attribute values (only available on SaaS).
+    default: []
+    items:
+      type: object
+      properties:
+        data:
+          type: string
+          description: Attribute value. It should be a `string` for Text and Text Area attributes, a `boolean` for Yes/No attribute and for Image attribute use the <a href="api-reference.html#post_category_media_files">create category media file endpoint</a>. It can also be `null` to remove the value.
+        locale:
+          type: string
+          description: <a href="api-reference.html#Locale">Locale</a> code of the attribute value.
+        channel:
+          type: string
+          description: <a href="api-reference.html#Channel">Channel</a> code of the attribute value.
+        attribute_code:
+          type: string
+          description: The attribute code.
+example:
+  {
+    "code": "winter_collection",
+    "parent": null,
+    "labels": {
+      "en_US": "Winter collection",
+      "fr_FR": "Collection hiver"
+    },
+    "values":
+      [
+        {
+          "data": "<p>Winter collection description</p>",
+          "channel": "ecommerce",
+          "locale": "en_US",
+          "attribute_code": "a_text_area_attribute",
+        },
+        {
+          "data": false,
+          "channel": "ecommerce",
+          "locale": null,
+          "attribute_code": "a_boolean_attribute",
+        },
+        {
+          "data": null,
+          "channel": null,
+          "locale": null,
+          "attribute_code": "an_image_attribute",
+        },
+      ],
   }
-}

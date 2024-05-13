@@ -192,7 +192,7 @@ post:
     - name: body
       in: body
       schema:
-        $ref: "#/definitions/Category"
+        $ref: "#/definitions/CategoryUpdate"
   responses:
     201:
       $ref: "#/responses/Created"

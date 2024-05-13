@@ -79,6 +79,8 @@
   $ref: ./resources/categories/routes/categories.yaml
 /api/rest/v1/categories/{code}:
   $ref: ./resources/categories/routes/categories_code.yaml
+/api/rest/v1/category-media-files:
+  $ref: ./resources/categories/routes/category_media_files.yaml
 /api/rest/v1/category-media-files/{file_path}/download:
   $ref: ./resources/categories/routes/category_media_files_code_download.yaml
 
