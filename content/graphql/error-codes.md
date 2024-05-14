@@ -277,6 +277,9 @@ query MyQuery {
 ## Specific errors
 In some cases we can get **status code different** from `200 - Ok`
 
+### `415 Unsupported Media Type`
+This status indicates that the user has sent an `empty HTTP POST request`.
+
 ### `429 Too Many Requests`
 This status indicates that the user has sent too many requests in a given amount of time ("rate limiting").
 More details are available on [Limitations - Rate limiting](/graphql/setup/limitations.html#rate-limiting)
