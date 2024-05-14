@@ -2207,6 +2207,72 @@ The `photographer` attribute is neither scopable nor localizable, so it can hold
 Note that the `locale` and `channel` properties are both set to `null` in this case.
 :::
 
+### The `_links` format
+::: availability versions=SaaS editions=EE
+
+:::info
+Note that this property is in read-only. You won't be able to patch or post it.
+:::
+
+The sections below describe the format of the `_links` property for `media_file` Asset attribute type.
+
+#### Media file attribute
+Whenever the attribute type is `media_file`, the `_links` field will contain an object.
+
+The `share_link` is present only for the **main** `media_file` attribute when asset sharing is enabled
+
+**Example**
+```json
+{
+  "a_media_file_attribute": [
+    {
+      "locale": null,
+      "channel": null,
+      "data": "0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_amy_socks_model_picture.png",
+      "_links": {
+        "download": {
+            "href": "https://example.akeneo.com/api/rest/v1/asset-media-files/0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_amy_socks_model_picture.png"
+        },
+        "share_link": {
+          "href": "https://example.asset.akeneo.com/model_pictures/amy_socks_model_picture.jpg"
+        }
+      }
+    }
+  ]
+}
+```
+
+### The `linked_data` format
+::: availability versions=SaaS editions=EE
+:::
+
+:::info
+Note that this property is in read-only. You won't be able to patch or post it.
+:::
+
+The sections below describe the format of the `linked_data` property for `media_link` Asset attribute type.
+
+#### Media link attribute
+Whenever the attribute type is `media_link`, the `linked_data` field will contain an object.
+
+**Example**
+```json
+{
+  "a_media_link_attribute": [
+    {
+      "locale": null,
+      "channel": null,
+      "data": "amy_socks_model_picture.png",
+      "linked_data": {
+        "full_url": "https://example.com/amy_socks_model_picture.png",
+        "prefix": "https://example.com/",
+        "suffix": null
+      }
+    }
+  ]
+}
+```
+
 ## Asset attribute option
 ::: availability versions=3.2,4.0,5.0,6.0,7.0,SaaS editions=EE
 :::

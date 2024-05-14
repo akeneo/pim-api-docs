@@ -68,11 +68,31 @@ get:
               },
               "code": "allie_jean_model_picture",
               "values": {
+                "media_file": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_allie_jean_model_picture.png",
+                    "_links": {
+                      "download": {
+                        "href": "https://demo.akeneo.com/api/rest/v1/asset-media-files/0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_allie_jean_model_picture.png"
+                      },
+                      "share_link": {
+                        "href": "https://demo.asset.akeneo.com/model_pictures/allie_jean_model_picture.png"
+                      }
+                    }
+                  }
+                ],
                 "media_link": [
                   {
                     "locale": null,
                     "channel": null,
-                    "data": "allie_jean_model_picture.png"
+                    "data": "allie_jean_model_picture.png",
+                    "linked_data": {
+                      "full_url": "https://example.com/allie_jean_model_picture.png",
+                      "prefix": "https://example.com/",
+                      "suffix": null
+                    }
                   }
                 ],
                 "model_is_wearing_size": [
@@ -106,11 +126,31 @@ get:
               },
               "code": "amy_socks_model_picture",
               "values": {
+                "media_file": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_amy_socks_model_picture.png",
+                    "_links": {
+                      "download": {
+                        "href": "https://demo.akeneo.com/api/rest/v1/asset-media-files/0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_amy_socks_model_picture.png"
+                      },
+                      "share_link": {
+                        "href": "https://demo.asset.akeneo.com/model_pictures/amy_socks_model_picture.jpg"
+                      }
+                    }
+                  }
+                ],
                 "media_link": [
                   {
                     "locale": null,
                     "channel": null,
-                    "data": "amy_socks_model_picture.png"
+                    "data": "amy_socks_model_picture.png",
+                    "linked_data": {
+                      "full_url": "https://example.com/amy_socks_model_picture.png",
+                      "prefix": "https://example.com/",
+                      "suffix": null
+                    }
                   }
                 ],
                 "model_is_wearing_size": [
@@ -144,11 +184,31 @@ get:
               },
               "code": "alice_blouse_model_picture",
               "values": {
+                "media_file": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_alice_blouse_model_picture.png",
+                    "_links": {
+                      "download": {
+                        "href": "https://demo.akeneo.com/api/rest/v1/asset-media-files/0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_alice_blouse_model_picture.png"
+                      },
+                      "share_link": {
+                        "href": "https://demo.asset.akeneo.com/model_pictures/alice_blouse_model_picture.png"
+                      }
+                    }
+                  }
+                ],
                 "media_link": [
                   {
                     "locale": null,
                     "channel": null,
-                    "data": "alice_blouse_model_picture.png"
+                    "data": "alice_blouse_model_picture.png",
+                    "linked_data": {
+                      "full_url": "https://example.com/alice_blouse_model_picture.png",
+                      "prefix": "https://example.com/",
+                      "suffix": null
+                    }
                   }
                 ],
                 "model_is_wearing_size": [
