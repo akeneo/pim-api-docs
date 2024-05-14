@@ -2228,7 +2228,7 @@ The `share_link` is present only for the **main** `media_file` attribute when as
     {
       "locale": null,
       "channel": null,
-      "data": "0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_amy_socks_model_picture.pn",
+      "data": "0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_amy_socks_model_picture.png",
       "_links": {
         "download": {
             "href": "https://example.akeneo.com/api/rest/v1/asset-media-files/0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_amy_socks_model_picture.png"
