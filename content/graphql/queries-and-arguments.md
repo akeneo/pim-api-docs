@@ -19,8 +19,8 @@ The following arguments are available:
 | `families`         | **String[]** | Get product associated with these families based on families codes<br/>example `families: ["family-code1", "family-code2"]`                                                           |
 | `uuid`             | **String[]** | Get only specific items based on their uuid<br/>example `uuid: ["002844f9-a470-42e2-8268-ddfd8f646593", "002844f9-3648-8268-8268-ddfd8f6411545"]`                                     |
 | `parent`           | **String**   | Get **product variants** linked to the product models base on its **code**<br/>example `code: "code1"`                                                                                |
-| `noParent`         | **Boolean**  | Only accepted value `true`, will return **only simple products**.                                                                                                                     |
-| `attributesToLoad` | **String[]** | Restrict the attribute values loaded on the product, more details on [Best practices](/graphql/best-practices.html#load-only-required-product-attributes)                       |
+| `noParent`         | **Enum**     | Only accepted value `YES`, will return **only simple products**.                                                                                                                      |
+| `attributesToLoad` | **String[]** | Restrict the attribute values loaded on the product, more details on [Best practices](/graphql/best-practices.html#load-only-required-product-attributes)                             |
 
 :::info
 The `categories`, `families`, and `uuid` use the `Rest API search capabilities` under the hood to ease the data fetching.
@@ -44,6 +44,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Produ
 | `codes`            | **String[]** | Get only specific items based on their codes<br/>example `codes: ["code1", "code-2"]`                                                                                                     |
 | `categories`       | **String[]** | Get product associated with these categories based on categories codes<br/>example `categories: ["categ-code1", "categ-code2"]`                                                           |
 | `families`         | **String[]** | Get product associated with these families based on families codes<br/>example `families: ["family-code1", "family-code2"]`                                                               |
+| `noParent`         | **Enum**     | Only accepted value `YES`, will return **only root product models**.                                                                                                                      |
 | `attributesToLoad` | **String[]** | Restrict the attribute values we will load on product, more details on [Best practices](/graphql/best-practices.html#load-only-required-product-attributes)                               |
 
 :::info
