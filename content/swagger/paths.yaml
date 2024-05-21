@@ -1,12 +1,3 @@
-/api/rest/v1/products:
-  $ref: ./resources/products/routes/products.yaml
-/api/rest/v1/products/{code}:
-  $ref: ./resources/products/routes/products_code.yaml
-/api/rest/v1/products/{code}/proposal:
-  $ref: ./resources/products/routes/products_code_proposal.yaml
-/api/rest/v1/products/{code}/draft:
-  $ref: ./resources/products/routes/products_code_draft.yaml
-
 /api/rest/v1/products-uuid:
   $ref: ./resources/products_uuid/routes/products_uuid.yaml
 /api/rest/v1/products-uuid/{uuid}:
@@ -15,6 +6,15 @@
   $ref: ./resources/products_uuid/routes/products_uuid_uuid_proposal.yaml
 /api/rest/v1/products-uuid/{uuid}/draft:
   $ref: ./resources/products_uuid/routes/products_uuid_uuid_draft.yaml
+
+/api/rest/v1/products:
+  $ref: ./resources/products/routes/products.yaml
+/api/rest/v1/products/{code}:
+  $ref: ./resources/products/routes/products_code.yaml
+/api/rest/v1/products/{code}/proposal:
+  $ref: ./resources/products/routes/products_code_proposal.yaml
+/api/rest/v1/products/{code}/draft:
+  $ref: ./resources/products/routes/products_code_draft.yaml
 
 /api/rest/v1/product-models:
   $ref: ./resources/product_models/routes/product_models.yaml
