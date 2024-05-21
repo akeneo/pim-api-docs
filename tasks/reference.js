@@ -147,6 +147,9 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                             if(category.includes('Published products')) {
                                 data.categories[escapeCategory].isPublishedProduct = true;
                             }
+                            if(escapeTag.includes('Productidentifier') || escapeTag.includes('Productuuid')) {
+                                data.categories[escapeCategory].resources[escapeTag].isProductIdentifierOrUUID = true;
+                            }
                             data.categories[escapeCategory].resources[escapeTag].operations[operation.operationId] = _.extend(operation, {
                                 verb: verb,
                                 path: pathUri
@@ -197,6 +200,9 @@ gulp.task('reference', ['clean-dist', 'less'], function() {
                             }
                             if(category.includes('Published products')) {
                                 data.categories[escapeCategory].isPublishedProduct = true;
+                            }
+                            if(escapeTag.includes('Productidentifier') || escapeTag.includes('Productuuid')) {
+                                data.categories[escapeCategory].resources[escapeTag].isProductIdentifierOrUUID = true;
                             }
                             var groupedParameters = _.groupBy(operation.parameters, function(parameter) {
                                 return parameter.in;
