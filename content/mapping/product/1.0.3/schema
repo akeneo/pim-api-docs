@@ -1434,6 +1434,27 @@
                         "required": ["code", "value"]
                     }
                 ]
+            },
+            "if": {
+                "items": { "type": "string" }
+            },
+            "then": {
+                "items": { "type": "string" }
+            },
+            "else": {
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "code": { "type": "string" },
+                        "value": {
+                            "oneOf": [
+                                { "type": "string" },
+                                { "type": "number" }
+                            ]
+                        }
+                    },
+                    "required": ["code", "value"]
+                }
             }
         },
         "enumLink": {
