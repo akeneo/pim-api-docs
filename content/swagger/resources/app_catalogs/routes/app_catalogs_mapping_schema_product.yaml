@@ -1,7 +1,9 @@
 put:
   summary: Create or update the product mapping schema related to a catalog
   operationId: "put_app_catalogs_mapping_schema_product"
-  description: This endpoint allows you to create or update the product mapping schema related to a catalog
+  description: "This endpoint allows you to create or update the product mapping schema related to a catalog. 
+    See <a href=\"/apps/catalogs.html#step-1-define-your-json-schema\" target=\"_blank\">documentation to define 
+    your JSON schema</a>."
   tags:
     - Mapping schema for products
   x-versions:
