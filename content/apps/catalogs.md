@@ -149,7 +149,7 @@ At the beginning of the schema, you must at least indicate the version of the me
 
 ```json
 {
-  "$schema": "https://api.akeneo.com/mapping/product/0.1.0/schema",
+  "$schema": "https://api.akeneo.com/mapping/product/1.0.3/schema",
   "type": "object"
 }
 ```
@@ -158,7 +158,7 @@ Next, you must define a list of targets that you want to retrieve.
 
 ```json
 {
-  "$schema": "https://api.akeneo.com/mapping/product/0.1.0/schema",
+  "$schema": "https://api.akeneo.com/mapping/product/1.0.3/schema",
   "type": "object",
   "properties": {
     "uuid": {
