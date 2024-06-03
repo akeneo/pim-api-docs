@@ -142,6 +142,50 @@ To help you define your schema, we advise you to use this online validator pre-c
 
 You can also download the [latest product mapping meta-schema - v1.0.3 (May, 2024)](/mapping/product/1.0.3/schema) and the [related product mapping schema example](/mapping/product/1.0.3/example).
 
+
+#### Write a mapping schema
+
+At the beginning of the schema, you must at least indicate the version of the meta-schema used and also ensure that the output JSON represents an object. :
+
+```json
+{
+  "$schema": "https://api.akeneo.com/mapping/product/0.1.0/schema",
+  "type": "object"
+}
+```
+
+Next, you must define a list of targets that you want to retrieve.
+
+```json
+{
+  "$schema": "https://api.akeneo.com/mapping/product/0.1.0/schema",
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "type": "string"
+    },
+    "name": {
+      "title": "Product name",
+      "type": "string"
+    }
+  }
+}
+```
+The `uuid` target, with a `string` type, is mandatory. It's a special target that is automapped on the PIM side.
+
+Next, you can create the targets you want. Each target must have at least a type. `title` is optional but can be useful because it's used as a label in the mapping UI on the PIM side.
+
+There are three special targets that you can include in your schema: 
+
+`pim_associations`: retrieve associations
+
+`pim_parent`: retrieve the parent model of a product
+
+`pim_root`: retrieve the root model of a product
+
+To use one of these targets, just copy/paste it from the [example](/mapping/product/1.0.3/example).
+
+
 ::: warning
 Please note that **we don't return empty values**.  
 When the mapped attribute is empty on the Akeneo PIM side, you won't receive the target property for this product in the API response.
