@@ -43,6 +43,7 @@ When a product selection becomes invalid, e.g., a selected category no longer ex
 In that case, your app receives an HTTP 200 response containing the following payload.
 
 ```json
+
 {
   "error": "No products to synchronize. The catalog \"65f5a521-e65c-4d7b-8be8-1f267fa2729c\" has been disabled on the PIM side. Note that you can get catalogs status with the GET /api/rest/v1/catalogs endpoint."
 }
@@ -148,6 +149,7 @@ You can also download the [latest product mapping meta-schema - v1.0.3 (May, 202
 At the beginning of the schema, you must at least indicate the version of the meta-schema used and also ensure that the output JSON represents an object. :
 
 ```json
+
 {
   "$schema": "https://api.akeneo.com/mapping/product/1.0.3/schema",
   "type": "object"
@@ -157,6 +159,7 @@ At the beginning of the schema, you must at least indicate the version of the me
 Next, you must define a list of targets that you want to retrieve.
 
 ```json
+
 {
   "$schema": "https://api.akeneo.com/mapping/product/1.0.3/schema",
   "type": "object",
