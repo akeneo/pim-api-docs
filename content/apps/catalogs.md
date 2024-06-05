@@ -43,6 +43,7 @@ When a product selection becomes invalid, e.g., a selected category no longer ex
 In that case, your app receives an HTTP 200 response containing the following payload.
 
 ```json
+
 {
   "error": "No products to synchronize. The catalog \"65f5a521-e65c-4d7b-8be8-1f267fa2729c\" has been disabled on the PIM side. Note that you can get catalogs status with the GET /api/rest/v1/catalogs endpoint."
 }
@@ -138,9 +139,55 @@ The first step to using the mapping feature is determining the JSON schema you n
 **JSON Schema is a declarative language that allows annotating and validating JSON documents.** It describes an existing data format, provides clear human- and machine-readable documentation, and allows to validate data which is useful for ensuring the quality of client-submitted data.
 :::
 
-To help you define your schema, we advise you to use this online validator pre-configured with our latest meta-schema: [jsonschemavalidator.net](https://www.jsonschemavalidator.net/s/sj7VwD3l). The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints.
+To help you define your schema, we advise you to use this online validator pre-configured with our latest meta-schema: [jsonschemavalidator.net](https://www.jsonschemavalidator.net/s/VITQt0LI). The validator highlights errors if there are some or displays a success message if your schema matches all our meta-schema constraints.
 
-You can also download the [latest product mapping meta-schema - v1.0.0 (December, 2023)](/mapping/product/1.0.0/schema) and the [related product mapping schema example](/mapping/product/1.0.0/example).
+You can also download the [latest product mapping meta-schema - v1.0.3 (May, 2024)](/mapping/product/1.0.3/schema) and the [related product mapping schema example](/mapping/product/1.0.3/example).
+
+
+#### Write a mapping schema
+
+At the beginning of the schema, you must at least indicate the version of the meta-schema used and also ensure that the output JSON represents an object. :
+
+```json
+
+{
+  "$schema": "https://api.akeneo.com/mapping/product/1.0.3/schema",
+  "type": "object"
+}
+```
+
+Next, you must define a list of targets that you want to retrieve.
+
+```json
+
+{
+  "$schema": "https://api.akeneo.com/mapping/product/1.0.3/schema",
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "type": "string"
+    },
+    "name": {
+      "title": "Product name",
+      "type": "string"
+    }
+  }
+}
+```
+The `uuid` target, with a `string` type, is mandatory. It's a special target that is automapped on the PIM side.
+
+Next, you can create the targets you want. Each target must have at least a type. `title` is optional but can be useful because it's used as a label in the mapping UI on the PIM side.
+
+There are three special targets that you can include in your schema: 
+
+`pim_associations`: retrieve associations
+
+`pim_parent`: retrieve the parent model of a product
+
+`pim_root`: retrieve the root model of a product
+
+To use one of these targets, just copy/paste it from the [example](/mapping/product/1.0.3/example).
+
 
 ::: warning
 Please note that **we don't return empty values**.  

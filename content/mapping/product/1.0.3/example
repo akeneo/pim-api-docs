@@ -1,0 +1,442 @@
+{
+    "$id": "https://example.com/product",
+    "$schema": "https://api.akeneo.com/mapping/product/1.0.3/schema",
+    "type": "object",
+    "properties": {
+        "code": {
+            "title": "Model ID",
+            "type": "string"
+        },
+        "brand": {
+            "title": "Brand name",
+            "type": "string"
+        },
+        "description": {
+            "title": "Product description",
+            "type": "string"
+        },
+        "fabrics": {
+            "title": "Fabrics",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "colors": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Red",
+                    "Green",
+                    "Blue",
+                    "Yellow",
+                    "Black",
+                    "White"
+                ]
+            }
+        },
+        "colorCodes": {
+            "title": "Color Codes",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enumLink": "https://docs.google.com/spreadsheets/d/1gqPrZy-UJHKz8QDdUo8M1xVtD"
+            }
+        },
+        "colorCodeValues": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    {
+                        "code": "r-104",
+                        "value" : "Red"
+                    },
+                    {
+                        "code": "g-451",
+                        "value" : "Green"
+                    },
+                    {
+                        "code": "b-22",
+                        "value" : "Blue"
+                    }
+                ]
+            }
+        },
+        "length": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value",
+                "unit"
+            ]
+        },
+        "localized_names": {
+            "title": "Name with multiple locales",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "locale": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "locale",
+                    "value"
+                ]
+            }
+        },
+        "variation_axes": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "label": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "locale": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "variants": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "uri"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "variation_axes_values": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "oneOf": [
+                                                {
+                                                    "type": [
+                                                        "string",
+                                                        "boolean"
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "amount": {
+                                                            "type": "number"
+                                                        },
+                                                        "unit": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "label": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "locale": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "uuid": {
+                                "title": "uuid",
+                                "type": "string"
+                            },
+                            "sku": {
+                                "title": "SKU",
+                                "type": "string"
+                            },
+                            "position": {
+                                "title": "Position",
+                                "type": "number"
+                            },
+                            "price": {
+                                "title": "Price",
+                                "type": "string"
+                            },
+                            "response_time": {
+                                "title": "Response time",
+                                "type": "string"
+                            },
+                            "sizes": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "S",
+                                        "M",
+                                        "L",
+                                        "XL"
+                                    ]
+                                }
+                            },
+                            "sizeCodes": {
+                                "title": "Size Codes",
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enumLink": "https://docs.google.com/spreadsheets/d/1gqPrZy-UJHKz8QDdUo8M1xVtD"
+                                }
+                            },
+                            "sizeCodeValues": {
+                                "type": "string",
+                                "enum": [
+                                    {
+                                        "code": "XS",
+                                        "value" : "XS"
+                                    },
+                                    {
+                                        "code": "S",
+                                        "value" : "S"
+                                    },
+                                    {
+                                        "code": "M",
+                                        "value" : 38
+                                    }
+                                ]
+                            },
+                            "localized_product_photos_media_file": {
+                                "title": "Photos with value per locale(links)",
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "locale": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "format": "uri"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "locale",
+                                        "value"
+                                    ]
+                                }
+                            },
+                            "localized_prices": {
+                                "title": "Price in multiple currencies with value per locale",
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "locale": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "amount": {
+                                                        "type": "number"
+                                                    },
+                                                    "currency": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "amount",
+                                                    "currency"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "locale",
+                                        "value"
+                                    ]
+                                }
+                            },
+                            "pim_associations": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "label": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "locale": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "locale",
+                                                    "value"
+                                                ]
+                                            }
+                                        },
+                                        "associated_objects": {
+                                            "type": "array",
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "type": {
+                                                                "const": "model"
+                                                            },
+                                                            "quantity": {
+                                                                "type": "number"
+                                                            },
+                                                            "code": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": ["type", "code"],
+                                                        "additionalProperties": false
+                                                    },
+                                                    {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "type": {
+                                                                "const": "product"
+                                                            },
+                                                            "quantity": {
+                                                                "type": "number"
+                                                            },
+                                                            "uuid": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": ["type", "uuid"],
+                                                        "additionalProperties": false
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "required": [
+                            "uuid"
+                        ]
+                    }
+                }
+            ]
+        },
+        "pim_associations": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "label": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "locale": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "locale",
+                                "value"
+                            ]
+                        }
+                    },
+                    "associated_objects": {
+                        "type": "array",
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {
+                                            "const": "model"
+                                        },
+                                        "quantity": {
+                                            "type": "number"
+                                        },
+                                        "code": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["type", "code"],
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {
+                                            "const": "product"
+                                        },
+                                        "quantity": {
+                                            "type": "number"
+                                        },
+                                        "uuid": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["type", "uuid"],
+                                    "additionalProperties": false
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
