@@ -1108,15 +1108,8 @@
                                                                             "type": {
                                                                                 "type": "object",
                                                                                 "properties": {
-                                                                                    "enum": {
-                                                                                        "type": "array",
-                                                                                        "items": {
-                                                                                            "type": "string",
-                                                                                            "enum": ["variant", "simple_product"]
-                                                                                        },
-                                                                                        "minItems": 2,
-                                                                                        "maxItems": 2,
-                                                                                        "uniqueItems": true
+                                                                                    "const": {
+                                                                                        "const": "product"
                                                                                     }
                                                                                 }
                                                                             },
