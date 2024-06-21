@@ -80,7 +80,7 @@ query MyQuery {
 ```
 
 ### One-query limitation
-You can find more detail on the [Limitations - One-query](/graphql/setup/limitations.html#one-query-limitation)
+You can find more detail on the [Limitations - One-query](/graphql/limitations.html#one-query-limitation)
 
 ```graphql [snippet: Query]
 
@@ -109,7 +109,7 @@ You can find more detail on the [Limitations - One-query](/graphql/setup/limitat
 ```
 
 ### Depth limitation
-You can find more detail on the [Limitations - Depth](/graphql/setup/limitations.html#depth-limitations)
+You can find more detail on the [Limitations - Depth](/graphql/limitations.html#depth-limitations)
 
 ```graphql [snippet: Query]
 
@@ -148,7 +148,7 @@ You can find more detail on the [Limitations - Depth](/graphql/setup/limitations
 ```
 
 ### Complexity limitation
-You can find more detail on the [Limitations - Query complexity](/graphql/setup/limitations.html#query-complexity-limitations)
+You can find more detail on the [Limitations - Query complexity](/graphql/limitations.html#query-complexity-limitations)
 
 ```graphql [snippet: Query]
 
@@ -282,7 +282,7 @@ This status indicates that the user has sent an `empty HTTP POST request`.
 
 ### `429 Too Many Requests`
 This status indicates that the user has sent too many requests in a given amount of time ("rate limiting").
-More details are available on [Limitations - Rate limiting](/graphql/setup/limitations.html#rate-limiting)
+More details are available on [Limitations - Rate limiting](/graphql/limitations.html#rate-limiting)
 
 ### `500 Internal Server Error`
 This status indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
