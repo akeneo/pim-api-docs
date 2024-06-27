@@ -231,7 +231,7 @@ patch:
           x-example-1:
             '{"code":"spring_collection","parent":null}'
           x-example-2:
-            '{"code":"woman","parent":"spring_collectionn"}'
+            '{"code":"woman","parent":"spring_collection"}'
           x-example-3:
             '{"code":"man","parent":"spring_collection"}'
   responses:
