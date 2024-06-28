@@ -66,3 +66,19 @@ patch:
       $ref: "#/responses/415Error"
     422:
       $ref: "#/responses/422Error"
+
+delete:
+  summary: Delete a family
+  operationId: "delete_families__code__"
+  description: This endpoint allows you to delete a family by code.
+  tags:
+    - Family
+  x-versions:
+    - "SaaS"
+  parameters:
+    - $ref: '#/parameters/code'
+  responses:
+    204:
+      description: Empty content
+    404:
+      $ref: "#/responses/404Error"
