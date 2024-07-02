@@ -79,9 +79,10 @@ delete:
     - $ref: '#/parameters/code'
   responses:
     204:
-      description: Empty content
+      $ref: "#/responses/NoContent"
     404:
+      $ref: "#/responses/404Error"
     422:
       $ref: "#/responses/422Error"
     403:
-      $ref: "#/responses/403Error"  
+      $ref: "#/responses/403Error"
