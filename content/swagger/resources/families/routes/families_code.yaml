@@ -81,4 +81,7 @@ delete:
     204:
       description: Empty content
     404:
-      $ref: "#/responses/404Error"
+    422:
+      $ref: "#/responses/422Error"
+    403:
+      $ref: "#/responses/403Error"  
