@@ -1560,6 +1560,33 @@
 						"description": "\n"
 					},
 					"response": []
+				},
+				{
+					"name": "family",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/families/camcorders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"families",
+								"camcorders"
+							]
+						},
+						"description": "Delete family assuming that the given code is the code of an existing family"
+					},
+					"response": []
 				}
 			]
 		},
