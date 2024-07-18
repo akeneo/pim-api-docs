@@ -95,6 +95,10 @@ Regardless of the type of app, it is your responsibility as a developer to host,
 
 By understanding these distinctions and leveraging Akeneo’s powerful integration capabilities, you can develop and propose the best solutions to meet your customers' needs, ensuring they get the most out of their Akeneo PIM system.
 
+::: info
+Please note that once you begin developing your app, you will need to use the custom app journey to add the URL of your app in the PIM of your choice for testing purposes. After your app has been submitted for Akeneo's validation, you can then decide whether you want to list it as a custom app or a SaaS app.
+:::
+
 
 ## App developer starter kit
 
