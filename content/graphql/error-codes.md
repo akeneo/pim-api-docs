@@ -187,6 +187,45 @@ You can find more detail on the [Limitations - Query complexity](/graphql/limita
 ## Error from the PIM
 For these errors, the `extensions` **field will always be present**.
 
+### Invalid token Extensions[http-code]: 401
+This error occurs mainly when authentication headers are invalid. More detail is available on [Api Rest - Response codes - 401](/documentation/responses.html#401-error)
+
+```graphql [snippet: Query]
+
+query MyQuery {
+  products(limit: 100, channel: "abc") {
+    items {
+      uuid
+  }
+}
+```
+```json [snippet: Response]
+
+{
+  "errors": [
+    {
+      "message": "The access token provided is invalid.",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "products"
+      ],
+      "extensions": {
+        "http_code": 401,
+        "http_message": "Request failed with status code 401"
+      }
+    }
+  ],
+  "data": {
+    "products": null
+  }
+}
+```
+
 ### Wrong data Extensions[http-code]: 422
 This error occurs mainly when the data sent to the PIM are invalid. More detail is available on [Api Rest - Response codes - 422](/documentation/responses.html#422-error)
 
@@ -235,15 +274,24 @@ query MyQuery {
 }
 ```
 
-### Invalid token Extensions[http-code]: 401
-This error occurs mainly when authentication headers are invalid. More detail is available on [Api Rest - Response codes - 401](/documentation/responses.html#401-error)
+### Too many requests[http-code]: 429
+This error occurs when the PIM has been over solicitated, mostly due to the usage of the Rest API. More detail is available on [Api Rest - Response codes - 429](/documentation/responses.html#429-error)
+
 
 ```graphql [snippet: Query]
 
 query MyQuery {
-  products(limit: 100, channel: "abc") {
+  products(limit: 100) {
     items {
       uuid
+      parent {
+        code
+      }
+      categories {
+        code
+        values
+      }
+    }
   }
 }
 ```
@@ -252,7 +300,7 @@ query MyQuery {
 {
   "errors": [
     {
-      "message": "The access token provided is invalid.",
+      "message": "PIM 429 Too many requests",
       "locations": [
         {
           "line": 2,
@@ -260,11 +308,13 @@ query MyQuery {
         }
       ],
       "path": [
-        "products"
+        "products",
+        "items",
+        "parent"
       ],
       "extensions": {
-        "http_code": 401,
-        "http_message": "Request failed with status code 401"
+        "http_code": 429,
+        "http_message": "Request failed with status code 429"
       }
     }
   ],
