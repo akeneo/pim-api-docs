@@ -169,5 +169,14 @@ You will get an error as follows when executing multiple queries in one call.
 }
 ```
 
+## About Assets
+GraphQL supports the following:
+* Asset Media Links
+* Asset Shared Links (available for main media only)
+
+Please note that GraphQL **does not support** asset media files **(binaries)**, and there are no plans to add this feature in the near future.
+To create your integration based on the GraphQL outbound API, you will need to have a DAM link or an asset shared link functionality activated. Keep this in mind when using the GraphQL outbound API.
+
+
 ::: panel-link Next step: status and error codes [Next](/graphql/error-codes.html)
 :::

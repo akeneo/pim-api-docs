@@ -151,7 +151,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Measu
 | `locales` | **String[]** | Filter labels to keep only the ones related to this locales<br/>example `locales: ["fr_FR", "en_US"]` |
 
 ## assetFamilies
-Get a list of asset families. 
+Get a list of asset families.
 
 Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Assetfamily](https://api.akeneo.com/api-reference.html?#Assetfamily)
 
@@ -162,9 +162,11 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Asset
 | `locales` | **String[]** | Filter labels to keep only the ones related to this locales<br/>example `locales: ["fr_FR", "en_US"]`                                                                                 |
 
 ## assetsRecords
-Get a list of assets for a given asset family. 
+Get a list of assets for a given asset family.
 
 Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Asset](https://api.akeneo.com/api-reference.html?#Asset)
+
+Before using the GraphQL outbound API to retrieve assets, please visit this page to understand the [asset limitations](/graphql/limitations.html#about-assets).
 
 
 | Argument      | Type         | Description                                                                                                                                                                           |
