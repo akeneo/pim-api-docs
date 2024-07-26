@@ -9,7 +9,7 @@ properties:
     type: string
     description: Attribute type. See <a href='/concepts/catalog-structure.html#attribute'>type</a> section for more details.
     x-validation-rules: The type is one of the following values
-    enum: ['pim_catalog_table','pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price_collection', 'pim_catalog_boolean', 'akeneo_reference_entity', 'akeneo_reference_entity_collection', 'pim_catalog_asset_collection']
+    enum: ['pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price_collection', 'pim_catalog_boolean', 'akeneo_reference_entity', 'akeneo_reference_entity_collection', 'pim_catalog_asset_collection','pim_catalog_table']
     x-immutable: true
   labels:
     type: object
