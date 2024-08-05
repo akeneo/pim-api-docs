@@ -32,7 +32,7 @@ Submitted:
     Location:
       description: URI of the created resource
       type: string
-NoContent:
+NoContentAfterUpdate:
   description: No content to return
   x-details: Means that the update was successful
   headers:
