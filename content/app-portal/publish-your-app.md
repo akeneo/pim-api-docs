@@ -226,11 +226,11 @@ Depending on the selected Category for your app, a few extra "Feature List" sele
 This step is crucial in ensuring a smooth and efficient validation process, as well as maximizing the potential success of your app.
 :::
 
-## Your app must have a good user experience
+## Your app must have a good user experience (UX)
 
 A poor app user experience can negatively impact both, your brand and Akeneo brand.
 
-At Akeneo, we've always believed that a good user experience is not an option.
+At Akeneo, we've always believed that a good app user experience is not an option.
 
 **That's why we will be particularly vigilant to ensure that your app meets the following criteria:**
 
@@ -238,37 +238,39 @@ At Akeneo, we've always believed that a good user experience is not an option.
 
 ☐ Every page in my application has a title
 
-☐ On each application page, my users knows what actions to perform.
+☐ *Each page gives access to information/features that are expected to be found on that page
+
+☐ The navigation is organized in a coherent way to support effectively the main user flows
 
 ☐ My application has a breadcrumb trail, enabling my users to find their way around and navigate.
 
 ### Action buttons
 
-☐ The buttons' color indicate the associated action (red for cancel, green for validate).
+☐ The buttons color is coherent with the associated action.
 
-☐ The actions behind the buttons are clear. If this is not the case, a helper associated with the action informs my users.
+☐ The actions behind the buttons are clear (thanks to a clear label and a 'helper' if needed)
 
-☐ For each critical action (deletion, etc.), the user is warned, and a confirmation pop-in is associated with it.
+☐ For each critical action (eg. data deletion): the user is warned and a confirmation is requested.
 
-☐ My users have feedback after an action with an impact that the user can see on the current screen (save for example)
+☐ My users receive a clear system feedback for their key actions throughout the app (eg. confirmation of data being saved)
 
 ### Accessibility
 
 ☐ My application has no font size below 10 pixels.
 
-### Onboarding & Help
+### Onboarding & Support
 
-☐ My application has an Onboarding function so my users can clearly see what actions are required to start using the application on the homepage.
+☐ The first action for first time users is clearly displayed.
 
-☐ All error messages in my application are clear to my users and associated with one of the solutions.
+☐ All error messages in my application are adapted to my users profile, and provide options of resolution.
 
-☐ My users has access to the app's documentation at all times.
+☐ My users can easily access the app support documentation at all times.
 
-### Page structure
+### Page structure & content hierarchy
 
-☐ All the pages of my application follow a similar structure, allowing my users to find themselves in a familiar layout from page to page.
+☐ All the pages of my application follow a consistent/coherent structure, allowing my users to navigate the app easily.
 
-☐ In my application, I've made sure that the information is hierarchically organized to make sense to my users — headings, sub-headings, grouping similar information or features.
+☐ I made sure that the information is hierarchically organized to make sense to my users — headings, sub-headings, grouping similar information or features.
 
 
 ## Your app must guarantee a certain level of security

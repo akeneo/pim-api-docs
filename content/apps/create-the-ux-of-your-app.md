@@ -1,24 +1,22 @@
-# Create the UX of your app
+# Design an App (UX)
 
 ## Overview
 
 ::: info
-**Welcome to the UX guide for app creation**
+**'Design is the silent ambassador of your brand'**
 
-A poor app user experience can negatively impact both, your brand and Akeneo brand. The following guidelines will help you design usable apps, which ultimately helps with:
+A poor app user experience causes users frustration and can negatively impact both, your brand and Akeneo brand. Use this documentation to design usable & intuitive apps, which should ultimately help with:
 
-* reducing the number of customers reaching out to the support team
-* increasing the number of closed deals
-* increasing the adoption & user engagement
+* Reducing the number of customers reaching out to the support team
+* Increasing the number of closed deals
+* Increasing the adoption & user engagement
 :::
 
-To illustrate our recommendations, we created some examples through a sample app. For those mockups, we used the Akeneo Design System and Akeneo UI Kit.
-
-If you’re interested in using the [Akeneo Design System](http://dsm.akeneo.com/) for the creation of your app, please reach out to your Akeneo point of contact.
+To illustrate our recommendations, we created some examples through a sample app. For those mockups, we used the [Akeneo Design System](http://dsm.akeneo.com/).If you’re interested in using the Akeneo Design System for the creation of your app, please reach out to your Akeneo point of contact.
 
 <!------------------------------ end of the Overview ------------------------------------>
 
-## Define your app users
+## App users
 
 Before creating your app, it’s critical to understand:
 
@@ -29,9 +27,9 @@ Before creating your app, it’s critical to understand:
 To do so, use the following template and keep it handy throughout the app creation process.
 :::
 
-[Download the template](https://drive.google.com/file/d/1eZYY2uzqmimOGk103uJJ5jfXEc7YbVy0/view?usp=sharing)
+[Download the template](https://drive.google.com/file/d/1LCIoNmb-M0Z1MwmtDQQuvnKzv0Qwb5SU/view?usp=sharing)
 
-![User job template](../../img/apps/973e7e8-Frame_2.jpg)
+![User job template](../../img/apps/6381601-Frame_2.jpg)
 
 ::: info
 **Refer to this template several times during the project**
@@ -48,7 +46,10 @@ The onboarding flow depends on the complexity of the app. The main point to keep
 ::: warning
 **First time experience is key. If people can’t use the app properly they might quit and never come back.**
 
-When designing the experience, put yourself in the shoes of a first time user: is the language clear? Is it easy for the user to understand the first actions they have to do? Avoid having a big empty page with no call to actions, etc.
+When designing the experience, put yourself in the shoes of a first time user and ask yourself:
+
+* Is the language clear? Sometimes we tend to use our company internal language or use technical terms that our users aren't familiar with.
+* Is it easy for the user to understand the first actions they have to do? A common pitfall is to show a first time user an empty page with no [call to actions](create-the-ux-of-your-app.html#call-to-action).
 :::
 
 Here are the different ways to onboard a user:
@@ -58,7 +59,7 @@ Here are the different ways to onboard a user:
 This one is the most simple to implement, and it's also the most guided for the user.
 
 ::: tips
-**We recommend this one when the set-up is complex** (ie. several configuration steps or a technical set-up for instance).
+**We recommend this one when the set-up is complex** - eg. several configuration steps or a technical set-up.
 :::
 
 The wizard can be a pop-in or a series of screens. It provides a **step-by-step** guide to all the actions.
@@ -71,28 +72,28 @@ Each step has a **main action and a description of the step.** The user goes thr
 
 When using your app for the first time, users should be able to understand easily what to do. We recommend a page showing only the most important information & actions for the user:
 
-* A welcome message with information about the first steps to accomplish to start using your app.
+* **A welcome message** with information about the first steps to accomplish to start using your app.
 * The main call-to-action, this button has to be engaging and clear, with an action verb.
 
 **🟢 <font color="green">Good example of a homepage page for the first visit:</font>**
 
-![First visit good](../../img/apps/ae326f3-First_visite_-_GOOD.png)
+![First visit good](../../img/apps/b8a79a1-First_visite_-_GOOD.png)
 
 
 **🔴 <font color="red">Bad example of a homepage page for the first visit:</font>**
 
 ![First visit good](../../img/apps/89d73f6-First_visite_-_BAD.png)
 
-[Homepage - daily use here](create-the-ux-of-your-app.html#homepage)
+Also see: [Homepage - daily use here](create-the-ux-of-your-app.html#homepage)
 
 ### The guided tour
 
 When no user set-up is required during the first use, consider creating a guided tour, such as:
 
-* A short video explaining your app's main features and usage.
-* Or a dynamic highlight of key areas with a short explanation for each.
+* A **short video** explaining your app's main features and usage.
+* Or a **dynamic highlight of key areas** with a short explanation for each.
 
-![Onboarding Guide tour](../../img/apps/30057e3-Onboarding_-_Guide_tour.png)
+![Onboarding Guide tour](../../img/apps/40dba32-Onboarding_-_Guide_tour.png)
 
 <!------------------------------ end of the Onboarding  ------------------------------------>
 
@@ -101,23 +102,24 @@ When no user set-up is required during the first use, consider creating a guided
 ::: info
 **First time user vs returning user**
 
-Your homepage should probably look different for a first time user vs returning user. In the previous section, we focussed on the first time experience. In this section we will have a look at the daily use (ie returning users).
+Your homepage should probably look different for a first time user vs a returning user. In the previous section, we focussed on the first time experience. In this section we will have a look at the daily use (ie returning users).
 :::
 
 ### Daily use
 
-The homepage content depends on the user goals. When the user opens the app, they have to find the first information and actions needed to accomplish their tasks/goals.
+The homepage content depends on the user goals. When a user opens the app, they have to find the first information and actions needed to accomplish their tasks/goals.
 
 Consider showing the following:
 
-* The key information that will drive the user tasks (eg. a dashboard)
-* The main actions
-* A way to contact the support team and to access the app documentation
+* The **key information** that will drive the user tasks (eg. a dashboard)
+* The main **call to actions**
+* A way to access the **support documentation** and to contact the **support team**
 
 ![Home daily](../../img/apps/468baf5-home-daily_2.png)
 
 ::: tips
-We recommend designing the homepage last. By doing so, it will be easier to identify and leverage the most relevant features and information the user would need to see on the homepage.
+**We recommend designing the homepage last.**
+By doing so, it will be easier to identify and leverage the most relevant features and information the user would need to see on the homepage.
 :::
 
 <!------------------------------ end of the Homepage  ------------------------------------>
@@ -127,7 +129,9 @@ We recommend designing the homepage last. By doing so, it will be easier to iden
 ::: info
 **Ensure you are here for the users when they need you**
 
-Sometimes the information displayed in the app is clear for us, but not for the users. Other times, users get stuck, which can be frustrating. This section is about providing contextual guidance and access to support, so our users can easily find answers to their questions, and get back on track. Beyond impacting the user, providing guidance and support helps reducing the number of tickets to your support team.
+Sometimes the information displayed in the app is clear for us, but not for the users. Other times, users get stuck, which can be very frustrating for them. This section is about providing contextual guidance and access to support, so our users can easily find answers to their questions, and get back on track.
+
+Beyond impacting the user, providing guidance and support helps reducing the number of tickets to your support team.
 :::
 
 ::: tips
@@ -138,9 +142,9 @@ Consider the following examples:
 
 * A **general link** in the main navigation
 
-![General link to help center](../../img/apps/5879c20-LINK_-_general_link_to_help_center.png)
+![General link to help center](../../img/apps/76e2d20-LINK_-_general_link_to_help_center.png)
 
-* In 'helpers' (ie. banners) via contextual links to the relevant part of your documentation.
+* In 'helpers' (ie. banners) via **contextual links** to the relevant part of your documentation.
 
 ![Contextual link to help center](../../img/apps/f508a1e-LINK_-_contextual_link_to_helpcenter.png)
 
@@ -148,19 +152,19 @@ Consider the following examples:
 
 There 3 types of helpers you can use: information, helpers and inline helpers. Depending on where you are on the page, you’ll use one or the other.
 
-* Information: used at the page level
-* Helpers: used at the section level
-* Inline helpers: used at the component level
+* General helper (called 'Information' in the [Akeneo Design System](https://dsm.akeneo.com/)): used at the page level
+* Section helpers (called 'Helpers' in the [Akeneo Design System](https://dsm.akeneo.com/)): used at the section level
+* Inline helpers (similar name in the [Akeneo Design System](https://dsm.akeneo.com/)): used at the component level
 
-**Information:** The information component describes the goal of the whole page. This helper usually has a link to your documentation.
+**General helper:** This helper describes the goal of the whole page and often links to documentation.
 
 ![Help information](../../img/apps/cd05dc9-HELP_-Information.png)
 
-**Helper:** The helper component is linked to a section (group of information and actions). They describe an expected action or a feature.
+**Section helper:** This helper is linked to a section (group of information and actions) and describes an expected action or a feature.
 
 ![Help helper information](../../img/apps/fcaa6ec-HELP_-_helper_-_info.png)
 
-Helpers can have 2 other states:
+Section helpers can have 2 other states:
 
 * **Warning:** to warn the user about a feature limitation or any other important message.
 
@@ -170,7 +174,7 @@ Helpers can have 2 other states:
 
 ![Help helper error](../../img/apps/1903e2b-HELP_-_helper_-_error.png)
 
-**Inline helper:** They are linked to another component such as a button or a field. They explain the behavior or state of this component (a disabled button for instance).
+**Inline helper:** They are linked to another component, such as a button or a field. They explain the behavior/state of this component.
 
 ![Help inline helper](../../img/apps/3c4404b-HELP_-_helper_inline_-_info.png)
 
@@ -205,9 +209,9 @@ Inline helpers can have 2 other states:
 ::: info
 **Organize & arrange information to make it easier for users to find what they are looking for, and understand where they are.**
 
-Navigation is not only a way to access a page, it’s also here to support the user flow; the hierarchy of pages. The navigation's structure impacts significantly the user experience, so approach it with care.
+Navigation is not only a way to access a page, it’s also here to support the user flow; the hierarchy of pages. Take time to think through the navigation structure as it is foundational to the user experience.
 
-Before you start:
+**Before you start:**
 
 * Understand your user's goals and features. [Define your app users](create-the-ux-of-your-app.html#define-your-app-users).
 * Be aware of all the content available in the app
@@ -215,31 +219,29 @@ Before you start:
 
 ### Main guidelines
 
-* A page must contain features/information that work together for a specific goal, which should **be logical for the user.** They have to accomplish a dedicated task in the same area.
-* The page organization should **follow your user's flow.**
+* A page must contain features/information that work together for a specific goal, which should **make sense for the user**. They have to accomplish a dedicated task in the same area.
+* The page organization should **follow the user's flow**.
 * Pages that users use the most must be more visible than others.
-* **A breadcrumb is essential** to help the user to navigate and always know where they are
+* A **breadcrumb is essential** to help the user to navigate and always know where they are
 * Use short and simple language
 
 ### Recommended types of navigation:
 
-**The first one is the top navigation;** this is ideal if you don't have a lot of entry points. It saves space on the page, and we can organize items horizontally. Consider using it with a 'sticky' mode, to keep the navigation visible at all times.
+**The first one is the top navigation**; this is ideal if you don't have a lot of entry points. It saves space on the page. Items are organized horizontally. Consider using it with a 'sticky' mode, to keep the navigation visible at all times.
 
 ![Top navigation](../../img/apps/d7b8ec6-NAV_-_Top_navigation.png)
 
-**The second one is lateral navigation;** this is ideal if you have many entry points and different levels of navigation. It allows to present all the pages and the sub-pages. We recommend not allowing scrolling in the navigation to avoid hiding information from the user.
+**The second one is lateral navigation**; this is ideal if you have many entry points and different levels of navigation. It allows to present all the pages and the sub-pages. We recommend not allowing scrolling in the navigation to avoid hiding information from the user.
 
 ![Lateral navigation](../../img/apps/61f2655-NAV_-_lateral_navigation.png)
 
 <!------------------------------ end of Navigation  ------------------------------------>
 
-## Layout / structure
+## Layout
 
-Layout is the structure used to organize content.
+The layout is the structure used to organize content.
 
-When designing your app, think about patterns that will improve the user experience, but also speed up the development process.
-
-A pattern is a common structure between app pages that participates in design homogeneity.
+When designing your app, think about patterns that will improve the user experience, but also speed up the development process. A pattern is a common structure between app pages that participates in design homogeneity.
 
 ::: tips
 **Layouts contribute to less cognitive load, better user efficiency, and ultimately better app adoption.**
@@ -247,9 +249,9 @@ A pattern is a common structure between app pages that participates in design ho
 
 ### What do we mean by Layout?
 
-Layouts help you align objects, they are used on every pages. The define how pages, pop-ins, buttons and components are organized.
+Layouts are used on every pages. They define how pages, pop-ins, buttons and components are organized, making their positioning on the page easier for the designer.
 
-Note: if you browse Akeneo Pim pages and features, you will see a similar structure for all pages.
+Note: if you browse Akeneo PIM pages and features, you will see a similar structure for all pages.
 
 ![Pattern](../../img/apps/408952a-Pattern.png)
 
@@ -263,7 +265,7 @@ Note: if you browse Akeneo Pim pages and features, you will see a similar struct
 Proximity helps establish a relationship with nearby objects. User understand they share similar purpose or traits. It helps users process and organize information faster and more efficiently.
 :::
 
-The content hierarchy contributes to a good user experience. This hierarchy in aligned on your app expertise and your user's goals.
+The content hierarchy contributes to a good user experience. This hierarchy should reflect your app expertise and the user goals.
 
 To organize information logically, you can use:
 
@@ -271,12 +273,12 @@ To organize information logically, you can use:
 * Sub-headings
 * Group similar information or features thanks to sections or tabs.
 
-Organize the information consistently keeping in mind it helps the user achieve their goals (that you identify).
+Organize the information in a consistent manner, as it helps the user achieving their goals.
 
 ::: warning
-**You need to pay attention not to hide features**
+**Make key features & actions visible**
 
-The user has to identify all the features and actions of a page. A hidden feature located to low on the page can be a real pain point for the user. To avoid that, we recommend using tabs, for example.
+**The user should be able to identify easily all the features & actions within a page.** A hidden feature located too low on the page can be a real pain point for the user. To avoid that, we recommend using tabs, for example.
 :::
 
 **🟢 <font color="green">Good example of information hierarchy:</font>**
@@ -289,24 +291,19 @@ The user has to identify all the features and actions of a page. A hidden featur
 
 <!------------------------------ end of Content hierarchy  ------------------------------------>
 
-## Error or warning message
+## Warning & error
 
 ::: tips
-**Good error messages are crucial, even if the most successful designs should prevent any issue from happening.**
+**Always display clearly warnings and errors to the user.**
 
-This can be achieved by either removing conditions likely to cause errors or by anticipating these conditions and offering users a confirmation option before they proceed.
+* Good error messages are crucial, even if the most effective designs should prevent any issue from happening. This can be achieved by either removing conditions likely to cause errors or by anticipating these conditions and offering users a confirmation option before they proceed.
+* Make sure the language/wording is adapted to the user profile. As an example, avoid using technical language for a business user.
 :::
 
-For several reasons, errors or warnings can be displayed to the user.
-
-::: warning
-**You always need to adapt the language & wording to the user profile (no technical language for a business user, for example).
-:::
-
-For errors, explain the situation, and give a solution:
+For errors, explain the situation, and provide a solution/options:
 
 * A link to the page where the user can resolve the error
-* When there is no link, explain the different options to resolve the error.
+* When there is no link, explain the different options to resolve the error
 
 A confusing error or no solution can be very frustrating for the user and contributes to a poor user experience.
 
@@ -325,33 +322,33 @@ A confusing error or no solution can be very frustrating for the user and contri
 ## Call to action
 
 ::: info
-Here are basic guidelines about call-to-action usage; buttons are paramount to a good user experience.
+**Call to actions are a critical part of the user journey**
+
+A call to action (CTA) is a prompt on a app, that tells the user to take some specified action. CTAs are often buttons or links, and play an important role in user engagement, and the overall user experience. In this section, we will focus specifically on buttons.
 :::
 
 ### The affordance
 
-You have to design your button to be sure that the user understands that there are clickable elements.
+Affordances are the properties of an object that suggest or indicate how it can potentially be used. In short, buttons need to look like buttons, to ensure users understand that they are clickable elements.
 
 ### The number of buttons
 
-If your page has too many buttons, maybe it's because you tried to put too many features on the same page; this can confuse your users and make them feel the solution is too complex to use.
+Limit the number of buttons on the same page. Too many buttons sometimes mean there are too many features on the same page. This can confuse users and make them feel the solution is too complex to use.
 
 **We recommend a maximum of 3 buttons above the waterline.** If you need more than three buttons, some of these actions are probably less important to the user, and you can group them under a dropdown button.
 
-Some tertiary buttons could be a link to simplify the screen and create a natural visual hierarchy.
+**Consider using links instead of tertiary buttons, to simplify the screen and create a natural visual hierarchy.**
 
 ### Button positions
 
-Position your buttons **logically and consistently** in the same place throughout all your pages. That contributes to the hierarchy of buttons and also **improves user adoption.**
+Position your buttons **logically and consistently** in the same place throughout all your pages. Doing so helps with making the navigation more intuitive and contributes to improve **user adoption**.
 
-The button position has to be considered within your page structure. That allows the user to create habits; it's simple for them to find buttons.
+When positioning buttons, think about the following guidelines:
 
-When you place your buttons, think about several guidelines:
+* Buttons hierarchy: the primary button has to be more visible than the others.
+* The proximity law: a button launches an action, which has to be close to the impacted screen section.
 
-* The hierarchy of the buttons: the primary button, has to be more visible than the others.
-* The proximity law: Your button launches an action, which has to be close to the impacted screen section.
-
-For example, a save button for all the pages should be at the top of the page. A button preview of an image has to be close to the image.
+For example, a save button for all the pages should be at the top of the page. A button preview of an image should be close to the image.
 
 **🟢 <font color="green">Good example - Number of buttons & position:</font>**
 
@@ -363,7 +360,7 @@ For example, a save button for all the pages should be at the top of the page. A
 
 ### Buttons hierarchy
 
-Hierarchize your buttons according to their importance so that the user can perform the action and reach their objective.
+Hierarchize your buttons according to their importance to avoid overwhelming users with too many CTAs.
 
 There are three levels of button hierarchy:
 
@@ -379,8 +376,8 @@ To show this hierarchy you can use Design elements.
 
 Some colors have meaning; it's very important to respect that, especially red and green.
 
-* A red button is always for actions like erase or cancel.
-* A green button is always used to validate something or save something.
+* **Red buttons:** red is a special color on buttons because it's used to signify a warning state. As an example, buttons that have destructive actions for deleting data are red to warn users of potential danger.
+* **Green buttons:** green is usually used to validate, confirm or save something.
 
 **🟢 <font color="green">Good example - button colour:</font>**
 
@@ -403,9 +400,7 @@ The most common way of illustrating a disabled button is to reduce its opacity b
 
 ### Wording on the button
 
-We recommend consistency in the wording of your buttons.
-
-For example, if you use an action verb on your buttons, do it for all your buttons. This reduces your users' cognitive overload.
+We recommend being consistent with buttons wording across the app. For example, if you use an action verb on your buttons, do it for all your buttons. This reduces your users' cognitive overload.
 
 ### Feedback
 
@@ -417,7 +412,7 @@ For some actions, like a save or an action with an impact that the user can see 
 
 ## Search
 
-* A search bar has to be attached to the items it’s used on, a table, for example.
+* A search bar has to **be attached to the items** it’s used on, a table, for example.
 * If the search bar only works on some elements in the component, you can explain users what is searchable and what isn’t.
 
 **🟢 <font color="green">Good example:</font>**
@@ -430,23 +425,23 @@ For some actions, like a save or an action with an impact that the user can see 
 
 <!------------------------------ end of Search  ------------------------------------>
 
-## Accessibility & contrast
+## Accessibility
 
-Thinking about accessibility when you are defining the UI is fundamental. We recommend to test your component with accessibility tools. On the W3C website, you can find a list of tools to [test your app accessibility](https://www.w3.org/WAI/test-evaluate/tools/list/).
+Thinking about accessibility when you are defining the UI is fundamental. We recommend to test your component with accessibility tools. On the W3C website, you can find a list of tools to test your app accessibility: [https://www.w3.org/WAI/test-evaluate/tools/list/](https://www.w3.org/WAI/test-evaluate/tools/list/)
 
-If you use Figma to build your mockups, a plugin is available to test the contrast: A11y.
+If you use Figma to build your mockups, a plugin is available to test the contrast: [A11y](https://www.figma.com/community/plugin/733159460536249875/a11y-color-contrast-checker).
 
-Some guidelines to have in mind:
+Some guidelines to keep in mind (non exhaustive):
 
 ### Text
 
 * No text should be smaller than 9pt (12 px)
-* Use the Caps carefully, just for short text like titles or labels.
+* Use the Caps carefully, just for short text like short titles or labels.
 * Select readable font, for example, for digital, sans-serif fonts are clearer and easier on the eyes.
 
 ### Colors
 
-* If you want to use colors for text, make sure that the contrast is good for reading the text.
+* If you want to use colors for text, make sure that the contrast is strong enough to remain accessible
 
 **🟢 <font color="green">Good example of accessibility & contrast:</font>**
 
@@ -458,10 +453,10 @@ Some guidelines to have in mind:
 
 <!------------------------------ end of Accessibility & Contrast  ------------------------------------>
 
-## List of requirements
+## Requirements checklist
 
 Here's a list of recommendations based on the documentation you've just read.
-**We strongly recommend that you follow all the recommendations to guarantee a good user experience, a good brand image, and reduced friction and support tickets.**
+**We strongly recommend that you follow all the recommendations to guarantee a good user experience, a good brand image and limit support requests.**
 
 ::: warning
 Recommendations tagged `MANDATORY` are mandatory for your app to be published on the app store.
@@ -469,60 +464,62 @@ Recommendations tagged `MANDATORY` are mandatory for your app to be published on
 
 ### Navigation
 
-☐ Every page in my application has a title `MANDATORY`
+☐ **Every page in my application has a title** `MANDATORY`
 
-☐ On each application page, my users knows what actions to perform. `MANDATORY`
+☐ **Each page gives access to information/features that are expected to be found on that page** `MANDATORY`
 
-☐ Each page is related to my users need.
+☐ **The navigation is organised in a coherent way to support effectively the main user flows** `MANDATORY`
 
-☐ My application has a breadcrumb trail, enabling my users to find their way around and navigate. `MANDATORY`
+☐ **My application has a breadcrumb trail, enabling my users to find their way around and navigate.** `MANDATORY`
 
-☐ My users has the necessary actions to navigate at all times. (Next, back, close, cancel)
+☐ Each page is related to a user need.
 
-☐ My users has access to a search function whenever necessary. (the number of items on the page is too great to find what they are looking for)
+☐ My users have access to the necessary actions to navigate at all times (eg. Next, Back, Close, Cancel).
+
+☐ My users have access to a search function whenever necessary (eg. when the number of items is too long to fit on a page or when it takes too long to browse)
 
 ### Action buttons
 
-☐ When there are several buttons on a page, they are hierarchized (primary, secondary, tertiary).
+☐ **The buttons color is coherent with the associated action.** `MANDATORY`
 
-☐ The buttons' color indicate the associated action (red for cancel, green for validate). `MANDATORY`
+☐ **The actions behind the buttons are clear (thanks to a clear label and a 'helper' if needed)** `MANDATORY`
 
-☐ The actions behind the buttons are clear. If this is not the case, a helper associated with the action informs my users. `MANDATORY`
+☐ **For each critical action (eg. data deletion): the user is warned and a confirmation is requested.** `MANDATORY`
 
-☐ For each critical action (deletion, etc.), the user is warned, and a confirmation pop-in is associated with it. `MANDATORY`
+☐ **My users receive a clear system feedback for their key actions throughout the app (eg. confirmation of data being saved)** `MANDATORY`
 
-☐ My users have feedback after an action with an impact that the user can see on the current screen (save for example) `MANDATORY`
+☐ For pages with multiple buttons, the button hierarchy is visually clear (primary, secondary, tertiary).
 
-☐ My users know why buttons are disabled in my application (Helper, tooltip).
+☐ There is a clear explanation for each disable button in my application (eg. thanks to a 'helper').
 
 ### Accessibility
 
+☐ **My application has no font size below 10 pixels.** `MANDATORY`
+
 ☐ My application's contrasts are RGAA compliant.
 
-☐ My application has no font size below 10 pixels. `MANDATORY`
+### Onboarding & Support
 
-### Onboarding & Help
+☐ **The first action for first time users is clearly displayed.** `MANDATORY`
 
-☐ My users understand clearly the first action they have to take
+☐ **All error messages in my application are adapted to my users profile, and provide options of resolution.** `MANDATORY`
 
-☐ My application has an Onboarding function so my users can clearly see what actions are required to start using the application on the homepage. `MANDATORY`
+☐ **My users can easily access the app support documentation at all times.** `MANDATORY`
 
-☐ All error messages in my application are clear to my users and associated with one of the solutions. `MANDATORY`
+☐ My app has a clear onboarding flow available (for complex scenarios/big learning curve)
 
-☐ My users has access to the app's documentation at all times. `MANDATORY`
+☐ Each icon without a label has a tooltip explaining its meaning (few exceptions for conventional icons which don't need a label, such as a 'house' icon for Homepage)
 
-☐ Each icon not associated with wording has a tooltip explaining its meaning.
+☐ When relevant, my application field inputs have information to guide the user on what is expected (in the field itself or next to it)
 
-☐ All my application's inputs contain a placeholder, allowing my users to know what it may contain.
+☐ Any feature name, concept or wording specific to my application's field of expertise that may not be clear to my user is explained (eg. via a helper)
 
-☐ Any feature name, concept or wording specific to my application's field of expertise that may not be clear to my user should be explained via a helper.
+### Page structure & content hierarchy
 
-### Page structure
+☐ **All the pages of my application follow a consistent/coherent structure, allowing my users to navigate the app easily.** `MANDATORY`
 
-☐ All the pages of my application follow a similar structure, allowing my users to find themselves in a familiar layout from page to page. `MANDATORY`
+☐ **I made sure that the information is hierarchically organized to make sense to my users — headings, sub-headings, grouping similar information or features.** `MANDATORY`
 
-☐ I've made sure that my users finds the action buttons in the same place, page after page - and the pages are structured in a logical way. Features are organized to match my users journey.
+☐ I've made sure that the action buttons are displayed in a consistent location across the app pages - and that pages are structured in a logical way. Features are organized to match my users journey.
 
-☐ In my application, no feature is hidden below the waterline.
-
-☐ In my application, I've made sure that the information is hierarchically organized to make sense to my users — headings, sub-headings, grouping similar information or features. `MANDATORY`
+☐ In my application, no feature is hidden below the waterline (for a 1280px x 800px resolution)
