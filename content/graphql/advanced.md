@@ -60,7 +60,7 @@ query MyQuery {
     }
     queryInformation {
       requestComplexityDetail
-      requestCompleixty
+      requestComplexity
     }
   }
 }
