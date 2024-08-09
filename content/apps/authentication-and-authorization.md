@@ -403,6 +403,7 @@ These are the scopes you send in the authorization and authentication requests.
 | `write_attribute_options`                                               | Write attribute options                                          |
 | `read_categories`                                                       | Read categories                                                  |
 | `write_categories`                                                      | Write categories                                                 |
+| `delete_categories` <span class="label label-ee">EE</span>              | Remove categories                                                |
 | `read_channel_localization`                                             | Read locales and currencies                                      |
 | `read_channel_settings`                                                 | Read channels                                                    |
 | `write_channel_settings`                                                | Write channels                                                   |
