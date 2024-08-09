@@ -668,6 +668,48 @@ gulp.task('build-graphql', ['clean-dist','less'], function () {
     }
 );
 
+gulp.task('build-akeneo-event-platform', ['clean-dist','less'], function () {
+    var pages = {
+        'akeneo-event-platform.md': "Akeneo Event Platform",
+        'concepts.md': "Concepts",
+        'getting-started.md': "Getting started",
+        'api-reference.md': "API Reference",
+        'available-events.md': "Available events",
+        'platform-usage-requirements.md': "Platform usage requirements",
+        'best-practices.md': "Best practices",
+        'integration-examples.md': "Integration examples",
+        'compatibility.md': "Compatibility",
+        // 'migrate-from-deprecated-event-api.md': "Migrate from deprecated event API",
+        'faq.md': "FAQ",
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/akeneo-event-platform/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/akeneo-event-platform/*.md')
+                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/akeneo-event-platform') + "\n"))
+                .pipe(gulpMarkdownIt(mdGt))
+                .pipe(gulp.dest('tmp/akeneo-event-platform/'))
+                .on('end', function () {
+                    return gulp.src('src/partials/akeneo-event-platform.handlebars')
+                        .pipe(gulpHandlebars({
+                            active_api_resources: true,
+                            title: 'The Akeneo Event Platform',
+                            description: getPageDescription(file.path, "The Akeneo Event Platform"),
+                            mainContent: fs.readFileSync('tmp/akeneo-event-platform/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        }, {
+                            partialsDirectory: ['./src/partials']
+                        }))
+                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                        .pipe(gulp.dest('./dist/akeneo-event-platform'));
+                })
+        }));
+}
+);
+
 gulp.task('build-events-api', ['clean-dist','less'], function () {
 
     var pages = {

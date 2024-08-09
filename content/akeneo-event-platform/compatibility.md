@@ -1,6 +1,6 @@
 # PIM Compatibility
 
-The compatibility of the Akeneo `GraphQL API` with `various editions` of Akeneo PIM is explained below.
+The compatibility of the Akeneo Event Platform with `various editions` of Akeneo PIM is explained below.
 
 | Akeneo PIM Edition        | Supported ?   |
 |---------------------------|---------------|
@@ -9,5 +9,5 @@ The compatibility of the Akeneo `GraphQL API` with `various editions` of Akeneo 
 | GROWTH EDITION            | Supported     |
 | COMMUNITY EDITION         | Not supported |
 
-::: panel-link Consult now our usage recommendations [Next](/graphql/recommendations.html)
+::: panel-link Consult now our FAQ [Next](/akeneo-event-platform/faq.html)
 :::
