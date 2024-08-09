@@ -7,12 +7,12 @@
 
 A poor app user experience causes users frustration and can negatively impact both, your brand and Akeneo brand. Use this documentation to design usable & intuitive apps, which should ultimately help with:
 
-* Reducing the number of customers reaching out to the support team
+* Reducing the number of customers reaching out to your support team
 * Increasing the number of closed deals
-* Increasing the adoption & user engagement
+* Increasing user adoption, engagement & satisfaction
 :::
 
-To illustrate our recommendations, we created some examples through a sample app. For those mockups, we used the [Akeneo Design System](http://dsm.akeneo.com/).If you’re interested in using the Akeneo Design System for the creation of your app, please reach out to your Akeneo point of contact.
+To illustrate our recommendations, we created some examples through a sample app. For those mockups, we used the [Akeneo Design System](http://dsm.akeneo.com/). If you’re interested in using the Akeneo Design System for the creation of your app, please reach out to your Akeneo point of contact.
 
 <!------------------------------ end of the Overview ------------------------------------>
 
@@ -32,7 +32,7 @@ To do so, use the following template and keep it handy throughout the app creati
 ![User job template](../../img/apps/6381601-Frame_2.jpg)
 
 ::: info
-**Refer to this template several times during the project**
+**Refer to this template continuously during your project**
 
 We recommend you refer to this document during the app conception, to make sure the user remains at the center of your work. For instance, it will help ensuring the features respond to the user goals, ensuring the wording used is clear for your typology of users, defining the kind of helper your users need, etc.
 :::
@@ -44,7 +44,7 @@ We recommend you refer to this document during the app conception, to make sure 
 The onboarding flow depends on the complexity of the app. The main point to keep in mind is to **guide the user from the beginning to the end of the first set-up.**
 
 ::: warning
-**First time experience is key. If people can’t use the app properly they might quit and never come back.**
+**First time experience is key: If people can’t use the app properly they might quit and never come back.**
 
 When designing the experience, put yourself in the shoes of a first time user and ask yourself:
 
@@ -52,7 +52,7 @@ When designing the experience, put yourself in the shoes of a first time user an
 * Is it easy for the user to understand the first actions they have to do? A common pitfall is to show a first time user an empty page with no [call to actions](create-the-ux-of-your-app.html#call-to-action).
 :::
 
-Here are the different ways to onboard a user:
+Here are a couple of different ways to onboard a user:
 
 ### The Wizard flow
 
@@ -75,12 +75,12 @@ When using your app for the first time, users should be able to understand easil
 * **A welcome message** with information about the first steps to accomplish to start using your app.
 * The main call-to-action, this button has to be engaging and clear, with an action verb.
 
-**🟢 <font color="green">Good example of a homepage page for the first visit:</font>**
+**🟢 <font color="green">Good example of a homepage page for a first visit 👇</font>**
 
 ![First visit good](../../img/apps/b8a79a1-First_visite_-_GOOD.png)
 
 
-**🔴 <font color="red">Bad example of a homepage page for the first visit:</font>**
+**🔴 <font color="red">Bad example of a homepage page for a first visit 👇</font>**
 
 ![First visit good](../../img/apps/89d73f6-First_visite_-_BAD.png)
 
@@ -124,7 +124,7 @@ By doing so, it will be easier to identify and leverage the most relevant featur
 
 <!------------------------------ end of the Homepage  ------------------------------------>
 
-## Guide & support
+## Guidance & support
 
 ::: info
 **Ensure you are here for the users when they need you**
@@ -135,7 +135,7 @@ Beyond impacting the user, providing guidance and support helps reducing the num
 :::
 
 ::: tips
-In your app, users should be able to find access to your support documentation easily.
+In your app, users should be able to **find access to your support documentation easily.**
 :::
 
 Consider the following examples:
@@ -144,7 +144,7 @@ Consider the following examples:
 
 ![General link to help center](../../img/apps/76e2d20-LINK_-_general_link_to_help_center.png)
 
-* In 'helpers' (ie. banners) via **contextual links** to the relevant part of your documentation.
+* In 'helpers' (ie. banners) via **contextual access** to the relevant part of your documentation.
 
 ![Contextual link to help center](../../img/apps/f508a1e-LINK_-_contextual_link_to_helpcenter.png)
 
@@ -164,7 +164,7 @@ There 3 types of helpers you can use: information, helpers and inline helpers. D
 
 ![Help helper information](../../img/apps/fcaa6ec-HELP_-_helper_-_info.png)
 
-Section helpers can have 2 other states:
+Section helpers can also have 2 other states:
 
 * **Warning:** to warn the user about a feature limitation or any other important message.
 
@@ -178,7 +178,7 @@ Section helpers can have 2 other states:
 
 ![Help inline helper](../../img/apps/3c4404b-HELP_-_helper_inline_-_info.png)
 
-Inline helpers can have 2 other states:
+Inline helpers can have also 2 other states:
 
 * **Warning:** to warn the user about a feature limitation or any other important message.
 
@@ -192,17 +192,17 @@ Inline helpers can have 2 other states:
 
 ![Help Tooltip](../../img/apps/0a9c36d-HELP_-_tooltip.png)
 
-**Message bar:** to provide user feedback. Users need to know how a take performed (success/error/failed)
+**Message bar:** to provide user feedback. Users need to know how a task performed (success/error/failed)
 
 ![Help Message bar](../../img/apps/21dc979-message_bas-success.png)
 
 ![Help Message bar error](../../img/apps/045574c-messagebar-_error.png)
 
 ::: tips
-**If you believe a user might have a question, add a helper.**
+**If you believe users may have a question, add a helper.**
 :::
 
-<!------------------------------ end of guide & support  ------------------------------------>
+<!------------------------------ end of guidance & support  ------------------------------------>
 
 ## Navigation
 
@@ -269,7 +269,7 @@ The content hierarchy contributes to a good user experience. This hierarchy shou
 
 To organize information logically, you can use:
 
-* Headings,
+* Headings
 * Sub-headings
 * Group similar information or features thanks to sections or tabs.
 
@@ -281,11 +281,11 @@ Organize the information in a consistent manner, as it helps the user achieving 
 **The user should be able to identify easily all the features & actions within a page.** A hidden feature located too low on the page can be a real pain point for the user. To avoid that, we recommend using tabs, for example.
 :::
 
-**🟢 <font color="green">Good example of information hierarchy:</font>**
+**🟢 <font color="green">Good example of information hierarchy 👇</font>**
 
 ![Information hierarchy good](../../img/apps/61f44f4-Information_hierarchy_-_GOOD.png)
 
-**🔴 <font color="red">Bad example of information hierarchy:</font>**
+**🔴 <font color="red">Bad example of information hierarchy 👇</font>**
 
 ![Information hierarchy bad](../../img/apps/15e9fb0-Information_hierarchy_-_BAD.png)
 
@@ -307,13 +307,13 @@ For errors, explain the situation, and provide a solution/options:
 
 A confusing error or no solution can be very frustrating for the user and contributes to a poor user experience.
 
-**🟢 <font color="green">Good examples of errors & warnings:</font>**
+**🟢 <font color="green">Good examples of errors & warnings 👇</font>**
 
 ![Error good](../../img/apps/766c5a7-error_-_GOOD.png)
 
 ![Error good 2](../../img/apps/1d63458-error-_GOOD_2.png)
 
-**🔴 <font color="red">Bad example of error:</font>**
+**🔴 <font color="red">Bad example of error 👇</font>**
 
 ![Error bad](../../img/apps/23df9de-error_-_BAD.png)
 
@@ -341,7 +341,7 @@ Limit the number of buttons on the same page. Too many buttons sometimes mean th
 
 ### Button positions
 
-Position your buttons **logically and consistently** in the same place throughout all your pages. Doing so helps with making the navigation more intuitive and contributes to improve **user adoption**.
+Position your buttons **logically and consistently** in the same place throughout all your pages. Doing so helps with making the navigation more intuitive and contributes to **improve user adoption**.
 
 When positioning buttons, think about the following guidelines:
 
@@ -350,11 +350,11 @@ When positioning buttons, think about the following guidelines:
 
 For example, a save button for all the pages should be at the top of the page. A button preview of an image should be close to the image.
 
-**🟢 <font color="green">Good example - Number of buttons & position:</font>**
+**🟢 <font color="green">Good example - Number of buttons & position 👇</font>**
 
 ![Buttons good](../../img/apps/0a59bc4-buttons_-_GOOD.png)
 
-**🔴 <font color="red">Bad example - Number of buttons & position:</font>**
+**🔴 <font color="red">Bad example - Number of buttons & position 👇</font>**
 
 ![Buttons bad](../../img/apps/c21f19b-buttons_-_BAD.png)
 
@@ -368,7 +368,7 @@ There are three levels of button hierarchy:
 * **Secondary:** It's an important button to complete the action but it less important than the primary action.
 * **Tertiary:** For any other action, less important than the 2 first ones. This could be a link for example.
 
-To show this hierarchy you can use Design elements.
+To show this hierarchy you can use Design elements 👇
 
 ![Button hierarchy](../../img/apps/526454f-button_hierarchy.png)
 
@@ -379,12 +379,12 @@ Some colors have meaning; it's very important to respect that, especially red an
 * **Red buttons:** red is a special color on buttons because it's used to signify a warning state. As an example, buttons that have destructive actions for deleting data are red to warn users of potential danger.
 * **Green buttons:** green is usually used to validate, confirm or save something.
 
-**🟢 <font color="green">Good example - button colour:</font>**
+**🟢 <font color="green">Good example - button colour 👇</font>**
 
 ![Color button good](../../img/apps/9b15587-Color_button_-_GOOD.png)
 
 
-**🔴 <font color="red">Bad example - button colour:</font>**
+**🔴 <font color="red">Bad example - button colour 👇</font>**
 
 ![Color button bad](../../img/apps/4c7e76e-Color_button_-_BAD.png)
 
@@ -404,7 +404,7 @@ We recommend being consistent with buttons wording across the app. For example, 
 
 ### Feedback
 
-For some actions, like a save or an action with an impact that the user can see on the current screen, it's necessary to have visual feedback to inform the user about the action.
+For some actions, like a **save** or an action with an impact that the user can see on the current screen, it's necessary to have visual feedback to inform the user about the action.
 
 ![Feedback success](../../img/apps/6610c35-message_bas-success.png)
 
@@ -412,14 +412,14 @@ For some actions, like a save or an action with an impact that the user can see 
 
 ## Search
 
-* A search bar has to **be attached to the items** it’s used on, a table, for example.
+* A search bar has to **be attached to the items it’s used on**, a table, for example.
 * If the search bar only works on some elements in the component, you can explain users what is searchable and what isn’t.
 
-**🟢 <font color="green">Good example:</font>**
+**🟢 <font color="green">Good example 👇</font>**
 
 ![Search good](../../img/apps/a691d13-Search_-_GOOD.png)
 
-**🔴 <font color="red">Bad example:</font>**
+**🔴 <font color="red">Bad example 👇</font>**
 
 ![Search bad](../../img/apps/3589c33-Search_-_BAD.png)
 
@@ -443,11 +443,11 @@ Some guidelines to keep in mind (non exhaustive):
 
 * If you want to use colors for text, make sure that the contrast is strong enough to remain accessible
 
-**🟢 <font color="green">Good example of accessibility & contrast:</font>**
+**🟢 <font color="green">Good example of accessibility & contrast 👇</font>**
 
 ![Contrast good](../../img/apps/4650997-contrast_-_GOOD.png)
 
-**🔴 <font color="red">Bad example of accessibility & contrast:</font>**
+**🔴 <font color="red">Bad example of accessibility & contrast 👇</font>**
 
 ![Contrast bad](../../img/apps/186d6a8-contrast_-_BAD.png)
 

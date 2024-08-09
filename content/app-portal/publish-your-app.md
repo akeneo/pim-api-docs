@@ -228,9 +228,7 @@ This step is crucial in ensuring a smooth and efficient validation process, as w
 
 ## Your app must have a good user experience (UX)
 
-A poor app user experience can negatively impact both, your brand and Akeneo brand.
-
-At Akeneo, we've always believed that a good app user experience is not an option.
+A poor app user experience causes users frustration and can negatively impact both, your brand and Akeneo brand. It can also increase the number of support requests.
 
 **That's why we will be particularly vigilant to ensure that your app meets the following criteria:**
 
@@ -238,9 +236,9 @@ At Akeneo, we've always believed that a good app user experience is not an optio
 
 ☐ Every page in my application has a title
 
-☐ *Each page gives access to information/features that are expected to be found on that page
+☐ Each page gives access to information/features that are expected to be found on that page
 
-☐ The navigation is organized in a coherent way to support effectively the main user flows
+☐ The navigation is organised in a coherent way to support effectively the main user flows
 
 ☐ My application has a breadcrumb trail, enabling my users to find their way around and navigate.
 
