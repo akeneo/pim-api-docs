@@ -1,0 +1,141 @@
+get:
+  summary: Get list of products
+  operationId: "get_products_uuid"
+  tags:
+    - Product [uuid]
+  x-versions:
+    - "7.0"
+    - "SaaS"
+  description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered. In the Enterprise Edition, permissions based on your user groups are applied to the set of products you request.
+  parameters:
+    - name: search
+      in: query
+      description: Filter products, for more details see the <a href="/documentation/filter.html">Filters</a> section
+      required: false
+      type: string
+    - name: scope
+      in: query
+      type: string
+      description: Filter product values to return scopable attributes for the given channel as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#via-channel">Filter product values via channel</a> section
+      required: false
+    - name: locales
+      in: query
+      type: string
+      description: Filter product values to return localizable attributes for the given locales as well as the non localizable/non scopable attributes, for more details see the <a href="/documentation/filter.html#via-locale">Filter product values via locale</a> section
+      required: false
+    - name: attributes
+      in: query
+      type: string
+      description: Filter product values to only return those concerning the given attributes, for more details see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
+      required: false
+    - $ref: '#/parameters/pagination_type'
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/search_after'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/with_count'
+    - $ref: '#/parameters/with_attribute_options'
+    - $ref: '#/parameters/with_asset_share_links'
+    - $ref: '#/parameters/with_quality_scores__products'
+    - $ref: '#/parameters/with_completenesses'
+  responses:
+    200:
+      description: Return products paginated
+      schema:
+        title: Products
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/ProductUuidList'
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example:
+            $ref: '#/definitions/ProductUuidExamples/x-SaaS'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+    422:
+      $ref: "#/responses/422Error"
+post:
+  summary: Create a new product
+  operationId: "post_products_uuid"
+  tags:
+    - Product [uuid]
+  x-versions:
+    - "7.0"
+    - "SaaS"
+  description: This endpoint allows you to create a new product. In the Enterprise Edition, permissions based on your user groups are applied to the product you try to create. If no uuid is provided, the PIM will generate one for you.
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/ProductUuid"
+  responses:
+    201:
+      $ref: "#/responses/Created"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
+patch:
+  summary: Update/create several products
+  operationId: "patch_products_uuid"
+  tags:
+    - Product [uuid]
+  x-versions:
+    - "7.0"
+    - "SaaS"
+  description: This endpoint allows you to update and/or create several products at once. Learn more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given uuid, it creates it. In the Enterprise Edition, permissions based on your user groups are applied to the products you try to update. It may result in the creation of drafts if you only have edit rights through the product's categories.
+  x-body-by-line: Contains several lines, each line is a product in JSON standard format
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/ProductUuid"
+        required: ["uuid"]
+        x-examples:
+          x-example-1:
+            '{"uuid":"fc24e6c3-933c-4a93-8a81-e5c703d134d5","values":{"description":[{"scope":"ecommerce","locale":"en_US","data":"My amazing cap"}]}}'
+          x-example-2:
+            '{"uuid":"573dd613-0c7f-4143-83d5-63cc5e535966","values":{"sku":[{"data":"updated_sku","locale":null,"scope":null}]}, "group":["promotion"]}'
+          x-example-3:
+            '{"uuid":"25566245-55c3-42ce-86d9-8610ac459fa8","values":{"sku":[{"data":"new_product","locale":null,"scope":null}]},"family":"clothes"}'
+  responses:
+    200:
+      description: OK
+      x-details: Returns a plain text response whose lines are JSON containing the status of each update or creation
+      x-no-entity: true
+      schema:
+        $ref: "#/definitions/ErrorByLineProductUuid"
+      examples:
+        x-example-1:
+          '{"line":1,"uuid":"fc24e6c3-933c-4a93-8a81-e5c703d134d5","status_code":204}'
+        x-example-2:
+          '{"line":2,"uuid":"573dd613-0c7f-4143-83d5-63cc5e535966","status_code":422,"message":"Property \"group\" does not exist."}'
+        x-example-3:
+          '{"line":3,"uuid":"25566245-55c3-42ce-86d9-8610ac459fa8","status_code":201}'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    413:
+      $ref: "#/responses/413Error"
+    415:
+      $ref: "#/responses/415ErrorStream"
+    422:
+      $ref: "#/responses/422Error"
