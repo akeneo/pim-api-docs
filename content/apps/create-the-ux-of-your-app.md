@@ -405,8 +405,9 @@ We recommend being consistent with buttons wording across the app. For example, 
 ### Feedback
 
 When there's an action, **always keep users informed about what is going on**, through appropriate feedback, and ideally instantly.
-• eg. when deleting an item, the item disappears straight away
-• eg. when saving a page, show a confirmation the page has been saved (using a 'tick' or a message)
+
+* eg. when deleting an item, the item disappears straight away
+* eg. when saving a page, show a confirmation the page has been saved (using a 'tick' or a message)
 
 Some actions have less obvious feedback than others.
 
