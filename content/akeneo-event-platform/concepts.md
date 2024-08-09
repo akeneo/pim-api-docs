@@ -9,6 +9,7 @@ Our platform uses the [CloudEvents specification](https://github.com/cloudevents
 example of a event payload for a productDeleted event
 
 ```json[snippet:Event]
+
 {
   "specversion": "1.0",
   "id": "018e197c-dfe2-70f8-9346-1a8e016f5fbb",
@@ -32,7 +33,7 @@ example of a event payload for a productDeleted event
 | `id` | The unique identifier of the event |
 | `source`            | Identifies the context in which the event happened     |
 | `type`         | The event type |
-| `subject`         | The `subscriptionID` the event come from |
+| `subject`         | The `subscriptionID` the event comes from |
 | `datacontenttype`         | Content type of `data` value |
 | `dataschema`         | Identifies the schema that `data` adheres to |
 | `time`         | Timestamp of when the event happened |
