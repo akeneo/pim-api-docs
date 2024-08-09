@@ -404,7 +404,13 @@ We recommend being consistent with buttons wording across the app. For example, 
 
 ### Feedback
 
-For some actions, like a **save** or an action with an impact that the user can see on the current screen, it's necessary to have visual feedback to inform the user about the action.
+When there's an action, **always keep users informed about what is going on**, through appropriate feedback, and ideally instantly.
+• eg. when deleting an item, the item disappears straight away
+• eg. when saving a page, show a confirmation the page has been saved (using a 'tick' or a message)
+
+Some actions have less obvious feedback than others.
+
+**That's why for each action, ask yourself: are we communicating clearly to the user the feedback of the system?**
 
 ![Feedback success](../../img/apps/6610c35-message_bas-success.png)
 
