@@ -47,7 +47,7 @@ patch:
     201:
       $ref: "#/responses/Created"
     204:
-      $ref: "#/responses/NoContentAfterUpdate"
+      $ref: "#/responses/NoContent"
     401:
       $ref: "#/responses/401Error"
     403:

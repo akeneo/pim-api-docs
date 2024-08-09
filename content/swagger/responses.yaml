@@ -32,16 +32,13 @@ Submitted:
     Location:
       description: URI of the created resource
       type: string
-NoContentAfterUpdate:
+NoContent:
   description: No content to return
   x-details: Means that the update was successful
   headers:
     Location:
       description: URI of the updated resource
       type: string
-NoContentAfterDelete:
-  description: No content to return
-  x-details: Means that the deletion was successful
 400Error:
   description: Bad request
   x-details: Can be caused by a malformed JSON request
