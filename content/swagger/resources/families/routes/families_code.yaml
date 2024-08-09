@@ -55,7 +55,7 @@ patch:
     201:
       $ref: "#/responses/Created"
     204:
-      $ref: "#/responses/NoContent"
+      $ref: "#/responses/NoContentAfterUpdate"
     400:
       $ref: "#/responses/400Error"
     401:
@@ -79,7 +79,7 @@ delete:
     - $ref: '#/parameters/code'
   responses:
     204:
-      $ref: "#/responses/NoContent"
+      $ref: "#/responses/NoContentAfterUpdate"
     404:
       $ref: "#/responses/404Error"
     422:
