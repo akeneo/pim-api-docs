@@ -26,35 +26,38 @@ In this example, we will create a new `connection` in the PIM and use it to gene
    - Navigate to **Connect** > **Connection settings** > **Create**.
    - Fill out the form to create the connection.
    - Note the generated `Client ID`, `Secret`, `Username`, and `Password`.
-2. **Generate an API Token:**
-   - Encode the `client ID` and `secret` in base64 format, separated by a colon (`:`).
+
+2. **Set Your Environment Variables:**
+   - Define the Client ID, Secret, Username, Password, and Akeneo host URL as environment variables:
+    ```bash
+   export CLIENT_ID="your-client-id"
+   export CLIENT_SECRET="your-client-secret"
+   export API_USERNAME="your-API-username"
+   export API_PASSWORD="your-API-password"
+   export AKENEO_HOST="http://your-host"
+    ```
+   Replace the placeholders with your actual credentials and host URL.
+
+3. **Encode Your Credentials:**
+   - Encode the Client ID and Secret in base64 format, separated by a colon (:):
+   ```bash
+   export BASE64_ENCODED_CLIENTID_AND_SECRET=$(echo -n "$CLIENT_ID:$CLIENT_SECRET" | base64)
+   ```
+
+4. **Retrieve Your API Token:**
+   - Make the API call to retrieve your `API token` using the environment variables:
 
     ```bash
-    client_id:secret
-    4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s:5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s
+   curl --request POST "$AKENEO_HOST/api/oauth/v1/token" \
+   --header "Content-Type: application/json" \
+   --header "Authorization: Basic $BASE64_ENCODED_CLIENTID_AND_SECRET" \
+   --data-raw '{
+   "grant_type": "password",
+   "username": "'"$API_USERNAME"'",
+   "password": "'"$API_PASSWORD"'"
+   }'
     ```
-
-    ```makefile
-    base64 encoded
-    NGdtNHJub2l6cDhnc2tna2swODBzc29vODAwNDBnNDRrc293d2d3ODQ0azQ0c2MwMHM6NWR5dm8xejZ5MzRzbzRvZ2tna3N3ODhvb2tvb3dzMDBjZ29jNDg4a2NzOHdrNGM0MHM=
-    ```
-
-3. **Retrieve Your API Token:**
-   - After that, you can make the API call to retrieve your `API token`
-
-    ```json
-    curl --request POST http://your-host/api/oauth/v1/token \
-    --header "Content-Type: application/json" \
-    --header "Authorization: Basic YOUR_BASE_64_CLIENT_ID_AND_SECRET" \
-    --data-raw '{
-        "grant_type": "password",
-        "username": "your_API_username",
-        "password": "its_password"
-    }'
-    ```
-
    You can check the official [token generation documentation](/documentation/authentication.html#token-generation) for further information.
-
 
 ::: info
 ℹ️ Note that the token has a lifespan of one hour.
@@ -68,11 +71,11 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 
 Once you have a valid PIM API token, you can create a subscriber. A subscriber can be seen as an entity where all of your subscriptions will be attached.
 
-```json
+```bash
 curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber' \
---header 'X-PIM-URL: THE_TARGET_PIM_URL' \
---header 'X-PIM-TOKEN: YOUR_APP_OR_CONNECTION_TOKEN' \
---header 'X-PIM-CLIENT-ID: YOUR_APP_OR_CONNECTION_CLIENT_ID' \
+--header "X-PIM-URL: $TARGET_PIM_URL" \
+--header "X-PIM-TOKEN: $APP_OR_CONNECTION_TOKEN" \
+--header "X-PIM-CLIENT-ID: $APP_OR_CONNECTION_CLIENT_ID" \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "example subscriber name",
@@ -83,7 +86,7 @@ curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber' \
 ```
 
 ::: info
-📌 You need to store the ID in the response payload. We will use it in the next step.
+📌 You need to store the `id` from the response payload. We will use it in the next step.
 
 Response Example :
 
@@ -100,7 +103,11 @@ Response Example :
     },
     "created_at": "2024-06-27T16:26:00.503422Z",
     "updated_at": "2024-06-27T16:26:00.503422Z"
-},
+}
+```
+After creating the subscriber, store the id from the response in an environment variable:
+```bash
+export SUBSCRIBER_ID="01905a84-a3b7-766e-a49f-5519c35fa7a0"  # Replace with the actual ID from the response
 ```
 :::
 
@@ -116,11 +123,11 @@ To create a subscription, you will need a destination URL.
 💡 You don’t have to worry about the secret part of the configuration for now, they are used to sign the payload (more information below in the API presentation section)
 :::
 
-```json
-curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$subscriber_Id}/subscription' \
---header 'X-PIM-URL: THE_TARGET_PIM_URL' \
---header 'X-PIM-TOKEN: YOUR_APP_OR_CONNECTION_TOKEN' \
---header 'X-PIM-CLIENT-ID: YOUR_APP_OR_CONNECTION_CLIENT_ID' \
+```bash
+curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$SUBSCRIBER_ID/subscription' \
+--header "X-PIM-URL: $TARGET_PIM_URL" \
+--header "X-PIM-TOKEN: $APP_OR_CONNECTION_TOKEN" \
+--header "X-PIM-CLIENT-ID: $APP_OR_CONNECTION_CLIENT_ID" \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "source": "pim",
@@ -138,10 +145,6 @@ curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$subsc
     }
 }'
 ```
-
-::: info
-📌 Don’t forget to change the `subscriber_id` in the URL to use the one you created in the precedent step.
-:::
 
 ### 4. Trigger an Event from the PIM
 
