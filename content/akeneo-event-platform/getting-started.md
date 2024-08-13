@@ -6,7 +6,7 @@ This guide will walk you through the essential steps to set up your environment,
 
 Before proceeding, ensure that you have an active App (it can be a custom App) or an active connection to an Akeneo PIM.
 
-To learn how to create a connection, see the [Authentication Guide](https://api.akeneo.com/documentation/authentication.html#client-idsecret-generation). If you're setting up a custom app, follow the steps in [this tutorial](https://api.akeneo.com/tutorials/how-to-get-your-app-token.html#) to obtain an App token.
+To learn how to create a connection, see the [Authentication Guide](/documentation/authentication.html#client-idsecret-generation). If you're setting up a custom app, follow the steps in [this tutorial](/tutorials/how-to-get-your-app-token.html#) to obtain an App token.
 
 ---
 
@@ -54,7 +54,7 @@ In this example, we will create a new `connection` in the PIM and use it to gene
     }'
     ```
 
-   You can check the official [token generation documentation](https://api.akeneo.com/documentation/authentication.html#token-generation) for further information.
+   You can check the official [token generation documentation](/documentation/authentication.html#token-generation) for further information.
 
 
 <aside>
@@ -153,7 +153,7 @@ curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$subsc
 
 With your subscription in place, you're ready to trigger the event you subscribed to (in this example, `product_updated`). The simplest way to do this is by updating a product directly within the Akeneo PIM UI. This approach allows you to manually trigger the event and observe the changes in real-time.
 
-Alternatively, you can also update a product using the [Akeneo PIM REST API](https://api.akeneo.com/api-reference.html#post_products_uuid) if you prefer an automated approach.
+Alternatively, you can also update a product using the [Akeneo PIM REST API](/api-reference.html#post_products_uuid) if you prefer an automated approach.
 
 After the product is updated, verify that the event was successfully triggered by checking the payload received at your destination URL.
 
