@@ -6,22 +6,21 @@ This guide will walk you through the essential steps to set up your environment,
 
 Before proceeding, ensure that you have an active App (it can be a custom App) or an active connection to an Akeneo PIM.
 
-To learn how to create a connection, see the [Authentication Guide](/documentation/authentication.html#client-idsecret-generation). If you're setting up a custom app, follow the steps in [this tutorial](/tutorials/how-to-get-your-app-token.html#) to obtain an App token.
+To learn how to create a connection, see the [Authentication Guide](/documentation/authentication.html#client-idsecret-generation). If you're setting up a custom App, follow the steps in [this tutorial](/tutorials/how-to-get-your-app-token.html#) to obtain an App token.
 
 ---
 
 ### Basic Use Case: Setting Up Event Subscriptions
 
-This guide provides a step-by-step walkthrough to help you set up event subscriptions using the Akeneo Event Platform. By the end of this guide, you will have created a connection, authenticated your app, subscribed to events, and triggered an event from your PIM.
+This guide provides a step-by-step walkthrough to help you set up event subscriptions using the Akeneo Event Platform. By the end of this guide, you will have created a connection, authenticated your App, subscribed to events, and triggered an event from your PIM.
 
 ### 1. Retrieve your credentials from your targeted PIM
 
-<aside>
+::: info
 🛠 For every call to the API, you will need `X-PIM-TOKEN` & `X-PIM-CLIENT-ID` .
 
 In this example, we will create a new `connection` in the PIM and use it to generate an `API token`.
-
-</aside>
+:::
 
 1. **Create a connection in Akeneo PIM:**
    - Navigate to **Connect** > **Connection settings** > **Create**.
@@ -57,15 +56,15 @@ In this example, we will create a new `connection` in the PIM and use it to gene
    You can check the official [token generation documentation](/documentation/authentication.html#token-generation) for further information.
 
 
-<aside>
+::: info
 ℹ️ Note that the token has a lifespan of one hour.
 
-</aside>
+:::
 
-<aside>
-🛠 You can also use a custom app if you like. As long as you have a `client_id` alongside an `API token`, you are good to go for the next step
+::: info
+🛠 You can also use a custom App if you like. As long as you have a `client_id` alongside an `API token`, you are good to go for the next step
 
-</aside>
+:::
 
 ### 2. Create a Subscriber
 
@@ -85,7 +84,7 @@ curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber' \
 }'
 ```
 
-<aside>
+::: info
 📌 You need to store the ID in the response payload. We will use it in the next step.
 
 Response Example :
@@ -106,7 +105,7 @@ Response Example :
 },
 ```
 
-</aside>
+:::
 
 ### 3. Create a Subscription
 
@@ -116,10 +115,10 @@ In this example, we will use an HTTPS destination (HTTPS is mandatory for secure
 
 To create a subscription, you will need a destination URL.
 
-<aside>
+::: info
 💡 You don’t have to worry about the secret part of the configuration for now, they are used to sign the payload (more information below in the API presentation section)
 
-</aside>
+:::
 
 ```json
 curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$subscriber_Id}/subscription' \
@@ -144,10 +143,10 @@ curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$subsc
 }'
 ```
 
-<aside>
+::: info
 📌 Don’t forget to change the `subscriber_id` in the URL to use the one you created in the precedent step.
 
-</aside>
+:::
 
 ### 4. Trigger an Event from the PIM
 
