@@ -57,7 +57,7 @@ In this example, we will create a new `connection` in the PIM and use it to gene
    "password": "'"$API_PASSWORD"'"
    }'
     ```
-   After retrieving the API token, store the token from the response in an environment variable:
+   After retrieving the API token, store the `access_token` from the response in an environment variable:
    ```bash
    export PIM_API_TOKEN="..."  # Replace with the actual token from the response
    ````
@@ -113,30 +113,32 @@ export SUBSCRIBER_ID="01905a84-a3b7-766e-a49f-5519c35fa7a0"  # Replace with the 
 ### 3. Create a Subscription
 
 With a subscriber in place, the next step is to create a subscription to specify which events you want to receive.
-
 In this example, we will use an HTTPS destination (HTTPS is mandatory for secure communication).
-
 To create a subscription, you will need a destination URL.
+
+```bash
+export DESTINATION_URL="https://my-destination-url.com"  # Replace with your destination URL
+```
 
 ::: info
 💡 You don’t have to worry about the secret part of the configuration for now, they are used to sign the payload (more information below in the API presentation section)
 :::
 
 ```bash
-curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$SUBSCRIBER_ID/subscription' \
+curl --request POST "https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$SUBSCRIBER_ID/subscription" \
 --header "X-PIM-URL: $TARGET_PIM_URL" \
 --header "X-PIM-TOKEN: $PIM_API_TOKEN" \
 --header "X-PIM-CLIENT-ID: $CLIENT_ID" \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "source": "pim",
-    "subject": "$TARGET_PIM_URL",
+    "subject": "'"$TARGET_PIM_URL"'",
     "events": [
         "com.akeneo.pim.v1.product.updated"
     ],
     "type": "https",
     "config": {
-        "url": "YOUR_DESTINATION_URL",
+        "url": "'"$DESTINATION_URL"'",
         "secret": {
             "primary": "averysecretprimarysecret",
             "secondary": "you can leave empty here, only use to ease your secret rotation use cases"
