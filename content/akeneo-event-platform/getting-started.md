@@ -4,7 +4,7 @@ This guide will walk you through the essential steps to set up your environment,
 
 ### Prerequisites
 
-Before proceeding, ensure that you have an active App (it can be a custom App) or an active connection to an Akeneo PIM.
+Before proceeding, ensure that you have an active [App](https://api.akeneo.com/apps/overview.html#whats-an-akeneo-app) (it can be a [Custom App](https://api.akeneo.com/apps/create-custom-app.html)) or an active [connection](https://api.akeneo.com/getting-started/connect-the-pim-4x/step-1.html#you-said-connection) to an Akeneo PIM.
 
 To learn how to create a connection, see the [Authentication Guide](/documentation/authentication.html#client-idsecret-generation). If you're setting up a custom App, follow the steps in [this tutorial](/tutorials/how-to-get-your-app-token.html#) to obtain an App token.
 
