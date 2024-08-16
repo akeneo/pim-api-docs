@@ -25,5 +25,5 @@ Your app shouldn't rely solely on receiving data from the Akeneo event platform.
 
 You could do this in the background or offer reconciliation and syncing options to the user. For example, the UI of your app could contain a button that triggers a manual reconciliation process by calling the relevant API endpoint and fetching the requested data.
 
-::: panel-link Let's see some integration examples ! [Next](/akeneo-event-platform/integration-examples.html)
+::: panel-link Let's see some integration examples! [Next](/akeneo-event-platform/integration-examples.html)
 :::
