@@ -155,5 +155,5 @@ Alternatively, you can also update a product using the [Akeneo PIM REST API](/ap
 
 After the product is updated, verify that the event was successfully triggered by checking the payload received at your destination URL.
 
-::: panel-link Let's see the API reference! [Next](/akeneo-event-platform/api-reference.html) 
+::: panel-link Let's see the API reference! [Next](/akeneo-event-platform/api-reference.html)
 :::
