@@ -43,4 +43,5 @@ Before using AEP, make sure you meet the following prerequisites:
 
 - Ensure your webhook endpoints can respond within the within 3 seconds when receiving messages containing events. AEP expects timely responses to avoid event loss or unnecessary retries.
 
-::: panel-link [Explore Key Concepts to deepen your understanding of the Akeneo Event Platform](/akeneo-event-platform/concepts.html). :::
+::: panel-link [Explore Key Concepts to deepen your understanding of the Akeneo Event Platform](/akeneo-event-platform/concepts.html)
+:::
