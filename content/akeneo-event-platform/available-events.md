@@ -1,4 +1,4 @@
-# Available events
+# Available events 
 
 ## com.akeneo.pim.v1.app.deleted
 
