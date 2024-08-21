@@ -45,12 +45,13 @@ gulp.task('build-aep-reference-page', ['clean-dist', 'less'], async function () 
                 response.id = operation.operationId + '_' + code;
 
                 const schema = response?.content?.["application/json"]?.schema;
-                response.jsonBody = schema?.properties ? highlightJson(schema.properties) : "";
+                // In case the object in response use AllOf, Oneof ... we don't have directly properties, but items first
+                response.jsonBody = schema?.properties ?? schema?.items ? highlightJson(schema.properties ?? schema?.items) : "";
                 response.jsonExample = schema?.example ? highlightJson(schema.example) : "";
+
 
                 return response;
             });
-
 
             const schema = operation?.requestBody?.content?.["application/json"]?.schema;
 
@@ -65,6 +66,8 @@ gulp.task('build-aep-reference-page', ['clean-dist', 'less'], async function () 
                 jsonExample: jsonExample,
             });
         })
+
+        // console.dir(apiData, {depth: null});
     });
 
     return gulp.src('src/aep-reference/reference.handlebars')
