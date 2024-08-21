@@ -46,7 +46,7 @@ You can now ask for a token using a dedicated GraphQL query, to execute it:
 
 {
   "X-PIM-URL": "https://your-pim-url",
-  "X-PIM-CLIENT-ID": "your-client-id",
+  "X-PIM-CLIENT-ID": "your-client-id"
 }
 ```
 
