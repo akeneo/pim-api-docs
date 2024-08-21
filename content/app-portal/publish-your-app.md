@@ -226,6 +226,51 @@ Depending on the selected Category for your app, a few extra "Feature List" sele
 This step is crucial in ensuring a smooth and efficient validation process, as well as maximizing the potential success of your app.
 :::
 
+## Your app must have a good user experience (UX)
+
+A poor app user experience causes users frustration and can negatively impact both, your brand and Akeneo brand. It can also increase the number of support requests.
+
+**That's why we will be particularly vigilant to ensure that your app meets the following criteria:**
+
+### Navigation
+
+☐ Every page in my application has a title
+
+☐ Each page gives access to information/features that are expected to be found on that page
+
+☐ The navigation is organised in a coherent way to support effectively the main user flows
+
+☐ My application has a breadcrumb trail, enabling my users to find their way around and navigate.
+
+### Action buttons
+
+☐ The buttons color is coherent with the associated action.
+
+☐ The actions behind the buttons are clear (thanks to a clear label and a 'helper' if needed)
+
+☐ For each critical action (eg. data deletion): the user is warned and a confirmation is requested.
+
+☐ My users receive a clear system feedback for their key actions throughout the app (eg. confirmation of data being saved)
+
+### Accessibility
+
+☐ My application has no font size below 10 pixels.
+
+### Onboarding & Support
+
+☐ The first action for first time users is clearly displayed.
+
+☐ All error messages in my application are adapted to my users profile, and provide options of resolution.
+
+☐ My users can easily access the app support documentation at all times.
+
+### Page structure & content hierarchy
+
+☐ All the pages of my application follow a consistent/coherent structure, allowing my users to navigate the app easily.
+
+☐ I made sure that the information is hierarchically organized to make sense to my users — headings, sub-headings, grouping similar information or features.
+
+
 ## Your app must guarantee a certain level of security
 
 Because your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must comply with Akeneo security policies. Each app which will be submitted for publication will be reviewed and will need to meet the security requirements described below. You'll also find more information and tips on the [security requirements page](/apps/secure-your-app.html) to improve the security of your app.
@@ -233,11 +278,11 @@ Because your app will either pull data from Akeneo to external services or push 
 ### Security Publication Process
 
 Before any app is accepted into our App Store, we scan it for potential security issues.
-The Akeneo Security team will perform the following tests on the source code of the app to be published: 
+The Akeneo Security team will perform the following tests on the source code of the app to be published:
 
 - Source Composition Analysis to detect vulnerabilities on the dependencies your code is using.
 - Secrets Scanning to detect potential secret management security flaws.
-- OWASP Top 10-based Static Application Security Testing (SAST). 
+- OWASP Top 10-based Static Application Security Testing (SAST).
 - Docker image vulnerability scanning if applicable.
 
 If a potential security issue is detected on your app during the tests, we'll notify you to help you quickly address the issue and help keep your users safe.
