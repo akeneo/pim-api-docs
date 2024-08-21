@@ -68,24 +68,3 @@ patch:
       $ref: "#/responses/415Error"
     422:
       $ref: "#/responses/422Error"
-delete:
-  summary: Delete a category with its children
-  operationId: "delete_categories__code_"
-  tags:
-    - Category
-  x-versions:
-    - "SaaS"
-  parameters:
-    - $ref: '#/parameters/code'
-  description: This endpoint allows you to drop a category with its children.
-  responses:
-    204:
-      $ref: "#/responses/NoContentAfterDelete"
-    401:
-      $ref: "#/responses/401Error"
-    403:
-      $ref: "#/responses/403Error"
-    404:
-      $ref: "#/responses/404Error"
-    422:
-      $ref: "#/responses/422Error"
