@@ -1,0 +1,583 @@
+openapi: 3.0.0
+info:
+  title: Akeneo Event Platform
+  version: 1.0.0
+  contact: {}
+paths:
+  /api/v1/subscriber:
+    post:
+      summary: 'Create a Subscribing service'
+      description: ''
+      tags:
+        - Subscriber
+      operationId: create_subscribing_service
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberPayload'
+      responses:
+        '201':
+          description: Subscribing service created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscriber'
+        '400':
+          $ref: "#/components/responses/400"
+        '401':
+          $ref: "#/components/responses/401"
+        '409':
+          $ref: "#/components/responses/409"
+    get:
+      summary: 'Get all subscribers'
+      description: 'Get all subscribers that are either active or revoked'
+      tags:
+        - Subscriber
+      operationId: retrieve_all_subscribers
+      responses:
+        '200':
+          description: List of subscribers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriberList'
+        '401':
+          $ref: "#/components/responses/401"
+  /api/v1/subscriber/{subscriber_id}:
+    get:
+      summary: 'Get a subscriber'
+      description: 'Get a subscriber configuration with its identifier'
+      tags:
+        - Subscriber
+      operationId: retrieve_a_subscriber
+      parameters:
+        - name: subscriber_id
+          in: path
+          required: true
+          description: Subscriber id
+          schema:
+            type : string
+      responses:
+        '200':
+          description: Subscriber found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscriber'       
+        '401':
+          $ref: "#/components/responses/401"
+        '404':
+          $ref: "#/components/responses/404"
+    patch:
+      summary: 'Update a Subscribing service'
+      description: ''
+      tags:
+        - Subscriber
+      operationId: update_subscribing_service
+      parameters:
+        - name: subscriber_id
+          in: path
+          required: true
+          description: Subscriber id
+          schema:
+            type : string
+      responses:
+        '200':
+          description: Subscriber updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscriber'
+        '400':
+          $ref: "#/components/responses/400"
+        '401':
+          $ref: "#/components/responses/401"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberPayload'
+    delete:
+      summary: 'Delete a Subscribing service'
+      description: ''
+      tags:
+        - Subscriber
+      operationId: delete_subscribing_service
+      parameters:
+        - name: subscriber_id
+          in: path
+          required: true
+          description: Subscriber id
+          schema:
+            type : string
+      responses:
+        '200':
+          description: Subscriber deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscriber'
+        '401':
+          $ref: "#/components/responses/401"
+        '403':
+          $ref: "#/components/responses/403"
+        '404':
+          $ref: "#/components/responses/404"
+  /api/v1/subscriber/{subscriber_id}/subscription:
+    post:
+      summary: 'Create a subscription'
+      description: 'Create a subscription with a configuration of a destination and the list of events the destination wants to receive'
+      tags:
+        - Subscription
+      operationId: create_subscription
+      parameters:
+        - name: subscriber_id
+          in: path
+          required: true
+          description: Subscriber id
+          schema:
+            type : string
+      responses:
+        '201':
+          description: Subscription created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+        '400':
+          $ref: "#/components/responses/400"
+        '401':
+          $ref: "#/components/responses/401"
+        '403':
+          $ref: "#/components/responses/403"
+        '404':
+          $ref: "#/components/responses/404"
+        '409':
+          $ref: "#/components/responses/409"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionPayload'
+    get:
+      summary: 'Retrieve the list of all subscriptions for this app'
+      description: ''
+      tags:
+        - Subscription
+      operationId: list_all
+      parameters:
+        - name: subscriber_id
+          in: path
+          required: true
+          description: Subscriber id
+          schema:
+            type : string
+      responses:
+        '200':
+          description: Subscriptions successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionList'
+        '401':
+          $ref: "#/components/responses/401"
+        '403':
+          $ref: "#/components/responses/403"
+        '404':
+          $ref: "#/components/responses/404"
+  /api/v1/subscriber/{subscriber_id}/subscription/{id}:
+    get:
+      summary: 'Retrieve a subscription configuration'
+      description: ''
+      tags:
+        - Subscription
+      operationId: retrieve_a_subscription
+      parameters:
+        - name: subscriber_id
+          in: path
+          required: true
+          description: Subscriber id
+          schema:
+            type : string
+        - name: id
+          in: path
+          required: true
+          description: Subscription id
+          schema:
+            type : string
+      responses:
+        '200':
+          description: Subscription found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+        '401':
+          $ref: "#/components/responses/401"
+        '403':
+          $ref: "#/components/responses/403"
+        '404':
+          $ref: "#/components/responses/404"
+    patch:
+      summary: 'Update a subscription configuration'
+      description: ''
+      tags:
+        - Subscription
+      operationId: update_a_subscription
+      parameters:
+        - name: subscriber_id
+          in: path
+          required: true
+          description: Subscriber id
+          schema:
+            type : string
+        - name: id
+          in: path
+          required: true
+          description: Subscription id
+          schema:
+            type : string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionPayload'
+      responses:
+        '200':
+          description: Subscription updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+        '401':
+          $ref: "#/components/responses/401"
+        '403':
+          $ref: "#/components/responses/403"
+        '404':
+          $ref: "#/components/responses/404"
+    delete:
+      summary: 'Delete a subscription'
+      description: ''
+      tags:
+        - Subscription
+      operationId: delete_a_subscription
+      parameters:
+        - name: subscriber_id
+          in: path
+          required: true
+          description: Subscriber id
+          schema:
+            type : string
+        - name: id
+          in: path
+          required: true
+          description: Subscription id
+          schema:
+            type : string
+      responses:
+        '200':
+          description: Subscription deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+  /api/v1/subscriber/{subscriber_id}/subscription/{id}/suspend:
+    post:
+      summary: 'Proactively suspend a subscription'
+      description: ''
+      tags:
+        - Subscription
+      operationId: suspend_a_subscription
+      parameters:
+        - name: subscriber_id
+          in: path
+          required: true
+          description: Subscriber id
+          schema:
+            type : string
+        - name: id
+          in: path
+          required: true
+          description: Subscription id
+          schema:
+            type : string
+      responses:
+        '202':
+          description: Acknowledge subscription suspension (async operation)
+        '401':
+          $ref: "#/components/responses/401"
+        '403':
+          $ref: "#/components/responses/403"
+        '404':
+          $ref: "#/components/responses/404"
+        '409':
+          $ref: "#/components/responses/409"
+  /api/v1/subscriber/{subscriber_id}/subscription/{id}/resume:
+    post:
+      summary: 'Proactively resume a suspended subscription'
+      description: ''
+      tags:
+        - Subscription
+      operationId: resume_a_subscription
+      parameters:
+        - name: subscriber_id
+          in: path
+          required: true
+          description: Subscriber id
+          schema:
+            type : string
+        - name: id
+          in: path
+          required: true
+          description: Subscription id
+          schema:
+            type : string
+      responses:
+        '202':
+          description: Acknowledge subscription resumption (async operation)
+        '401':
+          $ref: "#/components/responses/401"
+        '403':
+          $ref: "#/components/responses/403"
+        '404':
+          $ref: "#/components/responses/404"
+        '409':
+          $ref: "#/components/responses/409"
+security:
+  - pimAccessToken : []
+    pimUrl: []
+    pimClientId: []
+servers:
+  - url: https://event.prd.sdk.akeneo.cloud
+components:
+  links: {}
+  callbacks: {}
+  securitySchemes:
+    pimAccessToken:
+      type: apiKey
+      description: Valid PIM API Access Token
+      in: header
+      name: X-PIM-TOKEN
+    pimUrl:
+      type: apiKey
+      description: PIM Url that issued the access token
+      in: header
+      name: X-PIM-URL
+    pimClientId:
+      type: apiKey
+      description: Client ID of the PIM Connection, App or Custom App for which the Access token has been issued
+      in: header
+      name: X-PIM-CLIENT-ID
+  schemas:
+    SubscriberList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Subscriber'
+    SubscriberPayload:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The subscriber name
+        contact:
+          type: object
+          properties:
+            technical_email:
+              type: string
+              format: email
+      example:
+        name: translation app
+        contact:
+          technical_email: john.doe@example.com
+    Subscriber:
+      allOf:
+        - $ref: '#/components/schemas/SubscriberPayload'
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        tenant_id:
+          type: string
+          description: The PIM Tenant id
+        client_id:
+          type: string
+          description: The client_id this subscriber is linked to, the value come from X-PIM-CLIENT-ID
+        subject:
+          type: string
+          format: uri
+          description: The pim associated to this subscriber, the value come from X-PIM-URL
+        status:
+          type: string
+          description: status of the subscriber
+          default: active
+          enum: ["active", "deleted", "revoked"]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      example:
+        id: 018e1ec5-29da-78ad-aae6-92065b9ca2a5
+        tenant_id: srnt-pim-example
+        client_id: f66597f5-1d3f-4397-a044-9a728cfd7f9c
+        subject: https://example.cloud.akeneo.com/
+        status: active
+        createdAt: 2019-08-24T14:15:22Z
+        updatedAt: 2019-08-24T14:15:22Z
+        $ref: '#/components/schemas/SubscriberPayload/example'
+    SubscriptionPubSubConfiguration:
+      type: object
+      properties:
+        project_id:
+          type: string
+          description: Google project id
+        topic_id:
+          type: string
+          description: Google topic id
+      example:
+        project_id: gcp-prd-project-name
+        topic_id: demo-integrations-events
+    SubscriptionHTTPSConfiguration:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: The https destination
+        secret:
+          description: Secrets used to sign the event
+          type: object
+          required:
+            - primary
+          properties:
+            primary:
+              description: Used to generate a signature of the event and add it as a request header X-AKENEO-SIGNATURE-PRIMARY
+              type: string
+              minLength: 16
+              maxLength: 256
+            secondary:
+              description: Used to generate a signature of the event and add it as a request header X-AKENEO-SIGNATURE-SECONDARY, this secret is optional and can be used to rotate the primary secret
+              type: string
+              minLength: 16
+              maxLength: 256
+      example:
+        url:
+        secret:
+          primary: thisisaprimarysecret
+          secondary: thisisasecondarysecret
+    SubscriptionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Subscription'
+    SubscriptionPayload:
+      type: object
+      properties:
+        source:
+          type: string
+          default: pim
+        subject:
+          type: string
+          format: uri
+          description: Url of the PIM
+        event:
+          type: array
+          description: List of events you want to receive
+          items:
+            type: string
+        type:
+          type: string
+          description: The destination type
+          enum: ["pubsub", "https"]
+        config:
+          description: The configuration depending on the type of the subscription
+          oneOf:
+            - $ref: '#/components/schemas/SubscriptionPubSubConfiguration'
+            - $ref: '#/components/schemas/SubscriptionHTTPSConfiguration'
+      example:
+        source: pim
+        subject: https://mypim.cloud.akeneo.com
+        event:
+          - com.akeneo.pim.v1.product.deleted
+        type: pubsub
+        config:
+          $ref: "#/components/schemas/SubscriptionPubSubConfiguration/example"
+    Subscription:
+      allOf:
+        - $ref: '#/components/schemas/SubscriptionPayload'
+      type: object
+      properties:
+        id:
+          type: string
+          description: The id of the subscription
+          format: uuid
+        subscriber_id:
+          type: string
+          description: The id of the subscriber this subscription is linked to
+          format: uuid
+        status:
+          type: string
+          description: status of the subscription
+          default: active
+          enum: ["active", "deleted", "revoked", "suspended"]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      example:
+        id: '018e1e57-8e96-7695-895e-34bb1f5c0614'
+        subscriber_id: '018e1e57-8e96-7695-895e-34bb1f5c1578'
+        status: active
+        createdAt: '2019-08-24T14:15:22Z'
+        updatedAt: '2020-08-24T14:15:22Z'
+        $ref: "#/components/schemas/SubscriptionPayload/example"
+    HTTPError:
+      type: object
+      properties:
+        errors:
+          type: array
+          description: List of errors
+          items:
+            properties:
+              message:
+                type: string
+                description: The detail about the error
+  responses:
+    '400':
+      description: Bad request - the request payload was malformed
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/HTTPError"
+    '401':
+      description: Unauthorized - tenant context not found or invalid credentials
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/HTTPError"
+    '403':
+      description: Not allowed
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/HTTPError"
+    '404':
+      description: Subscriber or subscription not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/HTTPError"
+    '409':
+      description: Subscription is deleted
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/HTTPError"
