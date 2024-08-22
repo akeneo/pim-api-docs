@@ -1,8 +1,8 @@
-# Available events 
+# Available events
 
 ## com.akeneo.pim.v1.app.deleted
 
-*This event is generated whenever an App is removed from the PIM.*
+*This event is generated whenever an App is deleted from the PIM.*
 
 * Message ID: `com.akeneo.pim.v1.app.deleted`
 * Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
@@ -38,7 +38,7 @@
 
 ## com.akeneo.pim.v1.attribute.deleted
 
-*This event is generated whenever an attribute is removed from the PIM.*
+*This event is generated whenever an attribute is deleted from the PIM.*
 
 * Message ID: `com.akeneo.pim.v1.attribute.deleted`
 * Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
@@ -168,7 +168,7 @@ The modifications that can lead to this event include changes to the following p
 
 ## com.akeneo.pim.v1.attribute-group.deleted
 
-*This event is generated whenever an attribute group is removed from the PIM.*
+*This event is generated whenever an attribute group is deleted from the PIM.*
 
 * Message ID: `com.akeneo.pim.v1.attribute-group.deleted`
 * Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
@@ -309,7 +309,7 @@ The modifications that can lead to this event include:
 
 ## com.akeneo.pim.v1.product.deleted
 
-*This event is generated whenever a product is removed from the PIM.*
+*This event is generated whenever a product is deleted from the PIM.*
 
 * Message ID: `com.akeneo.pim.v1.product.deleted`
 * Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
@@ -353,7 +353,7 @@ The following actions can trigger a product deletion event:
 
 ## com.akeneo.pim.v1.product-model.deleted
 
-*This event is generated whenever a product model is removed from the PIM.*
+*This event is generated whenever a product model is deleted from the PIM.*
 
 * Message ID: `com.akeneo.pim.v1.product-model.deleted`
 * Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
@@ -363,7 +363,7 @@ The following actions can trigger a product deletion event:
 | Name | Type | Description |
 |---|---|---|
 | data.product_model | object | - |
-| data.product_model.uuid | string | Unique identifier of a Product Model in the PIM. |
+| data.product_model.code | string | Unique identifier of a Product Model in the PIM. |
 
 > Example of payload
 
@@ -472,7 +472,7 @@ The modifications that can lead to this event include:
 
 ## com.akeneo.pim.v1.connection.deleted
 
-*This event is generated whenever a connection is removed from the PIM.*
+*This event is generated whenever a connection is deleted from the PIM.*
 
 * Message ID: `com.akeneo.pim.v1.connection.deleted`
 * Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
@@ -586,7 +586,7 @@ The event is triggered when any of the following properties are changed:
 
 ## com.akeneo.pim.v1.category.deleted
 
-*This event is generated whenever a category is removed from the PIM.*
+*This event is generated whenever a category is deleted from the PIM.*
 
 * Message ID: `com.akeneo.pim.v1.category.deleted`
 * Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
@@ -706,7 +706,7 @@ Only changes in asset values will cause this event.
 
 ## com.akeneo.pim.v1.asset.deleted
 
-*This event is generated whenever an asset is removed from the PIM.*
+*This event is generated whenever an asset is deleted from the PIM.*
 
 * Message ID: `com.akeneo.pim.v1.asset.deleted`
 * Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
@@ -789,7 +789,7 @@ The event is triggered when any of the following properties are changed:
 
 ## com.akeneo.pim.v1.family.deleted
 
-*This event is generated whenever a family is removed from the PIM.*
+*This event is generated whenever a family is deleted from the PIM.*
 
 * Message ID: `com.akeneo.pim.v1.family.deleted`
 * Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
@@ -815,6 +815,42 @@ The event is triggered when any of the following properties are changed:
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.family.deleted.schema.json",
+  "data": {
+    "family": {
+      "code": "a_family_code"
+    }
+  }
+}
+```
+
+## com.akeneo.pim.v1.family.created
+
+*This event is generated whenever a new family is added to the PIM.*
+
+* Message ID: `com.akeneo.pim.v1.family.created`
+* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
+
+### Payload
+
+| Name | Type | Description |
+|---|---|---|
+| data.family | object | - |
+| data.family.code | string | code of a family |
+
+> Example of payload
+
+
+```json
+
+{
+  "specversion": "1.0",
+  "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
+  "type": "com.akeneo.pim.v1.family.created",
+  "source": "pim",
+  "subject": "srnt-whatever",
+  "time": "2024-02-22T17:31:00Z",
+  "datacontenttype": "application/json",
+  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.family.created.schema.json",
   "data": {
     "family": {
       "code": "a_family_code"
@@ -868,7 +904,7 @@ The event is triggered when any changes are made to the record values.
 
 ## com.akeneo.pim.v1.attribute-option.deleted
 
-*This event is generated whenever an attribute option is removed from the PIM.*
+*This event is generated whenever an attribute option is deleted from the PIM.*
 
 * Message ID: `com.akeneo.pim.v1.attribute-option.deleted`
 * Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
@@ -947,6 +983,7 @@ The event is triggered when any changes are made to the record values.
   }
 }
 ```
+
 
 ::: panel-link Let's check the requirements [Next](/akeneo-event-platform/integration-examples.html)
 :::
