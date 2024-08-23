@@ -79,27 +79,10 @@
 * Message ID: `com.akeneo.pim.v1.attribute.updated`
 * Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
 
-The modifications that can lead to this event include changes to the following properties:
+The updates that can trigger this event include the following:
 
-- **Labels**: Modifying the attribute's name in different locales.
-- **Sort Order**: Adjusting the order in which the attribute appears.
-- **Available Locales**: Changing the locales in which the attribute is available.
-- **Usable as Grid Filter**: Toggling the attribute's availability as a filter in the product grid.
-- **Max Characters**: Altering the maximum character length allowed for the attribute.
-- **Validation Rule**: Updating the rules applied for attribute validation.
-- **Validation Regexp**: Changing the regular expression used for validating the attribute.
-- **WYSIWYG Enabled**: Enabling or disabling the WYSIWYG editor for the attribute.
-- **Number Min/Max**: Setting new minimum or maximum values for numeric attributes.
-- **Decimals Allowed**: Enabling or disabling the allowance of decimals in numeric attributes.
-- **Negative Allowed**: Toggling the allowance of negative values for numeric attributes.
-- **Default Metric Unit**: Changing the default unit of measurement for metric attributes.
-- **Date Min/Max**: Adjusting the earliest and latest allowed dates for date attributes.
-- **Allowed Extensions**: Modifying the file extensions allowed for file-type attributes.
-- **Max File Size**: Changing the maximum file size allowed for file-type attributes.
-- **Reference Data Name**: Updating the reference data associated with the attribute.
-- **Default Value**: Setting or changing the default value for the attribute.
-- **Table Configuration**: Altering the table configuration of the attribute.
-- **Is Main Identifier**: Marking or unmarking the attribute as the main identifier for a product.
+- Update any attribute property and save.
+- Reorder attributes within an attribute group (all attributes in the group are marked as updated).
 
 ### Payload
 
