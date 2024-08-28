@@ -112,12 +112,12 @@ For the `pubsub` subscription type, the `config` property required when creating
 
 To use a Pub/Sub subscription, you need to complete a few additional steps to ensure we have permission to publish into your Pub/Sub topic:
 
-- In the Google Cloud console, go to “**Pub/Sub > Topics**”
-- Next to the topic you want to use, click “**…**” and then “**View permissions**”
+- In the Google Cloud console, go to "**Pub/Sub > Topics**"
+- Next to the topic you want to use, click "**…**" and then "**View permissions**"
 - Click on **ADD PRINCIPAL**
-- Past the following service account address into the “**New principals**” text box: `delivery-sa@akecld-prd-sdk-aep-prd.iam.gserviceaccount.com`
-- In the Role drop-down list, select “**Pub/Sub**” and “**Pub/Sub Publisher**”
-- Click “**Save**”
+- Past the following service account address into the "**New principals**" text box: `delivery-sa@akecld-prd-sdk-aep-prd.iam.gserviceaccount.com`
+- In the Role drop-down list, select "**Pub/Sub**" and "**Pub/Sub Publisher**"
+- Click "**Save**"
 
 For comprehensive details on managing subscriptions, consult the complete API reference [here](/akeneo-event-platform/api-reference.html).
 
