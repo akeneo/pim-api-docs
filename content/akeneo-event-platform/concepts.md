@@ -43,12 +43,12 @@ The following properties represent a subscription:
 
 The statuses for a subscription are:
 
-| Status | Description |
-| --- | --- |
-| `active` | The destination will receive notifications for events monitored by the subscription |
-| `deleted` | The subscription is inactive and cannot be reactivated |
+| Status | Description                                                                                                                                                                                                                                                                            |
+| --- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `active` | The destination will receive notifications for events monitored by the subscription                                                                                                                                                                                                    |
+| `deleted` | The subscription is inactive and cannot be reactivated                                                                                                                                                                                                                                 |
 | `suspended` | The subscription has been deactivated by the event platform itself due to excessive errors, or manually by the user. However, you can resume it. Suspending a subscription stops all events from being sent to it. Events are not saved and are lost until the subscription is resumed |
-| `revoked` | The subscription has been automatically revoked because the connection or the app linked to the subscriber were removed from the PIM |
+| `revoked` | The subscription has been automatically revoked because the connection or the app linked to the subscriber was removed from the PIM                                                                                                                                                    |
 
 ## Subscription types
 
