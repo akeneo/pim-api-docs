@@ -11,11 +11,11 @@ AEP ensures smooth and efficient responses to changes in your PIM, such as produ
 To set the right expectations, here's what AEP is **not**:
 
 - **Not a Data Storage Solution**: AEP streams real-time events but does not store event data permanently.
-- **Not a Replacement for Akeneo PIM API**: AEP complements the Akeneo PIM API by offering event-driven capabilities but does not replace the core functionalities of the PIM API.
+- **Not a Replacement for Akeneo PIM API**: AEP complements the Akeneo PIM API by offering event-driven capabilities but does not replace its core functionalities.
 - **Not a Business Logic Handler**: AEP transmits events to subscribed endpoints but does not handle complex business logic or workflows.
 - **Not the v2 of the Akeneo Event API**: AEP is a new platform with distinct functionalities and should not be considered as the next version of [Akeneo's Event API](https://api.akeneo.com/events-documentation/overview.html). AEP offers more granular event handling compared to the Event API.
 
-## Requirements
+## Usage Conditions
 
 Before using AEP, make sure you meet the following prerequisites:
 

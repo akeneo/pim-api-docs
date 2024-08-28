@@ -6,7 +6,7 @@ To maintain performance with a high volume of subscriptions, the event platform 
 
 ## Handling 429 Responses
 
-The platform can send a large number of events in a short time, potentially causing overload and leading to `500` responses from your side. In such cases, your subscription may be suspended. By implementing a proper `429` response mechanism, you can delay event processing to maintain service stability and avoid suspension.
+The platform can send many events in a short time, potentially causing overload and leading to `500` responses from your side. In such cases, your subscription may be suspended. By implementing a proper `429` response mechanism, you can delay event processing to maintain service stability and avoid suspension.
 
 <!-- TODO rework paragraph after this PR is merged -->
 <!-- https://github.com/akeneo/event-platform/pull/144 -->
@@ -23,9 +23,9 @@ In some cases, such as response delays, you might receive the same event multipl
 
 ## Implement Reconciliation Processes
 
-Your app shouldn't rely solely on receiving data from the Akeneo event platform. Because you may not receive event in case you suspend your subscription, or your server is not able to handle the events over the maximum retry, you should implement reconciliation jobs to periodically fetch data from the PIM.
+Your app shouldn't rely solely on receiving data from the Akeneo Event Platform. Because you may not receive events if you suspend your subscription or your server is not able to handle them over the maximum retry, you should implement reconciliation jobs to periodically fetch data from the PIM.
 
-You could do this in the background or offer reconciliation and syncing options to the user. For example, the UI of your app could contain a button that triggers a manual reconciliation process by calling the relevant API endpoint and fetching the requested data.
+You could do this in the background or offer reconciliation and syncing options to the user. For example, your app's UI could contain a button that triggers a manual reconciliation process by calling the relevant API endpoint and fetching the requested data.
 
 ::: panel-link Let's see some integration examples ! [Next](/akeneo-event-platform/integration-examples.html)
 :::
