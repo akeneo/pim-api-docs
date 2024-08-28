@@ -17,7 +17,7 @@ This guide provides a step-by-step walkthrough to help you set up event subscrip
 ### 1. Retrieve your credentials from your targeted PIM
 
 ::: info
-🛠 For every call to the API, you will need `X-PIM-TOKEN` & `X-PIM-CLIENT-ID` .
+🛠 For every call to the API, you will need `X-PIM-TOKEN` & `X-PIM-CLIENT-ID`.
 
 In this example, we will create a new `connection` in the PIM and use it to generate an `API token`.
 :::
@@ -72,7 +72,7 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 
 ### 2. Create a Subscriber
 
-Once you have a valid PIM API token, you can create a subscriber. A subscriber can be seen as an entity where all of your subscriptions will be attached.
+You can create a subscriber once you have a valid PIM API token. A subscriber is an entity to which all of your subscriptions will be attached.
 
 The `technical_email` is used to send emails about the subscription status (`deleted`, `suspended`, `revoked`)
 ```bash
@@ -105,7 +105,7 @@ Response Example :
     "updated_at": "2024-06-27T16:26:00.503422Z"
 }
 ```
-After creating the subscriber, store the id from the response in an environment variable:
+After creating the subscriber, store the ID from the response in an environment variable:
 ```bash
 export SUBSCRIBER_ID="01905a84-a3b7-766e-a49f-5519c35fa7a0"  # Replace with the actual ID from the response
 ```
@@ -149,11 +149,11 @@ curl --request POST "https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$SUBSC
 
 ### 4. Trigger an Event from the PIM
 
-With your subscription in place, you're ready to trigger the event you subscribed to (in this example, `com.akeneo.pim.v1.product.updated`). The simplest way to do this is by updating a product directly within the Akeneo PIM UI. This approach allows you to manually trigger the event and observe the changes in real-time.
+With your subscription in place, you're ready to trigger the event you subscribed to (in this example, `com.akeneo.pim.v1.product.updated`). The simplest way to do this is by updating a product directly within the Akeneo PIM UI. This approach allows you to trigger the event and manually observe the changes in real time.
 
 Alternatively, you can also update a product using the [Akeneo PIM REST API](/api-reference.html#post_products_uuid) if you prefer an automated approach.
 
-After the product is updated, verify that the event was successfully triggered by checking the payload received at your destination URL.
+After updating the product, verify that the event was successfully triggered by checking the payload received at your destination URL.
 
 ::: panel-link Let's see the API reference! [Next](/akeneo-event-platform/api-reference.html) 
 :::
