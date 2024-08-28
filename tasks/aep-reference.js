@@ -66,8 +66,6 @@ gulp.task('build-aep-reference-page', ['clean-dist', 'less'], async function () 
                 jsonExample: jsonExample,
             });
         })
-
-        // console.dir(apiData, {depth: null});
     });
 
     return gulp.src('src/aep-reference/reference.handlebars')

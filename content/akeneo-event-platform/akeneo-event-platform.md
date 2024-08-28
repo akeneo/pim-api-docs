@@ -19,18 +19,12 @@ To set the right expectations, here's what AEP is **not**:
 
 Before using AEP, make sure you meet the following prerequisites:
 
-- If you want to use a Pub/Sub subscription, you need to grant the Akeneo Event Platform publishing access. Follow these steps:
-    1. In the Google Cloud Console, go to **Pub/Sub > Topics**.
-    2. Next to the topic you want to use, click **...** and then **View permissions**.
-    3. Click **ADD PRINCIPAL**.
-    4. Paste the following service account address into the **New principals** text box: `delivery-sa@akecld-prd-sdk-aep-prd.iam.gserviceaccount.com`.
-    5. In the Role drop-down list, select **Pub/Sub** and then **Pub/Sub Publisher**.
-    6. Click **Save**.
-- HTTP is not supported. Only HTTPS is allowed.
-- For HTTPS destinations, ensure your server returns a 200 status code within 3 seconds when receiving messages containing events. See the [concept page]((/akeneo-event-platform/concepts.html)) about retry / revocation policy.
-- For a subscription to an HTTPS destination, the URL must be valid and return a 200 status code after a HEAD request.
-- The Akeneo Event Platform does not guarantee the delivery of events in order.
-- Events are delivered at least once. While we strive for reliability, duplicate events may occur, so ensure your system is idempotent to handle potential duplicates.
+- Access to the PIM for the authentication credential
+- For subscription destinations
+  - **`PubSub`** & **`HTTPS`** subscription are allowed. ~~HTTP~~ **is not supported**.
+  - For PubSub destination, make sure you meet [the requirements](/akeneo-event-platform/concepts.html#pub-sub-subscription)
+  - For HTTPS destination, make sure you meet [the requirements](/akeneo-event-platform/concepts.html#https-subscription)
+
 - You can have up to 20 subscribers for each PIM instance.
 - Each subscriber can have up to 20 subscriptions.
 
@@ -38,10 +32,6 @@ Before using AEP, make sure you meet the following prerequisites:
 
 - AEP uses OAuth2-based authentication to secure event transmission. Each application or connection interacting with AEP must authenticate using client credentials.
 - [Obtain your OAuth2 credentials](/akeneo-event-platform/getting-started.html) from the Akeneo PIM instance you are integrating with.
-
-### Webhook Timeout Warning
-
-- Ensure your webhook endpoints can respond within the within 3 seconds when receiving messages containing events. AEP expects timely responses to avoid event loss or unnecessary retries.
 
 ::: panel-link [Explore Key Concepts to deepen your understanding of the Akeneo Event Platform](/akeneo-event-platform/concepts.html)
 :::
