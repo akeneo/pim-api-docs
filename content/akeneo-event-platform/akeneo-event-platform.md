@@ -11,15 +11,15 @@ AEP ensures smooth and efficient responses to changes in your PIM, such as produ
 To set the right expectations, here's what AEP is **not**:
 
 - **Not a Data Storage Solution**: AEP streams real-time events but does not store event data permanently.
-- **Not a Replacement for Akeneo PIM API**: AEP complements the Akeneo PIM API by offering event-driven capabilities but does not replace the core functionalities of the PIM API.
+- **Not a Replacement for Akeneo PIM API**: AEP complements the Akeneo PIM API by offering event-driven capabilities but does not replace its core functionalities.
 - **Not a Business Logic Handler**: AEP transmits events to subscribed endpoints but does not handle complex business logic or workflows.
 - **Not the v2 of the Akeneo Event API**: AEP is a new platform with distinct functionalities and should not be considered as the next version of [Akeneo's Event API](https://api.akeneo.com/events-documentation/overview.html). AEP offers more granular event handling compared to the Event API.
 
-## Requirements
+## Usage Conditions
 
 Before using AEP, make sure you meet the following prerequisites:
 
-- If you want to use a Pub/Sub subscription, you need to grant the Akeneo Event Platform publishing access. Follow these steps:
+- If you want to use a Pub/Sub subscription, you must grant the Akeneo Event Platform publishing access. Follow these steps:
     1. In the Google Cloud Console, go to **Pub/Sub > Topics**.
     2. Next to the topic you want to use, click **...** and then **View permissions**.
     3. Click **ADD PRINCIPAL**.
@@ -27,8 +27,8 @@ Before using AEP, make sure you meet the following prerequisites:
     5. In the Role drop-down list, select **Pub/Sub** and then **Pub/Sub Publisher**.
     6. Click **Save**.
 - HTTP is not supported. Only HTTPS is allowed.
-- For HTTPS destinations, ensure your server returns a 200 status code within 3 seconds when receiving messages containing events. See the [concept page]((/akeneo-event-platform/concepts.html)) about retry / revocation policy.
-- For a subscription to an HTTPS destination, the URL must be valid and return a 200 status code after a HEAD request.
+For HTTPS destinations, ensure your server returns a 200 status code within 3 seconds when receiving messages containing events. For more information about the retry/revocation policy, see the [concept page]((/akeneo-event-platform/concepts.html)).
+- The URL must be valid for a subscription to an HTTPS destination and return a 200 status code after a HEAD request.
 - The Akeneo Event Platform does not guarantee the delivery of events in order.
 - Events are delivered at least once. While we strive for reliability, duplicate events may occur, so ensure your system is idempotent to handle potential duplicates.
 - You can have up to 20 subscribers for each PIM instance.
@@ -41,7 +41,7 @@ Before using AEP, make sure you meet the following prerequisites:
 
 ### Webhook Timeout Warning
 
-- Ensure your webhook endpoints can respond within the within 3 seconds when receiving messages containing events. AEP expects timely responses to avoid event loss or unnecessary retries.
+Ensure your webhook endpoints can respond within 3 seconds when receiving messages containing events. AEP expects timely responses to avoid event loss or unnecessary retries.
 
 ::: panel-link [Explore Key Concepts to deepen your understanding of the Akeneo Event Platform](/akeneo-event-platform/concepts.html)
 :::
