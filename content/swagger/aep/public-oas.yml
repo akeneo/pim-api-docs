@@ -65,7 +65,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Subscriber'       
+                $ref: '#/components/schemas/Subscriber'
         '401':
           $ref: "#/components/responses/401"
         '404':
@@ -137,12 +137,12 @@ paths:
         - name: subscriber_id
           in: path
           required: true
-          description: Subscriber id
+          description: The unique identifier of the subscriber.
           schema:
             type : string
       responses:
         '201':
-          description: Subscription created
+          description: Returns the created subscription.
           content:
             application/json:
               schema:
@@ -164,7 +164,7 @@ paths:
             schema:
               $ref: '#/components/schemas/SubscriptionPayload'
     get:
-      summary: 'Retrieve the list of all subscriptions for this app'
+      summary: 'Retrieve the list of all subscriptions for a specific subscriber'
       description: ''
       tags:
         - Subscription
@@ -178,7 +178,7 @@ paths:
             type : string
       responses:
         '200':
-          description: Subscriptions successfully retrieved
+          description: Returns the list of subscriptions that are either active and suspended.
           content:
             application/json:
               schema:
@@ -191,7 +191,7 @@ paths:
           $ref: "#/components/responses/404"
   /api/v1/subscriber/{subscriber_id}/subscription/{id}:
     get:
-      summary: 'Retrieve a subscription configuration'
+      summary: 'Get a subscription with by identifier.'
       description: ''
       tags:
         - Subscription
@@ -200,18 +200,18 @@ paths:
         - name: subscriber_id
           in: path
           required: true
-          description: Subscriber id
+          description: The unique identifier of the subscriber.
           schema:
             type : string
         - name: id
           in: path
           required: true
-          description: Subscription id
+          description: The unique identifier of the subscription.
           schema:
             type : string
       responses:
         '200':
-          description: Subscription found
+          description: Returns the subscription.
           content:
             application/json:
               schema:
@@ -223,7 +223,7 @@ paths:
         '404':
           $ref: "#/components/responses/404"
     patch:
-      summary: 'Update a subscription configuration'
+      summary: 'Update a subscription'
       description: ''
       tags:
         - Subscription
@@ -232,13 +232,13 @@ paths:
         - name: subscriber_id
           in: path
           required: true
-          description: Subscriber id
+          description: The unique identifier of the subscriber.
           schema:
             type : string
         - name: id
           in: path
           required: true
-          description: Subscription id
+          description: The unique identifier of the subscription.
           schema:
             type : string
       requestBody:
@@ -249,7 +249,7 @@ paths:
               $ref: '#/components/schemas/SubscriptionPayload'
       responses:
         '200':
-          description: Subscription updated
+          description: Returns the updated subscription.
           content:
             application/json:
               schema:
@@ -270,25 +270,25 @@ paths:
         - name: subscriber_id
           in: path
           required: true
-          description: Subscriber id
+          description: The unique identifier of the subscriber.
           schema:
             type : string
         - name: id
           in: path
           required: true
-          description: Subscription id
+          description: The unique identifier of the subscription.
           schema:
             type : string
       responses:
         '200':
-          description: Subscription deleted
+          description: Returns the deleted subscription.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Subscription'
   /api/v1/subscriber/{subscriber_id}/subscription/{id}/suspend:
     post:
-      summary: 'Proactively suspend a subscription'
+      summary: 'Suspend a subscription'
       description: ''
       tags:
         - Subscription
@@ -297,18 +297,22 @@ paths:
         - name: subscriber_id
           in: path
           required: true
-          description: Subscriber id
+          description: The unique identifier of the subscriber.
           schema:
             type : string
         - name: id
           in: path
           required: true
-          description: Subscription id
+          description: The unique identifier of the subscription.
           schema:
             type : string
       responses:
         '202':
-          description: Acknowledge subscription suspension (async operation)
+          description: Returns the suspended subscription.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
         '401':
           $ref: "#/components/responses/401"
         '403':
@@ -319,7 +323,7 @@ paths:
           $ref: "#/components/responses/409"
   /api/v1/subscriber/{subscriber_id}/subscription/{id}/resume:
     post:
-      summary: 'Proactively resume a suspended subscription'
+      summary: 'Resume a suspended subscription'
       description: ''
       tags:
         - Subscription
@@ -328,18 +332,22 @@ paths:
         - name: subscriber_id
           in: path
           required: true
-          description: Subscriber id
+          description: The unique identifier of the subscriber.
           schema:
             type : string
         - name: id
           in: path
           required: true
-          description: Subscription id
+          description: The unique identifier of the subscription.
           schema:
             type : string
       responses:
         '202':
-          description: Acknowledge subscription resumption (async operation)
+          description: Returns the resumed subscription.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
         '401':
           $ref: "#/components/responses/401"
         '403':
@@ -488,7 +496,7 @@ components:
           description: Url of the PIM
         event:
           type: array
-          description: List of events you want to receive
+          description: The list of event types that the subscription is configured to receive.
           items:
             type: string
         type:
