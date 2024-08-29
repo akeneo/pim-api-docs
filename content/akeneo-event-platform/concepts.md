@@ -2,8 +2,6 @@
 
 ## Subscriber
 
-### What is a subscriber?
-
 Simply put, a subscriber represents a connection to a specific event source, like a PIM. While you can attach multiple subscribers to your source, the general recommendation is to configure only one. However, your setup will require creating various subscribers for a multi-tenant context.
 
 The following properties represent a subscriber:
@@ -29,8 +27,6 @@ For comprehensive details on managing subscribers, consult the complete API refe
 
 ## Subscription
 
-### What is a subscription?
-
 A subscription is an enrollment for one or more event types from a specified source to a particular destination. By adding a new subscription, you ensure that you receive notifications whenever a tracked event occurs in your Akeneo system. Each subscription is linked to a single subscriber.
 
 The following properties represent a subscription:
@@ -47,18 +43,18 @@ The following properties represent a subscription:
 
 The statuses for a subscription are:
 
-| Status | Description |
-| --- | --- |
-| `active` | The destination will receive notifications for events monitored by the subscription |
-| `deleted` | The subscription is inactive and cannot be reactivated |
+| Status | Description                                                                                                                                                                                                                                                                            |
+| --- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `active` | The destination will receive notifications for events monitored by the subscription                                                                                                                                                                                                    |
+| `deleted` | The subscription is inactive and cannot be reactivated                                                                                                                                                                                                                                 |
 | `suspended` | The subscription has been deactivated by the event platform itself due to excessive errors, or manually by the user. However, you can resume it. Suspending a subscription stops all events from being sent to it. Events are not saved and are lost until the subscription is resumed |
-| `revoked` | The subscription has been automatically deactivated because the destination responded with an HTTP 404. You can manually reactivate it. Suspending a subscription halts all event deliveries to this subscription. Events are not saved and are lost until the subscription is resumed |
+| `revoked` | The subscription has been automatically revoked because the connection or the app linked to the subscriber was removed from the PIM                                                                                                                                                    |
 
-### Best practices
+## Subscription types
 
-#### HTTP subscription
+### HTTP subscription
 
-##### Configuration
+#### Configuration
 
 For the `https` type, the `config` property requires:
 
@@ -68,11 +64,12 @@ For the `https` type, the `config` property requires:
 Additionally, it requires at least a primary secret (with an optional secondary secret) to sign the messages sent to the specified URL.
 
 ```json
-
-"url": "https://your_webhook_url",
-"secret": {
+{
+  "url": "https://your_webhook_url",
+  "secret": {
     "primary": "your_primary_secret_to_sign_the_payload",
     "secondary": "your_secondary_secret_to_sign_the_payload"
+  }
 }
 ```
 
@@ -98,34 +95,33 @@ To verify the signature on your end:
 
 This is the easiest way to ensure the message you receive is from us.
 
-#### Pub/Sub subscription
+### Pub/Sub subscription
 
-##### Configuration
+#### Configuration
 
-For the `pubsub` type, the `config` property requires both the project ID and the topic ID.
+For the `pubsub` subscription type, the `config` property required when creating the subscription property requires both the project ID and the topic ID.
 
 ```json
-
-"project_id": "your_google_project_id",
-"topic_id": "your_google_topic_id"
+{
+    "project_id": "your_google_project_id",
+    "topic_id": "your_google_pubsub_topic_id"
+}
 ```
 
-##### Allow the Akeneo Event Platform to publish in your Pub/Sub topic
+#### Allow the Akeneo Event Platform to publish in your Pub/Sub topic
 
 To use a Pub/Sub subscription, you need to complete a few additional steps to ensure we have permission to publish into your Pub/Sub topic:
 
-- In the Google Cloud console, go to “**Pub/Sub > Topics**”
-- Next to the topic you want to use, click “**…**” and then “**View permissions**”
+- In the Google Cloud console, go to "**Pub/Sub > Topics**"
+- Next to the topic you want to use, click "**…**" and then "**View permissions**"
 - Click on **ADD PRINCIPAL**
-- Past the following service account address into the “**New principals**” text box: `delivery-sa@akecld-prd-sdk-aep-prd.iam.gserviceaccount.com`
-- In the Role drop-down list, select “**Pub/Sub**” and “**Pub/Sub Publisher**”
-- Click “**Save**”
+- Past the following service account address into the "**New principals**" text box: `delivery-sa@akecld-prd-sdk-aep-prd.iam.gserviceaccount.com`
+- In the Role drop-down list, select "**Pub/Sub**" and "**Pub/Sub Publisher**"
+- Click "**Save**"
 
 For comprehensive details on managing subscriptions, consult the complete API reference [here](/akeneo-event-platform/api-reference.html).
 
-## Events
-
-### Events Format
+## Events Format
 
 Our platform standardises event data across services using the [CloudEvents specification](https://github.com/cloudevents/spec). CloudEvents provides a consistent structure for event data, ensuring interoperability and simplifying event handling. Each event includes essential metadata such as the event type, source, ID, and timestamp.
 
@@ -164,31 +160,6 @@ Example of an event payload for a productDeleted event
 
 For more information, consult the [CloudEvents spec attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md).
 
-## Event Overview
-
-Here is the list of all the available events :
-
-|  Event family       |  event |
-|----------|-----------------------------------------------|
-| **product** | `com.akeneo.pim.v1.product.created`<br/>`com.akeneo.pim.v1.product.updated`<br/>`com.akeneo.pim.v1.product.deleted`     |
-| **product model** | `com.akeneo.pim.v1.product-model.created`<br/>`com.akeneo.pim.v1.product-model.updated`<br/>`com.akeneo.pim.v1.product-model.deleted`      |
-| **asset** | `com.akeneo.pim.v1.asset.created`<br/>`com.akeneo.pim.v1.asset.updated`<br/>`com.akeneo.pim.v1.asset.deleted`     |
-| **reference entity** | `com.akeneo.pim.v1.reference-entity-record.updated`<br/>`com.akeneo.pim.v1.reference-entity-record.deleted`   |
-| **category** | `com.akeneo.pim.v1.category.created`<br/>`com.akeneo.pim.v1.category.updated`<br/>`com.akeneo.pim.v1.category.deleted`     |
-| **family** | `com.akeneo.pim.v1.family.updated`<br/>`com.akeneo.pim.v1.family.deleted`     |
-| **attribute** | `com.akeneo.pim.v1.attribute.updated`<br/>`com.akeneo.pim.v1.attribute.deleted`<br/>`com.akeneo.pim.v1.attribute-option.updated`<br/>`com.akeneo.pim.v1.attribute-option.deleted`<br/>`com.akeneo.pim.v1.attribute-group.updated`<br/>`com.akeneo.pim.v1.attribute-group.deleted`     |
-| **connection** | `com.akeneo.pim.v1.app.deleted`<br/>`com.akeneo.pim.v1.connection.deleted`     |
-
-Events are dispatched regardless of their triggers. Possible triggers include:
-
-- **Interface Change**: When a client modifies data directly through the user interface.
-- **API Change**: When data is updated via the API, whether by the client or through an app/connection.
-- **Mass Action Change**: When multiple entities are updated at once, typically during bulk operations.
-- **Rules Change**: When the rule engine is used to make modifications.
-- **Import Change**: When data is brought in via the import engine.
-
-For more event-specific details, consult our [event list page](/akeneo-event-platform/available-events.html).
-
 ## Retry policies
 
 Ensure reliable message processing in distributed systems. Retry policies help manage transient failures and guarantee message delivery even when issues occur.
@@ -197,15 +168,18 @@ Here, we outline the key **retry policies** implemented in our system.
 
 ### ACK timeout
 
-ACK timeout ensures that messages are acknowledged within a specified period. In our system, the ACK timeout is set to **`3 seconds`**. The message is retried if an acknowledgement isn't received within this timeframe. This mechanism prevents message loss due to slow consumers or network delays, ensuring timely processing.
+ACK timeout ensures that messages are acknowledged within a specified period. In our system, the ACK timeout is set to **`3 seconds`**. If an acknowledgment isn't received within this timeframe, the message is retried. This mechanism prevents message loss due to slow consumers or temporary network delays.
+
+In case of **`HTTPs subscription`**, your endpoint must handle the event as fast as it can.
+**Our recommendation** is to put the message in a `queuing system` or in a `database`, and process the event asynchronously.
 
 ### At least once
 
-The **"at least once"** delivery guarantee means that we resend events if an `HTTP 200 OK` response isn't received within **`3 seconds`**. This policy ensures that no message is lost, though it may result in duplicate deliveries.
+The **`at least once`** delivery guarantee means in case of delivery failure, our retry policy will try to deliver the event again. This policy ensures that no message is lost until reasonable limits, though it may result in duplicate deliveries.
 
-Additionally, due to this system, **the order of events may be unpredictable**. Developers should design systems to handle potential duplicates gracefully, ensuring idempotent processing.
+Additionally, due to this system, **`the order of events may be unpredictable`**. Developers should design their systems to handle potential duplicates gracefully, ensuring idempotent processing.
 
-To help identify duplicated events, use the **`X-Correlation-ID`** header, along with **`eventId`** and **`publicationTime`**, which provide unique identifiers and timestamps for each event.
+To help identify duplicated events, use both fields  **`id`** and **`time`** from the event, which provide unique identifiers and publication timestamp for each event.
 
 ### Retry back-off
 
@@ -215,7 +189,7 @@ Instead of immediate retries, the system waits for a specified back-off period, 
 
 Properly handling transient issues through back-off and retry helps maintain system stability and reliability under varying loads.
 
-### Revocation policies
+### Suspend/Revocation policies
 
 Our system enforces strict revocation policies to maintain the integrity and reliability of event delivery.
 
