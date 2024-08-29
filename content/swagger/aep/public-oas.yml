@@ -178,7 +178,7 @@ paths:
             type : string
       responses:
         '200':
-          description: Returns the list of subscriptions that are either active, suspended, or revoked.
+          description: Returns the list of subscriptions that are either active and suspended.
           content:
             application/json:
               schema:
