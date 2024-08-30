@@ -11,7 +11,8 @@ The **only** Event Platform limits are:
 
 Yes and no. From a sequence perspective, yes, but if there's an issue with your destination and the event doesn't go through on the first attempt but only after a retry, then no, we can't guarantee the sequence. 
 
-It will never be completely reliable because the risk factors are beyond our control. Therefore, you should verify the publish time of the event to make sure that it was received in good order.
+Our event platform is reliable and resilient, however we cannot guarantee this for the destination you may configure.
+Consequently, and especially in the case of a retried event, you should check the id and the time of publication of the event to process it properly.
 
 ### What are the subscription channels proposed for the Event Platform? Can I request another one?
 
