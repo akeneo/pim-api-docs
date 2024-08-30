@@ -25,7 +25,7 @@ We will add other subscription channels based on feedback.
 
 ### What does it mean that we guarantee at least once delivery?
 
-One of the core principles of the Event Platform is the concept of delivering at least once. This approach ensures that events **are always delivered**. 
+One of the core principles of the Event Platform is the concept of delivering at least once. This approach ensures that events **are always delivered** in accordance with our [retry policy](/akeneo-event-platform/concepts.html#retry-policies) . 
 
 Working under the assumption of at least once delivery, especially within the context of an event-driven architecture, is a responsible approach to reliably processing events, and this is what we want to provide to our customers and partners. 
 
