@@ -9,7 +9,7 @@ The **only** Event Platform limits are:
 
 ### Is the order of events guaranteed?
 
-Yes and no. From a sequence perspective, yes, but if there's an issue with the API or the PIM and the event doesn't go through on the first attempt but only after a retry, then no, we can't guarantee the sequence. 
+Yes and no. From a sequence perspective, yes, but if there's an issue with your destination and the event doesn't go through on the first attempt but only after a retry, then no, we can't guarantee the sequence. 
 
 It will never be completely reliable because the risk factors are beyond our control. Therefore, you should verify the publish time of the event to make sure that it was received in good order.
 
