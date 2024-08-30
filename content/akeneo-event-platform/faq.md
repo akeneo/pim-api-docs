@@ -38,7 +38,7 @@ Your subscriber and all linked subscriptions are removed (revoked). you will be 
 
 ### Can we pause the event reception when our target destination is under maintenance or unavailable?
 
-Yes, you can call the API to suspend your subscription and stop receiving messages.
+Yes, you can call the API to suspend your subscription and stop receiving messages. [more details](/akeneo-event-platform/best-practices.html#suspending-and-resuming-subscriptions-during-migration)
 
 ### Does Event Platform come with the user interface or dashboards?
 
