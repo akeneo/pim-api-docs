@@ -5,6 +5,7 @@ The **only** Event Platform limits are:
 
 - Up to 20 subscribers per PIM instance
 - Up to 20 subscriptions per subscribers
+- No limit on the type of events 
 
 ### Is the order of events guaranteed?
 
