@@ -169,6 +169,8 @@
   $ref: ./resources/app_catalogs/routes/app_catalogs.yaml
 /api/rest/v1/catalogs/{id}:
   $ref: ./resources/app_catalogs/routes/app_catalogs_id.yaml
+/api/rest/v1/catalogs/{id}/duplicate:
+  $ref: ./resources/app_catalogs/routes/app_catalogs_id_duplicate.yaml
 /api/rest/v1/catalogs/{id}/product-uuids:
   $ref: ./resources/app_catalogs/routes/app_catalogs_id_product_uuids.yaml
 /api/rest/v1/catalogs/{id}/products:
