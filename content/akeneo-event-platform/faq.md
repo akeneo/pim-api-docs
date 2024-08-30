@@ -34,7 +34,7 @@ In the "at-least once" delivery model, an event may be sent multiple times. This
 
 ### What happens if my app or connection is removed from the PIM?
 
-Your subscriber and all linked subscriptions are removed (revoked).
+Your subscriber and all linked subscriptions are removed (revoked). you will be notified by email ... 
 
 ### Can we pause the event reception when our target destination is under maintenance or unavailable?
 
