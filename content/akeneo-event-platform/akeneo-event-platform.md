@@ -2,7 +2,7 @@
 
 ## Akeneo Event Platform Overview
 
-The **Akeneo Event Platform (AEP)** seamlessly integrates with Akeneo PIM through a subscription-based event system. External applications can subscribe to specific events triggered within Akeneo PIM, enabling real-time data updates and synchronization.
+The **Akeneo Event Platform (AEP)** seamlessly integrates with Akeneo PIM through a subscription-based event system. External applications can subscribe to specific events triggered within Akeneo PIM, enabling faster data updates and synchronization than continuous polling.
 
 AEP ensures smooth and efficient responses to changes in your PIM, such as product updates, deletions, and other significant events, enhancing your system’s responsiveness and connectivity.
 
@@ -10,10 +10,10 @@ AEP ensures smooth and efficient responses to changes in your PIM, such as produ
 
 To set the right expectations, here's what AEP is **not**:
 
-- **Not a Data Storage Solution**: AEP streams real-time events but does not store event data permanently.
+- **Not a Data Storage Solution**: AEP streams and distribute events but does not store event data permanently.
 - **Not a Replacement for Akeneo PIM API**: AEP complements the Akeneo PIM API by offering event-driven capabilities but does not replace its core functionalities.
 - **Not a Business Logic Handler**: AEP transmits events to subscribed endpoints but does not handle complex business logic or workflows.
-- **Not the v2 of the Akeneo Event API**: AEP is a new platform with distinct functionalities and should not be considered as the next version of [Akeneo's Event API](https://api.akeneo.com/events-documentation/overview.html). AEP offers more granular event handling compared to the Event API.
+- **Not the v2 of the Akeneo Event API**: AEP is a new platform with distinct functionalities and should not be considered as the next version of [Akeneo's Event API](https://api.akeneo.com/events-documentation/overview.html). AEP offers more granular event handling compared to the Event API and retries capabalities.
 
 ## Usage Conditions
 
@@ -21,7 +21,7 @@ Before using AEP, make sure you meet the following prerequisites:
 
 - Access to the PIM for the authentication credential
 - For subscription destinations
-  - **`PubSub`** & **`HTTPS`** subscription are allowed. ~~HTTP~~ **is not supported**.
+  - **`PubSub`** & **`HTTPS`** subscription are offered
   - For PubSub destination, make sure you meet [the requirements](/akeneo-event-platform/concepts.html#pub-sub-subscription)
   - For HTTPS destination, make sure you meet [the requirements](/akeneo-event-platform/concepts.html#https-subscription)
 
