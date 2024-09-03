@@ -1,5 +1,5 @@
 # Best practices
-
+TODO duplicates
 ## Queuing Events
 
 To maintain performance with a high volume of subscriptions, the event platform requires a response within the specified time limit, please refer to [this page](/akeneo-event-platform/concepts.html#ack-timeout) to know more. Handle received events using a queue or asynchronously to ensure you acknowledge the event quickly, before processing it.

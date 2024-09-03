@@ -1,6 +1,6 @@
 # Platform usage requirements
 
-
+TODO duplicates !
 <i class="fa fa-check-square"></i> If you want to use a **Pub/Sub destination**, you need to grant the Akeneo Event Platform publishing access. Follow these steps:
 
 1. In the Google Cloud Console, go to **Pub/Sub > Topics**.

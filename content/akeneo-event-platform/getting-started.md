@@ -29,6 +29,7 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 
 2. **Set Your Environment Variables:**
    - Define the Client ID, Secret, Username, Password, and Akeneo host URL as environment variables:
+   TODO manage indentation which is weird in generated doc
     ```bash
    export CLIENT_ID="your-client-id"
    export CLIENT_SECRET="your-client-secret"
