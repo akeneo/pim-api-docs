@@ -5,8 +5,8 @@ ProductExamples:
 ProductList:
   type: object
   allOf:
-    - $ref: '#/definitions/ItemList'
-    - $ref: '#/definitions/Product'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/Product"
 
 ProductUuid:
   $ref: ./resources/products_uuid/definitions/product_uuid.yaml
@@ -15,48 +15,48 @@ ProductUuidExamples:
 ProductUuidList:
   type: object
   allOf:
-    - $ref: '#/definitions/ItemList'
-    - $ref: '#/definitions/ProductUuid'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/ProductUuid"
 
 ProductModel:
   $ref: ./resources/product_models/definitions/product_model.yaml
 ProductModelList:
   type: object
   allOf:
-    - $ref: '#/definitions/ItemList'
-    - $ref: '#/definitions/ProductModel'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/ProductModel"
 
 PublishedProduct:
   $ref: ./resources/published_products/definitions/published_product.yaml
 PublishedProductList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/PublishedProduct'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/PublishedProduct"
 
 ReferenceEntity:
   type: object
   allOf:
     - $ref: ./resources/reference_entities/definitions/reference_entity_links.yaml
     - $ref: ./resources/reference_entities/definitions/reference_entity.yaml
-  example: {
-    "_links": {
-      "image_download": {
-        "href": "https://demo.akeneo.com/api/rest/v1/reference-entities-media-files/0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
-      }
-    },
-    "code": "brands",
-    "labels": {
-      "en_US": "Brands",
-      "fr_FR": "Marques"
-    },
-    "image": "0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png"
-  }
+  example:
+    {
+      "_links":
+        {
+          "image_download":
+            {
+              "href": "https://demo.akeneo.com/api/rest/v1/reference-entities-media-files/0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png",
+            },
+        },
+      "code": "brands",
+      "labels": { "en_US": "Brands", "fr_FR": "Marques" },
+      "image": "0/2/d/6/54d81dc888ba1501a8g765f3ab5797569f3bv756c_ref_img.png",
+    }
 
 ReferenceEntityList:
   type: object
   allOf:
-    - $ref: '#/definitions/ReferenceEntityItemList'
+    - $ref: "#/definitions/ReferenceEntityItemList"
     - $ref: ./resources/reference_entities/definitions/reference_entity.yaml
 
 ReferenceEntityAttribute:
@@ -78,7 +78,7 @@ ReferenceEntityRecord:
 ReferenceEntityRecordList:
   type: object
   allOf:
-    - $ref: '#/definitions/ReferenceEntityRecordItemList'
+    - $ref: "#/definitions/ReferenceEntityRecordItemList"
     - $ref: ./resources/reference_entity_records/definitions/reference_entity_record.yaml
 
 Category:
@@ -88,83 +88,86 @@ CategoryUpdate:
 CategoryList:
   type: object
   allOf:
-    - $ref: '#/definitions/ItemList'
-    - $ref: '#/definitions/Category'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/Category"
 
 MeasureFamily:
   $ref: ./resources/measure_families/definitions/measure_family.yaml
 MeasureFamilyList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/MeasureFamily'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/MeasureFamily"
 
 MeasurementFamily:
   $ref: ./resources/measurement_families/definitions/measurement_family.yaml
 MeasurementFamilyList:
-  $ref: '#/definitions/MeasurementFamily'
+  $ref: "#/definitions/MeasurementFamily"
 
 Family:
   $ref: ./resources/families/definitions/family.yaml
 FamilyList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/Family'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/Family"
 
 FamilyVariant:
   $ref: ./resources/families/definitions/family_variant.yaml
 FamilyVariantList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/FamilyVariant'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/FamilyVariant"
 
 Attribute:
   $ref: ./resources/attributes/definitions/attribute.yaml
 AttributeList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/Attribute'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/Attribute"
 
 AttributeOption:
   $ref: ./resources/attributes/definitions/attribute_option.yaml
 AttributeOptionList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/AttributeOption'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/AttributeOption"
 
 AttributeGroup:
   $ref: ./resources/attribute_groups/definitions/attribute_group.yaml
 AttributeGroupList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/AttributeGroup'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/AttributeGroup"
 
 MediaFile:
   allOf:
     - $ref: ./resources/media_files/definitions/media_file_links.yaml
     - $ref: ./resources/media_files/definitions/media_file.yaml
-  example: {
-    "_links": {
-      "download": {
-        "href": "https://demo.akeneo.com/api/rest/v1/media-files/7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg/download"
-      }
-    },
-    "code": "7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg",
-    "original_filename": "10806799-1356.jpg",
-    "mime_type": "image/jpeg",
-    "size": 16070,
-    "extension": "jpg"
-  }
+  example:
+    {
+      "_links":
+        {
+          "download":
+            {
+              "href": "https://demo.akeneo.com/api/rest/v1/media-files/7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg/download",
+            },
+        },
+      "code": "7/5/8/e/758e39d48ea7b42a55091434fd3d8b6cf3189b7f_10806799_1356.jpg",
+      "original_filename": "10806799-1356.jpg",
+      "mime_type": "image/jpeg",
+      "size": 16070,
+      "extension": "jpg",
+    }
 
 MediaFileList:
   type: object
   allOf:
-    - $ref: '#/definitions/MediaFileItemList'
+    - $ref: "#/definitions/MediaFileItemList"
     - $ref: ./resources/media_files/definitions/media_file.yaml
 
 Locale:
@@ -172,37 +175,42 @@ Locale:
 LocaleList:
   type: object
   allOf:
-    - $ref: '#/definitions/ItemList'
-    - $ref: '#/definitions/Locale'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/Locale"
 
 Channel:
   $ref: ./resources/channels/definitions/channel.yaml
 ChannelList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/Channel'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/Channel"
 
 AssociationType:
   $ref: ./resources/association_types/definitions/association_type.yaml
 AssociationTypeList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/AssociationType'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/AssociationType"
 
 Currency:
   $ref: ./resources/currencies/definitions/currency.yaml
 CurrencyList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/Currency'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/Currency"
+
+AssetFamilyExamples:
+  $ref: ./resources/asset_families/definitions/examples/asset_family.yaml
+AssetFamiliesExamples:
+  $ref: ./resources/asset_families/definitions/examples/asset_families.yaml
 
 AssetFamilyList:
   type: object
   allOf:
-    - $ref: '#/definitions/AssetFamilyItemList'
+    - $ref: "#/definitions/AssetFamilyItemList"
     - $ref: ./resources/asset_families/definitions/asset_family.yaml
 
 AssetFamilyItemList:
@@ -231,7 +239,7 @@ AssetAttributeOptionList:
 AssetList:
   type: object
   allOf:
-    - $ref: '#/definitions/AssetItemList'
+    - $ref: "#/definitions/AssetItemList"
     - $ref: ./resources/assets/definitions/asset.yaml
 
 AssetItemList:
@@ -250,7 +258,7 @@ AssetItemList:
 AppCatalogList:
   type: object
   allOf:
-    - $ref: '#/definitions/ItemList'
+    - $ref: "#/definitions/ItemList"
     - $ref: ./resources/app_catalogs/definitions/app_catalog.yaml
 
 Error:
@@ -434,8 +442,8 @@ DeprecatedAsset:
 DeprecatedAssetList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/DeprecatedAsset'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/DeprecatedAsset"
 DeprecatedAssetReferenceFile:
   $ref: ./resources/deprecated/assets/definitions/asset_reference_file.yaml
 DeprecatedAssetVariationFile:
@@ -446,16 +454,16 @@ DeprecatedAssetCategory:
 DeprecatedAssetCategoryList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/DeprecatedAssetCategory'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/DeprecatedAssetCategory"
 
 DeprecatedAssetTag:
   $ref: ./resources/deprecated/asset_tags/definitions/asset_tag.yaml
 DeprecatedAssetTagList:
   type: object
   allOf:
-    - $ref:  '#/definitions/ItemList'
-    - $ref: '#/definitions/DeprecatedAssetTag'
+    - $ref: "#/definitions/ItemList"
+    - $ref: "#/definitions/DeprecatedAssetTag"
 
 DeprecatedAssetReferenceFileUploadWarning:
   type: object
