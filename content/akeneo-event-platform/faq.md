@@ -1,5 +1,5 @@
 # FAQ
-### What are the limits of subscriptions & subscribers?
+### Is their any quotas or limits ?
 
 The **only** Event Platform limits are: 
 
@@ -7,43 +7,33 @@ The **only** Event Platform limits are:
 - Up to 20 subscriptions per subscriber
 - No limit on the type of events 
 
-### Is the order of events guaranteed?
-TODO duplicates and contradictory
+### Are the events sent in order ?
 
-Yes and no. From a sequence perspective, yes, but if there's an issue with your destination and the event doesn't go through on the first attempt but only after a retry, then no, we can't guarantee the sequence. 
+Yes and no. From a sequence perspective, yes, an event emitted by the PIM is likely to be sent to your destination is the same order but nothing is done internally to guarantee it. 
 
-Our event platform is reliable and resilient. However, we cannot guarantee this for the destination you may configure.
-Consequently, and especially in the case of a retired event, you should check the ID and the time of publication of the event to process it properly.
+If there's an issue with your destination and the event doesn't go through on the first attempt but only after a retry, then you'll face un-ordered events for sure.
+
+Consequently, and especially in the case of a retried event, you should check the ID and the time of publication of the event to process it properly.
 
 ### What are the subscription destinations proposed for the Event Platform? Can I request another one?
 
 Subscription destinations:
 
-- HTTPS - generic
+- HTTPS - generic, can be considered as a Webhook feature
 - Google Cloud Pub Sub
 
-We will add other subscription channels based on feedback.
-
-TODO add a link to a google form to automatically gather this feedback with preconfigured list of destination we envision
-
-### What does it mean that we guarantee at least once delivery?
-
-One of the core principles of the Event Platform is the concept of delivering at least once. This approach ensures that events **are always delivered** following our [Retry policy](/akeneo-event-platform/concepts.html#retry-policies) . 
-
-Working under the assumption of at least once delivery, especially within the context of an event-driven architecture, is a responsible approach to reliably processing events, and this is what we want to provide to our customers and partners. 
-
-**Why "At-Least Once" Delivery?**
-
-TODO duplicates
-An event may be sent multiple times in the "at least once" delivery model. This can happen if the event platform doesn't receive a confirmation of successful receipt from the destination (such as an HTTP 200 status or a Pub/Sub acknowledgement). For instance, we send a message that is received and processed by the destination, but if the event platform does not get the acknowledgement, it will retry sending the message to ensure delivery.
+We will add other subscription channels based on feedback. Please [fill-in this form](https://forms.gle/XsZ7rovRnqfAn4xF9) to propose & upvote new destination types.
 
 ### What happens if my app or connection is removed from the PIM?
 
-Your subscriber and all linked subscriptions are removed (revoked). You will be notified by email. 
+Your subscriber and all linked subscriptions are instantaneously revoked resulting in the following impacts:
+- You'll no longer be able to be authenticated to the Event Platform Management API
+- Your configured subscription destination will no longer receive events from this PIM
+- You will be notified of this action on the contact email associated with the subscriber
 
 ### Can we pause the event reception when our target destination is under maintenance or unavailable?
 
-Yes, you can call the API to suspend your subscription and stop receiving messages. [More details](/akeneo-event-platform/best-practices.html#suspending-and-resuming-subscriptions-during-migration)
+Yes, you can call the management API to suspend your subscription and stop receiving messages. [More details](/akeneo-event-platform/best-practices.html#suspending-and-resuming-subscriptions-during-migration)
 
 ### Does Event Platform come with the user interface or dashboards?
 
@@ -51,6 +41,20 @@ No, the Event Platform is currently a technical-first product and does not inclu
 
 This may evolve based on feedback.
 
+### I configured an HTTPS destination endpoint hosted in US, should I expect any latency ?
 
-TODO "Latency ?"
-TODO "Region from where events are sent"
+TODO 
+
+### Can I retrieve past events ?
+
+The platform streams and distribute events, and offer a retry mecanism in case of temporary failures.
+
+The platform do not offer a way to query past events, we do not store any event data.
+
+### Should I expect a throttle on the number of events sent by the platform like in the existing Akeneo Event API ?
+
+Akeneo's Event API have some core limitations such as a `4.000 event/hour` limit.
+
+Akeneo Event Platform is a new platform with distinct functionalities and should not be considered as the next version of [Akeneo's Event API](https://api.akeneo.com/events-documentation/overview.html). 
+
+The new platform offers more granular event handling compared to the Event API, no limits or throttle on the number of events and retries capabalities.

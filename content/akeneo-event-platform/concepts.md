@@ -50,8 +50,6 @@ The statuses for a subscription are:
 | `suspended` | The subscription can be suspended by the platform due to excessive errors, or manually by the user. However, you can resume it. Suspending a subscription stops all events from being sent to it. Events are not saved and are lost until the subscription is resumed |
 | `revoked` | The subscription has been automatically revoked because the connection or the app linked to the subscriber was removed from the PIM                                                                                                                                                    |
 
-TODO adapt suspended description, take into account the "permission" associated with the connection or the app which can suspend the delivery
-
 ## Subscription types
 
 ### HTTPS subscription
@@ -164,9 +162,9 @@ Example of an event payload for a productDeleted event
 
 For more information, consult the [CloudEvents spec attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md).
 
-## Key platform behaviors you must know and deal with when you design your subscribing service
+## Key platform behaviors
 
-Due to the scalable and distributed nature of our service, in addition with its ability to provide some retry capability in case of temporary failure, the platform comes with key behavior you should know about.
+Your subscribing service implementation and architecture must deal with the following capabilities and constraints to consume events from the platform at its best.
 
 ### Delivery timeout
 
@@ -179,7 +177,7 @@ Under normal circumstances, your HTTPS endpoint must handle the event as fast as
 
  we're not in a "at most once" paradigm but in a **`at least once`** one. This paradigm involves two things your service must compose with:
 
-- Expect duplicate
+- Expect duplicates
 - Expect un-ordered events
 
 To help identify duplicated events and deal with un-ordered events if it's something critical for your business, you can rely on both fields  **`id`** and **`time`** from the event, which provide unique identifiers and publication timestamp for each event.
@@ -200,7 +198,7 @@ Our system enforces strict suspension policy to maintain the integrity and relia
 Your subscription will be automatically suspend in the following cases:
 
 - Your HTTPS endpoint respond with a `404 Not Found` http status, the subscription is suspended right away.
-- Your HTTPS endpoint respond with `429 Too Many Requests` or `5XX Server Error` http statuses for more than `5%` of the requests during the last hour.
+- Your HTTPS endpoint respond with `5XX Server Error` http status or do not respond within the delivery timeout period for more than `5%` of the requests during the last hour.
 - We're not authorized to publish message in your Google Cloud Topic, the subscription is suspended right away
 
 When the platform decide to suspend your subscription, it will notify the **technical email address** you provided with contextual information.
