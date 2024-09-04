@@ -43,7 +43,8 @@ This may evolve based on feedback.
 
 ### I configured an HTTPS destination endpoint hosted in US, should I expect any latency ?
 
-TODO 
+Our platform will send events from EU region.
+According to our cloud provider, latency from EU to US through public internet is below 100ms.
 
 ### Can I retrieve past events ?
 

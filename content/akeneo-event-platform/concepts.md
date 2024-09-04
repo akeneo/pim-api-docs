@@ -175,7 +175,7 @@ Under normal circumstances, your HTTPS endpoint must handle the event as fast as
 
 ### At least once
 
- we're not in a "at most once" paradigm but in a **`at least once`** one. This paradigm involves two things your service must compose with:
+We're not in a "at most once" paradigm but in a **`at least once`** one. This paradigm involves two things your service must compose with:
 
 - Expect duplicates
 - Expect un-ordered events
