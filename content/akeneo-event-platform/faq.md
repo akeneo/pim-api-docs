@@ -9,20 +9,20 @@ The **only** Event Platform limits are:
 
 ### Are the events sent in order ?
 
-Yes and no. From a sequence perspective, yes, an event emitted by the PIM is likely to be sent to your destination is the same order but nothing is done internally to guarantee it. 
+Yes and no. From a sequence perspective, yes, an event emitted by the PIM is likely to be sent to your destination in the same order but nothing is done internally to guarantee it. 
 
 If there's an issue with your destination and the event doesn't go through on the first attempt but only after a retry, then you'll face un-ordered events for sure.
 
 Consequently, and especially in the case of a retried event, you should check the ID and the time of publication of the event to process it properly.
 
-### What are the subscription destinations proposed for the Event Platform? Can I request another one?
+### What are the subscription destinations proposed? Can I request another one?
 
 Subscription destinations:
 
 - HTTPS - generic, can be considered as a Webhook feature
 - Google Cloud Pub Sub
 
-We will add other subscription channels based on feedback. Please [fill-in this form](https://forms.gle/XsZ7rovRnqfAn4xF9) to propose & upvote new destination types.
+We will consider adding other subscription destinations based on feedback. Please [fill-in this form](https://forms.gle/XsZ7rovRnqfAn4xF9) to propose & upvote new destination types.
 
 ### What happens if my app or connection is removed from the PIM?
 
@@ -35,7 +35,7 @@ Your subscriber and all linked subscriptions are instantaneously revoked resulti
 
 Yes, you can call the management API to suspend your subscription and stop receiving messages. [More details](/akeneo-event-platform/best-practices.html#suspending-and-resuming-subscriptions-during-migration)
 
-### Does Event Platform come with the user interface or dashboards?
+### Does Event Platform come with an user interface or dashboards?
 
 No, the Event Platform is currently a technical-first product and does not include specific interfaces.
 
@@ -57,4 +57,12 @@ Akeneo's Event API have some core limitations such as a `4.000 event/hour` limit
 
 Akeneo Event Platform is a new platform with distinct functionalities and should not be considered as the next version of [Akeneo's Event API](https://api.akeneo.com/events-documentation/overview.html). 
 
-The new platform offers more granular event handling compared to the Event API, no limits or throttle on the number of events and retries capabalities.
+The new platform offers more granular event handling compared to the Event API, every events will be tried to be delivered and retried in case of failure.
+
+### My subscription is repeatedly suspended, I resume it all the time and I loose events, why ?
+
+According to our delivery timeout strict policy, we want your subscribing service to acknowledge the reception of the event as fast as it can in order for our platform to deliver events continuously.
+
+Resuming suspended subscription several times indicates than you might change the way you deals with event consumption.
+
+If at some point we see that you resumed a suspended subscription too frequently, we reserve the right to revoke or delete it.

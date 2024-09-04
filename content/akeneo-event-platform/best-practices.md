@@ -4,7 +4,7 @@
 
 The platform can send many events in a short time, potentially causing overload and leading to `500` responses from your side. In such cases, your subscription may be suspended. By implementing a proper `429` response mechanism, you can delay event processing to maintain service stability and avoid suspension.
 
-If your 429 responses contains a `Retry-after` header, the platform **will not take it into account**, the event will enter the [retry mecanism]((/akeneo-event-platform/concepts.html#retry-policy)).
+If your 429 responses contains a `Retry-after` header, the platform **will not take it into account**, the event will enter the [retry mecanism](/akeneo-event-platform/concepts.html#retry-policy).
 
 <!-- TODO rework paragraph after this PR is merged -->
 <!-- https://github.com/akeneo/event-platform/pull/144 -->
