@@ -47,12 +47,12 @@ The statuses for a subscription are:
 | --- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `active` | The destination will receive notifications for events monitored by the subscription                                                                                                                                                                                                    |
 | `deleted` | The subscription is inactive and cannot be reactivated                                                                                                                                                                                                                                 |
-| `suspended` | The subscription has been deactivated by the event platform itself due to excessive errors, or manually by the user. However, you can resume it. Suspending a subscription stops all events from being sent to it. Events are not saved and are lost until the subscription is resumed |
+| `suspended` | The subscription can be suspended by the platform due to excessive errors, or manually by the user. However, you can resume it. Suspending a subscription stops all events from being sent to it. Events are not saved and are lost until the subscription is resumed |
 | `revoked` | The subscription has been automatically revoked because the connection or the app linked to the subscriber was removed from the PIM                                                                                                                                                    |
 
 ## Subscription types
 
-### HTTP subscription
+### HTTPS subscription
 
 #### Configuration
 
@@ -93,7 +93,9 @@ To verify the signature on your end:
 2. Using the shared secret key, compute the HMAC signature of the received payload using the same algorithm.
 3. Compare the computed HMAC signature with the received HMAC signature.
 
-This is the easiest way to ensure the message you receive is from us.
+This is the easiest way to ensure the message you receive comes from our platform.
+
+TODO add our delivery service public IP range https://akeneo.atlassian.net/jira/software/projects/CHA/boards/419?selectedIssue=CHA-877
 
 ### Pub/Sub subscription
 
@@ -160,44 +162,46 @@ Example of an event payload for a productDeleted event
 
 For more information, consult the [CloudEvents spec attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md).
 
-## Retry policies
+## Key platform behaviors
 
-Ensure reliable message processing in distributed systems. Retry policies help manage transient failures and guarantee message delivery even when issues occur.
+Your subscribing service implementation and architecture must deal with the following capabilities and constraints to consume events from the platform at its best.
 
-Here, we outline the key **retry policies** implemented in our system.
+### Delivery timeout
 
-### ACK timeout
+Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified period. Our system expect from your endpoint to process the request in **`3 seconds`**. If the request take longer than this duration, we stop trying to deliver it, the event will enter in the retry process.
 
-ACK timeout ensures that messages are acknowledged within a specified period. In our system, the ACK timeout is set to **`3 seconds`**. If an acknowledgment isn't received within this timeframe, the message is retried. This mechanism prevents message loss due to slow consumers or temporary network delays.
-
-In case of **`HTTPs subscription`**, your endpoint must handle the event as fast as it can.
+Under normal circumstances, your HTTPS endpoint must handle the event as fast as it can.
 **Our recommendation** is to put the message in a `queuing system` or in a `database`, and process the event asynchronously.
 
 ### At least once
 
-The **`at least once`** delivery guarantee means in case of delivery failure, our retry policy will try to deliver the event again. This policy ensures that no message is lost until reasonable limits, though it may result in duplicate deliveries.
+We're not in a "at most once" paradigm but in a **`at least once`** one. This paradigm involves two things your service must compose with:
 
-Additionally, due to this system, **`the order of events may be unpredictable`**. Developers should design their systems to handle potential duplicates gracefully, ensuring idempotent processing.
+- Expect duplicates
+- Expect un-ordered events
 
-To help identify duplicated events, use both fields  **`id`** and **`time`** from the event, which provide unique identifiers and publication timestamp for each event.
+To help identify duplicated events and deal with un-ordered events if it's something critical for your business, you can rely on both fields  **`id`** and **`time`** from the event, which provide unique identifiers and publication timestamp for each event.
 
-### Retry back-off
+### Retry policy
 
-Back-off policies manage the intervals between retry attempts. We handle retry back-off internally, and it is not configurable per tenant.
+Retry policies help manage transient failures and guarantee message delivery even when issues occur during a certain amount of time.
+We handle retry back-off internally, and it is not configurable per tenant.
 
-Instead of immediate retries, the system waits for a specified back-off period, which can vary depending on the service load. **If the retry limit is reached without a successful acknowledgement, the event is lost.**
+If our platform is unable to deliver the event we will try to deliver it again at the following pace:
 
-Properly handling transient issues through back-off and retry helps maintain system stability and reliability under varying loads.
+TODO document when we will try to send the event again once implemented
 
-### Suspend/Revocation policies
+### Suspension policy
 
-Our system enforces strict revocation policies to maintain the integrity and reliability of event delivery.
+Our system enforces strict suspension policy to maintain the integrity and reliability of event delivery.
 
-If your endpoint responds with a `HTTP 404` Not Found status, we will revoke your subscription, necessitating the creation of a new subscription.
+Your subscription will be automatically suspend in the following cases:
 
-If your endpoint repeatedly fails with `HTTP 429` Too Many Requests or `5XX` Server Error statuses, we will suspend your subscription. You will then need to manually resume it using the API.
+- Your HTTPS endpoint respond with a `404 Not Found` http status, the subscription is suspended right away.
+- Your HTTPS endpoint respond with `5XX Server Error` http status or do not respond within the delivery timeout period for more than `5%` of the requests during the last hour.
+- We're not authorized to publish message in your Google Cloud Topic, the subscription is suspended right away
 
-For both revocations and suspensions, we will notify the **technical email address** you provided, informing you of any actions taken.
+When the platform decide to suspend your subscription, it will notify the **technical email address** you provided with contextual information.
 
 ::: panel-link Now that you know the basic concepts, let's get started! [Next](/akeneo-event-platform/getting-started.html)
 :::
