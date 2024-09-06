@@ -90,5 +90,5 @@ x-SaaS:
             ],
         },
       ],
-    "sharing_status": true,
+    "sharing_enabled": true,
   }

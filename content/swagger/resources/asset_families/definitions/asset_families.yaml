@@ -36,7 +36,7 @@ example: [
         ]
       }
     ],
-    "sharing_status": false,
+    "sharing_enabled": false,
   },
   {
     "code": "packshots",
@@ -101,7 +101,7 @@ example: [
         ]
       }
     ],
-    "sharing_status": true,
+    "sharing_enabled": true,
   },
   {
     "code": "videos",
@@ -136,6 +136,6 @@ example: [
         ]
       }
     ],
-    "sharing_status": false,
+    "sharing_enabled": false,
   }
 ]

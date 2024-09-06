@@ -232,7 +232,7 @@ x-SaaS:
                       ],
                   },
                 ],
-              "sharing_status": false,
+              "sharing_enabled": false,
             },
             {
               "_links":
@@ -265,7 +265,7 @@ x-SaaS:
                       ],
                   },
                 ],
-              "sharing_status": true,
+              "sharing_enabled": true,
             },
             {
               "_links":
@@ -299,7 +299,7 @@ x-SaaS:
                       ],
                   },
                 ],
-              "sharing_status": false,
+              "sharing_enabled": false,
             },
           ],
       },
