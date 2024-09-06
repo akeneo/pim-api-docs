@@ -1,4 +1,4 @@
-x-7.0:
+x-1.7-to-7.0:
   {
     "code": "model_pictures",
     "labels": { "en_US": "Model pictures", "fr_FR": "Photographies en pied" },
