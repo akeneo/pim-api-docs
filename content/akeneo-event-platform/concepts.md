@@ -95,7 +95,13 @@ To verify the signature on your end:
 
 This is the easiest way to ensure the message you receive comes from our platform.
 
-TODO add our delivery service public IP range https://akeneo.atlassian.net/jira/software/projects/CHA/boards/419?selectedIssue=CHA-877
+##### Webhooks IP Range
+
+If you want to add an additional layer of security, you can whitelist our service’s IP range.
+
+We currently use a static IP address provided by Google Cloud: `34.140.80.128`
+
+**However, we cannot guarantee that this IP address will remain unchanged indefinitely.** Therefore, we strongly recommend whitelisting the `europe-west1` IP ranges from [Google Cloud's IP ranges list](https://www.gstatic.com/ipranges/cloud.json) to ensure continuous access.
 
 ### Pub/Sub subscription
 
