@@ -9,7 +9,7 @@ The **only** Event Platform limits are:
 
 ### What are the difference between new Event Platform and old Event API? 
 The old Event API has significant limitations in terms of scalability, reliability, and functionality, making it unsuitable for modern, large-scale integrations. The new Event Platform, on the other hand, is designed with a technical-first approach, offering broader event coverage, higher capacity, and the flexibility needed for seamless integrations. This comparison table illustrates the major differences between the two, demonstrating how the new Event Platform is a better choice for developers and businesses alike.
-### Comparative Table: Old Event API vs. New Event Platform
+### Old Event API vs. New Event Platform
 
 | **Feature**                      | **Old Event API**                                      | **New Event Platform**                               |
 |----------------------------------|-------------------------------------------------------|------------------------------------------------------|
