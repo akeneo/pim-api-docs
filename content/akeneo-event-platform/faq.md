@@ -7,8 +7,8 @@ The **only** Event Platform limits are:
 - Up to 20 subscriptions per subscriber
 - No limit on the type of events 
 
-### What are the difference between new Event Platform and old Event API? 
-The old Event API has significant limitations in terms of scalability, reliability, and functionality, making it unsuitable for modern, large-scale integrations. The new Event Platform, on the other hand, is designed with a technical-first approach, offering broader event coverage, higher capacity, and the flexibility needed for seamless integrations. This comparison table illustrates the major differences between the two, demonstrating how the new Event Platform is a better choice for developers and businesses alike.
+### What are the difference between old Event API and new Event Platform? 
+The old Event API has significant scalability, reliability, and functionality limitations, making it unsuitable for modern, large-scale integrations. On the other hand, the new Event Platform is designed with a technical-first approach, offering broader event coverage, higher capacity, and the flexibility needed for seamless integrations. This comparison table illustrates the major differences between the two, demonstrating how the new Event Platform is a better choice for developers and businesses alike.
 ### Old Event API vs. New Event Platform
 
 | **Feature**                      | **Old Event API**                                      | **New Event Platform**                               |
