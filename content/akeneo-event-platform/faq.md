@@ -12,7 +12,7 @@ The old Event API has significant scalability, reliability, and functionality li
 
 | **Feature**                      | **Old Event API**                                      | **New Event Platform**                               |
 |----------------------------------|-------------------------------------------------------|------------------------------------------------------|
-| **Event Coverage**               | Limited to product and product models                 | Wide range of events beyond just product and product models |
+| **Event Coverage**               | Limited to product and product models                 | Wide range of events beyond just product and product models [Events list here](/akeneo-event-platform/available-events.html) |
 | **Capacity**                | 4,000 events per hour with a maximum of 3 subscribers | No limit on the number of events, capable of handling much larger volumes |
 | **Payload**                      | Full payload                                          | Lightweight payload, providing only the identifier of the updated value (delta payload is a part of the roadmap |
 | **Performance**                  | Limited by low capacity and full payloads           | Optimized for high volume of events  |
