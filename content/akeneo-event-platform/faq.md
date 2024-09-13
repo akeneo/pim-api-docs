@@ -10,12 +10,12 @@ The **only** Event Platform limits are:
 ### What is the difference between the old Event API and the new Event Platform? 
 The old Event API has significant scalability, reliability, and functionality limitations, making it unsuitable for modern, large-scale integrations. On the other hand, the new Event Platform is designed with a technical-first approach, offering broader event coverage, higher capacity, and the flexibility needed for seamless integrations. This comparison table illustrates the major differences between the two, demonstrating how the new Event Platform is a better choice for developers and businesses alike.
 
-| **Feature**                      | **Old Event API**                                      | **New Event Platform**                               |
+| **Feature**                      | **Old Event API**                                     | **New Event Platform**                               |
 |----------------------------------|-------------------------------------------------------|------------------------------------------------------|
 | **Event Coverage**               | Limited to product and product models                 | [Wide range of events](/akeneo-event-platform/available-events.html) beyond just product and product models |
-| **Capacity**                | 4,000 events per hour with a maximum of 3 subscribers | No limit on the number of events, capable of handling much larger volumes |
-| **Payload**                      | Full payload                                          | Lightweight payload, providing only the identifier of the updated entity (delta payload is a part of the roadmap |
-| **Performance**                  | Limited by low capacity and full payloads           | Optimized for high volume of events  |
+| **Capacity**                     | 4,000 events per hour with a maximum of 3 subscribers | No limit on the number of events, capable of handling much larger volumes |
+| **Payload**                      | Full payload                                          | Lightweight payload, providing only the identifier of the updated entity (delta payload is a part of the roadmap) |
+| **Performance**                  | Limited by low capacity and full payloads             | Optimized for high volume of events and fastest throughput  |
 | **Interface & Dashboard**        | Includes a usage dashboard                            | API-first product with no interface or dashboard |
 | **Reliability & Scalability**    | Limited reliability, prone to bottlenecks             | Designed for high reliability and scalability with attached retry mechanism in place       |
 | **Usage Context**                | Suitable for small-scale integrations                 | Ideal for large-scale, real-time integrations        |
