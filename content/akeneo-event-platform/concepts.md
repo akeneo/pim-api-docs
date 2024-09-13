@@ -208,7 +208,7 @@ If your destination is unable to ingest the event, we will try to deliver it aga
  - previous delivery attempt + 10 min
  - previous delivery attempt + 20 min
 
-Such retries are made on best effort, only for transient errors and timeouts. The threshold of the suspension policy continue to be computed during the retry process.
+Such retries are made on best effort, only for transient errors and timeouts. The threshold of the suspension policy continues to be computed during the retry process.
 
 ### Suspension policy
 
