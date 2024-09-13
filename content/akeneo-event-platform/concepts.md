@@ -188,7 +188,7 @@ Our delivery engine will try to deliver events as fast as possible but will adap
 Especially if you create subscriptions with HTTPS destination, ensure to respond `429 Too Many Requests` if your system is slightly overloaded: this way, the delivery engine will slow down quickly, retry undelivered events, and gently increase the throughput when your system gets back to normal (answers `200 OK` again).
 
 Still, we will not retry indefinitely:
-- The platform will stop retry to deliver an event if he was emitted more than 8 hours ago.
+- The platform will stop retrying to deliver events emitted more than 8 hours ago.
 - The platform will start to impact the failure rate, which can lead to a subscription suspension.
 
 ### Delivery timeout
