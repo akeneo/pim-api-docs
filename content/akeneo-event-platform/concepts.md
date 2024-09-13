@@ -203,7 +203,7 @@ Under normal circumstances, your HTTPS endpoint must handle the event as fast as
 Retry policies help manage transient failures and guarantee message delivery even when issues occur during a certain amount of time.
 We handle retry back-off internally, and it is not configurable per tenant.
 
-If your destination is unable to ingest the event we will try to deliver it again at the following pace:
+If your destination is unable to ingest the event, we will try to deliver it again at the following pace:
  - previous delivery attempt + 5 min
  - previous delivery attempt + 10 min
  - previous delivery attempt + 20 min
