@@ -216,7 +216,7 @@ Our system enforces strict suspension policy to maintain the integrity and relia
 
 Your subscription will be **automatically suspend** in the following cases:
 
-- Your HTTPS endpoint respond with a `404 Not Found` http status, the subscription is suspended right away.
+- Your HTTPS endpoint responds with a `404 Not Found` http status, the subscription is suspended right away.
 - Your HTTPS endpoint responds with `3xx Redirection` http statuses, the subscription is suspended right away, we do not support redirections.
 - Your HTTPS endpoint responds with `5XX Server Error` http statuses for more than `5%` of the requests during the last hour.
 - Your HTTPS endpoint does not respond within the delivery timeout period for more than `5%` of the requests during the last hour.
