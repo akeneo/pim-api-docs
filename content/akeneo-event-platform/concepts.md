@@ -172,13 +172,6 @@ For more information, consult the [CloudEvents spec attributes](https://github.c
 
 Your subscribing service implementation and architecture must deal with the following capabilities and constraints to consume events from the platform at its best.
 
-### Delivery timeout
-
-Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified period. Our system expect from your endpoint to process the request in **`3 seconds`**. If the request take longer than this duration, we stop trying to deliver it, the event will enter in the retry process.
-
-Under normal circumstances, your HTTPS endpoint must handle the event as fast as it can.
-**Our recommendation** is to put the message in a `queuing system` or in a `database`, and process the event asynchronously.
-
 ### At least once
 
 We're not in a "at most once" paradigm but in a **`at least once`** one. This paradigm involves two things your service must compose with:
@@ -188,23 +181,46 @@ We're not in a "at most once" paradigm but in a **`at least once`** one. This pa
 
 To help identify duplicated events and deal with un-ordered events if it's something critical for your business, you can rely on both fields  **`id`** and **`time`** from the event, which provide unique identifiers and publication timestamp for each event.
 
-### Retry policy
+### Optimized throughput
+
+Our delivery engine will try to deliver events as fast as it can, but will adapt the throughput within limits described in this section.
+
+Especially if you create subscriptions with HTTPS destination, ensure to respond `429 Too Many Requests` if your system is slightly overloaded, this way the delivery engine will slow down quickly, retry undelivered events, and gently increase the throughput when your system get back to normal (answers `200 OK` again).
+
+Still, we will not retry indefinitely:
+- The platform will stop retry to deliver an event if he was emitted more than 8 hours ago.
+- The platform will start to impact the failure rate, which can lead to a subscription suspension.
+
+### Delivery timeout
+
+Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified period. Our system expect from your endpoint to process the request in **`3 seconds`**. If the request take longer than this duration, we stop trying to deliver it, the event will enter in the retry process.
+
+Under normal circumstances, your HTTPS endpoint must handle the event as fast as it can.
+**Our recommendation** is to put the message in a `queuing system` or in a `database`, and process the event asynchronously.
+
+### Retry policy for transient failures
 
 Retry policies help manage transient failures and guarantee message delivery even when issues occur during a certain amount of time.
 We handle retry back-off internally, and it is not configurable per tenant.
 
-If our platform is unable to deliver the event we will try to deliver it again at the following pace:
+If your destination is unable to ingest the event we will try to deliver it again at the following pace:
+ - previous delivery attempt + 5 min
+ - previous delivery attempt + 10 min
+ - previous delivery attempt + 20 min
 
-TODO document when we will try to send the event again once implemented
+Such retries are made on best effort, only for transient errors and timeouts. The threshold of the suspension policy continue to be computed during the retry process.
 
 ### Suspension policy
 
 Our system enforces strict suspension policy to maintain the integrity and reliability of event delivery.
 
-Your subscription will be automatically suspend in the following cases:
+Your subscription will be **automatically suspend** in the following cases:
 
 - Your HTTPS endpoint respond with a `404 Not Found` http status, the subscription is suspended right away.
-- Your HTTPS endpoint respond with `5XX Server Error` http status or do not respond within the delivery timeout period for more than `5%` of the requests during the last hour.
+- Your HTTPS endpoint respond with `3xx Redirection` http statuses, the subscription is suspended right away, we do not support redirections.
+- Your HTTPS endpoint respond with `5XX Server Error` http statuses for more than `5%` of the requests during the last hour.
+- Your HTTPS endpoint do not respond within the delivery timeout period for more than `5%` of the requests during the last hour.
+- Your HTTPS endpoint respond with a `429 Too Many Requests` for more than `5%` of the requests during the last hour.
 - We're not authorized to publish message in your Google Cloud Topic, the subscription is suspended right away
 
 When the platform decide to suspend your subscription, it will notify the **technical email address** you provided with contextual information.
