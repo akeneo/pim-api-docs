@@ -195,7 +195,7 @@ Still, we will not retry indefinitely:
 
 Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified period. Our system expects your endpoint to process the request in **`3 seconds`**. If the request takes longer than this duration, we stop trying to deliver it, the event will enter the retry process.
 
-Under normal circumstances, your HTTPS endpoint must handle the event as fast as it can.
+Under normal circumstances, your HTTPS endpoint must handle the event as fast as possible.
 **Our recommendation** is to put the message in a `queuing system` or in a `database`, and process the event asynchronously.
 
 ### Retry policy for transient failures
