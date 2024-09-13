@@ -32,7 +32,7 @@ You must be prepared to ingest events from the event platform with a significant
 
 - Do not call back the Akeneo PIM API synchronously when you receive an event: always store the event and implement a background process to handle data retrieval asynchronously.
 - You'll receive a lot of unitary events. Ensure your background process can make batch calls to the PIM API.
-    - example: you receive 9 product update events in your PubSub Topic, you're background process pull 10 messages every seconds from the PubSub queue, you make 1 API call on the get list of products endpoint instead of 9 unitary calls.
+    - example: you receive 9 product update events in your PubSub Topic, and your background process pulls 10 messages every second from the PubSub queue. You make 1 API call on the get list of products endpoint instead of 9 unitary calls.
 
 ::: panel-link Let's see some integration examples ! [Next](/akeneo-event-platform/integration-examples.html)
 :::
