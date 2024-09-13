@@ -25,5 +25,14 @@ Your app shouldn't rely solely on receiving data from the Akeneo Event Platform.
 
 You could do this in the background or offer reconciliation and syncing options to the user. For example, your app's UI could contain a button that triggers a manual reconciliation process by calling the relevant API endpoint and fetching the requested data.
 
+
+## Batch your PIM API calls
+
+You must be prepared to ingest events from the event platform with a significant throughput. But you must be gentle on the Akeneo PIM API, and respect the PIM API rate limits.
+
+- Do not call back the Akeneo PIM API synchronously when you receive an event, always store the event and implement a background process to handle data retrieval asynchronously
+- You'll receive a lot of unitary events. Ensure that you're background process is able to make batch calls to the PIM API.
+    - example: you receive 9 product update events in your PubSub Topic, you're background process pull 10 messages every seconds from the PubSub queue, you make 1 API call on the get list of products endpoint instead of 9 unitary calls.
+
 ::: panel-link Let's see some integration examples ! [Next](/akeneo-event-platform/integration-examples.html)
 :::
