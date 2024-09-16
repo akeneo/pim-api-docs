@@ -28,7 +28,7 @@ resource "google_compute_managed_ssl_certificate" "default" {
 resource "google_compute_ssl_policy" "default-ssl-policy" {
   project         = var.project_id
   name            = "default-ssl-policy"
-  profile         = "MODERN"
+  profile         = "COMPATIBLE"
   min_tls_version = "TLS_1_2"
   description     = "Recommended SSL policy for security purposes"
 }
