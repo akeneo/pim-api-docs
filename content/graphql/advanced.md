@@ -1,3 +1,22 @@
+## Cache Implementation
+
+As our GraphQL implementation uses the Akeneo REST API to fetch data, we added a caching mechanism to minimize redundant requests to the PIM and improve overall responsiveness. This cache is shared across multiple instances to maximize efficiency.
+
+### Perimeter (What is Cached)
+
+All REST API queries to the PIM are cached, with the exception of two specific endpoints:
+
+- **GET List of Products:** [`/api/rest/v1/products-uuid`](https://api.akeneo.com/api-reference.html#get_products_uuid)
+- **GET List of Product Models:** [`/api/rest/v1/product-models`](https://api.akeneo.com/api-reference.html#get_product_models)
+
+These endpoints are excluded from caching to ensure that clients always retrieve the most up-to-date product data, particularly important for frequently updated product details.
+
+Key Note: The endpoints **/api/rest/v1/products-uuid/{uuid}** and **/api/rest/v1/product-models/{code}** are cached, as these fetch specific records rather than full lists.
+
+### Cache Duration
+
+The cache duration is set to 5 minutes, providing an optimal balance between reducing API calls and ensuring data freshness. This duration may evolve based on usage patterns.
+
 ## Complexity calculation
 
 ### Overview
