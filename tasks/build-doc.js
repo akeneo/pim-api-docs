@@ -679,6 +679,7 @@ gulp.task('build-akeneo-event-platform', ['clean-dist','less'], function () {
         'best-practices.md': "Best practices",
         'integration-examples.md': "Integration examples",
         'compatibility.md': "Compatibility",
+        'limitations.md': "Quota & Limits",
         // 'migrate-from-deprecated-event-api.md': "Migrate from deprecated event API",
         'faq.md': "FAQ",
     };

@@ -9,5 +9,5 @@ The compatibility of the Akeneo Event Platform with `various editions` of Akeneo
 | GROWTH EDITION            | Supported     |
 | COMMUNITY EDITION         | Not supported |
 
-::: panel-link Consult now our FAQ [Next](/akeneo-event-platform/faq.html)
+::: panel-link Consult now our Quotas&Limits section [Next](/akeneo-event-platform/limitations.html)
 :::
