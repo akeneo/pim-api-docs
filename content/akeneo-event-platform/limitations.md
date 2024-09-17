@@ -1,4 +1,4 @@
-### Are there any quotas or limits?
+# Are there any quotas or limits?
 
 
 **Event Platform Limits:**
