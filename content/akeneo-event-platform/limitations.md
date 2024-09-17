@@ -7,6 +7,7 @@ Event Platform Limits:
 - Up to 20 subscriptions per subscriber
 
 Event Platform Quotas:
+
 Our Event platform has specific quotas designed to ensure optimal performance and fair usage for all users. Here are the details:
 
 - Weekly Event Limit: You can distribute up to 5 million events per week.
