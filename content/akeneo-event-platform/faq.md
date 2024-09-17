@@ -1,12 +1,4 @@
 # FAQ
-### Is their any quotas or limits ?
-
-The **only** Event Platform limits are: 
-
-- Up to 20 subscribers per PIM instance
-- Up to 20 subscriptions per subscriber
-- No limit on the type of events 
-
 ### What is the difference between the old Event API and the new Event Platform? 
 The old Event API has significant scalability, reliability, and functionality limitations, making it unsuitable for modern, large-scale integrations. On the other hand, the new Event Platform is designed with a technical-first approach, offering broader event coverage, higher capacity, and the flexibility needed for seamless integrations. This comparison table illustrates the major differences between the two, demonstrating how the new Event Platform is a better choice for developers and businesses alike.
 
