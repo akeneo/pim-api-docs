@@ -13,13 +13,32 @@ get:
   x-ee: true
   description: This endpoint allows you to get the information about a given asset family.
   parameters:
-    - $ref: '#/parameters/code'
+    - $ref: "#/parameters/code"
   responses:
     200:
       description: OK
       x-details: Returns the content of the asset family in JSON format.
       schema:
         $ref: ../definitions/asset_family.yaml
+      x-examples-per-version:
+        - x-version: "3.2"
+          x-example:
+            $ref: "#/definitions/AssetFamilyExamples/x-1.7-to-7.0"
+        - x-version: "4.0"
+          x-example:
+            $ref: "#/definitions/AssetFamilyExamples/x-1.7-to-7.0"
+        - x-version: "5.0"
+          x-example:
+            $ref: "#/definitions/AssetFamilyExamples/x-1.7-to-7.0"
+        - x-version: "6.0"
+          x-example:
+            $ref: "#/definitions/AssetFamilyExamples/x-1.7-to-7.0"
+        - x-version: "7.0"
+          x-example:
+            $ref: "#/definitions/AssetFamilyExamples/x-1.7-to-7.0"
+        - x-version: "SaaS"
+          x-example:
+            $ref: "#/definitions/AssetFamilyExamples/x-SaaS"
     401:
       $ref: "#/responses/401Error"
     404:
@@ -41,7 +60,7 @@ patch:
   x-ee: true
   description: This endpoint allows you to update a given asset family. Note that if the asset family does not already exist, it creates it.
   parameters:
-    - $ref: '#/parameters/code'
+    - $ref: "#/parameters/code"
     - name: body
       in: body
       required: true
