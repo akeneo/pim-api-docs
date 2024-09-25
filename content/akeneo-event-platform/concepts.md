@@ -185,45 +185,53 @@ To help identify duplicated events and deal with un-ordered events if it's somet
 
 Our delivery engine will try to deliver events as fast as possible but will adapt the throughput within the limits described in this section.
 
-Especially if you create subscriptions with HTTPS destination, ensure to respond `429 Too Many Requests` if your system is slightly overloaded: this way, the delivery engine will slow down quickly, retry undelivered events, and gently increase the throughput when your system gets back to normal (answers `200 OK` again).
+If your subscription has an HTTPS destination, please respond with `429 Too Many Requests` when your system is overloaded: this way, the delivery engine will slow down, retry undelivered events, and gradually increase the throughput when your system gets back to recovers (i.e., when it responds `200 OK` again).
 
-Still, we will not retry indefinitely:
-- The platform will stop retrying to deliver events emitted more than 8 hours ago.
-- The platform will start to impact the failure rate, which can lead to a subscription suspension.
+Please note that if the rate drops too significantly, the suspension policy will be triggered ([see bellow](/akeneo-event-platform/concepts.html#suspension-policy.html)).
 
 ### Delivery timeout
 
-Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified period. Our system expects your endpoint to process the request in **`3 seconds`**. If the request takes longer than this duration, we stop trying to deliver it, the event will enter the retry process.
+Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to handle requests within **`3 seconds`**.  If processing exceeds this duration, the event will enter the retry process ([see bellow](/akeneo-event-platform/concepts.html#retry-policy-for-transient-failures.html)).
 
 Under normal circumstances, your HTTPS endpoint must handle the event as fast as possible.
-**Our recommendation** is to put the message in a `queuing system` or in a `database`, and process the event asynchronously.
+**Our recommendation** is to put the message in a `queuing system` or in a `database` for asynchronous processing.
 
 ### Retry policy for transient failures
 
-Retry policies help manage transient failures and guarantee message delivery even when issues occur during a certain amount of time.
-We handle retry back-off internally, and it is not configurable per tenant.
+Our retry policy helps ensure event delivery during transient failures, allowing for multiple attempts to deliver messages when temporary issues arise. The retry back-off mechanism is managed internally and is not configurable on a per-tenant basis.
 
-If your destination is unable to ingest the event, we will try to deliver it again at the following pace:
- - previous delivery attempt + 5 min
- - previous delivery attempt + 10 min
- - previous delivery attempt + 20 min
+If your destination is unable to ingest an event, we will retry deliver as follow:
+ - First retry: 5 minutes after the previous attempt.
+ - Second retry: 10 minutes after the previous attempt.
+ - Third retry: 20 minutes after the previous attempt.
 
-Such retries are made on best effort, only for transient errors and timeouts. The threshold of the suspension policy continues to be computed during the retry process.
+These retries are on a best-effort basis and apply only to transient errors or timeouts. After **three retry attempts**, the message is dropped.
+This type of failure may triggers the suspension policy ([see bellow](/akeneo-event-platform/concepts.html#suspension-policy.html)).
 
 ### Suspension policy
 
-Our system enforces strict suspension policy to maintain the integrity and reliability of event delivery.
+Our system enforces a strict suspension policy to ensure the integrity and reliability of event delivery. We distinguish two types of suspension conditions: criteria-based suspensions and threshold-based suspensions.
 
-Your subscription will be **automatically suspend** in the following cases:
+#### Criteria-Based Suspensions:
 
-- Your HTTPS endpoint responds with a `404 Not Found` http status, the subscription is suspended right away.
-- Your HTTPS endpoint responds with `3xx Redirection` http statuses, the subscription is suspended right away, we do not support redirections.
-- Your HTTPS endpoint responds with `5XX Server Error` http statuses for more than `5%` of the requests during the last hour.
-- Your HTTPS endpoint does not respond within the delivery timeout period for more than `5%` of the requests during the last hour.
-- Your HTTPS endpoint responds with a `429 Too Many Requests` for more than `5%` of the requests during the last hour.
-- We're not authorized to publish message in your Google Cloud Topic, the subscription is suspended right away
+Your subscription is immediately suspended if you meet one of these conditions:
 
-When the platform decide to suspend your subscription, it will notify the **technical email address** you provided with contextual information.
+- Your HTTPS endpoint responds with a `404 Not Found` HTTP status.
+- Your HTTPS endpoint responds with `3xx Redirection` HTTP statuses, as we do not support redirections.
+- We're not authorized to publish message in your Google Cloud Topic.
+
+#### Threshold-Based Suspension:
+
+This type of suspension is based on the success rate of your HTTPS endpoint. If the success rate drops below 95% within the last rolling hour, your subscription will be suspended.
+
+Here are the errors type that decrease the success rate:
+
+The following error types decrease the success rate:
+
+- `5XX Server Error` HTTP statuses
+- `429 Too Many Requests` http statuses (while the minimum rate threshold is exceeded)
+
+When the platform suspends your subscription, a notification will be sent to the technical email address you provided, along with contextual information about the suspension.
 
 ::: panel-link Now that you know the basic concepts, let's get started! [Next](/akeneo-event-platform/getting-started.html)
 :::
