@@ -4,7 +4,7 @@ This guide will walk you through the essential steps to set up your environment,
 
 ### Prerequisites
 
-Before proceeding, ensure that you have an active [App](https://api.akeneo.com/apps/overview.html#whats-an-akeneo-app) (it can be a [Custom App](https://api.akeneo.com/apps/create-custom-app.html)) or an active [connection](https://api.akeneo.com/getting-started/connect-the-pim-4x/step-1.html#you-said-connection) to an Akeneo PIM.
+Before proceeding, ensure that you have an active <a href="https://api.akeneo.com/apps/overview.html#whats-an-akeneo-app" target="_blank">App</a> (it can be a [Custom App](https://api.akeneo.com/apps/create-custom-app.html)) or an active [connection](https://api.akeneo.com/getting-started/connect-the-pim-4x/step-1.html#you-said-connection) to an Akeneo PIM.
 
 To learn how to create a connection, see the [Authentication Guide](/documentation/authentication.html#client-idsecret-generation). If you're setting up a custom App, follow the steps in [this tutorial](/tutorials/how-to-get-your-app-token.html#) to obtain an App token.
 
@@ -40,7 +40,7 @@ In this example, we will create a new `connection` in the PIM and use it to gene
    Replace the placeholders with your actual credentials and host URL.
 
 3. **Encode Your Credentials:**
-   - Encode the Client ID and Secret in base64 format, separated by a colon (:):
+   - Encode the Client ID and Secret in base64 format, separated by a colon `:`:
    ```bash
    export BASE64_ENCODED_CLIENTID_AND_SECRET=$(echo -n "$CLIENT_ID:$CLIENT_SECRET" | base64 -w 0)
    ```
@@ -72,6 +72,8 @@ In this example, we will create a new `connection` in the PIM and use it to gene
    :::
 
 ### 2. Create a Subscriber
+
+From the next steps we will use the event platform REST API: 'https://event.prd.sdk.akeneo.cloud/api/v1'
 
 You can create a subscriber once you have a valid PIM API token. A subscriber is an entity to which all of your subscriptions will be attached.
 

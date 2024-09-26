@@ -2,12 +2,9 @@
 
 ## Handling 429 Responses for HTTPS destinations
 
-The platform can send many events in a short time, potentially causing overload and leading to `500` responses from your side. In such cases, your subscription may be suspended. By implementing a proper `429` response mechanism, you can delay event processing to maintain service stability and avoid suspension.
+The platform can send many events in a short time, potentially causing overload and leading to `500` responses from your side. In such cases, event will enter the [retry mecanism](/akeneo-event-platform/concepts.html##retry-policy-for-transient-failures) and your subscription may be suspended. By implementing a proper `429` response mechanism, you will optimize the event reception flow thanks to our [optimizez throughput](/akeneo-event-platform/concepts.html#optimized-throughput).
 
-If your 429 responses contains a `Retry-after` header, the platform **will not take it into account**, the event will enter the [retry mecanism](/akeneo-event-platform/concepts.html#retry-policy).
-
-<!-- TODO rework paragraph after this PR is merged -->
-<!-- https://github.com/akeneo/event-platform/pull/144 -->
+If your 429 responses contains a `Retry-after` header, the platform **will not take it into account**.
 
 ## Suspending and Resuming Subscriptions
 
