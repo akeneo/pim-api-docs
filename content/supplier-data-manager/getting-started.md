@@ -134,7 +134,7 @@ The response is mainly composed of the `id` key which is used to identify the jo
 ## Step 4: Retrieve the results of a job
 
 :::info
-To know if your job is done, you need to [check its status](/supplier-data-manager/common-usage.html#).
+To know if your job is done, you need to [check its status](/supplier-data-manager/common-usage.html#get-the-status-of-job).
 :::
 
 When a job is finished (status at `done`), you can retrieve the results:
