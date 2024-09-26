@@ -206,7 +206,7 @@ If your destination is unable to ingest an event, we will retry deliver as follo
  - Third retry: 20 minutes after the previous attempt.
 
 These retries are on a best-effort basis and apply only to transient errors or timeouts. After **three retry attempts**, the message is dropped.
-This type of failure may triggers the suspension policy ([see bellow](/akeneo-event-platform/concepts.html#suspension-policy.html)).
+This type of failure may trigger the suspension policy ([see bellow](/akeneo-event-platform/concepts.html#suspension-policy.html)).
 
 ### Suspension policy
 
