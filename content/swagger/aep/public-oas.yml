@@ -494,7 +494,7 @@ components:
           type: string
           format: uri
           description: Url of the PIM
-        event:
+        events:
           type: array
           description: The list of event types that the subscription is configured to receive.
           items:
@@ -511,7 +511,7 @@ components:
       example:
         source: pim
         subject: https://mypim.cloud.akeneo.com
-        event:
+        events:
           - com.akeneo.pim.v1.product.deleted
         type: pubsub
         config:

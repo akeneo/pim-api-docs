@@ -671,8 +671,9 @@ gulp.task('build-graphql', ['clean-dist','less'], function () {
 gulp.task('build-akeneo-event-platform', ['clean-dist','less'], function () {
     var pages = {
         'akeneo-event-platform.md': "Akeneo Event Platform",
-        'concepts.md': "Concepts",
         'getting-started.md': "Getting started",
+        'concepts.md': "Concepts",
+        'key-platform-behaviors.md': "Key platform behaviors"
         'api-reference.md': "API Reference",
         'available-events.md': "Available events",
         'platform-usage-requirements.md': "Platform usage requirements",
