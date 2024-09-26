@@ -4,7 +4,7 @@
 
 You can retrieve the current status of your job by calling the job endpoint:
 ```
-GET <https://sdm.akeneo.cloud/api/v1/jobs/${job_id}/>
+GET https://sdm.akeneo.cloud/api/v1/jobs/${job_id}/
 ```
 
 The response contains the `status` key which can have several values:
@@ -27,11 +27,11 @@ The response contains the `status` key which can have several values:
 
 To retrieve the list of created jobs, simply execute a call on the following endpoint:
 ```
-GET <https://sdm.akeneo.cloud/api/v1/jobs/>
+GET https://sdm.akeneo.cloud/api/v1/jobs/
 ```
 
 :::info
-this call retrieves all the jobs created **in the organization**
+This endpoint list all jobs created **in the organization**
 :::
 
 You can filter this list by adding parameters in the url. The available parameters are:
@@ -43,7 +43,7 @@ You can filter this list by adding parameters in the url. The available paramete
 So, to retrieve all the completed jobs, created since 01-01-2022 on project 17, you need to make the following call:
 
 ```
-GET <https://sdm.akeneo.cloud/api/v1/jobs/?status=done&project=17&created_after=2022-01-01T00:00:00Z>
+GET https://sdm.akeneo.cloud/api/v1/jobs/?status=done&project=17&created_after=2022-01-01T00:00:00Z
 ```
 
 The response is formatted as follows:
@@ -65,14 +65,14 @@ The response is formatted as follows:
 
 :::info
 The answer is paginated, the default page size is 25. This pagination is controlled by the `page` and `page_size` parameters passed in the URL
-::: 
+:::
 
 ### Retrieve data in JSON format
 
 To retrieve the data in JSON, you need to call the following endpoint
 
 ```python
-GET <https://sdm.akeneo.cloud/api/v1/jobs/${job_id}/data/${output_format_id}/
+GET https://sdm.akeneo.cloud/api/v1/jobs/${job_id}/data/${output_format_id}/
 ```
 
 The result of the request will be

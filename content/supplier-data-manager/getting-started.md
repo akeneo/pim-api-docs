@@ -12,7 +12,7 @@ To be able to follow this guide you need:
 The API requires a token, you can generate one by calling this endpoint:
 
 ```
-POST <https://sdm.akeneo.cloud/api/v1/auth/token/>
+POST https://sdm.akeneo.cloud/api/v1/auth/token/
 {
     "email": "customer@company.com"
     "password": "MySecurePassword",
@@ -56,7 +56,7 @@ In both cases, the file must have a header in the first line and be composed of 
 
 To upload the file, you need to make the following request:
 ```
-POST <https://sdm.akeneo.cloud/api/v1/files/>
+POST https://sdm.akeneo.cloud/api/v1/files/
 {
     "file": my file
 }
@@ -81,7 +81,7 @@ More information on the files endpoint on our [API reference](https://sdm.akeneo
 
 The other option to create a file is to send the data in JSON. To do this you need to make the following request:
 ```
-POST <https://sdm.akeneo.cloud/api/v1/files/>
+POST https://sdm.akeneo.cloud/api/v1/files/
 {
     "data": [
 			{"col1": "val1_1", "col2": "val1_2", ...},
@@ -112,7 +112,7 @@ It is necessary to have the `id` of the project that you want to use. You can us
 
 Send this request to create the job:
 ```
-POST <https://sdm.akeneo.cloud/api/v1/jobs/>
+POST https://sdm.akeneo.cloud/api/v1/jobs/
 {
     "file_id": ${uploaded_file_id},
     "name": "any name you want",
@@ -139,7 +139,7 @@ To know if your job is done, you need to [check its status](/supplier-data-manag
 
 When a job is finished (status at `done`), you can retrieve the results:
 ```
-GET <https://sdm.akeneo.cloud/api/v1/jobs/${job_id}/download/${output_format_id}/>
+GET https://sdm.akeneo.cloud/api/v1/jobs/${job_id}/download/${output_format_id}/
 ```
 
 This request generates an output file in the format specified in the `output format` (CSV or Excel) which can be downloaded.
