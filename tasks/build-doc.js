@@ -668,6 +668,39 @@ gulp.task('build-graphql', ['clean-dist','less'], function () {
     }
 );
 
+gulp.task('build-supplier-data-manager', ['clean-dist','less'], function () {
+    var pages = {
+        'getting-started.md': "Getting started",
+        'common-usage.md': "Common usage",
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/supplier-data-manager/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/supplier-data-manager/*.md')
+                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/supplier-data-manager') + "\n"))
+                .pipe(gulpMarkdownIt(mdGt))
+                .pipe(gulp.dest('tmp/supplier-data-manager/'))
+                .on('end', function () {
+                    return gulp.src('src/partials/supplier-data-manager-documentation.handlebars')
+                        .pipe(gulpHandlebars({
+                            active_api_resources: true,
+                            title: 'Supplier Data Manager API',
+                            description: getPageDescription(file.path, "Explore Akeneo’s Supplier Data Manager API with this step-by-step guide. Learn how to get started quickly, onboard high-quality supplier data, and integrate effortlessly with common use cases for brands, manufacturers, and retailers."),
+                            mainContent: fs.readFileSync('tmp/supplier-data-manager/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        }, {
+                            partialsDirectory: ['./src/partials']
+                        }))
+                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                        .pipe(gulp.dest('./dist/supplier-data-manager'));
+                })
+        }));
+}
+);
+
 gulp.task('build-events-api', ['clean-dist','less'], function () {
 
     var pages = {
