@@ -62,7 +62,7 @@ POST <https://sdm.akeneo.cloud/api/v1/files/>
 }
 ```
 
-The request must have `multipart/form-data` in its headers. 
+The request must have `multipart/form-data` in its headers.
 
 The response is mainly composed of the `id` of the uploaded file, which must be kept for later.
 
@@ -89,7 +89,6 @@ POST <https://sdm.akeneo.cloud/api/v1/files/>
 			...
 		]
 }
-
 ```
 
 The payload is a list of objects, each representing a line with a format `"column name" : "column value"`. All the columns defined in the template must be present. Empty values can be ignored or set with the value `null`.
@@ -129,9 +128,7 @@ The response is mainly composed of the `id` key which is used to identify the jo
 }
 ```
 
-:::success
-Congrats, SDM platform is now processing your data!
-:::
+**Congrats, SDM platform is now processing your data!**
 
 
 ## Step 4: Retrieve the results of a job
@@ -142,7 +139,7 @@ To know if your job is done, you need to [check its status](/supplier-data-manag
 
 When a job is finished (status at `done`), you can retrieve the results:
 ```
-GET <https://sdm.akeneo.cloud/api/v1/jobs/${job_id}/download/${output_format_id}/
+GET <https://sdm.akeneo.cloud/api/v1/jobs/${job_id}/download/${output_format_id}/>
 ```
 
 This request generates an output file in the format specified in the `output format` (CSV or Excel) which can be downloaded.
