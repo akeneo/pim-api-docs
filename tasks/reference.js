@@ -19,15 +19,14 @@ var revReplace = require('gulp-rev-replace');
 const ignoreVersionImcompatibleProperties = async (data, version) => {
     const { default: objectScan } = await import('object-scan')
     objectScan(['**.x-from-version'], {
-        filterFn: ({ value, depth, key, gparent }) => {
+        filterFn: ({ value, gparent, gproperty }) => {
             if (`${version}` < value) {
-                const propertyName = key[depth - 2];
-                try {
+                if (typeof gproperty === 'number') {
                     // If element if array.
-                    gparent.splice(propertyName, propertyName);
-                } catch (e) {
+                    gparent.splice(gproperty, gproperty);
+                } else {
                     // If element is object.
-                    delete gparent[propertyName];
+                    delete gparent[gproperty];
                 }
             }
         },
