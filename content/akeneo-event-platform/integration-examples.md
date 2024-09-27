@@ -16,7 +16,7 @@ Privilege the solution of exposing an HTTP endpoint, which will put the event in
 
 ![custom-integration-with-aws.png](../img/aep/custom-integration-with-aws.png)
 
-### Handle multi-tenant use cases with the Akeneo Event Platform
+### Handle multi-tenant use cases with the Event Platform
 
 You’re in a multi-tenant case where you’ll have to maintain an isolated configuration per tenant.
 

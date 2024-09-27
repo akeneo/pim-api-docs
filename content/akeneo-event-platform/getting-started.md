@@ -12,7 +12,7 @@ To learn how to create a connection, see the <a href="https://api-dev.akeneo.com
 
 ### Basic Use Case: Setting Up Event Subscriptions
 
-This guide provides a step-by-step walkthrough to help you set up event subscriptions using the Akeneo Event Platform. By the end of this guide, you will have created a connection, authenticated your App, subscribed to events, and triggered an event from your PIM.
+This guide provides a step-by-step walkthrough to help you set up event subscriptions using the Event Platform. By the end of this guide, you will have created a connection, authenticated your App, subscribed to events, and triggered an event from your PIM.
 
 ### 1. Retrieve your credentials from your targeted PIM
 
@@ -157,5 +157,5 @@ Alternatively, you can also update a product using the [Akeneo PIM REST API](/ap
 
 After updating the product, verify that the event was successfully triggered by checking the payload received at your destination URL.
 
-::: panel-link Explore Key Concepts to deepen your understanding of the [Akeneo Event Platform](/akeneo-event-platform/concepts.html)
+::: panel-link Explore Key Concepts to deepen your understanding of the [Event Platform](/akeneo-event-platform/concepts.html)
 :::

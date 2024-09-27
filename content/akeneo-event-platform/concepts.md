@@ -9,7 +9,7 @@ The following properties represent a subscriber:
 
 | Property | Value | Description                                                                     |
 | --- | --- |---------------------------------------------------------------------------------|
-| `id` | Automatically populated | Identifier of the subscriber inside the Akeneo Event Platform                   |
+| `id` | Automatically populated | Identifier of the subscriber inside the Event Platform                   |
 | `tenant_id` | Automatically populated | The tenant identifier (an Akeneo PIM identifier) of the subscriber-targeted PIM |
 | `client_id` | From `X-PIM-CLIENT-ID` header parameter | The App/connection client_id that has been used to create the subscriber        |
 | `name` | Populated by the user at creation | Name of the subscriber                                                          |
@@ -34,7 +34,7 @@ The following properties represent a subscription:
 
 | Property | Value | Description |
 | --- | --- | --- |
-| `id` | Automatically populated | Identifier of the subscription within the Akeneo Event Platform |
+| `id` | Automatically populated | Identifier of the subscription within the Event Platform |
 | `source` | Populated by the user at creation | Source of the event (currently, the only source available is `pim`) |
 | `subject` | From `X-PIM-URL` header parameter | URL of the targeted source |
 | `type` | Populated by the user at creation | Type of the subscription (currently, there are two available types:  `https` and `pubsub`) |
@@ -66,7 +66,7 @@ For the `pubsub` subscription type, the `config` property required when creating
 }
 ```
 
-#### Allow the Akeneo Event Platform to publish in your Pub/Sub topic
+#### Allow the Event Platform to publish in your Pub/Sub topic
 
 To use a Pub/Sub subscription, you need to complete a few additional steps to ensure we have permission to publish into your Pub/Sub topic:
 

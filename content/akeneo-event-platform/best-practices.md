@@ -18,7 +18,7 @@ Due to the scalable and distributed nature of our service, in addition with its 
 
 ## Implement Reconciliation Processes
 
-Your app shouldn't rely solely on receiving data from the Akeneo Event Platform. Because you may not receive events if you suspend your subscription or your server is not able to handle them during the maximum retry period, you should implement reconciliation jobs to periodically fetch data from the PIM.
+Your app shouldn't rely solely on receiving data from the Event Platform. Because you may not receive events if you suspend your subscription or your server is not able to handle them during the maximum retry period, you should implement reconciliation jobs to periodically fetch data from the PIM.
 
 You could do this in the background or offer reconciliation and syncing options to the user. For example, your app's UI could contain a button that triggers a manual reconciliation process by calling the relevant API endpoint and fetching the requested data.
 
