@@ -672,6 +672,7 @@ gulp.task('build-supplier-data-manager', ['clean-dist','less'], function () {
     var pages = {
         'getting-started.md': "Getting started",
         'common-usage.md': "Common usage",
+        'api-reference.md': 'API reference',
     };
 
     var isOnePage = false;
