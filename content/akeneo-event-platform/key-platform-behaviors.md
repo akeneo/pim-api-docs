@@ -60,6 +60,7 @@ Here are the errors type that decrease the success rate:
 - `5XX Server Error` HTTP statuses
 - `429 Too Many Requests` HTTP statuses (while the minimum rate threshold is exceeded)
 - `4xx Client Error Response` HTTP status
+- Delivery timeout
 
 When the platform suspends your subscription, a notification will be sent to the technical email address you provided, along with contextual information about the suspension.
 
