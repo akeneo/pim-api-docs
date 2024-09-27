@@ -4,9 +4,9 @@ This guide will walk you through the essential steps to set up your environment,
 
 ### Prerequisites
 
-Before proceeding, ensure that you have an active <a href="https://api.akeneo.com/apps/overview.html#whats-an-akeneo-app" target="_blank">App</a> (it can be a [Custom App](https://api.akeneo.com/apps/create-custom-app.html)) or an active [connection](https://api.akeneo.com/getting-started/connect-the-pim-4x/step-1.html#you-said-connection) to an Akeneo PIM.
+Before proceeding, ensure that you have an active <a href="https://api.akeneo.com/apps/overview.html#whats-an-akeneo-app" target="_blank">App</a> (it can be a <a href="https://api.akeneo.com/apps/create-custom-app.html" target="_blank">Custom App</a> or an active <a href="https://api.akeneo.com/getting-started/connect-the-pim-4x/step-1.html#you-said-connection" target="_blank">connection</a>) to an Akeneo PIM.
 
-To learn how to create a connection, see the [Authentication Guide](/documentation/authentication.html#client-idsecret-generation). If you're setting up a custom App, follow the steps in [this tutorial](/tutorials/how-to-get-your-app-token.html#) to obtain an App token.
+To learn how to create a connection, see the <a href="https://api-dev.akeneo.com/documentation/authentication.html#client-idsecret-generation" target="_blank">Authentication Guide</a>. If you're setting up a custom App, follow the steps in <a href="https://api-dev.akeneo.com/tutorials/how-to-get-your-app-token.html" target="_blank">this tutorial</a> to obtain an App token.
 
 ---
 
@@ -43,6 +43,7 @@ In this example, we will create a new `connection` in the PIM and use it to gene
    - Encode the Client ID and Secret in base64 format, separated by a colon `:`:
    ```bash
    export BASE64_ENCODED_CLIENTID_AND_SECRET=$(echo -n "$CLIENT_ID:$CLIENT_SECRET" | base64 -w 0)
+   // For Mac OS user remove the -w 0 option
    ```
 
 **4.  Your API Token:**

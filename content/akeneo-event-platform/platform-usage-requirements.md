@@ -6,7 +6,7 @@
 
 ## HTTPS destination
 
-The platform will test the HTTPS endpoint validitybefore being able to create the subscription.
+The platform will test the HTTPS endpoint validity before being able to create the subscription.
 The endpoint you configured must respond `200 OK` status code on `HTTP HEAD` request.
 
 ::: panel-link Consult now our Best practice advices [Next](/akeneo-event-platform/best-practices.html)

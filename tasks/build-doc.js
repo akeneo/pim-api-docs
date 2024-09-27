@@ -673,7 +673,7 @@ gulp.task('build-akeneo-event-platform', ['clean-dist','less'], function () {
         'akeneo-event-platform.md': "Akeneo Event Platform",
         'getting-started.md': "Getting started",
         'concepts.md': "Concepts",
-        'key-platform-behaviors.md': "Key platform behaviors"
+        'key-platform-behaviors.md': "Key platform behaviors",
         'api-reference.md': "API Reference",
         'available-events.md': "Available events",
         'platform-usage-requirements.md': "Platform usage requirements",
