@@ -86,7 +86,7 @@ For comprehensive details on managing subscriptions, consult the complete API re
 For the `https` type, the `config` property requires:
 
 - a URL using the HTTPS protocol;
-- a URL that accepts HEAD requests and responds with an HTTP status code other than 404 or 5xx.
+- a URL responds with an HTTP status code other than 404 or 5xx.
 
 Additionally, it requires at least a primary secret (with an optional secondary secret) to sign the messages sent to the specified URL.
 
@@ -169,18 +169,5 @@ Example of an event payload for a productDeleted event
 
 For more information, consult the [CloudEvents spec attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md).
 
-## Key platform behaviors
-
-Your subscribing service implementation and architecture must deal with the following capabilities and constraints to consume events from the platform at its best.
-
-### At least once
-
-We're not in a "at most once" paradigm but in a **`at least once`** one. This paradigm involves two things your service must compose with:
-
-- Expect duplicates
-- Expect un-ordered events
-
-To help identify duplicated events and deal with un-ordered events if it's something critical for your business, you can rely on both fields  **`id`** and **`time`** from the event, which provide unique identifiers and publication timestamp for each event.
-
-::: panel-link Now that you know the basic concepts, let's get started! [Next](/akeneo-event-platform/getting-started.html)
+::: panel-link Now that you know the basic concepts, let's get explore the key behaviors! [Next](/akeneo-event-platform/key-platform-behaviors.html)
 :::

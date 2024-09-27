@@ -29,14 +29,13 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 
 **2. Set Your Environment Variables:**
    - Define the Client ID, Secret, Username, Password, and Akeneo host URL as environment variables:
-
-    ```bash
-    export CLIENT_ID="your-client-id"
-    export CLIENT_SECRET="your-client-secret"
-    export API_USERNAME="your-API-username"
-    export API_PASSWORD="your-API-password"
-    export TARGET_PIM_URL="https://your-pim.cloud.akeneo.com"
-    ```
+   ```bash
+        export CLIENT_ID="your-client-id"
+        export CLIENT_SECRET="your-client-secret"
+        export API_USERNAME="your-API-username"
+        export API_PASSWORD="your-API-password"
+        export TARGET_PIM_URL="https://your-pim.cloud.akeneo.com"
+   ```
    Replace the placeholders with your actual credentials and host URL.
 
 **3. Encode Your Credentials:**
@@ -48,8 +47,7 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 
 **4.  Your API Token:**
    - Make the API call to retrieve your `API token` using the environment variables:
-
-    ```bash
+   ```bash
    curl --request POST "$TARGET_PIM_URL/api/oauth/v1/token" \
    --header "Content-Type: application/json" \
    --header "Authorization: Basic $BASE64_ENCODED_CLIENTID_AND_SECRET" \
@@ -159,5 +157,5 @@ Alternatively, you can also update a product using the [Akeneo PIM REST API](/ap
 
 After updating the product, verify that the event was successfully triggered by checking the payload received at your destination URL.
 
-::: panel-link Let's see the API reference! [Next](/akeneo-event-platform/api-reference.html) 
+::: panel-link Explore Key Concepts to deepen your understanding of the [Akeneo Event Platform](/akeneo-event-platform/concepts.html)
 :::

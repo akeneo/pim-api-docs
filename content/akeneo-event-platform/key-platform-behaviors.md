@@ -18,7 +18,7 @@ Our delivery engine will try to deliver events as fast as possible but will adap
 
 If your subscription has an HTTPS destination, please respond with `429 Too Many Requests` when your system is overloaded: this way, the delivery engine will slow down, retry undelivered events, and gradually increase the throughput when your system gets back to recovers (i.e., when it responds `200 OK` again).
 
-Please note that if the rate drops too significantly, the suspension policy will be triggered ([see bellow](/akeneo-event-platform/concepts.html#suspension-policy.html)).
+Please note that if the throughput drops too significantly, the suspension policy will be triggered ([see bellow](/akeneo-event-platform/concepts.html#suspension-policy.html)).
 
 ## Delivery timeout
 
@@ -43,7 +43,7 @@ This type of failure may trigger the suspension policy ([see bellow](/akeneo-eve
 
 Our system enforces a strict suspension policy to ensure the integrity and reliability of event delivery. We distinguish two types of suspension conditions: criteria-based suspensions and threshold-based suspensions.
 
-### Criteria-Based Suspensions:
+### Criteria-Based Suspension:
 
 Your subscription is immediately suspended if you meet one of these conditions:
 
@@ -57,13 +57,11 @@ This type of suspension is based on the success rate of your HTTPS endpoint. If 
 
 Here are the errors type that decrease the success rate:
 
-The following error types decrease the success rate:
-
 - `5XX Server Error` HTTP statuses
-- `429 Too Many Requests` http statuses (while the minimum rate threshold is exceeded)
+- `429 Too Many Requests` HTTP statuses (while the minimum rate threshold is exceeded)
 - `4xx Client Error Response` HTTP status
 
 When the platform suspends your subscription, a notification will be sent to the technical email address you provided, along with contextual information about the suspension.
 
-::: panel-link Now that you know the basic concepts, let's get started! [Next](/akeneo-event-platform/getting-started.html)
+::: panel-link Let's see the API reference! [Next](/akeneo-event-platform/api-reference.html)
 :::

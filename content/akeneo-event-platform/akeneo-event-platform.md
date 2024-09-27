@@ -8,5 +8,5 @@ AEP ensures smooth and efficient responses to changes in your PIM, such as produ
 
 <!-- TODO add marketing-ish content and schema -->
 
-::: panel-link [Explore Key Concepts to deepen your understanding of the Akeneo Event Platform](/akeneo-event-platform/concepts.html)
+::: panel-link Let's get started! [Next](/akeneo-event-platform/getting-started.html)
 :::
