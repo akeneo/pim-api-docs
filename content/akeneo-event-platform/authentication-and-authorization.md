@@ -12,7 +12,7 @@ In the event that the checkbox is unchecked after a subscription has already bee
 
 Permissions for the Event Platform are managed at a global level. You cannot assign specific rights. If this global permission is not enabled, the connection will not be able to subscribe to events, and any existing subscription will be suspended if the permission is later revoked.
 
-::: panel-link Now that you know the basic concepts, let's get explore the key behaviors! [Next](/akeneo-event-platform/key-platform-behaviors.html)
+::: panel-link Let's get explore the key behaviors! [Next](/akeneo-event-platform/key-platform-behaviors.html)
 :::
 
 
