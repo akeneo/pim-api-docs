@@ -86,7 +86,7 @@ For comprehensive details on managing subscriptions, consult the complete API re
 For the `https` type, the `config` property requires:
 
 - a URL using the HTTPS protocol;
-- a URL responds with an HTTP status code other than 404 or 5xx.
+- an endpoint accessible through public internet, without any form of authentication or redirection.
 
 Additionally, it requires at least a primary secret (with an optional secondary secret) to sign the messages sent to the specified URL.
 
