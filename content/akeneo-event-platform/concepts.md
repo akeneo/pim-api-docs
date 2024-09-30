@@ -169,5 +169,5 @@ Example of an event payload for a productDeleted event
 
 For more information, consult the [CloudEvents spec attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md).
 
-::: panel-link Now that you know the basic concepts, let's get explore the key behaviors! [Next](/akeneo-event-platform/key-platform-behaviors.html)
+::: panel-link Let's check the authorization and authentication requirements [Next](/akeneo-event-platform/authentication-and-authorization.html)
 :::
