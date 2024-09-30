@@ -316,6 +316,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'your-first-tutorial-4x': {
             gettingStartedName: 'your-first-tutorial',
             pimVersion: 'v4 / v5 / v6 / v7 / SaaS',
+            deprecated: false,
             title: 'Your very first tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -336,6 +337,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'your-first-tutorial-old': {
             gettingStartedName: 'your-first-tutorial',
             pimVersion: 'v1.7 / v2 / v3',
+            deprecated: false,
             title: 'Your very first tutorial',
             image: 'illustrations/illus--old-versions.svg',
             files: {
@@ -356,6 +358,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'connect-the-pim-4x': {
             gettingStartedName: 'connect-the-pim',
             pimVersion: 'v4 / v5 / v6 / v7 / SaaS',
+            deprecated: false,
             title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -376,6 +379,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'connect-the-pim-old': {
             gettingStartedName: 'connect-the-pim',
             pimVersion: 'v1.7 / v2 / v3',
+            deprecated: false,
             title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -396,6 +400,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'quick-start-my-first-webhook-5x': {
             gettingStartedName: 'quick-start-my-first-webhook',
             pimVersion: 'v5 / v6 / v7/ SaaS',
+            deprecated: true,
             title: 'Quick start my first webhook',
             files: {
                 'welcome.md': 'Welcome',
@@ -412,6 +417,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'events-api-best-practices-5x': {
             gettingStartedName: 'events-api-best-practices',
             pimVersion: 'v5 / v6 / v7 / SaaS',
+            deprecated: true,
             title: 'Events API best practices',
             files: {
                 'welcome.md': 'Best practices',
@@ -426,6 +432,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'synchronize-pim-products-6x': {
             gettingStartedName: synchronizePimProductsName,
             pimVersion: 'v6 / v7 / SaaS',
+            deprecated: false,
             title: 'Synchronize PIM products with your App',
             files: {
                 'welcome.md': 'Welcome',
@@ -446,6 +453,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'from-identifiers-to-uuid-7x': {
             gettingStartedName: 'from-identifiers-to-uuid',
             pimVersion: 'v7 / SaaS',
+            deprecated: false,
             title: 'From product identifiers to UUID',
             files: {
                 'welcome.md': 'Guide',
@@ -473,6 +481,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                         active_api_resources: gettingStartedName !== synchronizePimProductsName,
                         active_apps: gettingStartedName === synchronizePimProductsName,
                         title: pages[path.basename(path.dirname(file.path))].title,
+                        deprecated: pages[path.basename(path.dirname(file.path))].deprecated,
                         description: getPageDescription(file.path),
                         image: pages[path.basename(path.dirname(file.path))].image,
                         gettingStartedName: gettingStartedName,
