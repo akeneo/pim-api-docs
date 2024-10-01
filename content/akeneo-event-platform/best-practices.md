@@ -2,12 +2,9 @@
 
 ## Handling 429 Responses for HTTPS destinations
 
-The platform can send many events in a short time, potentially causing overload and leading to `500` responses from your side. In such cases, your subscription may be suspended. By implementing a proper `429` response mechanism, you can delay event processing to maintain service stability and avoid suspension.
+The platform can send many events in a short time, potentially causing overload and leading to `500` responses from your side. In such cases, event will enter the [retry mecanism](/akeneo-event-platform/concepts.html##retry-policy-for-transient-failures) and your subscription may be suspended. By implementing a proper `429` response mechanism, you will optimize the event reception flow thanks to our [optimizez throughput](/akeneo-event-platform/concepts.html#optimized-throughput).
 
-If your 429 responses contains a `Retry-after` header, the platform **will not take it into account**, the event will enter the [retry mecanism](/akeneo-event-platform/concepts.html#retry-policy).
-
-<!-- TODO rework paragraph after this PR is merged -->
-<!-- https://github.com/akeneo/event-platform/pull/144 -->
+If your 429 responses contains a `Retry-after` header, the platform **will not take it into account**.
 
 ## Suspending and Resuming Subscriptions
 
@@ -21,7 +18,7 @@ Due to the scalable and distributed nature of our service, in addition with its 
 
 ## Implement Reconciliation Processes
 
-Your app shouldn't rely solely on receiving data from the Akeneo Event Platform. Because you may not receive events if you suspend your subscription or your server is not able to handle them during the maximum retry period, you should implement reconciliation jobs to periodically fetch data from the PIM.
+Your app shouldn't rely solely on receiving data from the Event Platform. Because you may not receive events if you suspend your subscription or your server is not able to handle them during the maximum retry period, you should implement reconciliation jobs to periodically fetch data from the PIM.
 
 You could do this in the background or offer reconciliation and syncing options to the user. For example, your app's UI could contain a button that triggers a manual reconciliation process by calling the relevant API endpoint and fetching the requested data.
 

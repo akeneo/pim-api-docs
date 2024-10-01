@@ -1,6 +1,6 @@
 # PIM Compatibility
 
-The compatibility of the Akeneo Event Platform with `various editions` of Akeneo PIM is explained below.
+The compatibility of the Event Platform with `various editions` of Akeneo PIM is explained below.
 
 | Akeneo PIM Edition        | Supported ?   |
 |---------------------------|---------------|

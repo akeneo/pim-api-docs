@@ -1,7 +1,7 @@
-# Platform usage requirements
+# Authentication and authorization
 
 ## Authentication
-Having a valid Akeneo PIM API token provided by either a connection or an App to be authenticated to use the Akeneo Event Platform Management API
+Having a valid Akeneo PIM API token provided by either a connection or an App to be authenticated to use the Event Platform Management API.
 
 ## Authorization
 To ensure proper data flow between your app or connection and the Event Platform, a specific permission checkbox must be enabled in either the **Connections** tab or in the **App's connection settings** tab depending on your usage.  
@@ -12,12 +12,7 @@ In the event that the checkbox is unchecked after a subscription has already bee
 
 Permissions for the Event Platform are managed at a global level. You cannot assign specific rights. If this global permission is not enabled, the connection will not be able to subscribe to events, and any existing subscription will be suspended if the permission is later revoked.
 
-
-## HTTPS destination
-
-The platform will test the HTTPS endpoint validitybefore being able to create the subscription.
-The endpoint you configured must respond `200 OK` status code on `HTTP HEAD` request.
-
-::: panel-link Consult now our Best practice advices [Next](/akeneo-event-platform/best-practices.html)
+::: panel-link Let's get explore the key behaviors! [Next](/akeneo-event-platform/key-platform-behaviors.html)
 :::
+
 

@@ -670,12 +670,13 @@ gulp.task('build-graphql', ['clean-dist','less'], function () {
 
 gulp.task('build-akeneo-event-platform', ['clean-dist','less'], function () {
     var pages = {
-        'akeneo-event-platform.md': "Akeneo Event Platform",
-        'concepts.md': "Concepts",
+        'akeneo-event-platform.md': "Event Platform",
         'getting-started.md': "Getting started",
+        'concepts.md': "Concepts",
+        'authentication-and-authorization.md': "Authentication and authorization",
+        'key-platform-behaviors.md': "Key platform behaviors",
         'api-reference.md': "API Reference",
         'available-events.md': "Available events",
-        'platform-usage-requirements.md': "Platform usage requirements",
         'best-practices.md': "Best practices",
         'integration-examples.md': "Integration examples",
         'compatibility.md': "Compatibility",
@@ -697,8 +698,8 @@ gulp.task('build-akeneo-event-platform', ['clean-dist','less'], function () {
                     return gulp.src('src/partials/akeneo-event-platform.handlebars')
                         .pipe(gulpHandlebars({
                             active_api_resources: true,
-                            title: 'The Akeneo Event Platform',
-                            description: getPageDescription(file.path, "The Akeneo Event Platform"),
+                            title: 'The Event Platform',
+                            description: getPageDescription(file.path, "The Event Platform"),
                             mainContent: fs.readFileSync('tmp/akeneo-event-platform/' + path.basename(file.path).replace(/\.md/, '.html'))
                         }, {
                             partialsDirectory: ['./src/partials']

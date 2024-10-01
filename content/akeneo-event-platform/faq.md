@@ -64,7 +64,7 @@ The platform do not offer a way to query past events, we do not store any event 
 
 Akeneo's Event API have some core limitations such as a `4.000 event/hour` limit.
 
-Akeneo Event Platform is a new platform with distinct functionalities and should not be considered as the next version of [Akeneo's Event API](https://api.akeneo.com/events-documentation/overview.html). 
+Event Platform is a new platform with distinct functionalities and should not be considered as the next version of [Akeneo's Event API](https://api.akeneo.com/events-documentation/overview.html). 
 
 The new platform offers more granular event handling compared to the Event API, every events will be tried to be delivered and retried in case of failure.
 

@@ -2,13 +2,14 @@
 
 ## Subscriber
 
-Simply put, a subscriber represents a connection to a specific event source, like a PIM. While you can attach multiple subscribers to your source, the general recommendation is to configure only one. However, your setup will require creating various subscribers for a multi-tenant context.
+A subscriber represents the connection to a specific PIM instance and acts as the key reference for managing subscriptions and receiving events. It requires a connection to this PIM, so each subscriber is tied to **a single PIM instance and connection**. In a multi-tenant context—such as when your App is installed on multiple PIM instances—users must create a separate subscriber for each PIM instance to ensure accurate event handling across all instances.
+
 
 The following properties represent a subscriber:
 
 | Property | Value | Description                                                                     |
 | --- | --- |---------------------------------------------------------------------------------|
-| `id` | Automatically populated | Identifier of the subscriber inside the Akeneo Event Platform                   |
+| `id` | Automatically populated | Identifier of the subscriber inside the Event Platform                   |
 | `tenant_id` | Automatically populated | The tenant identifier (an Akeneo PIM identifier) of the subscriber-targeted PIM |
 | `client_id` | From `X-PIM-CLIENT-ID` header parameter | The App/connection client_id that has been used to create the subscriber        |
 | `name` | Populated by the user at creation | Name of the subscriber                                                          |
@@ -33,7 +34,7 @@ The following properties represent a subscription:
 
 | Property | Value | Description |
 | --- | --- | --- |
-| `id` | Automatically populated | Identifier of the subscription within the Akeneo Event Platform |
+| `id` | Automatically populated | Identifier of the subscription within the Event Platform |
 | `source` | Populated by the user at creation | Source of the event (currently, the only source available is `pim`) |
 | `subject` | From `X-PIM-URL` header parameter | URL of the targeted source |
 | `type` | Populated by the user at creation | Type of the subscription (currently, there are two available types:  `https` and `pubsub`) |
@@ -52,6 +53,32 @@ The statuses for a subscription are:
 
 ## Subscription types
 
+### Pub/Sub subscription
+
+#### Configuration
+
+For the `pubsub` subscription type, the `config` property required when creating the subscription property requires both the project ID and the topic ID.
+
+```json
+{
+    "project_id": "your_google_project_id",
+    "topic_id": "your_google_pubsub_topic_id"
+}
+```
+
+#### Allow the Event Platform to publish in your Pub/Sub topic
+
+To use a Pub/Sub subscription, you need to complete a few additional steps to ensure we have permission to publish into your Pub/Sub topic:
+
+- In the Google Cloud console, go to "**Pub/Sub > Topics**"
+- Next to the topic you want to use, click "**…**" and then "**View permissions**"
+- Click on **ADD PRINCIPAL**
+- Past the following service account address into the "**New principals**" text box: `delivery-sa@akecld-prd-sdk-aep-prd.iam.gserviceaccount.com`
+- In the Role drop-down list, select "**Pub/Sub**" and "**Pub/Sub Publisher**"
+- Click "**Save**"
+
+For comprehensive details on managing subscriptions, consult the complete API reference [here](/akeneo-event-platform/api-reference.html).
+
 ### HTTPS subscription
 
 #### Configuration
@@ -59,7 +86,7 @@ The statuses for a subscription are:
 For the `https` type, the `config` property requires:
 
 - a URL using the HTTPS protocol;
-- a URL that accepts HEAD requests and responds with an HTTP status code other than 404 or 5xx.
+- an endpoint accessible through public internet, without any form of authentication or redirection.
 
 Additionally, it requires at least a primary secret (with an optional secondary secret) to sign the messages sent to the specified URL.
 
@@ -103,32 +130,6 @@ We currently use a static IP address provided by Google Cloud: `34.140.80.128`
 
 **However, we cannot guarantee that this IP address will remain unchanged indefinitely.** Therefore, we strongly recommend whitelisting the `europe-west1` IP ranges from [Google Cloud's IP ranges list](https://www.gstatic.com/ipranges/cloud.json) to ensure continuous access.
 
-### Pub/Sub subscription
-
-#### Configuration
-
-For the `pubsub` subscription type, the `config` property required when creating the subscription property requires both the project ID and the topic ID.
-
-```json
-{
-    "project_id": "your_google_project_id",
-    "topic_id": "your_google_pubsub_topic_id"
-}
-```
-
-#### Allow the Akeneo Event Platform to publish in your Pub/Sub topic
-
-To use a Pub/Sub subscription, you need to complete a few additional steps to ensure we have permission to publish into your Pub/Sub topic:
-
-- In the Google Cloud console, go to "**Pub/Sub > Topics**"
-- Next to the topic you want to use, click "**…**" and then "**View permissions**"
-- Click on **ADD PRINCIPAL**
-- Past the following service account address into the "**New principals**" text box: `delivery-sa@akecld-prd-sdk-aep-prd.iam.gserviceaccount.com`
-- In the Role drop-down list, select "**Pub/Sub**" and "**Pub/Sub Publisher**"
-- Click "**Save**"
-
-For comprehensive details on managing subscriptions, consult the complete API reference [here](/akeneo-event-platform/api-reference.html).
-
 ## Events Format
 
 Our platform standardises event data across services using the [CloudEvents specification](https://github.com/cloudevents/spec). CloudEvents provides a consistent structure for event data, ensuring interoperability and simplifying event handling. Each event includes essential metadata such as the event type, source, ID, and timestamp.
@@ -168,70 +169,5 @@ Example of an event payload for a productDeleted event
 
 For more information, consult the [CloudEvents spec attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md).
 
-## Key platform behaviors
-
-Your subscribing service implementation and architecture must deal with the following capabilities and constraints to consume events from the platform at its best.
-
-### At least once
-
-We're not in a "at most once" paradigm but in a **`at least once`** one. This paradigm involves two things your service must compose with:
-
-- Expect duplicates
-- Expect un-ordered events
-
-To help identify duplicated events and deal with un-ordered events if it's something critical for your business, you can rely on both fields  **`id`** and **`time`** from the event, which provide unique identifiers and publication timestamp for each event.
-
-### Optimized throughput
-
-Our delivery engine will try to deliver events as fast as possible but will adapt the throughput within the limits described in this section.
-
-If your subscription has an HTTPS destination, please respond with `429 Too Many Requests` when your system is overloaded: this way, the delivery engine will slow down, retry undelivered events, and gradually increase the throughput when your system gets back to recovers (i.e., when it responds `200 OK` again).
-
-Please note that if the rate drops too significantly, the suspension policy will be triggered ([see bellow](/akeneo-event-platform/concepts.html#suspension-policy.html)).
-
-### Delivery timeout
-
-Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to handle requests within **`3 seconds`**.  If processing exceeds this duration, the event will enter the retry process ([see bellow](/akeneo-event-platform/concepts.html#retry-policy-for-transient-failures.html)).
-
-Under normal circumstances, your HTTPS endpoint must handle the event as fast as possible.
-**Our recommendation** is to put the message in a `queuing system` or in a `database` for asynchronous processing.
-
-### Retry policy for transient failures
-
-Our retry policy helps ensure event delivery during transient failures, allowing for multiple attempts to deliver messages when temporary issues arise. The retry back-off mechanism is managed internally and is not configurable on a per-tenant basis.
-
-If your destination is unable to ingest an event, we will retry deliver as follow:
- - First retry: 5 minutes after the previous attempt.
- - Second retry: 10 minutes after the previous attempt.
- - Third retry: 20 minutes after the previous attempt.
-
-These retries are on a best-effort basis and apply only to transient errors or timeouts. After **three retry attempts**, the message is dropped.
-This type of failure may trigger the suspension policy ([see bellow](/akeneo-event-platform/concepts.html#suspension-policy.html)).
-
-### Suspension policy
-
-Our system enforces a strict suspension policy to ensure the integrity and reliability of event delivery. We distinguish two types of suspension conditions: criteria-based suspensions and threshold-based suspensions.
-
-#### Criteria-Based Suspensions:
-
-Your subscription is immediately suspended if you meet one of these conditions:
-
-- Your HTTPS endpoint responds with a `404 Not Found` HTTP status.
-- Your HTTPS endpoint responds with `3xx Redirection` HTTP statuses, as we do not support redirections.
-- We're not authorized to publish message in your Google Cloud Topic.
-
-#### Threshold-Based Suspension:
-
-This type of suspension is based on the success rate of your HTTPS endpoint. If the success rate drops below 95% within the last rolling hour, your subscription will be suspended.
-
-Here are the errors type that decrease the success rate:
-
-The following error types decrease the success rate:
-
-- `5XX Server Error` HTTP statuses
-- `429 Too Many Requests` http statuses (while the minimum rate threshold is exceeded)
-
-When the platform suspends your subscription, a notification will be sent to the technical email address you provided, along with contextual information about the suspension.
-
-::: panel-link Now that you know the basic concepts, let's get started! [Next](/akeneo-event-platform/getting-started.html)
+::: panel-link Let's check the authorization and authentication requirements [Next](/akeneo-event-platform/authentication-and-authorization.html)
 :::
