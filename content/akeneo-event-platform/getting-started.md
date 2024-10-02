@@ -12,7 +12,7 @@ To learn how to create a connection, see the <a href="https://api-dev.akeneo.com
 
 ## Using Postman
 
-The easiest way to manipulate the Event Platform entities will be through our Postman Collection.
+The easiest way to manipulate the Event Platform API for a quickstart will be through our Postman Collection.
 
 ### 1. Import the Postman Collection
 
@@ -24,7 +24,7 @@ The easiest way to manipulate the Event Platform entities will be through our Po
 
 The collection comes with a pre-script to deal with the authentication specificities when using a PIM Connection.
 
-Fill the environment variables with your PIM connection values.
+Fill the environment variables with your PIM connection values, and it will automatically generate an `access_token` if the credentials you provide are valid.
 You can leave `subscriberId` and `subscriptionId` blank for now.
 
 ![postman-collection.png](../img/aep/postman-collection.png)
@@ -39,10 +39,9 @@ You can leave `subscriberId` and `subscriptionId` blank for now.
 
 ### 4. Create a Subscription
 
-1. Change the https endpoint value to the endpoint of your choice to receive events
+1. Change the https endpoint value to the url of your choice to receive events
 2. You can update the `events` array to receive more event types
 3. Send a `Create a Subscription` POST request
-4. That's it, make changes on your PIM and you shall receive events in your endpoint
 
 ![postman-create-subscription.png](../img/aep/postman-create-subscription.png)
 
@@ -52,6 +51,7 @@ With your subscription in place, you're ready to trigger the event you subscribe
 
 After deleting the product, verify that the event was successfully triggered by checking the payload received at your destination URL.
 
+---
 
 ## Using Curl
 
@@ -138,13 +138,11 @@ Response Example :
 ```json
     {
     "id": "01905a84-a3b7-766e-a49f-5519c35fa7a0",
-    "tenant_id": "pim_tenant",
-    "client_id": "3444ec1b-058e-4208-9b6c-284f47a7aa17",
-    "name": "subscriber name",
+    "name": "example subscriber name",
     "subject": "https://pim.cloud.akeneo.com",
     "status": "active",
     "contact": {
-        "technical_email": "subscriber.email@example.com"
+        "technical_email": "subscriber.test.email@example.com"
     },
     "created_at": "2024-06-27T16:26:00.503422Z",
     "updated_at": "2024-06-27T16:26:00.503422Z"
