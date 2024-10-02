@@ -4,7 +4,7 @@ The old Event API has significant scalability, reliability, and functionality li
 
 | **Feature**                      | **Old Event API**                                     | **New Event Platform**                               |
 |----------------------------------|-------------------------------------------------------|------------------------------------------------------|
-| **Event Coverage**               | Limited to product and product models                 | [Wide range of events](/akeneo-event-platform/available-events.html) beyond just product and product models |
+| **Event Coverage**               | Limited to product and product models                 | [Wide range of events](/event-platform/available-events.html) beyond just product and product models |
 | **Capacity**                     | 4,000 events per hour with a maximum of 3 subscribers | No limit on the number of events, capable of handling much larger volumes |
 | **Payload**                      | Full product imprint without details on changes                                         | Lightweight payload, providing only the identifier of the updated entity (delta payload is a part of the roadmap) |
 | **Performance**                  | Limited by low capacity and full payloads             | Optimized for high volume of events and fastest throughput  |
@@ -41,7 +41,7 @@ Your subscriber and all linked subscriptions are instantaneously revoked resulti
 
 ### Can we pause the event reception when our target destination is under maintenance or unavailable?
 
-Yes, you can call the management API to suspend your subscription and stop receiving messages. [More details](/akeneo-event-platform/best-practices.html#suspending-and-resuming-subscriptions-during-migration)
+Yes, you can call the management API to suspend your subscription and stop receiving messages. [More details](/event-platform/best-practices.html#suspending-and-resuming-subscriptions-during-migration)
 
 ### Does Event Platform come with an user interface or dashboards?
 

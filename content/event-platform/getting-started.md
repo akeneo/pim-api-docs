@@ -97,10 +97,8 @@ Response Example :
 ```json
     {
     "id": "01905a84-a3b7-766e-a49f-5519c35fa7a0",
-    "tenant_id": "pim_tenant",
-    "client_id": "3444ec1b-058e-4208-9b6c-284f47a7aa17",
     "name": "subscriber name",
-    "subject": "https://pim.cloud.akeneo.com",
+    "subject": "https://my-pim.cloud.akeneo.com",
     "status": "active",
     "contact": {
         "technical_email": "subscriber.email@example.com"
@@ -159,5 +157,5 @@ Alternatively, you can also update a product using the [Akeneo PIM REST API](/ap
 
 After updating the product, verify that the event was successfully triggered by checking the payload received at your destination URL.
 
-::: panel-link Explore Key Concepts to deepen your understanding of the [Event Platform](/akeneo-event-platform/concepts.html)
+::: panel-link Explore Key Concepts to deepen your understanding of the [Event Platform](/event-platform/concepts.html)
 :::

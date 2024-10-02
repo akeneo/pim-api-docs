@@ -13,5 +13,5 @@ paths = [
     # On API Spec we have example of secret
     '''content/swagger/aep/public-oas.yml''',
     # Event Platform getting started documentation
-    '''content/akeneo-event-platform/getting-started.md''',
+    '''content/event-platform/getting-started.md''',
 ]

@@ -668,9 +668,9 @@ gulp.task('build-graphql', ['clean-dist','less'], function () {
     }
 );
 
-gulp.task('build-akeneo-event-platform', ['clean-dist','less'], function () {
+gulp.task('build-event-platform', ['clean-dist','less'], function () {
     var pages = {
-        'akeneo-event-platform.md': "Event Platform",
+        'overview.md': "Overview",
         'getting-started.md': "Getting started",
         'concepts.md': "Concepts",
         'authentication-and-authorization.md': "Authentication and authorization",
@@ -687,26 +687,26 @@ gulp.task('build-akeneo-event-platform', ['clean-dist','less'], function () {
 
     var isOnePage = false;
 
-    return gulp.src('content/akeneo-event-platform/*.md')
+    return gulp.src('content/event-platform/*.md')
         .pipe(flatmap(function(stream, file){
-            return gulp.src('content/akeneo-event-platform/*.md')
+            return gulp.src('content/event-platform/*.md')
                 .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/akeneo-event-platform') + "\n"))
+                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/event-platform') + "\n"))
                 .pipe(gulpMarkdownIt(mdGt))
-                .pipe(gulp.dest('tmp/akeneo-event-platform/'))
+                .pipe(gulp.dest('tmp/event-platform/'))
                 .on('end', function () {
-                    return gulp.src('src/partials/akeneo-event-platform.handlebars')
+                    return gulp.src('src/partials/event-platform.handlebars')
                         .pipe(gulpHandlebars({
                             active_api_resources: true,
                             title: 'The Event Platform',
                             description: getPageDescription(file.path, "The Event Platform"),
-                            mainContent: fs.readFileSync('tmp/akeneo-event-platform/' + path.basename(file.path).replace(/\.md/, '.html'))
+                            mainContent: fs.readFileSync('tmp/event-platform/' + path.basename(file.path).replace(/\.md/, '.html'))
                         }, {
                             partialsDirectory: ['./src/partials']
                         }))
                         .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
                         .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                        .pipe(gulp.dest('./dist/akeneo-event-platform'));
+                        .pipe(gulp.dest('./dist/event-platform'));
                 })
         }));
 }

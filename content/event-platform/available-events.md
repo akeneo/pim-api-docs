@@ -1162,5 +1162,5 @@ The event is triggered when any changes are made to the record values.
 }
 ```
 
-::: panel-link Consult now our Best practice advices [Next](/akeneo-event-platform/best-practices.html)
+::: panel-link Consult now our Best practice advices [Next](/event-platform/best-practices.html)
 :::
