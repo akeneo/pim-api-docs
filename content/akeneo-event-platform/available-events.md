@@ -16,8 +16,8 @@
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -27,7 +27,7 @@
   "subject": "srnt-whatever",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.app.deleted.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.app.deleted.schema.json",
   "data": {
     "app": {
       "client_id": "test_client_id"
@@ -54,8 +54,8 @@
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -97,8 +97,8 @@ Only changes in asset values will cause this event.
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -138,8 +138,8 @@ Only changes in asset values will cause this event.
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -177,8 +177,8 @@ Only changes in asset values will cause this event.
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -188,7 +188,7 @@ Only changes in asset values will cause this event.
   "subject": "srnt-whatever",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.attribute.created.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute.created.schema.json",
   "data": {
     "attribute": {
       "code": "an-attribute-code"
@@ -218,8 +218,8 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -229,7 +229,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
   "subject": "srnt-whatever",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.attribute.updated.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute.updated.schema.json",
   "data": {
     "attribute": {
       "code": "an-attribute-code"
@@ -254,8 +254,8 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -265,7 +265,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
   "subject": "srnt-whatever",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.attribute.deleted.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute.deleted.schema.json",
   "data": {
     "attribute": {
       "code": "an-attribute-code"
@@ -290,8 +290,8 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -301,7 +301,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
   "subject": "srnt-whatever",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.attribute-group.created.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute-group.created.schema.json",
   "data": {
     "attribute_group": {
       "code": "an-attribute-group-code"
@@ -326,8 +326,8 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -337,7 +337,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
   "subject": "srnt-whatever",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.attribute-group.updated.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute-group.updated.schema.json",
   "data": {
     "attribute_group": {
       "code": "an-attribute-group-code"
@@ -362,8 +362,8 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -373,7 +373,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
   "subject": "srnt-whatever",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.attribute-group.deleted.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute-group.deleted.schema.json",
   "data": {
     "attribute_group": {
       "code": "an_attribute_group_code"
@@ -400,8 +400,8 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -441,8 +441,8 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -482,8 +482,8 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -521,8 +521,8 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -563,8 +563,8 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -599,8 +599,8 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -635,8 +635,8 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -646,10 +646,10 @@ The event is triggered when any of the following properties are changed:
   "subject": "srnt-whatever",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.connection.deleted.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.connection.deleted.schema.json",
   "data": {
     "connection": {
-      "code": "connection-code"
+      "client_id": "connection-client-id"
     }
   }
 }
@@ -679,8 +679,8 @@ The following actions can trigger a product creation event:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -690,7 +690,7 @@ The following actions can trigger a product creation event:
   "subject": "srnt-whatever",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.product.created.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.created.schema.json",
   "data": {
     "product": {
       "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf"
@@ -740,8 +740,8 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -751,7 +751,7 @@ The modifications that can lead to this event include:
   "subject": "srnt-whatever",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.product.updated.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.updated.schema.json",
   "data": {
     "product": {
       "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf"
@@ -784,8 +784,8 @@ The following actions can trigger a product deletion event:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -795,7 +795,7 @@ The following actions can trigger a product deletion event:
   "subject": "srnt-whatever",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.product.deleted.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.deleted.schema.json",
   "data": {
     "product": {
       "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf"
@@ -820,8 +820,8 @@ The following actions can trigger a product deletion event:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -831,7 +831,7 @@ The following actions can trigger a product deletion event:
   "subject": "srnt-whatever",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.product.created.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.created.schema.json",
   "data": {
     "product_model": {
       "code": "a-product-model-code"
@@ -867,8 +867,8 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -878,7 +878,7 @@ The modifications that can lead to this event include:
   "subject": "srnt-whatever",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.product.updated.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.updated.schema.json",
   "data": {
     "product_model": {
       "code": "a-product-model-code"
@@ -903,8 +903,8 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -914,7 +914,7 @@ The modifications that can lead to this event include:
   "subject": "srnt-whatever",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://event.sdk.akeneo.cloud/com.akeneo.pim.v1.product-model.deleted.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product-model.deleted.schema.json",
   "data": {
     "product_model": {
       "code": "a-product-model-code"
@@ -939,8 +939,8 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -981,8 +981,8 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -1017,8 +1017,8 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -1055,8 +1055,8 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -1098,8 +1098,8 @@ The event is triggered when any changes are made to the record values.
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -1139,8 +1139,8 @@ The event is triggered when any changes are made to the record values.
 
 > Example of payload
 
-
 ```json
+
 
 {
   "specversion": "1.0",
@@ -1162,5 +1162,7 @@ The event is triggered when any changes are made to the record values.
 }
 ```
 
-::: panel-link Consult now our Best practice advices [Next](/akeneo-event-platform/best-practices.html)
+::: panel-link Let's check the requirements [Next](/akeneo-event-platform/integration-examples.html)
+:::
+::: panel-link Let's check the requirements [Next](/akeneo-event-platform/integration-examples.html)
 :::
