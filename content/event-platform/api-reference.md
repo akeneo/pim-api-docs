@@ -6,5 +6,5 @@
 
 You can use [the swagger online editor](https://editor-next.swagger.io/) to have a nice UI to render it.
 
-::: panel-link Continue by exploring the available events you'll be able to subscribe to. [Next](/akeneo-event-platform/available-events.html)
+::: panel-link Continue by exploring the available events you'll be able to subscribe to. [Next](/event-platform/available-events.html)
 :::

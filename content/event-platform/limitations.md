@@ -12,5 +12,5 @@ Our Event platform has specific quotas designed to ensure optimal performance an
 - **Weekly Event Limit**: You can distribute up to 5 million events per week for the light payload.
 - **Exceeding Limits**: If you exceed this limit occasionally, your usage will not be interrupted. However, habitual overages may require further discussion to optimize your usage.
 
-::: panel-link Consult now our FAQ [Next](/akeneo-event-platform/faq.html)
+::: panel-link Consult now our FAQ [Next](/event-platform/faq.html)
 :::

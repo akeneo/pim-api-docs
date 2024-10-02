@@ -18,11 +18,11 @@ Our delivery engine will try to deliver events as fast as possible but will adap
 
 If your subscription has an HTTPS destination, please respond with `429 Too Many Requests` when your system is overloaded: this way, the delivery engine will slow down, retry undelivered events, and gradually increase the throughput when your system gets back to recovers (i.e., when it responds `200 OK` again).
 
-Please note that if the throughput drops too significantly, the suspension policy will be triggered ([see bellow](/akeneo-event-platform/concepts.html#suspension-policy.html)).
+Please note that if the throughput drops too significantly, the suspension policy will be triggered ([see bellow](/event-platform/concepts.html#suspension-policy.html)).
 
 ## Delivery timeout
 
-Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to handle requests within **`3 seconds`**.  If processing exceeds this duration, the event will enter the retry process ([see bellow](/akeneo-event-platform/concepts.html#retry-policy-for-transient-failures.html)).
+Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to handle requests within **`3 seconds`**.  If processing exceeds this duration, the event will enter the retry process ([see bellow](/event-platform/concepts.html#retry-policy-for-transient-failures.html)).
 
 Under normal circumstances, your HTTPS endpoint must handle the event as fast as possible.
 **Our recommendation** is to put the message in a `queuing system` or in a `database` for asynchronous processing.
@@ -37,7 +37,7 @@ If your destination is unable to ingest an event, we will retry deliver as follo
  - Third retry: 20 minutes after the previous attempt.
 
 These retries are on a best-effort basis and apply only to transient errors or timeouts. After **three retry attempts**, the message is dropped.
-This type of failure may trigger the suspension policy ([see bellow](/akeneo-event-platform/concepts.html#suspension-policy.html)).
+This type of failure may trigger the suspension policy ([see bellow](/event-platform/concepts.html#suspension-policy.html)).
 
 ## Suspension policy
 
@@ -64,5 +64,5 @@ Here are the errors type that decrease the success rate:
 
 When the platform suspends your subscription, a notification will be sent to the technical email address you provided, along with contextual information about the suspension.
 
-::: panel-link Let's see the API reference! [Next](/akeneo-event-platform/api-reference.html)
+::: panel-link Let's see the API reference! [Next](/event-platform/api-reference.html)
 :::

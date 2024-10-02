@@ -71,5 +71,5 @@ You could also choose to keep only one Google Cloud Topic and deal with differen
 - Declare one subscription per tenant and subscribe to several events at once.
 - Start simple and add complexity with multiple subscriptions targeting different destinations if required.
 
-::: panel-link Understand the event platform compatibility with your PIM version[Next](/akeneo-event-platform/compatibility.html)
+::: panel-link Understand the event platform compatibility with your PIM version[Next](/event-platform/compatibility.html)
 :::
