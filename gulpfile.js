@@ -45,7 +45,6 @@ gulp.task('create-dist', [
   'build-rest-api',
   'build-graphql',
   'build-akeneo-event-platform',
-  'build-aep-reference-page',
   'build-events-api',
   'build-php-client',
   'build-misc-documentation',
