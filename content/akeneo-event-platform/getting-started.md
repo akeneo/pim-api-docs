@@ -1,8 +1,8 @@
 # Getting started
 
-This guide will walk you through the essential steps to set up your environment, create subscriptions, and trigger events.
+This guide provides a step-by-step walkthrough to help you set up event subscriptions using the Event Platform. By the end of this guide, you will have created a connection, authenticated your App, subscribed to events, and triggered an event from your PIM.
 
-### Prerequisites
+## Prerequisites
 
 Before proceeding, ensure that you have an active <a href="https://api.akeneo.com/apps/overview.html#whats-an-akeneo-app" target="_blank">App</a> (it can be a <a href="https://api.akeneo.com/apps/create-custom-app.html" target="_blank">Custom App</a> or an active <a href="https://api.akeneo.com/getting-started/connect-the-pim-4x/step-1.html#you-said-connection" target="_blank">connection</a>) to an Akeneo PIM.
 
@@ -10,9 +10,50 @@ To learn how to create a connection, see the <a href="https://api-dev.akeneo.com
 
 ---
 
-### Basic Use Case: Setting Up Event Subscriptions
+## Using Postman
 
-This guide provides a step-by-step walkthrough to help you set up event subscriptions using the Event Platform. By the end of this guide, you will have created a connection, authenticated your App, subscribed to events, and triggered an event from your PIM.
+The easiest way to manipulate the Event Platform entities will be through our Postman Collection.
+
+### 1. Import the Postman Collection
+
+1. Download our [Postman Collection](https://storage.googleapis.com/akecld-prd-sdk-aep-dev-api-assets/generated_postman_collection.json)
+2. Download our [Postman environment variable template](https://storage.googleapis.com/akecld-prd-sdk-aep-dev-api-assets/postman_environment_template.json)
+3. Import those files into Postman (follow [this guide](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/) if you're not familiar with it)
+
+### 2. Fill the environment variables
+
+The collection comes with a pre-script to deal with the authentication specificities when using a PIM Connection.
+
+Fill the environment variables with your PIM connection values.
+You can leave `subscriberId` and `subscriptionId` blank for now.
+
+![postman-collection.png](../img/aep/postman-collection.png)
+
+### 3. Create a Subscriber
+
+1. Select the Postman environment you've just created
+2. Send a `Create a Subscriber` POST request
+3. Copy/Paste the newly created Subscriber id in your `subscriberId` environment variable
+
+![postman-create-subscriber.png](../img/aep/postman-create-subscriber.png)
+
+### 4. Create a Subscription
+
+1. Change the https endpoint value to the endpoint of your choice to receive events
+2. You can update the `events` array to receive more event types
+3. Send a `Create a Subscription` POST request
+4. That's it, make changes on your PIM and you shall receive events in your endpoint
+
+![postman-create-subscription.png](../img/aep/postman-create-subscription.png)
+
+### 5. Trigger an Event from the PIM
+
+With your subscription in place, you're ready to trigger the event you subscribed to (in this example, `com.akeneo.pim.v1.product.deleted`). The simplest way to do this is by deleting a product directly within the Akeneo PIM UI. This approach allows you to trigger the event and manually observe the changes in real time.
+
+After deleting the product, verify that the event was successfully triggered by checking the payload received at your destination URL.
+
+
+## Using Curl
 
 ### 1. Retrieve your credentials from your targeted PIM
 
