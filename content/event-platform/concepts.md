@@ -24,7 +24,7 @@ The statuses for a subscriber are:
 | `active` | The destination will receive notifications for events tracked by the subscriber |
 | `deleted` | The subscriber is inactive and cannot be reactivated |
 
-For comprehensive details on managing subscribers, consult the complete API reference [here](/akeneo-event-platform/api-reference.html).
+For comprehensive details on managing subscribers, consult the complete API reference [here](/event-platform/api-reference.html).
 
 ## Subscription
 
@@ -57,12 +57,21 @@ The statuses for a subscription are:
 
 #### Configuration
 
-For the `pubsub` subscription type, the `config` property required when creating the subscription property requires both the project ID and the topic ID.
+For the `pubsub` subscription type, the `config` property needed when creating the subscription requires both the project ID and the topic ID.
 
-```json
+```json[snippet:Pub/Sub subscription]
+
 {
-    "project_id": "your_google_project_id",
-    "topic_id": "your_google_pubsub_topic_id"
+    "source": "pim",
+    "subject": "https://my-pim.cloud.akeneo.com",
+    "events": [
+        "com.akeneo.pim.v1.product.updated"
+    ],
+    "type": "pubsub",
+    "config": {
+        "project_id": "your_google_project_id",
+        "topic_id": "your_google_pubsub_topic_id"
+    }
 }
 ```
 
@@ -77,7 +86,7 @@ To use a Pub/Sub subscription, you need to complete a few additional steps to en
 - In the Role drop-down list, select "**Pub/Sub**" and "**Pub/Sub Publisher**"
 - Click "**Save**"
 
-For comprehensive details on managing subscriptions, consult the complete API reference [here](/akeneo-event-platform/api-reference.html).
+For comprehensive details on managing subscriptions, consult the complete API reference [here](/event-platform/api-reference.html).
 
 ### HTTPS subscription
 
@@ -90,12 +99,21 @@ For the `https` type, the `config` property requires:
 
 Additionally, it requires at least a primary secret (with an optional secondary secret) to sign the messages sent to the specified URL.
 
-```json
+```json[snippet:Https subscription]
+
 {
-  "url": "https://your_webhook_url",
-  "secret": {
-    "primary": "your_primary_secret_to_sign_the_payload",
-    "secondary": "your_secondary_secret_to_sign_the_payload"
+  "source": "pim",
+  "subject": "https://my-pim.cloud.akeneo.com",
+  "events": [
+    "com.akeneo.pim.v1.product.updated"
+  ],
+  "type": "https",
+  "config": {
+    "url": "https://your_webhook_url",
+    "secret": {
+      "primary": "your_primary_secret_to_sign_the_payload",
+      "secondary": "your_secondary_secret_to_sign_the_payload"
+    }
   }
 }
 ```
@@ -169,5 +187,5 @@ Example of an event payload for a productDeleted event
 
 For more information, consult the [CloudEvents spec attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md).
 
-::: panel-link Let's check the authorization and authentication requirements [Next](/akeneo-event-platform/authentication-and-authorization.html)
+::: panel-link Authorization and authentication requirements [Next](/event-platform/authentication-and-authorization.html)
 :::

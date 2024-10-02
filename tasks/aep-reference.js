@@ -70,7 +70,7 @@ gulp.task('build-aep-reference-page', ['clean-dist', 'less'], async function () 
 
     return gulp.src('src/aep-reference/reference.handlebars')
         .pipe(gulpHandlebars(apiData, {}))
-        .pipe(rename('akeneo-event-platform/api-reference.html'))
+        .pipe(rename('event-platform/api-reference.html'))
         .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
         .pipe(gulp.dest('dist'));
 });

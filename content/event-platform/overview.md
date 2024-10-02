@@ -1,6 +1,4 @@
-# Event Platform
-
-## Event Platform Overview
+# Event Platform Overview
 
 The **Event Platform** seamlessly integrates with Akeneo PIM through a subscription-based event system. External applications can subscribe to specific events triggered within Akeneo PIM, enabling faster data updates and synchronization than continuous polling.
 
@@ -8,5 +6,5 @@ Using our event platform ensures smooth and efficient responses to changes in yo
 
 <!-- TODO add marketing-ish content and schema -->
 
-::: panel-link Let's get started! [Next](/akeneo-event-platform/getting-started.html)
+::: panel-link Let's get started! [Next](/event-platform/getting-started.html)
 :::
