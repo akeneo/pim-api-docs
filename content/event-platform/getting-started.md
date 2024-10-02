@@ -16,8 +16,8 @@ The easiest way to manipulate the Event Platform API for a quickstart will be th
 
 ### 1. Import the Postman Collection
 
-1. Download our [Postman Collection](https://storage.googleapis.com/akecld-prd-sdk-aep-dev-api-assets/generated_postman_collection.json)
-2. Download our [Postman environment variable template](https://storage.googleapis.com/akecld-prd-sdk-aep-dev-api-assets/postman_environment_template.json)
+1. Download our [Postman Collection](https://storage.googleapis.com/akecld-prd-sdk-aep-prd-api-assets/generated_postman_collection.json)
+2. Download our [Postman environment variable template](https://storage.googleapis.com/akecld-prd-sdk-aep-prd-api-assets/postman_environment_template.json)
 3. Import those files into Postman (follow [this guide](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/) if you're not familiar with it)
 
 ### 2. Fill the environment variables
