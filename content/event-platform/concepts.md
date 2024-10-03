@@ -159,7 +159,7 @@ Example of an event payload for a productDeleted event
 {
   "specversion": "1.0",
   "id": "018e197c-dfe2-70f8-9346-1a8e016f5fbb",
-  "source": "akeneo-event-platform",
+  "source": "pim",
   "type": "com.akeneo.pim.v1.product.deleted",
   "subject": "0190fe8a-6213-76ce-8a9f-ba36a5ef555a",
   "datacontenttype": "application/json",
