@@ -45,6 +45,7 @@ gulp.task('create-dist', [
   'build-rest-api',
   'build-graphql',
   'build-supplier-data-manager',
+  'build-event-platform',
   'build-events-api',
   'build-php-client',
   'build-misc-documentation',

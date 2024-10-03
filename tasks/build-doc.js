@@ -702,6 +702,50 @@ gulp.task('build-supplier-data-manager', ['clean-dist','less'], function () {
 }
 );
 
+gulp.task('build-event-platform', ['clean-dist','less'], function () {
+    var pages = {
+        'overview.md': "Overview",
+        'getting-started.md': "Getting started",
+        'concepts.md': "Concepts",
+        'authentication-and-authorization.md': "Authentication and authorization",
+        'key-platform-behaviors.md': "Key platform behaviors",
+        'api-reference.md': "API Reference",
+        'available-events.md': "Available events",
+        'best-practices.md': "Best practices",
+        'integration-examples.md': "Integration examples",
+        'compatibility.md': "Compatibility",
+        'limitations.md': "Quota & Limits",
+        // 'migrate-from-deprecated-event-api.md': "Migrate from deprecated event API",
+        'faq.md': "FAQ",
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/event-platform/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/event-platform/*.md')
+                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/event-platform') + "\n"))
+                .pipe(gulpMarkdownIt(mdGt))
+                .pipe(gulp.dest('tmp/event-platform/'))
+                .on('end', function () {
+                    return gulp.src('src/partials/event-platform.handlebars')
+                        .pipe(gulpHandlebars({
+                            active_api_resources: true,
+                            title: 'The Event Platform',
+                            description: getPageDescription(file.path, "The Event Platform"),
+                            mainContent: fs.readFileSync('tmp/event-platform/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        }, {
+                            partialsDirectory: ['./src/partials']
+                        }))
+                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                        .pipe(gulp.dest('./dist/event-platform'));
+                })
+        }));
+}
+);
+
 gulp.task('build-events-api', ['clean-dist','less'], function () {
 
     var pages = {
