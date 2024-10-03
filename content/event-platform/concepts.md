@@ -10,8 +10,6 @@ The following properties represent a subscriber:
 | Property | Value | Description                                                                     |
 | --- | --- |---------------------------------------------------------------------------------|
 | `id` | Automatically populated | Identifier of the subscriber inside the Event Platform                   |
-| `tenant_id` | Automatically populated | The tenant identifier (an Akeneo PIM identifier) of the subscriber-targeted PIM |
-| `client_id` | From `X-PIM-CLIENT-ID` header parameter | The App/connection client_id that has been used to create the subscriber        |
 | `name` | Populated by the user at creation | Name of the subscriber                                                          |
 | `subject` | From `X-PIM-URL` header parameter | URL of the targeted source                                                      |
 | `technical_email` | Populated by the user at creation | A contact email will be used to notify you in case of unexpected behaviour       |
