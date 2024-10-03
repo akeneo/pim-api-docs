@@ -121,7 +121,7 @@ You can create a subscriber once you have a valid PIM API token. A subscriber is
 
 The `technical_email` is used to send emails about the subscription status (`deleted`, `suspended`, `revoked`)
 ```bash
-    curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber' \
+    curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscribers' \
 --header "X-PIM-URL: $TARGET_PIM_URL" \
 --header "X-PIM-TOKEN: $PIM_API_TOKEN" \
 --header "X-PIM-CLIENT-ID: $CLIENT_ID" \
@@ -168,7 +168,7 @@ To create a subscription, you will need a destination URL.
 :::
 
 ```bash
-    curl --request POST "https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$SUBSCRIBER_ID/subscription" \
+    curl --request POST "https://event.prd.sdk.akeneo.cloud/api/v1/subscribers/$SUBSCRIBER_ID/subscriptions" \
 --header "X-PIM-URL: $TARGET_PIM_URL" \
 --header "X-PIM-TOKEN: $PIM_API_TOKEN" \
 --header "X-PIM-CLIENT-ID: $CLIENT_ID" \
