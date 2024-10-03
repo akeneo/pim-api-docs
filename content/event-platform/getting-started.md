@@ -71,7 +71,7 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 **2. Set Your Environment Variables:**
    - Define the Client ID, Secret, Username, Password, and Akeneo host URL as environment variables:
 
-   ```bash
+   ```bash [snippet:Shell]
         export CLIENT_ID="your-client-id"
     export CLIENT_SECRET="your-client-secret"
     export API_USERNAME="your-API-username"
@@ -82,14 +82,14 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 
 **3. Encode Your Credentials:**
    - Encode the Client ID and Secret in base64 format, separated by a colon `:`:
-   ```bash
+   ```bash [snippet:Shell]
         export BASE64_ENCODED_CLIENTID_AND_SECRET=$(echo -n "$CLIENT_ID:$CLIENT_SECRET" | base64 -w 0)
    // For Mac OS user remove the -w 0 option
    ```
 
 **4.  Your API Token:**
    - Make the API call to retrieve your `API token` using the environment variables:
-   ```bash
+   ```bash [snippet:Shell]
         curl --request POST "$TARGET_PIM_URL/api/oauth/v1/token" \
     --header "Content-Type: application/json" \
     --header "Authorization: Basic $BASE64_ENCODED_CLIENTID_AND_SECRET" \
@@ -100,7 +100,7 @@ In this example, we will create a new `connection` in the PIM and use it to gene
     }'
    ```
    After retrieving the API token, store the `access_token` from the response in an environment variable:
-   ```bash
+   ```bash [snippet:Shell]
         export PIM_API_TOKEN="..."
     // Replace with the actual token from the response
    ```
@@ -120,7 +120,7 @@ From the next steps we will use the event platform REST API: 'https://event.prd.
 You can create a subscriber once you have a valid PIM API token. A subscriber is an entity to which all of your subscriptions will be attached.
 
 The `technical_email` is used to send emails about the subscription status (`deleted`, `suspended`, `revoked`)
-```bash
+```bash [snippet:Shell]
     curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber' \
 --header "X-PIM-URL: $TARGET_PIM_URL" \
 --header "X-PIM-TOKEN: $PIM_API_TOKEN" \
@@ -135,7 +135,7 @@ The `technical_email` is used to send emails about the subscription status (`del
 ```
 
 Response Example :
-```json
+```json [snippet:Response]
     {
     "id": "01905a84-a3b7-766e-a49f-5519c35fa7a0",
     "name": "example subscriber name",
@@ -149,7 +149,7 @@ Response Example :
 }
 ```
 After creating the subscriber, store the ID from the response in an environment variable:
-```bash
+```bash [snippet:Shell]
     export SUBSCRIBER_ID="01905a84-a3b7-766e-a49f-5519c35fa7a0"  # Replace with the actual ID from the response
 ```
 
@@ -159,7 +159,7 @@ With a subscriber in place, the next step is to create a subscription to specify
 In this example, we will use an HTTPS destination (HTTPS is mandatory for secure communication).
 To create a subscription, you will need a destination URL.
 
-```bash
+```bash [snippet:Shell]
     export DESTINATION_URL="https://my-destination-url.com"  # Replace with your destination URL
 ```
 
@@ -167,7 +167,7 @@ To create a subscription, you will need a destination URL.
 💡 You don’t have to worry about the secret part of the configuration for now, they are used to sign the payload (more information below in the API presentation section)
 :::
 
-```bash
+```bash [snippet:Shell]
     curl --request POST "https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$SUBSCRIBER_ID/subscription" \
 --header "X-PIM-URL: $TARGET_PIM_URL" \
 --header "X-PIM-TOKEN: $PIM_API_TOKEN" \

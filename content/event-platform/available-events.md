@@ -16,7 +16,7 @@
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -54,7 +54,7 @@
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -97,7 +97,7 @@ Only changes in asset values will cause this event.
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -138,7 +138,7 @@ Only changes in asset values will cause this event.
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -177,7 +177,7 @@ Only changes in asset values will cause this event.
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -218,7 +218,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -254,7 +254,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -290,7 +290,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -326,7 +326,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -362,7 +362,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -400,7 +400,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json
+```json [snippet:Payload] [snippet:Payload]
 
 
 {
@@ -441,7 +441,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -482,7 +482,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -521,7 +521,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -563,7 +563,7 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -599,7 +599,7 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -635,7 +635,7 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -679,7 +679,7 @@ The following actions can trigger a product creation event:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -740,7 +740,7 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -784,7 +784,7 @@ The following actions can trigger a product deletion event:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -820,7 +820,7 @@ The following actions can trigger a product deletion event:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -867,7 +867,7 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -903,7 +903,7 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -939,7 +939,7 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -981,7 +981,7 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -1017,7 +1017,7 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -1055,7 +1055,7 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -1098,7 +1098,7 @@ The event is triggered when any changes are made to the record values.
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
@@ -1139,7 +1139,7 @@ The event is triggered when any changes are made to the record values.
 
 > Example of payload
 
-```json
+```json [snippet:Payload]
 
 
 {
