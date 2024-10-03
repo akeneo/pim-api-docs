@@ -400,7 +400,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json [snippet:Payload] [snippet:Payload]
+```json [snippet:Payload]
 
 
 {
