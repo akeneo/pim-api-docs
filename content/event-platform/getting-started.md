@@ -16,9 +16,9 @@ The easiest way to manipulate the Event Platform API for a quickstart will be th
 
 ### 1. Import the Postman Collection
 
-1. Download our [Postman Collection](https://storage.googleapis.com/akecld-prd-sdk-aep-prd-api-assets/generated_postman_collection.json)
-2. Download our [Postman environment variable template](https://storage.googleapis.com/akecld-prd-sdk-aep-prd-api-assets/postman_environment_template.json)
-3. Import those files into Postman (follow [this guide](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/) if you're not familiar with it)
+1. Download our <a href="https://storage.googleapis.com/akecld-prd-sdk-aep-prd-api-assets/generated_postman_collection.json" target="_blank">Postman Collection</a>
+2. Download our <a href="https://storage.googleapis.com/akecld-prd-sdk-aep-prd-api-assets/postman_environment_template.json" target="_blank">Postman environment variable template</a>
+3. Import those files into Postman (follow <a href="https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/" target="_blank">this guide</a> if you're not familiar with it)
 
 ### 2. Fill the environment variables
 
@@ -120,8 +120,9 @@ From the next steps we will use the event platform REST API: 'https://event.prd.
 You can create a subscriber once you have a valid PIM API token. A subscriber is an entity to which all of your subscriptions will be attached.
 
 The `technical_email` is used to send emails about the subscription status (`deleted`, `suspended`, `revoked`)
+
 ```bash [snippet:Shell]
-    curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscriber' \
+    curl --request POST 'https://event.prd.sdk.akeneo.cloud/api/v1/subscribers' \
 --header "X-PIM-URL: $TARGET_PIM_URL" \
 --header "X-PIM-TOKEN: $PIM_API_TOKEN" \
 --header "X-PIM-CLIENT-ID: $CLIENT_ID" \
@@ -168,7 +169,7 @@ To create a subscription, you will need a destination URL.
 :::
 
 ```bash [snippet:Shell]
-    curl --request POST "https://event.prd.sdk.akeneo.cloud/api/v1/subscriber/$SUBSCRIBER_ID/subscription" \
+    curl --request POST "https://event.prd.sdk.akeneo.cloud/api/v1/subscribers/$SUBSCRIBER_ID/subscriptions" \
 --header "X-PIM-URL: $TARGET_PIM_URL" \
 --header "X-PIM-TOKEN: $PIM_API_TOKEN" \
 --header "X-PIM-CLIENT-ID: $CLIENT_ID" \
