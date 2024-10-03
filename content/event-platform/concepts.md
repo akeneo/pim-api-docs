@@ -57,7 +57,7 @@ The statuses for a subscription are:
 
 For the `pubsub` subscription type, the `config` property needed when creating the subscription requires both the project ID and the topic ID.
 
-```json[snippet:Pub/Sub subscription]
+```json[snippet:PubSub subscription]
 
 {
     "source": "pim",
@@ -161,7 +161,7 @@ Example of an event payload for a productDeleted event
   "type": "com.akeneo.pim.v1.product.deleted",
   "subject": "0190fe8a-6213-76ce-8a9f-ba36a5ef555a",
   "datacontenttype": "application/json",
-  "dataschema": "com.akeneo.pim.v1.product.deleted.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.deleted.schema.json",
   "time": "2024-03-07T15:16:37Z",
   "data": {
     "product": {
