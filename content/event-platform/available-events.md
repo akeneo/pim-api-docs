@@ -16,15 +16,15 @@
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.app.deleted",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.app.deleted.schema.json",
@@ -54,18 +54,18 @@
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.asset.created",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.asset.created.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.asset.created.schema.json",
   "data": {
     "asset": {
       "asset_family": {
@@ -97,18 +97,18 @@ Only changes in asset values will cause this event.
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.asset.updated",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.asset.updated.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.asset.updated.schema.json",
   "data": {
     "asset": {
       "asset_family": {
@@ -138,18 +138,18 @@ Only changes in asset values will cause this event.
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.asset.deleted",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.asset.deleted.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.asset.deleted.schema.json",
   "data": {
     "asset": {
       "asset_family": {
@@ -177,15 +177,15 @@ Only changes in asset values will cause this event.
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "b6f4add4-f3d1-4502-8cf0-0f228e054ce5",
   "type": "com.akeneo.pim.v1.attribute.created",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute.created.schema.json",
@@ -218,15 +218,15 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "b6f4add4-f3d1-4502-8cf0-0f228e054ce5",
   "type": "com.akeneo.pim.v1.attribute.updated",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute.updated.schema.json",
@@ -254,15 +254,15 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "b6f4add4-f3d1-4502-8cf0-0f228e054ce5",
   "type": "com.akeneo.pim.v1.attribute.deleted",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute.deleted.schema.json",
@@ -290,15 +290,15 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "b6f4add4-f3d1-4502-8cf0-0f228e054ce5",
   "type": "com.akeneo.pim.v1.attribute-group.created",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute-group.created.schema.json",
@@ -326,15 +326,15 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "b6f4add4-f3d1-4502-8cf0-0f228e054ce5",
   "type": "com.akeneo.pim.v1.attribute-group.updated",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute-group.updated.schema.json",
@@ -362,15 +362,15 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "b6f4add4-f3d1-4502-8cf0-0f228e054ce5",
   "type": "com.akeneo.pim.v1.attribute-group.deleted",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.attribute-group.deleted.schema.json",
@@ -400,18 +400,18 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "6e523497-8231-4892-8f9f-895378b4d045",
   "type": "com.akeneo.pim.v1.attribute-option.created",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-13T10:17:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.reference-entity-record.created.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.reference-entity-record.created.schema.json",
   "data": {
     "attribute_option": {
       "code": "an_attribute_option_code",
@@ -441,18 +441,18 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "6e523497-8231-4892-8f9f-895378b4d045",
   "type": "com.akeneo.pim.v1.attribute-option.updated",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-13T10:17:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.reference-entity-record.updated.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.reference-entity-record.updated.schema.json",
   "data": {
     "attribute_option": {
       "code": "an_attribute_option_code",
@@ -482,18 +482,18 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "6e523497-8231-4892-8f9f-895378b4d045",
   "type": "com.akeneo.pim.v1.attribute-option.deleted",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-13T10:17:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.reference-entity-record.updated.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.reference-entity-record.updated.schema.json",
   "data": {
     "attribute_option": {
       "code": "an_attribute_option_code",
@@ -521,18 +521,18 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.category.created",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.category.created.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.category.created.schema.json",
   "data": {
     "category": {
       "code": "category-1"
@@ -563,18 +563,18 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.category.updated",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.category.updated.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.category.updated.schema.json",
   "data": {
     "category": {
       "code": "category-1"
@@ -599,18 +599,18 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.category.deleted",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.category.deleted.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.category.deleted.schema.json",
   "data": {
     "category": {
       "code": "category-1"
@@ -635,15 +635,15 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.connection.deleted",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.connection.deleted.schema.json",
@@ -679,15 +679,15 @@ The following actions can trigger a product creation event:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.product.created",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.created.schema.json",
@@ -740,15 +740,15 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.product.updated",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.updated.schema.json",
@@ -784,15 +784,15 @@ The following actions can trigger a product deletion event:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.product.deleted",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.deleted.schema.json",
@@ -820,15 +820,15 @@ The following actions can trigger a product deletion event:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "b6f4add4-f3d1-4502-8cf0-0f228e054ce5",
   "type": "com.akeneo.pim.v1.product-model.created",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.created.schema.json",
@@ -867,15 +867,15 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "b6f4add4-f3d1-4502-8cf0-0f228e054ce5",
   "type": "com.akeneo.pim.v1.product-model.updated",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.updated.schema.json",
@@ -903,15 +903,15 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "b6f4add4-f3d1-4502-8cf0-0f228e054ce5",
   "type": "com.akeneo.pim.v1.product-model.deleted",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-10T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product-model.deleted.schema.json",
@@ -939,18 +939,18 @@ The modifications that can lead to this event include:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.family.created",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.family.created.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.family.created.schema.json",
   "data": {
     "family": {
       "code": "a_family_code"
@@ -981,18 +981,18 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.family.updated",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.family.updated.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.family.updated.schema.json",
   "data": {
     "family": {
       "code": "a_family_code"
@@ -1017,18 +1017,18 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.family.deleted",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.family.deleted.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.family.deleted.schema.json",
   "data": {
     "family": {
       "code": "a_family_code"
@@ -1055,18 +1055,18 @@ The event is triggered when any of the following properties are changed:
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "6e523497-8231-4892-8f9f-895378b4d045",
   "type": "com.akeneo.pim.v1.reference-entity-record.created",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-13T10:17:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.reference-entity-record.created.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.reference-entity-record.created.schema.json",
   "data": {
     "reference_entity_record": {
       "code": "Addadas",
@@ -1098,18 +1098,18 @@ The event is triggered when any changes are made to the record values.
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "6e523497-8231-4892-8f9f-895378b4d045",
   "type": "com.akeneo.pim.v1.reference-entity-record.updated",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-13T10:17:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.reference-entity-record.updated.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.reference-entity-record.updated.schema.json",
   "data": {
     "reference_entity_record": {
       "code": "Addadas",
@@ -1139,18 +1139,18 @@ The event is triggered when any changes are made to the record values.
 
 > Example of payload
 
-```json [snippet:Payload]
 
+```json [snippet:Payload]
 
 {
   "specversion": "1.0",
   "id": "6e523497-8231-4892-8f9f-895378b4d045",
   "type": "com.akeneo.pim.v1.reference-entity-record.deleted",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-06-13T10:17:00Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://events.akeneo.com/com.akeneo.pim.v1.reference-entity-record.deleted.schema.json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.reference-entity-record.deleted.schema.json",
   "data": {
     "reference_entity_record": {
       "code": "Addadas",
@@ -1161,6 +1161,7 @@ The event is triggered when any changes are made to the record values.
   }
 }
 ```
+
 
 ::: panel-link Let's check the requirements [Next](/event-platform/integration-examples.html)
 :::
