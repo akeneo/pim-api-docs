@@ -5,7 +5,7 @@ The old Event API has significant scalability, reliability, and functionality li
 | **Feature**                      | **Old Event API**                                     | **New Event Platform**                               |
 |----------------------------------|-------------------------------------------------------|------------------------------------------------------|
 | **Event Coverage**               | Limited to product and product models                 | [Wide range of events](/event-platform/available-events.html) beyond just product and product models |
-| **Capacity**                     | 4,000 events per hour with a maximum of 3 subscribers | No limit on the number of events, capable of handling much larger volumes |
+| **Capacity**                     | 4,000 events per hour with a maximum of 3 subscribers | Unlimited events subject to quotas only, handles larger volumes |
 | **Payload**                      | Full product imprint without details on changes                                         | Lightweight payload, providing only the identifier of the updated entity (delta payload is a part of the roadmap) |
 | **Performance**                  | Limited by low capacity and full payloads             | Optimized for high volume of events and fastest throughput  |
 | **Interface & Dashboard**        | Includes a usage dashboard                            | API-first product with no interface or dashboard |
