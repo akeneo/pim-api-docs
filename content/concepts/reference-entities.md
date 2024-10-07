@@ -166,6 +166,22 @@ Format for the `reference entity single link` and `reference entity multiple lin
 }
 ```
 
+Format for the `asset collection` attribute type
+```json
+{
+  "code": "brand",
+  "labels": {
+    "en_US": "Brand",
+    "fr_FR": "Marque"
+  },
+  "type": "asset_collection",
+  "value_per_locale": false,
+  "value_per_channel": false,
+  "is_required_for_completeness": false,
+  "asset_family_identifier": "logos"
+}
+```
+
 ::: warning
 You can have at max 100 attributes to describe the structure of one given reference entity.    
 As a consequence, when you ask for the list of attributes of one given reference entity, you'll see that the response is not paginated. It won't cause any performance issue, since you can't have more than 100 attributes per reference entity.
@@ -346,6 +362,7 @@ The table below describes the format of the `data` property for each [reference 
 | **Multi select** <br> _Array[string]_ | `["leather", "cotton"]` |
 | **Reference entity simple select** <br> _string_ | `"italy"` |
 | **Reference entity multi select** <br> _Array[string]_ | `["starck", "dixon"]` |
+| **Asset collection** <br> _Array[string]_| `["packshot", "badge"]`|
 
 ### The `locale` and `channel` format
 
