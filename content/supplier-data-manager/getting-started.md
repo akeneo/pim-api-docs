@@ -2,7 +2,9 @@
 
 ## Prerequisites
 
-To be able to follow this guide you need:
+The Supplier Data Manager API is available exclusively to customers of the Supplier Data Manager (SDM) platform. If you're not yet a customer and would like to get access, please contact your Customer Success Manager (CSM) to learn more about how to get started. Once you have access, the API allows for seamless integration and automation of your product data processes.
+
+So this guide is for you if you have:
 - An active user account on the Supplier Data Manager (SDM) platform
 - A project (in the user's organization)
 - One or more output formats defined
