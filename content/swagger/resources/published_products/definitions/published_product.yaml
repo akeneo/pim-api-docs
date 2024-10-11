@@ -31,21 +31,20 @@ properties:
     type: object
     description: "Published product attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details"
     x-validation-rules: Validation rules detailed in Product values section
-    properties:
-      attributeCode:
-        type: array
-        items:
-          type: object
-          properties:
-            scope:
-              type: string
-              description: <a href='api-reference.html#Channel'>Channel</a> code of the product value
-            locale:
-              type: string
-              description: <a href='api-reference.html#Locale'>Locale</a> code of the product value
-            data:
-              type: object
-              description: <a href='api-reference.html#Productuuid'>Product</a> value
+    additionalProperties:
+      type: array
+      items:
+        type: object
+        properties:
+          scope:
+            type: string
+            description: <a href='api-reference.html#Channel'>Channel</a> code of the product value
+          locale:
+            type: string
+            description: <a href='api-reference.html#Locale'>Locale</a> code of the product value
+          data:
+            type: object
+            description: <a href='api-reference.html#Productuuid'>Product</a> value
   associations:
     type: object
     description: Several associations related to groups and/or other published products, grouped by association types

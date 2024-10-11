@@ -36,44 +36,43 @@ properties:
     type: object
     description: "Product attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details"
     x-validation-rules: Validation rules detailed in Product values section
-    properties:
-      attributeCode:
-        type: array
-        items:
-          type: object
-          properties:
-            scope:
-              type: string
-              description: <a href='api-reference.html#Channel'>Channel</a> code of the product value
-            locale:
-              type: string
-              description: <a href='api-reference.html#Locale'>Locale</a> code of the product value
-            data:
-              type: object
-              description: Product value. See <a href='/concepts/products.html#the-data-format'>the `data` format</a> section for more details.
-            linked_data:
-              type: object
-              x-read-only: true
-              description: Object containing additional data when a related query parameter is enabled. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (only available since the 5.0)
-              x-from-version: '5.0'
-              properties:
-                attribute:
-                  type: string
-                code:
-                  type: string
-                labels:
-                  type: object
-            attribute_type:
-              type: string
-              x-read-only: true
-              x-from-version: "SaaS"
-              description: The type of the value's attribute. See <a href='/concepts/catalog-structure.html#attribute'>type</a> section for more details.
-            reference_data_name:
-              type: string
-              x-read-only: true
-              x-from-version: "SaaS"
-              description: Reference entity code when the attribute type is `akeneo_reference_entity` or `akeneo_reference_entity_collection` OR Asset family code when the attribute type is `pim_catalog_asset_collection`
-              x-warning: Only for `akeneo_reference_entity` or `akeneo_reference_entity_collection` or `pim_catalog_asset_collection` attribute types
+    additionalProperties:
+      type: array
+      items:
+        type: object
+        properties:
+          scope:
+            type: string
+            description: <a href='api-reference.html#Channel'>Channel</a> code of the product value
+          locale:
+            type: string
+            description: <a href='api-reference.html#Locale'>Locale</a> code of the product value
+          data:
+            type: object
+            description: Product value. See <a href='/concepts/products.html#the-data-format'>the `data` format</a> section for more details.
+          linked_data:
+            type: object
+            x-read-only: true
+            description: Object containing additional data when a related query parameter is enabled. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (only available since the 5.0)
+            x-from-version: '5.0'
+            properties:
+              attribute:
+                type: string
+              code:
+                type: string
+              labels:
+                type: object
+          attribute_type:
+            type: string
+            x-read-only: true
+            x-from-version: "SaaS"
+            description: The type of the value's attribute. See <a href='/concepts/catalog-structure.html#attribute'>type</a> section for more details.
+          reference_data_name:
+            type: string
+            x-read-only: true
+            x-from-version: "SaaS"
+            description: Reference entity code when the attribute type is `akeneo_reference_entity` or `akeneo_reference_entity_collection` OR Asset family code when the attribute type is `pim_catalog_asset_collection`
+            x-warning: Only for `akeneo_reference_entity` or `akeneo_reference_entity_collection` or `pim_catalog_asset_collection` attribute types
 
   associations:
     type: object
