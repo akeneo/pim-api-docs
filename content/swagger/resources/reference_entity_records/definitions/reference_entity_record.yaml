@@ -9,21 +9,20 @@ properties:
     type: object
     description: "Record attributes values, see <a href='/concepts/reference-entities.html#focus-on-the-reference-entity-record-values'>Reference entity record values</a> section for more details"
     x-validation-rules: Validation rules detailed in Reference entity record values section
-    properties:
-      attributeCode:
-        type: array
-        items:
-          type: object
-          properties:
-            channel:
-              type: string
-              description: Channel code of the reference entity record value
-            locale:
-              type: string
-              description: Locale code of the reference entity record value
-            data:
-              type: object
-              description: Reference entity record value. See <a href='/concepts/reference-entities.html#the-data-format'>the `data` format</a> section for more details.
+    additionalProperties:
+      type: array
+      items:
+        type: object
+        properties:
+          channel:
+            type: string
+            description: Channel code of the reference entity record value
+          locale:
+            type: string
+            description: Locale code of the reference entity record value
+          data:
+            type: object
+            description: Reference entity record value. See <a href='/concepts/reference-entities.html#the-data-format'>the `data` format</a> section for more details.
   created:
       type: string
       description: Date of creation.
