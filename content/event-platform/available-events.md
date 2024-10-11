@@ -666,7 +666,6 @@ The following actions can trigger a product creation event:
 
 - Product creation from the product page.
 - Product creation using the REST API.
-- Product creation within the rules engine.
 - Product creation within workflows.
 - Product creation via a tailored import.
 
@@ -710,7 +709,6 @@ The following actions can trigger a product update event:
 
 - Product update from the product page.
 - Product update using the REST API.
-- Product update within the rules engine.
 - Product update within workflows.
 - Product update via a tailored import.
 
@@ -771,7 +769,6 @@ The following actions can trigger a product deletion event:
 
 - Product deletion from the product page.
 - Product deletion using the REST API.
-- Product deletion within the rules engine.
 - Product deletion within workflows.
 - Product deletion via a tailored import.
 
