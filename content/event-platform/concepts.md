@@ -150,6 +150,9 @@ We currently use a static IP address provided by Google Cloud: `34.140.80.128`
 
 Our platform standardises event data across services using the [CloudEvents specification](https://github.com/cloudevents/spec). CloudEvents provides a consistent structure for event data, ensuring interoperability and simplifying event handling. Each event includes essential metadata such as the event type, source, ID, and timestamp.
 
+The cloud event will be sent in a [structured mode](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#message), meaning the event data and its metadata are in the payload you'll receive. This apply to every subscription destination type.
+
+
 Example of an event payload for a productDeleted event
 
 ```json[snippet:Event]
