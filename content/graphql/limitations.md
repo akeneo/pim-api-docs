@@ -103,20 +103,21 @@ For example, you can make the following query
 
 | Query                    | Max Depth |
 |--------------------------|-----------|
-| productModels            | 6         |
-| products                 | 6         |
-| families                 | 5         |
+| assetFamilies            | 5         |
+| assetsRecords            | 3         |
 | attributes               | 4         |
+| attributeOptions         | 3         |
 | categories               | 4         |
 | channels                 | 4         |
-| assetFamilies            | 4         |
-| referenceEntities        | 4         |
-| measurementFamilies      | 4         |
-| assetsRecords            | 3         |
-| referenceEntitiesRecords | 3         |
-| attributeOptions         | 3         |
 | currencies               | 3         |
+| families                 | 5         |
 | locales                  | 3         |
+| measurementFamilies      | 4         |
+| productModels            | 7         |
+| products                 | 8         |
+| referenceEntities        | 5         |
+| referenceEntitiesRecords | 3         |
+| systemInformation        | 3         |
 
 :::info
 Remember that every time you open a bracket, the level of depth increases.
