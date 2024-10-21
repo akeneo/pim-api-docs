@@ -26,6 +26,7 @@ x-SaaS: {
         "family": "tshirt",
         "groups": [],
         "parent": null,
+        "root_parent": "the_code_of_the_root_product_model",
         "categories": ["summer_collection"],
         "enabled": true,
         "values": {
