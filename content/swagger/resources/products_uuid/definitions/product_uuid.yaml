@@ -127,6 +127,13 @@ properties:
                   type: string
                 quantity:
                   type: integer
+  root_parent:
+    type: string
+    x-read-only: true
+    description: Code of the root parent <a href='api-reference.html#Productmodel'>product model</a> when the product is a variant (only available for Serenity and when the "with_root_parent" is set to "true")
+    x-validation-rules: It is equal to an existing product model code only if the product is variant ; otherwise, the property does not appear
+    default: "null"
+    x-from-version: 'SaaS'
   created:
     type: string
     description: Date of creation
@@ -313,6 +320,7 @@ example: {
       ]
     }
   },
+  "root_parent": "clothes",
   "quality_scores": [
     {
       "scope": "ecommerce",
