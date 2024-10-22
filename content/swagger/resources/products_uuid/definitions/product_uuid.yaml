@@ -320,7 +320,7 @@ example: {
       ]
     }
   },
-  "root_parent": "the_code_of_the_root_product_model",
+  "root_parent": "clothes",
   "quality_scores": [
     {
       "scope": "ecommerce",

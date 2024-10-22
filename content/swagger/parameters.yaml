@@ -192,7 +192,7 @@ with_enriched_attributes:
 with_root_parent:
   name: with_root_parent
   in: query
-  description: Retrieve the root parent product model code of a variant
+  description: Return the root parent product model code of a variant
   required: false
   type: boolean
   x-from-version: "SaaS"
