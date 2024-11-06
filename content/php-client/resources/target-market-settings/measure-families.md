@@ -1,4 +1,4 @@
-### Measure family
+### Measure family _- Deprecated_
 
 ::: warning
 Since the 5.0 and for the SaaS versions, we encourage you to use [these new endpoints](#measurement-family), as they are more powerful. They allow you to create/update measurement families and they guarantee the order of the conversion operations.

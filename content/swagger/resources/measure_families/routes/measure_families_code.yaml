@@ -1,5 +1,5 @@
 get:
-  summary: Get a measure family
+  summary: Get a measure family (deprecated as of v5.0)
   operationId: "measure_families_get"
   description: This endpoint allows you to get the information about a given measure family.
   tags:

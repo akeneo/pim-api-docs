@@ -153,12 +153,12 @@ Endpoints for the currencies are only available starting the 2.0 version.
 ::: panel-link Want more details about the currency resource? [Check its endpoints here!](/api-reference.html#Currency)
 :::
 
-## Measure family
+## Measure family _- Deprecated_
 ::: availability versions=2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
 :::
 
 ::: warning
-If you use a SaaS platform, we encourage you to use [these new endpoints](#measurement-family), as they are more powerful. They allow you to create/update measurement families and they guarantee the order of the conversion operations.
+These endpoints are deprecated as of v5.0. If you use a recent version, we strongly encourage you to use [these new endpoints](#measurement-family), as they are more powerful. They allow you to create/update measurement families and they guarantee the order of the conversion operations.
 :::
 
 If you want to store metrics regarding your product such as weight, height or power inside your PIM, you will need measure families. These entities will be really helpful in the case you are requesting products for a given channel and you want these metrics attributes to be converted into the units you specified in your channel.
