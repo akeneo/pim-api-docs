@@ -1,5 +1,5 @@
 get:
-  summary: Get list of measure familiy
+  summary: Get list of measure families (deprecated as of v5.0)
   operationId: "measure_families_get_list"
   description: This endpoint allows you to get a list of measure families. Measure families are paginated and sorted by code.
   tags:
