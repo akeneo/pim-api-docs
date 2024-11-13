@@ -84,6 +84,8 @@ To use a Pub/Sub subscription, you need to complete a few additional steps to en
 - In the Role drop-down list, select "**Pub/Sub**" and "**Pub/Sub Publisher**"
 - Click "**Save**"
 
+For some configuration, you might also need our GCP project number : `973566433018`
+
 For comprehensive details on managing subscriptions, consult the complete API reference [here](/event-platform/api-reference.html).
 
 ### HTTPS subscription
