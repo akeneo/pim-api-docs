@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide will give you information about OAuth 2.0 and the OpenID concept that you will need when starting the development of your App. 
+This guide will give you information about OAuth 2.0 and the OpenID concept that you will need when starting the development of your App.
 
 By following the “getting started” sections below, we will walk you through each of these concepts in a step by step process.
 
@@ -12,14 +12,14 @@ If you simply want to bootstrap an App with predefined authorization scopes to s
 
 ### Authorization vs authentication
 
-**Authorization** is the process of giving permissions to apps. Akeneo users authorize apps to access data in their PXM Studio. For example, an app might be authorized to access product and asset data in a PXM Studio.
+**Authorization** is the process of giving permissions to apps. Akeneo users authorize apps to access data in Akeneo Product Cloud. For example, an app might be authorized to access product and asset data in Akeneo Product Cloud.
 
 **Authentication** is the process of verifying the identity of the user or the app. To keep transactions safe and secure, all apps connecting with Akeneo API must authenticate when making API requests.
 
 ### Types of authorization and authentication methods
 
-- Akeneo PXM Studio uses OAuth 2.0 to manage app authorizations.
-- Any app can use the OpenID Connect protocol to authenticate users coming from Akeneo PXM Studio.
+- Akeneo Product Cloud uses OAuth 2.0 to manage app authorizations.
+- Any app can use the OpenID Connect protocol to authenticate users coming from Akeneo Product Cloud.
 
 <!------------------------------ end of the Overview ------------------------------------>
 
@@ -29,9 +29,9 @@ OAuth 2.0 is the industry-standard protocol for authorizing or giving permission
 
 ### The OAuth 2.0 flow
 
-Akeneo uses OAuth 2.0’s authorization code grant flow to issue access tokens on behalf of users. The OAuth flow is used so that Akeneo users can authorize Akeneo apps to access data in a PXM Studio. For example, an app might be authorized to access product and asset data in a store.
+Akeneo uses OAuth 2.0’s authorization code grant flow to issue access tokens on behalf of users. The OAuth flow is used so that Akeneo users can authorize Akeneo apps to access data in Akeneo Product Cloud. For example, an app might be authorized to access product and asset data in a store.
 
-The following diagram illustrates the OAuth flow based on the actions of the Akeneo user, your app, and the PXM Studio:
+The following diagram illustrates the OAuth flow based on the actions of the Akeneo user, your app, and Akeneo Product Cloud:
 
 ![Schéma OAuth flow](../img/apps/app-activation-sequence-diagram.png)
 
@@ -68,24 +68,24 @@ If you start developing your app, we advise you to use a custom app. To do so:
 
 ::: tips
 **Your app is good to go?**  
-Connect to the <a href="https://manage.apps.akeneo.com/" target="_blank">App Portal</a> and follow the [Create an app record documentation](/app-portal/create-app-record.html). 
-::: 
+Connect to the <a href="https://manage.apps.akeneo.com/" target="_blank">App Portal</a> and follow the [Create an app record documentation](/app-portal/create-app-record.html).
+:::
 
 
 ### Step 2: Ask for authorizations
 
 Before an app can access data, a user must grant authorizations and permissions to the app. It happens when a user clicks the `Connect` button to connect your app.
 
-After a user clicks on `Connect`, they are redirected to the **activation URL** you provided. The PXM Studio URL they come from is in the query you receive.
+After a user clicks on `Connect`, they are redirected to the **activation URL** you provided. The Akeneo Product Cloud URL they come from is in the query you receive.
 
 ``` http
 
 https://my-app.example.com/oauth/activate?pim_url=https%3A%2F%2Fmy-pim.cloud.akeneo.com
 ```
 
-When you are ready to do so, you must start the **Authorization Request**. 
+When you are ready to do so, you must start the **Authorization Request**.
 
-Like any other OAuth 2.0 application, you have to redirect the user to the Authorization Server (Akeneo PXM Studio) with the following parameters:
+Like any other OAuth 2.0 application, you have to redirect the user to the Authorization Server (Akeneo Product Cloud) with the following parameters:
 
 | Query parameter          | Description                                                                                                                                                                                                  |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -240,7 +240,7 @@ TODO - Shopify example
 
 ## Getting started with OpenID Connect
 
-When building your public App, you can use the **OpenID Connect protocol** to authenticate users coming from an Akeneo PXM Studio.
+When building your public App, you can use the **OpenID Connect protocol** to authenticate users coming from an Akeneo Product Cloud.
 
 OpenID Connect is a simple identity layer on top of the OAuth 2.0 protocol. Basically, with OpenID Connect, you use the same process as for Authorization, but you **request an additional scope** and you receive, alongside the Access Token, an **ID Token containing the information of the current user**.
 
@@ -254,7 +254,7 @@ This is an optional feature in Apps, you can also use your own Authentication. L
 
 ### What you'll learn
 
-After you've completed this tutorial, you'll be able to authenticate users coming from an Akeneo PXM Studio using OpenID Connect.
+After you've completed this tutorial, you'll be able to authenticate users coming from Akeneo Product Cloud using OpenID Connect.
 
 ### Requirements
 
@@ -294,7 +294,7 @@ https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
 Learn more about [available authentication scopes](/apps/authentication-and-authorization.html#available-authentication-scopes). 
 :::
 
-If a user tries to access your App from their Akeneo PXM Studio, and you want to authenticate them, start an [Authorization request](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations), even if you already are connected to their Akeneo PXM Studio.
+If a user tries to access your App from their Akeneo Product Cloud, and you want to authenticate them, start an [Authorization request](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations), even if you already are connected to their Akeneo Product Cloud.
 
 During this new Authorization Request, **you must request all the scopes your App needs**, including the Authorization scopes, in addition to the OpenID scopes.
 

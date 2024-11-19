@@ -82,7 +82,7 @@ Then, your application must expose a **callback URL**.
 
 
 ::: info
-You can find more information about the authorization process and code challenge in the following documentation. 
+You can find more information about the authorization process and code challenge in the following documentation.
 - [OAuth Authorization and authentication](/apps/authentication-and-authorization.html#)
 :::
 
@@ -113,7 +113,7 @@ First of all, go to `Connect`, then `App Store`
 #### Permissions
 
 If you see `Create an App` skip to [Connect app](#connect-app), else please update your role permissions.
-![Create an app button](../../img/apps/create-a-custom-app-button.png) 
+![Create an app button](../../img/apps/create-a-custom-app-button.png)
 
 To do so, you need to:
 1. Go to `System`, then `Roles`
@@ -141,7 +141,7 @@ To create a Custom App:
 
 ![Custom App on the App Store](../../img/apps/marketplace-with-custom-app.png)
 
-Connecting a Custom App is like connecting a Published App. 
+Connecting a Custom App is like connecting a Published App.
 
 1. Launch your APP
 2. Click on `Connect`
@@ -150,10 +150,10 @@ Connecting a Custom App is like connecting a Published App.
 5. Follow all the activation process steps, then `Confirm`
 6. Your custom App is now connected with Akeneo PIM! 🔗
 
-Now that your App is connected, you can enjoy all the available App features from the Akeneo PXM Studio UI and test that your App works well. 
+Now that your App is connected, you can enjoy all the available App features from Akeneo Product Cloud UI and test that your App works well.
 
-To access the settings of your connected App on Akeneo PIM, please go to `Connected Apps`, then click on `Manage App`. 
-You can also open your App from Akeneo PIM UI, to do so, click on `Open app`. 
+To access the settings of your connected App on Akeneo PIM, please go to `Connected Apps`, then click on `Manage App`.
+You can also open your App from Akeneo PIM UI, to do so, click on `Open app`.
 
 ![Connected custom App on Apps](../../img/apps/connected-custom-app.png)
 
