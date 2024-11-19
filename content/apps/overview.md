@@ -19,7 +19,7 @@ Want to know more about apps?
 Discover the [Akeneo App Store and apps fundamentals course](https://akademy.akeneo.com/akeneo-app-store-apps-fundamentals) through our [Akeneo Academy](https://akademy.akeneo.com/).
 :::
 
-## How apps fit into Akeneo PXM Studio?
+## How apps fit into Akeneo Product Cloud?
 
 Apps integrate with Akeneo in the following ways:
 
@@ -30,7 +30,7 @@ Apps integrate with Akeneo in the following ways:
     - provide a **consistent experience** to users
 - connecting with our **REST API** to read and write Akeneo data
 
-![App in Akeneo PXM Studio](../img/apps/apps-fit-akeneo.png)
+![App in Akeneo Product Cloud](../img/apps/apps-fit-akeneo.png)
 
 ::: info
 For more information on apps usage, please read our help center articles
@@ -45,7 +45,7 @@ Both connectors and apps are SaaS compatible and use API.
 However, there are some significant differences.
 
 - **Automatic configuration instead of manual configuration**: connectors use Akeneo PIM connections to get credentials, apps use the OAuth 2.0. When a user connects Akeneo PIM with an app, they click on Connect then follow the step-by-step activation process to accept requested authorizations and set up permissions. The app receives everything it needs to interact with Akeneo PIM at the end of this process.  No more manual configuration issues and more transparency!
-- **High visibility**: we give your app high visibility when you publish an app on the [Akeneo App Store](https://apps.akeneo.com/). Your app is displayed ***above all connectors***. We also give high visibility to apps to our Akeneo PIM users. To do so, we created a ***dedicated section*** to highlight them in the Akeneo PXM Studio embedded App Store.
+- **High visibility**: we give your app high visibility when you publish an app on the [Akeneo App Store](https://apps.akeneo.com/). Your app is displayed ***above all connectors***. We also give high visibility to apps to our Akeneo PIM users. To do so, we created a ***dedicated section*** to highlight them in Akeneo Product Cloud embedded App Store.
 - **Greater level of support**: we provide support to app developers to help them design, build, and test their app before publishing it on [Akeneo App Store](https://apps.akeneo.com/).
 - **Increase co-marketing opportunities**: Akeneo promotes apps and will communicate about new apps published on the Akeneo App Store, especially about certified apps.
 - **Benefit from all the future features & improvements**: Akeneo teams are also investing in apps by developing new features for you to ease and accelerate app development and publication in the coming years.
