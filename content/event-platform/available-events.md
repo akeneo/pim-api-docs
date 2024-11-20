@@ -13,6 +13,9 @@
 |---|---|---|
 | data.app | object | - |
 | data.app.client_id | string | Unique identifier of an App in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -31,6 +34,10 @@
   "data": {
     "app": {
       "client_id": "test_client_id"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -51,7 +58,9 @@
 | data.asset.asset_family | object | - |
 | data.asset.asset_family.code | string | code of an asset family |
 | data.asset.code | string | code of an asset |
-
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 > Example of payload
 
 
@@ -72,6 +81,10 @@
         "code": "family1"
       },
       "code": "asset1"
+    },
+    "author": {
+      "identifier": "john",
+      "type": "user"
     }
   }
 }
@@ -94,6 +107,9 @@ Only changes in asset values will cause this event.
 | data.asset.asset_family | object | - |
 | data.asset.asset_family.code | string | code of an asset family |
 | data.asset.code | string | code of an asset |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -115,6 +131,10 @@ Only changes in asset values will cause this event.
         "code": "family1"
       },
       "code": "asset1"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -135,6 +155,9 @@ Only changes in asset values will cause this event.
 | data.asset.asset_family | object | - |
 | data.asset.asset_family.code | string | identifier of an asset family |
 | data.asset.code | string | code of an asset |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -156,6 +179,10 @@ Only changes in asset values will cause this event.
         "code": "family1"
       },
       "code": "asset1"
+    },
+    "author": {
+      "identifier": "john",
+      "type": "user"
     }
   }
 }
@@ -174,6 +201,9 @@ Only changes in asset values will cause this event.
 |---|---|---|
 | data.attribute | object | - |
 | data.attribute.code | string | Unique identifier of an Attribute in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -192,6 +222,10 @@ Only changes in asset values will cause this event.
   "data": {
     "attribute": {
       "code": "an-attribute-code"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -215,6 +249,9 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 |---|---|---|
 | data.attribute | object | - |
 | data.attribute.code | string | Unique identifier of an Attribute in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -233,6 +270,10 @@ This event is generated whenever an existing attribute is modified in the PIM. T
   "data": {
     "attribute": {
       "code": "an-attribute-code"
+    },
+    "author": {
+      "identifier": "john",
+      "type": "user"
     }
   }
 }
@@ -251,6 +292,9 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 |---|---|---|
 | data.attribute | object | - |
 | data.attribute.code | string | Unique identifier of an Attribute in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -269,6 +313,10 @@ This event is generated whenever an existing attribute is modified in the PIM. T
   "data": {
     "attribute": {
       "code": "an-attribute-code"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -287,6 +335,9 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 |---|---|---|
 | data.attribute_group | object | - |
 | data.attribute_group.code | string | Unique identifier of an Attribute Group in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -305,6 +356,10 @@ This event is generated whenever an existing attribute is modified in the PIM. T
   "data": {
     "attribute_group": {
       "code": "an-attribute-group-code"
+    },
+    "author": {
+      "identifier": "admin",
+      "type": "user"
     }
   }
 }
@@ -323,6 +378,9 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 |---|---|---|
 | data.attribute_group | object | - |
 | data.attribute_group.code | string | Unique identifier of an Attribute Group in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -341,6 +399,10 @@ This event is generated whenever an existing attribute is modified in the PIM. T
   "data": {
     "attribute_group": {
       "code": "an-attribute-group-code"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -359,6 +421,9 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 |---|---|---|
 | data.attribute_group | object | - |
 | data.attribute_group.code | string | Unique identifier of an Attribute Group in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -377,6 +442,10 @@ This event is generated whenever an existing attribute is modified in the PIM. T
   "data": {
     "attribute_group": {
       "code": "an_attribute_group_code"
+    },
+    "author": {
+      "identifier": "the-connection-code",
+      "type": "api"
     }
   }
 }
@@ -397,6 +466,9 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_option.code | string | code of an attribute option |
 | data.attribute_option.attribute | object | - |
 | data.attribute_option.attribute.code | string | code of an attribute |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -418,6 +490,10 @@ This event is generated whenever an existing attribute is modified in the PIM. T
       "attribute": {
         "code": "an_attribute_code"
       }
+    },
+    "author": {
+      "identifier": "5_xxxk00ufn688cc0gok0wwwxxxccc0g84cwwgkg4s00ow4oxxx",
+      "type": "api"
     }
   }
 }
@@ -438,6 +514,9 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_option.code | string | code of an attribute option |
 | data.attribute_option.attribute | object | - |
 | data.attribute_option.attribute.code | string | code of an attribute |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -459,6 +538,10 @@ This event is generated whenever an existing attribute is modified in the PIM. T
       "attribute": {
         "code": "an_attribute_code"
       }
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -479,6 +562,9 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_option.code | string | code of an attribute option |
 | data.attribute_option.attribute | object | - |
 | data.attribute_option.attribute.code | string | code of an attribute |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -500,6 +586,10 @@ This event is generated whenever an existing attribute is modified in the PIM. T
       "attribute": {
         "code": "an_attribute_code"
       }
+    },
+    "author": {
+      "identifier": "system",
+      "type": "system"
     }
   }
 }
@@ -518,6 +608,9 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 |---|---|---|
 | data.category | object | - |
 | data.category.code | string | Unique identifier of a category |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -536,6 +629,10 @@ This event is generated whenever an existing attribute is modified in the PIM. T
   "data": {
     "category": {
       "code": "category-1"
+    },
+    "author": {
+      "identifier": "the-app-client-id",
+      "type": "api"
     }
   }
 }
@@ -560,6 +657,9 @@ The event is triggered when any of the following properties are changed:
 |---|---|---|
 | data.category | object | - |
 | data.category.code | string | Unique identifier of a category |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -578,6 +678,10 @@ The event is triggered when any of the following properties are changed:
   "data": {
     "category": {
       "code": "category-1"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -596,6 +700,9 @@ The event is triggered when any of the following properties are changed:
 |---|---|---|
 | data.category | object | - |
 | data.category.code | string | Unique identifier of a category |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -614,6 +721,10 @@ The event is triggered when any of the following properties are changed:
   "data": {
     "category": {
       "code": "category-1"
+    },
+    "author": {
+      "identifier": "the-app-client-id",
+      "type": "api"
     }
   }
 }
@@ -632,6 +743,9 @@ The event is triggered when any of the following properties are changed:
 |---|---|---|
 | data.connection | object | - |
 | data.connection.client_id | string | Unique identifier of a connection in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -650,6 +764,10 @@ The event is triggered when any of the following properties are changed:
   "data": {
     "connection": {
       "client_id": "connection-client-id"
+    },
+    "author": {
+      "identifier": "the-connection-code",
+      "type": "api"
     }
   }
 }
@@ -675,6 +793,10 @@ The following actions can trigger a product creation event:
 |---|---|---|
 | data.product | object | - |
 | data.product.uuid | string | Unique identifier of a Product in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
+
 
 > Example of payload
 
@@ -693,6 +815,10 @@ The following actions can trigger a product creation event:
   "data": {
     "product": {
       "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -735,6 +861,9 @@ The modifications that can lead to this event include:
 |---|---|---|
 | data.product | object | - |
 | data.product.uuid | string | Unique identifier of a Product in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -753,6 +882,10 @@ The modifications that can lead to this event include:
   "data": {
     "product": {
       "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf"
+    },
+    "author": {
+      "identifier": "admin",
+      "type": "user"
     }
   }
 }
@@ -778,6 +911,9 @@ The following actions can trigger a product deletion event:
 |---|---|---|
 | data.product | object | - |
 | data.product.uuid | string | Unique identifier of a Product in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -796,6 +932,10 @@ The following actions can trigger a product deletion event:
   "data": {
     "product": {
       "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -814,6 +954,9 @@ The following actions can trigger a product deletion event:
 |---|---|---|
 | data.product | object | - |
 | data.product.code | string | Unique identifier of a Product Model in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -832,6 +975,10 @@ The following actions can trigger a product deletion event:
   "data": {
     "product_model": {
       "code": "a-product-model-code"
+    },
+    "author": {
+      "identifier": "the-connection-code",
+      "type": "api"
     }
   }
 }
@@ -861,6 +1008,9 @@ The modifications that can lead to this event include:
 |---|---|---|
 | data.product | object | - |
 | data.product.code | string | Unique identifier of a Product Model in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -879,6 +1029,10 @@ The modifications that can lead to this event include:
   "data": {
     "product_model": {
       "code": "a-product-model-code"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -897,6 +1051,9 @@ The modifications that can lead to this event include:
 |---|---|---|
 | data.product_model | object | - |
 | data.product_model.code | string | Unique identifier of a Product Model in the PIM. |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -915,6 +1072,10 @@ The modifications that can lead to this event include:
   "data": {
     "product_model": {
       "code": "a-product-model-code"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -933,6 +1094,9 @@ The modifications that can lead to this event include:
 |---|---|---|
 | data.family | object | - |
 | data.family.code | string | code of a family |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -951,6 +1115,10 @@ The modifications that can lead to this event include:
   "data": {
     "family": {
       "code": "a_family_code"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -975,6 +1143,9 @@ The event is triggered when any of the following properties are changed:
 |---|---|---|
 | data.family | object | - |
 | data.family.code | string | code of a family |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -993,6 +1164,10 @@ The event is triggered when any of the following properties are changed:
   "data": {
     "family": {
       "code": "a_family_code"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
@@ -1011,6 +1186,9 @@ The event is triggered when any of the following properties are changed:
 |---|---|---|
 | data.family | object | - |
 | data.family.code | string | code of a family |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -1029,6 +1207,10 @@ The event is triggered when any of the following properties are changed:
   "data": {
     "family": {
       "code": "a_family_code"
+    },
+    "author": {
+      "identifier": "2e7b105e-3528-4bf7-8e83-678ec2cde0f0",
+      "type": "api"
     }
   }
 }
@@ -1049,6 +1231,9 @@ The event is triggered when any of the following properties are changed:
 | data.reference_entity_record.reference_entity | object | - |
 | data.reference_entity_record.reference_entity.code | string | identifier of a reference entity |
 | data.reference_entity_record.code | string | Unique identifier of a reference entity record |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -1070,6 +1255,10 @@ The event is triggered when any of the following properties are changed:
       "reference_entity": {
         "code": "brands"
       }
+    },
+    "author": {
+      "identifier": "peter",
+      "type": "user"
     }
   }
 }
@@ -1092,6 +1281,9 @@ The event is triggered when any changes are made to the record values.
 | data.reference_entity_record.reference_entity | object | - |
 | data.reference_entity_record.reference_entity.code | string | identifier of a reference entity |
 | data.reference_entity_record.code | string | Unique identifier of a reference entity record |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -1113,6 +1305,10 @@ The event is triggered when any changes are made to the record values.
       "reference_entity": {
         "code": "brands"
       }
+    },
+    "author": {
+      "identifier": "system",
+      "type": "system"
     }
   }
 }
@@ -1133,6 +1329,9 @@ The event is triggered when any changes are made to the record values.
 | data.reference_entity_record.reference_entity | object | - |
 | data.reference_entity_record.reference_entity.code | string | identifier of a reference entity |
 | data.reference_entity_record.code | string | Unique identifier of a reference entity record |
+| data.author | object | - | - | - | **required**, **additional properties are allowed** |
+| data.author.identifier | string | Identifier of the author. | - | - | **required** |
+| data.author.type | string | Type of the author. | allowed (`"user"`, `"api"`, `"system"`, `"unknown-type"`) | - | **required** |
 
 > Example of payload
 
@@ -1154,6 +1353,10 @@ The event is triggered when any changes are made to the record values.
       "reference_entity": {
         "code": "brands"
       }
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
     }
   }
 }
