@@ -36,7 +36,7 @@
       "client_id": "test_client_id"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -83,7 +83,7 @@
       "code": "asset1"
     },
     "author": {
-      "identifier": "john",
+      "identifier": "401ad939-cd20-4343-8b61-3348a53feb4f",
       "type": "user"
     }
   }
@@ -133,7 +133,7 @@ Only changes in asset values will cause this event.
       "code": "asset1"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -181,7 +181,7 @@ Only changes in asset values will cause this event.
       "code": "asset1"
     },
     "author": {
-      "identifier": "john",
+      "identifier": "401ad939-cd20-4343-8b61-3348a53feb4f",
       "type": "user"
     }
   }
@@ -224,7 +224,7 @@ Only changes in asset values will cause this event.
       "code": "an-attribute-code"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -272,7 +272,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
       "code": "an-attribute-code"
     },
     "author": {
-      "identifier": "john",
+      "identifier": "401ad939-cd20-4343-8b61-3348a53feb4f",
       "type": "user"
     }
   }
@@ -315,7 +315,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
       "code": "an-attribute-code"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -401,7 +401,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
       "code": "an-attribute-group-code"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -540,7 +540,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
       }
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -680,7 +680,7 @@ The event is triggered when any of the following properties are changed:
       "code": "category-1"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -817,7 +817,7 @@ The following actions can trigger a product creation event:
       "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -934,7 +934,7 @@ The following actions can trigger a product deletion event:
       "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -1031,7 +1031,7 @@ The modifications that can lead to this event include:
       "code": "a-product-model-code"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -1074,7 +1074,7 @@ The modifications that can lead to this event include:
       "code": "a-product-model-code"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -1117,7 +1117,7 @@ The modifications that can lead to this event include:
       "code": "a_family_code"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -1166,7 +1166,7 @@ The event is triggered when any of the following properties are changed:
       "code": "a_family_code"
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -1257,7 +1257,7 @@ The event is triggered when any of the following properties are changed:
       }
     },
     "author": {
-      "identifier": "peter",
+      "identifier": "4546f4b1-3e3c-4494-bbd4-aae185115a6a",
       "type": "user"
     }
   }
@@ -1355,7 +1355,7 @@ The event is triggered when any changes are made to the record values.
       }
     },
     "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
