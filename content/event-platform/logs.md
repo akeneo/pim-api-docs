@@ -4,7 +4,7 @@ The **Logs** functionality allows you to retrieve a detailed and paginated list 
 
 ### Key Features
 - **Pagination Support**: Retrieve logs page by page for efficient handling of large datasets.
-- **Customizable Filters**: Narrow down results using filters like date range, log type (e.g., "action" or "error"), correlation ID, or subscriber and subscription IDs.
+- **Customizable Filters**: Narrow down results using filters like date range, log type (e.g., "action" or "error") or subscriber and subscription IDs.
 - **Enhanced Traceability**: Each log entry includes metadata to track events and troubleshoot effectively.
 
 ### How to Use the Logs API
@@ -28,7 +28,6 @@ A user suspends a subscription.
   "operation":"subscription_suspended_by_the_user",
   "subscriber_id":"019363c4-6e22-7dd4-a811-6aab07f1d474",
   "subscription_id":"019363c6-139b-7412-a020-75934c917645",
-  "correlation_id":"no_correlation_id",
   "request":{
     "body":"",
     "method":"POST",
@@ -75,7 +74,6 @@ An error occurs when trying to deliver an event, possibly due to a timeout or an
   "error_type": "failed_delivery",
   "error_code": 500,
   "error_message": "an error was returned when calling the destination, or it took too long to respond",
-  "correlation_id": "Z0RI9DPk24ZwY3yoiuKxhQAAAIk",
   "request": {},
   "response": {}
 }
