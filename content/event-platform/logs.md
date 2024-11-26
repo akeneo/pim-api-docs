@@ -89,7 +89,7 @@ An error occurs when trying to deliver an event, possibly due to a timeout or an
   "log_type": "error",
   "timestamp": "2024-11-25T10:07:56Z",
   "operation": "failed_to_deliver_event",
-  "subscriber_id": "",
+  "subscriber_id": "019363c4-6e22-7dd4-a811-6aab07f1d474",
   "subscription_id": "01934a2c-1491-7bea-bced-5176bf92ff3c",
   "error_type": "failed_delivery",
   "error_code": 500,
@@ -100,7 +100,7 @@ An error occurs when trying to deliver an event, possibly due to a timeout or an
 ```
 
 ### Notes on Logs
-Logs are only available for a rolling window of 30 days Ensure you retrieve any required log data within this period to avoid losing critical information.
+Logs are only available for a rolling window of 30 days. Ensure you retrieve any required log data within this period to avoid losing critical information.
 
 
 #### Error Log Deduplication
