@@ -80,7 +80,7 @@ An error occurs when trying to deliver an event, possibly due to a timeout or an
 ```
 
 ### Notes on Logs
-Logs are only available for a rolling window of one month. Ensure you retrieve any required log data within this period to avoid losing critical information.
+Logs are only available for a rolling window of 30 days Ensure you retrieve any required log data within this period to avoid losing critical information.
 
 
 #### Error Log Deduplication
