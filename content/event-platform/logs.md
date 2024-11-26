@@ -10,6 +10,26 @@ The **Logs** functionality allows you to retrieve a detailed and paginated list 
 ### How to Use the Logs API
 To see the full list of available query parameters and example requests, refer to the **[Logs API Documentation](https://storage.googleapis.com/akecld-prd-sdk-aep-prd-api-assets/openapi_specification.html#tag/Logs/operation/get_logs)**.
 
+### Understanding Logs
+
+Logs provide detailed insights into system events, which can be categorized as **action** or **error**. Below is a breakdown of the log fields and their purposes.
+
+#### Log Fields Overview
+
+| **Field**           | **Type**    | **Description**                                                                                  | **Example**                                   |
+|---------------------|-------------|--------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| `log_id`            | String      | Unique identifier for the log. Useful for tracking specific log entries.                         | `f32a1b1a-98df-4d5c-9e93-75e213678b3e`       |
+| `log_type`          | String      | Type of the log, indicating whether it is an **action** or an **error**.                         | `error`                                       |
+| `timestamp`         | Date-Time   | The time when the log was created, in RFC 3339 format.                                           | `2024-11-15T12:34:56Z`                        |
+| `subscriber_id`     | String      | The unique identifier of the subscriber associated with the log.                                 | `aa0f5c91-41ea-4c06-b3a3-af765e2ab07f`       |
+| `subscription_id`   | String      | The unique identifier of the subscription linked to the log.                                     | `72c265f6-22ac-401a-ba75-d1b30c4653e5`       |
+| `operation`         | String      | Describes the operation or event related to the log (e.g., event delivery failure).              | `failed_to_deliver_event`                     |
+| `error_type`        | String      | Indicates the specific type of error, if the log represents an error.                            | `validation_error`                            |
+| `error_code`        | Integer     | The HTTP status code or application-specific error code associated with the error (if present).  | `400`                                         |
+| `error_message`     | String      | A detailed message describing the error, helpful for diagnosing issues.                          | `Invalid request`                             |
+| `request`           | Object      | Represents the HTTP request data related to the log, if applicable.                              | `{ "url": "/api/v1/events", "method": "POST" }` |
+| `response`          | Object      | Represents the HTTP response data related to the log, if applicable.                             | `{ "status": 500, "body": "Internal Server Error" }` |
+
 ### Log Types Explained
 
 The `log_type` field specifies the nature of the log. The two main types are:
