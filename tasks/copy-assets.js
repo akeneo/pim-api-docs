@@ -8,18 +8,8 @@ gulp.task('copy-assets', ['clean-dist'], function(){
     var fa = gulp.src(['node_modules/font-awesome/css/font-awesome.min.css',
             'node_modules/prismjs/themes/prism-okaidia.css'])
         .pipe(gulp.dest('dist/css/'));
-    var fonts = gulp.src(['node_modules/font-awesome/fonts/*',
-            'node_modules/lato-font/fonts/lato-light/*',
-            'node_modules/lato-font/fonts/lato-light-italic/*',
-            'node_modules/lato-font/fonts/lato-normal/*',
-            'node_modules/lato-font/fonts/lato-normal-italic/*',
-            'node_modules/lato-font/fonts/lato-medium/*',
-            'node_modules/lato-font/fonts/lato-medium-italic/*',
-            'node_modules/lato-font/fonts/lato-semibold/*',
-            'node_modules/lato-font/fonts/lato-semibold-italic/*',
-            'node_modules/lato-font/fonts/lato-bold/*',
-            'node_modules/lato-font/fonts/lato-bold-italic/*'])
-        .pipe(gulp.dest('dist/fonts/'));
+    var fonts = gulp.src('content/fonts/*')
+            .pipe(gulp.dest('dist/fonts/'));
     var lib = gulp.src([
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/handlebars/handlebars.min.js',
