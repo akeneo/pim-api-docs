@@ -927,8 +927,11 @@ The modifications that can lead to this event include:
 
 ### Payload
 
+<details>
+  <summary style="cursor: pointer;">Click here to expand the payload details</summary>
+
 | Name | Type | Description |
-|---|---|---|
+  |---|---|---|
 | data.product | object | - |
 | data.product.uuid | string | Unique identifier of a Product in the PIM. |
 | data.product.updated_at | any | - |
@@ -942,16 +945,16 @@ The modifications that can lead to this event include:
 | data.product.changes.categories.removed | array&lt;string&gt; | - |
 | data.product.changes.categories.removed (single item) | string | - |
 | data.product.changes.family | object | - |
-| data.product.changes.family.previous | string \| null |
-| data.product.changes.family.new | string \| null |
+| data.product.changes.family.previous | string \| null | - |
+| data.product.changes.family.new | string \| null | - |
 | data.product.changes.groups | object | - |
 | data.product.changes.groups.added | array&lt;string&gt; | - |
 | data.product.changes.groups.added (single item) | string | - |
 | data.product.changes.groups.removed | array&lt;string&gt; | - |
 | data.product.changes.groups.removed (single item) | string | - |
 | data.product.changes.parent | object | - |
-| data.product.changes.parent.previous | string \| null |
-| data.product.changes.parent.new | string \| null |
+| data.product.changes.parent.previous | string \| null | - |
+| data.product.changes.parent.new | string \| null | - |
 | data.product.changes.associations | object | - |
 | data.product.changes.associations (additional properties) | object | - |
 | data.product.changes.associations.added | object | - |
@@ -980,11 +983,11 @@ The modifications that can lead to this event include:
 | data.product.changes.quantified_associations.removed.productModels (single item) | string | - |
 | data.product.changes.values | object | - |
 | data.product.changes.values (additional properties) | array&lt;object&gt; | - |
-| data.product.changes.values.previous | string \| number \|
-| data.product.changes.values.new | string \| number \|
+| data.product.changes.values.previous | string \| number | - |
+| data.product.changes.values.new | string \| number | - |
 | data.product.changes.values.type | string | - |
-| data.product.changes.values.locale | string \| null |
-| data.product.changes.values.scope | string \| null |
+| data.product.changes.values.locale | string \| null | - |
+| data.product.changes.values.scope | string \| null | - |
 | data.product.changes.table_attributes | object | Changes to table attributes. |
 | data.product.changes.table_attributes.added | array&lt;object&gt; | - |
 | data.product.changes.table_attributes.added (single item) | object | - |
@@ -994,532 +997,536 @@ The modifications that can lead to this event include:
 | data.author.identifier | string | Identifier of the author. |
 | data.author.type | string | Type of the author. |
 
-> Example of payload
+</details>
 
 
-```json [snippet:Payload]
+<details>
+  <summary style="cursor: pointer;">Click here to expand the payload example</summary>
 
-{
-  "specversion": "1.0",
-  "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
-  "type": "com.akeneo.pim.v1.product.updated.delta",
-  "source": "pim",
-  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
-  "time": "2024-02-22T17:31:00Z",
-  "datacontenttype": "application/json",
-  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.updated.delta.schema.json",
-  "data": {
-    "product": {
-      "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf",
-      "updated_at": {
-        "date": "2024-10-14 13:01:21.000000",
-        "timezone": "UTC"
-      },
-      "changes": {
-        "enabled": {
-          "previous": true,
-          "new": false
+  > Example of payload
+  ```json [snippet:Example]
+  {
+    "specversion": "1.0",
+    "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
+    "type": "com.akeneo.pim.v1.product.updated.delta",
+    "source": "pim",
+    "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
+    "time": "2024-02-22T17:31:00Z",
+    "datacontenttype": "application/json",
+    "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.updated.delta.schema.json",
+    "data": {
+      "product": {
+        "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf",
+        "updated_at": {
+          "date": "2024-10-14 13:01:21.000000",
+          "timezone": "UTC"
         },
-        "categories": {
-          "added": [
-            "added_category_code_1",
-            "added_category_code_2"
-          ],
-          "removed": [
-            "removed_category_code_1",
-            "removed_category_code_2"
-          ]
-        },
-        "family": {
-          "previous": "the_previous_family_code",
-          "new": "the_new_family_code"
-        },
-        "groups": {
-          "added": [
-            "added_group_code_1",
-            "added_group_code_2"
-          ],
-          "removed": [
-            "removed_group_code_1",
-            "_removed_group_code_2"
-          ]
-        },
-        "parent": {
-          "previous": "the_previous_parent_code",
-          "new": "the_new_parent_code"
-        },
-        "values": {
-          "an_added_attribute": [
-            {
-              "previous": null,
-              "new": "new_data",
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_updated_attribute": [
-            {
-              "previous": "previous_data",
-              "new": "new_data",
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_removed_attribute": [
-            {
-              "previous": "previous_data",
-              "new": null,
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_attribute_with_value_by_locale": [
-            {
-              "previous": "previous_data_for_a_locale",
-              "new": "new_data_for_a_locale",
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            },
-            {
-              "previous": "previous_data_for_another_locale",
-              "new": "new_data_for_another_locale",
-              "type": "an_attribute_type",
-              "locale": "another_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_attribute_with_value_by_scope": [
-            {
-              "previous": "previous_data_for_a_scope",
-              "new": "new_data_for_a_scope",
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            },
-            {
-              "previous": "previous_data_for_another_scope",
-              "new": "new_data_for_another_scope",
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "another_scope"
-            }
-          ],
-          "a_pim_catalog_text_attribute": [
-            {
-              "previous": "previous_data",
-              "new": "new_data",
-              "type": "pim_catalog_text",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_textarea_attribute": [
-            {
-              "previous": "previous_data",
-              "new": "new_data",
-              "type": "pim_catalog_textarea",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_file_attribute": [
-            {
-              "previous": {
-                "file_name": "old_file.json",
-                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_old_file.json"
+        "changes": {
+          "enabled": {
+            "previous": true,
+            "new": false
+          },
+          "categories": {
+            "added": [
+              "added_category_code_1",
+              "added_category_code_2"
+            ],
+            "removed": [
+              "removed_category_code_1",
+              "removed_category_code_2"
+            ]
+          },
+          "family": {
+            "previous": "the_previous_family_code",
+            "new": "the_new_family_code"
+          },
+          "groups": {
+            "added": [
+              "added_group_code_1",
+              "added_group_code_2"
+            ],
+            "removed": [
+              "removed_group_code_1",
+              "_removed_group_code_2"
+            ]
+          },
+          "parent": {
+            "previous": "the_previous_parent_code",
+            "new": "the_new_parent_code"
+          },
+          "values": {
+            "an_added_attribute": [
+              {
+                "previous": null,
+                "new": "new_data",
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_updated_attribute": [
+              {
+                "previous": "previous_data",
+                "new": "new_data",
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_removed_attribute": [
+              {
+                "previous": "previous_data",
+                "new": null,
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_attribute_with_value_by_locale": [
+              {
+                "previous": "previous_data_for_a_locale",
+                "new": "new_data_for_a_locale",
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "a_scope"
               },
-              "new": {
-                "file_name": "new_file.json",
-                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_new_file.json"
+              {
+                "previous": "previous_data_for_another_locale",
+                "new": "new_data_for_another_locale",
+                "type": "an_attribute_type",
+                "locale": "another_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_attribute_with_value_by_scope": [
+              {
+                "previous": "previous_data_for_a_scope",
+                "new": "new_data_for_a_scope",
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "a_scope"
               },
-              "type": "pim_catalog_file",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_image_attribute": [
-            {
-              "previous": {
-                "file_name": "old_pic.jpg",
-                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_old_pic.jpg"
-              },
-              "new": {
-                "file_name": "new_pic.jpg",
-                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_new_pic.jpg"
-              },
-              "type": "pim_catalog_image",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_number_attribute": [
-            {
-              "previous": 0,
-              "new": 2,
-              "type": "pim_catalog_number",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_metric_attribute": [
-            {
-              "previous": {
-                "data": "previous_data",
-                "unit": "a_unit",
-                "base_data": "previous_based_data",
-                "base_unit": "a_based_unit",
+              {
+                "previous": "previous_data_for_another_scope",
+                "new": "new_data_for_another_scope",
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "another_scope"
+              }
+            ],
+            "a_pim_catalog_text_attribute": [
+              {
+                "previous": "previous_data",
+                "new": "new_data",
+                "type": "pim_catalog_text",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_textarea_attribute": [
+              {
+                "previous": "previous_data",
+                "new": "new_data",
+                "type": "pim_catalog_textarea",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_file_attribute": [
+              {
+                "previous": {
+                  "file_name": "old_file.json",
+                  "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_old_file.json"
+                },
+                "new": {
+                  "file_name": "new_file.json",
+                  "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_new_file.json"
+                },
+                "type": "pim_catalog_file",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_image_attribute": [
+              {
+                "previous": {
+                  "file_name": "old_pic.jpg",
+                  "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_old_pic.jpg"
+                },
+                "new": {
+                  "file_name": "new_pic.jpg",
+                  "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_new_pic.jpg"
+                },
+                "type": "pim_catalog_image",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_number_attribute": [
+              {
+                "previous": 0,
+                "new": 2,
+                "type": "pim_catalog_number",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_metric_attribute": [
+              {
+                "previous": {
+                  "data": "previous_data",
+                  "unit": "a_unit",
+                  "base_data": "previous_based_data",
+                  "base_unit": "a_based_unit",
+                  "family": "a_family"
+                },
+                "new": {
+                  "data": "new_data",
+                  "unit": "a_unit",
+                  "base_data": "new_based_data",
+                  "base_unit": "a_based_unit"
+                },
+                "type": "pim_catalog_metric",
+                "locale": "a_locale",
+                "scope": "a_scope",
                 "family": "a_family"
+              }
+            ],
+            "a_pim_catalog_price_attribute": [
+              {
+                "previous": {
+                  "amount": "a_price",
+                  "currency": "a_currency"
+                },
+                "new": {
+                  "amount": "another_price",
+                  "currency": "a_currency"
+                },
+                "type": "pim_catalog_price",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_boolean_attribute": [
+              {
+                "previous": true,
+                "new": false,
+                "type": "pim_catalog_boolean",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_date_attribute": [
+              {
+                "previous": {
+                  "date": "2024-01-01 00:00:00.000000",
+                  "timezone": "+00.00"
+                },
+                "new": {
+                  "date": "2024-01-02 00:00:00.000000",
+                  "timezone": "+00.00"
+                },
+                "type": "pim_catalog_date",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_identifier_attribute": [
+              {
+                "previous": {
+                  "data": "previous_data",
+                  "is_main_identifier": false
+                },
+                "new": {
+                  "data": "new_data",
+                  "is_main_identifier": true
+                },
+                "type": "pim_catalog_identifier",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_simple_select_attribute": [
+              {
+                "previous": "previous_data",
+                "new": "new_data",
+                "type": "pim_catalog_simpleselect",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_multi_select_attribute": [
+              {
+                "previous": [
+                  "value_1",
+                  "value_2"
+                ],
+                "new": [
+                  "value_1",
+                  "value_3"
+                ],
+                "type": "pim_catalog_multiselect",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_table_attribute": [
+              {
+                "previous": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "cell": "cell_1_of_row_1",
+                          "data": "data_of_cell_1_of_row_1"
+                        },
+                        {
+                          "cell": "cell_2_of_row_1",
+                          "data": "data_of_cell_2_of_row_1"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "cell": "cell_1_of_row_2",
+                          "data": "data_of_cell_1_of_row_2"
+                        },
+                        {
+                          "cell": "cell_2_of_row_2",
+                          "data": "data_of_cell_2_of_row_2"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "new": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "cell": "cell_1_of_row_1",
+                          "data": "data_of_cell_1_of_row_1"
+                        },
+                        {
+                          "cell": "cell_2_of_row_1",
+                          "data": "data_of_cell_2_of_row_1"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "cell": "cell_1_of_row_2",
+                          "data": "data_of_cell_1_of_row_2"
+                        },
+                        {
+                          "cell": "cell_2_of_row_2",
+                          "data": "data_of_cell_2_of_row_2"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "cell": "cell_1_of_row_3",
+                          "data": "data_of_cell_1_of_row_3"
+                        },
+                        {
+                          "cell": "cell_2_of_row_3",
+                          "data": "data_of_cell_2_of_row_3"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "pim_catalog_table",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_asset_collection_attribute": [
+              {
+                "previous": [
+                  "asset_code_1",
+                  "asset_code_2"
+                ],
+                "new": [
+                  "asset_code_1",
+                  "asset_code_3"
+                ],
+                "type": "pim_catalog_asset_collection",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_akeneo_reference_entity_attribute": [
+              {
+                "previous": "previous_reference_entity_code",
+                "new": "new_reference_entity_code",
+                "type": "akeneo_reference_entity",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_akeneo_reference_entity_collection_attribute": [
+              {
+                "previous": [
+                  "reference_entity_record_code_1",
+                  "reference_entity_record_code_2"
+                ],
+                "new": [
+                  "reference_entity_record_code_1",
+                  "reference_entity_record_code_3"
+                ],
+                "type": "akeneo_reference_entity_collection",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ]
+          },
+          "associations": {
+            "an_association_type_code": {
+              "added": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_1",
+                  "a_product_model_2"
+                ],
+                "groups": [
+                  "an_association_group_1",
+                  "an_association_group_2"
+                ]
               },
-              "new": {
-                "data": "new_data",
-                "unit": "a_unit",
-                "base_data": "new_based_data",
-                "base_unit": "a_based_unit"
+              "removed": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_1",
+                  "a_product_model_2"
+                ],
+                "groups": [
+                  "an_association_group_1",
+                  "an_association_group_2"
+                ]
+              }
+            },
+            "another_association_type_code": {
+              "added": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_1",
+                  "a_product_model_2"
+                ],
+                "groups": [
+                  "an_association_group_1",
+                  "an_association_group_2"
+                ]
               },
-              "type": "pim_catalog_metric",
-              "locale": "a_locale",
-              "scope": "a_scope",
-              "family": "a_family"
+              "removed": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_1",
+                  "a_product_model_2"
+                ],
+                "groups": [
+                  "an_association_group_1",
+                  "an_association_group_2"
+                ]
+              }
             }
-          ],
-          "a_pim_catalog_price_attribute": [
-            {
-              "previous": {
-                "amount": "a_price",
-                "currency": "a_currency"
-              },
-              "new": {
-                "amount": "another_price",
-                "currency": "a_currency"
-              },
-              "type": "pim_catalog_price",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_boolean_attribute": [
-            {
-              "previous": true,
-              "new": false,
-              "type": "pim_catalog_boolean",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_date_attribute": [
-            {
-              "previous": {
-                "date": "2024-01-01 00:00:00.000000",
-                "timezone": "+00.00"
-              },
-              "new": {
-                "date": "2024-01-02 00:00:00.000000",
-                "timezone": "+00.00"
-              },
-              "type": "pim_catalog_date",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_identifier_attribute": [
-            {
-              "previous": {
-                "data": "previous_data",
-                "is_main_identifier": false
-              },
-              "new": {
-                "data": "new_data",
-                "is_main_identifier": true
-              },
-              "type": "pim_catalog_identifier",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_simple_select_attribute": [
-            {
-              "previous": "previous_data",
-              "new": "new_data",
-              "type": "pim_catalog_simpleselect",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_multi_select_attribute": [
-            {
-              "previous": [
-                "value_1",
-                "value_2"
-              ],
-              "new": [
-                "value_1",
-                "value_3"
-              ],
-              "type": "pim_catalog_multiselect",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_table_attribute": [
-            {
-              "previous": {
-                "rows": [
+          },
+          "quantified_associations": {
+            "an_association_type_code": {
+              "added": {
+                "products": [
                   {
-                    "cells": [
-                      {
-                        "cell": "cell_1_of_row_1",
-                        "data": "data_of_cell_1_of_row_1"
-                      },
-                      {
-                        "cell": "cell_2_of_row_1",
-                        "data": "data_of_cell_2_of_row_1"
-                      }
-                    ]
+                    "uuid": "an_added_product_uuid",
+                    "quantity": 1
                   },
                   {
-                    "cells": [
-                      {
-                        "cell": "cell_1_of_row_2",
-                        "data": "data_of_cell_1_of_row_2"
-                      },
-                      {
-                        "cell": "cell_2_of_row_2",
-                        "data": "data_of_cell_2_of_row_2"
-                      }
-                    ]
+                    "uuid": "another_added_product_uuid",
+                    "quantity": 2
+                  }
+                ],
+                "product_models": [
+                  {
+                    "code": "an_added_product_model_code",
+                    "quantity": 3
+                  },
+                  {
+                    "uuid": "another_added_product_model_code",
+                    "quantity": 4
                   }
                 ]
               },
-              "new": {
-                "rows": [
+              "removed": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_code",
+                  "another_product_model_code"
+                ]
+              }
+            },
+            "another_association_type_code": {
+              "added": {
+                "products": [
                   {
-                    "cells": [
-                      {
-                        "cell": "cell_1_of_row_1",
-                        "data": "data_of_cell_1_of_row_1"
-                      },
-                      {
-                        "cell": "cell_2_of_row_1",
-                        "data": "data_of_cell_2_of_row_1"
-                      }
-                    ]
+                    "uuid": "an_added_product_uuid",
+                    "quantity": 1
                   },
                   {
-                    "cells": [
-                      {
-                        "cell": "cell_1_of_row_2",
-                        "data": "data_of_cell_1_of_row_2"
-                      },
-                      {
-                        "cell": "cell_2_of_row_2",
-                        "data": "data_of_cell_2_of_row_2"
-                      }
-                    ]
+                    "uuid": "another_added_product_uuid",
+                    "quantity": 2
+                  }
+                ],
+                "product_models": [
+                  {
+                    "code": "an_added_product_model_code",
+                    "quantity": 3
                   },
                   {
-                    "cells": [
-                      {
-                        "cell": "cell_1_of_row_3",
-                        "data": "data_of_cell_1_of_row_3"
-                      },
-                      {
-                        "cell": "cell_2_of_row_3",
-                        "data": "data_of_cell_2_of_row_3"
-                      }
-                    ]
+                    "uuid": "another_added_product_model_code",
+                    "quantity": 4
                   }
                 ]
               },
-              "type": "pim_catalog_table",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_asset_collection_attribute": [
-            {
-              "previous": [
-                "asset_code_1",
-                "asset_code_2"
-              ],
-              "new": [
-                "asset_code_1",
-                "asset_code_3"
-              ],
-              "type": "pim_catalog_asset_collection",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_akeneo_reference_entity_attribute": [
-            {
-              "previous": "previous_reference_entity_code",
-              "new": "new_reference_entity_code",
-              "type": "akeneo_reference_entity",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_akeneo_reference_entity_collection_attribute": [
-            {
-              "previous": [
-                "reference_entity_record_code_1",
-                "reference_entity_record_code_2"
-              ],
-              "new": [
-                "reference_entity_record_code_1",
-                "reference_entity_record_code_3"
-              ],
-              "type": "akeneo_reference_entity_collection",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ]
-        },
-        "associations": {
-          "an_association_type_code": {
-            "added": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_1",
-                "a_product_model_2"
-              ],
-              "groups": [
-                "an_association_group_1",
-                "an_association_group_2"
-              ]
-            },
-            "removed": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_1",
-                "a_product_model_2"
-              ],
-              "groups": [
-                "an_association_group_1",
-                "an_association_group_2"
-              ]
-            }
-          },
-          "another_association_type_code": {
-            "added": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_1",
-                "a_product_model_2"
-              ],
-              "groups": [
-                "an_association_group_1",
-                "an_association_group_2"
-              ]
-            },
-            "removed": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_1",
-                "a_product_model_2"
-              ],
-              "groups": [
-                "an_association_group_1",
-                "an_association_group_2"
-              ]
-            }
-          }
-        },
-        "quantified_associations": {
-          "an_association_type_code": {
-            "added": {
-              "products": [
-                {
-                  "uuid": "an_added_product_uuid",
-                  "quantity": 1
-                },
-                {
-                  "uuid": "another_added_product_uuid",
-                  "quantity": 2
-                }
-              ],
-              "product_models": [
-                {
-                  "code": "an_added_product_model_code",
-                  "quantity": 3
-                },
-                {
-                  "uuid": "another_added_product_model_code",
-                  "quantity": 4
-                }
-              ]
-            },
-            "removed": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_code",
-                "another_product_model_code"
-              ]
-            }
-          },
-          "another_association_type_code": {
-            "added": {
-              "products": [
-                {
-                  "uuid": "an_added_product_uuid",
-                  "quantity": 1
-                },
-                {
-                  "uuid": "another_added_product_uuid",
-                  "quantity": 2
-                }
-              ],
-              "product_models": [
-                {
-                  "code": "an_added_product_model_code",
-                  "quantity": 3
-                },
-                {
-                  "uuid": "another_added_product_model_code",
-                  "quantity": 4
-                }
-              ]
-            },
-            "removed": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_code",
-                "another_product_model_code"
-              ]
+              "removed": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_code",
+                  "another_product_model_code"
+                ]
+              }
             }
           }
         }
+      },
+      "author": {
+        "identifier": "julia",
+        "type": "user"
       }
-    },
-    "author": {
-      "identifier": "julia",
-      "type": "user"
     }
   }
-}
-```
+  ```
+</details> 
 
 ## com.akeneo.pim.v1.product.deleted
 
