@@ -109,6 +109,27 @@
         color: lighten(@headings-color, 10%);
         background-color: transparent;
     }
+    .panel-body-home {
+        padding: @spacing-base / 3;
+        a.btn {
+            margin-top: @spacing-base / 10;
+            margin-bottom: @spacing-base / 10;
+        }
+        h2,
+        h4 {
+            margin-top: @spacing-base / 8;
+            &+p {
+                margin-bottom: 0;
+            }
+        }
+        h3:first-of-type {
+            margin-top: @spacing-base / 8;
+        }
+    }
+    .panel-footer {
+        padding: @spacing-base / 3;
+        border-top: none;
+    }
     .panel-body {
         padding: @spacing-base / 3;
         a.btn {
