@@ -1,5 +1,9 @@
 # API Reference
 
-The Supplier Data Manager API is a RESTful API that allows you to interact with the Supplier Data Manager platform. Our API is OpenAPI compliant and provides a comprehensive set of endpoints to manage your projects, files, jobs, output formats, modules configuration, and more.
+The Supplier Data Manager API is a RESTful API that provides a comprehensive set of endpoints to manage your projects, files, jobs, output formats, modules configuration, and more.
 
-Our API documentation is available in two formats: [Redoc](https://sdm.akeneo.cloud/doc/v1/redoc/) and [Swagger](https://sdm.akeneo.cloud/doc/v1/swagger/).
+Several choices are offered to deep dive into our API, to discover all the endpoints, and their request/response schema:
+
+- Consult our online documentation: [Redoc](https://sdm.akeneo.cloud/doc/v1/redoc/) or [Swagger](https://sdm.akeneo.cloud/doc/v1/swagger/).
+- <a href="https://storage.googleapis.com/sdm-public-miscellaneous-akecld-prd-sdm-prd/api/openapi/specification_v1.yml" target="_blank">Download our OpenAPI specification</a>.
+- Discover it thanks to <a href="https://storage.googleapis.com/sdm-public-miscellaneous-akecld-prd-sdm-prd/api/postman/collection_v1.json" target="_blank">the postman collection</a>
