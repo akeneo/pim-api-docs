@@ -169,7 +169,7 @@ curl -X GET /api/rest/v1/products-uuid
 
 When trying to request a quite high page number, you will notice that this method spend more and more time to respond. This method can also be responsible for giving you duplicates. That is why we introduced another way to request paginated resources, see the [`Search-after` method](/documentation/pagination.html#the-search-after-method). It is only avalailable on products, product models, published products, assets, reference entities and reference entity records right now.
 
-For somes high volume entities, an offset limit exist, after that an error with code 422 will be sent back.
+For some high volume entities, an offset limit exist, after that an error with code 422 will be sent back.
 ``` bash
 
 // Max offset for product trying to fetch after the 10.000th product
