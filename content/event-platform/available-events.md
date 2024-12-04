@@ -893,7 +893,7 @@ The modifications that can lead to this event include:
 }
 ```
 
-## com.akeneo.pim.v1.product.updated.delta
+## com.akeneo.pim.v1.product.updated.​delta
 
 *This event is generated whenever an existing product is modified in the PIM.*
 
