@@ -22,7 +22,7 @@ Please note that if the throughput drops too significantly, the suspension polic
 
 ## Delivery timeout
 
-Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to handle requests within **`3 seconds`**.  If processing exceeds this duration, the event will enter the retry process ([see bellow](/event-platform/concepts.html#retry-policy-for-transient-failures.html)).
+Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to handle requests within **`5 seconds`**.  If processing exceeds this duration, the event will enter the retry process ([see bellow](/event-platform/concepts.html#retry-policy-for-transient-failures.html)).
 
 Under normal circumstances, your HTTPS endpoint must handle the event as fast as possible.
 **Our recommendation** is to put the message in a `queuing system` or in a `database` for asynchronous processing.
