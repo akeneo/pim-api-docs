@@ -474,7 +474,7 @@ Note that the `locale` and `channel` properties are all set to `null` in this ca
 ::: availability versions=3.x,4.0,5.0,6.0,7.0,SaaS editions=EE
 :::
 
-Reference entity media files corresponds to the images that you can link to the records of your reference entities and also, to the images that you can direclty link to your reference entities.
+Reference entity media files corresponds to the images that you can link to the records of your reference entities and also, to the images that you can directly link to your reference entities.
 
 In the Akeneo UI, you can find these media files in the detail of a record. In the screenshot below, there are two record media files: 
 - the first image with the logo of the brand,
