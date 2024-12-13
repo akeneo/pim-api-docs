@@ -51,7 +51,7 @@ code snippets but a lot of guidance to implement the whole process.
 
 ## Requirements
 
-- You’ve got a PIM developer sandbox. If not, please [contact us](https://www.akeneo.com/contact/)
+- You’ve got a PIM developer sandbox. If not, please refer to our [App developer starter kit](/apps/overview.html#app-developer-starter-kit).
 
 ## Option 1: Get our Start App
 

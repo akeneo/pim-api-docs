@@ -28,7 +28,7 @@ Apps integrate with Akeneo in the following ways:
     - easily **get a pre-filtered product selection** configured by your users from their PIM interface,
     - push your app requirements and **get mapped product data** calling catalogs endpoints without developing any mapping interface
     - provide a **consistent experience** to users
-- connecting with our **REST API** to read and write Akeneo data
+- connecting with our **[REST API](/api-reference-index.html)**, **[GraphQL API](/event-platform/overview.html)**, **[Event Platform](/graphql/getting-started.html)** to read and write Akeneo data
 
 ![App in Akeneo Product Cloud](../img/apps/apps-fit-akeneo.png)
 
@@ -47,14 +47,10 @@ However, there are some significant differences.
 - **Automatic configuration instead of manual configuration**: connectors use Akeneo PIM connections to get credentials, apps use the OAuth 2.0. When a user connects Akeneo PIM with an app, they click on Connect then follow the step-by-step activation process to accept requested authorizations and set up permissions. The app receives everything it needs to interact with Akeneo PIM at the end of this process.  No more manual configuration issues and more transparency!
 - **High visibility**: we give your app high visibility when you publish an app on the [Akeneo App Store](https://apps.akeneo.com/). Your app is displayed ***above all connectors***. We also give high visibility to apps to our Akeneo PIM users. To do so, we created a ***dedicated section*** to highlight them in Akeneo Product Cloud embedded App Store.
 - **Greater level of support**: we provide support to app developers to help them design, build, and test their app before publishing it on [Akeneo App Store](https://apps.akeneo.com/).
-- **Increase co-marketing opportunities**: Akeneo promotes apps and will communicate about new apps published on the Akeneo App Store, especially about certified apps.
+- **Increase co-marketing opportunities**: Akeneo promotes apps and will communicate about new apps published on the Akeneo App Store.
 - **Benefit from all the future features & improvements**: Akeneo teams are also investing in apps by developing new features for you to ease and accelerate app development and publication in the coming years.
 
 ![PIM App Store](../img/apps/pim-marketplace-with-apps.png)
-
-::: info
-Want to know more about the app certification? [Contact us](https://www.akeneo.com/contact/).
-:::
 
 ## Understanding the differences: Custom Apps vs. SaaS Apps
 
@@ -69,7 +65,7 @@ Custom apps in Akeneo are bespoke applications developed to meet specific busine
 - **Tailored Solutions:** Custom apps are built to address specific use cases and requirements unique to your customer's business. This ensures that the app aligns perfectly with their operational needs.
 - **Single Tenant:** Each custom app corresponds to a single PIM instance, ensuring dedicated resources and performance for that particular client.
 - **Full Control:** As a developer, you have complete control over the development and deployment of custom apps. This allows you to adapt the app as your customer’s needs evolve.
-- **Integration Capabilities:** Custom apps can leverage Akeneo’s integration capabilities, such as Catalogs for Apps or GraphQL, to efficiently interact with product data.
+- **Integration Capabilities:** Custom apps can leverage Akeneo’s integration capabilities, such as Catalogs for Apps or GraphQL API, to efficiently interact with product data.
 - **Development Resources:** Custom apps require development resources. You or your team will handle the ongoing maintenance and updates, ensuring the app remains functional and up-to-date.
 
 ### SaaS Apps
@@ -102,15 +98,19 @@ Please note that once you begin developing your app, you will need to use the cu
 
 ## App developer starter kit
 
-Before starting to develop your app, we advise you to:
-- Learn [how users connect their PIM with apps](https://help.akeneo.com/pim/serenity/articles/how-to-connect-my-pim-with-apps.html) and [how they manage their connected apps](https://help.akeneo.com/pim/serenity/articles/manage-your-apps.html)
-- Read our [guides](/apps/app-concepts-and-use-cases.html) to better understand Akeneo and be aware of best pratices
-- Check our REST API [Reference](/api-reference-index.html) & [basics](/documentation/introduction.html)
-- Use our [developer tools](/apps/app-developer-tools.html)
+Before starting to develop your app, we advise you to register and refer to our **[app development journey training course](https://partner-akademy.akeneo.com/app-development-journey)**, where you'll find everything you need to..:
+* Create your account on our different platforms
+* Access our Helpdesk support
+* Generate your Akeneo Product Cloud sandbox
+* Understand Akeneo Product Cloud data and capabilities
+* Understand the App Store and apps
+* Define your app's features
+* Develop your app
+* Submit your app to the App Store
 
-Then, you can [contact us](https://www.akeneo.com/contact/) to get your **App developer starter kit**:
-- A developer sandbox with our [Serenity Enterprise version](https://help.akeneo.com/pim/serenity/versions-in-detail.html)
-- An access to our [support portal](https://apps-support.akeneo.com/) to easily ask questions, send suggestions or report a bug
+::: info
+In short, everything you need to guide you in your app journey!
+:::
 
 ## Publish your app
 

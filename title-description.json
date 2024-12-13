@@ -50,11 +50,6 @@
     "description": "The Akeneo App Store's growth is due to the community's contributions, but maintaining quality standards has become increasingly important, with requirements that extensions must meet to be approved."
   },
   {
-    "content_dir": "apps/certify-your-app",
-    "title": "Certify your App",
-    "description": "Akeneo App Certification is a certification program aiming at promoting partner Apps that meet the certification criteria defined by Akeneo as a part of its quality approach on the App Store."
-  },
-  {
     "content_dir": "apps/create-custom-app",
     "title": "Custom apps",
     "description": "A custom app can be connected to a PIM without being published on the Akeneo App Store, allowing integrators to utilize app features to meet specific customer needs that are not covered by existing PIM features or Akeneo App Store apps."
@@ -65,9 +60,3 @@
     "description": "You'll find below all the updates of our SaaS offers. Enjoy!"
   }
 ]
-
-
-
-
-
-
