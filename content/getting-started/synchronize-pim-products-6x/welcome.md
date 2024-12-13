@@ -15,10 +15,7 @@ This guide is dedicated to Apps that need to import data from a PIM (e-Commerce,
 <i class="fa fa-check-square"></i> **You have access to a PIM.**  
 This can seem pretty obvious. But yeah! You will need a PIM if you want to make any REST API requests.
 And of course, you also have to make sure that you can access it from where you are requesting.
-Our recommendation is to have access to a PIM Enterprise Edition SaaS to benefit from the latest features we have released. You need to know that Apps are available since version 6 of the PIM. 
-
-You don't have access to a PIM to develop your App?  Don't worry!
-Please [contact us](https://www.akeneo.com/contact/), we will be happy to provide you with a PIM Enterprise Edition SaaS sandbox.
+Our recommendation is to have access to an Akeneo Product Cloud sandbox to benefit from the latest features we have released. 
 
 <i class="fa fa-check-square"></i> **You have access to an App, and it has its own storage system.**
 Whatever is the storage system, you will need one for product data persistence.
@@ -41,4 +38,3 @@ Some steps are not mandatory for all e-commerce platforms — you won’t, for i
 
 ::: panel-link Ready for action? Check first [the PIM objects relationship schema](/getting-started/synchronize-pim-products-6x/step-0.html)
 :::
-

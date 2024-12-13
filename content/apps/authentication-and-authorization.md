@@ -47,7 +47,7 @@ After you've completed this tutorial, you'll be able to authorize an app created
 
 ### Requirements
 
-- You have access to an Akeneo PIM ([get your App developer starter kit](/apps/overview.html#app-developer-starter-kit))
+- You have access to an Akeneo Product Cloud sandbox (Please refer to our [App developer starter kit](/apps/overview.html#app-developer-starter-kit))
 - You're familiar with the [OAuth 2.0 flow](/apps/authentication-and-authorization.html#oauth-20) in Akeneo
 
 ### Step 1: Generate API credentials
@@ -258,7 +258,7 @@ After you've completed this tutorial, you'll be able to authenticate users comin
 
 ### Requirements
 
-- You have access to an Akeneo PIM ([get your App developer starter kit](/apps/overview.html#app-developer-starter-kit))
+- You have access to an Akeneo Product Cloud sandbox ([Please refer to our App Developer Starter kit](/apps/overview.html#app-developer-starter-kit))
 - You're familiar with [OpenID connect](https://openid.net/connect/)
 - You're familiar with the [app authentication process](/apps/authentication-and-authorization.html#getting-started-with-oauth-20)
 

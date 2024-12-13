@@ -43,5 +43,5 @@ We recommend clicking Mark all as read after commenting, so it’s easy to see i
 
 ## Remove your app from the Akeneo App Store
 
-Once your app is published on the Akeneo App Store, only an Akeneo administrator can remove your app from the App Store. 
-Please, contact us if you want to remove your app from our App Store.
+Once your app is published on the Akeneo App Store, only an Akeneo administrator can remove your app from the App Store.
+Please, contact us via the [Helpdesk platform](https://apps-support.akeneo.com) if you want to remove your app from our App Store.
