@@ -1,5 +1,11 @@
 # Authentication
 
+:::warning
+This documentation concerns `Connector` development only.
+
+If you develop an `App` please consult this [documentation](/apps/authentication-and-authorization.html) instead.
+:::
+
 For security reasons, to access the REST API, you will need to be authenticated.
 To authenticate your REST API calls, the PIM will provide you a pair of client ID and secret. [See here to discover how](#client-idsecret-generation).
 

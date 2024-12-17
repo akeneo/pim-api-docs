@@ -382,7 +382,7 @@ the latest public key when validating a signature.
 
 ### Next steps
 - Learn about [catalogs](/apps/catalogs.html)
-- Explore the [REST API reference](/api-reference-index.html) 
+- Explore the [REST API reference](/api-reference-index.html), the [GraphQL API](/graphql/getting-started.html) and the [Event Platform](/event-platform/overview.html).
 
 <!------------------------------ end of the Authentication ------------------------------------>
 
