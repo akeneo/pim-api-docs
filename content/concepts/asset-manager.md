@@ -1,5 +1,10 @@
 # Asset Manager
-The Asset Manager is a brand new and more efficient way to manage the assets linked to your products/product models inside the PIM. :rocket:
+
+::: info
+Since the Asset Manager feature was introduced with Akeneo PIM version 4.0: if you are using an older version of Akeneo PIM (version 3.2 or earlier), we recommend you consult our documentation on the [PAM feature](/concepts/pam.html) instead.
+:::
+
+The Asset Manager is the more efficient way to manage the assets linked to your products/product models inside the PIM. :rocket:
 
 The assets of the Asset Manager will be way more powerful than before. They will benefit from 4 major new features:
 - the possibility to define a flexible structure, thanks to the [asset families](#the-asset-family),

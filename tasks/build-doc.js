@@ -1024,8 +1024,7 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
         'catalog-structure.md': 'Catalog structure',
         'target-market-settings.md': 'Target market settings',
         'reference-entities.md': 'Reference entities',
-        'asset-manager.md': 'Asset Manager',
-        'pam.md': 'PAM <em>- Deprecated</em>'
+        'asset-manager.md': 'Asset Manager'
     };
 
     var isOnePage = false;

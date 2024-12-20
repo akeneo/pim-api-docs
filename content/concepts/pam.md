@@ -3,7 +3,7 @@
 PAM stands for Product Asset Management. It's the way to handle your product assets in older versions of the PIM (from v1.7 to v3.2).
 
 ::: warning
-With the introduction of our brand new way to handle assets, the [Asset Manager](/concepts/asset-manager.html), the PAM feature will be removed from the v4.0 of the PIM. As a result, **from now on, all the REST API resources regarding the PAM assets are deprecated**. They are not available anymore starting from the v4.0. 
+With the introduction of our brand new way to handle assets, the [Asset Manager](/concepts/asset-manager.html), the PAM feature has been removed from the v4.0 of the PIM. As a result, **from now on, all the REST API resources regarding the PAM assets are deprecated**. They are not available anymore starting from the v4.0. 
 :::
 
 To understand why we deprecated this feature, we recommend you to read this [Medium post](https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804), we wrote on this special occasion.  
