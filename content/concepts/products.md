@@ -543,29 +543,6 @@ Whenever the attribute's type is `akeneo_reference_entity_collection`, the `data
 }
 ```
 
-#### PAM asset collection attribute _- Deprecated_
-::: availability versions=2.1,2.2,2.3,3.x editions=EE
-:::
-
-Whenever the attribute's type is `pim_assets_collection`, the `data` field should contain an array of strings, each string being the code of a [PAM asset](/concepts/pam.html#asset).
-
-##### Example
-```json
-{
-  "values": {
-    "userguides": [
-      {
-        "locale": null,
-        "scope": null,
-        "data": ["guarantee_notice", "how_to_guide"],
-        "attribute_type": "pim_assets_collection",
-        "reference_data_name": "guides_images"
-      }
-    ]
-  }
-}
-```
-
 #### Asset Manager asset collection attribute
 ::: availability versions=3.2,4.0,5.0,6.0,7.0,SaaS editions=EE
 :::
@@ -583,6 +560,29 @@ Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` fiel
         "data": ["allie_jean_frontview", "allie_jean_backview"],
         "attribute_type": "pim_assets_collection",
         "reference_data_name": "packshots"
+      }
+    ]
+  }
+}
+```
+
+#### PAM asset collection attribute _- Deprecated_
+::: availability versions=2.1,2.2,2.3,3.x editions=EE
+:::
+
+Whenever the attribute's type is `pim_assets_collection`, the `data` field should contain an array of strings, each string being the code of a [PAM asset](/concepts/pam.html#asset).
+
+##### Example
+```json
+{
+  "values": {
+    "userguides": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": ["guarantee_notice", "how_to_guide"],
+        "attribute_type": "pim_assets_collection",
+        "reference_data_name": "guides_images"
       }
     ]
   }

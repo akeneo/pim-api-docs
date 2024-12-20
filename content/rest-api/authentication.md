@@ -4,6 +4,8 @@
 This documentation concerns `Connector` development only.
 
 If you develop an `App` please consult this [documentation](/apps/authentication-and-authorization.html) instead.
+
+Want to know the differences between an `App` and `Connector`? Please consult this [documentation](/apps/overview.html#why-apps-over-connectors).
 :::
 
 For security reasons, to access the REST API, you will need to be authenticated.
@@ -19,15 +21,15 @@ Once you get its username and password, together with the client ID and the secr
 
 ## Client ID/secret generation
 
-Depending on your PIM version, there are two different ways to generate these client IDs/secrets:
-- User of a v4 or newer PIM, you can follow [these simple steps](#since-the-pim-v4).
+Depending on your PIM version, there are different ways to generate these client IDs/secrets:
+- User of a v4 or newer PIM (SaaS), you can follow [these simple steps](#since-the-pim-v4).
 - Using a PIM v2.x or v3.x? [Follow the instructions right here.](#with-a-v2x-and-3x-pim)
 - Still using the v1.7? [Here you go!](#with-a-v17-pim)
 
 ::: tips
 **You don't know your PIM version?**  
 You can find it in the `version` line of the `System/System information` page.  
-If the version looks like a datetime, you use one of our SaaS offers, so please check the _Since the PIM v4_ paragraph.
+If the version looks like a datetime, you use one of our SaaS offers, so please check the _Since the PIM v4_ paragraph below.
 :::
 
 ### Since the PIM v4 

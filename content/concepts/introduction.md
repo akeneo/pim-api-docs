@@ -14,8 +14,7 @@ So here you go. We categorized the REST API resources by main PIM domain/feature
 - the [Catalog structure](/concepts/catalog-structure.html),
 - the [Target market settings](/concepts/target-market-settings.html),
 - the [Reference entities](/concepts/reference-entities.html),
-- the [Asset Manager](/concepts/asset-manager.html),
-- the [PAM](/concepts/pam.html) _- Deprecated_.
+- the [Asset Manager](/concepts/asset-manager.html)
 
 But first things first! Maybe you don't event know what a PIM is... So let's start by the beginning!
 
