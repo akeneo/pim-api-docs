@@ -277,8 +277,10 @@ Because your app will either pull data from Akeneo to external services or push 
 
 ### Security Publication Process
 
-Before any app is accepted into our App Store, we scan it for potential security issues.
-The Akeneo Security team will perform the following tests on the source code of the app to be published:
+Before any app is accepted into our App Store, Akeneo's security team will perform a review of your app.
+
+#### Code Scanning 
+The review will entail a source code scan of your integration to be submitted during the security review (see below). This scan will entail:
 
 - Source Composition Analysis to detect vulnerabilities on the dependencies your code is using.
 - Secrets Scanning to detect potential secret management security flaws.
@@ -291,10 +293,13 @@ If a potential security issue is detected on your app during the tests, we'll no
 **Important**: In order to check the security of your app, you must deliver your app code to Akeneo. **Akeneo commits to not sharing your source code with any third party, and to deleting it once the scan has been completed**.
 :::
 
-### Submitting your code
+#### Proof of Security Audit
 
-Your App source code must be provided as part as the App Submission process.
-- The source code **MUST** be provided as a .zip archive, following this specific format: *<name_of_your_app>*.zip. Please reach your Akeneo contact for more information.
+If you performed a audit (web assessment or penetration test) on your integration during the last year, you can also provide an executive summary of the audit to replace the code scanning.
+
+### Submitting your app for the Security Review
+
+To submit your App for the Security Review, please create a ticket [here](https://akeneo.atlassian.net/servicedesk/customer/portal/8/group/113). 
 
 ## You must guarantee a certain level of service related to your app
 
