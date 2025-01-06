@@ -270,14 +270,15 @@ A poor app user experience causes users frustration and can negatively impact bo
 
 ☐ I made sure that the information is hierarchically organized to make sense to my users — headings, sub-headings, grouping similar information or features.
 
-
 ## Your app must guarantee a certain level of security
 
 Because your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must comply with Akeneo security policies. Each app which will be submitted for publication will be reviewed and will need to meet the security requirements described below. You'll also find more information and tips on the [security requirements page](/apps/secure-your-app.html) to improve the security of your app.
 
 ### Security Publication Process
 
-Before any app is accepted into our App Store, Akeneo's security team will perform a review of your app.
+Before any app is accepted into our App Store, Akeneo's security team will perform a review of your app / organization. This security analysis can be carried out in several ways
+- Code Scanning by Akeneo OR Security Audit performed on your end
+- Security Questionnaire to fill
 
 #### Code Scanning 
 The review will entail a source code scan of your integration to be submitted during the security review (see below). This scan will entail:
@@ -296,6 +297,10 @@ If a potential security issue is detected on your app during the tests, we'll no
 #### Proof of Security Audit
 
 If you performed a audit (web assessment or penetration test) on your integration during the last year, you can also provide an executive summary of the audit to replace the code scanning.
+
+#### Security Questionnaire
+
+The questionnaire is used to assess your level of maturity in terms of application security.
 
 ### Submitting your app for the Security Review
 
