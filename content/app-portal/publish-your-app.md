@@ -300,7 +300,10 @@ If you performed a audit (web assessment or penetration test) on your integratio
 
 #### Security Questionnaire
 
-The questionnaire is used to assess your level of maturity in terms of application security.
+The questionnaire is used to assess your level of maturity in terms of application security such as :
+- Secure software development lifecycle (SDLC) measures & processes
+- Vulnerability Management
+- Company security policies & certifications
 
 ### Submitting your app for the Security Review
 
