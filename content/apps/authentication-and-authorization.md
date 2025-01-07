@@ -240,7 +240,11 @@ TODO - Shopify example
 
 ## Getting started with OpenID Connect
 
-When building your public App, you can use the **OpenID Connect protocol** to authenticate users coming from an Akeneo Product Cloud.
+**OpenID Connect** is a protocol that allows you to automatically authenticate users from the Akeneo Product Cloud on your app.
+
+This is particularly useful for identifying the PIM user who will be connecting to your app for the first time, but also for identifying the different PIM users who will open and use your app.
+
+This protocol will help you set up dedicated user profiles, and even specific configurations for each user.
 
 OpenID Connect is a simple identity layer on top of the OAuth 2.0 protocol. Basically, with OpenID Connect, you use the same process as for Authorization, but you **request an additional scope** and you receive, alongside the Access Token, an **ID Token containing the information of the current user**.
 

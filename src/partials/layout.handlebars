@@ -138,10 +138,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </li>
 
                 <li class="dropdown{{#if active_api_resources}} active{{/if}}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">API resources <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PIM APIs<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-title">API resources</li>
+                        <li class="dropdown-title">PIM API resources</li>
                         <li><a href="/documentation/introduction.html">REST API</a></li>
+                        <!--
                         <li>
                             <ul>
                                 <li><a href="/documentation/why-the-api.html">REST API basics</a></li>
@@ -150,11 +151,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <li><a href="/getting-started/connect-the-pim-4x/welcome.html">The "Connect the PIM" tutorial</a></li>
                             </ul>
                         </li>
+                      -->
                         <li>
                             <a href="/event-platform/overview.html">
                             The Event Platform <span class="label label-beta">New</span>
                             </a>
                         </li>
+                        <!--
                         <li>
                             <ul>
                                 <li><a href="/event-platform/overview.html">Overview</a></li>
@@ -163,11 +166,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <li><a href="/event-platform/api-reference.html">API Reference</a></li>
                             </ul>
                         </li>
+                      -->
                         <li>
                             <a href="/graphql/getting-started.html">
                             The GraphQL API
                             </a>
                         </li>
+                        <!--
                         <li>
                             <ul>
                                 <li><a href="/graphql/getting-started.html">Getting started</a></li>
@@ -175,11 +180,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <li><a href="/graphql/recommendations.html">Usage recommendations</a></li>
                             </ul>
                         </li>
+                      -->
                         <li>
                             <a href="/events-documentation/overview.html">
-                                Events API <span class="label label-beta">Deprecated</span>
+                                Events API <span class="label label-alert">Deprecated</span>
                             </a>
                         </li>
+                        <li><a href="/php-client/introduction.html">PIM PHP Client</a></li>
+                        <li><a href="/concepts/introduction.html">PIM data concepts</a></li>
+                        <!--
+                        <li>
+                            <ul>
+                                <li><a href="/concepts/products.html">Product</a></li>
+                                <li><a href="/getting-started/from-identifiers-to-uuid-7x/welcome.html">From product identifier to product UUID</a></li>
+                                <li><a href="/concepts/catalog-structure.html">Catalog structure</a></li>
+                                <li><a href="/concepts/target-market-settings.html">Target market settings</a></li>
+                                <li><a href="/concepts/reference-entities.html">Reference entities</a></li>
+                                <li><a href="/concepts/asset-manager.html">Asset manager</a></li>
+                            </ul>
+                        </li>
+                      -->
+                    </ul>
+                </li>
+                <li class="dropdown{{#if active_sdm_api_resources}} active{{/if}}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SDM API<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-title">SDM API resources</li>
                         <li>
                             <a href="/supplier-data-manager/getting-started.html">
                             Supplier Data Manager API <span class="label label-beta">New</span>
@@ -190,18 +216,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <li><a href="/supplier-data-manager/getting-started.html">Getting started</a></li>
                                 <li><a href="/supplier-data-manager/common-usage.html">Common usage</a></li>
                                 <li><a href="/supplier-data-manager/api-reference.html">API reference</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/php-client/introduction.html">PIM PHP Client</a></li>
-                        <li><a href="/concepts/introduction.html">PIM data concepts</a></li>
-                        <li>
-                            <ul>
-                                <li><a href="/concepts/products.html">Product</a></li>
-                                <li><a href="/getting-started/from-identifiers-to-uuid-7x/welcome.html">From product identifier to product UUID</a></li>
-                                <li><a href="/concepts/catalog-structure.html">Catalog structure</a></li>
-                                <li><a href="/concepts/target-market-settings.html">Target market settings</a></li>
-                                <li><a href="/concepts/reference-entities.html">Reference entities</a></li>
-                                <li><a href="/concepts/asset-manager.html">Asset manager</a></li>
                             </ul>
                         </li>
                     </ul>
