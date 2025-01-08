@@ -12,13 +12,13 @@ Connections will be achieved with the help of the REST API, as the API is the be
 
 ## Prerequisites
 
-<i class="fa fa-check-square"></i> **You have access to a 4.0 or newer Akeneo PIM.**  
+<i class="fa fa-check-square"></i> **You have access to Akeneo Product Cloud.**  
 This can seem pretty obvious. But yeah! You will need a PIM if you want to connect it to any third parties.  
 And of course, you also have to make sure that you can access it from where you are requesting.
 
 ::: info
-This tutorial is dedicated to 4.0 or newer PIMs. If you are working on a previous PIM version, we also got you covered! :wink: There is a tutorial for you right [here](/getting-started/connect-the-pim-old/welcome.html).
-::: 
+This tutorial is dedicated to Akeneo Product Cloud (SaaS). If you are working on an old PIM version (<4.0), we also got you covered! :wink: There is a tutorial for you right [here](/getting-started/connect-the-pim-old/welcome.html).
+:::
 
 <i class="fa fa-check-square"></i> **You already know to which third party you want to connect your PIM.**  
 It can be one of the following: an ERP, a DAM, an ecommerce platform, a syndication platform, a translation tool, a publishing tool... You name it! Pick one for which you need a connection with your PIM.

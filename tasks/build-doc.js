@@ -696,7 +696,7 @@ gulp.task('build-supplier-data-manager', ['clean-dist','less'], function () {
                 .on('end', function () {
                     return gulp.src('src/partials/supplier-data-manager-documentation.handlebars')
                         .pipe(gulpHandlebars({
-                            active_api_resources: true,
+                            active_sdm_api_resources: true,
                             title: 'Supplier Data Manager API',
                             description: getPageDescription(file.path, "Explore Akeneo’s Supplier Data Manager API with this step-by-step guide. Learn how to get started quickly, onboard high-quality supplier data, and integrate effortlessly with common use cases for brands, manufacturers, and retailers."),
                             mainContent: fs.readFileSync('tmp/supplier-data-manager/' + path.basename(file.path).replace(/\.md/, '.html'))
