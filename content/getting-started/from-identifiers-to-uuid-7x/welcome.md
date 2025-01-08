@@ -34,7 +34,7 @@ But before making it happen, a product must have a **unique** and **immutable** 
 
 ## What are the impacts?
 
-Of course, [Products endpoints](https://api.akeneo.com/api-reference.html#Product) will remain available (and they be enriched with a `UUID` property), even whith the availability of the new API endpoints.
+Of course, [Products endpoints](https://api.akeneo.com/api-reference.html#Product) will remain available (and they be enriched with a `UUID` property), even with the availability of the new API endpoints.
 Nevertheless, now that the current product identifier is optional:
 - [GET /api/rest/v1/products](https://api.akeneo.com/api-reference.html#get_products) won’t return products with empty product identifiers (in other words, you may miss products if you continue to use this endpoint);
 - `associations` property for [GET /api/rest/v1/products](https://api.akeneo.com/api-reference.html#get_products) or [GET /api/rest/v1/products/{code}](https://api.akeneo.com/api-reference.html#get_products__code_) may contain **NULL** values (product associated with a product without identifier);

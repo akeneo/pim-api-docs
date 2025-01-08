@@ -70,7 +70,7 @@ properties:
     x-immutable: true
   available_locales:
     type: array
-    description: To make the attribute locale specfic, specify here for which locales it is specific
+    description: To make the attribute locale specific, specify here for which locales it is specific
     x-validation-rules: Each string of the array is an existing and activated locale
     items:
       type: string

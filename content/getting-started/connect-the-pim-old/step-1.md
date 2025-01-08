@@ -92,7 +92,7 @@ Don't try to do everything at once, they are high chances you won't see the end 
 
 ### UI or not UI?
 
-Some connectors also require the developement of a UI. For example, it can be very useful in the case you want your final users to be able to input some configuration. Indeed, in some cases, you may want to ask them for product, channel or locale selections.
+Some connectors also require the development of a UI. For example, it can be very useful in the case you want your final users to be able to input some configuration. Indeed, in some cases, you may want to ask them for product, channel or locale selections.
 
 Another option is to provide a configuration file to input this configuration. It's usually faster to develop but keep in mind that you will be far from delivering the best UX for your final users. :wink:
 
