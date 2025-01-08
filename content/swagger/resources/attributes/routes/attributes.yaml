@@ -19,10 +19,10 @@ get:
       description: Filter attributes, for more details see the <a href="/documentation/filter.html#filter-attributes">Filters</a> section.
       required: false
       type: string
-    - $ref: '#/parameters/page'
-    - $ref: '#/parameters/limit'
-    - $ref: '#/parameters/with_count'
-    - $ref: '#/parameters/with_table_select_options'
+    - $ref: "#/parameters/page"
+    - $ref: "#/parameters/limit"
+    - $ref: "#/parameters/with_count"
+    - $ref: "#/parameters/with_table_select_options"
   responses:
     200:
       description: Return attributes paginated
@@ -30,7 +30,7 @@ get:
         title: Attributes
         type: object
         allOf:
-          - $ref: '#/definitions/Pagination'
+          - $ref: "#/definitions/Pagination"
           - properties:
               _embedded:
                 type: object
@@ -38,182 +38,180 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '#/definitions/AttributeList'
-      examples: {
-        _links: {
-          self: {
-            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=3&limit=3"
-          },
-          first: {
-            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=1&limit=3"
-          },
-          previous: {
-            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=2&limit=3"
-          },
-          next: {
-            href: "https://demo.akeneo.com/api/rest/v1/attributes?page=4&limit=3"
-          }
-        },
-        current_page: 3,
-        _embedded: {
-          items: [
+                      $ref: "#/definitions/AttributeList"
+      examples:
+        {
+          _links:
             {
-              "_links": {
-                "self": {
-                  "href": "https://demo.akeneo.com/api/rest/v1/attributes/sku"
-                }
-              },
-              "code": "sku",
-              "type": "pim_catalog_identifier",
-              "group": "other",
-              "group_labels": {
-                "en_US": "Other",
-                "fr_FR": "Autre"
-              },
-              "unique": true,
-              "useable_as_grid_filter": true,
-              "allowed_extensions": [],
-              "metric_family": null,
-              "default_metric_unit": null,
-              "reference_data_name": null,
-              "available_locales": [],
-              "max_characters": null,
-              "validation_rule": null,
-              "validation_regexp": null,
-              "wysiwyg_enabled": false,
-              "number_min": null,
-              "number_max": null,
-              "decimals_allowed": false,
-              "negative_allowed": false,
-              "date_min": null,
-              "date_max": null,
-              "max_file_size": null,
-              "minimum_input_length": null,
-              "sort_order": 1,
-              "localizable": false,
-              "scopable": false,
-              "default_value": null,
-              "labels": {
-                "en_US": "Identifier",
-                "fr_FR": "Identifiant"
-              }
-            },
-            {
-              "_links": {
-                "self": {
-                  "href": "https://demo.akeneo.com/api/rest/v1/attributes/release_date"
-                }
-              },
-              "code": "release_date",
-              "type": "pim_catalog_date",
-              "group": "marketing",
-              "unique": false,
-              "useable_as_grid_filter": true,
-              "allowed_extensions": [],
-              "metric_family": null,
-              "default_metric_unit": null,
-              "reference_data_name": null,
-              "available_locales": [],
-              "max_characters": null,
-              "validation_rule": null,
-              "validation_regexp": null,
-              "wysiwyg_enabled": false,
-              "number_min": null,
-              "number_max": null,
-              "decimals_allowed": false,
-              "negative_allowed": false,
-              "date_min": "2017-06-28T08:00:00",
-              "date_max": "2017-08-08T22:00:00",
-              "max_file_size": null,
-              "minimum_input_length": null,
-              "sort_order": 1,
-              "localizable": false,
-              "scopable": false,
-              "default_value": null,
-              "labels": {
-                "en_US": "Sale date",
-                "fr_FR": "Date des soldes"
-              }
-            },
-            {
-              "_links": {
-                "self": {
-                  "href": "http://localhost:8080/api/rest/v1/attributes/food_composition"
-                }
-              },
-              "code": "food_composition",
-              "type": "pim_catalog_table",
-              "group": "product",
-              "unique": false,
-              "useable_as_grid_filter": false,
-              "allowed_extensions": [],
-              "metric_family": null,
-              "default_metric_unit": null,
-              "reference_data_name": null,
-              "available_locales": [],
-              "max_characters": null,
-              "validation_rule": null,
-              "validation_regexp": null,
-              "wysiwyg_enabled": null,
-              "number_min": null,
-              "number_max": null,
-              "decimals_allowed": null,
-              "negative_allowed": null,
-              "date_min": null,
-              "date_max": null,
-              "max_file_size": null,
-              "minimum_input_length": null,
-              "sort_order": 0,
-              "localizable": false,
-              "scopable": false,
-              "labels": {
-                "en_US": "Composition",
-                "fr_FR": "Composition"
-              },
-              "guidelines": { },
-              "auto_option_sorting": null,
-              "is_read_only": null,
-              "default_value": null,
-              "table_configuration": [
+              self:
                 {
-                  "code": "ingredient",
-                  "data_type": "select",
-                  "labels": {
-                    "en_US": "Ingredient",
-                    "fr_FR": "Ingrédient"
-                  },
-                  "validations": {},
-                  "is_required_for_completeness": true
+                  href: "https://demo.akeneo.com/api/rest/v1/attributes?page=3&limit=3",
                 },
+              first:
                 {
-                  "code": "percentage",
-                  "data_type": "number",
-                  "labels": {
-                    "en_US": "%",
-                    "fr_FR": "%"
-                  },
-                  "validations": {
-                    "max": 100,
-                    "min": 0,
-                    "decimals_allowed": true
-                  },
-                  "is_required_for_completeness": true
+                  href: "https://demo.akeneo.com/api/rest/v1/attributes?page=1&limit=3",
                 },
+              previous:
                 {
-                  "code": "allergen",
-                  "data_type": "boolean",
-                  "labels": {
-                    "en_US": "Allergen",
-                    "fr_FR": "Allergène"
+                  href: "https://demo.akeneo.com/api/rest/v1/attributes?page=2&limit=3",
+                },
+              next:
+                {
+                  href: "https://demo.akeneo.com/api/rest/v1/attributes?page=4&limit=3",
+                },
+            },
+          current_page: 3,
+          _embedded:
+            {
+              items:
+                [
+                  {
+                    "_links":
+                      {
+                        "self":
+                          {
+                            "href": "https://demo.akeneo.com/api/rest/v1/attributes/sku",
+                          },
+                      },
+                    "code": "sku",
+                    "type": "pim_catalog_identifier",
+                    "group": "other",
+                    "group_labels": { "en_US": "Other", "fr_FR": "Autre" },
+                    "unique": true,
+                    "useable_as_grid_filter": true,
+                    "allowed_extensions": [],
+                    "metric_family": null,
+                    "default_metric_unit": null,
+                    "reference_data_name": null,
+                    "available_locales": [],
+                    "max_characters": null,
+                    "validation_rule": null,
+                    "validation_regexp": null,
+                    "wysiwyg_enabled": false,
+                    "number_min": null,
+                    "number_max": null,
+                    "decimals_allowed": false,
+                    "negative_allowed": false,
+                    "date_min": null,
+                    "date_max": null,
+                    "max_file_size": null,
+                    "minimum_input_length": null,
+                    "sort_order": 1,
+                    "localizable": false,
+                    "scopable": false,
+                    "default_value": null,
+                    "labels": { "en_US": "Identifier", "fr_FR": "Identifiant" },
+                    "is_mandatory": false,
                   },
-                  "validations": {},
-                  "is_required_for_completeness": false
-                }
-              ]
-            }
-          ]
+                  {
+                    "_links":
+                      {
+                        "self":
+                          {
+                            "href": "https://demo.akeneo.com/api/rest/v1/attributes/release_date",
+                          },
+                      },
+                    "code": "release_date",
+                    "type": "pim_catalog_date",
+                    "group": "marketing",
+                    "unique": false,
+                    "useable_as_grid_filter": true,
+                    "allowed_extensions": [],
+                    "metric_family": null,
+                    "default_metric_unit": null,
+                    "reference_data_name": null,
+                    "available_locales": [],
+                    "max_characters": null,
+                    "validation_rule": null,
+                    "validation_regexp": null,
+                    "wysiwyg_enabled": false,
+                    "number_min": null,
+                    "number_max": null,
+                    "decimals_allowed": false,
+                    "negative_allowed": false,
+                    "date_min": "2017-06-28T08:00:00",
+                    "date_max": "2017-08-08T22:00:00",
+                    "max_file_size": null,
+                    "minimum_input_length": null,
+                    "sort_order": 1,
+                    "localizable": false,
+                    "scopable": false,
+                    "default_value": null,
+                    "labels":
+                      { "en_US": "Sale date", "fr_FR": "Date des soldes" },
+                    "is_mandatory": false,
+                  },
+                  {
+                    "_links":
+                      {
+                        "self":
+                          {
+                            "href": "http://localhost:8080/api/rest/v1/attributes/food_composition",
+                          },
+                      },
+                    "code": "food_composition",
+                    "type": "pim_catalog_table",
+                    "group": "product",
+                    "unique": false,
+                    "useable_as_grid_filter": false,
+                    "allowed_extensions": [],
+                    "metric_family": null,
+                    "default_metric_unit": null,
+                    "reference_data_name": null,
+                    "available_locales": [],
+                    "max_characters": null,
+                    "validation_rule": null,
+                    "validation_regexp": null,
+                    "wysiwyg_enabled": null,
+                    "number_min": null,
+                    "number_max": null,
+                    "decimals_allowed": null,
+                    "negative_allowed": null,
+                    "date_min": null,
+                    "date_max": null,
+                    "max_file_size": null,
+                    "minimum_input_length": null,
+                    "sort_order": 0,
+                    "localizable": false,
+                    "scopable": false,
+                    "labels":
+                      { "en_US": "Composition", "fr_FR": "Composition" },
+                    "is_mandatory": false,
+                    "guidelines": {},
+                    "auto_option_sorting": null,
+                    "is_read_only": null,
+                    "default_value": null,
+                    "table_configuration":
+                      [
+                        {
+                          "code": "ingredient",
+                          "data_type": "select",
+                          "labels":
+                            { "en_US": "Ingredient", "fr_FR": "Ingrédient" },
+                          "validations": {},
+                          "is_required_for_completeness": true,
+                        },
+                        {
+                          "code": "percentage",
+                          "data_type": "number",
+                          "labels": { "en_US": "%", "fr_FR": "%" },
+                          "validations":
+                            { "max": 100, "min": 0, "decimals_allowed": true },
+                          "is_required_for_completeness": true,
+                        },
+                        {
+                          "code": "allergen",
+                          "data_type": "boolean",
+                          "labels":
+                            { "en_US": "Allergen", "fr_FR": "Allergène" },
+                          "validations": {},
+                          "is_required_for_completeness": false,
+                        },
+                      ],
+                  },
+                ],
+            },
         }
-      }
     401:
       $ref: "#/responses/401Error"
     403:
@@ -275,12 +273,9 @@ patch:
       schema:
         $ref: "#/definitions/Attribute"
         x-examples:
-          x-example-1:
-            '{"code":"description","useable_as_grid_filter":true}'
-          x-example-2:
-            '{"code":"short_description","group":"marketig"}'
-          x-example-3:
-            '{"code":"release_date","date_min":"2017-06-28T08:00:00"}'
+          x-example-1: '{"code":"description","useable_as_grid_filter":true}'
+          x-example-2: '{"code":"short_description","group":"marketig"}'
+          x-example-3: '{"code":"release_date","date_min":"2017-06-28T08:00:00"}'
   responses:
     200:
       description: OK
@@ -289,12 +284,9 @@ patch:
       schema:
         $ref: "#/definitions/ErrorByLine"
       examples:
-        x-example-1:
-          '{"line":1,"code":"description","status_code":201}'
-        x-example-2:
-          '{"line":2,"code":"short_description","status_code":422,"message":"Group \"marketig\" does not exist."}'
-        x-example-3:
-          '{"line":3,"code":"release_date","status_code":204}'
+        x-example-1: '{"line":1,"code":"description","status_code":201}'
+        x-example-2: '{"line":2,"code":"short_description","status_code":422,"message":"Group \"marketig\" does not exist."}'
+        x-example-3: '{"line":3,"code":"release_date","status_code":204}'
     401:
       $ref: "#/responses/401Error"
     403:
