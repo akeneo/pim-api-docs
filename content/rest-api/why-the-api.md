@@ -23,11 +23,11 @@ By leveraging APIs, your systems remain adaptable to future changes, whether you
 
 While the Akeneo API is a highly effective integration tool, it’s not the only option. Akeneo provides several other methods to connect and interact with the PIM, each suited to different use cases:
 
-**GraphQL:** This query language provides unmatched flexibility by allowing you to request exactly the data you need—nothing more, nothing less. This minimizes bandwidth usage and improves efficiency for complex or targeted queries.
+**`GraphQL:`** This query language provides unmatched flexibility by allowing you to request exactly the data you need—nothing more, nothing less. This minimizes bandwidth usage and improves efficiency for complex or targeted queries.
 
-**Event Platform:** An event-driven approach that notifies external systems of specific changes (e.g., product delta updates). This enables real-time synchronization, especially useful for businesses that require instant updates across their systems.
+**`Event Platform:`** An event-driven approach that notifies external systems of specific changes (e.g., product delta updates). This enables real-time synchronization, especially useful for businesses that require instant updates across their systems.
 
-**Catalogs for Apps:** A tailored integration method designed for Akeneo’s app ecosystem. With Catalogs, developers can enable apps to consume highly specific, curated datasets shared directly from Akeneo PIM. This simplifies data sharing and enhances usability for third-party applications.
+**`Catalogs for Apps:`** A tailored integration method designed for Akeneo’s app ecosystem. With Catalogs, developers can enable apps to consume highly specific, curated datasets shared directly from Akeneo PIM. This simplifies data sharing and enhances usability for third-party applications.
 
 Each of these options complements the Akeneo API and offers flexibility to address various integration challenges. Whether you need optimized queries, event-driven updates, or tailored datasets, Akeneo provides the tools to build a seamless and efficient integration strategy.
 By combining the Akeneo API with other integration options, you can unlock the full potential of the PIM and create a robust, future-proof system for managing your product data.
