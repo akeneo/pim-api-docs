@@ -428,22 +428,22 @@ The `description` attribute is both scopable and localizable, so it can hold sev
     {
       "locale": "en_US",
       "channel": "mobile",
-      "data": "A is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
+      "data": "He's a well-known manufacturer of high-end furniture that was founded in Italy."
     },
     {
       "locale": "en_US",
       "channel": "ecommerce",
-      "data": "A is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio A, a craftman specialized in the creation of wood chairs."
+      "data": "He's an Italian manufacturer of high-end furniture. It was founded Italy."
     },
     {
       "locale": "fr_FR",
       "channel": "mobile",
-      "data": "A est un fabricant de meubles renommé qui fut fondé en 1923 en Italie."
+      "data": "Il est un fabricant de meubles renommé qui fut fondé en Italie."
     },
     {
       "locale": "fr_FR",
       "channel": "ecommerce",
-      "data": "A est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio A, était un artisan spécialisé dans la fabrication de chaises en bois."
+      "data": "Il est un fabricant italien de meubles de luxe. L'entreprise a été fondé en Italie."
     }
   ]
 }
