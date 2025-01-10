@@ -249,7 +249,7 @@ Reference entities have been introduced in the PIM in the 3.0 version.
 
 A record holds all the information of a reference entity. A record can be related to one or more products.
 
-Let's give an example to be clearer. For the "Brand" reference entity, a record could be all the information regarding the "Kartell" brand.
+Let's give an example to be clearer. For the "Brand" reference entity, a record could be all the information regarding the "A" brand.
 
 In the Akeneo UI, you can find the reference entity records in the `Entities` menu by selecting one of the entity of your choice. Below is an example of the record of a reference entity in the UI.
 
@@ -259,13 +259,13 @@ Below is the JSON standard format representing a reference entity record.
 
 ```json
 {
-  "code": "kartell",
+  "code": "A",
   "values": {
     "label": [
       {
         "locale": "en_US",
         "channel": null,
-        "data": "Kartell"
+        "data": "A"
       }
     ],
     "image": [
@@ -279,12 +279,12 @@ Below is the JSON standard format representing a reference entity record.
       {
         "locale": "en_US",
         "channel": null,
-        "data": "Kartell, the Italian furniture company that sells modern and remarkable pieces of furnitures."
+        "data": "A, the Italian furniture company that sells modern and remarkable pieces of furnitures."
       },
       {
         "locale": "fr_FR",
         "channel": null,
-        "data": "Kartell, l'éditeur de meuble italien spécialisé dans la signature de belle pièces au design contemporain."
+        "data": "A, l'éditeur de meuble italien spécialisé dans la signature de belle pièces au design contemporain."
       }
     ],
     "designer":[
@@ -428,22 +428,22 @@ The `description` attribute is both scopable and localizable, so it can hold sev
     {
       "locale": "en_US",
       "channel": "mobile",
-      "data": "Calligaris is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
+      "data": "A is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
     },
     {
       "locale": "en_US",
       "channel": "ecommerce",
-      "data": "Calligaris is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio Calligaris, a craftman specialized in the creation of wood chairs."
+      "data": "A is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio A, a craftman specialized in the creation of wood chairs."
     },
     {
       "locale": "fr_FR",
       "channel": "mobile",
-      "data": "Calligaris est un fabricant de meubles renommé qui fut fondé en 1923 en Italie."
+      "data": "A est un fabricant de meubles renommé qui fut fondé en 1923 en Italie."
     },
     {
       "locale": "fr_FR",
       "channel": "ecommerce",
-      "data": "Calligaris est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio Calligaris, était un artisan spécialisé dans la fabrication de chaises en bois."
+      "data": "A est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio A, était un artisan spécialisé dans la fabrication de chaises en bois."
     }
   ]
 }

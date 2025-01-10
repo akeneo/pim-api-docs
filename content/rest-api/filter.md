@@ -1346,22 +1346,22 @@ Imagine that without this filter you get these attribute values:
     {
       "locale": "en_US",
       "channel": "mobile",
-      "data": "Calligaris is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
+      "data": "A is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
     },
     {
       "locale": "en_US",
       "channel": "ecommerce",
-      "data": "Calligaris is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio Calligaris, a craftman specialized in the creation of wood chairs."
+      "data": "A is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio A, a craftman specialized in the creation of wood chairs."
     },
     {
       "locale": "fr_FR",
       "channel": "mobile",
-      "data": "Calligaris est un fabricant de meuble renommée qui fut fondé en 1923 en Italie."
+      "data": "A est un fabricant de meuble renommée qui fut fondé en 1923 en Italie."
     },
     {
       "locale": "fr_FR",
       "channel": "ecommerce",
-      "data": "Calligaris est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio Calligaris, était un artisan spécialisé dans la fabrication de chaises en bois."
+      "data": "A est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio A, était un artisan spécialisé dans la fabrication de chaises en bois."
     }
   ],
   "creation_year": [
@@ -1388,12 +1388,12 @@ As a result you will receive the following answer:
     {
       "locale": "en_US",
       "channel": "mobile",
-      "data": "Calligaris is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
+      "data": "A is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
     },
     {
       "locale": "en_US",
       "channel": "ecommerce",
-      "data": "Calligaris is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio Calligaris, a craftman specialized in the creation of wood chairs."
+      "data": "A is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio A, a craftman specialized in the creation of wood chairs."
     }
   ],
   "creation_year": [
@@ -1434,22 +1434,22 @@ Imagine that without this filter you get these attribute values:
     {
       "locale": "en_US",
       "channel": "mobile",
-      "data": "Calligaris is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
+      "data": "A is a well-known manufacturer of high-end furniture that was founded in Italy in 1923."
     },
     {
       "locale": "en_US",
       "channel": "ecommerce",
-      "data": "Calligaris is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio Calligaris, a craftman specialized in the creation of wood chairs."
+      "data": "A is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio A, a craftman specialized in the creation of wood chairs."
     },
     {
       "locale": "fr_FR",
       "channel": "mobile",
-      "data": "Calligaris est un fabricant de meuble renommée qui fut fondé en 1923 en Italie."
+      "data": "A est un fabricant de meuble renommée qui fut fondé en 1923 en Italie."
     },
     {
       "locale": "fr_FR",
       "channel": "ecommerce",
-      "data": "Calligaris est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio Calligaris, était un artisan spécialisé dans la fabrication de chaises en bois."
+      "data": "A est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio A, était un artisan spécialisé dans la fabrication de chaises en bois."
     }
   ],
   "creation_year": [
@@ -1476,12 +1476,12 @@ As a result you will receive the following answer:
     {
       "locale": "en_US",
       "channel": "ecommerce",
-      "data": "Calligaris is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio Calligaris, a craftman specialized in the creation of wood chairs."
+      "data": "A is an Italian manufacturer of high-end furniture. It was founded in 1923 in Italy in the small town of Manzano. Its creator is Antonio A, a craftman specialized in the creation of wood chairs."
     },
     {
       "locale": "fr_FR",
       "channel": "ecommerce",
-      "data": "Calligaris est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio Calligaris, était un artisan spécialisé dans la fabrication de chaises en bois."
+      "data": "A est un fabricant italien de meubles de luxe. L'entreprise a été fondé en 1923 en Italie dans la petite ville de Manzano. Son créateur, Antonio A, était un artisan spécialisé dans la fabrication de chaises en bois."
     }
   ],
   "creation_year": [
