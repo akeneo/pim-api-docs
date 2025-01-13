@@ -172,6 +172,10 @@ Example of an event payload for a productDeleted event
     "product": {
       "uuid": "3444ec1b-058e-4208-9b6c-284f47a7aa17"
     }
+    "author": {
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
+      "type": "api"
+    }
   }
 }
 ```
