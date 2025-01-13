@@ -14,4 +14,6 @@ paths = [
     '''content/swagger/aep/public-oas.yml''',
     # Event Platform getting started documentation
     '''content/event-platform/getting-started.md''',
+    # Rest API old authentication
+    '''content/rest-api/authentication_old.md''',
 ]
