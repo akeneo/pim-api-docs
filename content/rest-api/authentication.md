@@ -48,22 +48,14 @@ Using an old PIM version (<= V3.x)? [Follow the instructions right here.](/docum
 
 You now have a client ID and a secret.  But the request to get this token needs a username and a password.
 
-::: tips
-**You don't know your PIM version?**  
-You can find it in the `version` line of the `System/System information` page.  
-If the version looks like a datetime, you use one of our SaaS offers, so please check the _Since the PIM v4_ paragraph.
-::: 
-
-### Since the PIM v4
-
-Since the PIM v4, this username and password are automatically generated whenever you create a connection in the UI. Depending on the version you use, navigate to the `System/Connections` menu (before the v6) or the `Connect/Connection settings` menu, click on your connection and find your username and password in the `Credentials` section.
+This username and password are automatically generated whenever you create a connection in the UI. Depending on the version you use, navigate to the `Connect/Connection settings` menu, click on your connection and find your username and password in the `Credentials` section.
 
 You may need to regenerate a password if you haven't saved it anywhere. Indeed, for security reasons, the PIM can only show it to you once, after the connection is created. There is a `Regenerate` button close to the hidden password if needed. :wink:
 
-### With a v1.7, 2.x and 3.x PIM
-
+::: info
+Using an old PIM version (With a v1.7, 2.x and 3.x PIM)?
 In previous versions of the PIM, you need to navigate to the `System/Users` menu in your PIM UI and create a new user. We strongly advise you to create specific API users. Do not re-use UI users. 🙂
-
+:::
 
 ## Token generation
 
