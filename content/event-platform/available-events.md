@@ -1693,15 +1693,15 @@ The following actions can trigger a product model update event:
 
 The modifications that can lead to this event include:
 
-- Changes to product model properties, such as:
-  - Changes in category association, such as:
+- Modifications to product model properties, including:
+  - Updates to category associations, such as:
     - Adding the product model to a category
     - Removing the product model from a category
-- Changes in group association, such as:
+- Updates to group associations, such as:
   - Adding the product model to a group
   - Removing the product model from a group
-- Adjustments to product model values
-- Alterations to product model associations, including:
+- Changes to product model values
+- Updates to product model associations, including:
   - Standard associations
   - Quantified associations
 
