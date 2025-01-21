@@ -1775,7 +1775,7 @@ The modifications that can lead to this event include:
   "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
   "type": "com.akeneo.pim.v1.product-model.updated.delta",
   "source": "pim",
-  "subject": "srnt-whatever",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
   "time": "2024-02-22T17:31:00Z",
   "datacontenttype": "application/json",
   "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product-model.updated.delta.schema.json",
