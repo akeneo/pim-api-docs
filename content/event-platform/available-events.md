@@ -960,34 +960,43 @@ The modifications that can lead to this event include:
 | data.product.changes.associations.added | object | - |
 | data.product.changes.associations.added.products | array&lt;string&gt; | - |
 | data.product.changes.associations.added.products (single item) | string | - |
-| data.product.changes.associations.added.productModels | array&lt;string&gt; | - |
-| data.product.changes.associations.added.productModels (single item) | string | - |
+| data.product.changes.associations.added.product_models | array&lt;string&gt; | - |
+| data.product.changes.associations.added.product_models (single item) | string | - |
 | data.product.changes.associations.removed | object | - |
 | data.product.changes.associations.removed.products | array&lt;string&gt; | - |
 | data.product.changes.associations.removed.products (single item) | string | - |
-| data.product.changes.associations.removed.productModels | array&lt;string&gt; | - |
-| data.product.changes.associations.removed.productModels (single item) | string | - |
+| data.product.changes.associations.removed.product_models | array&lt;string&gt; | - |
+| data.product.changes.associations.removed.product_models (single item) | string | - |
 | data.product.changes.quantified_associations | object | - |
 | data.product.changes.quantified_associations (additional properties) | object | - |
+| data.product.changes.quantified_associations.updated | object | - |
+| data.product.changes.quantified_associations.updated.products | array&lt;object&gt; | - |
+| data.product.changes.quantified_associations.updated.products.uuid | string | - |
+| data.product.changes.quantified_associations.updated.products.quantity | number | - |
+| data.product.changes.quantified_associations.updated.products.previous_quantity | number | - |
+| data.product.changes.quantified_associations.updated.product_models | array&lt;object&gt; | - |
+| data.product.changes.quantified_associations.updated.product_models.code | string | - |
+| data.product.changes.quantified_associations.updated.product_models.quantity | number | - |
+| data.product.changes.quantified_associations.updated.product_models.previous_quantity | number | - |
 | data.product.changes.quantified_associations.added | object | - |
 | data.product.changes.quantified_associations.added.products | array&lt;object&gt; | - |
 | data.product.changes.quantified_associations.added.products.uuid | string | - |
 | data.product.changes.quantified_associations.added.products.quantity | number | - |
-| data.product.changes.quantified_associations.added.productModels | array&lt;object&gt; | - |
-| data.product.changes.quantified_associations.added.productModels.code | string | - |
-| data.product.changes.quantified_associations.added.productModels.quantity | number | - |
+| data.product.changes.quantified_associations.added.product_models | array&lt;object&gt; | - |
+| data.product.changes.quantified_associations.added.product_models.code | string | - |
+| data.product.changes.quantified_associations.added.product_models.quantity | number | - |
 | data.product.changes.quantified_associations.removed | object | - |
 | data.product.changes.quantified_associations.removed.products | array&lt;string&gt; | - |
 | data.product.changes.quantified_associations.removed.products (single item) | string | - |
-| data.product.changes.quantified_associations.removed.productModels | array&lt;string&gt; | - |
-| data.product.changes.quantified_associations.removed.productModels (single item) | string | - |
+| data.product.changes.quantified_associations.removed.product_models | array&lt;string&gt; | - |
+| data.product.changes.quantified_associations.removed.product_models (single item) | string | - |
 | data.product.changes.values | object | - |
 | data.product.changes.values (additional properties) | array&lt;object&gt; | - |
-| data.product.changes.values.previous | string \| number | - |
-| data.product.changes.values.new | string \| number | - |
+| data.product.changes.values.previous | string \| number \|
+| data.product.changes.values.new | string \| number \|
 | data.product.changes.values.type | string | - |
-| data.product.changes.values.locale | string \| null | - |
-| data.product.changes.values.scope | string \| null | - |
+| data.product.changes.values.locale | string \| null |
+| data.product.changes.values.scope | string \| null |
 | data.product.changes.table_attributes | object | Changes to table attributes. |
 | data.product.changes.table_attributes.added | array&lt;object&gt; | - |
 | data.product.changes.table_attributes.added (single item) | object | - |
@@ -1002,9 +1011,9 @@ The modifications that can lead to this event include:
 
 <details>
   <summary style="cursor: pointer;">Click here to expand the payload example</summary>
-
   > Example of payload
-  ```json [snippet:Example]
+
+  ```json [snippet:Payload]
   {
     "specversion": "1.0",
     "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
@@ -1693,17 +1702,17 @@ The following actions can trigger a product model update event:
 
 The modifications that can lead to this event include:
 
-- Modifications to product model properties, including:
-  - Updates to category associations, such as:
+- Changes to product model properties, such as:
+  - Changes in category association, such as:
     - Adding the product model to a category
     - Removing the product model from a category
-- Updates to group associations, such as:
-  - Adding the product model to a group
-  - Removing the product model from a group
-- Changes to product model values
-- Updates to product model associations, including:
-  - Standard associations
-  - Quantified associations
+- Changes in group association, such as:
+    - Adding the product model to a group
+    - Removing the product model from a group
+- Adjustments to product model values
+- Alterations to product model associations, including:
+    - Standard associations
+    - Quantified associations
 
 ### Payload
 
@@ -1726,27 +1735,27 @@ The modifications that can lead to this event include:
 | data.product_model.changes.associations.added | object | - |
 | data.product_model.changes.associations.added.products | array&lt;string&gt; | - |
 | data.product_model.changes.associations.added.products (single item) | string | - |
-| data.product_model.changes.associations.added.productModels | array&lt;string&gt; | - |
-| data.product_model.changes.associations.added.productModels (single item) | string | - |
+| data.product_model.changes.associations.added.product_models | array&lt;string&gt; | - |
+| data.product_model.changes.associations.added.product_models (single item) | string | - |
 | data.product_model.changes.associations.removed | object | - |
 | data.product_model.changes.associations.removed.products | array&lt;string&gt; | - |
 | data.product_model.changes.associations.removed.products (single item) | string | - |
-| data.product_model.changes.associations.removed.productModels | array&lt;string&gt; | - |
-| data.product_model.changes.associations.removed.productModels (single item) | string | - |
+| data.product_model.changes.associations.removed.product_models | array&lt;string&gt; | - |
+| data.product_model.changes.associations.removed.product_models (single item) | string | - |
 | data.product_model.changes.quantified_associations | object | - |
 | data.product_model.changes.quantified_associations (additional properties) | object | - |
 | data.product_model.changes.quantified_associations.added | object | - |
 | data.product_model.changes.quantified_associations.added.products | array&lt;object&gt; | - |
 | data.product_model.changes.quantified_associations.added.products.uuid | string | - |
 | data.product_model.changes.quantified_associations.added.products.quantity | number | - |
-| data.product_model.changes.quantified_associations.added.productModels | array&lt;object&gt; | - |
-| data.product_model.changes.quantified_associations.added.productModels.code | string | - |
-| data.product_model.changes.quantified_associations.added.productModels.quantity | number | - |
+| data.product_model.changes.quantified_associations.added.product_models | array&lt;object&gt; | - |
+| data.product_model.changes.quantified_associations.added.product_models.code | string | - |
+| data.product_model.changes.quantified_associations.added.product_models.quantity | number | - |
 | data.product_model.changes.quantified_associations.removed | object | - |
 | data.product_model.changes.quantified_associations.removed.products | array&lt;string&gt; | - |
 | data.product_model.changes.quantified_associations.removed.products (single item) | string | - |
-| data.product_model.changes.quantified_associations.removed.productModels | array&lt;string&gt; | - |
-| data.product_model.changes.quantified_associations.removed.productModels (single item) | string | - |
+| data.product_model.changes.quantified_associations.removed.product_models | array&lt;string&gt; | - |
+| data.product_model.changes.quantified_associations.removed.product_models (single item) | string | - |
 | data.product_model.changes.values | object | - |
 | data.product_model.changes.values (additional properties) | array&lt;object&gt; | - |
 | data.product_model.changes.values.previous | string \| number \|
