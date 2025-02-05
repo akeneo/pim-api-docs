@@ -194,3 +194,6 @@
 
 /api/rest/v1/system-information:
   $ref: ./resources/system_information.yaml
+
+/api/rest/v1/ui-extensions:
+  $ref: ./resources/ui_extensions/routes/ui_extensions.yaml

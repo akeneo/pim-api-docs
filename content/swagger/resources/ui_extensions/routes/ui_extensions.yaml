@@ -1,0 +1,20 @@
+get:
+  summary: List extensions
+  operationId: "get_extensions"
+  tags:
+    - UI Extensions
+  x-versions:
+    - "SaaS"
+  description: List all extensions associated with your token.
+  parameters: []
+  responses:
+    200:
+      description: Returns the list of extensions
+      schema:
+        title: Products
+        type: array
+        items:
+          $ref: '#/definitions/UiExtension'
+      x-examples-per-version:
+          x-example:
+            $ref: '#/definitions/ProductExamples/x-SaaS'

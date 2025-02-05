@@ -80,6 +80,8 @@ function determineCategory(tag){
             return 'Catalogs for Apps';
         case 'Mapping schema for products':
             return 'Catalogs for Apps';
+        case 'UI Extensions':
+            return 'UI Extensions';
         default:
             return 'Utilities';
     }

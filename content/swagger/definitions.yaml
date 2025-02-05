@@ -485,3 +485,16 @@ DeprecatedAssetReferenceFileUploadWarning:
           message:
             type: string
             description: Message explaining why the variation file generation failed
+
+UiExtension:
+  type: object
+  properties:
+    configuration:
+      type: object
+      properties:
+        default_label:
+          type: string
+          description: Default label, used if there is not a translation for the PIM user locale
+        url:
+          type: string
+          description: URL of the extension
