@@ -1,5 +1,7 @@
 Product:
   $ref: ./resources/products/definitions/product.yaml
+ProductWithIntents:
+  $ref: ./resources/products/definitions/product_with_intents.yaml
 ProductExamples:
   $ref: ./resources/products/definitions/examples/products.yaml
 ProductList:
@@ -10,6 +12,8 @@ ProductList:
 
 ProductUuid:
   $ref: ./resources/products_uuid/definitions/product_uuid.yaml
+ProductUUidWithIntents:
+  $ref: ./resources/products/definitions/product_with_intents.yaml
 ProductUuidExamples:
   $ref: ./resources/products_uuid/definitions/examples/products_uuid.yaml
 ProductUuidList:
@@ -20,6 +24,8 @@ ProductUuidList:
 
 ProductModel:
   $ref: ./resources/product_models/definitions/product_model.yaml
+ProductModelWithIntents:
+  $ref: ./resources/product_models/definitions/product_model_with_intents.yaml
 ProductModelList:
   type: object
   allOf:
