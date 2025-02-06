@@ -26,18 +26,20 @@ properties:
     default: []
   add-categories:
     type: array
-    description: Codes of the <a href='api-reference.html#Category'>categories</a> in which the product is classified
-    x-validation-rules: Each string of the array is equal to an existing category code. Cannot be used with the categories key.
+    description: Codes of the <a href='api-reference.html#Category'>categories</a> to add to the product. Existing categories will be preserved. Available in SaaS only.
+    x-validation-rules: Each string of the array is equal to an existing category code. Cannot be used with the `categories` key.
     items:
       type: string
     default: []
+    x-from-version: 'SaaS'
   remove-categories:
     type: array
-    description: Codes of the <a href='api-reference.html#Category'>categories</a> in which the product is classified
-    x-validation-rules: Each string of the array is equal to an existing category code. Cannot be used with the categories key.
+    description: Codes of the <a href='api-reference.html#Category'>categories</a> to remove from the product. Other categories will be preserved. Available in SaaS only.
+    x-validation-rules: Each string of the array is equal to an existing category code. Cannot be used with the `categories` key.
     items:
       type: string
     default: []
+    x-from-version: 'SaaS'
   groups:
     type: array
     description: Codes of the groups to which the product belong
