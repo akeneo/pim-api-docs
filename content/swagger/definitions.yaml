@@ -24,6 +24,8 @@ ProductUuidList:
 
 ProductModel:
   $ref: ./resources/product_models/definitions/product_model.yaml
+ProductModelWithIntents:
+  $ref: ./resources/product_models/definitions/product_model_with_intents.yaml
 ProductModelList:
   type: object
   allOf:
