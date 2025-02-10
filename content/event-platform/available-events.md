@@ -15,7 +15,7 @@
 | data.app.client_id | string | Unique identifier of an App in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -60,7 +60,7 @@
 | data.asset.code | string | code of an asset |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -110,7 +110,7 @@ Only changes in asset values will cause this event.
 | data.asset.code | string | code of an asset |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -158,7 +158,7 @@ Only changes in asset values will cause this event.
 | data.asset.code | string | code of an asset |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -204,7 +204,7 @@ Only changes in asset values will cause this event.
 | data.attribute.code | string | Unique identifier of an Attribute in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -252,7 +252,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute.code | string | Unique identifier of an Attribute in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -295,7 +295,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute.code | string | Unique identifier of an Attribute in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -338,7 +338,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_group.code | string | Unique identifier of an Attribute Group in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -381,7 +381,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_group.code | string | Unique identifier of an Attribute Group in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -424,7 +424,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_group.code | string | Unique identifier of an Attribute Group in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -469,7 +469,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_option.attribute.code | string | code of an attribute |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -517,7 +517,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_option.attribute.code | string | code of an attribute |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -565,7 +565,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_option.attribute.code | string | code of an attribute |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -611,7 +611,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.category.code | string | Unique identifier of a category |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -660,7 +660,7 @@ The event is triggered when any of the following properties are changed:
 | data.category.code | string | Unique identifier of a category |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -703,7 +703,7 @@ The event is triggered when any of the following properties are changed:
 | data.category.code | string | Unique identifier of a category |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -746,7 +746,7 @@ The event is triggered when any of the following properties are changed:
 | data.connection.client_id | string | Unique identifier of a connection in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -797,7 +797,7 @@ The following actions can trigger a product creation event:
 | data.product.uuid | string | Unique identifier of a Product in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -865,7 +865,7 @@ The modifications that can lead to this event include:
 | data.product.uuid | string | Unique identifier of a Product in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1004,7 +1004,7 @@ The modifications that can lead to this event include:
 | data.product.changes.table_attributes.removed (single item) | object | - |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author. |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 </details>
 
@@ -1560,7 +1560,7 @@ The following actions can trigger a product deletion event:
 | data.product.uuid | string | Unique identifier of a Product in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1603,7 +1603,7 @@ The following actions can trigger a product deletion event:
 | data.product.code | string | Unique identifier of a Product Model in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1657,7 +1657,7 @@ The modifications that can lead to this event include:
 | data.product.code | string | Unique identifier of a Product Model in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1770,7 +1770,7 @@ The modifications that can lead to this event include:
 | data.product_model.changes.table_attributes.removed (single item) | object | - |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author. |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 <details>
   <summary style="cursor: pointer;">Click here to expand the payload example</summary>
@@ -2299,7 +2299,7 @@ The modifications that can lead to this event include:
 | data.product_model.code | string | Unique identifier of a Product Model in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -2342,7 +2342,7 @@ The modifications that can lead to this event include:
 | data.family.code | string | code of a family |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -2391,7 +2391,7 @@ The event is triggered when any of the following properties are changed:
 | data.family.code | string | code of a family |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -2434,7 +2434,7 @@ The event is triggered when any of the following properties are changed:
 | data.family.code | string | code of a family |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -2479,7 +2479,7 @@ The event is triggered when any of the following properties are changed:
 | data.reference_entity_record.code | string | Unique identifier of a reference entity record |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -2529,7 +2529,7 @@ The event is triggered when any changes are made to the record values.
 | data.reference_entity_record.code | string | Unique identifier of a reference entity record |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -2577,7 +2577,7 @@ The event is triggered when any changes are made to the record values.
 | data.reference_entity_record.code | string | Unique identifier of a reference entity record |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
