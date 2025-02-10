@@ -1,0 +1,31 @@
+patch:
+  summary: Update a UI extension
+  operationId: "patch_ui_extension_uuid"
+  tags:
+    - UI Extensions
+  x-versions:
+    - "SaaS"
+  description: This endpoint allows you to update an existing UI extension.
+  parameters:
+    - $ref: '#/parameters/uuid'
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: "#/definitions/UiExtension"
+  responses:
+    200:
+      $ref: "#/responses/Updated"
+delete:
+  summary: Delete a UI extension
+  operationId: "delete_ui_extension_uuid"
+  tags:
+    - UI Extensions
+  x-versions:
+    - "SaaS"
+  description: This endpoint allows you to delete a given UI extension.
+  parameters:
+    - $ref: '#/parameters/uuid'
+  responses:
+    204:
+      $ref: "#/responses/NoContentAfterDelete"

@@ -1,0 +1,10 @@
+type: object
+properties:
+  default_label:
+    type: string
+    description: Default label, used if there is not a translation for the PIM user locale
+  url:
+    type: string
+    description: URL of the extension
+  labels:
+    type: object

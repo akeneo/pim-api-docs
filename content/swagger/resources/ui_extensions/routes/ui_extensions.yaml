@@ -1,20 +1,36 @@
 get:
-  summary: List extensions
-  operationId: "get_extensions"
+  summary: List UI extensions
+  operationId: "get_ui_extensions"
   tags:
     - UI Extensions
   x-versions:
     - "SaaS"
-  description: List all extensions associated with your token.
+  description: List all UI extensions associated with your token.
   parameters: []
   responses:
     200:
       description: Returns the list of extensions
       schema:
-        title: Products
+        title: UI Extensions
         type: array
         items:
           $ref: '#/definitions/UiExtension'
       x-examples-per-version:
-          x-example:
-            $ref: '#/definitions/ProductExamples/x-SaaS'
+        x-example:
+          $ref: '#/definitions/ProductExamples/x-SaaS'
+post:
+  summary: Create a new UI extension
+  operationId: "post_ui_extension"
+  tags:
+    - UI Extensions
+  x-versions:
+    - "SaaS"
+  description: This endpoint allows you to create a new UI extension.
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/UiExtension"
+  responses:
+    201:
+      $ref: "#/responses/Created"

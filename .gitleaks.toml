@@ -16,4 +16,6 @@ paths = [
     '''content/event-platform/getting-started.md''',
     # Rest API old authentication
     '''content/rest-api/authentication_old.md''',
+    # UI Extension documentation
+    '''content/extensions/ui-extensions.md''',
 ]

@@ -197,3 +197,5 @@
 
 /api/rest/v1/ui-extensions:
   $ref: ./resources/ui_extensions/routes/ui_extensions.yaml
+/api/rest/v1/ui-extensions/{uuid}:
+  $ref: ./resources/ui_extensions/routes/ui_extensions_uuid.yaml

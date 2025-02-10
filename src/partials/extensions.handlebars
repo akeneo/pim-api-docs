@@ -1,0 +1,44 @@
+{{#> layout title=title description=description}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-xs-9">
+                <h1>
+                    {{!-- TO DO Extensions LOGO --}}
+                    {{!-- <img src="../../img/extensions/logo.png"/> --}}
+                    {{{title}}}
+                </h1>
+            </div>
+            {{#if image}}
+                <div class="col-md-2 col-xs-3">
+                    <img class="img-responsive" style="margin-top: 20px;" src="../../img/{{image}}"/>
+                </div>
+            {{/if}}
+        </div>
+        <div class="row">
+            {{{mainContent}}}
+        </div>
+    </div>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $('.code-tabs li:first-child').addClass('active');
+        });
+        function copySnippetContent(event){
+            const copyToClipboard = $(this);
+            copyToClipboard.text("Copied!");
+            copyToClipboard.addClass("copied");
+            setTimeout(function() {
+                copyToClipboard.removeClass('copied');
+                copyToClipboard.text("Copy");
+            }, 3000);
+
+            const parentTextContent = event.target.parentElement.firstChild.innerText;
+            navigator.clipboard.writeText(parentTextContent);
+        }
+        $( "pre" ).append( `<span class="copy-to-clipboard-button">Copy</span>`);
+        $('.copy-to-clipboard-button').click(copySnippetContent);
+        $('.code-tabs li').click(function(){
+            $(this).parent().children().removeClass('active');
+            $(this).addClass('active');
+        });
+    </script>
+{{/layout}}
