@@ -4,14 +4,12 @@ As our GraphQL implementation uses the Akeneo REST API to fetch data, we added a
 
 ### Perimeter (What is Cached)
 
-All REST API queries to the PIM are cached, with the exception of two specific endpoints:
+All main queries are not cached, while every sub-query is cached.
 
-- **GET List of Products:** [`/api/rest/v1/products-uuid`](https://api.akeneo.com/api-reference.html#get_products_uuid)
-- **GET List of Product Models:** [`/api/rest/v1/product-models`](https://api.akeneo.com/api-reference.html#get_product_models)
+**Example**
+We query Families in order to get the list of families, their labels and their attributes labels.
 
-These endpoints are excluded from caching to ensure that clients always retrieve the most up-to-date product data, particularly important for frequently updated product details.
-
-Key Note: The endpoints **/api/rest/v1/products-uuid/{uuid}** and **/api/rest/v1/product-models/{code}** are cached, as these fetch specific records rather than full lists.
+The list of families is not cached as this is the main query, but the attributes labels depend on a sub query that is cached.
 
 ### Cache Duration
 
