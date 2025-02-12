@@ -19,7 +19,7 @@ Having a valid Akeneo PIM API token provided by either a connection or an App to
 
 #### Authorization
 To effectively manage your extension, it's essential to ensure that your connection or app has the necessary permissions.
-1. For Connections: The user associated with the connection must have the permission UI Extensions -> Manage own Extensions.
+1. For Connections: The user associated with the connection must have the permission **UI Extensions > Manage own Extensions**.
 2. For Apps: You need to request the scope manage_extensions.
 
 ::: info
@@ -177,43 +177,62 @@ An UI extension has a type. This type can be of the following list :
 + iframe
 + link
 
-#### Action
-TODO
+#### Link
+A **link** UI extension is crafted to open your external content in a new tab. 
+
+PICTURE ?
 
 #### Iframe
-TODO
+An **iframe** UI extension allows to open your external content inside the PIM thanks to an iframe.
 
-#### Link
-TODO
+An iframe (inline frame) is an HTML element that allows you to embed another HTML document within the current document. It is commonly used to display content from another source, such as a webpage, video, or interactive content, without leaving the current page.
+
+For more detailed information, you can refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
+
+PICTURE ?
+
+#### Action
+An **action** UI extension is designed to perform external tasks in the background. Please note the following key points regarding its functionality:
+
++ **Single Execution**: An Action cannot be executed multiple times simultaneously. This ensures that tasks are processed in a controlled manner.
++ **Menu Deactivation**: During the execution of an Action, the associated menu will be deactivated to prevent further interactions until the task is complete.
++ **Notification on Completion**: A notification will appear once the external server responds to the request, keeping users informed of the task's status.
+
+PICTURE ?
 
 ### Position
 
 The `position` represent the place to integrate the UI extension.
 
 #### pim.product.header
-TODO
+This position refers to the header of a simple product or a variant edit page.
+
+PICTURE ?
 
 #### pim.product-model.header
-TODO
+This position refers to the header of a root model edit page.
+
+PICTURE ?
 
 #### pim.sub-product-model.header
-TODO
+This position refers to the header of a sub model edit page.
+
+PICTURE ?
 
 #### pim.product.tab
-TODO
+This position refers to the left panel of a simple product or a variant edit page.
+
+PICTURE ?
 
 #### pim.category.tab
-TODO
+This position refers to the horizontal list of tabs on a category edit page.
+
+PICTURE ?
 
 #### pim.product-grid.action-bar
-TODO
+This position refers to the list of commands availables after selecting some products on the product grid.
 
-
-### Iframe
-
-An iframe (inline frame) is an HTML element that allows you to embed another HTML document within the current document. It is commonly used to display content from another source, such as a webpage, video, or interactive content, without leaving the current page.
-
-For more detailed information, you can refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
+PICTURE ?
 
 ## Available types by position
 Each position supports a specific subset of available types. The table below outlines the compatible types for all positions.
@@ -234,7 +253,28 @@ TODO
 
 ## Administration of UI extensions
 
-TODO
+### Prerequisites
+
+To be able to list all registered extensions, you must have a role with **UI Extensions > View all UI extensions via Administration panel** permission.
+
+To be able to enable or disable extensions, you must have a role with **UI Extensions > Manage all UI extensions via Administration panel** permission.
+
+### List all UI extensions
+
+You can open the administration panel with the menu **System > System Customization > UI Extensions**.
+
+PICTURE ?
+
+On the new page, you can see all extensions registered in your PIM.
+
+PICTURE ?
+
+### Enable / Disable a UI extension
+
+To manage one or more UI extensions from the list, you just have to select them thanks to the checkboxes present on the left of each line, and then use one of the two commands available at the bottom of the screen.
+
+PICTURE ?
+
 ## API Reference
 Several choices are offered to deep dive into our API, to discover all the endpoints, and their request/response schema:
 
