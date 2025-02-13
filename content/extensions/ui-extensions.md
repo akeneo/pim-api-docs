@@ -41,28 +41,34 @@ The collection comes with a pre-script to deal with the authentication specifici
 
 Fill the environment variables with your PIM connection values, and it will automatically generate an `access_token` if the credentials you provide are valid.
 
+![postman-fill-env.png](../img/extensions/ui-extensions/postman-fill-env.png)
+
+
 #### 3. Create a UI extension
 1. Select the Postman environment you've just created
 2. Click on the `Add an extension` POST request
 3. Customize the data to send as you want before click on `Send`
-3. Copy/Paste the newly created extension UUID in your `extensionUuid` environment variable
+3. Copy the newly created extension UUID. It will be asked to modify or delete the UI extension.
 
-PICTURE ?
+![postman-add-extension.png](../img/extensions/ui-extensions/postman-add-extension.png)
 
 #### 4. Update a UI extension
 1. Make sure that the right environment is selected
-2. Make sure the `extensionUuid` variable is filled
-3. Click on the `Update an extension` POST request
+2. Click on the `Update an extension` POST request
+3. Fill the `ui_extension_uuid` parameter with the UUID of the concerned UI extension
 4. Customize the data to send as you want before click on `Send`
 
-PICTURE ?
+![postman-update-extension-1.png](../img/extensions/ui-extensions/postman-update-extension-1.png)
+![postman-update-extension-2.png](../img/extensions/ui-extensions/postman-update-extension-2.png)
+
 
 #### 5. Delete a UI extension
 1. Make sure that the right environment is selected
-2. Make sure the `extensionUuid` variable is filled
-3. Click on `Send`
+2. Click on the `Delete an extension` POST request
+3. Fill the `ui_extension_uuid` parameter with the UUID of the concerned UI extension
+4. Click on `Send`
 
-PICTURE ?
+![postman-delete-extension.png](../img/extensions/ui-extensions/postman-delete-extension.png)
 
 ### Using Curl
 
@@ -178,9 +184,7 @@ An UI extension has a type. This type can be of the following list :
 + link
 
 #### Link
-A **link** UI extension is crafted to open your external content in a new tab. 
-
-PICTURE ?
+A **link** UI extension is crafted to open your external content in a new tab.
 
 #### Iframe
 An **iframe** UI extension allows to open your external content inside the PIM thanks to an iframe.
@@ -189,16 +193,12 @@ An iframe (inline frame) is an HTML element that allows you to embed another HTM
 
 For more detailed information, you can refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
-PICTURE ?
-
 #### Action
 An **action** UI extension is designed to perform external tasks in the background. Please note the following key points regarding its functionality:
 
 + **Single Execution**: An Action cannot be executed multiple times simultaneously. This ensures that tasks are processed in a controlled manner.
 + **Menu Deactivation**: During the execution of an Action, the associated menu will be deactivated to prevent further interactions until the task is complete.
 + **Notification on Completion**: A notification will appear once the external server responds to the request, keeping users informed of the task's status.
-
-PICTURE ?
 
 ### Position
 
@@ -263,17 +263,11 @@ To be able to enable or disable extensions, you must have a role with **UI Exten
 
 You can open the administration panel with the menu **System > System Customization > UI Extensions**.
 
-PICTURE ?
-
 On the new page, you can see all extensions registered in your PIM.
-
-PICTURE ?
 
 ### Enable / Disable a UI extension
 
 To manage one or more UI extensions from the list, you just have to select them thanks to the checkboxes present on the left of each line, and then use one of the two commands available at the bottom of the screen.
-
-PICTURE ?
 
 ## API Reference
 Several choices are offered to deep dive into our API, to discover all the endpoints, and their request/response schema:
