@@ -32,8 +32,8 @@ Granting these permissions before setup helps prevent unnecessary errors.
 The quickest way to get started with UI Extensions is by using our Postman collection.
 
 #### 1. Import the Postman Collection
-1. Download our <a href="TODO/generated_postman_collection.json" target="_blank">Postman Collection</a>
-2. Download our <a href="TODO/postman_environment_template.json" target="_blank">Postman environment variable template</a>
+1. Download our <a href="https://api.akeneo.com/extensions/ui-extensions/postman_collection.json" target="_blank">Postman Collection</a>
+2. Download our <a href="https://api.akeneo.com/extensions/ui-extensions/postman_environment_template.json" target="_blank">Postman environment variable template</a>
 3. Import those files into Postman (follow <a href="https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/" target="_blank">this guide</a> if you're not familiar with it)
 
 #### 2. Fill the environment variables
@@ -278,9 +278,8 @@ PICTURE ?
 ## API Reference
 Several choices are offered to deep dive into our API, to discover all the endpoints, and their request/response schema:
 
-- <a href="TODO/openapi_specification.yml" target="_blank">Download our Open API specification</a>, it's the source of truth.
-- You can also <a href="https://api.akeneo.com/api-reference-index.html#UIExtensions" target="_blank">consult this static documentation</a>
-- Discover it thanks to <a href="TODO/generated_postman_collection.json" target="_blank">the postman collection</a>
+- You can <a href="https://api.akeneo.com/api-reference-index.html#UIExtensions" target="_blank">consult this static documentation</a>
+- Discover it thanks to <a href="https://api.akeneo.com/extensions/ui-extensions/generated_postman_collection.json" target="_blank">the postman collection</a> (see the [Postman section](https://api.akeneo.com/extensions/ui-extensions.html#using-postman))
 
 ## FAQ
 TODO
