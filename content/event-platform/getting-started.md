@@ -1,6 +1,6 @@
 # Getting started
 
-This guide provides a step-by-step walkthrough to help you set up event subscriptions using the Event Platform. By the end of this guide, you will have created a connection, authenticated your App, subscribed to events, and triggered an event from your PIM.
+This guide provides a step-by-step walkthrough for setting up event subscriptions using the Event Platform. By the end of this guide, you will have created a connection, authenticated your App, subscribed to events, and triggered an event from your PIM.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ To learn how to create a connection, see the <a href="https://api-dev.akeneo.com
 
 ## Using Postman
 
-The easiest way to manipulate the Event Platform API for a quickstart will be through our Postman Collection.
+he quickest way to get started with Event Platform API is by using our Postman collection.
 
 ### 1. Import the Postman Collection
 
