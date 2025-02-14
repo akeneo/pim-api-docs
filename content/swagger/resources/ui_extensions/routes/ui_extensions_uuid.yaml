@@ -5,6 +5,7 @@ patch:
     - UI Extensions
   x-versions:
     - "SaaS"
+  x-ee: true
   description: This endpoint allows you to update an existing UI extension.
   parameters:
     - $ref: '#/parameters/uuid'
@@ -23,6 +24,7 @@ delete:
     - UI Extensions
   x-versions:
     - "SaaS"
+  x-ee: true
   description: This endpoint allows you to delete a given UI extension.
   parameters:
     - $ref: '#/parameters/uuid'

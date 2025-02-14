@@ -5,6 +5,7 @@ get:
     - UI Extensions
   x-versions:
     - "SaaS"
+  x-ee: true
   description: List all UI extensions associated with your token.
   parameters: []
   responses:
@@ -25,6 +26,7 @@ post:
     - UI Extensions
   x-versions:
     - "SaaS"
+  x-ee: true
   description: This endpoint allows you to create a new UI extension.
   parameters:
     - name: body
