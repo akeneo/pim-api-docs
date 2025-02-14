@@ -2272,7 +2272,7 @@ The sections below describe the format of the `_links` property for `media_file`
 #### Media file attribute
 Whenever the attribute type is `media_file`, the `_links` field will contain an object.
 
-The `share_link` is present only for the **main** `media_file` attribute when asset sharing is enabled
+The `share_link` is present only when asset sharing is enabled.
 
 **Example**
 ```json
@@ -2287,7 +2287,7 @@ The `share_link` is present only for the **main** `media_file` attribute when as
             "href": "https://example.akeneo.com/api/rest/v1/asset-media-files/0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_amy_socks_model_picture.png"
         },
         "share_link": {
-          "href": "https://example.asset.akeneo.com/model_pictures/amy_socks_model_picture.jpg"
+          "href": "https://example.asset.akeneo.com/model_pictures/a_media_file_attribute/amy_socks_model_picture.jpg"
         }
       }
     }
