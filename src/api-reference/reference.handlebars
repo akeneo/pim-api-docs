@@ -461,17 +461,113 @@
                                                                                     <p class="def-key">[
                                                                                     <br>&nbsp; &nbsp; { <br>
                                                                                     {{#each properties}}
-                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
-                                                                                        <code>{{{@key}}}</code>
-                                                                                        <em>
-                                                                                            ({{{type}}}
-                                                                                            {{#if items}}
-                                                                                                [{{{items.type}}}]
-                                                                                            {{/if}})
-                                                                                        </em>
-                                                                                        &bull; {{{description}}} <br>
+                                                                                        <p class="def-key">&nbsp; &nbsp; &nbsp; &nbsp;<code>{{{@key}}}</code>
+                                                                                        <em> ({{{type}}} {{#if items}} [{{{items.type}}}] {{/if}}) </em>
+                                                                                        {{#if properties}}: { <br>
+                                                                                            {{#each properties}}
+                                                                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                <code>{{{@key}}}</code>
+                                                                                                <em>
+                                                                                                    ({{{type}}}
+                                                                                                    {{#if items}}
+                                                                                                        [{{{items.type}}}]
+                                                                                                    {{/if}})
+                                                                                                </em>
+                                                                                                {{#if properties}}
+                                                                                                    : { <br>
+                                                                                                    {{#each properties}}
+                                                                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                        <code>{{{@key}}}</code>
+                                                                                                        <em>
+                                                                                                            ({{{type}}}
+                                                                                                            {{#if items}}
+                                                                                                              [{{{items.type}}}]
+                                                                                                            {{/if}})
+                                                                                                        </em>
+                                                                                                        &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                                                      {{/each}}
+                                                                                                    <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+                                                                                                {{else}}
+                                                                                                    {{#with items}}
+                                                                                                        {{#if allOf}}
+                                                                                                            : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { <br>
+                                                                                                                {{#each allOf}}
+                                                                                                                    {{#each properties}}
+                                                                                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                                        <code>{{{@key}}}</code>
+                                                                                                                        <em>({{{type}}})</em>
+                                                                                                                        {{#if properties}}
+                                                                                                                            : { <br>
+                                                                                                                                {{#each properties}}
+                                                                                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                                                    <code>{{{@key}}}</code>
+                                                                                                                                    <em>({{{type}}})</em>
+                                                                                                                                    {{#if properties}}
+                                                                                                                                        : { <br>
+                                                                                                                                        {{#each properties}}
+                                                                                                                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                                                            <code>{{{@key}}}</code>
+                                                                                                                                            <em>({{{type}}})</em>
+                                                                                                                                            &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                                                                                        {{/each}}
+                                                                                                                                        <br>&nbsp;
+                                                                                                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+                                                                                                                                    {{else}}
+                                                                                                                                        &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                                                                                    {{/if}}
+                                                                                                                                {{/each}}
+                                                                                                                                <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                                            } <br>
+                                                                                                                        {{else}}
+                                                                                                                            &bull; {{{description}}} <br>
+                                                                                                                        {{/if}}
+                                                                                                                    {{/each}}
+                                                                                                                {{/each}}
+                                                                                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]
+                                                                                                        {{/if}}
+                                                                                                        {{#if properties}} : [
+                                                                                                            <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { <br>
+                                                                                                            {{#each properties}}
+                                                                                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                                <code>{{{@key}}}</code>
+                                                                                                                <em>
+                                                                                                                    ({{{type}}}
+                                                                                                                    {{#if items}}
+                                                                                                                        [{{{items.type}}}
+                                                                                                                    ]{{/if}})
+                                                                                                                </em>
+                                                                                                                &bull; {{{description}}} <br>
+                                                                                                            {{/each}}
+                                                                                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ]
+                                                                                                        {{else}}
+                                                                                                            &bull; {{{description}}}
+                                                                                                        {{/if}}
+                                                                                                    {{else}}
+                                                                                                        &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                                                    {{/with}}
+                                                                                                {{/if}}
+                                                                                            {{/each}}
+                                                                                            <br> &nbsp; &nbsp; &nbsp; &nbsp; }
+                                                                                        {{else}}
+                                                                                            {{#with items}}
+                                                                                                {{#if properties}}
+                                                                                                        : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; { <br>
+                                                                                                                {{#each properties}}
+                                                                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                                    <code>{{{@key}}}</code>
+                                                                                                                    <em>({{{type}}})</em>
+                                                                                                                    &bull; {{{description}}} <br>
+                                                                                                                {{/each}}
+                                                                                                            &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ]
+                                                                                                {{else}}
+                                                                                                    &bull; {{{../description}}}
+                                                                                                {{/if}}
+                                                                                            {{else}}
+                                                                                                &bull; {{{description}}}
+                                                                                            {{/with}}
+                                                                                        {{/if}}
                                                                                     {{/each}}
-                                                                                    &nbsp; &nbsp; } <br> ]</p>
+                                                                                    <br>&nbsp; &nbsp; } <br> ]</p>
                                                                                 {{/if}}
                                                                             {{/with}}
                                                                             {{#each properties}}
