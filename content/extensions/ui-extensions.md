@@ -207,32 +207,32 @@ The `position` represent the place to integrate the UI extension.
 #### pim.product.header
 This position refers to the header of a simple product or a variant edit page.
 
-PICTURE ?
+![position-product-header.png](../img/extensions/ui-extensions/position-product-header.png)
 
 #### pim.product-model.header
 This position refers to the header of a root model edit page.
 
-PICTURE ?
+![position-product-model-header.png](../img/extensions/ui-extensions/position-product-model-header.png)
 
 #### pim.sub-product-model.header
 This position refers to the header of a sub model edit page.
 
-PICTURE ?
+![position-sub-product-model-header.png](../img/extensions/ui-extensions/position-sub-product-model-header.png)
 
 #### pim.product.tab
 This position refers to the left panel of a simple product or a variant edit page.
 
-PICTURE ?
+![position-product-tab.png](../img/extensions/ui-extensions/position-product-tab.png)
 
 #### pim.category.tab
 This position refers to the horizontal list of tabs on a category edit page.
 
-PICTURE ?
+![position-category-tab.png](../img/extensions/ui-extensions/position-category-tab.png)
 
 #### pim.product-grid.action-bar
 This position refers to the list of commands availables after selecting some products on the product grid.
 
-PICTURE ?
+![position-product-grid-action-bar.png](../img/extensions/ui-extensions/position-product-grid-action-bar.png)
 
 ## Available types by position
 Each position supports a specific subset of available types. The table below outlines the compatible types for all positions.
