@@ -856,9 +856,22 @@ Whenever the attribute type is `pim_catalog_asset_collection`, the `linked_data`
         "left_side": {
           "share_links": [
             {
+              "attribute": "media",
+              "scope": null,
+              "locale": null,
               "_links": {
                 "self": {
-                  "href": "https://asset-delivery.akeneo.com/asset_family/left_side.png"
+                  "href": "https://asset-delivery.akeneo.com/asset_family/media/left_side.png"
+                }
+              }
+            },
+            {
+              "attribute": "secondary_media",
+              "scope": null,
+              "locale": null,
+              "_links": {
+                "self": {
+                  "href": "https://asset-delivery.akeneo.com/asset_family/secondary_media/left_side.png"
                 }
               }
             }
@@ -867,9 +880,12 @@ Whenever the attribute type is `pim_catalog_asset_collection`, the `linked_data`
         "right_side": {
           "share_links": [
             {
+              "attribute": "media",
+              "scope": null,
+              "locale": null,
               "_links": {
                 "self": {
-                  "href": "https://asset-delivery.akeneo.com/asset_family/right_side.png"
+                  "href": "https://asset-delivery.akeneo.com/asset_family/media/right_side.png"
                 }
               }
             }
@@ -877,7 +893,7 @@ Whenever the attribute type is `pim_catalog_asset_collection`, the `linked_data`
         }
       },
       "attribute_type": "pim_catalog_asset_collection",
-      "reference_data_name": "asset_ref"
+      "reference_data_name": "asset_family"
     }
   ]
 }
