@@ -19,7 +19,7 @@ Having a valid Akeneo PIM API token provided by either a connection or an App to
 
 #### Authorization
 To effectively manage your extension, it's essential to ensure that your connection or app has the necessary permissions.
-1. For Connections: The user associated with the connection must have the permission **UI Extensions > Manage own Extensions**.
+1. For Connections: The user associated with the connection must have the permission **UI Extensions > Manage own Extensions** enabled.
 2. For Apps: You need to request the scope manage_extensions.
 
 ::: info
@@ -34,12 +34,12 @@ The quickest way to get started with UI Extensions is by using our Postman colle
 #### 1. Import the Postman Collection
 1. Download our <a href="https://api.akeneo.com/extensions/ui-extensions/postman_collection.json" target="_blank">Postman Collection</a>
 2. Download our <a href="https://api.akeneo.com/extensions/ui-extensions/postman_environment_template.json" target="_blank">Postman environment variable template</a>
-3. Import those files into Postman (follow <a href="https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/" target="_blank">this guide</a> if you're not familiar with it)
+3. Import those files into Postman (follow <a href="https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/" target="_blank">this guide</a> if you're not familiar with how Postman collections work)
 
 #### 2. Fill the environment variables
-The collection comes with a pre-script to deal with the authentication specificities when using a PIM Connection.
+The collection includes a pre-script for handling PIM Connection authentication.
 
-Fill the environment variables with your PIM connection values, and it will automatically generate an `access_token` if the credentials you provide are valid.
+Before making API requests, ensure your environment variables are configured with your Akeneo PIM connection credentials. A valid 'access_token' will be generated automatically on your first request, provided your credentials are valid. If you don't receive a token, double-check your credentials.
 
 ![postman-fill-env.png](../img/extensions/ui-extensions/postman-fill-env.png)
 
@@ -127,7 +127,7 @@ After retrieving the API token, store the `access_token` from the response in an
 :::
 
 ::: info
-🛠 You can also use a custom App if you like. As long as you have a `client_id` alongside an `API token`, you are good to go for the next step
+🛠 Custom apps are also supported. To use one, ensure you have both a client_id and an API token.
 :::
 
 #### 2. Create a UI extension
@@ -178,7 +178,7 @@ To delete a UI extension, you must possess a valid PIM API token and the UUID of
 
 ### Type
 
-An UI extension has a type. This type can be of the following list :
+UI extensions are categorized by type, which determines their capabilities. Select the type that best suits your requirements:
 + action
 + iframe
 + link
@@ -202,7 +202,7 @@ An **action** UI extension is designed to perform external tasks in the backgrou
 
 ### Position
 
-The `position` represent the place to integrate the UI extension.
+The available `position` values determine where your UI extension will appear in the Akeneo PIM
 
 #### pim.product.header
 This position refers to the header of a simple product or a variant edit page.
@@ -252,6 +252,7 @@ Each position supports a specific subset of available types. The table below out
 TODO
 
 ## Administration of UI extensions
+For a functional overview of the administration panel and permissions, see our [Help Center](https://help.akeneo.com/en_US/extensions/ui-extentions).
 
 ### Prerequisites
 
@@ -276,4 +277,14 @@ Several choices are offered to deep dive into our API, to discover all the endpo
 - Discover it thanks to <a href="https://api.akeneo.com/extensions/ui-extensions/generated_postman_collection.json" target="_blank">the postman collection</a> (see the [Postman section](https://api.akeneo.com/extensions/ui-extensions.html#using-postman))
 
 ## FAQ
-TODO
+### Who is responsible for UI Extensions?
+Akeneo is responsible for the UI Extensions framework itself, including the APIs and administrative interface. We provide support for these components. Your organization or your integrator is responsible for any custom code, iframes, or other custom development built within the UI Extensions. Support for this custom code falls to your organization or integrator, not Akeneo. 
+
+### How can I add a new UI Extension to my PIM?
+Adding a new extension to your organization is easy! Just follow the steps in [this guide](https://api.akeneo.com/extensions/ui-extensions.html#getting-started).
+
+### The UI Extensions entry isn't showing up in my PIM. Could you help me understand why? 
+If you don't see the UI Extensions entry in your PIM, it's likely due to permission settings. [This guide](https://api.akeneo.com/extensions/ui-extensions.html#authorization) will help you check and activate the necessary permissions. 
+
+### I'd like to see my extension in a position that isn't currently available. What can I do? 
+Currently, UI Extension placements are limited to those defined by Akeneo. However, we highly value your feedback! Please contact your Customer Success Manager or our Support team to share your specific placement needs. This will help us understand your use case and consider it for future development.
