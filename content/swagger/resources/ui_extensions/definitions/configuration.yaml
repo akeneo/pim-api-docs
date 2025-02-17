@@ -1,4 +1,5 @@
 type: object
+description: Configuration options that are specific to the UI extension <a href='extensions/ui-extensions.html#type'>type</a>
 properties:
   default_label:
     type: string
