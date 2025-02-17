@@ -17,8 +17,9 @@ get:
         items:
           $ref: '#/definitions/UiExtension'
       x-examples-per-version:
-        x-saas:
-          $ref: '#/definitions/ProductExamples/x-SaaS'
+        - x-version: 'SaaS'
+          x-example:
+            - $ref: ../definitions/examples/ui_extension.yaml
 post:
   summary: Create a new UI extension
   operationId: "post_ui_extension"
@@ -38,3 +39,7 @@ post:
       $ref: "#/responses/Created"
     422:
       $ref: "#/responses/422Error"
+  x-examples-per-version:
+    - x-version: 'SaaS'
+      x-example:
+        $ref: ../definitions/examples/ui_extension.yaml

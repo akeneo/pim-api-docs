@@ -23,6 +23,10 @@ patch:
       $ref: "../definitions/responses/404not_found.yaml"
     422:
       $ref: "#/responses/422Error"
+  x-examples-per-version:
+    - x-version: 'SaaS'
+      x-example:
+        $ref: ../definitions/examples/ui_extension.yaml
 delete:
   summary: Delete a UI extension
   operationId: "delete_ui_extension_uuid"
