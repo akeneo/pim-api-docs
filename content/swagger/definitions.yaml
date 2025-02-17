@@ -504,6 +504,8 @@ UiExtension:
       $ref: ./resources/ui_extensions/definitions/configuration.yaml
     status:
       $ref: ./resources/ui_extensions/definitions/status.yaml
+  example:
+    $ref: ./resources/ui_extensions/definitions/examples/ui_extension_post_body.yaml
 
 
 UiExtensionWithoutRequired:
@@ -523,4 +525,6 @@ UiExtensionWithoutRequired:
       $ref: ./resources/ui_extensions/definitions/configuration.yaml
     status:
       $ref: ./resources/ui_extensions/definitions/status.yaml
+  example:
+    $ref: ./resources/ui_extensions/definitions/examples/ui_extension_patch_body.yaml
 

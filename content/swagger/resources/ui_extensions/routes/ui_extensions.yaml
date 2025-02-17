@@ -36,10 +36,11 @@ post:
         $ref: "#/definitions/UiExtension"
   responses:
     201:
-      $ref: "#/responses/Created"
+      description: 'OK'
+      x-details: Returns a JSON document representing the UI extension created
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example:
+            $ref: ../definitions/examples/ui_extension.yaml
     422:
       $ref: "#/responses/422Error"
-  x-examples-per-version:
-    - x-version: 'SaaS'
-      x-example:
-        $ref: ../definitions/examples/ui_extension.yaml

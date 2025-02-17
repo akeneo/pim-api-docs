@@ -16,17 +16,18 @@ patch:
         $ref: "#/definitions/UiExtensionWithoutRequired"
   responses:
     200:
-      $ref: "#/responses/Updated"
+      description: 'OK'
+      x-details: Returns a JSON document representing the UI extension updated
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example:
+            $ref: ../definitions/examples/ui_extension_patch_response.yaml
     400:
       $ref: "#/responses/400IncorrectUuid"
     404:
       $ref: "../definitions/responses/404not_found.yaml"
     422:
       $ref: "#/responses/422Error"
-  x-examples-per-version:
-    - x-version: 'SaaS'
-      x-example:
-        $ref: ../definitions/examples/ui_extension.yaml
 delete:
   summary: Delete a UI extension
   operationId: "delete_ui_extension_uuid"

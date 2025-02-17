@@ -5,13 +5,6 @@ Created:
     Location:
       description: URI of the created resource
       type: string
-Updated:
-  description: Updated
-  x-details: Means that the update was successful
-  headers:
-    Location:
-      description: URI of the updated resource
-      type: string
 ReferenceEntityMediaFileUploaded:
   description: Created
   x-details: Means that the media file creation was successful

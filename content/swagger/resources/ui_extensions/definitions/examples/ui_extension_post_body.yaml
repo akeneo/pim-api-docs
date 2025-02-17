@@ -8,6 +8,5 @@ configuration:
     en_US: "My awesome link extension"
     fr_FR: "Ma super link extension"
   default_label: "My awesome link extension"
-status: "active"
 version: "V1.02.3"
 description: "A short human readable description."
