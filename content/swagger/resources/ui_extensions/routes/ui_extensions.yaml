@@ -17,7 +17,7 @@ get:
         items:
           $ref: '#/definitions/UiExtension'
       x-examples-per-version:
-        x-example:
+        x-saas:
           $ref: '#/definitions/ProductExamples/x-SaaS'
 post:
   summary: Create a new UI extension

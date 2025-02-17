@@ -234,6 +234,10 @@ This position refers to the list of commands availables after selecting some pro
 
 ![position-product-grid-action-bar.png](../img/extensions/ui-extensions/position-product-grid-action-bar.png)
 
+### Secret
+A secret can be used for UI extensions of type `action`. If it is, this secret is used to sign the body of the POST request sent to the destination.
+The protocol used to sign is <a href='https://fr.wikipedia.org/wiki/SHA-2'>SHA-512</a>.
+
 ## Available types by position
 Each position supports a specific subset of available types. The table below outlines the compatible types for all positions.
 
@@ -245,8 +249,6 @@ Each position supports a specific subset of available types. The table below out
 | pim.product.tab              | ❌      | ✔️     | ❌    |
 | pim.category.tab             | ❌      | ✔️     | ❌    |
 | pim.product-grid.action-bar  | ✔️      | ✔️     | ❌    |
-
-
 
 ## Example use case(s)
 TODO

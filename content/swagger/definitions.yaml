@@ -491,15 +491,19 @@ UiExtension:
   properties:
     name:
       type: string
-      example: my_awesome_button_extension
+      description: Name of the extension, shown within the Administration interface
     description:
       type: string
+      description: Short description, shown within the Administration interface
     version:
       type: string
+      description: Version of the extension, shown within the Administration interface
     position:
       type: string
+      description: <a href='extensions/ui-extensions.html#position'>Position</a> of the UI extension
     type:
       type: string
+      description: <a href='extensions/ui-extensions.html#type'>Type</a> of the UI extension
     configuration:
       $ref: ./resources/ui_extensions/definitions/configuration.yaml
 

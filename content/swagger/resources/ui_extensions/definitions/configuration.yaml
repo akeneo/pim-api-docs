@@ -1,10 +1,15 @@
 type: object
+required: ["default_label", "url"]
 properties:
   default_label:
     type: string
-    description: Default label, used if there is not a translation for the PIM user locale
-  url:
-    type: string
-    description: URL of the extension
+    description: Default label, used if there is no translation for the PIM user locale
   labels:
     type: object
+    description: Label translations
+  secret:
+    type: string
+    description: Shows ***REDACTED*** if a <a href='extensions/ui-extensions.html#secret'>secret</a> is registered for the extension
+  url:
+    type: string
+    description: Destination URL of the extension
