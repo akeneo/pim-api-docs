@@ -207,32 +207,20 @@ The available `position` values determine where your UI extension will appear in
 #### pim.product.header
 This position refers to the header of a simple product or a variant edit page.
 
-![position-product-header.png](../img/extensions/ui-extensions/position-product-header.png)
-
 #### pim.product-model.header
 This position refers to the header of a root model edit page.
-
-![position-product-model-header.png](../img/extensions/ui-extensions/position-product-model-header.png)
 
 #### pim.sub-product-model.header
 This position refers to the header of a sub model edit page.
 
-![position-sub-product-model-header.png](../img/extensions/ui-extensions/position-sub-product-model-header.png)
-
 #### pim.product.tab
 This position refers to the left panel of a simple product or a variant edit page.
-
-![position-product-tab.png](../img/extensions/ui-extensions/position-product-tab.png)
 
 #### pim.category.tab
 This position refers to the horizontal list of tabs on a category edit page.
 
-![position-category-tab.png](../img/extensions/ui-extensions/position-category-tab.png)
-
 #### pim.product-grid.action-bar
 This position refers to the list of commands availables after selecting some products on the product grid.
-
-![position-product-grid-action-bar.png](../img/extensions/ui-extensions/position-product-grid-action-bar.png)
 
 ### Secret
 A secret can be used for UI extensions of type `action`. If it is, this secret is used to sign the body of the POST request sent to the destination.
