@@ -6,14 +6,14 @@ patch:
   x-versions:
     - "SaaS"
   x-ee: true
-  description: This endpoint allows you to update an existing UI extension.
+  description: This endpoint allows you to update an existing UI extension. You can send only the fields that you want to update. If a field is not sent, the previous value is kept.
   parameters:
     - $ref: '#/parameters/uuid'
     - name: body
       in: body
       required: true
       schema:
-        $ref: "#/definitions/UiExtension"
+        $ref: "#/definitions/UiExtensionWithoutRequired"
   responses:
     200:
       $ref: "#/responses/Updated"

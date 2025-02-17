@@ -488,22 +488,35 @@ DeprecatedAssetReferenceFileUploadWarning:
 
 UiExtension:
   type: object
+  required: ["name", "position", "type", "configuration"]
   properties:
     name:
-      type: string
-      description: Name of the extension, shown within the Administration interface
+      $ref: ./resources/ui_extensions/definitions/name.yaml
     description:
-      type: string
-      description: Short description, shown within the Administration interface
+      $ref: ./resources/ui_extensions/definitions/description.yaml
     version:
-      type: string
-      description: Version of the extension, shown within the Administration interface
+      $ref: ./resources/ui_extensions/definitions/version.yaml
     position:
-      type: string
-      description: <a href='extensions/ui-extensions.html#position'>Position</a> of the UI extension
+      $ref: ./resources/ui_extensions/definitions/position.yaml
     type:
-      type: string
-      description: <a href='extensions/ui-extensions.html#type'>Type</a> of the UI extension
+      $ref: ./resources/ui_extensions/definitions/type.yaml
+    configuration:
+      $ref: ./resources/ui_extensions/definitions/configuration.yaml
+
+
+UiExtensionWithoutRequired:
+  type: object
+  properties:
+    name:
+      $ref: ./resources/ui_extensions/definitions/name.yaml
+    description:
+      $ref: ./resources/ui_extensions/definitions/description.yaml
+    version:
+      $ref: ./resources/ui_extensions/definitions/version.yaml
+    position:
+      $ref: ./resources/ui_extensions/definitions/position.yaml
+    type:
+      $ref: ./resources/ui_extensions/definitions/type.yaml
     configuration:
       $ref: ./resources/ui_extensions/definitions/configuration.yaml
 
