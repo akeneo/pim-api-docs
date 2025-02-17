@@ -36,3 +36,5 @@ post:
   responses:
     201:
       $ref: "#/responses/Created"
+    422:
+      $ref: "#/responses/422Error"

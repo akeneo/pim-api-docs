@@ -502,6 +502,8 @@ UiExtension:
       $ref: ./resources/ui_extensions/definitions/type.yaml
     configuration:
       $ref: ./resources/ui_extensions/definitions/configuration.yaml
+    status:
+      $ref: ./resources/ui_extensions/definitions/status.yaml
 
 
 UiExtensionWithoutRequired:
@@ -519,4 +521,6 @@ UiExtensionWithoutRequired:
       $ref: ./resources/ui_extensions/definitions/type.yaml
     configuration:
       $ref: ./resources/ui_extensions/definitions/configuration.yaml
+    status:
+      $ref: ./resources/ui_extensions/definitions/status.yaml
 

@@ -17,6 +17,12 @@ patch:
   responses:
     200:
       $ref: "#/responses/Updated"
+    400:
+      $ref: "#/responses/400IncorrectUuid"
+    404:
+      $ref: "../definitions/responses/404not_found.yaml"
+    422:
+      $ref: "#/responses/422Error"
 delete:
   summary: Delete a UI extension
   operationId: "delete_ui_extension_uuid"
@@ -31,3 +37,7 @@ delete:
   responses:
     204:
       $ref: "#/responses/NoContentAfterDelete"
+    400:
+      $ref: "#/responses/400IncorrectUuid"
+    404:
+      $ref: "../definitions/responses/404not_found.yaml"
