@@ -20,7 +20,7 @@ Having a valid Akeneo PIM API token provided by either a connection or an App to
 #### Authorization
 To effectively manage your extension, it's essential to ensure that your connection or app has the necessary permissions.
 1. For Connections: The user associated with the connection must have the permission **UI Extensions > Manage own Extensions** enabled.
-2. For Apps: You need to request the scope manage_extensions.
+2. For Apps: You need to request the scope **manage_extensions**.
 
 ::: info
 ℹ️ A UI extension is owned by a user, meaning that a connection can only manage UI extensions created by itself or by connections associated with the same user. Similarly, an App can only manage its own UI extensions.
@@ -39,7 +39,7 @@ The quickest way to get started with UI Extensions is by using our Postman colle
 #### 2. Fill the environment variables
 The collection includes a pre-script for handling PIM Connection authentication.
 
-Before making API requests, ensure your environment variables are configured with your Akeneo PIM connection credentials. A valid 'access_token' will be generated automatically on your first request, provided your credentials are valid. If you don't receive a token, double-check your credentials.
+Before making API requests, ensure your environment variables are configured with your Akeneo PIM connection credentials. A valid `pim_access_token` will be generated automatically on your first request, provided your credentials are valid. If you don't receive a token, or you don't see it within the environment variable list, double-check your credentials.
 
 ![postman-fill-env.png](../img/extensions/ui-extensions/postman-fill-env.png)
 
@@ -48,7 +48,7 @@ Before making API requests, ensure your environment variables are configured wit
 1. Select the Postman environment you've just created
 2. Click on the `Add an extension` POST request
 3. Customize the data to send as you want before click on `Send`
-3. Copy the newly created extension UUID. It will be asked to modify or delete the UI extension.
+4. Copy the newly created extension UUID. It will be asked to modify or delete the UI extension.
 
 ![postman-add-extension.png](../img/extensions/ui-extensions/postman-add-extension.png)
 
@@ -127,7 +127,7 @@ After retrieving the API token, store the `access_token` from the response in an
 :::
 
 ::: info
-🛠 Custom apps are also supported. To use one, ensure you have both a client_id and an API token.
+🛠 Custom apps are also supported. To use one, add a variable `app_access_token` with your API Token.
 :::
 
 #### 2. Create a UI extension
