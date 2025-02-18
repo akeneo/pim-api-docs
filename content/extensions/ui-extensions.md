@@ -134,7 +134,7 @@ After retrieving the API token, store the `access_token` from the response in an
 You can create a UI extension once you have a valid PIM API token.
 
 ```bash [snippet:Shell]
-    curl --request POST 'https://yourpim.akeneo.cloud/api/rest/v1/ui-extensions' \
+    curl --request POST "$TARGET_PIM_URL/api/rest/v1/ui-extensions" \
 --header "Authorization: Bearer $PIM_API_TOKEN" \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -156,7 +156,7 @@ You can create a UI extension once you have a valid PIM API token.
 To update a UI extension, you must possess a valid PIM API token and the UUID of the extension you want to update.
 
 ```bash [snippet:Shell]
-    curl --request PATCH "https://yourpim.akeneo.cloud/api/rest/v1/ui-extensions/$EXTENSION_UUID" \
+    curl --request PATCH "$TARGET_PIM_URL/api/rest/v1/ui-extensions/$EXTENSION_UUID" \
 --header "Authorization: Bearer $PIM_API_TOKEN" \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -170,7 +170,7 @@ To update a UI extension, you must possess a valid PIM API token and the UUID of
 To delete a UI extension, you must possess a valid PIM API token and the UUID of the extension you want to delete.
 
 ```bash [snippet:Shell]
-    curl --request DELETE "https://yourpim.akeneo.cloud/api/rest/v1/ui-extensions/$EXTENSION_UUID" \
+    curl --request DELETE "$TARGET_PIM_URL/api/rest/v1/ui-extensions/$EXTENSION_UUID" \
 --header "Authorization: Bearer $PIM_API_TOKEN"
 ```
 
