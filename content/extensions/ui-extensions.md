@@ -193,12 +193,19 @@ An iframe (inline frame) is an HTML element that allows you to embed another HTM
 
 For more detailed information, you can refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
+To ensure the secure embedding of iframes in our web app, it is essential to properly configure [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers to control the sources from which content can be loaded.
+
+::: warning
+ Please note that if these headers are misconfigured, iframe functionality may not work as intended.
+:::
+
 #### Action
 An **action** UI extension is designed to perform external tasks in the background. Please note the following key points regarding its functionality:
 
 + **Single Execution**: An Action cannot be executed multiple times simultaneously. This ensures that tasks are processed in a controlled manner.
 + **Menu Deactivation**: During the execution of an Action, the associated menu will be deactivated to prevent further interactions until the task is complete.
 + **Notification on Completion**: A notification will appear once the external server responds to the request, keeping users informed of the task's status.
++ **Timeout**: The PIM HTTP client that communicates with the destination is configured with a timeout of 5 seconds.
 
 ### Position
 
