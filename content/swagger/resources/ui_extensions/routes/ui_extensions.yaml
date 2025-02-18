@@ -28,7 +28,7 @@ post:
   x-versions:
     - "SaaS"
   x-ee: true
-  description: This endpoint allows you to create a new UI extension.
+  description: This endpoint allows you to create a new UI extension. <code>default_label</code> and <code>url</code> configuration fields are mandatory for all UI extensions. <code>secret</code> is optional and only available for <a href='extensions/ui-extensions.html#action'>action</a> UI extension.
   parameters:
     - name: body
       in: body
