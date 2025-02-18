@@ -23,8 +23,6 @@ gulp.task('copy-assets', ['clean-dist'], function(){
         .pipe(gulp.dest('dist/files/'));
     var mapping = gulp.src('content/mapping/**')
       .pipe(gulp.dest('dist/mapping/'));
-    var uiextensions = gulp.src('content/extensions/ui-extensions/postman/**')
-      .pipe(gulp.dest('dist/extensions/ui-extensions/'));
 
     return merge(fa, fonts, lib, img);
 });
