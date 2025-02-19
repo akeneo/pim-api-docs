@@ -206,6 +206,34 @@ An **action** UI extension is designed to perform external tasks in the backgrou
 + **Menu Deactivation**: During the execution of an Action, the associated menu will be deactivated to prevent further interactions until the task is complete.
 + **Notification on Completion**: A notification will appear once the external server responds to the request, keeping users informed of the task's status.
 + **Timeout**: The PIM HTTP client that communicates with the destination is configured with a timeout of 5 seconds.
++ **POST HTTP method** is used while sending the request to the destination
+
+Data sent within the POST body, formatted in JSON, contains :
+- A `data` object with a property `product_uuid` for a product or `product_model_code` for a model or sub model.
+- A `context` object containing the configured `locale` and `channel`.
+- A `user` object containing the `username` and `groups` of the connected user.
+- A `timestamp`, that can be used with a [secret](#secret) to help you to protect your server against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
+
+Example :
+```json
+{
+  "data": {
+    "product_uuid": "ecfddba2-59bf-4d35-bd07-8ceeefde51fd"
+  },
+  "context": {
+    "locale": "en_US",
+    "channel": "ecommerce"
+  },
+  "user": {
+    "username": "julia",
+    "groups": [
+      "Manager",
+      "All"
+    ]
+  },
+  "timestamp": 1739948408
+}
+```
 
 ### Position
 
@@ -232,6 +260,55 @@ This position refers to the list of commands availables after selecting some pro
 ### Secret
 A secret can be used for UI extensions of type `action`. If it is, this secret is used to sign the body of the POST request sent to the destination.
 The protocol used to sign is <a href='https://fr.wikipedia.org/wiki/SHA-2'>SHA-512</a>.
+
+### Url
+All types of UI extensions have to have a configured URL. But, depending on the type, some parameters are sent or can be sent.
+
+#### Query parameters placeholders
+For [link](#link) UI extension, you can ask for specific values to construct the urls thanks to a specific placeholder pattern. 
+
+For example, you can configure a UI Extension with the following url `https://www.google.com/search?q=%name%&tbm=shop&gl=us`, then we will dynamically put the value of the attribute code `name` when the user will click on the button.
+
+Valid placeholders attributes are:
+- `uuid` and other attribute of type: `identifier`
+- all non scopable and non localizable text attributes
+
+You can add a placeholder anywhere in your url as soon as they're surrounded by `%` symbol.
+
+Examples:
+- `https://www.google.com/search?q=%name%`
+- `https://yourwebsite.com/%sku%`
+
+#### Fixed query parameters
+For an [iframe](#iframe) UI extension, with `pim.product.tab`, `pim.sub-product-model.tab`, `pim.product-model.tab` as [position](#position), several parameters are sent by default as SearchParameters in a GET query, so the server knows who is the connected user (insecure) and in which context the iframe is opened.
+
+For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebite.com/iframe/?paramA=valueA&paramB=valueB`
+
+For all positions except `pim.product-grid.action-bar`, parameters relative to the connected user are sent:
+- `user[catalog_locale]`
+- `user[catalog_scope]`
+- `user[ui_locale]`
+- `user[username]`
+- `user[email]`
+
+::: warning
+**Important Security Notice**
+
+When using iframes, please be aware of the following:
+
++ **Data Confidentiality**: We do not implement any security measures to verify the identity of the caller accessing the URL.
+
++ **Access Control**: Anyone with access to this link can view the content of the webpage, regardless of the parameters included.
+
+For sensitive data, we recommend implementing additional security measures to protect your information.
+:::
+
+For `pim.product.tab` position, these parameters are sent:
+- `product[uuid]`
+- `product[identifier]`
+
+For `pim.category.tab` position, this parameter is sent:
+- `category[code]`
 
 ## Available types by position
 Each position supports a specific subset of available types. The table below outlines the compatible types for all positions.
