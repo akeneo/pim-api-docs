@@ -199,6 +199,8 @@ To ensure the secure embedding of iframes in our web app, it is essential to pro
  Please note that if these headers are misconfigured, iframe functionality may not work as intended.
 :::
 
+To configure an `iframe` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label` and `url`.
+
 #### Action
 An **action** UI extension is designed to perform external tasks in the background. Please note the following key points regarding its functionality:
 
@@ -262,8 +264,7 @@ A secret can be used for UI extensions of type `action`. If it is, this secret i
 The protocol used to sign is <a href='https://fr.wikipedia.org/wiki/SHA-2'>SHA-512</a>.
 
 ### Url
-All types of UI extensions have to have a configured URL. But, depending on the type, some parameters are sent or can be sent.
-
+All types of UI extensions must have a configured URL. However, the parameters that are sent—or can be sent—vary depending on the specific type of extension.
 #### Query parameters placeholders
 For [link](#link) UI extension, you can ask for specific values to construct the urls thanks to a specific placeholder pattern. 
 
