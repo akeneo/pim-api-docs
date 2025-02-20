@@ -201,6 +201,66 @@ To ensure the secure embedding of iframes in our web app, it is essential to pro
 
 To configure an `iframe` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label` and `url`.
 
+**PostMessage**
+
+To be able to communicate the product grid selection (position `pim.product-grid.action-bar`) to the iframe, we use the [PostMessage](https://developer.mozilla.org/docs/Web/API/Window/postMessage) protocol.
+
+This *event* is sent after the loading of the iframe.
+
+For a *classical* project with HTML and JAVASCRIPT code, you can include this kind of code to catch those events :
+
+```html
+    <script>
+        window.addEventListener('message', (event) => {
+            console.log(event)            
+        });
+    </script>
+```
+
+For more *modern* technologies like ReactJS, the iframe could be loaded before components. To solve this problem we added the possibility to ask for the data. To do this, just send a PostMessage with an object containing the property `type: 'request_context'`.
+
+Example :
+```js
+    window.parent.postMessage(
+      {
+        type: 'request_context'
+      },
+      "*"
+    );
+```
+After receiving this *event*, the PIM will send a PostMessage *event*, similar to the one sent after the iframe loading.
+
+The sent *event* is a normalized message [MessageEvent](https://developer.mozilla.org/docs/Web/API/MessageEvent) with a field `data` containing our information. This field contains :
+- A `data` object with :
+  - A `product_uuids` field which is an array of string representing the UUIDs of selected products
+  - A `product_model_codes` field which is an array of string representing the codes of selected product models and sub models
+- A `context` object containing the configured `locale` and `channel`.
+- A `user` object containing the `username` and `groups` of the connected user.
+
+Example :
+```json
+{
+  "data": {
+    "productUuids": [
+      "63139bf3-a7f7-4eaa-ba5e-6ffc8a2f14e9",
+      "6fa3bd36-6b5a-4e80-afcd-c224fdf6f3ea",
+      "78f38e4a-8d25-41e1-8e09-42a9c246689a"
+    ],
+    "productModelCodes": []
+  },
+  "context": {
+    "locale": "en_US",
+    "channel": "ecommerce"
+  },
+  "user": {
+    "username": "admin",
+    "groups": [
+      "IT support",
+      "All"
+    ]
+  }
+}
+```
 #### Action
 An **action** UI extension is designed to perform external tasks in the background. Please note the following key points regarding its functionality:
 
@@ -211,16 +271,51 @@ An **action** UI extension is designed to perform external tasks in the backgrou
 + **POST HTTP method** is used while sending the request to the destination
 
 Data sent within the POST body, formatted in JSON, contains :
-- A `data` object with a property `product_uuid` for a product or `product_model_code` for a model or sub model.
+- A `data` object with different fields depending on the [position](#position).
 - A `context` object containing the configured `locale` and `channel`.
 - A `user` object containing the `username` and `groups` of the connected user.
-- A `timestamp`, that can be used with a [secret](#secret) to help you to protect your server against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
+- A `timestamp` that can be used with a [secret](#secret) to help you to protect your server against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 
-Example :
+From a position `pim.product.header`, the `data` object contains :
+- A `product_uuid` string field
+
+From a position `pim.product-model.header`, the `data` object contains :
+- A `product_model_code` string field representing the root model code.
+
+From a position `pim.sub-product-model.header`, the `data` object contains :
+- A `product_model_code` string field representing the sub model code.
+
+From a position `pim.product-grid.action-bar`, the `data` object contains :
+- A `product_uuids` field which is an array of string representing the UUIDs of selected products
+- A `product_model_codes` field which is an array of string representing the codes of selected product models and sub models
+
+Examples :
+
 ```json
 {
   "data": {
     "product_uuid": "ecfddba2-59bf-4d35-bd07-8ceeefde51fd"
+  },
+  "context": {
+    "locale": "en_US",
+    "channel": "ecommerce"
+  },
+  "user": {
+    "username": "julia",
+    "groups": [
+      "Manager",
+      "All"
+    ]
+  },
+  "timestamp": 1739948408
+}
+```
+
+```json
+{
+  "data": {
+    "product_uuids": [],
+    "product_model_codes": ["armor", "apollon"]
   },
   "context": {
     "locale": "en_US",
@@ -261,7 +356,7 @@ This position refers to the list of commands availables after selecting some pro
 
 ### Secret
 A secret can be used for UI extensions of type `action`. If it is, this secret is used to sign the body of the POST request sent to the destination.
-The protocol used to sign is <a href='https://fr.wikipedia.org/wiki/SHA-2'>SHA-512</a>.
+The protocol used to sign is <a href='https://wikipedia.org/wiki/SHA-2'>SHA-512</a>.
 
 ### Url
 All types of UI extensions must have a configured URL. However, the parameters that are sent—or can be sent—vary depending on the specific type of extension.
