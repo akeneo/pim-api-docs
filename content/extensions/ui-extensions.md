@@ -356,6 +356,10 @@ This position refers to the horizontal list of tabs on a category edit page.
 #### pim.product-grid.action-bar
 This position refers to the list of commands availables after selecting some products on the product grid.
 
+::: warning
+  For the moment, you can't use a UI Extensions with more than 500 selected product & product models.
+:::
+
 ### Secret
 A secret can be used for UI extensions of type `action`. If it is, this secret is used to sign the body of the POST request sent to the destination.
 The protocol used to sign is <a href='https://wikipedia.org/wiki/SHA-2'>SHA-512</a>.
