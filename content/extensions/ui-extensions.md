@@ -205,32 +205,9 @@ To configure an `iframe` UI extension, mandatory fields are `name`, `position`, 
 
 To be able to communicate the product grid selection (position `pim.product-grid.action-bar`) to the iframe, we use the [PostMessage](https://developer.mozilla.org/docs/Web/API/Window/postMessage) protocol.
 
-This *event* is sent after the loading of the iframe.
+After the iframe is loaded, the PIM send an *event* which is a normalized message [MessageEvent](https://developer.mozilla.org/docs/Web/API/MessageEvent) with a field `data` containing our information. 
 
-For a *classical* project with HTML and JAVASCRIPT code, you can include this kind of code to catch those events :
-
-```html
-    <script>
-        window.addEventListener('message', (event) => {
-            console.log(event)            
-        });
-    </script>
-```
-
-For more *modern* technologies like ReactJS, the iframe could be loaded before components. To solve this problem we added the possibility to ask for the data. To do this, just send a PostMessage with an object containing the property `type: 'request_context'`.
-
-Example :
-```js
-    window.parent.postMessage(
-      {
-        type: 'request_context'
-      },
-      "*"
-    );
-```
-After receiving this *event*, the PIM will send a PostMessage *event*, similar to the one sent after the iframe loading.
-
-The sent *event* is a normalized message [MessageEvent](https://developer.mozilla.org/docs/Web/API/MessageEvent) with a field `data` containing our information. This field contains :
+This field contains :
 - A `data` object with :
   - A `product_uuids` field which is an array of string representing the UUIDs of selected products
   - A `product_model_codes` field which is an array of string representing the codes of selected product models and sub models
@@ -261,6 +238,31 @@ Example :
   }
 }
 ```
+
+For a *classical* project with HTML and JAVASCRIPT code, you can include this kind of code to catch those events :
+
+```html
+    <script>
+        window.addEventListener('message', (event) => {
+            console.log(event)            
+        });
+    </script>
+```
+
+For more *modern* technologies like ReactJS, the iframe could be loaded before components. To solve this problem we added the possibility to ask for the data. To do this, just send a PostMessage with an object containing the property `type: 'request_context'`.
+
+Example :
+```js
+    window.parent.postMessage(
+      {
+        type: 'request_context'
+      },
+      "*"
+    );
+```
+After receiving this *event*, the PIM will send a PostMessage *event*, similar to the one sent after the iframe loading.
+
+
 #### Action
 An **action** UI extension is designed to perform external tasks in the background. Please note the following key points regarding its functionality:
 
