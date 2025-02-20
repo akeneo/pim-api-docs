@@ -209,8 +209,8 @@ After the iframe is loaded, the PIM send an *event* which is a normalized messag
 
 This field contains :
 - A `data` object with :
-  - A `product_uuids` field which is an array of string representing the UUIDs of selected products
-  - A `product_model_codes` field which is an array of string representing the codes of selected product models and sub models
+  - A `productUuids` field which is an array of string representing the UUIDs of selected products
+  - A `productModelCodes` field which is an array of string representing the codes of selected product models and sub models
 - A `context` object containing the configured `locale` and `channel`.
 - A `user` object containing the `username` and `groups` of the connected user.
 
