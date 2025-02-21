@@ -10,20 +10,20 @@ This guide provides a step-by-step walkthrough for setting up and managing UI ex
 ### Prerequisites
 Before proceeding, ensure that you have an active <a href="https://api.akeneo.com/apps/overview.html#whats-an-akeneo-app" target="_blank">App</a> (it can be a <a href="https://api.akeneo.com/apps/create-custom-app.html" target="_blank">Custom App</a> or an active <a href="https://api.akeneo.com/getting-started/connect-the-pim-4x/step-1.html#you-said-connection" target="_blank">connection</a>) to an Akeneo PIM.
 
-To learn how to create a connection, see the <a href="https://api-dev.akeneo.com/documentation/authentication.html#client-idsecret-generation" target="_blank">Authentication Guide</a>. If you're setting up a custom App, follow the steps in <a href="https://api-dev.akeneo.com/tutorials/how-to-get-your-app-token.html" target="_blank">this tutorial</a> to obtain an App token.
+To learn how to create a Connection, see the <a href="https://api-dev.akeneo.com/documentation/authentication.html#client-idsecret-generation" target="_blank">Authentication Guide</a>. If you're setting up a Custom App, follow the steps in <a href="https://api-dev.akeneo.com/tutorials/how-to-get-your-app-token.html" target="_blank">this tutorial</a> to obtain an App token.
 
 ### Authentication and authorization
 
 #### Authentication
-Having a valid Akeneo PIM API token provided by either a connection or an App to be authenticated to use the UI Extension API endpoints.
+Having a valid Akeneo PIM API token provided by either a Connection or an App to be authenticated to use the UI Extension API endpoints.
 
 #### Authorization
-To manage your extension, ensure that your connection or App has the necessary permissions.
-1. For Connections: The user associated with the connection must have the permission **UI Extensions > Manage own Extensions** enabled.
+To manage your extension, ensure that your Connection or App has the necessary permissions.
+1. For Connections: The user associated with the Connection must have the permission **UI Extensions > Manage own Extensions** enabled.
 2. For Apps: You need to request the scope **manage_extensions**.
 
 ::: info
-ℹ️ A UI extension is owned by a user, meaning that a connection can only manage UI extensions created by itself or by connections associated with the same user. Similarly, an App can only manage its own UI extensions.
+ℹ️ A UI extension is owned by a user, meaning that a Connection can only manage UI extensions created by itself or by Connections associated with the same user. Similarly, an App can only manage its own UI extensions.
 :::
 
 Granting these permissions before setup helps prevent unnecessary errors.
@@ -39,7 +39,7 @@ The quickest way to get started with UI Extensions is by using our Postman colle
 #### 2. Fill the environment variables
 The collection includes a pre-script for handling PIM Connection authentication.
 
-Before making API requests, ensure your environment variables are filled with your Akeneo PIM connection credentials: a valid `pim_access_token` will be generated automatically on your first request. If you don't receive a token, or you don't see it within the environment variable list, double-check your credentials.
+Before making API requests, ensure your environment variables are filled with your Akeneo PIM Connection credentials: a valid `pim_access_token` will be generated automatically on your first request. If you don't receive a token, or you don't see it within the environment variable list, double-check your credentials.
 
 ![postman-fill-env.png](../img/extensions/ui-extensions/postman-fill-env.png)
 
@@ -80,9 +80,9 @@ Before making API requests, ensure your environment variables are filled with yo
 In this example, we will create a new `connection` in the PIM and use it to generate an `API token`.
 :::
 
-**1. Create a connection in Akeneo PIM:**
+**1. Create a Connection in Akeneo PIM:**
 - Navigate to **Connect** > **Connection settings** > **Create**.
-- Fill out the form to create the connection.
+- Fill out the form to create the Connection.
 - Note the generated `Client ID`, `Secret`, `Username`, and `Password`.
 
 **2. Set your environment variables:**
@@ -127,7 +127,7 @@ Note that the token has a lifespan of one hour.
 :::
 
 ::: info
-🛠 Custom apps are also supported. To use one, add a variable `app_access_token` with your API token.
+🛠 Custom Apps are also supported. To use one, add a variable `app_access_token` with your API token.
 :::
 
 #### 2. Create a UI extension
@@ -193,7 +193,7 @@ An iframe (inline frame) is an HTML element that allows you to embed another HTM
 
 For more detailed information, you can refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
-To ensure the secure embedding of iframes in our web app, it is essential to properly configure [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers to control the sources from which content can be loaded.
+To ensure the secure embedding of iframes, it is essential to properly configure [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers to control the sources from which content can be loaded.
 
 ::: warning
  Please note that if these headers are misconfigured, iframe functionality may not work as intended.
@@ -430,7 +430,7 @@ Each position supports a specific subset of available types. The table below out
 | pim.product-grid.action-bar  | ✔️      | ✔️     | ❌    |
 
 ## Administration of UI extensions
-For a functional overview of the administration panel and permissions, see our [Help Center](https://help.akeneo.com/en_US/extensions/ui-extentions).
+For a functional overview of the administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).
 
 ### Prerequisites
 
