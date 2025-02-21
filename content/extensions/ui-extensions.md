@@ -19,7 +19,7 @@ Having a valid Akeneo PIM API token provided by either a Connection or an App to
 
 #### Authorization
 To manage your extension, ensure that your Connection or App has the necessary permissions.
-1. For Connections: The user associated with the Connection must have the permission **UI extensions > Manage own extensions** enabled.
+1. For Connections: The user associated with the Connection must have the permission **UI extensions > Manage your extensions using the API** enabled.
 2. For Apps: You need to request the scope **manage_extensions**.
 
 ::: info
@@ -434,9 +434,9 @@ For a functional overview of the administration panel and permissions, see our [
 
 ### Prerequisites
 
-To be able to list all registered extensions, you must have a role with **UI extensions > View all UI extensions via administration panel** permission.
+To be able to list all registered extensions, you must have a role with **UI extensions > View all UI extensions via Administration panel** permission.
 
-To be able to enable or disable extensions, you must have a role with **UI extensions > Manage all UI extensions via administration panel** permission.
+To be able to enable or disable extensions, you must have a role with **UI extensions > Manage all UI extensions via Administration panel** permission.
 
 ### List all UI extensions
 
