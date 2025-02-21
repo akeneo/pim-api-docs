@@ -153,7 +153,7 @@ You can create a UI extension once you have a valid PIM API token.
 ```
 
 #### 3. Update a UI extension
-To update a UI extension, you must possess a valid PIM API token and the UUID of the extension you want to update.
+To update a UI extension, you must have a valid PIM API token and the UUID of the extension you want to update.
 
 ```bash [snippet:Shell]
     curl --request PATCH "$TARGET_PIM_URL/api/rest/v1/ui-extensions/$EXTENSION_UUID" \
