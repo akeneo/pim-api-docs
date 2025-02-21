@@ -270,7 +270,12 @@ An **action** UI extension is designed to perform external tasks in the backgrou
 + **Menu Deactivation**: During the execution of an Action, the associated menu will be deactivated to prevent further interactions until the task is complete.
 + **Notification on Completion**: A notification will appear once the external server responds to the request, keeping users informed of the task's status.
 + **Timeout**: The PIM HTTP client that communicates with the destination is configured with a timeout of 5 seconds.
-+ **POST HTTP method** is used while sending the request to the destination
++ **POST HTTP method**: The request being sent to the destination is a POST request.
++ **Signature**: It's possible to configure a [secret](#secret) to sign each request sent to the destination.
+
+Here is a diagram illustrating the workflow:
+![action-extension-schema.png](../img/extensions/ui-extensions/action-extension-schema.png)
+
 
 Data sent within the POST body, formatted in JSON, contains :
 - A `data` object with different fields depending on the [position](#position).
