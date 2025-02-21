@@ -366,8 +366,8 @@ This position refers to the list of commands availables after selecting some pro
 :::
 
 ### Secret
-A secret can be used for UI extensions of type `action`. If it is, this secret is used to sign the body of the POST request sent to the destination.
-The protocol used to sign is <a href='https://wikipedia.org/wiki/SHA-2'>SHA-512</a>.
+A secret can be used for UI extensions of type `action`. If it is, this secret is used to sign (with <a href='https://wikipedia.org/wiki/SHA-2'>SHA-512</a> protocol) the body of the POST request sent to the destination.
+
 
 ### Url
 All types of UI extensions must have a configured URL. However, the parameters that are sent—or can be sent—vary depending on the specific type of extension.
