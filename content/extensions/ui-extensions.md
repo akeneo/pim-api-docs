@@ -85,7 +85,7 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 - Fill out the form to create the connection.
 - Note the generated `Client ID`, `Secret`, `Username`, and `Password`.
 
-**2. Set Your Environment Variables:**
+**2. Set your environment variables:**
 - Define the Client ID, Secret, Username, Password, and Akeneo host URL as environment variables:
 
    ```bash [snippet:Shell]
