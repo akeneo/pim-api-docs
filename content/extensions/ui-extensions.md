@@ -1,5 +1,5 @@
-# UI Extensions
-The UI Extension feature enables you to extend your PIM by integrating custom views and actions from external systems. This framework provides the flexibility to modify and adapt your PIM experience to meet specific business requirements.
+# UI extensions
+The UI extension feature enables you to extend your PIM by integrating custom views and actions from external systems. This framework provides the flexibility to modify and adapt your PIM experience to meet specific business requirements.
 By leveraging this functionality, you can integrate custom solutions while maintaining the reliability and ease the use of our SaaS platform, offering a balance between flexibility and stability.
 
 The extension framework is designed to help you customize the standard behavior of your PIM system by integrating with externally hosted solutions. This documentation provides an overview of the framework's capabilities and the various customization options available, enabling you to extend and tailor your PIM to meet your specific business needs.
@@ -15,24 +15,24 @@ To learn how to create a Connection, see the <a href="https://api-dev.akeneo.com
 ### Authentication and authorization
 
 #### Authentication
-Having a valid Akeneo PIM API token provided by either a Connection or an App to be authenticated to use the UI Extension API endpoints.
+Having a valid Akeneo PIM API token provided by either a Connection or an App to be authenticated to use the UI extension API endpoints.
 
 #### Authorization
 To manage your extension, ensure that your Connection or App has the necessary permissions.
-1. For Connections: The user associated with the Connection must have the permission **UI Extensions > Manage own Extensions** enabled.
+1. For Connections: The user associated with the Connection must have the permission **UI extensions > Manage own extensions** enabled.
 2. For Apps: You need to request the scope **manage_extensions**.
 
 ::: info
-ℹ️ A UI extension is owned by a user, meaning that a Connection can only manage UI extensions created by itself or by Connections associated with the same user. Similarly, an App can only manage its own UI extensions.
+A UI extension is owned by a user, meaning that a Connection can only manage UI extensions created by itself or by Connections associated with the same user. Similarly, an App can only manage its own UI extensions.
 :::
 
 Granting these permissions before setup helps prevent unnecessary errors.
 
 ### Using Postman
-The quickest way to get started with UI Extensions is by using our Postman collection.
+The quickest way to get started with UI extensions is by using our Postman collection.
 
 #### 1. Import the Postman Collection
-1. Download our <a href="https://api.akeneo.com/files/Akeneo%20PIM%20API.postman_collection.json" target="_blank">Postman Collection</a>
+1. Download our <a href="https://api.akeneo.com/files/Akeneo%20PIM%20API.postman_collection.json" target="_blank">Postman collection</a>
 2. Download our <a href="https://api.akeneo.com/files/akeneo-PIM-API-environment-4x.postman_environment.json" target="_blank">Postman environment variable template</a>
 3. Import those files into Postman (follow <a href="https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/" target="_blank">this guide</a> if you're not familiar with how Postman collections work)
 
@@ -83,10 +83,10 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 **1. Create a Connection in Akeneo PIM:**
 - Navigate to **Connect** > **Connection settings** > **Create**.
 - Fill out the form to create the Connection.
-- Note the generated `Client ID`, `Secret`, `Username`, and `Password`.
+- Note the generated `client ID`, `secret`, `username`, and `password`.
 
 **2. Set your environment variables:**
-- Define the Client ID, Secret, Username, Password, and Akeneo host URL as environment variables:
+- Define the client ID, secret, username, password, and Akeneo host URL as environment variables:
 
    ```bash [snippet:Shell]
         export CLIENT_ID="your-client-id"
@@ -97,14 +97,14 @@ In this example, we will create a new `connection` in the PIM and use it to gene
    ```
 Replace the placeholders with your actual credentials and host URL.
 
-**3. Encode Your Credentials:**
-- Encode the Client ID and Secret in base64 format, separated by a colon `:`:
+**3. Encode your credentials:**
+- Encode the client ID and secret in base64 format, separated by a colon `:`:
    ```bash [snippet:Shell]
         export BASE64_ENCODED_CLIENTID_AND_SECRET=$(echo -n "$CLIENT_ID:$CLIENT_SECRET" | base64 -w 0)
    // For Mac OS user remove the -w 0 option
    ```
 
-**4.  Your API Token:**
+**4.  Your API token:**
 - Make the API call to retrieve your `API token` using the environment variables:
    ```bash [snippet:Shell]
         curl --request POST "$TARGET_PIM_URL/api/oauth/v1/token" \
@@ -167,7 +167,7 @@ To update a UI extension, you must have a valid PIM API token and the UUID of th
 ```
 
 #### 4. Delete a UI extension
-To delete a UI extension, you must possess a valid PIM API token and the UUID of the extension you want to delete.
+To delete a UI extension, you must have a valid PIM API token and the UUID of the extension you want to delete.
 
 ```bash [snippet:Shell]
     curl --request DELETE "$TARGET_PIM_URL/api/rest/v1/ui-extensions/$EXTENSION_UUID" \
@@ -239,7 +239,7 @@ Example :
 }
 ```
 
-For a *classical* project with HTML and JAVASCRIPT code, you can include this kind of code to catch those events :
+For a *classical* project with HTML and JavaScript code, you can include this kind of code to catch those events :
 
 ```html
     <script>
@@ -266,9 +266,9 @@ After receiving this *event*, the PIM will send a PostMessage *event*, similar t
 #### Action
 An **action** UI extension is designed to perform external tasks in the background. Please note the following key points regarding its functionality:
 
-+ **Single Execution**: An Action cannot be executed multiple times simultaneously. This ensures that tasks are processed in a controlled manner.
-+ **Menu Deactivation**: During the execution of an Action, the associated menu will be deactivated to prevent further interactions until the task is complete.
-+ **Notification on Completion**: A notification will appear once the external server responds to the request, keeping users informed of the task's status.
++ **Single execution**: An action cannot be executed multiple times simultaneously. This ensures that tasks are processed in a controlled manner.
++ **Menu deactivation**: During the execution of an action, the associated menu will be deactivated to prevent further interactions until the task is complete.
++ **Notification on completion**: A notification will appear once the external server responds to the request, keeping users informed of the task's status.
 + **Timeout**: The PIM HTTP client that communicates with the destination is configured with a timeout of 5 seconds.
 + **POST HTTP method**: The request being sent to the destination is a POST request.
 + **Signature**: It's possible to configure a [secret](#secret) to sign each request sent to the destination.
@@ -362,7 +362,7 @@ This position refers to the horizontal list of tabs on a category edit page.
 This position refers to the list of commands availables after selecting some products on the product grid.
 
 ::: warning
-  For the moment, you can't use UI Extensions with more than **500** selected products & product models.
+  For the moment, you can't use UI extensions with more than **500** selected products & product models.
 :::
 
 ### Secret
@@ -374,7 +374,7 @@ All types of UI extensions must have a configured URL. However, the parameters t
 #### Query parameters placeholders
 For [link](#link) UI extension, you can ask for specific values to construct the urls thanks to a specific placeholder pattern. 
 
-For example, you can configure a UI Extension with the following url `https://www.google.com/search?q=%name%&tbm=shop&gl=us`, then we will dynamically put the value of the attribute code `name` when the user will click on the button.
+For example, you can configure a UI extension with the following url `https://www.google.com/search?q=%name%&tbm=shop&gl=us`, then we will dynamically put the value of the attribute code `name` when the user will click on the button.
 
 Valid placeholders attributes are:
 - `uuid` and other attribute of type: `identifier`
@@ -399,13 +399,13 @@ For all positions except `pim.product-grid.action-bar`, parameters relative to t
 - `user[email]`
 
 ::: warning
-**Important Security Notice**
+**Important security notice**
 
 When using iframes, please be aware of the following:
 
-+ **Data Confidentiality**: We do not implement any security measures to verify the identity of the caller accessing the URL.
++ **Data confidentiality**: We do not implement any security measures to verify the identity of the caller accessing the URL.
 
-+ **Access Control**: Anyone with access to this link can view the content of the webpage, regardless of the parameters included.
++ **Access control**: Anyone with access to this link can view the content of the webpage, regardless of the parameters included.
 
 For sensitive data, we recommend implementing additional security measures to protect your information.
 :::
@@ -434,35 +434,35 @@ For a functional overview of the administration panel and permissions, see our [
 
 ### Prerequisites
 
-To be able to list all registered extensions, you must have a role with **UI Extensions > View all UI extensions via Administration panel** permission.
+To be able to list all registered extensions, you must have a role with **UI extensions > View all UI extensions via administration panel** permission.
 
-To be able to enable or disable extensions, you must have a role with **UI Extensions > Manage all UI extensions via Administration panel** permission.
+To be able to enable or disable extensions, you must have a role with **UI extensions > Manage all UI extensions via administration panel** permission.
 
 ### List all UI extensions
 
-You can open the administration panel with the menu **System > System Customization > UI Extensions**.
+You can open the administration panel with the menu **System > System Customization > UI extensions**.
 
 On the new page, you can see all extensions registered in your PIM.
 
-### Enable / Disable a UI extension
+### Enable / disable a UI extension
 
 To manage one or more UI extensions from the list, you just have to select them thanks to the checkboxes present on the left of each line, and then use one of the two commands available at the bottom of the screen.
 
-## API Reference
+## API reference
 Several choices are offered to deep dive into our API, to discover all the endpoints, and their request/response schema:
 
 - You can <a href="https://api.akeneo.com/api-reference-index.html#UIExtensions" target="_blank">consult this static documentation</a>
 - Discover it thanks to <a href="https://api.akeneo.com/files/Akeneo%20PIM%20API.postman_collection.json" target="_blank">the postman collection</a> (see the [Postman section](https://api.akeneo.com/extensions/ui-extensions.html#using-postman))
 
 ## FAQ
-### Who is responsible for UI Extensions?
-Akeneo is responsible for the UI Extensions framework itself, including the APIs and administrative interface. We provide support for these components. Your organization or your integrator is responsible for any custom code, iframes, or other custom development built within the UI Extensions. Support for this custom code falls to your organization or integrator, not Akeneo. 
+### Who is responsible for UI extensions?
+Akeneo is responsible for the UI extensions framework itself, including the APIs and administrative interface. We provide support for these components. Your organization or your integrator is responsible for any custom code, iframes, or other custom development built within the UI extensions. Support for this custom code falls to your organization or integrator, not Akeneo. 
 
-### How can I add a new UI Extension to my PIM?
+### How can I add a new UI extension to my PIM?
 Adding a new extension to your organization is easy! Just follow the steps in [this guide](https://api.akeneo.com/extensions/ui-extensions.html#getting-started).
 
-### The UI Extensions entry isn't showing up in my PIM. Could you help me understand why? 
-If you don't see the UI Extensions entry in your PIM, it's likely due to permission settings. [This guide](https://api.akeneo.com/extensions/ui-extensions.html#authorization) will help you check and activate the necessary permissions. 
+### The UI extensions entry isn't showing up in my PIM. Could you help me understand why? 
+If you don't see the UI extensions entry in your PIM, it's likely due to permission settings. [This guide](https://api.akeneo.com/extensions/ui-extensions.html#authorization) will help you check and activate the necessary permissions. 
 
 ### I'd like to see my extension in a position that isn't currently available. What can I do? 
-Currently, UI Extension placements are limited to those defined by Akeneo. However, we highly value your feedback! Please contact your Customer Success Manager or our Support team to share your specific placement needs. This will help us understand your use case and consider it for future development.
+Currently, UI extension placements are limited to those defined by Akeneo. However, we highly value your feedback! Please contact your Customer Success Manager or our Support team to share your specific placement needs. This will help us understand your use case and consider it for future development.
