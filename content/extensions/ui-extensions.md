@@ -123,7 +123,7 @@ After retrieving the API token, store the `access_token` from the response in an
    ```
 
 ::: info
-ℹ️ Note that the token has a lifespan of one hour.
+Note that the token has a lifespan of one hour.
 :::
 
 ::: info
