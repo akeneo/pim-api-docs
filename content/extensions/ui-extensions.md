@@ -127,7 +127,7 @@ Note that the token has a lifespan of one hour.
 :::
 
 ::: info
-🛠 Custom apps are also supported. To use one, add a variable `app_access_token` with your API Token.
+🛠 Custom apps are also supported. To use one, add a variable `app_access_token` with your API token.
 :::
 
 #### 2. Create a UI extension
