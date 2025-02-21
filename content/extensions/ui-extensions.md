@@ -41,7 +41,7 @@ The collection includes a pre-script for handling PIM Connection authentication.
 
 Before making API requests, ensure your environment variables are filled with your Akeneo PIM Connection credentials: a valid `pim_access_token` will be generated automatically on your first request. If you don't receive a token, or you don't see it within the environment variable list, double-check your credentials.
 
-![postman-fill-env.png](../img/extensions/ui-extensions/postman-fill-env.png)
+[![postman-fill-env.png](../img/extensions/ui-extensions/postman-fill-env.png)](../img/extensions/ui-extensions/postman-fill-env.png)
 
 
 #### 3. Create a UI extension
@@ -50,7 +50,7 @@ Before making API requests, ensure your environment variables are filled with yo
 3. Customize the data to send as you want before click on `Send`
 4. Copy the newly created extension UUID. It will be asked to modify or delete the UI extension.
 
-![postman-add-extension.png](../img/extensions/ui-extensions/postman-add-extension.png)
+[![postman-add-extension.png](../img/extensions/ui-extensions/postman-add-extension.png)](../img/extensions/ui-extensions/postman-add-extension.png)
 
 #### 4. Update a UI extension
 1. Make sure that the right environment is selected
@@ -58,8 +58,8 @@ Before making API requests, ensure your environment variables are filled with yo
 3. Fill the `ui_extension_uuid` parameter with the UUID of the concerned UI extension
 4. Customize the data according to your needs before clicking on `Send`
 
-![postman-update-extension-1.png](../img/extensions/ui-extensions/postman-update-extension-1.png)
-![postman-update-extension-2.png](../img/extensions/ui-extensions/postman-update-extension-2.png)
+[![postman-update-extension-1.png](../img/extensions/ui-extensions/postman-update-extension-1.png)](../img/extensions/ui-extensions/postman-update-extension-1.png)
+[![postman-update-extension-2.png](../img/extensions/ui-extensions/postman-update-extension-2.png)](../img/extensions/ui-extensions/postman-update-extension-2.png)
 
 
 #### 5. Delete a UI extension
@@ -68,7 +68,7 @@ Before making API requests, ensure your environment variables are filled with yo
 3. Fill the `ui_extension_uuid` parameter with the UUID of the concerned UI extension
 4. Click on `Send`
 
-![postman-delete-extension.png](../img/extensions/ui-extensions/postman-delete-extension.png)
+[![postman-delete-extension.png](../img/extensions/ui-extensions/postman-delete-extension.png)](../img/extensions/ui-extensions/postman-delete-extension.png)
 
 ### Using Curl
 
@@ -274,7 +274,7 @@ An **action** UI extension is designed to perform external tasks in the backgrou
 + **Signature**: It's possible to configure a [secret](#secret) to sign each request sent to the destination.
 
 Here is a diagram illustrating the workflow:
-![action-extension-schema.png](../img/extensions/ui-extensions/action-extension-schema.png)
+[![action-extension-schema.png](../img/extensions/ui-extensions/action-extension-schema.png)](../img/extensions/ui-extensions/action-extension-schema.png)
 
 
 Data sent within the POST body, formatted in JSON, contains :
