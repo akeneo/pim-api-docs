@@ -362,7 +362,7 @@ This position refers to the horizontal list of tabs on a category edit page.
 This position refers to the list of commands availables after selecting some products on the product grid.
 
 ::: warning
-  For the moment, you can't use a UI Extensions with more than 500 selected product & product models.
+  For the moment, you can't use UI Extensions with more than **500** selected products & product models.
 :::
 
 ### Secret
