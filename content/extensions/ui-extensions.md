@@ -18,7 +18,7 @@ To learn how to create a connection, see the <a href="https://api-dev.akeneo.com
 Having a valid Akeneo PIM API token provided by either a connection or an App to be authenticated to use the UI Extension API endpoints.
 
 #### Authorization
-To effectively manage your extension, it's essential to ensure that your connection or app has the necessary permissions.
+To manage your extension, ensure that your connection or App has the necessary permissions.
 1. For Connections: The user associated with the connection must have the permission **UI Extensions > Manage own Extensions** enabled.
 2. For Apps: You need to request the scope **manage_extensions**.
 
