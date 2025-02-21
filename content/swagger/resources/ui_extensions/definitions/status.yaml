@@ -1,0 +1,2 @@
+type: string
+description: Status of the UI extension (active or inactive)

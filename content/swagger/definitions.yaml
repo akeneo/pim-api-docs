@@ -491,3 +491,46 @@ DeprecatedAssetReferenceFileUploadWarning:
           message:
             type: string
             description: Message explaining why the variation file generation failed
+
+UiExtension:
+  type: object
+  required: ["name", "position", "type", "configuration"]
+  properties:
+    name:
+      $ref: ./resources/ui_extensions/definitions/name.yaml
+    description:
+      $ref: ./resources/ui_extensions/definitions/description.yaml
+    version:
+      $ref: ./resources/ui_extensions/definitions/version.yaml
+    position:
+      $ref: ./resources/ui_extensions/definitions/position.yaml
+    type:
+      $ref: ./resources/ui_extensions/definitions/type.yaml
+    configuration:
+      $ref: ./resources/ui_extensions/definitions/configuration.yaml
+    status:
+      $ref: ./resources/ui_extensions/definitions/status.yaml
+  example:
+    $ref: ./resources/ui_extensions/definitions/examples/ui_extension_post_body.yaml
+
+
+UiExtensionWithoutRequired:
+  type: object
+  properties:
+    name:
+      $ref: ./resources/ui_extensions/definitions/name.yaml
+    description:
+      $ref: ./resources/ui_extensions/definitions/description.yaml
+    version:
+      $ref: ./resources/ui_extensions/definitions/version.yaml
+    position:
+      $ref: ./resources/ui_extensions/definitions/position.yaml
+    type:
+      $ref: ./resources/ui_extensions/definitions/type.yaml
+    configuration:
+      $ref: ./resources/ui_extensions/definitions/configuration.yaml
+    status:
+      $ref: ./resources/ui_extensions/definitions/status.yaml
+  example:
+    $ref: ./resources/ui_extensions/definitions/examples/ui_extension_patch_body.yaml
+

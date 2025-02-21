@@ -1,0 +1,48 @@
+patch:
+  summary: Update a UI extension
+  operationId: "patch_ui_extension_uuid"
+  tags:
+    - UI Extensions
+  x-versions:
+    - "SaaS"
+  x-ee: true
+  description: This endpoint allows you to update an existing UI extension. You can send only the fields that you want to update. If a field is not sent, the previous value is kept.
+  parameters:
+    - $ref: '#/parameters/uuid'
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: "#/definitions/UiExtensionWithoutRequired"
+  responses:
+    200:
+      description: 'OK'
+      x-details: Returns a JSON document representing the UI extension updated
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example:
+            $ref: ../definitions/examples/ui_extension_patch_response.yaml
+    400:
+      $ref: "#/responses/400IncorrectUuid"
+    404:
+      $ref: "../definitions/responses/404not_found.yaml"
+    422:
+      $ref: "#/responses/422Error"
+delete:
+  summary: Delete a UI extension
+  operationId: "delete_ui_extension_uuid"
+  tags:
+    - UI Extensions
+  x-versions:
+    - "SaaS"
+  x-ee: true
+  description: This endpoint allows you to delete a given UI extension.
+  parameters:
+    - $ref: '#/parameters/uuid'
+  responses:
+    204:
+      $ref: "#/responses/NoContentAfterDelete"
+    400:
+      $ref: "#/responses/400IncorrectUuid"
+    404:
+      $ref: "../definitions/responses/404not_found.yaml"

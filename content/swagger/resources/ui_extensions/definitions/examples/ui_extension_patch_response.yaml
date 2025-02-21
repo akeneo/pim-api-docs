@@ -1,0 +1,13 @@
+uuid: "d414135b-ff4d-44e1-8cb6-fce64cbe29c0"
+name: "my_awesome_button_extension"
+type: "link"
+position: "pim.product.header"
+configuration:
+  url: "https://www.example.com"
+  labels:
+    en_US: "My awesome link extension"
+    fr_FR: "Ma super link extension"
+  default_label: "My awesome link extension"
+status: "active"
+version: "V1.02.4"
+description: "A short human readable description."
