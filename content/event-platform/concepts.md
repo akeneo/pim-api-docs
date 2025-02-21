@@ -140,6 +140,27 @@ To verify the signature on your end:
 
 This is the easiest way to ensure the message you receive comes from our platform.
 
+```
+const crypto = require('crypto');
+
+const secret = 'your_primary_secret_value';
+const receivedSignature = req.header('X-AKENEO-SIGNATURE-PRIMARY');
+
+// Compute the HMAC signature using the request body
+const computedSignature = crypto
+  .createHmac('sha256', secret)
+  .update(JSON.stringify(req.body))
+  .digest('hex');
+
+// Compare computed signature with the received one
+if (computedSignature !== receivedSignature) {
+  // Handle the case where the signature does not match
+  return;
+}
+
+// If the signatures match, the payload is verified and can be processed ✅
+```
+
 ##### Webhooks IP Range
 
 If you want to add an additional layer of security, you can whitelist our service’s IP range.
