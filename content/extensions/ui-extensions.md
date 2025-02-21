@@ -75,7 +75,7 @@ Before making API requests, ensure your environment variables are filled with yo
 #### 1. Retrieve your credentials from your targeted PIM
 
 ::: info
-🛠 For every call to the API, you will need `X-PIM-TOKEN` & `X-PIM-CLIENT-ID`.
+🛠 For every call to the API, you need `X-PIM-TOKEN` & `X-PIM-CLIENT-ID`.
 
 In this example, we will create a new `connection` in the PIM and use it to generate an `API token`.
 :::
