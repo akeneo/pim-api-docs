@@ -39,7 +39,7 @@ The quickest way to get started with UI Extensions is by using our Postman colle
 #### 2. Fill the environment variables
 The collection includes a pre-script for handling PIM Connection authentication.
 
-Before making API requests, ensure your environment variables are configured with your Akeneo PIM connection credentials. A valid `pim_access_token` will be generated automatically on your first request, provided your credentials are valid. If you don't receive a token, or you don't see it within the environment variable list, double-check your credentials.
+Before making API requests, ensure your environment variables are filled with your Akeneo PIM connection credentials: a valid `pim_access_token` will be generated automatically on your first request. If you don't receive a token, or you don't see it within the environment variable list, double-check your credentials.
 
 ![postman-fill-env.png](../img/extensions/ui-extensions/postman-fill-env.png)
 
