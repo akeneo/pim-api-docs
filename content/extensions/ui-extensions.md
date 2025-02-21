@@ -1,6 +1,6 @@
 # UI Extensions
 The UI Extension feature enables you to extend your PIM by integrating custom views and actions from external systems. This framework provides the flexibility to modify and adapt your PIM experience to meet specific business requirements.
-By leveraging this functionality, you can integrate custom solutions while maintaining the reliability and ease of use of our SaaS platform, offering a balance between flexibility and stability.
+By leveraging this functionality, you can integrate custom solutions while maintaining the reliability and ease the use of our SaaS platform, offering a balance between flexibility and stability.
 
 The extension framework is designed to help you customize the standard behavior of your PIM system by integrating with externally hosted solutions. This documentation provides an overview of the framework's capabilities and the various customization options available, enabling you to extend and tailor your PIM to meet your specific business needs.
 
