@@ -56,7 +56,7 @@ Before making API requests, ensure your environment variables are filled with yo
 1. Make sure that the right environment is selected
 2. Click on the `Update an extension` POST request
 3. Fill the `ui_extension_uuid` parameter with the UUID of the concerned UI extension
-4. Customize the data to send as you want before click on `Send`
+4. Customize the data according to your needs before clicking on `Send`
 
 ![postman-update-extension-1.png](../img/extensions/ui-extensions/postman-update-extension-1.png)
 ![postman-update-extension-2.png](../img/extensions/ui-extensions/postman-update-extension-2.png)
