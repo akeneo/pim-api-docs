@@ -78,7 +78,7 @@ get:
                         "href": "https://demo.akeneo.com/api/rest/v1/asset-media-files/0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_allie_jean_model_picture.png"
                       },
                       "share_link": {
-                        "href": "https://demo.asset.akeneo.com/model_pictures/allie_jean_model_picture.png"
+                        "href": "https://demo.asset.akeneo.com/model_pictures/media_file/allie_jean_model_picture.png"
                       }
                     }
                   }
@@ -136,7 +136,7 @@ get:
                         "href": "https://demo.akeneo.com/api/rest/v1/asset-media-files/0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_amy_socks_model_picture.png"
                       },
                       "share_link": {
-                        "href": "https://demo.asset.akeneo.com/model_pictures/amy_socks_model_picture.jpg"
+                        "href": "https://demo.asset.akeneo.com/model_pictures/media_file/amy_socks_model_picture.jpg"
                       }
                     }
                   }
@@ -194,7 +194,7 @@ get:
                         "href": "https://demo.akeneo.com/api/rest/v1/asset-media-files/0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_alice_blouse_model_picture.png"
                       },
                       "share_link": {
-                        "href": "https://demo.asset.akeneo.com/model_pictures/alice_blouse_model_picture.png"
+                        "href": "https://demo.asset.akeneo.com/model_pictures/media_file/alice_blouse_model_picture.png"
                       }
                     }
                   }

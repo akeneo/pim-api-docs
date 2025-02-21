@@ -143,7 +143,7 @@ properties:
                   type: integer
   sharing_enabled:
     type: boolean
-    description: Share links are available/unavailable for the main media of all the assets in this family
+    description: Share links are available/unavailable for media file attributes of all the assets in this family
     x-from-version: "SaaS"
 example:
   {

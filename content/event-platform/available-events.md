@@ -15,7 +15,7 @@
 | data.app.client_id | string | Unique identifier of an App in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -60,7 +60,7 @@
 | data.asset.code | string | code of an asset |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -110,7 +110,7 @@ Only changes in asset values will cause this event.
 | data.asset.code | string | code of an asset |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -158,7 +158,7 @@ Only changes in asset values will cause this event.
 | data.asset.code | string | code of an asset |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -204,7 +204,7 @@ Only changes in asset values will cause this event.
 | data.attribute.code | string | Unique identifier of an Attribute in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -252,7 +252,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute.code | string | Unique identifier of an Attribute in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -295,7 +295,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute.code | string | Unique identifier of an Attribute in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -338,7 +338,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_group.code | string | Unique identifier of an Attribute Group in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -381,7 +381,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_group.code | string | Unique identifier of an Attribute Group in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -424,7 +424,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_group.code | string | Unique identifier of an Attribute Group in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -469,7 +469,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_option.attribute.code | string | code of an attribute |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -517,7 +517,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_option.attribute.code | string | code of an attribute |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -565,7 +565,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.attribute_option.attribute.code | string | code of an attribute |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -611,7 +611,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
 | data.category.code | string | Unique identifier of a category |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -660,7 +660,7 @@ The event is triggered when any of the following properties are changed:
 | data.category.code | string | Unique identifier of a category |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -703,7 +703,7 @@ The event is triggered when any of the following properties are changed:
 | data.category.code | string | Unique identifier of a category |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -746,7 +746,7 @@ The event is triggered when any of the following properties are changed:
 | data.connection.client_id | string | Unique identifier of a connection in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -797,7 +797,7 @@ The following actions can trigger a product creation event:
 | data.product.uuid | string | Unique identifier of a Product in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -865,7 +865,7 @@ The modifications that can lead to this event include:
 | data.product.uuid | string | Unique identifier of a Product in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -960,34 +960,43 @@ The modifications that can lead to this event include:
 | data.product.changes.associations.added | object | - |
 | data.product.changes.associations.added.products | array&lt;string&gt; | - |
 | data.product.changes.associations.added.products (single item) | string | - |
-| data.product.changes.associations.added.productModels | array&lt;string&gt; | - |
-| data.product.changes.associations.added.productModels (single item) | string | - |
+| data.product.changes.associations.added.product_models | array&lt;string&gt; | - |
+| data.product.changes.associations.added.product_models (single item) | string | - |
 | data.product.changes.associations.removed | object | - |
 | data.product.changes.associations.removed.products | array&lt;string&gt; | - |
 | data.product.changes.associations.removed.products (single item) | string | - |
-| data.product.changes.associations.removed.productModels | array&lt;string&gt; | - |
-| data.product.changes.associations.removed.productModels (single item) | string | - |
+| data.product.changes.associations.removed.product_models | array&lt;string&gt; | - |
+| data.product.changes.associations.removed.product_models (single item) | string | - |
 | data.product.changes.quantified_associations | object | - |
 | data.product.changes.quantified_associations (additional properties) | object | - |
+| data.product.changes.quantified_associations.updated | object | - |
+| data.product.changes.quantified_associations.updated.products | array&lt;object&gt; | - |
+| data.product.changes.quantified_associations.updated.products.uuid | string | - |
+| data.product.changes.quantified_associations.updated.products.quantity | number | - |
+| data.product.changes.quantified_associations.updated.products.previous_quantity | number | - |
+| data.product.changes.quantified_associations.updated.product_models | array&lt;object&gt; | - |
+| data.product.changes.quantified_associations.updated.product_models.code | string | - |
+| data.product.changes.quantified_associations.updated.product_models.quantity | number | - |
+| data.product.changes.quantified_associations.updated.product_models.previous_quantity | number | - |
 | data.product.changes.quantified_associations.added | object | - |
 | data.product.changes.quantified_associations.added.products | array&lt;object&gt; | - |
 | data.product.changes.quantified_associations.added.products.uuid | string | - |
 | data.product.changes.quantified_associations.added.products.quantity | number | - |
-| data.product.changes.quantified_associations.added.productModels | array&lt;object&gt; | - |
-| data.product.changes.quantified_associations.added.productModels.code | string | - |
-| data.product.changes.quantified_associations.added.productModels.quantity | number | - |
+| data.product.changes.quantified_associations.added.product_models | array&lt;object&gt; | - |
+| data.product.changes.quantified_associations.added.product_models.code | string | - |
+| data.product.changes.quantified_associations.added.product_models.quantity | number | - |
 | data.product.changes.quantified_associations.removed | object | - |
 | data.product.changes.quantified_associations.removed.products | array&lt;string&gt; | - |
 | data.product.changes.quantified_associations.removed.products (single item) | string | - |
-| data.product.changes.quantified_associations.removed.productModels | array&lt;string&gt; | - |
-| data.product.changes.quantified_associations.removed.productModels (single item) | string | - |
+| data.product.changes.quantified_associations.removed.product_models | array&lt;string&gt; | - |
+| data.product.changes.quantified_associations.removed.product_models (single item) | string | - |
 | data.product.changes.values | object | - |
 | data.product.changes.values (additional properties) | array&lt;object&gt; | - |
-| data.product.changes.values.previous | string \| number | - |
-| data.product.changes.values.new | string \| number | - |
+| data.product.changes.values.previous | string \| number \|
+| data.product.changes.values.new | string \| number \|
 | data.product.changes.values.type | string | - |
-| data.product.changes.values.locale | string \| null | - |
-| data.product.changes.values.scope | string \| null | - |
+| data.product.changes.values.locale | string \| null |
+| data.product.changes.values.scope | string \| null |
 | data.product.changes.table_attributes | object | Changes to table attributes. |
 | data.product.changes.table_attributes.added | array&lt;object&gt; | - |
 | data.product.changes.table_attributes.added (single item) | object | - |
@@ -995,16 +1004,16 @@ The modifications that can lead to this event include:
 | data.product.changes.table_attributes.removed (single item) | object | - |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author. |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 </details>
 
 
 <details>
   <summary style="cursor: pointer;">Click here to expand the payload example</summary>
-
   > Example of payload
-  ```json [snippet:Example]
+
+  ```json [snippet:Payload]
   {
     "specversion": "1.0",
     "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
@@ -1551,7 +1560,7 @@ The following actions can trigger a product deletion event:
 | data.product.uuid | string | Unique identifier of a Product in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1594,7 +1603,7 @@ The following actions can trigger a product deletion event:
 | data.product.code | string | Unique identifier of a Product Model in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1648,7 +1657,7 @@ The modifications that can lead to this event include:
 | data.product.code | string | Unique identifier of a Product Model in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1676,6 +1685,605 @@ The modifications that can lead to this event include:
 }
 ```
 
+## com.akeneo.pim.v1.product-model.updated.delta
+
+*This event is generated whenever an existing product model is modified in the PIM.*
+
+* Message ID: `com.akeneo.pim.v1.product-model.updated.delta`
+* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
+
+The following actions can trigger a product model update event:
+
+- Product model update from the product page.
+- Product model update using the REST API.
+- Product model update within the rules engine.
+- Product model update within workflows.
+- Product model update via a tailored import.
+
+The modifications that can lead to this event include:
+
+- Changes to product model properties, such as:
+  - Changes in category association, such as:
+    - Adding the product model to a category
+    - Removing the product model from a category
+- Changes in group association, such as:
+    - Adding the product model to a group
+    - Removing the product model from a group
+- Adjustments to product model values
+- Alterations to product model associations, including:
+    - Standard associations
+    - Quantified associations
+
+### Payload
+
+| Name | Type | Description |
+|---|---|---|
+| data.product_model | object | - |
+| data.product_model.code | string | Unique identifier of a Product Model in the PIM. |
+| data.product_model.updated_at | any | - |
+| data.product_model.changes | object | Details about the changes made to the product model. |
+| data.product_model.changes.categories | object | - |
+| data.product_model.changes.categories.added | array&lt;string&gt; | - |
+| data.product_model.changes.categories.added (single item) | string | - |
+| data.product_model.changes.categories.removed | array&lt;string&gt; | - |
+| data.product_model.changes.categories.removed (single item) | string | - |
+| data.product_model.changes.parent | object | - |
+| data.product_model.changes.parent.previous | string \| null |
+| data.product_model.changes.parent.new | string \| null |
+| data.product_model.changes.associations | object | - |
+| data.product_model.changes.associations (additional properties) | object | - |
+| data.product_model.changes.associations.added | object | - |
+| data.product_model.changes.associations.added.products | array&lt;string&gt; | - |
+| data.product_model.changes.associations.added.products (single item) | string | - |
+| data.product_model.changes.associations.added.product_models | array&lt;string&gt; | - |
+| data.product_model.changes.associations.added.product_models (single item) | string | - |
+| data.product_model.changes.associations.removed | object | - |
+| data.product_model.changes.associations.removed.products | array&lt;string&gt; | - |
+| data.product_model.changes.associations.removed.products (single item) | string | - |
+| data.product_model.changes.associations.removed.product_models | array&lt;string&gt; | - |
+| data.product_model.changes.associations.removed.product_models (single item) | string | - |
+| data.product_model.changes.quantified_associations | object | - |
+| data.product_model.changes.quantified_associations (additional properties) | object | - |
+| data.product_model.changes.quantified_associations.added | object | - |
+| data.product_model.changes.quantified_associations.added.products | array&lt;object&gt; | - |
+| data.product_model.changes.quantified_associations.added.products.uuid | string | - |
+| data.product_model.changes.quantified_associations.added.products.quantity | number | - |
+| data.product_model.changes.quantified_associations.added.product_models | array&lt;object&gt; | - |
+| data.product_model.changes.quantified_associations.added.product_models.code | string | - |
+| data.product_model.changes.quantified_associations.added.product_models.quantity | number | - |
+| data.product_model.changes.quantified_associations.removed | object | - |
+| data.product_model.changes.quantified_associations.removed.products | array&lt;string&gt; | - |
+| data.product_model.changes.quantified_associations.removed.products (single item) | string | - |
+| data.product_model.changes.quantified_associations.removed.product_models | array&lt;string&gt; | - |
+| data.product_model.changes.quantified_associations.removed.product_models (single item) | string | - |
+| data.product_model.changes.values | object | - |
+| data.product_model.changes.values (additional properties) | array&lt;object&gt; | - |
+| data.product_model.changes.values.previous | string \| number \|
+| data.product_model.changes.values.new | string \| number \|
+| data.product_model.changes.values.type | string | - |
+| data.product_model.changes.values.locale | string \| null |
+| data.product_model.changes.values.scope | string \| null |
+| data.product_model.changes.table_attributes | object | Changes to table attributes. |
+| data.product_model.changes.table_attributes.added | array&lt;object&gt; | - |
+| data.product_model.changes.table_attributes.added (single item) | object | - |
+| data.product_model.changes.table_attributes.removed | array&lt;object&gt; | - |
+| data.product_model.changes.table_attributes.removed (single item) | object | - |
+| data.author | object | - |
+| data.author.identifier | string | Identifier of the author. |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
+
+<details>
+  <summary style="cursor: pointer;">Click here to expand the payload example</summary>
+> Example of payload
+
+
+```json [snippet:Payload]
+
+{
+  "specversion": "1.0",
+  "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
+  "type": "com.akeneo.pim.v1.product-model.updated.delta",
+  "source": "pim",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
+  "time": "2024-02-22T17:31:00Z",
+  "datacontenttype": "application/json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product-model.updated.delta.schema.json",
+  "data": {
+    "product_model": {
+      "code": "a_product_model_code",
+      "updated_at": {
+        "date": "2024-10-14 13:01:21.000000",
+        "timezone": "UTC"
+      },
+      "changes": {
+        "categories": {
+          "added": [
+            "added_category_code_1",
+            "added_category_code_2"
+          ],
+          "removed": [
+            "removed_category_code_1",
+            "removed_category_code_2"
+          ]
+        },
+        "parent": {
+          "previous": "the_previous_parent_code",
+          "new": "the_new_parent_code"
+        },
+        "values": {
+          "an_added_attribute": [
+            {
+              "previous": null,
+              "new": "new_data",
+              "type": "an_attribute_type",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "an_updated_attribute": [
+            {
+              "previous": "previous_data",
+              "new": "new_data",
+              "type": "an_attribute_type",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "a_removed_attribute": [
+            {
+              "previous": "previous_data",
+              "new": null,
+              "type": "an_attribute_type",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "an_attribute_with_value_by_locale": [
+            {
+              "previous": "previous_data_for_a_locale",
+              "new": "new_data_for_a_locale",
+              "type": "an_attribute_type",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            },
+            {
+              "previous": "previous_data_for_another_locale",
+              "new": "new_data_for_another_locale",
+              "type": "an_attribute_type",
+              "locale": "another_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "an_attribute_with_value_by_scope": [
+            {
+              "previous": "previous_data_for_a_scope",
+              "new": "new_data_for_a_scope",
+              "type": "an_attribute_type",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            },
+            {
+              "previous": "previous_data_for_another_scope",
+              "new": "new_data_for_another_scope",
+              "type": "an_attribute_type",
+              "locale": "a_locale",
+              "scope": "another_scope"
+            }
+          ],
+          "a_pim_catalog_text_attribute": [
+            {
+              "previous": "previous_data",
+              "new": "new_data",
+              "type": "pim_catalog_text",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "a_pim_catalog_textarea_attribute": [
+            {
+              "previous": "previous_data",
+              "new": "new_data",
+              "type": "pim_catalog_textarea",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "a_pim_catalog_file_attribute": [
+            {
+              "previous": {
+                "file_name": "old_file.json",
+                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_old_file.json"
+              },
+              "new": {
+                "file_name": "new_file.json",
+                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_new_file.json"
+              },
+              "type": "pim_catalog_file",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "a_pim_catalog_image_attribute": [
+            {
+              "previous": {
+                "file_name": "old_pic.jpg",
+                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_old_pic.jpg"
+              },
+              "new": {
+                "file_name": "new_pic.jpg",
+                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_new_pic.jpg"
+              },
+              "type": "pim_catalog_image",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "a_pim_catalog_number_attribute": [
+            {
+              "previous": 0,
+              "new": 2,
+              "type": "pim_catalog_number",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "a_pim_catalog_metric_attribute": [
+            {
+              "previous": {
+                "data": "previous_data",
+                "unit": "a_unit",
+                "base_data": "previous_based_data",
+                "base_unit": "a_based_unit",
+                "family": "a_family"
+              },
+              "new": {
+                "data": "new_data",
+                "unit": "a_unit",
+                "base_data": "new_based_data",
+                "base_unit": "a_based_unit"
+              },
+              "type": "pim_catalog_metric",
+              "locale": "a_locale",
+              "scope": "a_scope",
+              "family": "a_family"
+            }
+          ],
+          "a_pim_catalog_price_attribute": [
+            {
+              "previous": {
+                "amount": "a_price",
+                "currency": "a_currency"
+              },
+              "new": {
+                "amount": "another_price",
+                "currency": "a_currency"
+              },
+              "type": "pim_catalog_price",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "a_pim_catalog_boolean_attribute": [
+            {
+              "previous": true,
+              "new": false,
+              "type": "pim_catalog_boolean",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "a_pim_catalog_date_attribute": [
+            {
+              "previous": {
+                "date": "2024-01-01 00:00:00.000000",
+                "timezone": "+00.00"
+              },
+              "new": {
+                "date": "2024-01-02 00:00:00.000000",
+                "timezone": "+00.00"
+              },
+              "type": "pim_catalog_date",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "an_identifier_attribute": [
+            {
+              "previous": {
+                "data": "previous_data",
+                "is_main_identifier": false
+              },
+              "new": {
+                "data": "new_data",
+                "is_main_identifier": true
+              },
+              "type": "pim_catalog_identifier",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "a_simple_select_attribute": [
+            {
+              "previous": "previous_data",
+              "new": "new_data",
+              "type": "pim_catalog_simpleselect",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "a_multi_select_attribute": [
+            {
+              "previous": [
+                "value_1",
+                "value_2"
+              ],
+              "new": [
+                "value_1",
+                "value_3"
+              ],
+              "type": "pim_catalog_multiselect",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "a_pim_catalog_table_attribute": [
+            {
+              "previous": {
+                "rows": [
+                  {
+                    "cells": [
+                      {
+                        "cell": "cell_1_of_row_1",
+                        "data": "data_of_cell_1_of_row_1"
+                      },
+                      {
+                        "cell": "cell_2_of_row_1",
+                        "data": "data_of_cell_2_of_row_1"
+                      }
+                    ]
+                  },
+                  {
+                    "cells": [
+                      {
+                        "cell": "cell_1_of_row_2",
+                        "data": "data_of_cell_1_of_row_2"
+                      },
+                      {
+                        "cell": "cell_2_of_row_2",
+                        "data": "data_of_cell_2_of_row_2"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "new": {
+                "rows": [
+                  {
+                    "cells": [
+                      {
+                        "cell": "cell_1_of_row_1",
+                        "data": "data_of_cell_1_of_row_1"
+                      },
+                      {
+                        "cell": "cell_2_of_row_1",
+                        "data": "data_of_cell_2_of_row_1"
+                      }
+                    ]
+                  },
+                  {
+                    "cells": [
+                      {
+                        "cell": "cell_1_of_row_2",
+                        "data": "data_of_cell_1_of_row_2"
+                      },
+                      {
+                        "cell": "cell_2_of_row_2",
+                        "data": "data_of_cell_2_of_row_2"
+                      }
+                    ]
+                  },
+                  {
+                    "cells": [
+                      {
+                        "cell": "cell_1_of_row_3",
+                        "data": "data_of_cell_1_of_row_3"
+                      },
+                      {
+                        "cell": "cell_2_of_row_3",
+                        "data": "data_of_cell_2_of_row_3"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": "pim_catalog_table",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "an_asset_collection_attribute": [
+            {
+              "previous": [
+                "asset_code_1",
+                "asset_code_2"
+              ],
+              "new": [
+                "asset_code_1",
+                "asset_code_3"
+              ],
+              "type": "pim_catalog_asset_collection",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "an_akeneo_reference_entity_attribute": [
+            {
+              "previous": "previous_reference_entity_code",
+              "new": "new_reference_entity_code",
+              "type": "akeneo_reference_entity",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ],
+          "an_akeneo_reference_entity_collection_attribute": [
+            {
+              "previous": [
+                "reference_entity_record_code_1",
+                "reference_entity_record_code_2"
+              ],
+              "new": [
+                "reference_entity_record_code_1",
+                "reference_entity_record_code_3"
+              ],
+              "type": "akeneo_reference_entity_collection",
+              "locale": "a_locale",
+              "scope": "a_scope"
+            }
+          ]
+        },
+        "associations": {
+          "an_association_type_code": {
+            "added": {
+              "products": [
+                "a_product_uuid_1",
+                "a_product_uuid_2"
+              ],
+              "product_models": [
+                "a_product_model_1",
+                "a_product_model_2"
+              ],
+              "groups": [
+                "an_association_group_1",
+                "an_association_group_2"
+              ]
+            },
+            "removed": {
+              "products": [
+                "a_product_uuid_1",
+                "a_product_uuid_2"
+              ],
+              "product_models": [
+                "a_product_model_1",
+                "a_product_model_2"
+              ],
+              "groups": [
+                "an_association_group_1",
+                "an_association_group_2"
+              ]
+            }
+          },
+          "another_association_type_code": {
+            "added": {
+              "products": [
+                "a_product_uuid_1",
+                "a_product_uuid_2"
+              ],
+              "product_models": [
+                "a_product_model_1",
+                "a_product_model_2"
+              ],
+              "groups": [
+                "an_association_group_1",
+                "an_association_group_2"
+              ]
+            },
+            "removed": {
+              "products": [
+                "a_product_uuid_1",
+                "a_product_uuid_2"
+              ],
+              "product_models": [
+                "a_product_model_1",
+                "a_product_model_2"
+              ],
+              "groups": [
+                "an_association_group_1",
+                "an_association_group_2"
+              ]
+            }
+          }
+        },
+        "quantified_associations": {
+          "an_association_type_code": {
+            "added": {
+              "products": [
+                {
+                  "uuid": "an_added_product_uuid",
+                  "quantity": 1
+                },
+                {
+                  "uuid": "another_added_product_uuid",
+                  "quantity": 2
+                }
+              ],
+              "product_models": [
+                {
+                  "code": "an_added_product_model_code",
+                  "quantity": 3
+                },
+                {
+                  "uuid": "another_added_product_model_code",
+                  "quantity": 4
+                }
+              ]
+            },
+            "removed": {
+              "products": [
+                "a_product_uuid_1",
+                "a_product_uuid_2"
+              ],
+              "product_models": [
+                "a_product_model_code",
+                "another_product_model_code"
+              ]
+            }
+          },
+          "another_association_type_code": {
+            "added": {
+              "products": [
+                {
+                  "uuid": "an_added_product_uuid",
+                  "quantity": 1
+                },
+                {
+                  "uuid": "another_added_product_uuid",
+                  "quantity": 2
+                }
+              ],
+              "product_models": [
+                {
+                  "code": "an_added_product_model_code",
+                  "quantity": 3
+                },
+                {
+                  "uuid": "another_added_product_model_code",
+                  "quantity": 4
+                }
+              ]
+            },
+            "removed": {
+              "products": [
+                "a_product_uuid_1",
+                "a_product_uuid_2"
+              ],
+              "product_models": [
+                "a_product_model_code",
+                "another_product_model_code"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
+    }
+  }
+}
+```
+</details>
+
 ## com.akeneo.pim.v1.product-model.deleted
 
 *This event is generated whenever a product model is deleted from the PIM.*
@@ -1691,7 +2299,7 @@ The modifications that can lead to this event include:
 | data.product_model.code | string | Unique identifier of a Product Model in the PIM. |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1734,7 +2342,7 @@ The modifications that can lead to this event include:
 | data.family.code | string | code of a family |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1783,7 +2391,7 @@ The event is triggered when any of the following properties are changed:
 | data.family.code | string | code of a family |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1826,7 +2434,7 @@ The event is triggered when any of the following properties are changed:
 | data.family.code | string | code of a family |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1871,7 +2479,7 @@ The event is triggered when any of the following properties are changed:
 | data.reference_entity_record.code | string | Unique identifier of a reference entity record |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1921,7 +2529,7 @@ The event is triggered when any changes are made to the record values.
 | data.reference_entity_record.code | string | Unique identifier of a reference entity record |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
@@ -1969,7 +2577,7 @@ The event is triggered when any changes are made to the record values.
 | data.reference_entity_record.code | string | Unique identifier of a reference entity record |
 | data.author | object | - |
 | data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author (`user`, `api` or `system`). |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
 > Example of payload
 
