@@ -140,6 +140,10 @@ To verify the signature on your end:
 
 This is the easiest way to ensure the message you receive comes from our platform.
 
+**Example: Verifying an HMAC signature in Node.js**
+
+You can use your programming language of choice to implement HMAC verification. Below is an example in Node.js, which demonstrates how to compute the HMAC signature using the SHA-256 algorithm and compare it with the received signature.
+
 ```
 const crypto = require('crypto');
 
