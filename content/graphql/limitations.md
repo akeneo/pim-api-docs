@@ -19,7 +19,7 @@ If you encounter any **challenges** with the `rate limits`, please don't hesitat
 
 Your insights are invaluable in fine-tuning our system for optimal performance.
 :::
-The **GraphQL API** is limited to `100req/10s` per **PIM URL.**
+The **GraphQL API** is limited to `500req/10s` per **PIM URL.**
 
 ## Query complexity limitations
 
