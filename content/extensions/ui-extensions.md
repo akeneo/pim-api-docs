@@ -284,24 +284,24 @@ Data sent within the POST body, formatted in JSON, contains :
 - A `timestamp` that can be used with a [secret](#secret) to help you to protect your server against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 
 From a position `pim.product.header`, the `data` object contains :
-- A `product_uuid` string field
+- A `productUuid` string field
 
 From a position `pim.product-model.header`, the `data` object contains :
-- A `product_model_code` string field representing the root model code.
+- A `productModelCode` string field representing the root model code.
 
 From a position `pim.sub-product-model.header`, the `data` object contains :
-- A `product_model_code` string field representing the sub model code.
+- A `productModelCode` string field representing the sub model code.
 
 From a position `pim.product-grid.action-bar`, the `data` object contains :
-- A `product_uuids` field which is an array of string representing the UUIDs of selected products
-- A `product_model_codes` field which is an array of string representing the codes of selected product models and sub models
+- A `productUuids` field which is an array of string representing the UUIDs of selected products
+- A `productModelCodes` field which is an array of string representing the codes of selected product models and sub models
 
 Examples :
 
 ```json
 {
   "data": {
-    "product_uuid": "ecfddba2-59bf-4d35-bd07-8ceeefde51fd"
+    "productUuid": "ecfddba2-59bf-4d35-bd07-8ceeefde51fd"
   },
   "context": {
     "locale": "en_US",
@@ -321,8 +321,8 @@ Examples :
 ```json
 {
   "data": {
-    "product_uuids": [],
-    "product_model_codes": ["armor", "apollon"]
+    "productUuids": [],
+    "productModelCodes": ["armor", "apollon"]
   },
   "context": {
     "locale": "en_US",
