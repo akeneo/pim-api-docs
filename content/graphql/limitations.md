@@ -107,7 +107,7 @@ For example, you can make the following query
 | assetsRecords            | 3         |
 | attributes               | 4         |
 | attributeOptions         | 3         |
-| categories               | 4         |
+| categories               | 8         |
 | channels                 | 4         |
 | currencies               | 3         |
 | families                 | 5         |
