@@ -212,7 +212,7 @@ This field contains :
   - A `productUuids` field which is an array of string representing the UUIDs of selected products
   - A `productModelCodes` field which is an array of string representing the codes of selected product models and sub models
 - A `context` object containing the configured `locale` and `channel`.
-- A `user` object containing the `username` and `groups` of the connected user.
+- A `user` object containing the `uuid`, `username` and `groups` of the connected user.
 
 Example :
 ```json
@@ -230,6 +230,7 @@ Example :
     "channel": "ecommerce"
   },
   "user": {
+    "uuid": "4ebad9a4-7728-4d90-9db0-9e5a5c6a4d45",
     "username": "admin",
     "groups": [
       "IT support",
@@ -280,7 +281,7 @@ Here is a diagram illustrating the workflow:
 Data sent within the POST body, formatted in JSON, contains :
 - A `data` object with different fields depending on the [position](#position).
 - A `context` object containing the configured `locale` and `channel`.
-- A `user` object containing the `username` and `groups` of the connected user.
+- A `user` object containing the `uuid`, `username` and `groups` of the connected user.
 - A `timestamp` that can be used with a [secret](#secret) to help you to protect your server against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 
 From a position `pim.product.header`, the `data` object contains :
@@ -308,6 +309,7 @@ Examples :
     "channel": "ecommerce"
   },
   "user": {
+    "uuid": "e05cc457-b8ac-43b1-baa7-c4c112091ad8",
     "username": "julia",
     "groups": [
       "Manager",
@@ -329,6 +331,7 @@ Examples :
     "channel": "ecommerce"
   },
   "user": {
+    "uuid": "e05cc457-b8ac-43b1-baa7-c4c112091ad8",
     "username": "julia",
     "groups": [
       "Manager",
