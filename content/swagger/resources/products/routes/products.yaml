@@ -131,7 +131,7 @@ patch:
     - "7.0"
     - "SaaS"
   description: This endpoint allows you to update and/or create several products at once. Learn more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given identifier, it creates it. In the Enterprise Edition, since the v2.0, permissions based on your user groups are applied to the products you try to update. It may result in the creation of drafts if you only have edit rights through the product's categories.
-  x-body-by-line: Contains several lines, each line is a product model in JSON standard format. Modifications to existing product models can be specified using additional keys such as `add-categories` and `remove-categories`.
+  x-body-by-line: Contains several lines, each line is a product model in JSON standard format. Modifications to existing product models can be specified using additional keys such as `add_categories` and `remove_categories`.
   parameters:
     - name: body
       in: body
