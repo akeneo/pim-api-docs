@@ -2608,6 +2608,183 @@ The event is triggered when any changes are made to the record values.
 }
 ```
 
+## com.akeneo.pim.v1.job.export.status-changed
+
+*This event is generated whenever a job export is triggered.*
+
+* Message ID: `com.akeneo.pim.v1.job.export.status-changed`
+* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
+
+### Payload
+
+| Name | Type | Description |
+|---|---|---|
+| data.job | object | - |
+| data.job.execution_id | integer | Job execution id |
+| data.job.code | string | Job code |
+| data.job.name | string | Job name |
+| data.job.label | string | Job label |
+| data.job.status | string | Job execution status |
+| data.job.total_rows | integer | Total rows |
+| data.job.start_time | string | Job execution start time |
+| data.job.end_time | string | Job execution end time |
+| data.author | object | - |
+| data.author.identifier | string | Identifier of the author. |
+| data.author.type | string | Type of the author. |
+
+> Example of payload
+
+
+```json [snippet:Payload]
+
+{
+  "specversion": "1.0",
+  "id": "6e523497-8231-4892-8f9f-895378b4d045",
+  "type": "com.akeneo.pim.v1.job.export.status-changed",
+  "source": "pim",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
+  "time": "2024-06-13T10:17:00Z",
+  "datacontenttype": "application/json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.job.export.status-changed.schema.json",
+  "data": {
+    "job": {
+      "execution_id": 233,
+      "code": "code",
+      "name": "job_name",
+      "label": "job label",
+      "total_rows": 10,
+      "start_time": "2024-06-13T10:17:00+00:00",
+      "end_time": null,
+      "status": "starting"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
+    }
+  }
+}
+```
+
+## com.akeneo.pim.v1.job.mass-edit.status-changed
+
+*This event is generated whenever a mass edit action is triggered.*
+
+* Message ID: `com.akeneo.pim.v1.job.mass-edit.status-changed`
+* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
+
+### Payload
+
+| Name | Type | Description |
+|---|---|---|
+| data.job | object | - |
+| data.job.execution_id | integer | Job execution id |
+| data.job.code | string | Job code |
+| data.job.name | string | Job name |
+| data.job.label | string | Job label |
+| data.job.status | string | Job execution status |
+| data.job.read | integer | Total rows |
+| data.job.start_time | string | Job execution start time |
+| data.job.end_time | string | Job execution end time |
+| data.author | object | - |
+| data.author.identifier | string | Identifier of the author. |
+| data.author.type | string | Type of the author. |
+
+> Example of payload
+
+
+```json [snippet:Payload]
+
+{
+  "specversion": "1.0",
+  "id": "6e523497-8231-4892-8f9f-895378b4d045",
+  "type": "com.akeneo.pim.v1.job.mass-edit.status-changed",
+  "source": "pim",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
+  "time": "2024-06-13T10:17:00Z",
+  "datacontenttype": "application/json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.job.mass-edit.status-changed.schema.json",
+  "data": {
+    "job": {
+      "execution_id": 233,
+      "code": "code",
+      "name": "job_name",
+      "label": "job label",
+      "read": 10,
+      "start_time": "2024-06-13T10:17:00+00:00",
+      "end_time": null,
+      "status": "starting"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
+    }
+  }
+}
+```
+
+## com.akeneo.pim.v1.job.import.status-changed
+
+*This event is generated whenever a job import is executed.*
+
+* Message ID: `com.akeneo.pim.v1.job.import.status-changed`
+* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
+
+### Payload
+
+| Name | Type | Description |
+|---|---|---|
+| data.job | object | - |
+| data.job.execution_id | integer | Job execution id |
+| data.job.code | string | Job code |
+| data.job.name | string | Job name |
+| data.job.label | string | Job label |
+| data.job.status | string | Job execution status |
+| data.job.total_rows | integer | Total rows |
+| data.job.total_rows_processed | integer | Total rows processed |
+| data.job.total_rows_skipped | integer | Total rows skipped |
+| data.job.total_warnings | integer | Total warnings |
+| data.job.start_time | string | Job execution start time |
+| data.job.end_time | string | Job execution end time |
+| data.author | object | - |
+| data.author.identifier | string | Identifier of the author. |
+| data.author.type | string | Type of the author. |
+
+> Example of payload
+
+
+```json [snippet:Payload]
+
+{
+  "specversion": "1.0",
+  "id": "6e523497-8231-4892-8f9f-895378b4d045",
+  "type": "com.akeneo.pim.v1.job.import.status-changed",
+  "source": "pim",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
+  "time": "2024-06-13T10:17:00Z",
+  "datacontenttype": "application/json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.job.import.status-changed.schema.json",
+  "data": {
+    "job": {
+      "execution_id": 11,
+      "code": "code",
+      "name": "job_name",
+      "label": "job label",
+      "total_rows": 10,
+      "total_rows_processed": 10,
+      "total_rows_skipped": 0,
+      "total_warnings": 0,
+      "start_time": "2024-06-13T10:17:00+00:00",
+      "end_time": null,
+      "status": "starting"
+    },
+    "author": {
+      "identifier": "julia",
+      "type": "user"
+    }
+  }
+}
+```
+
 
 ::: panel-link Let's check the requirements [Next](/event-platform/integration-examples.html)
 :::
