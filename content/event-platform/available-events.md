@@ -541,7 +541,7 @@ This event is generated whenever an existing attribute is modified in the PIM. T
       }
     },
     "author": {
-      "identifier": "92e5893f-468b-486a-9a7e-d8c656d0a79c",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -818,7 +818,7 @@ The following actions can trigger a product creation event:
       "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf"
     },
     "author": {
-      "identifier": "f9c7a901-6f7c-4bf9-9b47-af343ff6aca3",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
@@ -843,19 +843,19 @@ The following actions can trigger a product update event:
 The modifications that can lead to this event include:
 
 - Changes to product properties, such as:
-  - Family
-  - Parent
-  - Enabled status
+    - Family
+    - Parent
+    - Enabled status
 - Changes in category association, such as:
-  - Adding the product to a category
-  - Removing the product from a category
+    - Adding the product to a category
+    - Removing the product from a category
 - Changes in group association, such as:
-  - Adding the product to a group
-  - Removing the product from a group
+    - Adding the product to a group
+    - Removing the product from a group
 - Adjustments to product values
 - Alterations to product associations, including:
-  - Standard associations
-  - Quantified associations
+    - Standard associations
+    - Quantified associations
 
 ### Payload
 
@@ -893,7 +893,7 @@ The modifications that can lead to this event include:
 }
 ```
 
-## com.akeneo.pim.v1.product.updated.delta
+## com.akeneo.pim.v1.product.updated.​delta
 
 *This event is generated whenever an existing product is modified in the PIM.*
 
@@ -927,8 +927,11 @@ The modifications that can lead to this event include:
 
 ### Payload
 
+<details>
+  <summary style="cursor: pointer;">Click here to expand the payload details</summary>
+
 | Name | Type | Description |
-|---|---|---|
+  |---|---|---|
 | data.product | object | - |
 | data.product.uuid | string | Unique identifier of a Product in the PIM. |
 | data.product.updated_at | any | - |
@@ -942,16 +945,16 @@ The modifications that can lead to this event include:
 | data.product.changes.categories.removed | array&lt;string&gt; | - |
 | data.product.changes.categories.removed (single item) | string | - |
 | data.product.changes.family | object | - |
-| data.product.changes.family.previous | string \| null |
-| data.product.changes.family.new | string \| null |
+| data.product.changes.family.previous | string \| null | - |
+| data.product.changes.family.new | string \| null | - |
 | data.product.changes.groups | object | - |
 | data.product.changes.groups.added | array&lt;string&gt; | - |
 | data.product.changes.groups.added (single item) | string | - |
 | data.product.changes.groups.removed | array&lt;string&gt; | - |
 | data.product.changes.groups.removed (single item) | string | - |
 | data.product.changes.parent | object | - |
-| data.product.changes.parent.previous | string \| null |
-| data.product.changes.parent.new | string \| null |
+| data.product.changes.parent.previous | string \| null | - |
+| data.product.changes.parent.new | string \| null | - |
 | data.product.changes.associations | object | - |
 | data.product.changes.associations (additional properties) | object | - |
 | data.product.changes.associations.added | object | - |
@@ -1003,532 +1006,536 @@ The modifications that can lead to this event include:
 | data.author.identifier | string | Identifier of the author. |
 | data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
-> Example of payload
+</details>
 
 
-```json [snippet:Payload]
+<details>
+  <summary style="cursor: pointer;">Click here to expand the payload example</summary>
+  > Example of payload
 
-{
-  "specversion": "1.0",
-  "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
-  "type": "com.akeneo.pim.v1.product.updated.delta",
-  "source": "pim",
-  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
-  "time": "2024-02-22T17:31:00Z",
-  "datacontenttype": "application/json",
-  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.updated.delta.schema.json",
-  "data": {
-    "product": {
-      "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf",
-      "updated_at": {
-        "date": "2024-10-14 13:01:21.000000",
-        "timezone": "UTC"
-      },
-      "changes": {
-        "enabled": {
-          "previous": true,
-          "new": false
+  ```json [snippet:Payload]
+  {
+    "specversion": "1.0",
+    "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
+    "type": "com.akeneo.pim.v1.product.updated.delta",
+    "source": "pim",
+    "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
+    "time": "2024-02-22T17:31:00Z",
+    "datacontenttype": "application/json",
+    "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.updated.delta.schema.json",
+    "data": {
+      "product": {
+        "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf",
+        "updated_at": {
+          "date": "2024-10-14 13:01:21.000000",
+          "timezone": "UTC"
         },
-        "categories": {
-          "added": [
-            "added_category_code_1",
-            "added_category_code_2"
-          ],
-          "removed": [
-            "removed_category_code_1",
-            "removed_category_code_2"
-          ]
-        },
-        "family": {
-          "previous": "the_previous_family_code",
-          "new": "the_new_family_code"
-        },
-        "groups": {
-          "added": [
-            "added_group_code_1",
-            "added_group_code_2"
-          ],
-          "removed": [
-            "removed_group_code_1",
-            "_removed_group_code_2"
-          ]
-        },
-        "parent": {
-          "previous": "the_previous_parent_code",
-          "new": "the_new_parent_code"
-        },
-        "values": {
-          "an_added_attribute": [
-            {
-              "previous": null,
-              "new": "new_data",
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_updated_attribute": [
-            {
-              "previous": "previous_data",
-              "new": "new_data",
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_removed_attribute": [
-            {
-              "previous": "previous_data",
-              "new": null,
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_attribute_with_value_by_locale": [
-            {
-              "previous": "previous_data_for_a_locale",
-              "new": "new_data_for_a_locale",
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            },
-            {
-              "previous": "previous_data_for_another_locale",
-              "new": "new_data_for_another_locale",
-              "type": "an_attribute_type",
-              "locale": "another_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_attribute_with_value_by_scope": [
-            {
-              "previous": "previous_data_for_a_scope",
-              "new": "new_data_for_a_scope",
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            },
-            {
-              "previous": "previous_data_for_another_scope",
-              "new": "new_data_for_another_scope",
-              "type": "an_attribute_type",
-              "locale": "a_locale",
-              "scope": "another_scope"
-            }
-          ],
-          "a_pim_catalog_text_attribute": [
-            {
-              "previous": "previous_data",
-              "new": "new_data",
-              "type": "pim_catalog_text",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_textarea_attribute": [
-            {
-              "previous": "previous_data",
-              "new": "new_data",
-              "type": "pim_catalog_textarea",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_file_attribute": [
-            {
-              "previous": {
-                "file_name": "old_file.json",
-                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_old_file.json"
+        "changes": {
+          "enabled": {
+            "previous": true,
+            "new": false
+          },
+          "categories": {
+            "added": [
+              "added_category_code_1",
+              "added_category_code_2"
+            ],
+            "removed": [
+              "removed_category_code_1",
+              "removed_category_code_2"
+            ]
+          },
+          "family": {
+            "previous": "the_previous_family_code",
+            "new": "the_new_family_code"
+          },
+          "groups": {
+            "added": [
+              "added_group_code_1",
+              "added_group_code_2"
+            ],
+            "removed": [
+              "removed_group_code_1",
+              "_removed_group_code_2"
+            ]
+          },
+          "parent": {
+            "previous": "the_previous_parent_code",
+            "new": "the_new_parent_code"
+          },
+          "values": {
+            "an_added_attribute": [
+              {
+                "previous": null,
+                "new": "new_data",
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_updated_attribute": [
+              {
+                "previous": "previous_data",
+                "new": "new_data",
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_removed_attribute": [
+              {
+                "previous": "previous_data",
+                "new": null,
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_attribute_with_value_by_locale": [
+              {
+                "previous": "previous_data_for_a_locale",
+                "new": "new_data_for_a_locale",
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "a_scope"
               },
-              "new": {
-                "file_name": "new_file.json",
-                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_new_file.json"
+              {
+                "previous": "previous_data_for_another_locale",
+                "new": "new_data_for_another_locale",
+                "type": "an_attribute_type",
+                "locale": "another_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_attribute_with_value_by_scope": [
+              {
+                "previous": "previous_data_for_a_scope",
+                "new": "new_data_for_a_scope",
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "a_scope"
               },
-              "type": "pim_catalog_file",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_image_attribute": [
-            {
-              "previous": {
-                "file_name": "old_pic.jpg",
-                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_old_pic.jpg"
-              },
-              "new": {
-                "file_name": "new_pic.jpg",
-                "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_new_pic.jpg"
-              },
-              "type": "pim_catalog_image",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_number_attribute": [
-            {
-              "previous": 0,
-              "new": 2,
-              "type": "pim_catalog_number",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_metric_attribute": [
-            {
-              "previous": {
-                "data": "previous_data",
-                "unit": "a_unit",
-                "base_data": "previous_based_data",
-                "base_unit": "a_based_unit",
+              {
+                "previous": "previous_data_for_another_scope",
+                "new": "new_data_for_another_scope",
+                "type": "an_attribute_type",
+                "locale": "a_locale",
+                "scope": "another_scope"
+              }
+            ],
+            "a_pim_catalog_text_attribute": [
+              {
+                "previous": "previous_data",
+                "new": "new_data",
+                "type": "pim_catalog_text",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_textarea_attribute": [
+              {
+                "previous": "previous_data",
+                "new": "new_data",
+                "type": "pim_catalog_textarea",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_file_attribute": [
+              {
+                "previous": {
+                  "file_name": "old_file.json",
+                  "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_old_file.json"
+                },
+                "new": {
+                  "file_name": "new_file.json",
+                  "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_new_file.json"
+                },
+                "type": "pim_catalog_file",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_image_attribute": [
+              {
+                "previous": {
+                  "file_name": "old_pic.jpg",
+                  "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_old_pic.jpg"
+                },
+                "new": {
+                  "file_name": "new_pic.jpg",
+                  "key": "0/e/f/9/0ef94f3e2e8133df2d37dc1e9c88615629707ede_new_pic.jpg"
+                },
+                "type": "pim_catalog_image",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_number_attribute": [
+              {
+                "previous": 0,
+                "new": 2,
+                "type": "pim_catalog_number",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_metric_attribute": [
+              {
+                "previous": {
+                  "data": "previous_data",
+                  "unit": "a_unit",
+                  "base_data": "previous_based_data",
+                  "base_unit": "a_based_unit",
+                  "family": "a_family"
+                },
+                "new": {
+                  "data": "new_data",
+                  "unit": "a_unit",
+                  "base_data": "new_based_data",
+                  "base_unit": "a_based_unit"
+                },
+                "type": "pim_catalog_metric",
+                "locale": "a_locale",
+                "scope": "a_scope",
                 "family": "a_family"
+              }
+            ],
+            "a_pim_catalog_price_attribute": [
+              {
+                "previous": {
+                  "amount": "a_price",
+                  "currency": "a_currency"
+                },
+                "new": {
+                  "amount": "another_price",
+                  "currency": "a_currency"
+                },
+                "type": "pim_catalog_price",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_boolean_attribute": [
+              {
+                "previous": true,
+                "new": false,
+                "type": "pim_catalog_boolean",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_date_attribute": [
+              {
+                "previous": {
+                  "date": "2024-01-01 00:00:00.000000",
+                  "timezone": "+00.00"
+                },
+                "new": {
+                  "date": "2024-01-02 00:00:00.000000",
+                  "timezone": "+00.00"
+                },
+                "type": "pim_catalog_date",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_identifier_attribute": [
+              {
+                "previous": {
+                  "data": "previous_data",
+                  "is_main_identifier": false
+                },
+                "new": {
+                  "data": "new_data",
+                  "is_main_identifier": true
+                },
+                "type": "pim_catalog_identifier",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_simple_select_attribute": [
+              {
+                "previous": "previous_data",
+                "new": "new_data",
+                "type": "pim_catalog_simpleselect",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_multi_select_attribute": [
+              {
+                "previous": [
+                  "value_1",
+                  "value_2"
+                ],
+                "new": [
+                  "value_1",
+                  "value_3"
+                ],
+                "type": "pim_catalog_multiselect",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "a_pim_catalog_table_attribute": [
+              {
+                "previous": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "cell": "cell_1_of_row_1",
+                          "data": "data_of_cell_1_of_row_1"
+                        },
+                        {
+                          "cell": "cell_2_of_row_1",
+                          "data": "data_of_cell_2_of_row_1"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "cell": "cell_1_of_row_2",
+                          "data": "data_of_cell_1_of_row_2"
+                        },
+                        {
+                          "cell": "cell_2_of_row_2",
+                          "data": "data_of_cell_2_of_row_2"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "new": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "cell": "cell_1_of_row_1",
+                          "data": "data_of_cell_1_of_row_1"
+                        },
+                        {
+                          "cell": "cell_2_of_row_1",
+                          "data": "data_of_cell_2_of_row_1"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "cell": "cell_1_of_row_2",
+                          "data": "data_of_cell_1_of_row_2"
+                        },
+                        {
+                          "cell": "cell_2_of_row_2",
+                          "data": "data_of_cell_2_of_row_2"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "cell": "cell_1_of_row_3",
+                          "data": "data_of_cell_1_of_row_3"
+                        },
+                        {
+                          "cell": "cell_2_of_row_3",
+                          "data": "data_of_cell_2_of_row_3"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "pim_catalog_table",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_asset_collection_attribute": [
+              {
+                "previous": [
+                  "asset_code_1",
+                  "asset_code_2"
+                ],
+                "new": [
+                  "asset_code_1",
+                  "asset_code_3"
+                ],
+                "type": "pim_catalog_asset_collection",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_akeneo_reference_entity_attribute": [
+              {
+                "previous": "previous_reference_entity_code",
+                "new": "new_reference_entity_code",
+                "type": "akeneo_reference_entity",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
+            "an_akeneo_reference_entity_collection_attribute": [
+              {
+                "previous": [
+                  "reference_entity_record_code_1",
+                  "reference_entity_record_code_2"
+                ],
+                "new": [
+                  "reference_entity_record_code_1",
+                  "reference_entity_record_code_3"
+                ],
+                "type": "akeneo_reference_entity_collection",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ]
+          },
+          "associations": {
+            "an_association_type_code": {
+              "added": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_1",
+                  "a_product_model_2"
+                ],
+                "groups": [
+                  "an_association_group_1",
+                  "an_association_group_2"
+                ]
               },
-              "new": {
-                "data": "new_data",
-                "unit": "a_unit",
-                "base_data": "new_based_data",
-                "base_unit": "a_based_unit"
+              "removed": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_1",
+                  "a_product_model_2"
+                ],
+                "groups": [
+                  "an_association_group_1",
+                  "an_association_group_2"
+                ]
+              }
+            },
+            "another_association_type_code": {
+              "added": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_1",
+                  "a_product_model_2"
+                ],
+                "groups": [
+                  "an_association_group_1",
+                  "an_association_group_2"
+                ]
               },
-              "type": "pim_catalog_metric",
-              "locale": "a_locale",
-              "scope": "a_scope",
-              "family": "a_family"
+              "removed": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_1",
+                  "a_product_model_2"
+                ],
+                "groups": [
+                  "an_association_group_1",
+                  "an_association_group_2"
+                ]
+              }
             }
-          ],
-          "a_pim_catalog_price_attribute": [
-            {
-              "previous": {
-                "amount": "a_price",
-                "currency": "a_currency"
-              },
-              "new": {
-                "amount": "another_price",
-                "currency": "a_currency"
-              },
-              "type": "pim_catalog_price",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_boolean_attribute": [
-            {
-              "previous": true,
-              "new": false,
-              "type": "pim_catalog_boolean",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_date_attribute": [
-            {
-              "previous": {
-                "date": "2024-01-01 00:00:00.000000",
-                "timezone": "+00.00"
-              },
-              "new": {
-                "date": "2024-01-02 00:00:00.000000",
-                "timezone": "+00.00"
-              },
-              "type": "pim_catalog_date",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_identifier_attribute": [
-            {
-              "previous": {
-                "data": "previous_data",
-                "is_main_identifier": false
-              },
-              "new": {
-                "data": "new_data",
-                "is_main_identifier": true
-              },
-              "type": "pim_catalog_identifier",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_simple_select_attribute": [
-            {
-              "previous": "previous_data",
-              "new": "new_data",
-              "type": "pim_catalog_simpleselect",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_multi_select_attribute": [
-            {
-              "previous": [
-                "value_1",
-                "value_2"
-              ],
-              "new": [
-                "value_1",
-                "value_3"
-              ],
-              "type": "pim_catalog_multiselect",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "a_pim_catalog_table_attribute": [
-            {
-              "previous": {
-                "rows": [
+          },
+          "quantified_associations": {
+            "an_association_type_code": {
+              "added": {
+                "products": [
                   {
-                    "cells": [
-                      {
-                        "cell": "cell_1_of_row_1",
-                        "data": "data_of_cell_1_of_row_1"
-                      },
-                      {
-                        "cell": "cell_2_of_row_1",
-                        "data": "data_of_cell_2_of_row_1"
-                      }
-                    ]
+                    "uuid": "an_added_product_uuid",
+                    "quantity": 1
                   },
                   {
-                    "cells": [
-                      {
-                        "cell": "cell_1_of_row_2",
-                        "data": "data_of_cell_1_of_row_2"
-                      },
-                      {
-                        "cell": "cell_2_of_row_2",
-                        "data": "data_of_cell_2_of_row_2"
-                      }
-                    ]
+                    "uuid": "another_added_product_uuid",
+                    "quantity": 2
+                  }
+                ],
+                "product_models": [
+                  {
+                    "code": "an_added_product_model_code",
+                    "quantity": 3
+                  },
+                  {
+                    "uuid": "another_added_product_model_code",
+                    "quantity": 4
                   }
                 ]
               },
-              "new": {
-                "rows": [
+              "removed": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_code",
+                  "another_product_model_code"
+                ]
+              }
+            },
+            "another_association_type_code": {
+              "added": {
+                "products": [
                   {
-                    "cells": [
-                      {
-                        "cell": "cell_1_of_row_1",
-                        "data": "data_of_cell_1_of_row_1"
-                      },
-                      {
-                        "cell": "cell_2_of_row_1",
-                        "data": "data_of_cell_2_of_row_1"
-                      }
-                    ]
+                    "uuid": "an_added_product_uuid",
+                    "quantity": 1
                   },
                   {
-                    "cells": [
-                      {
-                        "cell": "cell_1_of_row_2",
-                        "data": "data_of_cell_1_of_row_2"
-                      },
-                      {
-                        "cell": "cell_2_of_row_2",
-                        "data": "data_of_cell_2_of_row_2"
-                      }
-                    ]
+                    "uuid": "another_added_product_uuid",
+                    "quantity": 2
+                  }
+                ],
+                "product_models": [
+                  {
+                    "code": "an_added_product_model_code",
+                    "quantity": 3
                   },
                   {
-                    "cells": [
-                      {
-                        "cell": "cell_1_of_row_3",
-                        "data": "data_of_cell_1_of_row_3"
-                      },
-                      {
-                        "cell": "cell_2_of_row_3",
-                        "data": "data_of_cell_2_of_row_3"
-                      }
-                    ]
+                    "uuid": "another_added_product_model_code",
+                    "quantity": 4
                   }
                 ]
               },
-              "type": "pim_catalog_table",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_asset_collection_attribute": [
-            {
-              "previous": [
-                "asset_code_1",
-                "asset_code_2"
-              ],
-              "new": [
-                "asset_code_1",
-                "asset_code_3"
-              ],
-              "type": "pim_catalog_asset_collection",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_akeneo_reference_entity_attribute": [
-            {
-              "previous": "previous_reference_entity_code",
-              "new": "new_reference_entity_code",
-              "type": "akeneo_reference_entity",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ],
-          "an_akeneo_reference_entity_collection_attribute": [
-            {
-              "previous": [
-                "reference_entity_record_code_1",
-                "reference_entity_record_code_2"
-              ],
-              "new": [
-                "reference_entity_record_code_1",
-                "reference_entity_record_code_3"
-              ],
-              "type": "akeneo_reference_entity_collection",
-              "locale": "a_locale",
-              "scope": "a_scope"
-            }
-          ]
-        },
-        "associations": {
-          "an_association_type_code": {
-            "added": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_1",
-                "a_product_model_2"
-              ],
-              "groups": [
-                "an_association_group_1",
-                "an_association_group_2"
-              ]
-            },
-            "removed": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_1",
-                "a_product_model_2"
-              ],
-              "groups": [
-                "an_association_group_1",
-                "an_association_group_2"
-              ]
-            }
-          },
-          "another_association_type_code": {
-            "added": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_1",
-                "a_product_model_2"
-              ],
-              "groups": [
-                "an_association_group_1",
-                "an_association_group_2"
-              ]
-            },
-            "removed": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_1",
-                "a_product_model_2"
-              ],
-              "groups": [
-                "an_association_group_1",
-                "an_association_group_2"
-              ]
-            }
-          }
-        },
-        "quantified_associations": {
-          "an_association_type_code": {
-            "added": {
-              "products": [
-                {
-                  "uuid": "an_added_product_uuid",
-                  "quantity": 1
-                },
-                {
-                  "uuid": "another_added_product_uuid",
-                  "quantity": 2
-                }
-              ],
-              "product_models": [
-                {
-                  "code": "an_added_product_model_code",
-                  "quantity": 3
-                },
-                {
-                  "uuid": "another_added_product_model_code",
-                  "quantity": 4
-                }
-              ]
-            },
-            "removed": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_code",
-                "another_product_model_code"
-              ]
-            }
-          },
-          "another_association_type_code": {
-            "added": {
-              "products": [
-                {
-                  "uuid": "an_added_product_uuid",
-                  "quantity": 1
-                },
-                {
-                  "uuid": "another_added_product_uuid",
-                  "quantity": 2
-                }
-              ],
-              "product_models": [
-                {
-                  "code": "an_added_product_model_code",
-                  "quantity": 3
-                },
-                {
-                  "uuid": "another_added_product_model_code",
-                  "quantity": 4
-                }
-              ]
-            },
-            "removed": {
-              "products": [
-                "a_product_uuid_1",
-                "a_product_uuid_2"
-              ],
-              "product_models": [
-                "a_product_model_code",
-                "another_product_model_code"
-              ]
+              "removed": {
+                "products": [
+                  "a_product_uuid_1",
+                  "a_product_uuid_2"
+                ],
+                "product_models": [
+                  "a_product_model_code",
+                  "another_product_model_code"
+                ]
+              }
             }
           }
         }
+      },
+      "author": {
+        "identifier": "julia",
+        "type": "user"
       }
-    },
-    "author": {
-      "identifier": "julia",
-      "type": "user"
     }
   }
-}
-```
+  ```
+</details> 
 
 ## com.akeneo.pim.v1.product.deleted
 
@@ -1635,12 +1642,12 @@ The modifications that can lead to this event include:
 
 - Changes to the product model's parent property.
 - Changes in category association, such as:
-  - Adding the product to a category
-  - Removing the product from a category
+    - Adding the product to a category
+    - Removing the product from a category
 - Adjustments to product model values.
 - Alterations to product model associations, including:
-  - Standard associations
-  - Quantified associations
+    - Standard associations
+    - Quantified associations
 
 ### Payload
 
@@ -1700,12 +1707,12 @@ The modifications that can lead to this event include:
     - Adding the product model to a category
     - Removing the product model from a category
 - Changes in group association, such as:
-  - Adding the product model to a group
-  - Removing the product model from a group
+    - Adding the product model to a group
+    - Removing the product model from a group
 - Adjustments to product model values
 - Alterations to product model associations, including:
-  - Standard associations
-  - Quantified associations
+    - Standard associations
+    - Quantified associations
 
 ### Payload
 
@@ -1765,6 +1772,8 @@ The modifications that can lead to this event include:
 | data.author.identifier | string | Identifier of the author. |
 | data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
 
+<details>
+  <summary style="cursor: pointer;">Click here to expand the payload example</summary>
 > Example of payload
 
 
@@ -2273,6 +2282,7 @@ The modifications that can lead to this event include:
   }
 }
 ```
+</details>
 
 ## com.akeneo.pim.v1.product-model.deleted
 
@@ -2493,7 +2503,7 @@ The event is triggered when any of the following properties are changed:
       }
     },
     "author": {
-      "identifier": "peter",
+      "identifier": "4546f4b1-3e3c-4494-bbd4-aae185115a6a",
       "type": "user"
     }
   }
@@ -2591,184 +2601,7 @@ The event is triggered when any changes are made to the record values.
       }
     },
     "author": {
-      "identifier": "92e5893f-468b-486a-9a7e-d8c656d0a79c",
-      "type": "user"
-    }
-  }
-}
-```
-
-## com.akeneo.pim.v1.job.export.status-changed
-
-*This event is generated whenever a job export is triggered.*
-
-* Message ID: `com.akeneo.pim.v1.job.export.status-changed`
-* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
-
-### Payload
-
-| Name | Type | Description |
-|---|---|---|
-| data.job | object | - |
-| data.job.execution_id | integer | Job execution id |
-| data.job.code | string | Job code |
-| data.job.name | string | Job name |
-| data.job.label | string | Job label |
-| data.job.status | string | Job execution status |
-| data.job.total_rows | integer | Total rows |
-| data.job.start_time | string | Job execution start time |
-| data.job.end_time | string | Job execution end time |
-| data.author | object | - |
-| data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author. |
-
-> Example of payload
-
-
-```json [snippet:Payload]
-
-{
-  "specversion": "1.0",
-  "id": "6e523497-8231-4892-8f9f-895378b4d045",
-  "type": "com.akeneo.pim.v1.job.export.status-changed",
-  "source": "pim",
-  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
-  "time": "2024-06-13T10:17:00Z",
-  "datacontenttype": "application/json",
-  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.job.export.status-changed.schema.json",
-  "data": {
-    "job": {
-      "execution_id": 233,
-      "code": "code",
-      "name": "job_name",
-      "label": "job label",
-      "total_rows": 10,
-      "start_time": "2024-06-13T10:17:00+00:00",
-      "end_time": null,
-      "status": "starting"
-    },
-    "author": {
-      "identifier": "julia",
-      "type": "user"
-    }
-  }
-}
-```
-
-## com.akeneo.pim.v1.job.mass-edit.status-changed
-
-*This event is generated whenever a mass edit action is triggered.*
-
-* Message ID: `com.akeneo.pim.v1.job.mass-edit.status-changed`
-* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
-
-### Payload
-
-| Name | Type | Description |
-|---|---|---|
-| data.job | object | - |
-| data.job.execution_id | integer | Job execution id |
-| data.job.code | string | Job code |
-| data.job.name | string | Job name |
-| data.job.label | string | Job label |
-| data.job.status | string | Job execution status |
-| data.job.read | integer | Total rows |
-| data.job.start_time | string | Job execution start time |
-| data.job.end_time | string | Job execution end time |
-| data.author | object | - |
-| data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author. |
-
-> Example of payload
-
-
-```json [snippet:Payload]
-
-{
-  "specversion": "1.0",
-  "id": "6e523497-8231-4892-8f9f-895378b4d045",
-  "type": "com.akeneo.pim.v1.job.mass-edit.status-changed",
-  "source": "pim",
-  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
-  "time": "2024-06-13T10:17:00Z",
-  "datacontenttype": "application/json",
-  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.job.mass-edit.status-changed.schema.json",
-  "data": {
-    "job": {
-      "execution_id": 233,
-      "code": "code",
-      "name": "job_name",
-      "label": "job label",
-      "read": 10,
-      "start_time": "2024-06-13T10:17:00+00:00",
-      "end_time": null,
-      "status": "starting"
-    },
-    "author": {
-      "identifier": "julia",
-      "type": "user"
-    }
-  }
-}
-```
-
-## com.akeneo.pim.v1.job.import.status-changed
-
-*This event is generated whenever a job import is executed.*
-
-* Message ID: `com.akeneo.pim.v1.job.import.status-changed`
-* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
-
-### Payload
-
-| Name | Type | Description |
-|---|---|---|
-| data.job | object | - |
-| data.job.execution_id | integer | Job execution id |
-| data.job.code | string | Job code |
-| data.job.name | string | Job name |
-| data.job.label | string | Job label |
-| data.job.status | string | Job execution status |
-| data.job.total_rows | integer | Total rows |
-| data.job.total_rows_processed | integer | Total rows processed |
-| data.job.total_rows_skipped | integer | Total rows skipped |
-| data.job.total_warnings | integer | Total warnings |
-| data.job.start_time | string | Job execution start time |
-| data.job.end_time | string | Job execution end time |
-| data.author | object | - |
-| data.author.identifier | string | Identifier of the author. |
-| data.author.type | string | Type of the author. |
-
-> Example of payload
-
-
-```json [snippet:Payload]
-
-{
-  "specversion": "1.0",
-  "id": "6e523497-8231-4892-8f9f-895378b4d045",
-  "type": "com.akeneo.pim.v1.job.import.status-changed",
-  "source": "pim",
-  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
-  "time": "2024-06-13T10:17:00Z",
-  "datacontenttype": "application/json",
-  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.job.import.status-changed.schema.json",
-  "data": {
-    "job": {
-      "execution_id": 11,
-      "code": "code",
-      "name": "job_name",
-      "label": "job label",
-      "total_rows": 10,
-      "total_rows_processed": 10,
-      "total_rows_skipped": 0,
-      "total_warnings": 0,
-      "start_time": "2024-06-13T10:17:00+00:00",
-      "end_time": null,
-      "status": "starting"
-    },
-    "author": {
-      "identifier": "julia",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "user"
     }
   }
