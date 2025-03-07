@@ -165,7 +165,7 @@ To create a subscription, you will need a destination URL.
 ```
 
 ::: warning
-If you have already configured the [Event API](/events-api/overview.html), do not use the same URL for your destination URL; otherwise, you will not receive events from the event platform.
+If you have already configured the Events API, do not use the same URL for your destination URL; otherwise, you will not receive events from the event platform.
 :::
 
 ::: info
