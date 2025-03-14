@@ -358,6 +358,12 @@ This position refers to the header of a sub model edit page.
 #### pim.product.tab
 This position refers to the left panel of a simple product or a variant edit page.
 
+#### pim.product-model.tab
+This position refers to the left panel of a root model edit page.
+
+#### pim.sub-product-model.tab
+This position refers to the left panel of a sub model edit page.
+
 #### pim.category.tab
 This position refers to the horizontal list of tabs on a category edit page.
 
@@ -428,9 +434,11 @@ Each position supports a specific subset of available types. The table below out
 | pim.product.header           | ✔️     | ❌     | ✔️    |
 | pim.product-model.header     | ✔️     | ❌     | ✔️    |
 | pim.sub-product-model.header | ✔️     | ❌     | ✔️    |
-| pim.product.tab              | ❌      | ✔️     | ❌    |
-| pim.category.tab             | ❌      | ✔️     | ❌    |
-| pim.product-grid.action-bar  | ✔️      | ✔️     | ❌    |
+| pim.product.tab              | ❌     | ✔️     | ❌    |
+| pim.product-model.tab        | ❌     | ✔️     | ❌    |
+| pim.sub-product-model.tab    | ❌     | ✔️     | ❌    |
+| pim.category.tab             | ❌     | ✔️     | ❌    |
+| pim.product-grid.action-bar  | ✔️     | ✔️     | ❌    |
 
 ## Administration of UI extensions
 For a functional overview of the administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).
