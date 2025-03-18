@@ -18,7 +18,7 @@ Our delivery engine will try to deliver events as fast as possible but will adap
 
 If your subscription has an HTTPS destination, please respond with `429 Too Many Requests` when your system is overloaded: this way, the delivery engine will slow down, retry undelivered events, and gradually increase the throughput when your system gets back to recovers (i.e., when it responds `200 OK` again).
 
-Please note that if the throughput drops too significantly, the suspension policy will be triggered ([see bellow](/event-platform/concepts.html#suspension-policy.html)).
+Please note that if the throughput drops too significantly, the suspension policy will be triggered ([see bellow](/event-platform/key-platform-behaviors.html#suspension-policy)).
 
 ## Delivery timeout
 
@@ -37,7 +37,7 @@ If your destination is unable to ingest an event, we will retry deliver as follo
  - Third retry: 20 minutes after the previous attempt.
 
 These retries are on a best-effort basis and apply only to transient errors or timeouts. After **three retry attempts**, the message is dropped.
-This type of failure may trigger the suspension policy ([see bellow](/event-platform/concepts.html#suspension-policy.html)).
+This type of failure may trigger the suspension policy ([see bellow](/event-platform/key-platform-behaviors.html#suspension-policy)).
 
 ## Suspension policy
 
