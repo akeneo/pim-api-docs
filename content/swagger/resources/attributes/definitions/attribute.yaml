@@ -218,11 +218,11 @@ properties:
     x-warning: Only for `pim_catalog_boolean`, `pim_catalog_identifier`, `pim_catalog_number`, `pim_catalog_simpleselect`, `pim_catalog_textarea`, `pim_catalog_text`, `pim_reference_data_simpleselect` or `akeneo_reference_entity` attribute types
   decimal_places_strategy:
     type: string
-    description: Defines the decimal places strategy. Available options are `round`, `validate` and `trim`.
+    description: Defines the decimal places strategy. Available options are `round`, `forbid` and `trim`.
     x-warning: Only for `pim_catalog_number` or `pim_catalog_metric` attribute types
   decimal_places:
     type: number
-    description: Defines the number of decimal places when decimal places strategy is `round` or `validate`.
+    description: Defines the number of decimal places when decimal places strategy is `round` or `forbid`.
     x-warning: Only for `pim_catalog_number` or `pim_catalog_metric` attribute types
 example:
   {
