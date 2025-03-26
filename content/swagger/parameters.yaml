@@ -189,3 +189,10 @@ with_enriched_attributes:
   required: false
   type: boolean
   x-from-version: "SaaS"
+with_root_parent:
+  name: with_root_parent
+  in: query
+  description: Return the root parent product model code of a variant
+  required: false
+  type: boolean
+  x-from-version: "SaaS"

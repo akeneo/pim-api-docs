@@ -5,6 +5,6 @@ gcp_project:
   region: europe-west3
   artifact_registry_name: docker-repository
 terraform:
-  version: 1.1.7
-  sources_path: /deployments
+  version: 1.6.5
+  sources_path: /project/deployments
   bucket_name: akecld-terraform-pim-api-docs-dev

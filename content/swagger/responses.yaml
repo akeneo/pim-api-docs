@@ -51,6 +51,15 @@ NoContentAfterDelete:
     "code":400,
     "message":"Invalid JSON message received"
   }
+400IncorrectUuid:
+  description: Bad request
+  x-details: Can be caused by a non valid UUID
+  schema:
+    $ref: "#/definitions/Error"
+  examples: {
+    "code":400,
+    "message":"You must provide a UUID"
+  }
 401Error:
   description: Authentication required
   x-details: Can be caused by a missing or expired token

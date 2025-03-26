@@ -3,7 +3,7 @@ body {
     width: 740px;
 
     color: #677688;
-    font-family: 'Lato';
+    font-family: 'Roobert';
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
@@ -17,7 +17,7 @@ a:hover, a:focus {
     text-decoration: underline;
 }
 button {
-    font-family: Lato;
+    font-family: Roobert;
 }
 
 /** Custom CSS **/
@@ -251,85 +251,85 @@ button {
     background-color: #E6E6E7;
 }
 
-/** Lato font import **/
+/** Roobert font import **/
 @font-face {
-    font-family: Lato;
+    font-family: Roobert;
     font-weight: 300;
     font-style: normal;
     text-rendering: optimizeLegibility;
     src:
-            url("../dist/fonts/lato-light.woff2") format("woff2"),
-            url("../dist/fonts/lato-light.woff") format("woff");
+            url("/fonts/Roobert-Light.woff2") format("woff2"),
+            url("/fonts/Roobert-Light.woff") format("woff");
 }
-/* Lato (light, italic) */
+/* Roobert (light, italic) */
 @font-face {
-    font-family: Lato;
+    font-family: Roobert;
     font-weight: 300;
     font-style: italic;
     text-rendering: optimizeLegibility;
     src:
-            url("../dist/fonts/lato-light-italic.woff2") format("woff2"),
-            url("../dist/fonts/lato-light-italic.woff") format("woff");
+            url("/fonts/Roobert-LightItalic.woff2") format("woff2"),
+            url("/fonts/Roobert-LightItalic.woff") format("woff");
 }
-/* Lato (normal, regular) */
+/* Roobert (normal, regular) */
 @font-face {
-    font-family: Lato;
+    font-family: Roobert;
     font-weight: 400;
     font-style: normal;
     text-rendering: optimizeLegibility;
     src:
-            url("../dist/fonts/lato-normal.woff2") format("woff2"),
-            url("../dist/fonts/lato-normal.woff") format("woff");
+            url("/fonts/Roobert-Regular.woff2") format("woff2"),
+            url("/fonts/Roobert-Regular.woff") format("woff");
 }
-/* Lato (normal, italic) */
+/* Roobert (normal, italic) */
 @font-face {
-    font-family: Lato;
+    font-family: Roobert;
     font-weight: 400;
     font-style: italic;
     text-rendering: optimizeLegibility;
     src:
-            url("../dist/fonts/lato-normal-italic.woff2") format("woff2"),
-            url("../dist/fonts/lato-normal-italic.woff") format("woff");
+            url("/fonts/Roobert-RegularItalic.woff2") format("woff2"),
+            url("/fonts/Roobert-RegularItalic.woff") format("woff");
 }
-/* Lato (semibold, regular) */
+/* Roobert (semibold, regular) */
 @font-face {
-    font-family: Lato;
+    font-family: Roobert;
     font-weight: 500;
     font-style: normal;
     text-rendering: optimizeLegibility;
     src:
-            url("../dist/fonts/lato-semibold.woff2") format("woff2"),
-            url("../dist/fonts/lato-semibold.woff") format("woff");
+            url("/fonts/Roobert-SemiBold.woff2") format("woff2"),
+            url("/fonts/Roobert-SemiBold.woff") format("woff");
 }
-/* Lato (semibold, italic) */
+/* Roobert (semibold, italic) */
 @font-face {
-    font-family: Lato;
+    font-family: Roobert;
     font-weight: 500;
     font-style: italic;
     text-rendering: optimizeLegibility;
     src:
-            url("../dist/fonts/lato-semibold-italic.woff2") format("woff2"),
-            url("../dist/fonts/lato-semibold-italic.woff") format("woff");
+            url("/fonts/Roobert-SemiBoldItalic.woff2") format("woff2"),
+            url("/fonts/Roobert-SemiboldItalic.woff") format("woff");
 }
-/* Lato (bold, regular) */
+/* Roobert (bold, regular) */
 @font-face {
-    font-family: Lato;
+    font-family: Roobert;
     font-weight: 600;
     font-style: normal;
     text-rendering: optimizeLegibility;
     src:
-            url("../dist/fonts/lato-bold.woff2") format("woff2"),
-            url("../dist/fonts/lato-bold.woff") format("woff");
+            url("/fonts/Roobert-Bold.woff2") format("woff2"),
+            url("/fonts/Roobert-Bold.woff") format("woff");
 }
-/* Lato (bold, italic) */
+/* Roobert (bold, italic) */
 @font-face {
-    font-family: Lato;
+    font-family: Roobert;
     font-weight: 600;
     font-style: italic;
     text-rendering: optimizeLegibility;
     src:
-            url("../dist/fonts/lato-bold-italic.woff2") format("woff2"),
-            url("../dist/fonts/lato-bold-italic.woff") format("woff");
+            url("/fonts/Roobert-BoldItalic.woff2") format("woff2"),
+            url("/fonts/Roobert-BoldItalic.woff") format("woff");
 }
 
 .next-steps-button {

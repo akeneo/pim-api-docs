@@ -1,0 +1,15 @@
+type: object
+description: Configuration options that are specific to the UI extension <a href='extensions/ui-extensions.html#type'>type</a>
+properties:
+  default_label:
+    type: string
+    description: Default label, used if there is no translation for the PIM user locale
+  labels:
+    type: object
+    description: Label translations
+  secret:
+    type: string
+    description: Shows ***REDACTED*** if a <a href='extensions/ui-extensions.html#secret'>secret</a> is registered for the extension
+  url:
+    type: string
+    description: Destination URL of the extension

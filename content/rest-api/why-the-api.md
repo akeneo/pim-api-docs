@@ -1,50 +1,33 @@
-# 4 reasons why you should use our REST API 😊
+# Why use the Akeneo API
 
-Sounds a lot like a clickbait title, right?
+The Akeneo API is a powerful, modern solution for integrating Akeneo PIM into your ecosystem. It offers flexibility, efficiency, and scalability, making it an ideal choice for managing and synchronizing product data across various systems.
+Key Benefits of the Akeneo API
 
-But, yes. Did you know that, at Akeneo, we recommend the use of our API to achieve with success the PIM connection to its IT environment?
+**Streamlined Data Synchronization**
+The API allows you to easily synchronize product data between Akeneo PIM and external systems like e-commerce platforms, ERPs, and DAMs, ensuring a consistent and accurate flow of information.
 
-> In fact, the API is the **best** way to connect your PIM to third-parties.
+**Real-Time Access**
+With the Akeneo API, you can fetch product data on demand, providing real-time access to updates and ensuring your connected systems always stay in sync with the latest information.
 
-Wondering why? Here are the reasons!
+**Scalable and Secure**
+Designed to handle enterprise-level demands, the API offers robust security and scalability to support growing businesses and complex integrations.
 
-## Stable REST API = long-lasting tools
+**Faster Integrations**
+The API’s RESTful architecture, combined with detailed documentation, makes it easier and faster to integrate Akeneo PIM into your workflows.
 
-Today, when you write an App/tool, some of you are used to dig deeply into the PIM open source code. So you end up writing code that is really tied to ours. It always lead to painful migrations, especially when things heavily changed in our codebase, like it is the case for each new PIM version.
-
-But we really want you to keep writing amazing Apps and tools. So we had to do something to help you.
-
-And here comes the REST API!
-
-Thanks to the REST API, you will be able to build long-lasting Apps. We guarantee that **our REST API will stay stable** as much as possible. 
-
-In the end, we hope that these amazing Apps you are going to build on top of our REST API, will be easier to implement, easier to integrate, easier to maintain and above all, that you will not suffer from painful migrations again.
-
-::: info
-Usually, between PIM versions, there are no BC breaks in our REST API. But in some cases, for example, when we entirely revamp whole features in a new PIM version, we have no choice but to deprecate things in the REST API. Rest reassured that this kind of situation remains exceptional. When it happens, we try to warn you, our dear ecosystem 🥰, the sooner we can. So that you can take the time to integrate the changes.  
-Also, if you're dealing with REST API breaks that weren't announced and not documented on this website, don't hesitate to reach out to us. It's probably a regression that we can fix asap, if you are an Entreprise customer. :wink:
-:::
+**Future-Proof Connectivity**
+By leveraging APIs, your systems remain adaptable to future changes, whether you’re upgrading platforms, adding new tools, or expanding your business.
 
 
-## More performance = better tools
+# Alternative Integration Options
 
-Starting the v3 version of the PIM, we worked a lot on improving the performance of our PIM, including our REST API.
+While the Akeneo API is a highly effective integration tool, it’s not the only option. Akeneo provides several other methods to connect and interact with the PIM, each suited to different use cases:
 
-As an example, starting from the v4, the REST API is 3 times faster than the traditionnal exports of flat files.
-Also regarding, the imports of products, if you want to gain speed, with the REST API you can easily parallelize your requests.
+**`GraphQL:`** This query language provides unmatched flexibility by allowing you to request exactly the data you need—nothing more, nothing less. This minimizes bandwidth usage and improves efficiency for complex or targeted queries.
 
-Today, the REST API is officially the **most performant way** to connect the PIM.
+**`Event Platform:`** An event-driven approach that notifies external systems of specific changes (e.g., product delta updates). This enables real-time synchronization, especially useful for businesses that require instant updates across their systems.
 
-## More languages = innovating tools
+**`Catalogs for Apps:`** A tailored integration method designed for Akeneo’s app ecosystem. With Catalogs, developers can enable apps to consume highly specific, curated datasets shared directly from Akeneo PIM. This simplifies data sharing and enhances usability for third-party applications.
 
-With the REST API, you will also be able to write tools in another language than PHP. So pick your favorite technology and do not hesitate, write your tools with it.
-
-As the REST API is a standard REST API, you can use the language you want to implement Apps or even external applications based on the PIM data.
-
-Be innovative! Offer value to our common end-users! They will love it.
-
-## The only way for SaaS users
-
-For our SaaS users, the REST API is the **only way** to connect their PIM. 
-
-Indeed, in this case, as the PIM is provided to you as a service, you cannot customize any part of its code. The REST API is your only way out when it comes to integrating it into your IT infrastructure.
+Each of these options complements the Akeneo API and offers flexibility to address various integration challenges. Whether you need optimized queries, event-driven updates, or tailored datasets, Akeneo provides the tools to build a seamless and efficient integration strategy.
+By combining the Akeneo API with other integration options, you can unlock the full potential of the PIM and create a robust, future-proof system for managing your product data.

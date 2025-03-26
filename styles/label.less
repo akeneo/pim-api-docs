@@ -18,6 +18,12 @@
     vertical-align: middle;
 }
 
+.label-alert {
+    .label-variant(@brand-danger);
+    font-size: 50%;
+    vertical-align: middle;
+}
+
 .rotated-label {
     padding-right: 25px;
     .label-beta {
@@ -31,7 +37,7 @@
 .label.label-verb {
     text-transform: uppercase;
     &.label-patch {
-        .label-akeneo();
+        .label-warning();
     }
     &.label-post {
         .label-info();

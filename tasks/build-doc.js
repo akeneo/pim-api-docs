@@ -316,6 +316,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'your-first-tutorial-4x': {
             gettingStartedName: 'your-first-tutorial',
             pimVersion: 'v4 / v5 / v6 / v7 / SaaS',
+            deprecated: false,
             title: 'Your very first tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -336,6 +337,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'your-first-tutorial-old': {
             gettingStartedName: 'your-first-tutorial',
             pimVersion: 'v1.7 / v2 / v3',
+            deprecated: false,
             title: 'Your very first tutorial',
             image: 'illustrations/illus--old-versions.svg',
             files: {
@@ -356,6 +358,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'connect-the-pim-4x': {
             gettingStartedName: 'connect-the-pim',
             pimVersion: 'v4 / v5 / v6 / v7 / SaaS',
+            deprecated: false,
             title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -376,6 +379,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'connect-the-pim-old': {
             gettingStartedName: 'connect-the-pim',
             pimVersion: 'v1.7 / v2 / v3',
+            deprecated: false,
             title: 'The "Connect the PIM" tutorial',
             image: 'illustrations/illus--v4.svg',
             files: {
@@ -396,6 +400,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'quick-start-my-first-webhook-5x': {
             gettingStartedName: 'quick-start-my-first-webhook',
             pimVersion: 'v5 / v6 / v7/ SaaS',
+            deprecated: true,
             title: 'Quick start my first webhook',
             files: {
                 'welcome.md': 'Welcome',
@@ -412,6 +417,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'events-api-best-practices-5x': {
             gettingStartedName: 'events-api-best-practices',
             pimVersion: 'v5 / v6 / v7 / SaaS',
+            deprecated: true,
             title: 'Events API best practices',
             files: {
                 'welcome.md': 'Best practices',
@@ -426,6 +432,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'synchronize-pim-products-6x': {
             gettingStartedName: synchronizePimProductsName,
             pimVersion: 'v6 / v7 / SaaS',
+            deprecated: false,
             title: 'Synchronize PIM products with your App',
             files: {
                 'welcome.md': 'Welcome',
@@ -446,6 +453,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
         'from-identifiers-to-uuid-7x': {
             gettingStartedName: 'from-identifiers-to-uuid',
             pimVersion: 'v7 / SaaS',
+            deprecated: false,
             title: 'From product identifiers to UUID',
             files: {
                 'welcome.md': 'Guide',
@@ -473,6 +481,7 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                         active_api_resources: gettingStartedName !== synchronizePimProductsName,
                         active_apps: gettingStartedName === synchronizePimProductsName,
                         title: pages[path.basename(path.dirname(file.path))].title,
+                        deprecated: pages[path.basename(path.dirname(file.path))].deprecated,
                         description: getPageDescription(file.path),
                         image: pages[path.basename(path.dirname(file.path))].image,
                         gettingStartedName: gettingStartedName,
@@ -666,6 +675,118 @@ gulp.task('build-graphql', ['clean-dist','less'], function () {
                     })
             }));
     }
+);
+
+gulp.task('build-supplier-data-manager', ['clean-dist','less'], function () {
+    var pages = {
+        'getting-started.md': "Getting started",
+        'common-usage.md': "Common usage",
+        'api-reference.md': 'API reference',
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/supplier-data-manager/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/supplier-data-manager/*.md')
+                .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+                .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/supplier-data-manager') + "\n"))
+                .pipe(gulpMarkdownIt(mdGt))
+                .pipe(gulp.dest('tmp/supplier-data-manager/'))
+                .on('end', function () {
+                    return gulp.src('src/partials/supplier-data-manager-documentation.handlebars')
+                        .pipe(gulpHandlebars({
+                            active_sdm_api_resources: true,
+                            title: 'Supplier Data Manager API',
+                            description: getPageDescription(file.path, "Explore Akeneo’s Supplier Data Manager API with this step-by-step guide. Learn how to get started quickly, onboard high-quality supplier data, and integrate effortlessly with common use cases for brands, manufacturers, and retailers."),
+                            mainContent: fs.readFileSync('tmp/supplier-data-manager/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        }, {
+                            partialsDirectory: ['./src/partials']
+                        }))
+                        .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                        .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                        .pipe(gulp.dest('./dist/supplier-data-manager'));
+                })
+        }));
+}
+);
+
+gulp.task('build-event-platform', ['clean-dist','less'], function () {
+      var pages = {
+          'overview.md': "Overview",
+          'getting-started.md': "Getting started",
+          'concepts.md': "Concepts",
+          'authentication-and-authorization.md': "Authentication and authorization",
+          'key-platform-behaviors.md': "Key platform behaviors",
+          'api-reference.md': "API Reference",
+          'available-events.md': "Available events",
+          'best-practices.md': "Best practices",
+          'integration-examples.md': "Integration examples",
+          'compatibility.md': "Compatibility",
+          'limitations.md': "Quota & Limits",
+          // 'migrate-from-deprecated-event-api.md': "Migrate from deprecated event API",
+          'logs.md': "Logs",
+          'faq.md': "FAQ",
+      };
+
+      var isOnePage = false;
+
+      return gulp.src('content/event-platform/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/event-platform/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/event-platform') + "\n"))
+              .pipe(gulpMarkdownIt(mdGt))
+              .pipe(gulp.dest('tmp/event-platform/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/event-platform.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_api_resources: true,
+                        title: 'The Event Platform',
+                        description: getPageDescription(file.path, "The Event Platform"),
+                        mainContent: fs.readFileSync('tmp/event-platform/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/event-platform'));
+              })
+        }));
+  }
+);
+
+gulp.task('build-extensions', ['clean-dist','less'], function () {
+      var pages = {
+          'overview.md': "Overview",
+          'ui-extensions.md': "UI Extensions",
+      };
+
+      var isOnePage = false;
+
+      return gulp.src('content/extensions/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/extensions/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/extensions') + "\n"))
+              .pipe(gulpMarkdownIt(mdGt))
+              .pipe(gulp.dest('tmp/extensions/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/extensions.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_api_resources: true,
+                        title: 'Extensions',
+                        description: getPageDescription(file.path, "Extensions"),
+                        mainContent: fs.readFileSync('tmp/extensions/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/extensions'));
+              })
+        }));
+  }
 );
 
 gulp.task('build-events-api', ['clean-dist','less'], function () {
@@ -936,8 +1057,7 @@ gulp.task('build-concepts', ['clean-dist','less'], function () {
         'catalog-structure.md': 'Catalog structure',
         'target-market-settings.md': 'Target market settings',
         'reference-entities.md': 'Reference entities',
-        'asset-manager.md': 'Asset Manager',
-        'pam.md': 'PAM <em>- Deprecated</em>'
+        'asset-manager.md': 'Asset Manager'
     };
 
     var isOnePage = false;

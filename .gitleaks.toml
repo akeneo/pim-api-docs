@@ -10,4 +10,12 @@ paths = [
     '''content/swagger/akeneo-web-api.json''',
     # GraphQL documentation
     '''content/graphql/setup/getting-started.md''',
+    # On API Spec we have example of secret
+    '''content/swagger/aep/public-oas.yml''',
+    # Event Platform getting started documentation
+    '''content/event-platform/getting-started.md''',
+    # Rest API old authentication
+    '''content/rest-api/authentication_old.md''',
+    # UI Extension documentation
+    '''content/extensions/ui-extensions.md''',
 ]

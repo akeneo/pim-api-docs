@@ -16,7 +16,7 @@ After you've read this article, you'll be able to create a custom app and get th
 
 ### Requirements
 
-- You have access to your customer's PIM or an [App developer starter kit](/apps/overview.html#app-developer-starter-kit) 
+- You have access to your customer's Akeneo Product Cloud or an [App developer starter kit](/apps/overview.html#app-developer-starter-kit) 
 
 ### Step 1 - Setup your role permissions
 

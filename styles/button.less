@@ -1,9 +1,8 @@
 button.btn,
 a.btn {
-    border-radius: 100px;
+    border-radius: 5px;
     border-width: 2px;
     padding: 5px 16px;
-    text-transform: uppercase;
 
     &.btn-bottom-fixed{
         position: fixed;
@@ -24,13 +23,22 @@ a.btn {
     &.btn-default{
         border: 1px solid @gray-lighter;
     }
-    &.btn-ghost.btn-primary{
-        .button-variant(@brand-primary;
-        transparent;
-        @brand-primary);
+    &.btn-primary{
+        color: white;
+        border: 1px @brand-info solid;
+        background-color: @brand-info;
         border: 2px solid;
         &:hover{
-            background-color: lighten(@brand-primary, 50%);
+            background-color: darken(@brand-info, 25%);
+        }
+    }
+    &.btn-ghost.btn-primary{
+        .button-variant(@brand-info;
+        transparent;
+        @brand-info);
+        border: 2px solid;
+        &:hover{
+            background-color: lighten(@brand-info, 50%);
         }
     }
     &.btn-ghost.btn-primary.btn-rest{

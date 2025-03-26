@@ -1,5 +1,13 @@
 # Authentication
 
+:::warning
+This documentation concerns `Connector` development only.
+
+If you develop an `App` please consult this [documentation](/apps/authentication-and-authorization.html) instead.
+
+Want to know the differences between an `App` and `Connector`? Please consult this [documentation](/apps/overview.html#why-apps-over-connectors).
+:::
+
 For security reasons, to access the REST API, you will need to be authenticated.
 To authenticate your REST API calls, the PIM will provide you a pair of client ID and secret. [See here to discover how](#client-idsecret-generation).
 
@@ -7,28 +15,16 @@ Client IDs allow two things:
 - to ask for a token for a specific API user,
 - to refresh an expired token.
 
-This means that you will also need to [create an API user](#api-user-creation) in order to get this token. 
+This means that you will also need to [create an API user](#api-user-creation) in order to get this token.
 
 Once you get its username and password, together with the client ID and the secret, you will eventually be able to generate a token for the REST API. This is the _key_ to finally access the REST API. See [here for more details](#token-generation).
 
 ## Client ID/secret generation
 
-Depending on your PIM version, there are two different ways to generate these client IDs/secrets:
-- User of a v4 or newer PIM, you can follow [these simple steps](#since-the-pim-v4).
-- Using a PIM v2.x or v3.x? [Follow the instructions right here.](#with-a-v2x-and-3x-pim)
-- Still using the v1.7? [Here you go!](#with-a-v17-pim)
-
-::: tips
-**You don't know your PIM version?**  
-You can find it in the `version` line of the `System/System information` page.  
-If the version looks like a datetime, you use one of our SaaS offers, so please check the _Since the PIM v4_ paragraph.
-:::
-
-### Since the PIM v4 
-Since the PIM v4, there is one unique and streamlined way to generate your client ID and secret. See by yourself!
+Follow this process to generate your “Client ID/secret”:
 
 1. Log into your favorite PIM.
-1. Depending on the version you use, go to the `System/Connections` menu (before the v6) or the `Connect/Connection settings` menu.
+1. Go to the `Connect/Connection settings` menu.
 1. Click on `Create`.
 1. Input a label for your connection, `ERP` for example.
 1. Select a type flow. [_Don't know what it is? More info here._](https://help.akeneo.com/pim/articles/manage-your-connections.html#choose-your-flow-type)
@@ -44,99 +40,22 @@ You can now find the client ID and secret in the `Credentials` section of the co
 In case your secret leaked, you can easily revoke it and generate a new one for your connection by clicking on the dedicated icon, on the right side of the secret.
 :::
 
-### With a v2.x and 3.x PIM
-
-In 2.x or 3.X, you will need to create what we called an `API connection`. 
-
-1. Log into your favorite PIM.
-1. Navigate to the `System/API connections` menu. 
-1. Click on `Create`. 
-1. Input a label for your connection, `ERP connection` for example.
-1. Click on `Save`.
-
-The PIM automatically generates a client ID and secret, that you will find in the API connections grid.
-
 ::: info
-In case your secret leaked, you can revoke an API connection by clicking on the `Revoke` button. It is located in the `API connections` entry you will find under the `System` menu.  
-Note that it will totally delete your whole API connection, i.e. you will have to create a new one.
+Using an old PIM version (<= V3.x)? [Follow the instructions right here.](/documentation/authentication_old.html)
 :::
-
-### With a v1.7 PIM
-
-In v1.7, to generate a new client ID and secret, you need to use the following command directly on the PIM server.
-
-```bash
-php app/console pim:oauth-server:create-client \
-    --grant_type="password" \
-    --grant_type="refresh_token" \
-    --env=prod \
-    --label="ERP connection"
-```
-
-You will get something like:
-
-```bash
-A new client has been added:
-client_id: 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s
-secret: 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s
-label: ERP connection
-```
-
-:::info
-You have to give a label to your pair of client id / secret when you create them. This is useful to remember which application you give this pair of credentials to.
-:::
-
-#### Secret revocation
-In case your secret leaked, you can revoke it by using the following command:
-```bash
-php app/console pim:oauth-server:revoke-client the-client-id --env=prod
-```
-We ask for a confirmation when you revoke a client.
-```bash
-This operation is irreversible. Are you sure you want to revoke this client? (Y/n)
-```
-If you type Y, the client is then revoked and you will receive this message.
-```bash
-Client with public id 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s and secret 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s has been revoked.
-```
-
-#### List all API connections
-Just run the following command, still on your PIM server.
-```shell
-php app/console pim:oauth-server:list-clients --env=prod
-```
-
-You will get this answer.
-```bash
-+----------------------------------------------------+----------------------------------------------------+-------------------+
-| Client id                                          | Secret                                             |  Label            |
-+====================================================+====================================================+===================+
-| 3e2iqilq2ygwk0ccgogkcwco8oosckkkk4gkoc0k4s8s044wss | 44ectenmudus8g88w4wkws84044ckw0k4w4kg0sokoss84oko8 | Print catalog connection |
-| 4gm4rnoizp8gskgkk080ssoo80040g44ksowwgw844k44sc00s | 5dyvo1z6y34so4ogkgksw88ookoows00cgoc488kcs8wk4c40s | ERP connection |
-| 4_5e6kfzmath8gowk0s000kkgc0o44cwgwsockwk0ccss4sw0w | 2nwha9mzk2w4so0cgokwocswoc48s0sg44wgg40kkokgg4w0go | Magento connection |
-+----------------------------------------------------+----------------------------------------------------+-------------------+
-```
 
 ## API user creation
 
 You now have a client ID and a secret.  But the request to get this token needs a username and a password.
 
-::: tips
-**You don't know your PIM version?**  
-You can find it in the `version` line of the `System/System information` page.  
-If the version looks like a datetime, you use one of our SaaS offers, so please check the _Since the PIM v4_ paragraph.
-::: 
-
-### Since the PIM v4
-
-Since the PIM v4, this username and password are automatically generated whenever you create a connection in the UI. Depending on the version you use, navigate to the `System/Connections` menu (before the v6) or the `Connect/Connection settings` menu, click on your connection and find your username and password in the `Credentials` section.
+This username and password are automatically generated whenever you create a connection in the UI. Depending on the version you use, navigate to the `Connect/Connection settings` menu, click on your connection and find your username and password in the `Credentials` section.
 
 You may need to regenerate a password if you haven't saved it anywhere. Indeed, for security reasons, the PIM can only show it to you once, after the connection is created. There is a `Regenerate` button close to the hidden password if needed. :wink:
 
-### With a v1.7, 2.x and 3.x PIM
-
+::: info
+Using an old PIM version (With a v1.7, 2.x and 3.x PIM)?
 In previous versions of the PIM, you need to navigate to the `System/Users` menu in your PIM UI and create a new user. We strongly advise you to create specific API users. Do not re-use UI users. 🙂
-
+:::
 
 ## Token generation
 

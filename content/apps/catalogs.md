@@ -3,29 +3,29 @@
 ## Overview
 
 This guide introduces the catalog feature and explains why using catalogs to retrieve Akeneo data.  
-You will save time during development with catalogs because Akeneo PXM Studio manages your **product selection** and gives you direct access to the relevant data. You can also leverage our **data mapping** feature to get product data in your chosen format.
+You will save time during development with catalogs because Akeneo Product Cloud manages your **product selection** and gives you direct access to the relevant data. You can also leverage our **data mapping** feature to get product data in your chosen format.
 
 ### What's a catalog?
 
 A catalog is a selection of products defined by one or several criteria (families, categories, etc.)
 
-Catalogs are only created by apps and configured by Akeneo users from Akeneo PXM Studio. This feature is only visible if the app manages catalogs.
+Catalogs are only created by apps and configured by Akeneo users from Akeneo Product Cloud. This feature is only visible if the app manages catalogs.
 
 ![Catalogs for apps](../img/apps/app-catalog-list.png)
 
 ### Why use catalogs to retrieve product data?
 
-Using Catalogs helps you better manage the product information you get from the Akeneo PXM Studio.
+Using Catalogs helps you better manage the product information you get from the Akeneo Product Cloud.
 
 Most of the time, developers must design, develop and maintain a filter interface to allow users to configure their product selection: which products must be considered and which don't.
 Using catalogs for apps **prevents you from adding this filtering interface to your app**. When you retrieve product information related to a catalog, you **only retrieve the data your app needs to process**.
 
-Moreover, with catalogs, you **don't have to master the entire PIM structure anymore** to deliver a relevant filtering interface, as the Akeneo PXM Studio already provides it to your users.
+Moreover, with catalogs, you **don't have to master the entire PIM structure anymore** to deliver a relevant filtering interface, as Akeneo Product Cloud already provides it to your users.
 ![Product Selection](../img/apps/catalogs-product-selection.png)
 
 ### Limits
 
-To ensure Akeneo PXM Studio remains stable, we added some limits to catalogs:
+To ensure Akeneo Product Cloud remains stable, we added some limits to catalogs:
 - Each app can create up to **200 catalogs**.
 - A product selection can have up to **25 selection criteria**.
 - A product mapping schema can have up to **200 targets**.
@@ -53,7 +53,7 @@ In that case, your app receives an HTTP 200 response containing the following pa
 ### Next steps
 
 - Learn [how to create and use catalogs](/apps/catalogs.html#getting-started-with-catalogs)
-- Discover [how users configure catalogs](https://help.akeneo.com/pim/serenity/articles/how-to-connect-my-pim-with-apps.html#how-to-configure-catalogs-for-apps) in the Akeneo PXM Studio
+- Discover [how users configure catalogs](https://help.akeneo.com/pim/serenity/articles/how-to-connect-my-pim-with-apps.html#how-to-configure-catalogs-for-apps) in the Akeneo Product Cloud
 
 
 ## Getting started with catalogs
@@ -66,7 +66,7 @@ After completing this tutorial, you'll be able to create and use catalogs to ret
 
 ### Requirements
 
-- You have access to an Akeneo PIM ([get your App developer starter kit](/apps/overview.html#app-developer-starter-kit))
+- You have access to an Akeneo Product Cloud ([Please refer to our App developer starter kit](/apps/overview.html#app-developer-starter-kit))
 - Your app already manages the authorization process
 
 ### Step 1: Ask for catalog scopes
@@ -98,7 +98,7 @@ It means that once a user has enabled it, you won't be able to retrieve products
 
 <img class="img-responsive in-article" alt="Enable catalog field" src="../img/apps/app-catalog-enable-button.png" style="max-width: 600px;">
 
-To help your users, you can redirect them directly to the catalog configuration interface on their Akeneo PXM Studio using the following URL structure:
+To help your users, you can redirect them directly to the catalog configuration interface on their Akeneo Product Cloud using the following URL structure:
 
 ``` http
 
@@ -127,7 +127,7 @@ After completing this tutorial, you'll be able to push your JSON mapping schema 
 
 ### Requirements
 
-- You have access to an Akeneo PIM ([get your App developer starter kit](/apps/overview.html#app-developer-starter-kit))
+- You have access to an Akeneo Product Cloud sandbox ([Please refer to our app developer starter kit](/apps/overview.html#app-developer-starter-kit))
 - Your app already manages the authorization process
 - You followed the [Getting started with catalogs](#getting-started-with-catalogs) steps
 

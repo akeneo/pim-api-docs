@@ -6,7 +6,7 @@
         <div class="block-about-app-text">
             <div>Let's first take a look&nbsp;<span class="block-link"><a href="https://apps.akeneo.com/">how apps are discovered.</a></span></div>
             <div>Then,&nbsp;<span class="block-link"><a href="/api-reference-index.html">get acquainted with our APIs.</a></span></div>
-            <div>Finally, understand&nbsp;<span class="block-link"><a href="/apps/overview.html#whats-an-akeneo-app">what's an Akeneo app</a></span> and&nbsp;<span class="block-link"><a href="/apps/overview.html#how-apps-fit-into-akeneo-pxm-studio">how it fits into Akeneo PXM Studio.</a></span></div>
+            <div>Finally, understand&nbsp;<span class="block-link"><a href="/apps/overview.html#whats-an-akeneo-app">what's an Akeneo app</a></span> and&nbsp;<span class="block-link"><a href="/apps/overview.html#how-apps-fit-into-akeneo-pxm-studio">how it fits into Akeneo Product Cloud</a></span></div>
         </div>
         <div class="block-about-app-img">
             <img src="/img/illustrations/illus--Coding.svg" width="140px">

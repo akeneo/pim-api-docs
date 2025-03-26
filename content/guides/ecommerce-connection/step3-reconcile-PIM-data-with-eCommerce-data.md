@@ -462,10 +462,6 @@ It's evolving as our customer base do, we are targeting new types of customers, 
 
 That's why, each year we publish a new reference catalog, based on the volume of the customer catalogs of the year before.
 
-::: info
-Please contact us if you need to have access to our **Scalability PIM** for your tests.
-:::
-
 ### Manage modifications: Differential import feature
 
 Your App will not need to process all Akeneo PIM data at each synchronization. This would not be efficient in terms of performance.

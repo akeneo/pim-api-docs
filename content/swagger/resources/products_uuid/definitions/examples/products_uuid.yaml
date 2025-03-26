@@ -25,13 +25,14 @@ x-SaaS: {
         "uuid": "25566245-55c3-42ce-86d9-8610ac459fa8",
         "family": "tshirt",
         "groups": [],
-        "parent": null,
+        "parent": "tops",
+        "root_parent": "clothes",
         "categories": ["summer_collection"],
         "enabled": true,
         "values": {
           "sku": [
             {
-              "data": "top",
+              "data": "top-xl",
               "locale": null,
               "scope": null,
               "attribute_type": "pim_catalog_identifier"
@@ -39,13 +40,13 @@ x-SaaS: {
           ],
           "name": [
             {
-              "data": "Top",
+              "data": "Top XL",
               "locale": "en_US",
               "scope": null,
               "attribute_type": "pim_catalog_text"
             },
             {
-              "data": "Débardeur",
+              "data": "Débardeur XL",
               "locale": "fr_FR",
               "scope": null,
               "attribute_type": "pim_catalog_text"
@@ -53,25 +54,25 @@ x-SaaS: {
           ],
           "description": [
             {
-              "data": "Summer top",
+              "data": "Summer top XL",
               "locale": "en_US",
               "scope": "ecommerce",
               "attribute_type": "pim_catalog_textarea"
             },
             {
-              "data": "Top",
+              "data": "Top XL",
               "locale": "en_US",
               "scope": "tablet",
               "attribute_type": "pim_catalog_textarea"
             },
             {
-              "data": "Débardeur pour l'été",
+              "data": "Débardeur XL pour l'été",
               "locale": "fr_FR",
               "scope": "ecommerce",
               "attribute_type": "pim_catalog_textarea"
             },
             {
-              "data": "Débardeur",
+              "data": "Débardeur XL",
               "locale": "fr_FR",
               "scope": "tablet",
               "attribute_type": "pim_catalog_textarea"
@@ -112,13 +113,13 @@ x-SaaS: {
             {
               "locale": null,
               "scope": null,
-              "data": "m",
+              "data": "xl",
               "linked_data": {
                 "attribute": "size",
-                "code": "m",
+                "code": "xl",
                 "labels": {
-                  "en_US": "M",
-                  "fr_FR": "M"
+                  "en_US": "XL",
+                  "fr_FR": "XL"
                 }
               },
               "attribute_type": "pim_catalog_simpleselect"

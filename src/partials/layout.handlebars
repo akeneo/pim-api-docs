@@ -8,11 +8,23 @@
     <script src="/js/jquery.min.js"></script>
     <script src='/js/bootstrap.min.js'></script>
     <script src="/js/isotope.pkgd.min.js"></script>
-    <link rel="icon" type="image/png" href="/img/akene36.png">
+    <link rel="icon" type="image/png" href="/img/faviconV2.png">
     <link rel="stylesheet" href="/css/prism-okaidia.css">
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css">
+    <link rel="preload" href="/fonts/Roobert-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roobert-LightItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roobert-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roobert-RegularItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roobert-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roobert-MediumItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roobert-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roobert-SemiBoldItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roobert-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roobert-BoldItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roobert-Heavy.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Roobert-HeavyItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 
     <!-- Hotjar Tracking Code for https://api.akeneo.com/ -->
@@ -54,7 +66,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <img height="18" src="/img/akeneo.svg"></img>
+                <img height="18" src="/img/Akeneo_APIs.svg"></img>
             </a>
         </div>
 
@@ -91,10 +103,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </li>
 
                 <li class="dropdown{{#if active_api_resources}} active{{/if}}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">API resources <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PIM APIs<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-title">API resources</li>
+                        <li class="dropdown-title">PIM API resources</li>
                         <li><a href="/documentation/introduction.html">REST API</a></li>
+                        <li>
+                            <ul>
+                              <li><a href="/api-reference-index.html">REST API reference</a></li>
+                            </ul>
+                        </li>
+                        <!--
                         <li>
                             <ul>
                                 <li><a href="/documentation/why-the-api.html">REST API basics</a></li>
@@ -103,11 +121,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <li><a href="/getting-started/connect-the-pim-4x/welcome.html">The "Connect the PIM" tutorial</a></li>
                             </ul>
                         </li>
+                      -->
                         <li>
                             <a href="/graphql/getting-started.html">
-                            The GraphQL API <span class="label label-beta">New</span>
+                            GraphQL API
                             </a>
                         </li>
+                        <li>
+                          <ul>
+                              <li><a href="/graphql/queries-and-arguments.html">Available queries & arguments</a></li>
+                          </ul>
+                        </li>
+                        <!--
                         <li>
                             <ul>
                                 <li><a href="/graphql/getting-started.html">Getting started</a></li>
@@ -115,17 +140,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <li><a href="/graphql/recommendations.html">Usage recommendations</a></li>
                             </ul>
                         </li>
-                        <li><a href="/events-reference/events-reference-serenity/products.html">Events API</a></li>
+                      -->
+                        <li>
+                            <a href="/event-platform/overview.html">
+                              Event Platform <span class="label label-beta">New</span>
+                            </a>
+                        </li>
                         <li>
                             <ul>
-                                <li><a href="/events-documentation/overview.html">Events API basic</a></li>
-                                <li><a href="/events-reference/events-reference-serenity/products.html">Events API reference</a></li>
-                                <li><a href="/getting-started/events-api-best-practices-5x/welcome.html">Events API best practice</a></li>
-                                <li><a href="/getting-started/quick-start-my-first-webhook-5x/welcome.html">Quick start my first webhook</a></li>
+                                <li><a href="/event-platform/available-events.html">Available events</a></li>
                             </ul>
                         </li>
-                        <li><a href="/php-client/introduction.html">PIM Client</a></li>
+                      <!--
+                      <li>
+                          <ul>
+                              <li><a href="/event-platform/overview.html">Overview</a></li>
+                              <li><a href="/event-platform/getting-started.html">Getting started</a></li>
+                              <li><a href="/event-platform/concepts.html">Concepts</a></li>
+                              <li><a href="/event-platform/api-reference.html">API Reference</a></li>
+                          </ul>
+                      </li>
+                    -->
+                        <li>
+                            <a href="/extensions/overview.html">
+                                Extensions <span class="label label-beta">New</span>
+                            </a>
+                        </li>
+                        <li>
+                            <ul>
+                                <li><a href="/extensions/ui-extensions.html">UI Extensions</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/events-documentation/overview.html">
+                                Events API <span class="label label-alert">Deprecated</span>
+                            </a>
+                        </li>
+                        <li><a href="/php-client/introduction.html">PHP API Client</a></li>
                         <li><a href="/concepts/introduction.html">PIM data concepts</a></li>
+                        <!--
                         <li>
                             <ul>
                                 <li><a href="/concepts/products.html">Product</a></li>
@@ -134,7 +187,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <li><a href="/concepts/target-market-settings.html">Target market settings</a></li>
                                 <li><a href="/concepts/reference-entities.html">Reference entities</a></li>
                                 <li><a href="/concepts/asset-manager.html">Asset manager</a></li>
-                                <li><a href="/concepts/pam.html">PAM - Deprecated</a></li>
+                            </ul>
+                        </li>
+                      -->
+                    </ul>
+                </li>
+                <li class="dropdown{{#if active_sdm_api_resources}} active{{/if}}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SDM API<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-title">SDM API resources</li>
+                        <li>
+                            <a href="/supplier-data-manager/getting-started.html">
+                            Supplier Data Manager API <span class="label label-beta">New</span>
+                            </a>
+                        </li>
+                        <li>
+                            <ul>
+                                <li><a href="/supplier-data-manager/getting-started.html">Getting started</a></li>
+                                <li><a href="/supplier-data-manager/common-usage.html">Common usage</a></li>
+                                <li><a href="/supplier-data-manager/api-reference.html">API reference</a></li>
                             </ul>
                         </li>
                     </ul>

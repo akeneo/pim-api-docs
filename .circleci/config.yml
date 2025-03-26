@@ -349,7 +349,9 @@ jobs:
       pull_request:
         type: boolean
         default: true
-    <<: *dockerExecutorWithPython
+    machine:
+      image: ubuntu-2204:2024.01.2
+    working_directory: ~/
     environment:
       GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
       OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
@@ -359,30 +361,32 @@ jobs:
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
     steps:
-      - setup_remote_docker
       - attach_workspace:
           at: ~/
       - security-hunter/gcp_oidc_auth:
           impersonate: true
+          token_type: 'access_token'
       - run:
           name: Source environment
           command: |
             cat ~/env.<<parameters.target_stage_id>> >> $BASH_ENV ; source $BASH_ENV
       - run:
           name: Install requirements
-          command: |
-            pip3 install -r .circleci/tools/requirements.txt
+          command: |  
+            export PATH=$(echo $PATH | sed -e 's|/opt/circleci/.pyenv/shims:||g')          
+            python3 -m pip install -r project/.circleci/tools/requirements.txt
       - run:
           name: Perform environment destroying
           command: |
+            export PATH=$(echo $PATH | sed -e 's|/opt/circleci/.pyenv/shims:||g')
             mkdir -p deployments/secrets
 
             envsToDestroy=($(echo "<< parameters.envs_to_destroy >>" | tr ',' ' '))
             for envToDestroy in "${envsToDestroy[@]}"
             do
               echo "**** Environment: ${envToDestroy} ****"
-              python3 .circleci/tools/destroyer/terraform_destroy.py --first_install false --stage <<parameters.target_stage_id>> --app_version <<pipeline.git.revision>> --pull_request <<parameters.pull_request>> --pull_request_id ${envToDestroy}
-              python3 .circleci/tools/destroyer/remove_state_folder.py --pull_request_id ${envToDestroy}
+              python3 project/.circleci/tools/destroyer/terraform_destroy.py --first_install false --stage <<parameters.target_stage_id>> --app_version <<pipeline.git.revision>> --pull_request <<parameters.pull_request>> --pull_request_id ${envToDestroy}
+              python3 project/.circleci/tools/destroyer/remove_state_folder.py --pull_request_id ${envToDestroy}
             done
 
 commands:

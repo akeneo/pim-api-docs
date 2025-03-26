@@ -543,29 +543,6 @@ Whenever the attribute's type is `akeneo_reference_entity_collection`, the `data
 }
 ```
 
-#### PAM asset collection attribute _- Deprecated_
-::: availability versions=2.1,2.2,2.3,3.x editions=EE
-:::
-
-Whenever the attribute's type is `pim_assets_collection`, the `data` field should contain an array of strings, each string being the code of a [PAM asset](/concepts/pam.html#asset).
-
-##### Example
-```json
-{
-  "values": {
-    "userguides": [
-      {
-        "locale": null,
-        "scope": null,
-        "data": ["guarantee_notice", "how_to_guide"],
-        "attribute_type": "pim_assets_collection",
-        "reference_data_name": "guides_images"
-      }
-    ]
-  }
-}
-```
-
 #### Asset Manager asset collection attribute
 ::: availability versions=3.2,4.0,5.0,6.0,7.0,SaaS editions=EE
 :::
@@ -583,6 +560,29 @@ Whenever the attribute's type is `pim_catalog_asset_collection`, the `data` fiel
         "data": ["allie_jean_frontview", "allie_jean_backview"],
         "attribute_type": "pim_assets_collection",
         "reference_data_name": "packshots"
+      }
+    ]
+  }
+}
+```
+
+#### PAM asset collection attribute _- Deprecated_
+::: availability versions=2.1,2.2,2.3,3.x editions=EE
+:::
+
+Whenever the attribute's type is `pim_assets_collection`, the `data` field should contain an array of strings, each string being the code of a [PAM asset](/concepts/pam.html#asset).
+
+##### Example
+```json
+{
+  "values": {
+    "userguides": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": ["guarantee_notice", "how_to_guide"],
+        "attribute_type": "pim_assets_collection",
+        "reference_data_name": "guides_images"
       }
     ]
   }
@@ -856,9 +856,22 @@ Whenever the attribute type is `pim_catalog_asset_collection`, the `linked_data`
         "left_side": {
           "share_links": [
             {
+              "attribute": "media",
+              "scope": null,
+              "locale": null,
               "_links": {
                 "self": {
-                  "href": "https://asset-delivery.akeneo.com/asset_family/left_side.png"
+                  "href": "https://asset-delivery.akeneo.com/asset_family/media/left_side.png"
+                }
+              }
+            },
+            {
+              "attribute": "secondary_media",
+              "scope": null,
+              "locale": null,
+              "_links": {
+                "self": {
+                  "href": "https://asset-delivery.akeneo.com/asset_family/secondary_media/left_side.png"
                 }
               }
             }
@@ -867,9 +880,12 @@ Whenever the attribute type is `pim_catalog_asset_collection`, the `linked_data`
         "right_side": {
           "share_links": [
             {
+              "attribute": "media",
+              "scope": null,
+              "locale": null,
               "_links": {
                 "self": {
-                  "href": "https://asset-delivery.akeneo.com/asset_family/right_side.png"
+                  "href": "https://asset-delivery.akeneo.com/asset_family/media/right_side.png"
                 }
               }
             }
@@ -877,7 +893,7 @@ Whenever the attribute type is `pim_catalog_asset_collection`, the `linked_data`
         }
       },
       "attribute_type": "pim_catalog_asset_collection",
-      "reference_data_name": "asset_ref"
+      "reference_data_name": "asset_family"
     }
   ]
 }

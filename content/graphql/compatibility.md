@@ -1,4 +1,4 @@
-# Pim Compatibility
+# PIM Compatibility
 
 The compatibility of the Akeneo `GraphQL API` with `various editions` of Akeneo PIM is explained below.
 

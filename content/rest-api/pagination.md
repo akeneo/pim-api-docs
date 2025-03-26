@@ -48,12 +48,12 @@ This pagination method is only available for:
 - products,
 - product models,
 - published products,
-- PAM assets (_deprecated_),
 - reference entities,
 - reference entity attribute options,
 - reference entity records,
 - Asset Manager assets,
-- Asset Manager asset families.
+- Asset Manager asset families,
+- PAM assets (_deprecated_).
 :::
 
 ::: info

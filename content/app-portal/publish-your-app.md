@@ -270,15 +270,18 @@ A poor app user experience causes users frustration and can negatively impact bo
 
 ☐ I made sure that the information is hierarchically organized to make sense to my users — headings, sub-headings, grouping similar information or features.
 
-
 ## Your app must guarantee a certain level of security
 
 Because your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must comply with Akeneo security policies. Each app which will be submitted for publication will be reviewed and will need to meet the security requirements described below. You'll also find more information and tips on the [security requirements page](/apps/secure-your-app.html) to improve the security of your app.
 
 ### Security Publication Process
 
-Before any app is accepted into our App Store, we scan it for potential security issues.
-The Akeneo Security team will perform the following tests on the source code of the app to be published:
+Before any app is accepted into our App Store, Akeneo's security team will perform a review of your app / organization. This security analysis can be carried out in several ways
+- Code Scanning by Akeneo OR Security Audit performed on your end
+- Security Questionnaire to fill
+
+#### Code Scanning 
+The review will entail a source code scan of your integration to be submitted during the security review (see below). This scan will entail:
 
 - Source Composition Analysis to detect vulnerabilities on the dependencies your code is using.
 - Secrets Scanning to detect potential secret management security flaws.
@@ -291,10 +294,20 @@ If a potential security issue is detected on your app during the tests, we'll no
 **Important**: In order to check the security of your app, you must deliver your app code to Akeneo. **Akeneo commits to not sharing your source code with any third party, and to deleting it once the scan has been completed**.
 :::
 
-### Submitting your code
+#### Proof of Security Audit
 
-Your App source code must be provided as part as the App Submission process.
-- The source code **MUST** be provided as a .zip archive, following this specific format: *<name_of_your_app>*.zip. Please reach your Akeneo contact for more information.
+If you performed a audit (web assessment or penetration test) on your integration during the last year, you can also provide an executive summary of the audit to replace the code scanning.
+
+#### Security Questionnaire
+
+The questionnaire is used to assess your level of maturity in terms of application security such as :
+- Secure software development lifecycle (SDLC) measures & processes
+- Vulnerability Management
+- Company security policies & certifications
+
+### Submitting your app for the Security Review
+
+To submit your App for the Security Review, please create a ticket [here](https://akeneo.atlassian.net/servicedesk/customer/portal/8/group/113). 
 
 ## You must guarantee a certain level of service related to your app
 

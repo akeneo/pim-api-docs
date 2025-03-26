@@ -1,5 +1,13 @@
 # Permissions
 
+:::warning
+This documentation concerns `Connector` development only.
+
+If you develop an `App` please consult this [documentation](/apps/authentication-and-authorization.html) instead.
+
+Want to know the differences between an `App` and `Connector`? Please consult this [documentation](/apps/overview.html#why-apps-over-connectors).
+:::
+
 In some connector use cases, you will need to restrict the access to the REST API.
 There are two ways to handle this in the REST API, depending on the wanted result:
 - if you want to restrict the access to some REST API endpoints, use [the ACLs authorizations](#endpoint-access-restrictions).

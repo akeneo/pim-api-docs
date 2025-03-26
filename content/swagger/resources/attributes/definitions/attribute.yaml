@@ -9,7 +9,26 @@ properties:
     type: string
     description: Attribute type. See <a href='/concepts/catalog-structure.html#attribute'>type</a> section for more details.
     x-validation-rules: The type is one of the following values
-    enum: ['pim_catalog_identifier', 'pim_catalog_metric', 'pim_catalog_number', 'pim_catalog_reference_data_multi_select', 'pim_catalog_reference_data_simple_select', 'pim_catalog_simpleselect', 'pim_catalog_multiselect', 'pim_catalog_date', 'pim_catalog_textarea', 'pim_catalog_text', 'pim_catalog_file', 'pim_catalog_image', 'pim_catalog_price_collection', 'pim_catalog_boolean', 'akeneo_reference_entity', 'akeneo_reference_entity_collection', 'pim_catalog_asset_collection']
+    enum:
+      [
+        "pim_catalog_identifier",
+        "pim_catalog_metric",
+        "pim_catalog_number",
+        "pim_catalog_reference_data_multi_select",
+        "pim_catalog_reference_data_simple_select",
+        "pim_catalog_simpleselect",
+        "pim_catalog_multiselect",
+        "pim_catalog_date",
+        "pim_catalog_textarea",
+        "pim_catalog_text",
+        "pim_catalog_file",
+        "pim_catalog_image",
+        "pim_catalog_price_collection",
+        "pim_catalog_boolean",
+        "akeneo_reference_entity",
+        "akeneo_reference_entity_collection",
+        "pim_catalog_asset_collection",
+      ]
     x-immutable: true
   labels:
     type: object
@@ -40,15 +59,15 @@ properties:
     x-validation-rules: It is a positive integer
     default: 0
   localizable:
-      type: boolean
-      description: Whether the attribute is localizable, i.e. can have one value by locale
-      default: false
-      x-immutable: true
+    type: boolean
+    description: Whether the attribute is localizable, i.e. can have one value by locale
+    default: false
+    x-immutable: true
   scopable:
-      type: boolean
-      description: Whether the attribute is scopable, i.e. can have one value by channel
-      default : false
-      x-immutable: true
+    type: boolean
+    description: Whether the attribute is scopable, i.e. can have one value by channel
+    default: false
+    x-immutable: true
   available_locales:
     type: array
     description: To make the attribute locale specfic, specify here for which locales it is specific
@@ -193,39 +212,39 @@ properties:
   is_main_identifier:
     type: boolean
     description: Is this attribute main identifier when attribute type is `pim_catalog_identifier`
-example: {
-  "code": "release_date",
-  "type": "pim_catalog_date",
-  "group": "marketing",
-  "group_labels": {
-    "en_US": "Marketing",
-    "fr_FR": "Marketing"
-  },
-  "unique": false,
-  "useable_as_grid_filter": true,
-  "allowed_extensions": [],
-  "metric_family": null,
-  "default_metric_unit": null,
-  "reference_data_name": null,
-  "available_locales": [],
-  "max_characters": null,
-  "validation_rule": null,
-  "validation_regexp": null,
-  "wysiwyg_enabled": null,
-  "number_min": null,
-  "number_max": null,
-  "decimals_allowed": null,
-  "negative_allowed": null,
-  "date_min": "2017-06-28T08:00:00",
-  "date_max": "2017-08-08T22:00:00",
-  "max_file_size": null,
-  "minimum_input_length": null,
-  "sort_order": 1,
-  "localizable": false,
-  "scopable": false,
-  "default_value": null,
-  "labels": {
-    "en_US": "Sale date",
-    "fr_FR": "Date des soldes"
+  is_mandatory:
+    type: boolean
+    description: This attribute must be enriched from the moment a product is created. It will be mandatory across all families.
+    x-warning: Only for `pim_catalog_boolean`, `pim_catalog_identifier`, `pim_catalog_number`, `pim_catalog_simpleselect`, `pim_catalog_textarea`, `pim_catalog_text`, `pim_reference_data_simpleselect` or `akeneo_reference_entity` attribute types
+example:
+  {
+    "code": "release_date",
+    "type": "pim_catalog_date",
+    "group": "marketing",
+    "group_labels": { "en_US": "Marketing", "fr_FR": "Marketing" },
+    "unique": false,
+    "useable_as_grid_filter": true,
+    "allowed_extensions": [],
+    "metric_family": null,
+    "default_metric_unit": null,
+    "reference_data_name": null,
+    "available_locales": [],
+    "max_characters": null,
+    "validation_rule": null,
+    "validation_regexp": null,
+    "wysiwyg_enabled": null,
+    "number_min": null,
+    "number_max": null,
+    "decimals_allowed": null,
+    "negative_allowed": null,
+    "date_min": "2017-06-28T08:00:00",
+    "date_max": "2017-08-08T22:00:00",
+    "max_file_size": null,
+    "minimum_input_length": null,
+    "sort_order": 1,
+    "localizable": false,
+    "scopable": false,
+    "default_value": null,
+    "labels": { "en_US": "Sale date", "fr_FR": "Date des soldes" },
+    "is_mandatory": false
   }
-}

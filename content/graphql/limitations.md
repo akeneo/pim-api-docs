@@ -19,7 +19,7 @@ If you encounter any **challenges** with the `rate limits`, please don't hesitat
 
 Your insights are invaluable in fine-tuning our system for optimal performance.
 :::
-The **GraphQL API** is limited to `100req/10s` per **PIM URL.**
+The **GraphQL API** is limited to `500req/10s` per **PIM URL.**
 
 ## Query complexity limitations
 
@@ -103,20 +103,21 @@ For example, you can make the following query
 
 | Query                    | Max Depth |
 |--------------------------|-----------|
-| productModels            | 6         |
-| products                 | 6         |
-| families                 | 5         |
-| attributes               | 4         |
-| categories               | 4         |
-| channels                 | 4         |
-| assetFamilies            | 4         |
-| referenceEntities        | 4         |
-| measurementFamilies      | 4         |
+| assetFamilies            | 5         |
 | assetsRecords            | 3         |
-| referenceEntitiesRecords | 3         |
+| attributes               | 4         |
 | attributeOptions         | 3         |
+| categories               | 8         |
+| channels                 | 4         |
 | currencies               | 3         |
+| families                 | 5         |
 | locales                  | 3         |
+| measurementFamilies      | 4         |
+| productModels            | 7         |
+| products                 | 8         |
+| referenceEntities        | 5         |
+| referenceEntitiesRecords | 3         |
+| systemInformation        | 3         |
 
 :::info
 Remember that every time you open a bracket, the level of depth increases.

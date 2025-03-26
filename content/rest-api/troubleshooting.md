@@ -81,3 +81,30 @@ main:
     anonymous:                      false
 ```
 
+## Read after write eventual consistency
+
+When making a POST request to a specific endpoint, it's important to understand that a subsequent GET request with search parameters may not immediately return the data that was just posted. This behavior is a consequence of the underlying architecture, which involves distributed and scalable databases, also known as read-after-write eventual consistency.
+
+### Understanding the Data Flow
+
+1. **POST Request**: When you make a POST request to the endpoint, the data is initially stored in the primary database. This operation is typically quick and ensures that the data is persisted.
+2. **Indexing**: The data then needs to be indexed in a search engine to make it searchable. This indexing process may not be instantaneous and can introduce a delay.
+3. **GET Request**: When you make a GET request with search parameters, the system queries the search index to retrieve the data. If the indexing process is not yet complete, the newly posted data may not be available in the search results immediately.
+
+### Consequences of Distributed Architecture
+
+- **Eventual Consistency**: In a distributed system, achieving immediate consistency across all components is challenging. The system is designed to eventually become consistent, meaning that there may be a brief period during which the search index is not fully up-to-date with the primary database.
+- **Scalability**: The architecture is designed to handle large volumes of data and high traffic, which necessitates the use of distributed databases and search indexes. This scalability comes at the cost of immediate data availability in search results.
+- **Indexing Latency**: The time taken to index the data can vary based on the system load, the complexity of the data, and other factors. This latency is a natural consequence of using a search engine to enhance query performance.
+
+### Workaround
+
+If immediate retrieval of the posted data is critical, consider to query the entity endpoint by its ID instead of performing a search query.
+
+### Example Scenario
+
+1. **POST Request**: You send a POST request to create a new product.
+2. **Data Storage**: The product data is stored in the primary database.
+3. **Indexing**: The system begins the process of indexing the product data in the search engine.
+4. **GET Request**: You immediately send a GET request to search for several products with filters on family a specific family.
+5. **Search Results**: The new product may not appear in the search results because the indexing process is still in progress.

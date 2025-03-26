@@ -10,7 +10,7 @@ Notification Subscription allows you to "subscribe" to specific activities withi
 
 Getting started with Notification Subscription is simple. Just follow these easy steps:
 
-1. Go to Your App: Log in to your account on the [App Store Admin Portal](https://manage.apps.akeneo.com/).
+1. Go to Your App: Log in to your account on the [App Portal](https://manage.apps.akeneo.com/).
 2. Select Your Notification Preferences: Once you're logged in, navigate to your notification settings from your user profile.
 3. Choose What to Track: In the Notification Subscription section, you will see two options: "Track Activation Requests" and "Track New Submissions." You can select one or both of these options based on your preferences. By doing so, you're essentially subscribing to notifications for these activities.
 

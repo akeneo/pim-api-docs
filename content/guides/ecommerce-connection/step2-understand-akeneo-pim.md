@@ -1,37 +1,10 @@
 # Understand Akeneo PIM
 
-## Versions and editions
-
-First, it is crucial for you to understand there are several types of PIMs at Akeneo, depending on its version and edition.
-
-To know more about the different PIM versions, you can consult [this article](https://www.akeneo.com/blog/akeneo-introduces-a-simpler-product-release-cycle/) to understand our PIM release cycle.
-
-You can also consult ["what's new ?" page](https://help.akeneo.com/pim/serenity/whats-new.html) or our [release notes](https://www.akeneo.com/release-notes/) to understand the scope of each version.
-
-To finish, you'll find what our last supported PIM versions are on our [helpdesk platform](http://helpdesk.akeneo.com/). If you can't access it, please [contact us](https://www.akeneo.com/contact/).
-
-Then, in order to understand our different editions and their capabilities, you can consult our [dedicated page](https://www.akeneo.com/compare-editions/) on our website.
-
-## Features and data model
-
-Play with our PIM!
-
-It is crucial to understand the PIM features and data model in order to create a great eCommerce App.
-
-The best way to become an expert at Akeneo PIM is to play with it!  
-Here, you can access our [Akeneo PIM Community Edition demo platform](https://demo.akeneo.com) (login/password: admin / admin).
-
-:::warning
-Please note that this Akeneo PIM CE demo instance is for exploratory purposes only and will only allow you to start getting familiar with Akeneo PIM. This instance is reset frequently and is therefore not intended to be used to build an App.
-:::
-
-If you need an Akeneo PIM **Enterprise Edition** instance to start developing your App, please [contact us](https://www.akeneo.com/contact/).
-
 ## Acquire PIM knowledge
 
 We advise you to take a look at our [Helpcenter](https://help.akeneo.com/pim/index.html) where you'll find a lot of documentation about all our features
 
-If you feel that a comprehensive training program would allow you to know everything about Akeneo PIM, we got you covered as well with our [training sessions](https://www.akeneo.com/training/). Don't hesitate to register!
+If you feel that a comprehensive training program would allow you to know everything about Akeneo PIM, we got you covered as well with our [training sessions](https://partner-akademy.akeneo.com/app-development-journey). Don't hesitate to register!
 
 In the context of building an eCommerce App, here is a selection of PIM concepts you'll need to master before developing anything:
 - The [product](/concepts/products.html#product),

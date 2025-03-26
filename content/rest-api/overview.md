@@ -6,10 +6,10 @@ _All the essential things you need to know._
 
 The REST API offers a set of endpoints that can be reached via the following root URI.
 ```http
-https://demo.akeneo.com/api/rest/v1
+https://mysandbox.demo.cloud.akeneo.com/api/rest/v1
 ```
 
-`https://demo.akeneo.com` is the host of the PIM you are trying to request via the REST API.
+`https://mysandbox.demo.cloud.akeneo.com` is the host of the PIM you are trying to request via the REST API.
 
 `v1` means that you want to use the first (and only) version of the REST API. All URIs have to explicitly request this version. If you try to request another version of the REST API, you will receive a beautiful 404 error since there is only one version of the REST API for now.
 
@@ -112,7 +112,7 @@ curl /api/rest/v1
 HTTP/1.1 200 OK
 
 {
-  "host": "http://demo.akeneo.com",
+  "host": "https://mysandbox.demo.cloud.akeneo.com",
   "authentication": {
     "fos_oauth_server_token": {
       "route": "/api/oauth/v1/token",
@@ -150,7 +150,7 @@ You do not need to be authenticated to access this route.
 
 ## Fair-usage protection
 
-Our API facilitates the integration of Akeneo PIM with external systems. To maintain optimal user experience and platform stability, our platform employs various protection mechanisms to prevent over-usage. 
+Our API facilitates the integration of Akeneo PIM with external systems. To maintain optimal user experience and platform stability, our platform employs various protection mechanisms to prevent over-usage.
 Please adhere to the following usage guidelines:
 
 ### Maximum Concurrent API Calls
