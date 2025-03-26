@@ -28,18 +28,18 @@ We provide you a dedicated [Migration Playbook](https://nowhere.com) to help you
 
 Yes, you can use both in parallel to ease your migration process.
 
-Yet, we remind you that, in the end, Event API will be shut down.
+However, please keep in mind that the Event API will be deprecated by the end of the given period, so you will eventually need to migrate all your existing integrations to our new platform.
 
 ## What are the benefits of the new Event Platform?
 
-Event Platform comes with a lot of new benefits to cover previous lacks of Event API
+Event Platform comes with a lot of new benefits to cover previous lacks of Event API:
 
 - Much more event (+30 events available today)
 - No restriction on number of events, quotas only
 - “At least once” delivery guarantee & retry system in place
 - Product deltas enable efficient updates
 
-You can find more details [here](../event-platform/overview.html)
+You can find more details [here](../event-platform/overview.html).
 
 ## What should I do to migrate to the new Event Platform?
 
@@ -47,7 +47,7 @@ You can follow our dedicated [Migration Playbook](https://nowhere.com) and the n
 
 ## I need help with this migration, what are my options?
 
-For any help, you can always contact [Akeneo's Support](https://akeneo.atlassian.net/servicedesk/customer/portal/8)
+For any help, you can always contact [Akeneo's Support](https://akeneo.atlassian.net/servicedesk/customer/portal/8).
 
 ## What should I do if the new Event Platform doesn’t cover my specific use case?
 
