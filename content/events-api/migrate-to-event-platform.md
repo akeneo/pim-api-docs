@@ -87,7 +87,7 @@ In the old Event API, each event related to an update provided a complete snapsh
 If you need to access all product or product model information upon receiving events, you will need to utilize the PIM REST API.
 
 ### Filtering events triggered by yourself
-With the Event Platform, you will receive events triggered by creation, modification, or deletion actions, even if your connection initiated those actions. Therefore, it is essential to implement a mechanism to filter out these self-triggered events to avoid entering an infinite loop.
+With the Event Platform, you will receive events triggered by creation, modification, or deletion actions, even if your Connection initiated those actions. Therefore, it is essential to implement a mechanism to filter out these self-triggered events to avoid entering an infinite loop.
 
 ### Importance of a robust system
 It is crucial to ensure that your system is robust, as the Event Platform can send significantly more events per second compared to the previous system. If your system is unable to keep up with this increased volume, it may lead to the suspension of your subscription. To avoid potential disruptions, it is essential to implement effective handling mechanisms.
