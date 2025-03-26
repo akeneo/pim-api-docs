@@ -7,11 +7,11 @@ post:
     - "SaaS"
   description: |
     This endpoint allows you to search a list of products by providing filters in the request body. Products are paginated and can be filtered by scope, locales, attributes, and other criteria. Permissions based on your user groups are applied to the set of products you request.
-
-    Important limitations:
-    - The maximum number of attributes in the request body is 600.
-    - The maximum number of search criteria is 20.
-    - The maximum number of items in an array (e.g., values for filters like `IN` or `NOT IN`) is 500.
+    <br /><br />
+    <b>Important limitations</b><br />
+    - The maximum number of attributes in the request body is 800.<br />
+    - The maximum number of search criteria is 20.<br />
+    - The maximum number of items in an array (e.g., values for filters like `IN` or `NOT IN`) is 800.
 
   parameters:
     - $ref: '#/parameters/pagination_type'
