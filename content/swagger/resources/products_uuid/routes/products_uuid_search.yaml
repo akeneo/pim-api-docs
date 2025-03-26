@@ -6,7 +6,7 @@ post:
   x-versions:
     - "SaaS"
   description: |
-    This endpoint allows you to search a list of products by providing filters in the request body. Products are paginated and can be filtered by scope, locales, attributes, and other criteria. In the Enterprise Edition, permissions based on your user groups are applied to the set of products you request.
+    This endpoint allows you to search a list of products by providing filters in the request body. Products are paginated and can be filtered by scope, locales, attributes, and other criteria. Permissions based on your user groups are applied to the set of products you request.
 
     Important limitations:
     - The maximum number of attributes in the request body is 600.
