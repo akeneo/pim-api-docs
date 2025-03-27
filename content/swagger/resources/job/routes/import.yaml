@@ -1,0 +1,33 @@
+post:
+  summary: Launch import job by code
+  operationId: "post_job_import"
+  tags:
+    - Job
+  x-versions:
+    - "SaaS"
+  description: This endpoint allows you to launch an import job by code.
+  parameters:
+    - name: code
+      in: path
+      type: string
+      description: Job code
+      required: true
+    - name: body
+      in: body
+      schema:
+        properties:
+          import_mode:
+            type: string
+            description: Optional. Change the import mode for this job by overriding the profile value.
+            format: binary
+  responses:
+    200:
+      description: OK
+      x-details: Returns the execution ID for the launched job
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example: {"execution_id": "12345"}
+    404:
+      $ref: "#/responses/404Error"
+    422:
+      $ref: "#/responses/422Error"
