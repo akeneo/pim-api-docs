@@ -102,6 +102,8 @@ get:
                     "default_value": null,
                     "labels": { "en_US": "Identifier", "fr_FR": "Identifiant" },
                     "is_mandatory": false,
+                    "decimal_places_strategy": null,
+                    "decimal_places": null
                   },
                   {
                     "_links":
@@ -140,6 +142,8 @@ get:
                     "labels":
                       { "en_US": "Sale date", "fr_FR": "Date des soldes" },
                     "is_mandatory": false,
+                    "decimal_places_strategy": null,
+                    "decimal_places": null
                   },
                   {
                     "_links":
@@ -177,6 +181,8 @@ get:
                     "labels":
                       { "en_US": "Composition", "fr_FR": "Composition" },
                     "is_mandatory": false,
+                    "decimal_places_strategy": null,
+                    "decimal_places": null,
                     "guidelines": {},
                     "auto_option_sorting": null,
                     "is_read_only": null,
