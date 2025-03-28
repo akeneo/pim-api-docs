@@ -197,13 +197,13 @@ To configure an `iframe` UI extension, mandatory fields are `name`, `position`, 
 
 **Ensuring security of embedded iframes**
 
-1 - Properly configure [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers to control the sources from which content can be loaded.
+- Properly configure [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers to control the sources from which content can be loaded.
 
 ::: warning
  Please note that if these headers are misconfigured, iframe functionality may not work as intended.
 :::
 
-2 - Add a secret to you extension. It will be used to generate a JWT token that is sent to the iframe using post message.
+- Add a secret to you extension. It will be used to generate a JWT token that is sent to the iframe using post message.
 
 **PostMessage**
 
