@@ -19,6 +19,10 @@ post:
       x-examples-per-version:
         - x-version: 'SaaS'
           x-example: {"execution_id": "12345"}
+    400:
+      $ref: "#/responses/400Error"
+    403:
+      $ref: "#/responses/403Error"
     404:
       $ref: "#/responses/404Error"
     422:
