@@ -84,7 +84,7 @@ This change will not affect product model events.
 ### Differential payload (delta) instead of full payload
 In the old Event API, each event related to an update provided a complete snapshot of the object (simple product, model, or variant), including a wealth of data. With the Event Platform and the `*.updated.delta` events, you will now receive only the data that has changed. The format for these new events is detailed in the documentation [here](https://api.akeneo.com/event-platform/available-events.html).
 
-If you need to access all product or product model information upon receiving events, you will need to utilize the PIM REST API.
+If you need to access all product or product model information upon receiving events, please use the PIM REST API.
 
 ### Filtering events triggered by yourself
 With the Event Platform, you will receive events triggered by creation, modification, or deletion actions, even if your Connection initiated those actions. Therefore, it is essential to implement a mechanism to filter out these self-triggered events to avoid entering an infinite loop.
