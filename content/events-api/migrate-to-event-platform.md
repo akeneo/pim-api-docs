@@ -1,6 +1,6 @@
 # Migrate to Event Platform
 ## Introduction
-This documentation aims to help you transition from the deprecated Event API to the modern Event Platform. To get acquainted with the core concepts, we recommend beginning with [the getting started guide](https://api.akeneo.com/event-platform/getting-started.html). Instead of repeating existing information, this guide offers numerous links to relevant resources, enabling you to delve deeper into various topics.
+This documentation aims to help your transition from the deprecated Event API to the modern Event Platform. We recommend beginning with [the getting started guide](https://api.akeneo.com/event-platform/getting-started.html) to get acquainted with the core concepts. Instead of repeating existing information, this guide offers numerous links to relevant resources, enabling you to delve deeper into various topics.
 
 As you will discover throughout this guide, the Event Platform was built with an API-first approach. Consequently, a substantial portion of its configuration is required to be performed through HTTPS calls.
 
