@@ -70,7 +70,7 @@ For more details, refer to the documentation for the endpoint [here](https://sto
 }
 ```
 
-This example includes all the events necessary to maintain a similar system to what you had before. You can choose fewer or additional events as needed. A complete list of available events can be found [here](https://api.akeneo.com/event-platform/available-events.html#available-events).
+This example includes all the events necessary to maintain a similar system to what you had before. Feel free to modify the list according to your needs. A complete list of available events can be found [here](https://api.akeneo.com/event-platform/available-events.html#available-events).
 
 Now, all relevant events should be sent. To test the setup, simply create, modify, or delete a product and check your destination to see if you receive the corresponding event.
 
