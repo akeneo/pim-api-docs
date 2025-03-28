@@ -37,7 +37,7 @@ The body should contain a single object with a `name` property and a `contact` s
 }
 ```
 
-The response will be a JSON object containing an `id`, which you will need to create your subscription(s).
+The response will be a JSON object containing an `id`, needed for the creation of your subscription(s).
 
 ### Create a subscription
 To replicate a system similar to what you had with the Event API (with a single destination), you will need to create one subscription.
