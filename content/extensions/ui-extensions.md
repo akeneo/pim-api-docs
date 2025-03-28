@@ -193,13 +193,17 @@ An iframe (inline frame) is an HTML element that allows you to embed another HTM
 
 For more detailed information, you can refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
-To ensure the secure embedding of iframes, it is essential to properly configure [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers to control the sources from which content can be loaded.
+To configure an `iframe` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label`, `secret` and `url`.
+
+**Ensuring security of embedded iframes**
+
+1 - Properly configure [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers to control the sources from which content can be loaded.
 
 ::: warning
  Please note that if these headers are misconfigured, iframe functionality may not work as intended.
 :::
 
-To configure an `iframe` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label` and `url`.
+2 - Add a secret to you extension. It will be used to generate a JWT token that is sent to the iframe using post message.
 
 **PostMessage**
 
@@ -272,7 +276,7 @@ An **action** UI extension is designed to perform external tasks in the backgrou
 + **Notification on completion**: A notification will appear once the external server responds to the request, keeping users informed of the task's status.
 + **Timeout**: The PIM HTTP client that communicates with the destination is configured with a timeout of 5 seconds.
 + **POST HTTP method**: The request being sent to the destination is a POST request.
-+ **Signature**: It's possible to configure a [secret](#secret) to sign each request sent to the destination.
++ **Signature**: It's possible to configure a `secret` to sign the body of the POST request sent to the destination (<a href='https://wikipedia.org/wiki/SHA-2'>SHA-512</a> protocol).
 
 Here is a diagram illustrating the workflow:
 [![action-extension-schema.png](../img/extensions/ui-extensions/action-extension-schema.png)](../img/extensions/ui-extensions/action-extension-schema.png)
@@ -373,10 +377,6 @@ This position refers to the list of commands availables after selecting some pro
 ::: warning
   For the moment, you can't use UI extensions with more than **500** selected products & product models.
 :::
-
-### Secret
-A secret can be used for UI extensions of type `action`. If it is, this secret is used to sign (with <a href='https://wikipedia.org/wiki/SHA-2'>SHA-512</a> protocol) the body of the POST request sent to the destination.
-
 
 ### Url
 All types of UI extensions must have a configured URL. However, the parameters that are sent—or can be sent—vary depending on the specific type of extension.
