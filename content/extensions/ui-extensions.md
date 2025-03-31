@@ -211,7 +211,7 @@ Upon loading the iframe, the PIM will send a postMessage with the JWT token. The
 
 ```json
 {
-  "type": "JWT_TOKEN"
+  "type": "JWT_TOKEN",
   "token": "jwt_value"
 }
 ```
@@ -248,10 +248,10 @@ The JWT token consists of three main parts: the header, the body (payload), and 
 }
 ```
 
-* jti: The unique identifier for the token.
-* iat: The issued at time.
-* exp: The expiration time of the token.
-* userId: The PIM user identifier (in this case, 1).
+* ```jti``` The unique identifier for the token.
+* ```iat``` The issued at time.
+* ```exp``` The expiration time of the token.
+* ```userId``` The PIM user identifier (in this case, ```1```).
 
 *A signature*
 
