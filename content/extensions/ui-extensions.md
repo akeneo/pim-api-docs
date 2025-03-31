@@ -344,7 +344,23 @@ Examples :
 
 ### Position
 
-The available `position` values determine where your UI extension will appear in the Akeneo PIM
+
+Here's a rewrite in the style of Shopify documentation, emphasizing clarity and user guidance:
+
+**Extension Placement**
+
+Extension placement determines where your extension appears within the Akeneo PIM interface. You can select from a variety of available positions, which vary depending on the specific extension type.
+
+**Key Concepts:**
+
+**Placement Options:** Each extension type offers a set of predefined positions. These positions control the location of your extension's interface elements.
+
+**Best Practices:**
+
+* Choose a placement that aligns with the extension's intended functionality and user workflow.
+* Review the available placement options for each extension type to ensure optimal integration.
+* Consider the impact of placement on the overall user experience within the PIM.
+
 
 #### pim.product.header
 This position refers to the header of a simple product or a variant edit page.
