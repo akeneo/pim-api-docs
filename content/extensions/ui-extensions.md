@@ -359,6 +359,9 @@ Extension position determines where your extension appears within the Akeneo PIM
 * Review the available position options for each extension type to ensure optimal integration.
 * Consider the impact of the position on the overall user experience within the PIM.
 
+
+#### The following position can be added: 
+
 ![PIM Header.png](../img/extensions/ui-extensions/pim-header-with-extension.png)
 #### pim.product.header
 This position refers to the header of a simple product or a variant edit page.
@@ -368,6 +371,8 @@ This position refers to the header of a root model edit page.
 
 #### pim.sub-product-model.header
 This position refers to the header of a sub model edit page.
+
+![PIM Tab.png](../img/extensions/ui-extensions/pim-product-with-tab-extension.png)
 
 #### pim.product.tab
 This position refers to the left panel of a simple product or a variant edit page.
@@ -380,6 +385,8 @@ This position refers to the left panel of a sub model edit page.
 
 #### pim.category.tab
 This position refers to the horizontal list of tabs on a category edit page.
+
+![PIM Product Grid.png](../img/extensions/ui-extensions/pim-product-grid-with-bulk-trigger-action.png)
 
 #### pim.product-grid.action-bar
 This position refers to the list of commands availables after selecting some products on the product grid.
