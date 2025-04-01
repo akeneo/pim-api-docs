@@ -359,7 +359,7 @@ Extension position determines where your extension appears within the Akeneo PIM
 * Review the available position options for each extension type to ensure optimal integration.
 * Consider the impact of the position on the overall user experience within the PIM.
 
-
+![PIM Header.png](../img/extensions/ui-extensions/Capture d’écran 2025-03-31 à 14.43.08.png)
 #### pim.product.header
 This position refers to the header of a simple product or a variant edit page.
 
