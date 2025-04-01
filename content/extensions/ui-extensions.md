@@ -351,7 +351,7 @@ Extension position determines where your extension appears within the Akeneo PIM
 **Key Concepts:**
 
 * **Position Options:** Each extension type offers a set of predefined positions. These positions control the location of your extension's interface elements.
-* **Contextual Relevance:** Placement options are designed to align with the functionality of each extension type, ensuring a seamless user experience.
+* **Contextual Relevance:** Position options are designed to align with the functionality of each extension type, ensuring a seamless user experience.
 
 **Best Practices:**
 
