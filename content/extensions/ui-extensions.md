@@ -207,7 +207,19 @@ To configure an `iframe` UI extension, mandatory fields are `name`, `position`, 
 
 **Receiving the JWT Token via ```postMessage```**
 
-Upon loading the iframe, the PIM will send a postMessage with the JWT token. The message will be structured as follows:
+First, from your iframe, you must request for the JWT by doing a PostMessage with a payload containing ```type: 'request_jwt'```
+
+Example :
+```js
+    window.parent.postMessage(
+      {
+        type: 'request_jwt'
+      },
+      "*"
+    );
+```
+
+ the PIM will then answer with a postMessage containing the JWT token. The message will be structured as follows:
 
 ```json
 {
