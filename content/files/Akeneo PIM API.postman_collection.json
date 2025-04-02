@@ -5049,7 +5049,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/rest/v1/job/export/csv_product_export",
+							"raw": "{{url}}/api/rest/v1/jobs/export/csv_product_export",
 							"host": [
 								"{{url}}"
 							],
@@ -5057,7 +5057,7 @@
 								"api",
 								"rest",
 								"v1",
-								"job",
+								"jobs",
 								"export"
 							]
 						}
@@ -5083,7 +5083,7 @@
 							"raw": "{\n  \"import_mode\": \"create_only\"\n}"
 						},
 						"url": {
-							"raw": "{{url}}/api/rest/v1/job/import/csv_product_import",
+							"raw": "{{url}}/api/rest/v1/jobs/import/csv_product_import",
 							"host": [
 								"{{url}}"
 							],
@@ -5091,7 +5091,7 @@
 								"api",
 								"rest",
 								"v1",
-								"job",
+								"jobs",
 								"import"
 							]
 						}
