@@ -2,7 +2,7 @@ post:
   summary: Launch export job by code
   operationId: "post_job_export"
   tags:
-    - Job
+    - Jobs
   x-versions:
     - "SaaS"
   description: This endpoint allows you to launch an export job by code.
