@@ -84,7 +84,6 @@ function determineCategory(tag){
             return 'Extensions';
         case 'Jobs':
             return 'Jobs';
-            return 'Job';
         default:
             return 'Utilities';
     }
