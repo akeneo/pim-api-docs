@@ -6,6 +6,7 @@ post:
   x-versions:
     - "SaaS"
   description: This endpoint allows you to launch an import job by code.
+  x-body-by-line: "The body is optional and can be be empty. If empty, the import profile options will be used."
   parameters:
     - name: code
       in: path
@@ -18,7 +19,7 @@ post:
         properties:
           import_mode:
             type: string
-            description: Optional. Change the import mode for this job by overriding the profile value.
+            description: "Change the import mode for this job by overriding the profile value. Available values are: `create_only`, `update_only` and `create_or_update`"
   responses:
     200:
       description: OK
