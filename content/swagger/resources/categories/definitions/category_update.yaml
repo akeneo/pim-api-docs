@@ -47,6 +47,21 @@ properties:
         attribute_code:
           type: string
           description: The attribute code.
+  validations:
+    type: object
+    description: Category validations
+    x-validation-rules: Only applicable to root category
+    default: {}
+    properties:
+      max_categories_per_product:
+        type: string
+        description: Set maximum number of categories per product
+      only_leaves:
+        type: string
+        description: Restrict categorization to the lowest level
+      is_mandatory:
+        type: string
+        description: Set category as mandatory for every product
 example:
   {
     "code": "winter_collection",
@@ -76,4 +91,9 @@ example:
           "attribute_code": "an_image_attribute",
         },
       ],
+    "validations": {
+      "max_categories_per_product": 42,
+      "only_leaves": false,
+      "is_mandatory": true
+    }
   }
