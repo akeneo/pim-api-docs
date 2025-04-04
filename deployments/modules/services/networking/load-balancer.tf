@@ -26,7 +26,7 @@ resource "google_compute_managed_ssl_certificate" "default" {
 }
 
 resource "google_compute_ssl_policy" "default" {
-  name            = "default-ssl-tls-policy"
+  name            = "${local.context}-default-ssl-tls-policy"
   profile         = "COMPATIBLE"
   min_tls_version = "TLS_1_2"
 }
