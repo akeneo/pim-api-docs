@@ -25,10 +25,19 @@ resource "google_compute_managed_ssl_certificate" "default" {
   }
 }
 
+resource "google_compute_ssl_policy" "default-ssl-policy" {
+  project         = var.project_id
+  name            = "default-ssl-policy"
+  profile         = "COMPATIBLE"
+  min_tls_version = "TLS_1_2"
+  description     = "Recommended SSL policy for security purposes"
+}
+
 resource "google_compute_target_https_proxy" "default" {
   name             = "${local.context}-https-lb-proxy"
   url_map          = google_compute_url_map.default.id
   ssl_certificates = [google_compute_managed_ssl_certificate.default.id]
+  ssl_policy       = google_compute_ssl_policy.default-ssl-policy.id
 }
 
 resource "google_compute_target_http_proxy" "https_redirect" {
