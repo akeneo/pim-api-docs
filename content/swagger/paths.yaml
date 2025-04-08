@@ -39,6 +39,11 @@
 /api/rest/v1/media-files/{code}/download:
   $ref: ./resources/media_files/routes/media_files_code_download.yaml
 
+/api/rest/v1/jobs/export/{code}:
+  $ref: ./resources/jobs/routes/export.yaml
+/api/rest/v1/jobs/import/{code}:
+  $ref: ./resources/jobs/routes/import.yaml
+
 /api/rest/v1/families:
   $ref: ./resources/families/routes/families.yaml
 /api/rest/v1/families/{code}:

@@ -5032,6 +5032,75 @@
 			]
 		},
 		{
+			"name": "Job (Serenity only)",
+			"item": [
+				{
+					"name": "Launch export",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/jobs/export/csv_product_export",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"jobs",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Launch import",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"import_mode\": \"create_only\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/jobs/import/csv_product_import",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"jobs",
+								"import"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Authentification by password",
 			"event": [
 				{

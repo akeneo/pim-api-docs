@@ -344,7 +344,25 @@ Examples :
 
 ### Position
 
-The available `position` values determine where your UI extension will appear in the Akeneo PIM
+**Extension Position**
+
+Extension position determines where your extension appears within the Akeneo PIM interface. You can select from a variety of available positions, which vary depending on the specific extension type.
+
+**Key Concepts:**
+
+* **Position Options:** Each extension type offers a set of predefined positions. These positions control the location of your extension's interface elements.
+* **Contextual Relevance:** Position options are designed to align with the functionality of each extension type, ensuring a seamless user experience.
+
+**Best Practices:**
+
+* Choose a position that aligns with the extension's intended functionality and user workflow.
+* Review the available position options for each extension type to ensure optimal integration.
+* Consider the impact of the position on the overall user experience within the PIM.
+
+
+#### The following position can be added: 
+
+![PIM Header.png](../img/extensions/ui-extensions/pim-header-with-extension.png)
 
 #### pim.product.header
 This position refers to the header of a simple product or a variant edit page.
@@ -354,6 +372,8 @@ This position refers to the header of a root model edit page.
 
 #### pim.sub-product-model.header
 This position refers to the header of a sub model edit page.
+
+![PIM Tab.png](../img/extensions/ui-extensions/pim-product-with-tab-extension.png)
 
 #### pim.product.tab
 This position refers to the left panel of a simple product or a variant edit page.
@@ -366,6 +386,8 @@ This position refers to the left panel of a sub model edit page.
 
 #### pim.category.tab
 This position refers to the horizontal list of tabs on a category edit page.
+
+![PIM Product Grid.png](../img/extensions/ui-extensions/pim-product-grid-with-bulk-trigger-action.png)
 
 #### pim.product-grid.action-bar
 This position refers to the list of commands availables after selecting some products on the product grid.

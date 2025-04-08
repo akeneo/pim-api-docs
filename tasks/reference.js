@@ -82,6 +82,8 @@ function determineCategory(tag){
             return 'Catalogs for Apps';
         case 'UI Extensions':
             return 'Extensions';
+        case 'Jobs':
+            return 'Jobs';
         default:
             return 'Utilities';
     }
