@@ -1,5 +1,7 @@
 /api/rest/v1/products-uuid:
   $ref: ./resources/products_uuid/routes/products_uuid.yaml
+/api/rest/v1/products-uuid/search:
+    $ref: ./resources/products_uuid/routes/products_uuid_search.yaml
 /api/rest/v1/products-uuid/{uuid}:
   $ref: ./resources/products_uuid/routes/products_uuid_uuid.yaml
 /api/rest/v1/products-uuid/{uuid}/proposal:
