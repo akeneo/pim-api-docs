@@ -408,7 +408,7 @@ For [link](#link) UI extension, you can ask for specific values to construct the
 For example, you can configure a UI extension with the following url `https://www.google.com/search?q=%name%&tbm=shop&gl=us`, then we will dynamically put the value of the attribute code `name` when the user will click on the button.
 
 Valid placeholders attributes are:
-- `uuid` and other attribute of type: `identifier`
+- `uuid` (for products), `code` (for product models) and other attribute of type `identifier`
 - all non scopable and non localizable text attributes
 
 You can add a placeholder anywhere in your url as soon as they're surrounded by `%` symbol.
@@ -444,6 +444,9 @@ For sensitive data, we recommend implementing additional security measures to pr
 For `pim.product.tab` position, these parameters are sent:
 - `product[uuid]`
 - `product[identifier]`
+
+For `pim.product-model.tab` position, this parameter is sent:
+- `product[code]`
 
 For `pim.category.tab` position, this parameter is sent:
 - `category[code]`
