@@ -27,7 +27,7 @@ post:
         properties:
           search:
             type: string
-            description: Filter products, for more details see the <a href="/documentation/filter.html">Filters</a> section
+            description: Stringified JSON to filter products, for more details see the <a href="/documentation/filter.html">Filters</a> section
           scope:
             type: string
             description: Filter product values to return scopable attributes for the given channel as well as the non-localizable/non-scopable attributes. For more details, see  the <a href="/documentation/filter.html#via-channel">Filter product values via channel</a> section
