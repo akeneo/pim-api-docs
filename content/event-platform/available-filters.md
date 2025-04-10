@@ -6,11 +6,11 @@ Event filters let you **narrow down the events** sent to your destination by app
 
 Filters are defined when configuring [your subscription](/event-platform/concepts.html) and are automatically evaluated during event routing.
 
-> ⚠️ **Note:** For now, only **one filter** can be configured per subscription. Combining multiple filters (e.g., filtering by both user and attribute) is not yet supported.
+> ℹ️ For now, only **one filter** can be configured per subscription. Combining multiple filters (e.g., filtering by both user and attribute) is not yet supported.
 
 ---
 
-## `user` *(available)*
+## `user`
 
 Use this filter to receive only events triggered by a specific user.
 
@@ -24,7 +24,7 @@ Use this filter to receive only events triggered by a specific user.
 
 ---
 
-## `attribute` *(available soon)*
+## `attribute`
 
 Use this filter to receive only delta events where a specific attribute was updated.
 
@@ -38,7 +38,7 @@ Use this filter to receive only delta events where a specific attribute was upda
 
 ---
 
-## `scope` *(available soon)*
+## `scope`
 
 Use this filter to receive only delta events related to a specific scope.
 
@@ -52,7 +52,7 @@ Use this filter to receive only delta events related to a specific scope.
 
 ---
 
-## `locale` *(available soon)*
+## `locale`
 
 Use this filter to receive only delta events for a specific locale.
 
