@@ -185,8 +185,6 @@ The following filters will be available soon:
 - scope
 - locale
 
-In the future, additional filters and advanced conditions (such as combining multiple filters with `AND` or `OR` operators) will become available.
-
 You can find the list of currently available filters and the correct syntax to use [here](/event-platform/available-filters.html).
 
 ### Example
