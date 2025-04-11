@@ -177,14 +177,6 @@ We currently use a static IP address provided by Google Cloud: `34.140.80.128`
 
 When configuring a subscription, you can optionally define a **filter** to receive **only the events that match specific criteria**.
 
-Here's the available filters you can use:
-- user
-
-The following filters will be available soon:
-- attribute
-- scope
-- locale
-
 You can find the list of currently available filters and the correct syntax to use [here](/event-platform/available-filters.html).
 
 ### Example
@@ -202,7 +194,7 @@ You can configure your subscription with the following filter:
   "config": {
     "url": "https://your_webhook_url",
   }
-  "filter": "user=ea0fe94f-417e-4078-a40b-38645ba90ebe"
+  "filter": "user=\"ea0fe94f-417e-4078-a40b-38645ba90ebe\""
 }
 ```
 

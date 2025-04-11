@@ -15,12 +15,12 @@ Filters are defined when configuring [your subscription](/event-platform/concept
 Use this filter to receive only events triggered by a specific user.
 
 - **Syntax**
-  `user=user_identifier`
+  `user="user_identifier"`
 - **Parameters**
     - `user_identifier`: The UUID of the user who authored the event.
 
 - **Example**
-  `user=57616f6f-1a4d-490e-bc23-c5877d2b30d9`
+  `user="57616f6f-1a4d-490e-bc23-c5877d2b30d9"`
 
 ---
 
@@ -29,26 +29,26 @@ Use this filter to receive only events triggered by a specific user.
 Use this filter to receive only delta events where a specific attribute was updated.
 
 - **Syntax**
-  `attribute=attribute_code`
+  `attribute="attribute_code"`
 - **Parameters**
     - `attribute_code`: The code of the attribute you want to track.
 
 - **Example**
-  `attribute=short_description`
+  `attribute="short_description"`
 
 ---
 
 ## `scope`
 
-Use this filter to receive only delta events related to a specific scope.
+Use this filter to receive only delta events related to a specific channel.
 
 - **Syntax**
-  `scope=scope_code`
+  `scope="code"` or `channel="code"`
 - **Parameters**
-    - `scope_code`: The scope code of the updated data.
+    - `code`: The scope / channel code of the updated data.
 
 - **Example**
-  `scope=my_scope`
+  `scope="my_scope"`
 
 ---
 
@@ -57,11 +57,11 @@ Use this filter to receive only delta events related to a specific scope.
 Use this filter to receive only delta events for a specific locale.
 
 - **Syntax**
-  `locale=locale_code`
+  `locale="locale_code"`
 - **Parameters**
     - `locale_code`: The locale code of the updated data.
 
 - **Example**
-  `locale=en_US`
+  `locale="en_US"`
 
 ---
