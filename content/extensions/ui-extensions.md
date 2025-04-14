@@ -479,7 +479,7 @@ For example, you can configure a UI extension with the following url `https://ww
 
 Valid placeholders attributes are:
 - `uuid` (for products), `code` (for product models) and other attribute of type `identifier`
-- all non scopable and non localizable text attributes
+- all text attributes
 
 You can add a placeholder anywhere in your url as soon as they're surrounded by `%` symbol.
 
