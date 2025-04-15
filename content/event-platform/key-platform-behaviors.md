@@ -23,7 +23,7 @@ The throughput automatically adjusts between these limits based on your endpoint
 - `200 OK`: The delivery rate gradually increases up to the maximum rate
 - `429 Too Many Requests`: The delivery rate decreases to prevent system overload
 
-> **⚠️ Important**: Events that are throttled and remain undelivered for more than one hour will negatively impact your success rate. This can trigger the [suspension policy](/event-platform/key-platform-behaviors.html#suspension-policy) as it indicates a potential queuing risk.
+Events that are throttled and remain undelivered for more than one hour will negatively impact your success rate. This can trigger the [suspension policy](/event-platform/key-platform-behaviors.html#suspension-policy) as it indicates a potential queuing risk.
 
 ## Delivery timeout
 
@@ -58,7 +58,7 @@ Your subscription is immediately suspended if you meet one of these conditions:
 
 ### Threshold-Based Suspension:
 
-This type of suspension is based on the success rate of your HTTPS endpoint. If the success rate drops below 95% within the last rolling hour, your subscription will be suspended.
+This type of suspension is based on the success rate of your HTTPS endpoint. If the success rate drops below 90% within the last rolling hour, your subscription will be suspended.
 
 Here are the errors type that decrease the success rate:
 
