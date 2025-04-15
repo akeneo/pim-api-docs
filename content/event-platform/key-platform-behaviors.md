@@ -15,15 +15,18 @@ To help identify duplicated events and deal with un-ordered events if it's somet
 
 If your subscription has an HTTPS destination, our delivery engine adapts the event delivery rate based on your system's capacity, operating within these limits:
 
-- `Maximum rate:` 100 events per second
+**Maximum rate:** `100` events per second
 
-- `Minimum rate:` 1 event per second
+**Minimum rate:** `1` event per second
+
 
 The throughput automatically adjusts between these limits based on your endpoint's responses:
 - `200 OK`: The delivery rate gradually increases up to the maximum rate
 - `429 Too Many Requests`: The delivery rate decreases to prevent system overload
+  - ⚠️ Events that are throttled and remain undelivered for more than one hour will negatively impact your success rate, as it indicates a potential queuing risk. This may trigger the [suspension policy](/event-platform/key-platform-behaviors.html#suspension-policy).
 
-Events that are throttled and remain undelivered for more than one hour will negatively impact your success rate. This can trigger the [suspension policy](/event-platform/key-platform-behaviors.html#suspension-policy) as it indicates a potential queuing risk.
+If your system is struggling to handle high HTTP throughput, consider using another [subscription type](/event-platform/concepts.html#subscription-types).
+
 
 ## Delivery timeout
 
@@ -63,7 +66,7 @@ This type of suspension is based on the success rate of your HTTPS endpoint. If 
 Here are the errors type that decrease the success rate:
 
 - `5XX Server Error` HTTP statuses
-- `429 Too Many Requests` HTTP statuses (while the event  remains undelivered for more than one hour)
+- `429 Too Many Requests` HTTP statuses (while the event remains undelivered for more than one hour)
 - `4xx Client Error Response` HTTP status
 - Delivery timeout
 
