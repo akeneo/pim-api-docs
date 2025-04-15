@@ -1,4 +1,3 @@
-
 # Key platform behaviors
 
 Your subscribing service implementation and architecture must deal with the following capabilities and constraints to consume events from the platform at its best.
@@ -14,15 +13,21 @@ To help identify duplicated events and deal with un-ordered events if it's somet
 
 ## Optimized throughput
 
-Our delivery engine will try to deliver events as fast as possible but will adapt the throughput within the limits described in this section.
+If your subscription has an HTTPS destination, our delivery engine adapts the event delivery rate based on your system's capacity, operating within these limits:
 
-If your subscription has an HTTPS destination, please respond with `429 Too Many Requests` when your system is overloaded: this way, the delivery engine will slow down, retry undelivered events, and gradually increase the throughput when your system gets back to recovers (i.e., when it responds `200 OK` again).
+- `Maximum rate:` 100 events per second
 
-Please note that if the throughput drops too significantly, the suspension policy will be triggered ([see bellow](/event-platform/key-platform-behaviors.html#suspension-policy)).
+- `Minimum rate:` 1 event per second
+
+The throughput automatically adjusts between these limits based on your endpoint's responses:
+- `200 OK`: The delivery rate gradually increases up to the maximum rate
+- `429 Too Many Requests`: The delivery rate decreases to prevent system overload
+
+> **⚠️ Important**: Events that are throttled and remain undelivered for more than one hour will negatively impact your success rate. This can trigger the [suspension policy](/event-platform/key-platform-behaviors.html#suspension-policy) as it indicates a potential queuing risk.
 
 ## Delivery timeout
 
-Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to handle requests within **`5 seconds`**.  If processing exceeds this duration, the event will enter the retry process ([see bellow](/event-platform/concepts.html#retry-policy-for-transient-failures.html)).
+Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to handle requests within **`5 seconds`**.  If processing exceeds this duration, the event will enter the retry process ([see bellow](/event-platform/concepts.html#retry-policy-for-transient-failures)).
 
 Under normal circumstances, your HTTPS endpoint must handle the event as fast as possible.
 **Our recommendation** is to put the message in a `queuing system` or in a `database` for asynchronous processing.
@@ -58,7 +63,7 @@ This type of suspension is based on the success rate of your HTTPS endpoint. If 
 Here are the errors type that decrease the success rate:
 
 - `5XX Server Error` HTTP statuses
-- `429 Too Many Requests` HTTP statuses (while the minimum rate threshold is exceeded)
+- `429 Too Many Requests` HTTP statuses (while the event  remains undelivered for more than one hour)
 - `4xx Client Error Response` HTTP status
 - Delivery timeout
 
