@@ -8,4 +8,4 @@ google-api-python-client==2.64.0
 docker==4.1.0
 PyGithub==1.55
 PyYAML==6.0.1
-GitPython==3.1.30
+GitPython==3.1.41
