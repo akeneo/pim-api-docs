@@ -173,7 +173,7 @@ We currently use a static IP address provided by Google Cloud: `34.140.80.128`
 
 **However, we cannot guarantee that this IP address will remain unchanged indefinitely.** Therefore, we strongly recommend whitelisting the `europe-west1` IP ranges from [Google Cloud's IP ranges list](https://www.gstatic.com/ipranges/cloud.json) to ensure continuous access.
 
-## Subscriptions Filters
+## Subscription Filters
 
 When configuring a subscription, you can optionally define a **filter** to receive **only the events that match specific criteria**.
 

@@ -4,16 +4,14 @@ Event filters let you **focus only on the events that matter to you** by applyin
 
 This helps you reduce noise and tailor your event subscription to your needs.
 
-> ℹ️ **Filters are optional**  
-> If no filter is defined, your subscription will receive **all events** that match its type and source.
+::: info
+**Filters are optional**  
+If no filter is defined, your subscription will receive **all events** that match its type and source.
+:::
 
-> ⚠️ **Filter behavior depends on the event type**  
-> The `user` filter (author) works with all event types.  
-> Filters like `attribute`, `locale`, `scope`, and `channel` can technically be used on any subscription, but they only **make sense** for `product.updated.delta` and `product_model.updated.delta` events.
->
-> If used with other event types, these filters may silently skip events, as the necessary data (like `"changes"`) won't be present in the payload.
->
-> **Tip**: For best results, create a dedicated subscription for delta events and apply these filters there.
+::: tips
+For best results, create a dedicated subscription for delta events and apply these filters there.
+:::
 
 ## How filters work
 
@@ -23,72 +21,73 @@ Filters are defined during the subscription configuration (more details on [the 
 
 ## Available Filters
 
-### `user`
+### User Filter
+Filters events based on the user.
 
-Receive only events triggered by a specific user.
+**Type:** Field Match  
+**Syntax:** `user="<user_uuid>"`  
+**Parameter:** UUID string of the user who triggered the event.  
+**Example:** `user="57616f6f-1a4d-490e-bc23-c5877d2b30d9"`  
+**Supported Events:** All event types ([list](/event-platform/available-events.html))
 
-- **Syntax**  
-  `user="user_identifier"`
-
-- **Parameter**  
-  `user_identifier`: The UUID of the user who performed the change.
-
-- **Example**  
-  `user="57616f6f-1a4d-490e-bc23-c5877d2b30d9"`
-
-> 💡 Useful for: Ignoring updates by a designated user.
+::: tips
+Useful for ignoring updates from designated user like job automation.
+:::
 
 ---
 
-### `attribute`
+### Attribute Filter
+Filters events based on modified attribute codes.
 
-Receive only events where a specific attribute was modified.
+**Type:** Field Changed  
+**Syntax:** `attribute="<attribute_code>"`  
+**Parameter:** String identifier of the attribute code  
+**Example:** `attribute="description"`  
+**Supported Events:**
+- `com.akeneo.pim.v1.product-model.updated.delta`
+- `com.akeneo.pim.v1.product.updated.delta`
 
-- **Syntax**  
-  `attribute="attribute_code"`
-
-- **Parameter**  
-  `attribute_code`: The code of the attribute you want to monitor.
-
-- **Example**  
-  `attribute="short_description"`
-
-> 💡 Useful for: Tracking changes to business-critical fields like price, title, or status.
-
----
-
-### `scope`
-
-Receive only events related to a specific channel (also called *scope*).
-
-- **Syntax**  
-  `scope="channel_code"` or `channel="channel_code"`
-
-- **Parameter**  
-  `channel_code`: The code of the channel where the update occurred.
-
-- **Example**  
-  `scope="ecommerce"`
-
-> 💡 Useful for: Filtering updates specific to a distribution channel like "mobile", "print", or "marketplace".
+::: tips
+Useful for tracking changes to business-critical fields like price, title, or status.
+:::
 
 ---
 
-### `locale`
+### Scope and Channel Filter
+Filters events based on scope or channel.
 
-Receive only events related to a specific locale.
+**Type:** Field Exists and Match  
+**Syntax:** `scope="<channel_code>"` or `channel="<channel_code>"`  
+**Parameter:** String identifier of the channel  
+**Example:** `scope="ecommerce"`  
+**Supported Events:**
+- `com.akeneo.pim.v1.product-model.updated.delta`
+- `com.akeneo.pim.v1.product.updated.delta`
 
-- **Syntax**  
-  `locale="locale_code"`
+::: tips
+Useful for filtering updates specific to a distribution channel like "mobile", "print", or "marketplace".
+:::
 
-- **Parameter**  
-  `locale_code`: The code of the locale (e.g., language-region).
+---
 
-- **Example**  
-  `locale="en_US"`
+### Locale Filter
+Filters events based on locale.
 
-> 💡 Useful for: Only processing updates in a particular language or region.
+**Type:** Field Exists and Match  
+**Syntax:** `locale="<locale_code>"`  
+**Parameter:** ISO language-region code  
+**Example:** `locale="en_US"`  
+**Supported Events:**
+- `com.akeneo.pim.v1.product-model.updated.delta`
+- `com.akeneo.pim.v1.product.updated.delta`
 
+::: tips
+Useful for filtering updates specific to a particular language or region.
+:::
+
+::: warning
+If a filter field is not in the event payload, the filter may silently skip the event.
+:::
 ---
 
 ## Filter Operators
@@ -103,47 +102,54 @@ Filters support **basic logic operators** that let you build more flexible and e
 |----------|-------------|
 | `and`    | All conditions must match. |
 | `or`     | At least one condition must match. |
-| `not`    | Excludes matching events. |
+| `not`    | Reverse matching condition. |
 
 ---
 
-### Examples
+## Filter Examples
 
-#### "Receive only events where the **author is a specific user** **and** a specific **attribute** was updated"  
-`user="john-uuid" and attribute="price"`
+| Scenario | Filter Expression | Use Case |
+|----------|------------------|-----------|
+| User and Attribute Changes | `user="john-uuid" and attribute="price"` | Track price changes made by a specific user |
+| Multiple Attributes | `attribute="description" or attribute="title"` | Track changes to customer-facing content |
+| Exclude System Updates | `not user="system"` | Focus on human-made changes only |
+| Complex Filtering | `(attribute="name" and locale="fr_FR") and not user="system"` | Monitor French content updates while excluding automated changes |
 
-#### "Receive events where **either** the "description" or "title" attribute was updated"  
-`attribute="description" or attribute="title"`
-
-#### "Receive all updates **except** those made by the system user"  
-`not user="system"`
-
-#### "Receive updates to the "name" attribute **in French** but **not** made by the system"  
-`(attribute="name" and locale="fr_FR") and not user="system"`
+::: tips
+Remember to use parentheses to group conditions when combining multiple operators. This ensures correct evaluation order and makes the filter more readable.
+:::
 
 ## Limitations & Rules
 
-To keep filters simple, readable, and fast to evaluate, a few rules and limitations apply:
+### Filter Constraints
 
-- You can define **One filter per subscription**  
+| Constraint | Limit | Description |
+|------------|-------|-------------|
+| Filters per subscription | 1 | Only one filter expression per subscription |
+| Maximum length | 500 characters | Total length of filter expression |
+| Maximum operators | 4 | Number of logical operators in a single filter |
 
+### Syntax Rules
 
-- **All values must be wrapped in double quotes**  
-  ✅ `user="system"`  
-  ❌ `user=system`
-
-
-- **You can use parentheses** to group conditions and clarify your logic.  
-  Example:  
-  `user="system" and (attribute="name" or attribute="description")`
-
-
-- **Maximum filter length**: 500 characters
+#### String Values
+All values must be wrapped in double quotes:
+- `user="system"`: ✅
+- `user=system`: ❌ 
 
 
-- **Maximum number of operators**: 4
+#### Grouping Conditions
+Use parentheses to group conditions and control evaluation order:
+`user="system" and (attribute="name" or attribute="description")`
 
+#### Query Complexity
+Complex filters may be rejected if they:
+- Have deeply nested conditions
+- Use too many operators
+- Exceed length limits
 
-- **Query complexity is limited**  
-  Deeply nested or overly complex filters may be rejected. If this happens, you’ll receive an error message.  
-Try simplifying your expression or splitting your use case into multiple subscriptions.
+::: tips
+If your filter is rejected, try:
+- Splitting into multiple subscriptions
+- Simplifying the logic
+- Reducing nesting levels
+:::
