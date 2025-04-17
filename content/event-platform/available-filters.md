@@ -21,7 +21,7 @@ Filters are defined during the subscription configuration (more details on [the 
 
 ## Available Filters
 
-### User Filter
+### User
 Filters events based on the user.
 
 **Type:** Field Match  
@@ -36,7 +36,7 @@ Useful for ignoring updates from designated user like job automation.
 
 ---
 
-### Attribute Filter
+### Attribute
 Filters events based on modified attribute codes.
 
 **Type:** Field Changed  
@@ -53,7 +53,7 @@ Useful for tracking changes to business-critical fields like price, title, or st
 
 ---
 
-### Scope and Channel Filter
+### Scope and Channel
 Filters events based on scope or channel.
 
 **Type:** Field Exists and Match  
@@ -70,7 +70,7 @@ Useful for filtering updates specific to a distribution channel like "mobile", "
 
 ---
 
-### Locale Filter
+### Locale
 Filters events based on locale.
 
 **Type:** Field Exists and Match  
