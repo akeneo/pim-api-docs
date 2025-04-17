@@ -15,7 +15,7 @@ To help identify duplicated events and deal with un-ordered events if it's somet
 
 If your subscription has an HTTPS destination, our delivery engine adapts the event delivery rate based on your system's capacity, operating within these limits:
 
-**Maximum rate:** `100` events per second
+**Maximum rate:** `100` events per second (default rate)
 
 **Minimum rate:** `1` event per second
 
@@ -23,7 +23,10 @@ If your subscription has an HTTPS destination, our delivery engine adapts the ev
 The throughput automatically adjusts between these limits based on your endpoint's responses:
 - `200 OK`: The delivery rate gradually increases up to the maximum rate
 - `429 Too Many Requests`: The delivery rate decreases to prevent system overload
-  - ⚠️ Events that are throttled and remain undelivered for more than one hour will negatively impact your success rate, as it indicates a potential queuing risk. This may trigger the [suspension policy](/event-platform/key-platform-behaviors.html#suspension-policy).
+
+::: warning
+Events that are throttled and remain undelivered for more than one hour will negatively impact your success rate, as it indicates a potential queuing risk. This may trigger the [suspension policy](/event-platform/key-platform-behaviors.html#suspension-policy).
+:::
 
 If your system is struggling to handle high HTTP throughput, consider using another [subscription type](/event-platform/concepts.html#subscription-types).
 
