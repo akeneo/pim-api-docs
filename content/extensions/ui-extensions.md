@@ -538,6 +538,7 @@ Each position supports a specific subset of available types. The table below out
 | pim.category.tab             | ❌     | ✔️     | ❌    |
 | pim.product-grid.action-bar  | ✔️     | ✔️     | ❌    |
 | pim.activity.navigation.tab  | ❌     | ✔️     | ❌    |
+
 ## Administration of UI extensions
 For a functional overview of the administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).
 
