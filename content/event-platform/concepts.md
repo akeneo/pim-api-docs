@@ -173,6 +173,31 @@ We currently use a static IP address provided by Google Cloud: `34.140.80.128`
 
 **However, we cannot guarantee that this IP address will remain unchanged indefinitely.** Therefore, we strongly recommend whitelisting the `europe-west1` IP ranges from [Google Cloud's IP ranges list](https://www.gstatic.com/ipranges/cloud.json) to ensure continuous access.
 
+## Subscription Filters
+
+When configuring a subscription, you can optionally define a **filter** to receive **only the events that match specific criteria**.
+
+You can find the list of currently available filters and the correct syntax to use [here](/event-platform/available-filters.html).
+
+### Example
+Let’s say you want to receive only the events triggered by a specific user, identified by the UUID `ea0fe94f-417e-4078-a40b-38645ba90ebe`.
+You can configure your subscription with the following filter:
+
+```json[snippet:Filtered subscription]
+{
+  "source": "pim",
+  "subject": "https://my-pim.cloud.akeneo.com",
+  "events": [
+    "com.akeneo.pim.v1.product.updated"
+  ],
+  "type": "https",
+  "config": {
+    "url": "https://your_webhook_url",
+  }
+  "filter": "user=\"ea0fe94f-417e-4078-a40b-38645ba90ebe\""
+}
+```
+
 ## Events Format
 
 Our platform standardises event data across services using the [CloudEvents specification](https://github.com/cloudevents/spec). CloudEvents provides a consistent structure for event data, ensuring interoperability and simplifying event handling. Each event includes essential metadata such as the event type, source, ID, and timestamp.
