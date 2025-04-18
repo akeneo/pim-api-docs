@@ -470,6 +470,9 @@ This position refers to the list of commands availables after selecting some pro
   For the moment, you can't use UI extensions with more than **500** selected products & product models.
 :::
 
+#### pim.activity.navigation.tab
+This position refers to the activity PIM menu, adding UI extensions in this position will create a new section in the activity sub-navigation.
+
 ### Url
 All types of UI extensions must have a configured URL. However, the parameters that are sent—or can be sent—vary depending on the specific type of extension.
 #### Query parameters placeholders
@@ -534,6 +537,7 @@ Each position supports a specific subset of available types. The table below out
 | pim.sub-product-model.tab    | ❌     | ✔️     | ❌    |
 | pim.category.tab             | ❌     | ✔️     | ❌    |
 | pim.product-grid.action-bar  | ✔️     | ✔️     | ❌    |
+| pim.activity.navigation.tab  | ❌     | ✔️     | ❌    |
 
 ## Administration of UI extensions
 For a functional overview of the administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).
