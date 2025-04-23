@@ -489,7 +489,7 @@ You can add a placeholder anywhere in your url as soon as they're surrounded by 
 Examples:
 - `https://www.google.com/search?q=%name%`
 - `https://yourwebsite.com/%sku%`
-- %base_url%/sub-url
+- `%base_url%/sub-url`
 
 ::: warning
 If the URL begins with a placeholder, we won't verify its validity. The link might not work when used.
