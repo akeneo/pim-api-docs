@@ -28,7 +28,7 @@ The throughput automatically adjusts between these limits based on your endpoint
 Events that are throttled and remain undelivered for more than one hour will negatively impact your success rate, as it indicates a potential queuing risk. This may trigger the [suspension policy](/event-platform/key-platform-behaviors.html#suspension-policy).
 :::
 
-If your system is struggling to handle high HTTP throughput, consider using another [subscription type](/event-platform/concepts.html#subscription-types).
+Consider using another [subscription type](/event-platform/concepts.html#subscription-types) to get around these limitations.
 
 
 ## Delivery timeout
