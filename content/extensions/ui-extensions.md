@@ -489,6 +489,11 @@ You can add a placeholder anywhere in your url as soon as they're surrounded by 
 Examples:
 - `https://www.google.com/search?q=%name%`
 - `https://yourwebsite.com/%sku%`
+- %base_url%/sub-url
+
+::: warning
+If the URL begins with a placeholder, we won't verify its validity. The link might not work when used.
+:::
 
 #### Fixed query parameters
 For an [iframe](#iframe) UI extension, with `pim.product.tab`, `pim.sub-product-model.tab`, `pim.product-model.tab` as [position](#position), several parameters are sent by default as SearchParameters in a GET query, so the server knows who is the connected user (insecure) and in which context the iframe is opened.
