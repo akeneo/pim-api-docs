@@ -495,17 +495,18 @@ Examples:
 If the URL begins with a placeholder, we won't verify its validity. The link might not work when used.
 :::
 
-#### Fixed query parameters
-For an [iframe](#iframe) UI extension, with `pim.product.tab`, `pim.sub-product-model.tab`, `pim.product-model.tab` as [position](#position), several parameters are sent by default as SearchParameters in a GET query, so the server knows who is the connected user (insecure) and in which context the iframe is opened.
+#### Default query parameters
+For an [iframe](#iframe) UI extension, several parameters are sent by default as SearchParameters in a GET query, so the server knows who is the connected user (insecure) and in which context the iframe is opened.
 
 For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebite.com/iframe/?paramA=valueA&paramB=valueB`
 
-For all positions except `pim.product-grid.action-bar`, parameters relative to the connected user are sent:
-- `user[catalog_locale]`
-- `user[catalog_scope]`
-- `user[ui_locale]`
+For all positions, parameters relative to the connected user and the extension position are sent:
 - `user[username]`
 - `user[email]`
+- `user[ui_locale]`
+- `user[catalog_locale]` except for `pim.product-grid.action-bar`
+- `user[catalog_scope]` except for `pim.product-grid.action-bar`
+- `position`
 
 ::: warning
 **Important security notice**
@@ -523,7 +524,7 @@ For `pim.product.tab` position, these parameters are sent:
 - `product[uuid]`
 - `product[identifier]`
 
-For `pim.product-model.tab` position, this parameter is sent:
+For `pim.product-model.tab` and `pim.sub-product-model.header` position, this parameter is sent:
 - `product[code]`
 
 For `pim.category.tab` position, this parameter is sent:
