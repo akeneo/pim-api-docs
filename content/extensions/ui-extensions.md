@@ -215,6 +215,12 @@ For more detailed information, you can refer to the [Mozilla Developer Network (
 
 To configure an `iframe` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label`, `secret` and `url`.
 
+::: warning
+**Important security notice**
+
+For sensitive data, we recommend implementing [security measures](#ensuring-security-of-embedded-iframes) to protect your information.
+:::
+
 #### Default query parameters
 To help identify the  **iframe** caller (insecure) and context, several parameters are sent by default as SearchParameters in the GET query.
 
@@ -227,18 +233,6 @@ For all positions, parameters relative to the connected user and the extension p
 - `user[catalog_locale]` except for `pim.product-grid.action-bar`
 - `user[catalog_scope]` except for `pim.product-grid.action-bar`
 - `position`
-
-::: warning
-**Important security notice**
-
-When using iframes, please be aware of the following:
-
-+ **Data confidentiality**: We do not implement any security measures to verify the identity of the caller accessing the URL.
-
-+ **Access control**: Anyone with access to this link can view the content of the webpage, regardless of the parameters included.
-
-For sensitive data, we recommend implementing [additional security measures](#ensuring-security-of-embedded-iframes) to protect your information.
-:::
 
 For `pim.product.tab` position, these parameters are sent:
 - `product[uuid]`
