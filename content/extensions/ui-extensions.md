@@ -174,8 +174,6 @@ To delete a UI extension, you must have a valid PIM API token and the UUID of th
 --header "Authorization: Bearer $PIM_API_TOKEN"
 ```
 
- <!-- UI extensions fields ? -->
-
 ## Types
 
 UI extensions are categorized by type, which determines their capabilities. Select the type that best suits your requirements:
@@ -235,10 +233,8 @@ For all positions, parameters relative to the connected user and the extension p
 
 When using iframes, please be aware of the following:
 
-<!-- still relevant ? I find it contradicorty with the JWT -->
 + **Data confidentiality**: We do not implement any security measures to verify the identity of the caller accessing the URL.
 
-<!-- To me, what it means is unclear -->
 + **Access control**: Anyone with access to this link can view the content of the webpage, regardless of the parameters included.
 
 For sensitive data, we recommend implementing [additional security measures](#ensuring-security-of-embedded-iframes) to protect your information.
