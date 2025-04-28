@@ -371,7 +371,9 @@ The JWT token consists of three main parts: the header, the body (payload), and 
   "jti": "c1b6b9f1-8486-4f9e-9f96-8d1b40fccb65",
   "iat": 1743410036.116152,
   "exp": 1743413636.116162,
-  "userId": "1"
+  "userId": "1",
+  "userEmail": "user1@example.com",
+  "username": "user1"
 }
 ```
 
@@ -379,6 +381,9 @@ The JWT token consists of three main parts: the header, the body (payload), and 
 * ```iat``` The issued at time.
 * ```exp``` The expiration time of the token.
 * ```userId``` The PIM user identifier (in this case, ```1```).
+* ```userEmail``` The PIM user email (in this case, ```user1@example.com```).
+* ```username``` The PIM user name (in this case, ```user1```).
+
 
 *A signature*
 
