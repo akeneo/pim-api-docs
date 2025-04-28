@@ -558,6 +558,10 @@ On the new page, you can see all extensions registered in your PIM.
 
 To manage one or more UI extensions from the list, you just have to select them thanks to the checkboxes present on the left of each line, and then use one of the two commands available at the bottom of the screen.
 
+### Filter UI extension by user groups
+
+You can filter the user groups allowed to see and execute an UI extension by using the permissions tab on the UI extensions creation/edition form.
+
 ## API reference
 Several choices are offered to deep dive into our API, to discover all the endpoints, and their request/response schema:
 
