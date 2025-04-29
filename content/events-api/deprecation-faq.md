@@ -9,7 +9,7 @@ The Event API will be retired on **December 31, 2026**.
 Event API no longer meets evolving needs of our customers:
 
 - Impossibility to scale over 4000 events per hour and 3 event subscribers.
-- Only two type of events are proposed. No possibility of choice.
+- Only two types of events are proposed. No possibility of choice.
 - Akeneo doesn’t guarantee a delivery or retry system of events.
 - Event API doesn’t support events related to Product Cloud.
 
@@ -22,7 +22,7 @@ Until its retirement on December 31, 2026, Akeneo will continue supporting Event
 
 We encourage you to start your migration to the new Event Platform as soon as possible to avoid any interruption in your integrations.
 
-We provide you a dedicated [Migration Playbook](https://nowhere.com) to help you do so.
+We provide you a dedicated [Migration Playbook](./migrate-to-event-platform.html) to help you do so.
 
 ## Can I use both?
 
@@ -34,7 +34,7 @@ However, please keep in mind that the Event API will be deprecated by the end of
 
 Event Platform comes with a lot of new benefits to cover previous lacks of Event API:
 
-- Much more event (+30 events available today)
+- Much more events (+30 events available today)
 - No restriction on number of events, quotas only
 - “At least once” delivery guarantee & retry system in place
 - Product deltas enable efficient updates
@@ -43,7 +43,7 @@ You can find more details [here](../event-platform/overview.html).
 
 ## What should I do to migrate to the new Event Platform?
 
-You can follow our dedicated [Migration Playbook](https://nowhere.com) and the new [Event Platform](../event-platform/getting-started.html) documentation.
+You can follow our dedicated [Migration Playbook](./migrate-to-event-platform.html) and the new [Event Platform](../event-platform/getting-started.html) documentation.
 
 ## I need help with this migration, what are my options?
 
