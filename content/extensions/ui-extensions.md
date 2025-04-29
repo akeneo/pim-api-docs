@@ -227,6 +227,7 @@ To help identify the  **iframe** caller (insecure) and context, several paramete
 For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebite.com/iframe/?position=pim.product.tab&user[username]=julia`
 
 For all positions, parameters relative to the connected user and the extension position are sent:
+- `user[id]`
 - `user[username]`
 - `user[email]`
 - `user[ui_locale]`
@@ -371,7 +372,7 @@ The JWT token consists of three main parts: the header, the body (payload), and 
   "jti": "c1b6b9f1-8486-4f9e-9f96-8d1b40fccb65",
   "iat": 1743410036.116152,
   "exp": 1743413636.116162,
-  "userId": "1"
+  "userId": "1",
 }
 ```
 
