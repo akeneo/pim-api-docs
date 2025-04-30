@@ -174,32 +174,78 @@ To delete a UI extension, you must have a valid PIM API token and the UUID of th
 --header "Authorization: Bearer $PIM_API_TOKEN"
 ```
 
-## Concepts
-
-### Type
+## Types
 
 UI extensions are categorized by type, which determines their capabilities. Select the type that best suits your requirements:
 + action
 + iframe
 + link
 
-#### Link
+### Link
 A **link** UI extension is crafted to open your external content in a new tab.
 
-#### Iframe
+To create a `link` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label` and `url`.
+
+#### Url Placeholders
+The Url of a **link** UI extension can be based on the context thanks to a placeholder pattern.
+
+For example, you can configure a UI extension with the following url `https://www.google.com/search?q=%name%&tbm=shop&gl=us`. When the link is clicked, `%name%` will be replaced with the context attribute values.
+
+Valid placeholders attributes are:
+- `uuid` (for products), `code` (for product models) and other attribute of type `identifier`
+- all `text` attributes. Links will use the value related to the current locale or channel.
+
+You can add a placeholder anywhere in your url as soon as they're surrounded by `%` symbol.
+
+Examples:
+- `https://www.google.com/search?q=%name%`
+- `https://yourwebsite.com/%sku%`
+- `%base_url%/sub-url`
+
+::: warning
+If the URL begins with a placeholder, we won't verify its validity. The link might not work when used.
+:::
+
+### Iframe
 An **iframe** UI extension allows to open your external content inside the PIM thanks to an iframe.
 
 An iframe (inline frame) is an HTML element that allows you to embed another HTML document within the current document. It is commonly used to display content from another source, such as a webpage, video, or interactive content, without leaving the current page.
 
 For more detailed information, you can refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
-To ensure the secure embedding of iframes, it is essential to properly configure [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers to control the sources from which content can be loaded.
+To configure an `iframe` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label`, `secret` and `url`.
 
 ::: warning
- Please note that if these headers are misconfigured, iframe functionality may not work as intended.
+**Important security notice**
+
+For sensitive data, we recommend implementing [security measures](#ensuring-security-of-embedded-iframes) to protect your information.
 :::
 
-To configure an `iframe` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label` and `url`.
+#### Default query parameters
+To help identify the  **iframe** caller (insecure) and context, several parameters are sent by default as SearchParameters in the GET query.
+
+For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebite.com/iframe/?position=pim.product.tab&user[username]=julia`
+
+For all positions, parameters relative to the connected user and the extension position are sent:
+- `user[id]`
+- `user[username]`
+- `user[email]`
+- `user[ui_locale]`
+- `user[catalog_locale]` except for `pim.product-grid.action-bar`
+- `user[catalog_scope]` except for `pim.product-grid.action-bar`
+- `position`
+
+For `pim.product.tab` position, these parameters are sent:
+- `product[uuid]`
+- `product[identifier]`
+
+For `pim.product-model.tab` and `pim.sub-product-model.header` position, this parameter is sent:
+- `product[code]`
+
+For `pim.category.tab` position, this parameter is sent:
+- `category[code]`
+
+#### Get PIM data from the iframe
 
 **PostMessage**
 
@@ -263,8 +309,88 @@ Example :
 ```
 After receiving this *event*, the PIM will send a PostMessage *event*, similar to the one sent after the iframe loading.
 
+#### Ensuring security of embedded iframes
 
-#### Action
+To help ensuring the security of iframes we recommand using these two solutions:
+
+* Properly configure [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers to control the sources from which content can be loaded.
+
+::: warning
+ Please note that if these headers are misconfigured, iframe functionality may not work as intended.
+:::
+
+* Use your extension secret and ```postMessage``` to get and verify the signature of a JW token. This secret will be used to generate a JWT token when the iframe is loaded by the PIM system.
+
+**Get a JW Token via ```postMessage```**
+
+First, from your iframe, you must request for the JWT by doing a PostMessage with a payload containing ```type: 'request_jwt'```
+
+Example :
+```js
+    window.parent.postMessage(
+      {
+        type: 'request_jwt'
+      },
+      "*"
+    );
+```
+
+ the PIM will then answer with a postMessage containing the JWT token. The message will be structured as follows:
+
+```json
+{
+  "type": "JWT_TOKEN",
+  "token": "jwt_value"
+}
+```
+
+* The JWT token in the token field is generated using SHA256 encryption based on the secret you provided.
+
+For more information on how JWT tokens are structured and used, you can refer to the associated [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519).
+
+**JWT Token Structure**
+
+The JWT token consists of three main parts: the header, the body (payload), and the signature.
+
+*Header*
+
+* The header typically contains information about the token type and the signing algorithm. In this case, it will look like:
+
+```json
+{
+  "typ": "JWT",
+  "alg": "HS256"
+}
+```
+
+*Payload*
+
+* The payload contains the claims. The JWT token’s will look like this:
+
+```json
+{
+  "jti": "c1b6b9f1-8486-4f9e-9f96-8d1b40fccb65",
+  "iat": 1743410036.116152,
+  "exp": 1743413636.116162,
+  "userId": "1",
+}
+```
+
+* ```jti``` The unique identifier for the token.
+* ```iat``` The issued at time.
+* ```exp``` The expiration time of the token.
+* ```userId``` The PIM user identifier (in this case, ```1```).
+
+*A signature*
+
+* The signature is used to verify that the token is valid and has not been tampered with. It is generated by combining the encoded header and payload, and then signing them with the secret key. The resulting signature might look like:  
+```9WBB7ayP8UnFrOlMrI9NzTj3kxaiXOWJzElyacEKt48```
+
+**Verifying the Signature**
+
+To ensure that the JWT token was issued by Akeneo, you can verify the signature by re-encoding the header and payload and then signing them using the same secret key. This will allow you to confirm that the token is valid and has not been altered.
+
+### Action
 An **action** UI extension is designed to perform external tasks in the background. Please note the following key points regarding its functionality:
 
 + **Single execution**: An action cannot be executed multiple times simultaneously. This ensures that tasks are processed in a controlled manner.
@@ -272,11 +398,10 @@ An **action** UI extension is designed to perform external tasks in the backgrou
 + **Notification on completion**: A notification will appear once the external server responds to the request, keeping users informed of the task's status.
 + **Timeout**: The PIM HTTP client that communicates with the destination is configured with a timeout of 5 seconds.
 + **POST HTTP method**: The request being sent to the destination is a POST request.
-+ **Signature**: It's possible to configure a [secret](#secret) to sign each request sent to the destination.
++ **Signature**: It's possible to configure a `secret` to sign the body of the POST request sent to the destination (<a href='https://wikipedia.org/wiki/SHA-2'>SHA-512</a> protocol).
 
 Here is a diagram illustrating the workflow:
 [![action-extension-schema.png](../img/extensions/ui-extensions/action-extension-schema.png)](../img/extensions/ui-extensions/action-extension-schema.png)
-
 
 Data sent within the POST body, formatted in JSON, contains :
 - A `data` object with different fields depending on the [position](#position).
@@ -342,10 +467,27 @@ Examples :
 }
 ```
 
-### Position
+## Positions
 
-The available `position` values determine where your UI extension will appear in the Akeneo PIM
+**Extension Positions**
 
+Extension position determines where your extension appears within the Akeneo PIM interface. You can select from a variety of available positions, which vary depending on the specific extension type.
+
+**Key Concepts:**
+
+* **Position Options:** Each extension type offers a set of predefined positions. These positions control the location of your extension's interface elements.
+* **Contextual Relevance:** Position options are designed to align with the functionality of each extension type, ensuring a seamless user experience.
+
+**Best Practices:**
+
+* Choose a position that aligns with the extension's intended functionality and user workflow.
+* Review the available position options for each extension type to ensure optimal integration.
+* Consider the impact of the position on the overall user experience within the PIM.
+
+
+### Positions list 
+
+![PIM Header.png](../img/extensions/ui-extensions/pim-header-with-extension.png)
 #### pim.product.header
 This position refers to the header of a simple product or a variant edit page.
 
@@ -355,6 +497,7 @@ This position refers to the header of a root model edit page.
 #### pim.sub-product-model.header
 This position refers to the header of a sub model edit page.
 
+![PIM Tab.png](../img/extensions/ui-extensions/pim-product-with-tab-extension.png)
 #### pim.product.tab
 This position refers to the left panel of a simple product or a variant edit page.
 
@@ -367,6 +510,7 @@ This position refers to the left panel of a sub model edit page.
 #### pim.category.tab
 This position refers to the horizontal list of tabs on a category edit page.
 
+![PIM Product Grid.png](../img/extensions/ui-extensions/pim-product-grid-with-bulk-trigger-action.png)
 #### pim.product-grid.action-bar
 This position refers to the list of commands availables after selecting some products on the product grid.
 
@@ -374,59 +518,10 @@ This position refers to the list of commands availables after selecting some pro
   For the moment, you can't use UI extensions with more than **500** selected products & product models.
 :::
 
-### Secret
-A secret can be used for UI extensions of type `action`. If it is, this secret is used to sign (with <a href='https://wikipedia.org/wiki/SHA-2'>SHA-512</a> protocol) the body of the POST request sent to the destination.
+#### pim.activity.navigation.tab
+This position refers to the activity PIM menu, adding UI extensions in this position will create a new section in the activity sub-navigation.
 
-
-### Url
-All types of UI extensions must have a configured URL. However, the parameters that are sent—or can be sent—vary depending on the specific type of extension.
-#### Query parameters placeholders
-For [link](#link) UI extension, you can ask for specific values to construct the urls thanks to a specific placeholder pattern. 
-
-For example, you can configure a UI extension with the following url `https://www.google.com/search?q=%name%&tbm=shop&gl=us`, then we will dynamically put the value of the attribute code `name` when the user will click on the button.
-
-Valid placeholders attributes are:
-- `uuid` and other attribute of type: `identifier`
-- all non scopable and non localizable text attributes
-
-You can add a placeholder anywhere in your url as soon as they're surrounded by `%` symbol.
-
-Examples:
-- `https://www.google.com/search?q=%name%`
-- `https://yourwebsite.com/%sku%`
-
-#### Fixed query parameters
-For an [iframe](#iframe) UI extension, with `pim.product.tab`, `pim.sub-product-model.tab`, `pim.product-model.tab` as [position](#position), several parameters are sent by default as SearchParameters in a GET query, so the server knows who is the connected user (insecure) and in which context the iframe is opened.
-
-For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebite.com/iframe/?paramA=valueA&paramB=valueB`
-
-For all positions except `pim.product-grid.action-bar`, parameters relative to the connected user are sent:
-- `user[catalog_locale]`
-- `user[catalog_scope]`
-- `user[ui_locale]`
-- `user[username]`
-- `user[email]`
-
-::: warning
-**Important security notice**
-
-When using iframes, please be aware of the following:
-
-+ **Data confidentiality**: We do not implement any security measures to verify the identity of the caller accessing the URL.
-
-+ **Access control**: Anyone with access to this link can view the content of the webpage, regardless of the parameters included.
-
-For sensitive data, we recommend implementing additional security measures to protect your information.
-:::
-
-For `pim.product.tab` position, these parameters are sent:
-- `product[uuid]`
-- `product[identifier]`
-
-For `pim.category.tab` position, this parameter is sent:
-- `category[code]`
-
-## Available types by position
+### Available types by position
 Each position supports a specific subset of available types. The table below outlines the compatible types for all positions.
 
 | Positions                    | Action | Iframe | Link  |
@@ -439,6 +534,7 @@ Each position supports a specific subset of available types. The table below out
 | pim.sub-product-model.tab    | ❌     | ✔️     | ❌    |
 | pim.category.tab             | ❌     | ✔️     | ❌    |
 | pim.product-grid.action-bar  | ✔️     | ✔️     | ❌    |
+| pim.activity.navigation.tab  | ❌     | ✔️     | ❌    |
 
 ## Administration of UI extensions
 For a functional overview of the administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).
@@ -458,6 +554,10 @@ On the new page, you can see all extensions registered in your PIM.
 ### Enable / disable a UI extension
 
 To manage one or more UI extensions from the list, you just have to select them thanks to the checkboxes present on the left of each line, and then use one of the two commands available at the bottom of the screen.
+
+### Filter UI extension by user groups
+
+You can filter the user groups allowed to see and execute an UI extension by using the permissions tab on the UI extensions creation/edition form.
 
 ## API reference
 Several choices are offered to deep dive into our API, to discover all the endpoints, and their request/response schema:

@@ -1,5 +1,7 @@
 /api/rest/v1/products-uuid:
   $ref: ./resources/products_uuid/routes/products_uuid.yaml
+/api/rest/v1/products-uuid/search:
+    $ref: ./resources/products_uuid/routes/products_uuid_search.yaml
 /api/rest/v1/products-uuid/{uuid}:
   $ref: ./resources/products_uuid/routes/products_uuid_uuid.yaml
 /api/rest/v1/products-uuid/{uuid}/proposal:
@@ -36,6 +38,11 @@
   $ref: ./resources/media_files/routes/media_files_code.yaml
 /api/rest/v1/media-files/{code}/download:
   $ref: ./resources/media_files/routes/media_files_code_download.yaml
+
+/api/rest/v1/jobs/export/{code}:
+  $ref: ./resources/jobs/routes/export.yaml
+/api/rest/v1/jobs/import/{code}:
+  $ref: ./resources/jobs/routes/import.yaml
 
 /api/rest/v1/families:
   $ref: ./resources/families/routes/families.yaml
