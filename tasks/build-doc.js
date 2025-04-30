@@ -797,7 +797,8 @@ gulp.task('build-events-api', ['clean-dist','less'], function () {
         'security.md': 'Security',
         'limits-and-scalability.md': 'Limits and scalibility',
         'more-about-events.md': 'More about events',
-        'migrate-to-event-platform.md': 'Migrate to Event Platform'
+        'migrate-to-event-platform.md': 'Migrate to Event Platform',
+        'deprecation-faq.md': 'Deprecation FAQ'
     };
 
     var isOnePage = false;
