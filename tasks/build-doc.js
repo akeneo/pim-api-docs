@@ -720,6 +720,7 @@ gulp.task('build-event-platform', ['clean-dist','less'], function () {
           'key-platform-behaviors.md': "Key platform behaviors",
           'api-reference.md': "API Reference",
           'available-events.md': "Available events",
+          'available-filters.md': 'Available filters',
           'best-practices.md': "Best practices",
           'integration-examples.md': "Integration examples",
           'compatibility.md': "Compatibility",
