@@ -22,7 +22,7 @@ Until its retirement on December 31, 2026, Akeneo will continue supporting Event
 
 We encourage you to start your migration to the new Event Platform as soon as possible to avoid any interruption in your integrations.
 
-We provide you a dedicated [Migration Playbook](./migrate-to-event-platform.html) to help you do so.
+We provide you a dedicated [Migration Guide](./migrate-to-event-platform.html) to help you do so.
 
 ## Can I use both?
 
@@ -43,7 +43,7 @@ You can find more details [here](../event-platform/overview.html).
 
 ## What should I do to migrate to the new Event Platform?
 
-You can follow our dedicated [Migration Playbook](./migrate-to-event-platform.html) and the new [Event Platform](../event-platform/getting-started.html) documentation.
+You can follow our dedicated [Migration Guide](./migrate-to-event-platform.html) and the new [Event Platform](../event-platform/getting-started.html) documentation.
 
 ## I need help with this migration, what are my options?
 
