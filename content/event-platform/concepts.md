@@ -51,6 +51,11 @@ The statuses for a subscription are:
 
 ## Subscription types
 
+::: info
+We will consider adding other subscription destinations based on feedback. Please [fill-in this form](https://forms.gle/XsZ7rovRnqfAn4xF9) to propose & upvote new destination types.
+:::
+
+
 ### Pub/Sub subscription
 
 #### Configuration
