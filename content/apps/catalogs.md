@@ -28,7 +28,7 @@ Moreover, with catalogs, you **don't have to master the entire PIM structure any
 To ensure Akeneo Product Cloud remains stable, we added some limits to catalogs:
 - Each app can create up to **200 catalogs**.
 - A product selection can have up to **25 selection criteria**.
-- A product mapping schema can have up to **200 targets**.
+- A product mapping schema can accommodate up to **600 targets**. However, please note that the user interface may experience reduced responsiveness when the number of targets exceeds **200**.
 
 ::: info
 To learn more about the functional scope, please visit our Help Center and read the [How to configure catalogs for Apps?](https://help.akeneo.com/serenity-connect-your-pim/how-to-configure-catalogs-for-apps)
