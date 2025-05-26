@@ -309,6 +309,31 @@ Example :
 ```
 After receiving this *event*, the PIM will send a PostMessage *event*, similar to the one sent after the iframe loading.
 
+**Product and product model context change**
+
+Using postmessage, the PIM context is propagated within the iframe when it changes. This only applies to the product and product model positions: pim.product-model.header and pim.product.header.
+
+The message contains :
+- A `context` object containing the configured `locale` and `channel`.
+- A `user` object containing the `uuid`, `username` and `groups` of the connected user.
+
+Example :
+```json
+{
+  "context": {
+    "locale": "en_US",
+    "channel": "ecommerce"
+  },
+  "user": {
+    "username": "admin",
+    "groups": [
+      "IT support",
+      "All"
+    ]
+  }
+}
+```
+
 #### Ensuring security of embedded iframes
 
 To help ensuring the security of iframes we recommand using these two solutions:
