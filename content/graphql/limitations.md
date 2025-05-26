@@ -181,3 +181,15 @@ To create your integration based on the GraphQL outbound API, you will need to h
 
 ::: panel-link Next step: status and error codes [Next](/graphql/error-codes.html)
 :::
+
+## Common troubleshooting caused by limitations
+
+:::warning
+Before contacting support, please check this section. We keep it updated, and your solution might be here.
+:::
+
+### My paginated request is getting a 429 Too Many Requests error.
+To resolve this error, you need to reduce the rate or intensity of your calls. Try:
+ - simplifying the query you are making
+ - fetching a smaller amount of data in each page
+ - adding a pause between your paginated requests. Using an exponential backoff strategy for retries is a good practice here.
