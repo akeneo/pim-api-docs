@@ -54,13 +54,13 @@ properties:
     default: {}
     properties:
       max_categories_per_product:
-        type: string
+        type: integer
         description: Set maximum number of categories per product
       only_leaves:
-        type: string
+        type: boolean
         description: Restrict categorization to the lowest level
       is_mandatory:
-        type: string
+        type: boolean
         description: Set category as mandatory for every product
 example:
   {
