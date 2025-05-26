@@ -247,8 +247,6 @@ For `pim.category.tab` position, this parameter is sent:
 
 #### Get PIM data from the iframe
 
-**PostMessage**
-
 To be able to communicate the products or product models selection (from position `pim.product-grid.action-bar`) to the iframe, we use the [PostMessage](https://developer.mozilla.org/docs/Web/API/Window/postMessage) protocol.
 
 After the iframe is loaded, the PIM send an *event* which is a normalized message [MessageEvent](https://developer.mozilla.org/docs/Web/API/MessageEvent) with a field `data` containing our information. 
@@ -309,13 +307,13 @@ Example :
 ```
 After receiving this *event*, the PIM will send a PostMessage *event*, similar to the one sent after the iframe loading.
 
-**Product and product model context change**
+#### Product and product model context change
 
-Using postmessage, the PIM context is propagated within the iframe when it changes. This only applies to the product and product model positions: pim.product-model.header and pim.product.header.
+The **PIM context** is propagated within the iframe when it changes using **postmessage**. This only applies to the product and product model positions: **pim.product-model.header** and **pim.product.header**.
 
 The message contains :
 - A `context` object containing the configured `locale` and `channel`.
-- A `user` object containing the `uuid`, `username` and `groups` of the connected user.
+- A `user` object containing the `username` and `groups` of the connected user.
 
 Example :
 ```json
