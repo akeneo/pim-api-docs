@@ -309,7 +309,7 @@ After receiving this *event*, the PIM will send a PostMessage *event*, similar t
 
 #### Product and product model context change
 
-The **PIM context** is propagated within the iframe when it changes using **postmessage**. This only applies to the product and product model positions: **pim.product-model.header** and **pim.product.header**.
+The **PIM context** is propagated within the iframe when it changes using **postmessage**. This only applies to the product and product model positions: **pim.product-model.header**, **pim.sub-product-model.header** and **pim.product.header**.
 
 The message contains :
 - A `context` object containing the configured `locale` and `channel`.
