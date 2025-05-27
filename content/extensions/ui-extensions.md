@@ -227,6 +227,7 @@ To help identify the  **iframe** caller (insecure) and context, several paramete
 For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebite.com/iframe/?position=pim.product.tab&user[username]=julia`
 
 For all positions, parameters relative to the connected user and the extension position are sent:
+- `user[uuid]`
 - `user[id]`
 - `user[username]`
 - `user[email]`
@@ -313,7 +314,7 @@ The **PIM context** is propagated within the iframe when it changes using **post
 
 The message contains :
 - A `context` object containing the selected `locale` and `channel`.
-- A `user` object containing the `username` and `groups` of the connected user.
+- A `user` object containing the `uuid`, `username` and `groups` of the connected user.
 
 Example :
 ```json
@@ -323,6 +324,7 @@ Example :
     "channel": "ecommerce"
   },
   "user": {
+    "uuid": "c71228d3-695c-4ded-8f3d-b3ed881a1f59",
     "username": "admin",
     "groups": [
       "IT support",
@@ -396,13 +398,15 @@ The JWT token consists of three main parts: the header, the body (payload), and 
   "iat": 1743410036.116152,
   "exp": 1743413636.116162,
   "userId": "1",
+  "userUuid": "557ed4c9-e155-4f4c-802d-4d90bca37d45"
 }
 ```
 
 * ```jti``` The unique identifier for the token.
 * ```iat``` The issued at time.
 * ```exp``` The expiration time of the token.
-* ```userId``` The PIM user identifier (in this case, ```1```).
+* ```userId``` The PIM user legacy identifier (in this case, ```1```).
+* ```userUuid``` The PIM user Uuid.
 
 *A signature*
 
