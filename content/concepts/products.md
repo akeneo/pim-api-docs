@@ -387,6 +387,69 @@ Whenever the attribute's type is `pim_catalog_number`, the `data` field should c
 }
 ```
 
+#### Product link attribute
+::: availability versions=SaaS editions=EE
+:::
+
+Whenever the attribute type is pim_catalog_product_link, the data field must contain:
+- The `type` of the linked entity, with the value `product` or `product_model`
+- The `identifier` or the `id` of the linked entity:
+  - If type is `product`: either the UUID in the id key, or the identifier in the identifier key
+  - If type is `product_model`: the product model code in the id key
+
+##### Examples
+```json
+{
+  "values": {
+    "included_battery": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": {
+          "type": "product",
+          "id": "fc24e6c3-933c-4a93-8a81-e5c703d134d5"
+        },
+        "attribute_type": "pim_catalog_product_link"
+      }
+    ]
+  }
+}
+```
+```json
+{
+  "values": {
+    "included_battery": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": {
+          "type": "product",
+          "identifier": "bl1850b"
+        },
+        "attribute_type": "pim_catalog_product_link"
+      }
+    ]
+  }
+}
+```
+```json
+{
+  "values": {
+    "included_battery": [
+      {
+        "locale": null,
+        "scope": null,
+        "data": {
+          "type": "product_model",
+          "id": "my_super_battery"
+        },
+        "attribute_type": "pim_catalog_product_link"
+      }
+    ]
+  }
+}
+```
+
 #### Metric attribute
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
 :::
