@@ -615,7 +615,7 @@ With the IN operator, the list of product identifiers can contain up to **100** 
 | IN, NOT IN        | a list of product links |
 | EMPTY, NOT EMPTY  | no value                |
 
-A product link have the following structure:
+A product link has the following structure:
 
 ```json
 {

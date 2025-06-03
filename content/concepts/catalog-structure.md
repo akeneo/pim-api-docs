@@ -87,7 +87,7 @@ Below is the list of attribute types and their description:
 | Reference data simple select | pim_reference_data_simpleselect | allows you to manage any kind of data that has its own properties, as a single-choice select. |
 | Reference data multi select | pim_reference_data_multiselect | allows you to manage any kind of data that has its own properties, as a multi-choice select. |
 | Table (Growth and Enterprise editions only) | pim_catalog_table | allows you to manage multidimensional data in the form of a table |
-| Product link | pim_catalog_product_link | Allow you to create a unidirectional relationship between a product/product model to another. |
+| Product link | pim_catalog_product_link | allow you to create a unidirectional relationship between a product/product model and another.                                                                                                                   |
 
 In the Akeneo UI, you can find the attributes in the `Settings`/`Attributes` menu. Below is an example of one attribute in the UI.
 
