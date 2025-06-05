@@ -15,7 +15,7 @@ To help identify duplicated events and deal with un-ordered events if it's somet
 
 If your subscription has an HTTPS destination, our delivery engine adapts the event delivery rate based on your system's capacity, operating within these limits:
 
-**Maximum rate:** `100` events per second (default rate)
+**Maximum rate:** `100` events per second
 
 **Minimum rate:** `1` event per second
 
