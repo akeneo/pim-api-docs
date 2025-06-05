@@ -51,7 +51,20 @@ The statuses for a subscription are:
 
 ## Subscription types
 
+::: info
+We will consider adding other subscription destinations based on feedback. Please [fill-in this form](https://forms.gle/XsZ7rovRnqfAn4xF9) to propose & upvote new destination types.
+:::
+
+
 ### Pub/Sub subscription
+
+This is the **preferred and most resilient method** for consuming events. It leverages Google Cloud's managed messaging service.
+
+#### Key Advantages
+
+- **Managed Scalability & Reliability:** Google Pub/Sub inherently handles high throughput and traffic bursts, absorbing the complexities of scaling.
+- **Reduced Infrastructure Burden:** Significantly lowers the operational overhead and risk for the customer.
+- **Simplified Integration:** Easier setup and maintenance compared to managing a custom HTTP endpoint.
 
 #### Configuration
 
@@ -89,6 +102,25 @@ For some configuration, you might also need our GCP project number : `9735664330
 For comprehensive details on managing subscriptions, consult the complete API reference [here](/event-platform/api-reference.html).
 
 ### HTTPS subscription
+
+This option pushes events directly to a HTTP endpoint. It offers flexibility but requires careful infrastructure planning.
+
+#### Critical Requirements & Considerations
+
+- **Strong Infrastructure:** The endpoint must be highly available and designed to handle variable event loads.
+    - This also depends on the **source PIM's size and activity**. A small PIM with few SKUs won't generate the same volume as a large instance with many jobs. Thus, the **HTTP endpoint** can be adjusted based on the PIM's intended use.
+- **Mandatory Rate Limiting (HTTP 429):**
+    - Our platform **dynamically adjusts its delivery rate from 1 to 100 events per second.**
+    - This adaptive mechanism **relies entirely on the endpoint correctly returning an `HTTP 429 "Too Many Requests"` status** when its capacity is reached. [ref](https://api.akeneo.com/event-platform/key-platform-behaviors.html#optimized-throughput)
+
+::: warning
+Endpoints without proper HTTP 429 handling are at high risk of being overwhelmed, leading to event loss and subscription suspension.
+:::
+
+- **Fast Acknowledgement:** Endpoints must respond with an `HTTP 200 OK` within **5 seconds**. Delays trigger retries and can lead to suspension. [ref](https://api.akeneo.com/event-platform/key-platform-behaviors.html#delivery-timeout)
+    - **Recommendation:** Implement an asynchronous processing model (e.g., using an internal queue) to acknowledge events quickly and process them separately.
+- **Suspension Policy:** Subscriptions may be suspended due to repeated errors (e.g., `4xx`/`5xx` status codes, timeouts, misconfigured SSL). [ref](https://api.akeneo.com/event-platform/key-platform-behaviors.html#suspension-policy)
+
 
 #### Configuration
 
@@ -176,6 +208,8 @@ We currently use a static IP address provided by Google Cloud: `34.140.80.128`
 ## Subscription Filters
 
 When configuring a subscription, you can optionally define a **filter** to receive **only the events that match specific criteria**.
+
+**Regardless of the destination type, we strongly advise to utilize event filters.** This ensures you only subscribe to and receive events that are relevant to your specific integration needs.
 
 You can find the list of currently available filters and the correct syntax to use [here](/event-platform/available-filters.html).
 
