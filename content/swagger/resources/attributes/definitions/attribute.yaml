@@ -28,6 +28,7 @@ properties:
         "akeneo_reference_entity",
         "akeneo_reference_entity_collection",
         "pim_catalog_asset_collection",
+        "pim_catalog_product_link",
       ]
     x-immutable: true
   labels:
@@ -172,7 +173,7 @@ properties:
           description: Column code
         data_type:
           type: string
-          enum: ["select", "text", "number", "boolean"]
+          enum: ["select", "text", "number", "boolean", "incremental_number", "reference_entity", "product_link", "measurement", "date"]
           description: Column data type
         validations:
           type: object

@@ -1171,6 +1171,21 @@ The modifications that can lead to this event include:
                 "scope": "a_scope"
               }
             ],
+            "a_pim_catalog_product_link_attribute": [
+              {
+                "previous": {
+                  "type": "product",
+                  "id": "83413cad-b3aa-4f68-9b4b-7fc90c1ce84a"
+                },
+                "new": {
+                  "type": "product",
+                  "id": "aeabe737-f655-4389-bcc0-d8dd2fc47824"
+                },
+                "type": "pim_catalog_product_link",
+                "locale": "a_locale",
+                "scope": "a_scope"
+              }
+            ],
             "a_pim_catalog_number_attribute": [
               {
                 "previous": 0,

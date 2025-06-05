@@ -711,6 +711,7 @@ Disclaimer: The previous snippet doesn’t handle for now the following attribut
 - Reference data simple select attribute
 - Reference data multi select attribute
 - Table attribute
+- Product link attribute
 :::
 
 ###### 2.3 - Collect product media files
