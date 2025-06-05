@@ -761,6 +761,9 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
       var pages = {
           'overview.md': "Overview",
           'ui-extensions.md': "UI Extensions",
+          'positions.md': "Positions",
+          'filtering.md': "Filtering",
+          'faq.md': "FAQ",
       };
 
       var isOnePage = false;

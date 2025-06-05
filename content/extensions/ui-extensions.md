@@ -494,75 +494,6 @@ Examples :
 }
 ```
 
-## Positions
-
-**Extension Positions**
-
-Extension position determines where your extension appears within the Akeneo PIM interface. You can select from a variety of available positions, which vary depending on the specific extension type.
-
-**Key Concepts:**
-
-* **Position Options:** Each extension type offers a set of predefined positions. These positions control the location of your extension's interface elements.
-* **Contextual Relevance:** Position options are designed to align with the functionality of each extension type, ensuring a seamless user experience.
-
-**Best Practices:**
-
-* Choose a position that aligns with the extension's intended functionality and user workflow.
-* Review the available position options for each extension type to ensure optimal integration.
-* Consider the impact of the position on the overall user experience within the PIM.
-
-
-### Positions list 
-
-![PIM Header.png](../img/extensions/ui-extensions/pim-header-with-extension.png)
-#### pim.product.header
-This position refers to the header of a simple product or a variant edit page.
-
-#### pim.product-model.header
-This position refers to the header of a root model edit page.
-
-#### pim.sub-product-model.header
-This position refers to the header of a sub model edit page.
-
-![PIM Tab.png](../img/extensions/ui-extensions/pim-product-with-tab-extension.png)
-#### pim.product.tab
-This position refers to the left panel of a simple product or a variant edit page.
-
-#### pim.product-model.tab
-This position refers to the left panel of a root model edit page.
-
-#### pim.sub-product-model.tab
-This position refers to the left panel of a sub model edit page.
-
-#### pim.category.tab
-This position refers to the horizontal list of tabs on a category edit page.
-
-![PIM Product Grid.png](../img/extensions/ui-extensions/pim-product-grid-with-bulk-trigger-action.png)
-#### pim.product-grid.action-bar
-This position refers to the list of commands availables after selecting some products on the product grid.
-
-::: warning
-  For the moment, you can't use UI extensions with more than **500** selected products & product models.
-:::
-
-#### pim.activity.navigation.tab
-This position refers to the activity PIM menu, adding UI extensions in this position will create a new section in the activity sub-navigation.
-
-### Available types by position
-Each position supports a specific subset of available types. The table below outlines the compatible types for all positions.
-
-| Positions                    | Action | Iframe | Link  |
-|------------------------------|--------|--------|-------|
-| pim.product.header           | ✔️     | ❌     | ✔️    |
-| pim.product-model.header     | ✔️     | ❌     | ✔️    |
-| pim.sub-product-model.header | ✔️     | ❌     | ✔️    |
-| pim.product.tab              | ❌     | ✔️     | ❌    |
-| pim.product-model.tab        | ❌     | ✔️     | ❌    |
-| pim.sub-product-model.tab    | ❌     | ✔️     | ❌    |
-| pim.category.tab             | ❌     | ✔️     | ❌    |
-| pim.product-grid.action-bar  | ✔️     | ✔️     | ❌    |
-| pim.activity.navigation.tab  | ❌     | ✔️     | ❌    |
-
 ## Administration of UI extensions
 For a functional overview of the administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).
 
@@ -586,21 +517,16 @@ To manage one or more UI extensions from the list, you just have to select them 
 
 You can filter the user groups allowed to see and execute an UI extension by using the permissions tab on the UI extensions creation/edition form.
 
+### Filter UI extension by product selection
+You can filter the products that can be selected by an UI extension by using the product selection tab on the UI extensions creation/edition form.
+
+[![ui-extension-product-selection.png](../img/extensions/ui-extensions/ui-extension-product-selection.png)](../img/extensions/ui-extensions/ui-extension-product-selection.png)
+
 ## API reference
 Several choices are offered to deep dive into our API, to discover all the endpoints, and their request/response schema:
 
 - You can <a href="https://api.akeneo.com/api-reference-index.html#UIExtensions" target="_blank">consult this static documentation</a>
 - Discover it thanks to <a href="https://api.akeneo.com/files/Akeneo%20PIM%20API.postman_collection.json" target="_blank">the postman collection</a> (see the [Postman section](https://api.akeneo.com/extensions/ui-extensions.html#using-postman))
 
-## FAQ
-### Who is responsible for UI extensions?
-Akeneo is responsible for the UI extensions framework itself, including the APIs and administrative interface. We provide support for these components. Your organization or your integrator is responsible for any custom code, iframes, or other custom development built within the UI extensions. Support for this custom code falls to your organization or integrator, not Akeneo. 
-
-### How can I add a new UI extension to my PIM?
-Adding a new extension to your organization is easy! Just follow the steps in [this guide](https://api.akeneo.com/extensions/ui-extensions.html#getting-started).
-
-### The UI extensions entry isn't showing up in my PIM. Could you help me understand why? 
-If you don't see the UI extensions entry in your PIM, it's likely due to permission settings. [This guide](https://api.akeneo.com/extensions/ui-extensions.html#authorization) will help you check and activate the necessary permissions. 
-
-### I'd like to see my extension in a position that isn't currently available. What can I do? 
-Currently, UI extension placements are limited to those defined by Akeneo. However, we highly value your feedback! Please contact your Customer Success Manager or our Support team to share your specific placement needs. This will help us understand your use case and consider it for future development.
+::: panel-link UI extensions available positions [Next](/extensions/positions.html)
+:::
