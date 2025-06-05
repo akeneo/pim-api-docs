@@ -35,53 +35,44 @@ Extension position determines where your extension appears within the Akeneo PIM
 ### Positions list
 
 #### pim.product.header
+This position refers to the header of a simple product or a variant edit page.
 [![pim-product-header.png](../img/extensions/ui-extensions/positions/pim-product-header.png)](../img/extensions/ui-extensions/positions/pim-product-header.png)
 
-This position refers to the header of a simple product or a variant edit page.
-
 #### pim.product-model.header
+This position refers to the header of a root model edit page.
 [![pim-product-model-header.png](../img/extensions/ui-extensions/positions/pim-product-model-header.png)](../img/extensions/ui-extensions/positions/pim-product-model-header.png)
 
-This position refers to the header of a root model edit page.
-
 #### pim.sub-product-model.header
+This position refers to the header of a sub product model edit page.
 [![pim-sub-product-model-header.png](../img/extensions/ui-extensions/positions/pim-sub-product-model-header.png)](../img/extensions/ui-extensions/positions/pim-sub-product-model-header.png)
 
-This position refers to the header of a sub product model edit page.
-
 #### pim.product.tab
+This position refers to the tab of a simple product or a variant edit page.
 [![pim-product-tab.png](../img/extensions/ui-extensions/positions/pim-product-tab.png)](../img/extensions/ui-extensions/positions/pim-product-tab.png)
 
-This position refers to the tab of a simple product or a variant edit page.
-
 #### pim.product-model.tab
-[![pim-product-model-tab.png](../img/extensions/ui-extensions/positions/pim-product-model-tab.png)](../img/extensions/ui-extensions/positions/pim-product-model-tab.png)
-
 This position refers to the tab of a root model edit page.
+[![pim-product-model-tab.png](../img/extensions/ui-extensions/positions/pim-product-model-tab.png)](../img/extensions/ui-extensions/positions/pim-product-model-tab.png)
 
 #### pim.sub-product-model.tab
+This position refers to the tab of a sub product model edit page.
 [![pim-product-model-tab.png](../img/extensions/ui-extensions/positions/pim-product-model-tab.png)](../img/extensions/ui-extensions/positions/pim-product-model-tab.png)
 
-This position refers to the tab of a sub product model edit page.
-
 #### pim.category.tab
+This position refers to the tab of a category edit page.
 [![pim-category-tab.png](../img/extensions/ui-extensions/positions/pim-category-tab.png)](../img/extensions/ui-extensions/positions/pim-category-tab.png)
 
-This position refers to the tab of a category edit page.
-
 #### pim.product-grid.action-bar
-[![pim-product-grid-action-bar.png](../img/extensions/ui-extensions/positions/pim-product-grid-action-bar.png)](../img/extensions/ui-extensions/positions/pim-product-grid-action-bar.png)
-
 This position refers to the action bar of the product grid. It is used to add actions that can be applied to multiple products at once.
 
 ::: warning
 For the moment, you can't use UI extensions with more than **500** selected products & product models.
 :::
+[![pim-product-grid-action-bar.png](../img/extensions/ui-extensions/positions/pim-product-grid-action-bar.png)](../img/extensions/ui-extensions/positions/pim-product-grid-action-bar.png)
 
 #### pim.activity.navigation.tab
+This position refers to the tab of the activity navigation. It is used to add custom tabs in the activity navigation of the PIM.
 [![pim-activity-navigation-tab.png](../img/extensions/ui-extensions/positions/pim-activity-navigation-tab.png)](../img/extensions/ui-extensions/positions/pim-activity-navigation-tab.png)
 
-This position refers to the tab of the activity navigation. It is used to add custom tabs in the activity navigation of the PIM.
-
-::: panel-link FAQ [Next](/extensions/faq.html)
+::: panel-link Filtering [Next](/extensions/filtering.html)
 :::
