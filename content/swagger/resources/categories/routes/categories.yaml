@@ -94,7 +94,8 @@ get:
                   "locale": "en_US",
                   "attribute_code": "image_1|871b8686-79b5-415c-9c6f-a38f8732dfb7"
                 }
-              }
+              },
+              "channel_requirements": ["ecommerce", "mobile"]
             },
             {
               "_links": {
@@ -111,7 +112,8 @@ get:
                 "fr_FR": "Femme",
                 "de_DE": "Damen"
               },
-              "values": {}
+              "values": {},
+              "channel_requirements": []
             },
             {
               "_links": {
@@ -128,7 +130,8 @@ get:
                 "fr_FR": "Homme",
                 "de_DE": "Herren"
               },
-              "values": {}
+              "values": {},
+              "channel_requirements": []
             },
             {
               "_links": {
@@ -145,7 +148,8 @@ get:
                 "fr_FR": "Enfant",
                 "de_DE": "Kinder"
               },
-              "values": {}
+              "values": {},
+              "channel_requirements": []
             },
             {
               "_links": {
@@ -162,7 +166,8 @@ get:
                 "fr_FR": "Collection été",
                 "de_DE": "Sommer-Kollektion"
               },
-              "values": {}
+              "values": {},
+              "channel_requirements": ["print"]
             }
           ]
         }
