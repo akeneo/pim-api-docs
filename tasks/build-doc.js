@@ -760,7 +760,7 @@ gulp.task('build-event-platform', ['clean-dist','less'], function () {
 gulp.task('build-extensions', ['clean-dist','less'], function () {
       var pages = {
           'overview.md': "Overview",
-          'ui-extensions.md': "UI Extensions",
+          'getting-started.md': "Getting started",
           'positions.md': "Positions",
           'filtering.md': "Filtering",
           'faq.md': "FAQ",

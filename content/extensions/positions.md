@@ -1,7 +1,5 @@
 # Positions
 
-**Extension Positions**
-
 Extension position determines where your extension appears within the Akeneo PIM interface. You can select from a variety of available positions, which vary depending on the specific extension type.
 
 **Key Concepts:**

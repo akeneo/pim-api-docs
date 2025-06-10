@@ -1,10 +1,9 @@
-# UI extensions
+# Getting Started
 The UI extension feature enables you to extend your PIM by integrating custom views and actions from external systems. This framework provides the flexibility to modify and adapt your PIM experience to meet specific business requirements.
 By leveraging this functionality, you can integrate custom solutions while maintaining the reliability and ease the use of our SaaS platform, offering a balance between flexibility and stability.
 
 The extension framework is designed to help you customize the standard behavior of your PIM system by integrating with externally hosted solutions. This documentation provides an overview of the framework's capabilities and the various customization options available, enabling you to extend and tailor your PIM to meet your specific business needs.
 
-## Getting Started
 This guide provides a step-by-step walkthrough for setting up and managing UI extensions.
 
 ### Prerequisites
@@ -513,20 +512,11 @@ On the new page, you can see all extensions registered in your PIM.
 
 To manage one or more UI extensions from the list, you just have to select them thanks to the checkboxes present on the left of each line, and then use one of the two commands available at the bottom of the screen.
 
-### Filter UI extension by user groups
-
-You can filter the user groups allowed to see and execute an UI extension by using the permissions tab on the UI extensions creation/edition form.
-
-### Filter UI extension by product selection
-You can filter the products that can be selected by an UI extension by using the product selection tab on the UI extensions creation/edition form.
-
-[![ui-extension-product-selection.png](../img/extensions/ui-extensions/ui-extension-product-selection.png)](../img/extensions/ui-extensions/ui-extension-product-selection.png)
-
 ## API reference
 Several choices are offered to deep dive into our API, to discover all the endpoints, and their request/response schema:
 
 - You can <a href="https://api.akeneo.com/api-reference-index.html#UIExtensions" target="_blank">consult this static documentation</a>
-- Discover it thanks to <a href="https://api.akeneo.com/files/Akeneo%20PIM%20API.postman_collection.json" target="_blank">the postman collection</a> (see the [Postman section](https://api.akeneo.com/extensions/ui-extensions.html#using-postman))
+- Discover it thanks to <a href="https://api.akeneo.com/files/Akeneo%20PIM%20API.postman_collection.json" target="_blank">the postman collection</a> (see the [Postman section](https://api.akeneo.com/extensions/getting-started.html#using-postman))
 
 ::: panel-link UI extensions available positions [Next](/extensions/positions.html)
 :::
