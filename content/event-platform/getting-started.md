@@ -12,7 +12,7 @@ To learn how to create a connection, see the <a href="https://api-dev.akeneo.com
 
 ## Using Postman
 
-he quickest way to get started with Event Platform API is by using our Postman collection.
+The quickest way to get started with Event Platform API is by using our Postman collection.
 
 ### 1. Import the Postman Collection
 
