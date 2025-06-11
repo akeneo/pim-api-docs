@@ -1,9 +1,9 @@
 # Types
 
 UI extensions are categorized by type, which determines their capabilities. Select the type that best suits your requirements:
-+ action
-+ iframe
-+ link
++ Action
++ Iframe
++ Link
 
 ## Link
 A **link** UI extension is crafted to open your external content in a new tab.

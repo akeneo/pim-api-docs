@@ -17,5 +17,7 @@ You can filter the products that can be selected by an UI extension by using the
 
 In addition to the filtering capacity, you can order the UI extension in the UI using the `weight` field on the creation/update form. This will determine the order in which extensions are displayed in the **header** and **tab** positions.
 
+[![ui-extension-product-selection.png](../img/extensions/ui-extensions/weight.png)](../img/extensions/ui-extensions/weight.png)
+
 ::: panel-link FAQ [Next](/extensions/faq.html)
 :::
