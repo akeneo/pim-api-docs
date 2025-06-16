@@ -800,6 +800,8 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
 gulp.task('build-px-insights', ['clean-dist','less'], function () {
       var pages = {
           'overview.md': "Overview",
+          'getting-started.md': "Getting started",
+          "authentication-and-authorization.md": "Authentication and authorization",
       };
 
       var isOnePage = false;
