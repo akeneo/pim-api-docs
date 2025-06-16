@@ -98,5 +98,5 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 
 // TODO
 
-::: panel-link Authorization and authentication requirements [Next](/px-insights/authentication-and-authorization.html)
+::: panel-link Let's see the API reference! [Next](/px-insights/api-reference.html)
 :::

@@ -801,7 +801,10 @@ gulp.task('build-px-insights', ['clean-dist','less'], function () {
       var pages = {
           'overview.md': "Overview",
           'getting-started.md': "Getting started",
-          "authentication-and-authorization.md": "Authentication and authorization",
+          'api-reference.md': "API Reference",
+          'compatibility.md': "Compatibility",
+          'limitations.md': "Quota & Limits",
+          "rating-and-reviews.md": "Rating and reviews queries",
       };
 
       var isOnePage = false;
