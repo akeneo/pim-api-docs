@@ -16,8 +16,8 @@ The easiest way to manipulate the PX Insights API for a quickstart will be throu
 
 ### 1. Import the Postman Collection
 
-1. Download our <a href="https://storage.googleapis.com/akecld-prd-sdk-cirps-prd-api-assets/generated_postman_collection.json" target="_blank">Postman Collection</a>
-2. Download our <a href="https://storage.googleapis.com/akecld-prd-sdk-cirps-prd-api-assets/postman_environment_template.json" target="_blank">Postman environment variable template</a>
+1. Download our <a href="https://storage.googleapis.com/akecld-prd-cipr-prd-api-assets/generated_postman_collection.json" target="_blank">Postman Collection</a>
+2. Download our <a href="https://storage.googleapis.com/akecld-prd-cipr-prd-api-assets/postman_environment_template.json" target="_blank">Postman environment variable template</a>
 3. Import those files into Postman (follow <a href="https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/" target="_blank">this guide</a> if you're not familiar with it)
 
 ### 2. Fill the environment variables

@@ -799,12 +799,12 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
 
 gulp.task('build-px-insights', ['clean-dist','less'], function () {
       var pages = {
-          'overview.md': "Overview",
-          'getting-started.md': "Getting started",
-          'api-reference.md': "API Reference",
-          'compatibility.md': "Compatibility",
-          'limitations.md': "Quota & Limits",
-          "rating-and-reviews.md": "Rating and reviews queries",
+            'api-reference.md': "API Reference",
+            'compatibility.md': "Compatibility",
+            'getting-started.md': "Getting started",
+            'key-platform-behaviors.md': "Key platform behaviors",
+            'limitations.md': "Quota & Limits",
+            'overview.md': "Overview",
       };
 
       var isOnePage = false;
