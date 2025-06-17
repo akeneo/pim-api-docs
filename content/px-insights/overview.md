@@ -4,5 +4,5 @@
 
 ![overview-schema.png](../img/px-insights/overview-schema.png)
 
-::: panel-link Let's get started! [Next](/px-insights/getting-started.html)
+::: panel-link Understand the compatibility with your PIM version[Next](/px-insights/compatibility.html)
 :::
