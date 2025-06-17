@@ -16,8 +16,8 @@ The easiest way to manipulate the PX Insights API for a quickstart will be throu
 
 ### 1. Import the Postman Collection
 
-1. Download our <a href="https://storage.googleapis.com/akecld-prd-sdk-aep-prd-api-assets/generated_postman_collection.json" target="_blank">Postman Collection</a>
-2. Download our <a href="https://storage.googleapis.com/akecld-prd-sdk-aep-prd-api-assets/postman_environment_template.json" target="_blank">Postman environment variable template</a>
+1. Download our <a href="https://storage.googleapis.com/akecld-prd-sdk-cirps-prd-api-assets/generated_postman_collection.json" target="_blank">Postman Collection</a>
+2. Download our <a href="https://storage.googleapis.com/akecld-prd-sdk-cirps-prd-api-assets/postman_environment_template.json" target="_blank">Postman environment variable template</a>
 3. Import those files into Postman (follow <a href="https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/" target="_blank">this guide</a> if you're not familiar with it)
 
 ### 2. Fill the environment variables
@@ -30,7 +30,9 @@ Fill the environment variables with your PIM connection values, and it will auto
 
 ### 3. Trigger the synchronization of your reviews
 
-// TODO
+1. Select the Postman environment you've just created
+2. Send a `Save reviews for a product` POST request
+3. Copy/Paste the reviews you want to ingest
 
 ---
 
@@ -53,11 +55,11 @@ In this example, we will create a new `connection` in the PIM and use it to gene
    - Define the Client ID, Secret, Username, Password, and Akeneo host URL as environment variables:
 
    ```bash [snippet:Shell]
-        export CLIENT_ID="your-client-id"
-    export CLIENT_SECRET="your-client-secret"
-    export API_USERNAME="your-API-username"
-    export API_PASSWORD="your-API-password"
-    export TARGET_PIM_URL="https://your-pim.cloud.akeneo.com"
+      export CLIENT_ID="your-client-id"
+      export CLIENT_SECRET="your-client-secret"
+      export API_USERNAME="your-API-username"
+      export API_PASSWORD="your-API-password"
+      export TARGET_PIM_URL="https://your-pim.cloud.akeneo.com"
    ```
    Replace the placeholders with your actual credentials and host URL.
 
@@ -96,7 +98,70 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 
 ### 2. Trigger the synchronization of your reviews
 
-// TODO
+From the next steps we will use the PX Insights REST API: 'https://px-insights.app.akeneo.cloud/api/v1'
+
+You can post your reviews once you have a valid PIM API token. The API accepts review data in an asynchronous processing mode via the following endpoint.
+
+```bash [snippet:Shell]
+curl --request POST 'https://px-insights.app.akeneo.cloud/api/v1/reviews/ingest/async' \
+--header "X-PIM-URL: $TARGET_PIM_URL" \
+--header "X-PIM-TOKEN: $PIM_API_TOKEN" \
+--header "X-PIM-CLIENT-ID: $CLIENT_ID" \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "product_identification": {
+    "origin": "Yotpo",
+    "metadata": {
+      "sku": "product-123"
+    }
+  },
+  "raw_reviews": [
+    {
+      "external_id": "review-001",
+      "score": 5,
+      "title": "Excellent product!",
+      "text": "This product exceeded my expectations. The quality is outstanding and it works perfectly."
+    },
+    {
+      "external_id": "review-002",
+      "score": 3,
+      "title": "Good but could be better",
+      "text": "The product is good overall, but I had some issues with the packaging."
+    }
+  ]
+}'
+```
+
+**Request Body Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `product_identification` | object | Information to identify the product associated with the reviews |
+| `product_identification.origin` | string | Source identifier for the reviews (e.g., Yotpo, Amazon, your own website) |
+| `product_identification.metadata` | object | Additional information to identify the product |
+| `product_identification.metadata.sku` | string | Product SKU that these reviews are associated with |
+| `raw_reviews` | array | Collection of review objects to be ingested |
+| `raw_reviews[].external_id` | string | Unique identifier for the review in your system |
+| `raw_reviews[].score` | number | Rating score for the review (1-5) |
+| `raw_reviews[].title` | string | Review title or headline |
+| `raw_reviews[].text` | string | The full review content |
+
+**Response:**
+
+Upon successful submission, the API will acknowledge receipt of your reviews for asynchronous processing.
+
+```json [snippet:Response]
+{
+  "message": "Reviews received for processing"
+}
+```
+
+**Possible Error Responses:**
+
+- `400 Bad Request`: Invalid request format or missing required fields
+- `401 Unauthorized`: Invalid authentication credentials
+- `403 Forbidden`: Not authorized to perform this action
+- `500 Internal Server Error`: Server-side error, retry recommended
 
 ::: panel-link Let's see the API reference! [Next](/px-insights/api-reference.html)
 :::
