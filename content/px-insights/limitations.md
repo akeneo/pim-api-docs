@@ -6,11 +6,11 @@ To ensure optimal performance and system stability, PX Insights enforces certain
 
 PX Insights uses an asynchronous queue-based system to process review data. This approach offers significant advantages:
 
-- **No API rate limiting**: Since all requests are pushed to a queue, there are no rate limits on the API endpoints
+- **No API rate limiting**: Since all requests are pushed to a queue, there are no functional rate limits on the API endpoints
 - **High throughput**: You can send large volumes of reviews without worrying about overwhelming the system
 - **Reliable processing**: The queue ensures all reviews are processed, even during peak loads
 
-While there are no artificial rate limits imposed on the API, we recommend following the best practices outlined below for optimal performance.
+While there are technical limits outlined below to protect system stability, the queue-based architecture allows for high-volume processing.
 
 ## Payload Limitations
 
@@ -18,9 +18,8 @@ To maintain system performance, we enforce the following constraints on request 
 
 | Parameter | Limitation | Notes |
 |-----------|------------|-------|
+| Maximum requests per second | 100 requests | Per client ID |
 | Maximum reviews per request | 100 reviews | For larger batches, split into multiple requests |
-| Maximum review text length | 10,000 characters | Longer texts will be truncated |
-| Maximum request payload size | 5 MB | Includes all review data and metadata |
 | Supported score range | 1-5 | Integer values only |
 
 ## Processing Time Expectations
