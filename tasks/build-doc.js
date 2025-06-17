@@ -798,14 +798,14 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
 );
 
 gulp.task('build-px-insights', ['clean-dist','less'], function () {
-      var pages = {
-            'api-reference.md': "API Reference",
-            'compatibility.md': "Compatibility",
-            'getting-started.md': "Getting started",
-            'key-platform-behaviors.md': "Key platform behaviors",
-            'limitations.md': "Quota & Limits",
-            'overview.md': "Overview",
-      };
+    var pages = {
+        'overview.md': "Overview",
+        'compatibility.md': "Compatibility",
+        'limitations.md': "Quota & Limits",
+        'key-platform-behaviors.md': "Key platform behaviors",
+        'api-reference.md': "API Reference",
+        'getting-started.md': "Getting started",
+    };
 
       var isOnePage = false;
 
