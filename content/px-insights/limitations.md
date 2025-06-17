@@ -6,7 +6,6 @@ To ensure optimal performance and system stability, PX Insights enforces certain
 
 PX Insights uses an asynchronous queue-based system to process review data. This approach offers significant advantages:
 
-- **No API rate limiting**: Since all requests are pushed to a queue, there are no functional rate limits on the API endpoints
 - **High throughput**: You can send large volumes of reviews without worrying about overwhelming the system
 - **Reliable processing**: The queue ensures all reviews are processed, even during peak loads
 
@@ -16,11 +15,11 @@ While there are technical limits outlined below to protect system stability, the
 
 To maintain system performance, we enforce the following constraints on request payloads:
 
-| Parameter | Limitation | Notes |
-|-----------|------------|-------|
-| Maximum requests per second | 100 requests | Per client ID |
-| Maximum reviews per request | 100 reviews | For larger batches, split into multiple requests |
-| Supported score range | 1-5 | Integer values only (1, 2, 3, 4, 5) |
+| Parameter | Limitation   | Notes |
+|-----------|--------------|-------|
+| Maximum requests per second | 500 requests | Per client ID |
+| Maximum reviews per request | 500 reviews  | For larger batches, split into multiple requests |
+| Supported score range | 1-5          | Integer values only (1, 2, 3, 4, 5) |
 
 ## Processing Time Expectations
 
@@ -28,6 +27,7 @@ While PX Insights processes reviews asynchronously, you can expect the following
 
 - **Standard processing**: Reviews are typically processed within 5-10 minutes
 - **High-volume periods**: During peak times, processing may take up to 30 minutes
+- **First-time imports**: Initial data loads or large migrations may take longer, depending on the volume of reviews to perform ID reconciliation
 
 ## Troubleshooting Missing Reviews
 
@@ -52,10 +52,10 @@ Reviews without successful product reconciliation will not be stored and display
 
 To optimize your experience with PX Insights:
 
-1. **Batch sensibly**: While you can send up to 100 reviews per request, consider using smaller batches (20-50) for more predictable processing
-2. **Parallel processing**: You can send multiple requests in parallel without concerns about rate limiting
-3. **Schedule large imports**: For initial data loads or large migrations, consider scheduling the work during off-peak hours for fastest processing
-4. **Review processing status**: For large imports, consider implementing a monitoring mechanism to track overall progress
+1. **Filter by relevance**: Consider filtering your reviews by date. Reviews lose relevancy with time so you might not need to import everything.
+2. **Avoid duplication**: Only import new data rather than re-importing the same reviews. Our API handles duplicates well, but it causes unnecessary resource usage.
+3. **Batch sensibly**: While you can send up to 100 reviews per request, consider using smaller batches (20-50) for more predictable processing.
+4. **Review processing status**: For large imports, consider implementing a monitoring mechanism to track overall progress.
 
 ::: panel-link Let's explore the key platform behaviors! [Next](/px-insights/key-platform-behaviors.html)
 :::
