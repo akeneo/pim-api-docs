@@ -8,5 +8,5 @@ Several choices are offered to deep dive into our API, to discover all the endpo
 
 
 
-::: panel-link Understand the compatibility with your PIM version[Next](/px-insights/compatibility.html)
+::: panel-link Let's get started![Next](/px-insights/getting-started.html)
 :::

@@ -7,5 +7,5 @@
 - X reviews per request
 - X request per secondes
 
-::: panel-link Get ready for you first request! [Next](/px-insights/rating-and-reviews.html)
+::: panel-link Let's get explore the key behaviors! [Next](/px-insights/key-platform-behaviors.html)
 :::
