@@ -46,12 +46,7 @@ Fill the environment variables with your PIM connection values, and it will auto
 In this example, we will create a new `connection` in the PIM and use it to generate an `API token`.
 :::
 
-**1. Create a connection in Akeneo PIM:**
-   - Navigate to **Connect** > **Connection settings** > **Create**.
-   - Fill out the form to create the connection.
-   - Note the generated `Client ID`, `Secret`, `Username`, and `Password`.
-
-**2. Set Your Environment Variables:**
+**1. Set Your Environment Variables:**
    - Define the Client ID, Secret, Username, Password, and Akeneo host URL as environment variables:
 
    ```bash [snippet:Shell]
@@ -63,14 +58,14 @@ In this example, we will create a new `connection` in the PIM and use it to gene
    ```
    Replace the placeholders with your actual credentials and host URL.
 
-**3. Encode Your Credentials:**
+**2. Encode Your Credentials:**
    - Encode the Client ID and Secret in base64 format, separated by a colon `:`:
    ```bash [snippet:Shell]
         export BASE64_ENCODED_CLIENTID_AND_SECRET=$(echo -n "$CLIENT_ID:$CLIENT_SECRET" | base64 -w 0)
    // For Mac OS user remove the -w 0 option
    ```
 
-**4.  Your API Token:**
+**3.  Your API Token:**
    - Make the API call to retrieve your `API token` using the environment variables:
    ```bash [snippet:Shell]
         curl --request POST "$TARGET_PIM_URL/api/oauth/v1/token" \
