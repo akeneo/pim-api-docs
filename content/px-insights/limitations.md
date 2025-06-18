@@ -17,7 +17,7 @@ To maintain system performance, we enforce the following constraints on request 
 
 | Parameter | Limitation   | Notes |
 |-----------|--------------|-------|
-| Maximum requests per second | 500 requests | Per client ID |
+| Maximum requests per second | 1000 requests | Per client ID |
 | Maximum reviews per request | 500 reviews  | For larger batches, split into multiple requests |
 | Supported score range | 1-5          | Integer values only (1, 2, 3, 4, 5) |
 
