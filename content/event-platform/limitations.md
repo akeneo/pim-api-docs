@@ -8,9 +8,9 @@
 
 **Event Platform Quotas:**
 
-Our Event platform has specific quotas designed to ensure optimal performance and fair usage for all users.
-- **Weekly Event Limit**: You can distribute up to 5 million events per week for the light payload.
-- **Exceeding Limits**: If you exceed this limit occasionally, your usage will not be interrupted. However, habitual overages may require further discussion to optimize your usage.
+Our event platform does not impose specific quotas.
+
+However, to ensure optimal performance and fair use for all users, heavy usage (millions of events per day) may require further discussion to help you optimise your usage.
 
 ::: panel-link Consult now our FAQ [Next](/event-platform/faq.html)
 :::
