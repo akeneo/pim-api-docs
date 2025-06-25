@@ -1,7 +1,7 @@
 ### Product UUID
 
 ::: info
-The following endpoints are largely the same as for [products](/php-client/resources.html#products). The difference? Here, you can query, create or update products identified by their uuid. More information [here](/content/getting-started/from-identifiers-to-uuid-7x/welcome.md).
+The following endpoints are largely the same as for [products](/php-client/resources.html#products). The difference? Here, you can query, create or update products identified by their uuid. More information [here](/getting-started/from-identifiers-to-uuid-7x/welcome.html).
 :::
 
 #### Get a product
