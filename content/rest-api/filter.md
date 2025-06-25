@@ -607,6 +607,25 @@ With the IN operator, the list of product identifiers can contain up to **100** 
 | STARTS WITH, CONTAINS, DOES NOT CONTAIN, =, !=            | string             |
 | EMPTY, NOT EMPTY                                          | no value           |
 
+**The `pim_catalog_product_link` attribute types**
+::: availability versions=SaaS editions=EE
+
+| Allowed operators | Allowed value type      |
+|-------------------|-------------------------|
+| IN, NOT IN        | a list of product links |
+| EMPTY, NOT EMPTY  | no value                |
+
+A product link has the following structure:
+
+```json
+{
+  "type": "product",
+  "id": "31243126-cfa4-4d8c-a3ea-e989e059eae2"
+}
+```
+
+Where `type` value can be one of the following: `product`, `product_model` and `id` is the product UUID in case the type is `product` or the product model code in case type is `product_model`.
+
 ## Filter product values
 
 Thanks to the above sections, you are able to filter your products to only get those you want. In this section, you will see that you also can filter the product values to only receive those you want.

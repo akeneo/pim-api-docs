@@ -13,13 +13,16 @@ By setting boundaries, we avoid complex or large queries that could potentially 
 :::warning
 Understanding **that the limitations are not static and will adapt over time based on usage and requirements is vital**.
 
-With the **GraphQL API** being a recent addition to Akeneo, our priority is to ensure the stability of the PIM by carefully assessing all risks.
+The **GraphQL API** being based on Akeneo's PIM REST API, our priority is to ensure the stability of the PIM by carefully assessing all risks.
 
 If you encounter any **challenges** with the `rate limits`, please don't hesitate to reach out by opening a support ticket.
 
 Your insights are invaluable in fine-tuning our system for optimal performance.
+
+You can also find more details about the [REST API Limitations](/documentation/limitations.html)
 :::
 The **GraphQL API** is limited to `500req/10s` per **PIM URL.**
+
 
 ## Query complexity limitations
 
@@ -127,11 +130,13 @@ This is an important tip to keep in mind.
 :::warning
 Understanding **that the limitations are not static and will adapt over time based on usage and requirements is vital**.
 
-With the **GraphQL API** being a recent addition to Akeneo, our priority is to ensure the stability of the PIM by carefully assessing all risks.
+The **GraphQL API** being based on Akeneo's PIM REST API, our priority is to ensure the stability of the PIM by carefully assessing all risks.
 
 If you encounter any **challenges** with the `depth limit`, please don't hesitate to reach out by opening a support ticket.
 
 Your insights are invaluable in fine-tuning our system for optimal performance.
+
+You can also find more details about the [REST API Limitations](/documentation/limitations.html)
 :::
 
 

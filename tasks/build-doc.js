@@ -604,6 +604,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
         'pagination.md': 'Pagination',
         'update.md': 'Update behavior',
         'filter.md': 'Filters',
+        'limitations.md': 'Limitations',
         'troubleshooting.md': 'Troubleshooting guide'
     };
 
@@ -760,7 +761,11 @@ gulp.task('build-event-platform', ['clean-dist','less'], function () {
 gulp.task('build-extensions', ['clean-dist','less'], function () {
       var pages = {
           'overview.md': "Overview",
-          'ui-extensions.md': "UI Extensions",
+          'getting-started.md': "Getting started",
+          'types.md': "Types",
+          'positions.md': "Positions",
+          'filtering.md': "Filter and display",
+          'faq.md': "FAQ",
       };
 
       var isOnePage = false;

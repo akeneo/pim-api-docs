@@ -1,5 +1,5 @@
 type: object
-description: Configuration options that are specific to the UI extension <a href='extensions/ui-extensions.html#type'>type</a>
+description: Configuration options that are specific to the UI extension <a href='extensions/getting-started.html#type'>type</a>
 properties:
   default_label:
     type: string
@@ -9,7 +9,7 @@ properties:
     description: Label translations
   secret:
     type: string
-    description: Shows ***REDACTED*** if a <a href='extensions/ui-extensions.html#secret'>secret</a> is registered for the extension
+    description: Shows ***REDACTED*** if a <a href='extensions/getting-started.html#secret'>secret</a> is registered for the extension
   url:
     type: string
     description: Destination URL of the extension
