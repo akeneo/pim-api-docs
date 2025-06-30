@@ -44,6 +44,11 @@
 /api/rest/v1/jobs/import/{code}:
   $ref: ./resources/jobs/routes/import.yaml
 
+/api/rest/v1/permissions/{user_id}/locales:
+  $ref: ./resources/permissions/routes/locales.yaml
+/api/rest/v1/permissions/{user_id}/channels:
+  $ref: ./resources/permissions/routes/channels.yaml
+
 /api/rest/v1/families:
   $ref: ./resources/families/routes/families.yaml
 /api/rest/v1/families/{code}:

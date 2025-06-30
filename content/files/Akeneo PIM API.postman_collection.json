@@ -5101,6 +5101,84 @@
 			]
 		},
 		{
+			"info": {
+				"name": "Permissions (Channels)",
+				"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+			},
+			"item": [
+				{
+					"name": "Get User Channels Permissions",
+					"request": {
+						"method": "GET",
+						"header": [
+						{
+							"key": "Authorization",
+							"value": "Bearer {{token}}"
+						},
+						{
+							"key": "Content-type",
+							"value": "application/json"
+						}
+						],
+						"url": {
+						"raw": "{{url}}/api/rest/v1/permissions/{{userId}}/channels",
+						"host": [
+							"{{url}}"
+						],
+						"path": [
+							"api",
+							"rest",
+							"v1",
+							"permissions",
+							"{{userId}}",
+							"channels"
+						]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+  			"info": {
+				"name": "Permissions (Locales)",
+				"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+			},
+			"item": [
+				{
+					"name": "Get User Locales Permissions",
+					"request": {
+						"method": "GET",
+						"header": [
+						{
+							"key": "Authorization",
+							"value": "Bearer {{token}}"
+						},
+						{
+							"key": "Content-type",
+							"value": "application/json"
+						}
+						],
+						"url": {
+						"raw": "{{url}}/api/rest/v1/permissions/{{userId}}/locales",
+						"host": [
+							"{{url}}"
+						],
+						"path": [
+							"api",
+							"rest",
+							"v1",
+							"permissions",
+							"{{userId}}",
+							"locales"
+						]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Authentification by password",
 			"event": [
 				{
