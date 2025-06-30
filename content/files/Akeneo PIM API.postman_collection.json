@@ -5134,6 +5134,79 @@
 			]
 		},
 		{
+			"name": "Permissions (Channels)",
+			"item": [
+				{
+					"name": "Get User Channels Permissions",
+					"request": {
+						"method": "GET",
+						"header": [
+						{
+							"key": "Authorization",
+							"value": "Bearer {{token}}"
+						},
+						{
+							"key": "Content-type",
+							"value": "application/json"
+						}
+						],
+						"url": {
+						"raw": "{{url}}/api/rest/v1/permissions/{{userId}}/channels",
+						"host": [
+							"{{url}}"
+						],
+						"path": [
+							"api",
+							"rest",
+							"v1",
+							"permissions",
+							"{{userId}}",
+							"channels"
+						]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+
+		{
+			"name": "Permissions (Locales)",
+			"item": [
+				{
+					"name": "Get User Locales Permissions",
+					"request": {
+						"method": "GET",
+						"header": [
+						{
+							"key": "Authorization",
+							"value": "Bearer {{token}}"
+						},
+						{
+							"key": "Content-type",
+							"value": "application/json"
+						}
+						],
+						"url": {
+						"raw": "{{url}}/api/rest/v1/permissions/{{userId}}/locales",
+						"host": [
+							"{{url}}"
+						],
+						"path": [
+							"api",
+							"rest",
+							"v1",
+							"permissions",
+							"{{userId}}",
+							"locales"
+						]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Extensions",
 			"item": [
 				{

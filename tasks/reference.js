@@ -84,6 +84,8 @@ function determineCategory(tag){
             return 'Extensions';
         case 'Jobs':
             return 'Jobs';
+        case 'Permissions':
+            return 'Permissions';
         case 'Workflow':
         case 'Workflow execution':
         case 'Workflow task':
