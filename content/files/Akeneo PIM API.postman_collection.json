@@ -5134,7 +5134,7 @@
 			]
 		},
 		{
-			"name": "Permissions (Channels)",
+			"name": "Permissions",
 			"item": [
 				{
 					"name": "Get User Channels Permissions",
@@ -5166,13 +5166,7 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-
-		{
-			"name": "Permissions (Locales)",
-			"item": [
+				},
 				{
 					"name": "Get User Locales Permissions",
 					"request": {
