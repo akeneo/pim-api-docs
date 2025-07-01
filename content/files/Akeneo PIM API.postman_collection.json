@@ -5101,10 +5101,7 @@
 			]
 		},
 		{
-			"info": {
-				"name": "Permissions (Channels)",
-				"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-			},
+			"name": "Permissions",
 			"item": [
 				{
 					"name": "Get User Channels Permissions",
@@ -5136,15 +5133,7 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-  			"info": {
-				"name": "Permissions (Locales)",
-				"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-			},
-			"item": [
+				},
 				{
 					"name": "Get User Locales Permissions",
 					"request": {
