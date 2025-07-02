@@ -7,10 +7,10 @@ get:
   x-versions:
     - "SaaS"
   parameters:
-    - name: user_id
+    - name: user_uuid
       in: path
       type: string
-      description: User ID
+      description: User UUID
       required: true
   responses:
     200:
@@ -19,7 +19,7 @@ get:
       x-examples-per-version:
         - x-version: 'SaaS'
           x-example:
-            userId: "12345"
+            userUuid: "abcd1234-5678-90ef-ghij-klmnopqrstuv"
             locales:
               en_US:
                 canView: "true"

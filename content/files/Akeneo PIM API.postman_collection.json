@@ -5118,7 +5118,7 @@
 						}
 						],
 						"url": {
-						"raw": "{{url}}/api/rest/v1/permissions/{{userId}}/channels",
+						"raw": "{{url}}/api/rest/v1/permissions/{{userUuid}}/channels",
 						"host": [
 							"{{url}}"
 						],
@@ -5127,7 +5127,7 @@
 							"rest",
 							"v1",
 							"permissions",
-							"{{userId}}",
+							"{{userUuid}}",
 							"channels"
 						]
 						}
@@ -5149,7 +5149,7 @@
 						}
 						],
 						"url": {
-						"raw": "{{url}}/api/rest/v1/permissions/{{userId}}/locales",
+						"raw": "{{url}}/api/rest/v1/permissions/{{userUuid}}/locales",
 						"host": [
 							"{{url}}"
 						],
@@ -5158,7 +5158,7 @@
 							"rest",
 							"v1",
 							"permissions",
-							"{{userId}}",
+							"{{userUuid}}",
 							"locales"
 						]
 						}
