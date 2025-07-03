@@ -565,6 +565,8 @@ With the IN operator, the list of product identifiers can contain up to **100** 
 | STARTS WITH, CONTAINS, DOES NOT CONTAIN            | string             |
 | =, !=                                              | string             |
 | EMPTY, NOT EMPTY                                   | no value           |
+| IN, NOT IN                                         | an existing attribute option code of the attribute |
+
 
 **The `pim_catalog_number`, `pim_catalog_metric` and `pim_catalog_price_collection` attribute types**
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
@@ -1053,11 +1055,12 @@ As seen previously, the attribute type determines which set of operators is avai
 **The `pim_catalog_identifier`, `pim_catalog_text` and `pim_catalog_textarea` attribute types**
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
 
-| Allowed operators                                  | Allowed value type |
-| -------------------------------------------------- | ------------------ |
-| STARTS WITH, CONTAINS, DOES NOT CONTAIN            | string             |
-| =, !=                                              | string             |
-| EMPTY, NOT EMPTY                                   | no value           |
+| Allowed operators                                  | Allowed value type                                 |
+| -------------------------------------------------- | -------------------------------------------------- |
+| STARTS WITH, CONTAINS, DOES NOT CONTAIN            | string                                             |
+| =, !=                                              | string                                             |
+| EMPTY, NOT EMPTY                                   | no value                                           |
+| IN, NOT IN                                         | an existing attribute option code of the attribute |
 
 **The `pim_catalog_number`, `pim_catalog_metric` and `pim_catalog_price_collection` attribute types**
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
