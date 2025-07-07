@@ -4,12 +4,12 @@ In this section, you will learn how to create your first UI Extension in under a
 ### Prerequisites
 Having the proper permisison to create and manage UI-Extensions (more information [here](https://api.akeneo.com/extensions/ui-extensions.html#prerequisites-2)).
 
-### 1 - Access the UI-extensions management Interface
+### Access the UI-extensions management Interface
 
 - Navigate to the UI-extensions list, in the `PIM System > Ui Extensions`
 screenshot
 
-### 2 - Create a New UI-extension Link
+### Create a New UI-extension Link
 
 - Click on **Create > Link**
 - In the form:
@@ -23,23 +23,23 @@ screenshot
     - Product Model Header
     - Sub-Product Model Header
 
-    see more in [positions]
+    see more in [positions](/extensions/positions.html)
     :::
 
     - Enter a **default label**, this label will be displayed in the ui. You can name your extension in referebnce to its purpose (e.g., "link to ERP")
     - In the **URL** field, paste the following **URL**: https://www.google.com/search?q=%uuid%
 
-### 3 - Test the link
+### Test the link
 
-- Find your newly created UI-extension in the UI:
-    - **Product Header** → At the top section of a product enrichment page (also a variant product)
+Find your newly created UI-extension in the UI:
+- **Product Header** → At the top section of a product enrichment page (also a variant product)
 
-    ::: warning
-    You might need to refresh the page to see the button appear
-    :::    
+::: warning
+You might need to refresh the page to see the button appear
+:::    
 
-    - Click on the newly created button
-    - A new tab open following the configured URL. It uses the current value of the product uuid !
+- Click on the newly created button
+- A new tab open following the configured URL. It uses the current value of the product uuid!
 
 **Congratulation**, you have created your first UI-extension!
 Learn more about the availables types of UI-extension in the [Types section](/extensions/types.html).

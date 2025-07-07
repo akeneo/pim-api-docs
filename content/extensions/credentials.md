@@ -3,12 +3,12 @@ You have the ability to make authenticated calls via UI Extensions using credent
 
 ### Currently Available Credential Methods
 
-    - Basic Authentication
-    - Bearer Token
-    - Custom Credentials
+- Basic Authentication
+- Bearer Token
+- Custom Credentials
 
 To add credentials, simply select your preferred authentication method and enter the required information.
-[![basic-auth-credential.png](../img/extensions/ui-extensions/positions/basic-auth-credential.png)](../img/extensions/ui-extensions/positions/basic-auth-credential.png)
+[![basic-auth-credential.png](../img/extensions/ui-extensions/basic-auth-credential.png)](../img/extensions/ui-extensions/basic-auth-credential.png)
 
 Rest assured that all credentials will be encrypted before being stored, ensuring the security of your sensitive data. Additionally, the API calls are made server-side, meaning that the credentials are not accessible from the front end of the application, further enhancing security.
 
