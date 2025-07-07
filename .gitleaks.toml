@@ -17,5 +17,5 @@ paths = [
     # Rest API old authentication
     '''content/rest-api/authentication_old.md''',
     # UI Extension documentation
-    '''content/extensions/getting-started.md''',
+    '''content/extensions/api.md''',
 ]
