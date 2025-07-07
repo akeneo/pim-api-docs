@@ -72,5 +72,5 @@ For the moment, you can't use UI extensions with more than **500** selected prod
 This position refers to the tab of the activity navigation. It is used to add custom tabs in the activity navigation of the PIM.
 [![pim-activity-navigation-tab.png](../img/extensions/ui-extensions/positions/pim-activity-navigation-tab.png)](../img/extensions/ui-extensions/positions/pim-activity-navigation-tab.png)
 
-::: panel-link Filtering [Next](/extensions/filtering.html)
+::: panel-link Credentials [Next](/extensions/credentials.html)
 :::

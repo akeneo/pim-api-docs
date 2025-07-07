@@ -50,7 +50,7 @@ To help identify the  **iframe** caller (insecure) and context, several paramete
 
 For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebite.com/iframe/?position=pim.product.tab&user[username]=julia`
 
-For all positions, parameters relative to the connected user and the extension position are sent:
+For all positions, parameters relative to the connected user, the extension position and the tenant are sent:
 - `user[uuid]`
 - `user[id]`
 - `user[username]`
@@ -59,6 +59,7 @@ For all positions, parameters relative to the connected user and the extension p
 - `user[catalog_locale]` except for `pim.product-grid.action-bar`
 - `user[catalog_scope]` except for `pim.product-grid.action-bar`
 - `position`
+- `tenant`
 
 For `pim.product.tab` position, these parameters are sent:
 - `product[uuid]`
@@ -72,7 +73,7 @@ For `pim.category.tab` position, this parameter is sent:
 
 ### Get PIM data from the iframe
 
-To be able to communicate the products or product models selection (from position `pim.product-grid.action-bar`) to the iframe, we use the [PostMessage](https://developer.mozilla.org/docs/Web/API/Window/postMessage) protocol.
+For the **product grid action bar position** (`pim.product-grid.action-bar`), passing product or product model information through query parameters is not ideal, as it can result in excessively long URLs. To address this issue, we opted to use the [PostMessage](https://developer.mozilla.org/docs/Web/API/Window/postMessage) to transmit this information instead.
 
 After the iframe is loaded, the PIM send an *event* which is a normalized message [MessageEvent](https://developer.mozilla.org/docs/Web/API/MessageEvent) with a field `data` containing our information. 
 
@@ -318,5 +319,5 @@ Examples :
 }
 ```
 
-::: panel-link Positions [Next](/extensions/positions.html)
+::: panel-link UI extensions available positions [Next](/extensions/positions.html)
 :::

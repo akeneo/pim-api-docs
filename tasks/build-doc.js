@@ -764,7 +764,9 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
           'getting-started.md': "Getting started",
           'types.md': "Types",
           'positions.md': "Positions",
+          'credentials.md': "Credentials",
           'filtering.md': "Filter and display",
+          'api.md': "API",
           'faq.md': "FAQ",
       };
 
