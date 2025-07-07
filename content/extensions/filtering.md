@@ -19,5 +19,5 @@ In addition to the filtering capacity, you can order the UI extension in the UI 
 
 [![ui-extension-product-selection.png](../img/extensions/ui-extensions/weight.png)](../img/extensions/ui-extensions/weight.png)
 
-::: panel-link FAQ [Next](/extensions/faq.html)
+::: panel-link API [Next](/extensions/api.html)
 :::
