@@ -82,7 +82,7 @@ The following responses indicate transient problems that are useful to retry:
 
 2. **Maximum Number of Retries**
 
-   Define a reasonable maximum number of retry attempts. Continuously retrying indefinitely can lead to resource exhaustion on your end and unnecessary load on our servers. Typically, 3 to 5 retries with exponential backoff are sufficient for most transient issues. If the error persists after the maximum retries, it's likely a more significant problem that requires alerting and manual intervention.
+   Define a reasonable maximum number of retry attempts. Continuously retrying indefinitely can lead to resource exhaustion on your end and unnecessary load on our servers. Typically, 5 to 8 retries with exponential backoff are sufficient for most transient issues. If the error persists after the maximum retries, it's likely a more significant problem that requires alerting and manual intervention.
 
 3. **Idempotency**
 
