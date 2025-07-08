@@ -31,7 +31,7 @@ Fill the environment variables with your PIM connection values, and it will auto
 ### 3. Trigger the synchronization of your reviews
 
 1. Select the Postman environment you've just created
-2. Send a `Save reviews for a product` POST request
+2. Send a `Ingest reviews data asynchronously` POST request
 3. Copy/Paste the reviews you want to ingest
 
 ---
