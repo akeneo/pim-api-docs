@@ -40,9 +40,6 @@ Fill the environment variables with your PIM connection values, and it will auto
 
 ### 1. Retrieve your credentials from your targeted PIM
 
-::: info
-🛠 For every call to the API, you will need `X-PIM-TOKEN` & `X-PIM-CLIENT-ID`.
-
 In this example, we will create a new `connection` in the PIM and use it to generate an `API token`.
 :::
 
@@ -50,36 +47,36 @@ In this example, we will create a new `connection` in the PIM and use it to gene
    - Define the Client ID, Secret, Username, Password, and Akeneo host URL as environment variables:
 
    ```bash [snippet:Shell]
-      export CLIENT_ID="your-client-id"
-      export CLIENT_SECRET="your-client-secret"
-      export API_USERNAME="your-API-username"
-      export API_PASSWORD="your-API-password"
-      export TARGET_PIM_URL="https://your-pim.cloud.akeneo.com"
+    export CLIENT_ID="your-client-id"
+    export CLIENT_SECRET="your-client-secret"
+    export API_USERNAME="your-API-username"
+    export API_PASSWORD="your-API-password"
+    export TARGET_PIM_URL="https://your-pim.cloud.akeneo.com"
    ```
    Replace the placeholders with your actual credentials and host URL.
 
 **2. Encode Your Credentials:**
    - Encode the Client ID and Secret in base64 format, separated by a colon `:`:
    ```bash [snippet:Shell]
-        export BASE64_ENCODED_CLIENTID_AND_SECRET=$(echo -n "$CLIENT_ID:$CLIENT_SECRET" | base64 -w 0)
-   // For Mac OS user remove the -w 0 option
+    export BASE64_ENCODED_CLIENTID_AND_SECRET=$(echo -n "$CLIENT_ID:$CLIENT_SECRET" | base64 -w 0)
+    // For Mac OS user remove the -w 0 option
    ```
 
-**3.  Your API Token:**
+**3. Your API Token:**
    - Make the API call to retrieve your `API token` using the environment variables:
    ```bash [snippet:Shell]
-        curl --request POST "$TARGET_PIM_URL/api/oauth/v1/token" \
-    --header "Content-Type: application/json" \
-    --header "Authorization: Basic $BASE64_ENCODED_CLIENTID_AND_SECRET" \
-    --data-raw '{
-    "grant_type": "password",
-    "username": "'"$API_USERNAME"'",
-    "password": "'"$API_PASSWORD"'"
-    }'
+    curl --request POST "$TARGET_PIM_URL/api/oauth/v1/token" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Basic $BASE64_ENCODED_CLIENTID_AND_SECRET" \
+     --data-raw '{
+       "grant_type": "password",
+       "username": "'"$API_USERNAME"'",
+       "password": "'"$API_PASSWORD"'"
+     }'
    ```
    After retrieving the API token, store the `access_token` from the response in an environment variable:
    ```bash [snippet:Shell]
-        export PIM_API_TOKEN="..."
+    export PIM_API_TOKEN="..."
     // Replace with the actual token from the response
    ```
 
@@ -95,15 +92,18 @@ In this example, we will create a new `connection` in the PIM and use it to gene
 
 From the next steps we will use the PX Insights REST API: 'https://px-insights.app.akeneo.cloud/api/v1'
 
-You can post your reviews once you have a valid PIM API token. The API accepts review data in an asynchronous processing mode via the following endpoint.
+::: info
+🛠 For every call to the PX Insights API, you will need the following headers: `X-PIM-URL`, `X-PIM-TOKEN` and `X-PIM-CLIENT-ID`.
+
+You can post your reviews once you have a valid PIM API token. The API accepts review data in an asynchronous processing mode via the following endpoint:
 
 ```bash [snippet:Shell]
 curl --request POST 'https://px-insights.app.akeneo.cloud/api/v1/reviews/ingest/async' \
---header "X-PIM-URL: $TARGET_PIM_URL" \
---header "X-PIM-TOKEN: $PIM_API_TOKEN" \
---header "X-PIM-CLIENT-ID: $CLIENT_ID" \
---header 'Content-Type: application/json' \
---data-raw '{
+ --header "X-PIM-URL: $TARGET_PIM_URL" \
+ --header "X-PIM-TOKEN: $PIM_API_TOKEN" \
+ --header "X-PIM-CLIENT-ID: $CLIENT_ID" \
+ --header 'Content-Type: application/json' \
+ --data-raw '{
   "product_identification": {
     "origin": "Yotpo",
     "metadata": {
@@ -129,17 +129,17 @@ curl --request POST 'https://px-insights.app.akeneo.cloud/api/v1/reviews/ingest/
 
 **Request Body Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `product_identification` | object | Information to identify the product associated with the reviews |
-| `product_identification.origin` | string | Source identifier for the reviews (e.g., Yotpo, Amazon, your own website) |
-| `product_identification.metadata` | object | Additional information to identify the product |
-| `product_identification.metadata.sku` | string | Product SKU that these reviews are associated with |
-| `raw_reviews` | array | Collection of review objects to be ingested |
-| `raw_reviews[].external_id` | string | Unique identifier for the review in your system |
-| `raw_reviews[].score` | number | Rating score for the review (1-5) |
-| `raw_reviews[].title` | string | Review title or headline |
-| `raw_reviews[].text` | string | The full review content |
+| Parameter                             | Type   | Description                                                               |
+|--------------------------------------|--------|----------------------------------------------------------------------------|
+| `product_identification`             | object | Information to identify the product associated with the reviews            |
+| `product_identification.origin`      | string | Source identifier for the reviews (e.g., Yotpo, Amazon, your own website)  |
+| `product_identification.metadata`    | object | Additional information to identify the product                             |
+| `product_identification.metadata.sku`| string | Product SKU that these reviews are associated with                         |
+| `raw_reviews`                        | array  | Collection of review objects to be ingested                                |
+| `raw_reviews[].external_id`          | string | Unique identifier for the review in your system                            |
+| `raw_reviews[].score`                | number | Rating score for the review (1–5)                                          |
+| `raw_reviews[].title`                | string | Review title or headline                                                   |
+| `raw_reviews[].text`                 | string | The full review content                                                    |
 
 **Response:**
 
