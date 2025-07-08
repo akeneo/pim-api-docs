@@ -5541,6 +5541,115 @@
 					"type": "text/plain"
 				}
 			}
+		},
+		{
+			"name": "HTTP hooks",
+			"item": [
+				{
+					"name": "List hooks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Cookie",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/http-hook",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"http-hook"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upsert hook",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Cookie",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"hookType\": \"product.preLoad\",\n    \"failureMode\": \"reject-save\",\n    \"endpoint\": \"http://httpd/hook_preload.json\",\n    \"secret\": \"my_secret\",\n    \"headers\": {\n        \"some-custom-header\": \"yes\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/http-hook",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"http-hook"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete hook",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Cookie",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/http-hook/product.preLoad",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"http-hook",
+								"product.preLoad"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
