@@ -1,4 +1,4 @@
-# Limitations
+# Good practices
 
 Our API facilitates the integration of Akeneo PIM with external systems.
 To maintain optimal user experience and platform stability, our platform employs various protection mechanisms to prevent over-usage.
