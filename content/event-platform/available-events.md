@@ -1603,6 +1603,128 @@ The following actions can trigger a product deletion event:
 }
 ```
 
+## com.akeneo.pim.v1.product.became-complete
+
+*This event is generated whenever a product became complete on at least one combination of locale and scope.*
+
+* Message ID: `com.akeneo.pim.v1.product.became-complete`
+* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
+
+The following actions can trigger a product completed event:
+
+- Product creation or update from the product page.
+- Product creation or update using the REST API.
+- Product creation or update within the rules engine.
+- Product creation or update within workflows.
+- Product creation or update via a tailored import.
+- Product model update from the product page.
+- Product model update using the REST API.
+- Product model update within the rules engine.
+- Product model update within workflows.
+
+### Payload
+
+| Name | Type | Description |
+|---|---|---|
+| data.product | object | - |
+| data.product.uuid | string | Unique identifier of a Product in the PIM. |
+| data.product.complete_on | array&lt;object&gt; | New combinations of locale and scope codes where the product became complete. |
+| data.product.complete_on.locale | string | Locale code for the completion. |
+| data.product.complete_on.scope | string | Scope code for the completion. |
+
+> Example of payload
+
+
+```json [snippet:Payload]
+
+{
+  "specversion": "1.0",
+  "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
+  "type": "com.akeneo.pim.v1.product.became-complete",
+  "source": "pim",
+  "subject": "srnt-whatever",
+  "time": "2024-02-22T17:31:00Z",
+  "datacontenttype": "application/json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.became-complete.schema.json",
+  "data": {
+    "product": {
+      "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf",
+      "complete_on": [
+        {
+          "locale": "en_US",
+          "scope": "ecommerce"
+        },
+        {
+          "locale": "fr_FR",
+          "scope": "mobile"
+        }
+      ]
+    }
+  }
+}
+```
+
+## com.akeneo.pim.v1.product.became-incomplete
+
+*This event is generated whenever a product became incomplete on at least one combination of locale and scope.*
+
+* Message ID: `com.akeneo.pim.v1.product.became-incomplete`
+* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
+
+The following actions can trigger a product became incomplete event:
+
+- Product update from the product page.
+- Product update using the REST API.
+- Product update within the rules engine.
+- Product update within workflows.
+- Product update via a tailored import.
+- Product model update from the product page.
+- Product model update using the REST API.
+- Product model update within the rules engine.
+- Product model update within workflows.
+
+### Payload
+
+| Name | Type | Description |
+|---|---|---|
+| data.product | object | - |
+| data.product.uuid | string | Unique identifier of a Product in the PIM. |
+| data.product.incomplete_on | array&lt;object&gt; | Combinations of locale and scope codes where the product became incomplete. |
+| data.product.incomplete_on.locale | string | Locale code for the completion. |
+| data.product.incomplete_on.scope | string | Scope code for the completion. |
+
+> Example of payload
+
+
+```json [snippet:Payload]
+
+{
+  "specversion": "1.0",
+  "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
+  "type": "com.akeneo.pim.v1.product.became-incomplete",
+  "source": "pim",
+  "subject": "srnt-whatever",
+  "time": "2024-02-22T17:31:00Z",
+  "datacontenttype": "application/json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.product.became-incomplete.schema.json",
+  "data": {
+    "product": {
+      "uuid": "6a9f8486-2c36-4680-b87f-6f5f8f01b6cf",
+      "incomplete_on": [
+        {
+          "locale": "en_US",
+          "scope": "ecommerce"
+        },
+        {
+          "locale": "fr_FR",
+          "scope": "mobile"
+        }
+      ]
+    }
+  }
+}
+```
+
 ## com.akeneo.pim.v1.product-model.created
 
 *This event is generated whenever a new product model is created in the PIM.*
