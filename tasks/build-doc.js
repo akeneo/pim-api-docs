@@ -604,7 +604,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
         'pagination.md': 'Pagination',
         'update.md': 'Update behavior',
         'filter.md': 'Filters',
-        'limitations.md': 'Limitations',
+        'good-practices.md': 'Good practices',
         'troubleshooting.md': 'Troubleshooting guide'
     };
 
