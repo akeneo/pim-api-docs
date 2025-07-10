@@ -269,7 +269,8 @@ Below is the JSON standard format representing this family.
     "en_US": "Camcorders",
     "fr_FR": "Caméscopes numériques",
     "de_DE": "Digitale Videokameras"
-  }
+  },
+  "parent": null
 }
 ```
 

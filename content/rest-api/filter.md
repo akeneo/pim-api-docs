@@ -127,19 +127,19 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 /api/rest/v1/products-uuid?search={"completeness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
 ```
 
-### On their group or family
+### On their group
 
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
 
-To filter products on groups or families, use respectively the product property `groups` and `family`.
+To filter products on groups, use the product property `groups`.
 Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
-| Operator    | Allowed value type                | Filter description                                                              |
-| ----------- | --------------------------------- | ------------------------------------------------------------------------------- |
-| `IN`        | array of existing group or family | Only returns products that are respectively in the given families or groups     |
-| `NOT IN`    | array of existing group or family | Only returns products that are respectively not in the given families or groups |
-| `EMPTY`     | no value                          | Only returns products that have respectively no groups or no family             |
-| `NOT EMPTY` | no value                          | Only returns products that have respectively a group or a family                |
+| Operator          | Allowed value type      | Filter description                                     |
+|-------------------|-------------------------|--------------------------------------------------------|
+| `IN`              | array of existing group | Only returns products that are in the given groups     |
+| `NOT IN`          | array of existing group | Only returns products that are not in the given groups |
+| `EMPTY`           | no value                | Only returns products that have no groups              |
+| `NOT EMPTY`       | no value                | Only returns products that have a group                |
 
 #### Examples
 
@@ -148,6 +148,24 @@ To get the products that are in the `promotion` group, you can use the following
 ```
 /api/rest/v1/products-uuid?search={"groups":[{"operator":"IN","value":["promotion"]}]}
 ```
+
+### On their family
+
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
+
+To filter products on families, use the product property `family`.
+Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
+
+| Operator          | Allowed value type       | Filter description                                                                              |
+|-------------------|--------------------------|-------------------------------------------------------------------------------------------------|
+| `IN`              | array of existing family | Only returns products that are in the given families                                            |
+| `NOT IN`          | array of existing family | Only returns products that are not in the given families                                        |
+| `IN CHILDREN`     | array of existing family | Only returns products that are in the given families and the children of the given families     |
+| `NOT IN CHILDREN` | array of existing family | Only returns products that are not in the given families nor the children of the given families |
+| `EMPTY`           | no value                 | Only returns products that have no family                                                       |
+| `NOT EMPTY`       | no value                 | Only returns products that have a family                                                        |
+
+#### Examples
 
 To get the products that are not in the `camcorders` and `digital_cameras` family, you can use the following URL.
 
