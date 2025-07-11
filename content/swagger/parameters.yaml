@@ -196,3 +196,11 @@ with_root_parent:
   required: false
   type: boolean
   x-from-version: "SaaS"
+convert_measurements:
+  name: convert_measurements
+  in: query
+  description: Convert values of measurement attributes to the unit configured in the channel provided by the parameter "scope". Therefore, this parameter requires the "scope" parameter to be provided.
+  default: false
+  type: boolean
+  required: false
+  x-from-version: "SaaS"
