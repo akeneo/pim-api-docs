@@ -38,6 +38,7 @@ get:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/search_after'
     - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/convert_measurements'
     - $ref: '#/parameters/with_count'
     - $ref: '#/parameters/with_attribute_options'
     - $ref: '#/parameters/with_asset_share_links'
