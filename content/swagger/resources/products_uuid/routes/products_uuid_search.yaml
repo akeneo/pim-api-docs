@@ -49,11 +49,9 @@ post:
           with_completenesses:
             type: boolean
             description: Return product completenesses in the response. (Only available since the 6.0 version)
-        x-examples:
-          x-example-1:
-            '{"scope": "ecommerce","locales": ["en_US"],"search": {"completeness":[{"operator": "=","value": 100,"scope": "ecommerce"}]}}'
-          x-example-2:
-            '{"attributes": ["sku","colors","a_localized_and_scopable_text_area"],"scope": "tablet"}'
+          convert_measurements:
+            type: boolean
+            description: Convert values of measurement attributes to the unit configured in the channel provided by the parameter "scope". Therefore, this parameter requires the "scope" parameter to be provided.
   responses:
     200:
       description: Return products paginated

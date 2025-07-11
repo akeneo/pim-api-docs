@@ -38,6 +38,8 @@ get:
     - $ref: '#/parameters/with_quality_scores__products'
     - $ref: '#/parameters/with_completenesses'
     - $ref: '#/parameters/with_root_parent'
+    - $ref: '#/parameters/convert_measurements'
+
   responses:
     200:
       description: Return products paginated
