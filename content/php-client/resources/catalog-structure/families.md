@@ -20,7 +20,8 @@ $client = new \Akeneo\Pim\ApiClient\AkeneoPimClientBuilder('http://akeneo.com/')
  *     'labels'                 => [
  *         'en_US' => 'Caps',
  *         'fr_FR' => 'Casquettes',
- *     ]
+ *     ],
+ *     'parent' => null
  * ]
  */
 $family = $client->getFamilyApi()->get('master');
@@ -75,7 +76,8 @@ $client->getFamilyApi()->create('caps', [
      'labels'                 => [
          'en_US' => 'Caps',
          'fr_FR' => 'Casquettes',
-     ]
+     ],
+     'parent' => null,
 ]);
 ```
 
@@ -98,7 +100,8 @@ $client->getFamilyApi()->upsert('cap', [
      'labels'                 => [
          'en_US' => 'Caps',
          'fr_FR' => 'Casquettes',
-     ]
+     ],
+     'parent' => null,
 ]);
 ```
 
@@ -125,7 +128,8 @@ $client->getFamilyApi()->upsertList([
         'labels'                 => [
             'en_US' => 'Caps',
             'fr_FR' => 'Casquettes',
-        ]
+        ],
+        'parent' => null
     ],
     [
         'code'                   => 'hat',
@@ -139,7 +143,8 @@ $client->getFamilyApi()->upsertList([
         'labels'                 => [
             'en_US' => 'Hat',
             'fr_FR' => 'Chapeau',
-        ]
+        ],
+        'parent' => null
     ],
 ]);
 ```
