@@ -156,14 +156,14 @@ To get the products that are in the `promotion` group, you can use the following
 To filter products on families, use the product property `family`.
 Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
-| Operator          | Allowed value type       | Filter description                                                                              |
-|-------------------|--------------------------|-------------------------------------------------------------------------------------------------|
-| `IN`              | array of existing family | Only returns products that are in the given families                                            |
-| `NOT IN`          | array of existing family | Only returns products that are not in the given families                                        |
-| `IN CHILDREN`     | array of existing family | Only returns products that are in the given families and the children of the given families     |
-| `NOT IN CHILDREN` | array of existing family | Only returns products that are not in the given families nor the children of the given families |
-| `EMPTY`           | no value                 | Only returns products that have no family                                                       |
-| `NOT EMPTY`       | no value                 | Only returns products that have a family                                                        |
+| Operator          | Allowed value type       | Filter description                                                                                                       |
+|-------------------|--------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `IN`              | array of existing family | Only returns products that are in the given families                                                                     |
+| `NOT IN`          | array of existing family | Only returns products that are not in the given families                                                                 |
+| `IN CHILDREN`     | array of existing family | Only returns products that are in the given families and the children of the given families (only available on SaaS)     |
+| `NOT IN CHILDREN` | array of existing family | Only returns products that are not in the given families nor the children of the given families (only available on SaaS) |
+| `EMPTY`           | no value                 | Only returns products that have no family                                                                                |
+| `NOT EMPTY`       | no value                 | Only returns products that have a family                                                                                 |
 
 #### Examples
 
