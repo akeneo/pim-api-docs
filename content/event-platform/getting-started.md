@@ -205,3 +205,7 @@ After updating the product, verify that the event was successfully triggered by 
 
 ::: panel-link Explore Key Concepts to deepen your understanding of the [Event Platform](/event-platform/concepts.html)
 :::
+
+### 5. Consider benchmarking your Subscription
+
+TODO: Describe briefly and redirect to the benchmarck test doc: [Benchmark your Subscription](/event-platform/benchmark.html)
