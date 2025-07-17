@@ -1,3 +1,3 @@
-## Benchmarking Your Subscribtion
+## Benchmark Your Subscribtion
 
 TODO
