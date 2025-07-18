@@ -534,3 +534,5 @@ UiExtensionWithoutRequired:
   example:
     $ref: ./resources/ui_extensions/definitions/examples/ui_extension_patch_body.yaml
 
+Workflow:
+  $ref: ./resources/workflows/definitions/workflow.yaml
