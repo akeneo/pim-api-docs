@@ -536,3 +536,5 @@ UiExtensionWithoutRequired:
 
 Workflow:
   $ref: ./resources/workflows/definitions/workflow.yaml
+WorkflowStepAssignee:
+  $ref: ./resources/workflows/definitions/assignee.yaml
