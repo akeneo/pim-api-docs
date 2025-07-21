@@ -1,16 +1,17 @@
 # PX Insights Overview
 
-**PX Insights** is an add-on module that collects & turns customer behaviors & shopping performance signals into actionable insights, so businesses can build a customer-informed product record and deliver smarter merchandising experiences to help grow sales and reduce returns.
+**PX Insights** is a premium add-on module designed to capture customer feedback and behavioral signals across shopping experiences. It transforms this data into actionable insights, helping businesses enrich their product records, optimize merchandising strategies, boost conversions, and reduce product returns.
 
 ::: warning
 **Paid Add-on Subscription Required**
 
-PX Insights is a premium add-on that requires a paid subscription. While the API will technically accept review data without an active subscription, these reviews will not be visible in your PIM interface until you have purchased and activated the add-on.
+PX Insights requires an active paid subscription.
+Although the API will technically accept review data without an active subscription, these reviews **will not be displayed** in your PIM interface.
 
-To avoid data loss and ensure seamless access to your customer insights, please contact your Akeneo representative to activate your PX Insights subscription before implementing the API integration.
+To ensure visibility of your data and avoid any disruption, please contact your Akeneo representative to activate your PX Insights subscription **before integrating the API**.
 :::
 
 ![overview-schema.png](../img/px-insights/overview-schema.png)
 
-::: panel-link Understand the compatibility with your PIM version[Next](/px-insights/compatibility.html)
+::: panel-link Understand the compatibility with your PIM version [Next](/px-insights/compatibility.html)
 :::
