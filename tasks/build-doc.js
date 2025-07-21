@@ -728,7 +728,7 @@ gulp.task('build-event-platform', ['clean-dist','less'], function () {
           'limitations.md': "Quota & Limits",
           // 'migrate-from-deprecated-event-api.md': "Migrate from deprecated event API",
           'logs.md': "Logs",
-          'benchmark.md': "Benchmark Your Subscription",
+          'benchmark.md': "Benchmark your subscription",
           'faq.md': "FAQ",
       };
 

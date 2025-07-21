@@ -53,9 +53,10 @@ After deleting the product, verify that the event was successfully triggered by 
 
 ### 6. Consider benchmarking your Subscription
 
-TODO: Describe briefly and redirect to the benchmarck test doc: [Benchmark your Subscription](/event-platform/benchmark.html)
+To ensure your endpoint can handle the event load from the PIM, we highly recommend performance testing your subscription.
+This will help you assess its performance and reliability under stress.
 
----
+To learn more, see our guide: [Benchmark your subscription](/event-platform/benchmark.html)
 
 ## Using Curl
 
@@ -209,7 +210,10 @@ After updating the product, verify that the event was successfully triggered by 
 
 ### 5. Consider benchmarking your Subscription
 
-TODO: Describe briefly and redirect to the benchmarck test doc: [Benchmark your Subscription](/event-platform/benchmark.html)
+To ensure your endpoint can handle the event load from the PIM, we highly recommend performance testing your subscription. 
+This will help you assess its performance and reliability under stress.
+
+To learn more, see our guide: [Benchmark your subscription](/event-platform/benchmark.html)
 
 ::: panel-link Explore Key Concepts to deepen your understanding of the [Event Platform](/event-platform/concepts.html)
 :::
