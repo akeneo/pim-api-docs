@@ -8,6 +8,10 @@ The PX Insights API processes reviews asynchronously. When you submit reviews to
 - **Enhanced scalability**: The system handles large volumes of reviews without performance degradation.
 - **Simplified client logic**: You don’t need to implement complex retry or timeout handling in your client application.
 
+For development and troubleshooting purposes, a **synchronous** endpoint is also available at `/api/v1/reviews/ingest`. This endpoint processes reviews immediately and returns results in the response.
+It is **intended only for non-production use**, such as debugging.
+Please note that rate limits for this endpoint are **much more restrictive**, and using it in production environments is not supported.
+
 ## Error Handling, Retries, and Rate Limiting
 
 The PX Insights API intelligently manages errors, retries, and rate limiting to ensure reliable operation:
