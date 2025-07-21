@@ -29,7 +29,7 @@ Here is an example of benchmark call:
 --data-raw '{
   "type": "com.akeneo.benchmark.v1.test",
   "count": 1000,
-  "size": "M"
+  "size": "10"
 }'
 ```
 
@@ -37,7 +37,7 @@ Here is an example of benchmark call:
 
 - `type:` The type of benchmark event to launch. Currently, `com.akeneo.benchmark.v1.test` is the only available option.
 - `count (optional):` A limit on the number of events to be sent. For example, `50` (default `1000`).
-- `size (optional):` The size of the event payload. Available options are `S`, `M`, or `L`.
+- `size (optional):` The size of the event payload in kb. Max is 10 kb.
 - `custom_data (optional):` A field to include custom data in the event payload. This can be used to add additional information relevant to your benchmark test.
 
 ::: info
