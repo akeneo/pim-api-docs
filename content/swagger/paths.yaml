@@ -206,3 +206,6 @@
   $ref: ./resources/ui_extensions/routes/ui_extensions.yaml
 /api/rest/v1/ui-extensions/{uuid}:
   $ref: ./resources/ui_extensions/routes/ui_extensions_uuid.yaml
+
+/api/rest/v1/workflows/{uuid}:
+  $ref: ./resources/workflows/routes/workflows_uuid.yaml
