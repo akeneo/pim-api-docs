@@ -6,7 +6,7 @@ This guide will give you information about OAuth 2.0 and the OpenID concept that
 
 By following the “getting started” sections below, we will walk you through each of these concepts in a step by step process.
 
-::: tips 
+::: tips
 If you simply want to bootstrap an App with predefined authorization scopes to start your development, follow our [Sample Apps](https://github.com/akeneo/sample-apps).
 :::
 
@@ -67,7 +67,7 @@ If you start developing your app, we advise you to use a custom app. To do so:
 6. Your custom App appears on the App Store page
 
 ::: tips
-**Your app is good to go?**  
+**Your app is good to go?**
 Connect to the <a href="https://manage.apps.akeneo.com/" target="_blank">App Portal</a> and follow the [Create an app record documentation](/app-portal/create-app-record.html).
 :::
 
@@ -141,12 +141,12 @@ The PIM expects the following parameters in the request:
 - `grant_type` (required, must always be "authorization_code")
 - `code_identifier` (required)
 - `code_challenge` (required)
-  
-  
+
+
 #### What's the Code Challenge?
 
 To validate the App identity, Akeneo PIM requires a unique code challenge for each Access Token Request,
-instead of the usual client secret.  
+instead of the usual client secret.
 The code challenge is composed of 2 keys:
 - `code_identifier`: high-entropy cryptographic random string
 - `code_challenge`: sha256 hash of the concatenation of `code_identifier` and `client_secret`
@@ -194,9 +194,9 @@ An Access Token given to an App has no expiration date. However, be aware that i
 
 #### Token Error Response
 
-If your Access Token Request is refused, you will receive a JSON response with the error.  
+If your Access Token Request is refused, you will receive a JSON response with the error.
 
-For example, if your app doesn’t retrieve its access token within a 30 seconds delay, you will receive the following error, which indicates that your code is no longer valid. 
+For example, if your app doesn’t retrieve its access token within a 30 seconds delay, you will receive the following error, which indicates that your code is no longer valid.
 
 ```json
 {
@@ -219,7 +219,7 @@ The following examples show how to retrieve a list of products using the REST AP
 
 <!-- TODO -->
 
-<!-- 
+<!--
 ### Step 5: Verify a request
 
 TODO - Shopify example
@@ -228,7 +228,7 @@ TODO - Shopify example
 
 *For each request, you must remove the **hmac** entry from the query string and process it through an HMAC-SHA256 hash function.*
 
-*The following is an example of a query string. However, request parameters provided by Shopify are subject to change. Your verification strategy shouldn't depend on the parameters in the following example:* 
+*The following is an example of a query string. However, request parameters provided by Shopify are subject to change. Your verification strategy shouldn't depend on the parameters in the following example:*
 -->
 
 ### Next steps
@@ -295,7 +295,7 @@ https://my-pim.cloud.akeneo.com/connect/apps/v1/authorize?
 ```
 
 ::: info
-Learn more about [available authentication scopes](/apps/authentication-and-authorization.html#available-authentication-scopes). 
+Learn more about [available authentication scopes](/apps/authentication-and-authorization.html#available-authentication-scopes).
 :::
 
 If a user tries to access your App from their Akeneo Product Cloud, and you want to authenticate them, start an [Authorization request](/apps/authentication-and-authorization.html#step-2-ask-for-authorizations), even if you already are connected to their Akeneo Product Cloud.
@@ -390,8 +390,8 @@ the latest public key when validating a signature.
 
 <!------------------------------ end of the Authentication ------------------------------------>
 
-## Authorization and authentication scopes 
-In this part of the documentation, you'll find all the available scopes. 
+## Authorization and authentication scopes
+In this part of the documentation, you'll find all the available scopes.
 These are the scopes you send in the authorization and authentication requests.
 
 ### Available authorization scopes
@@ -424,6 +424,8 @@ These are the scopes you send in the authorization and authentication requests.
 | `write_reference_entities` <span class="label label-ee">EE</span>       | Write reference entities                                         |
 | `read_reference_entity_records` <span class="label label-ee">EE</span>  | Read reference entity records                                    |
 | `write_reference_entity_records` <span class="label label-ee">EE</span> | Write reference entity records                                   |
+| `read_workflows`                                                        | Read workflows and their steps                                   |
+| `read_workflow_step_assignees`                                          | Read assignees for workflow steps                                |
 
 ### Available authentication scopes
 
@@ -435,24 +437,24 @@ These are the scopes you send in the authorization and authentication requests.
 
 <!------------------------------ end of the scopes ------------------------------------>
 
-## Update Authorization and authentication scopes 
+## Update Authorization and authentication scopes
 
 It's possible to update the access scopes of an already connected app.
-The access scope update process requires app users to consent to new scopes addition. 
+The access scope update process requires app users to consent to new scopes addition.
 
 ### Update the list of required scopes
 If your app needs to change the access scopes, it must initiate a new authorization request with all access scopes needed, even the access scopes that are already granted. This new authorization request follows the usual OAuth 2.0 protocol and will end with a new Access Token that reflects updated scopes.
 
 ::: warning
-**Some users are not allowed to grant new access scopes in the Akeneo PIM**.  
+**Some users are not allowed to grant new access scopes in the Akeneo PIM**.
 You should not force users to go through the Authorization process if you haven't received the new access scopes, you could end up in an infinite loop. Consequently, your App must be able to function as usual without the new access scopes.
-  
+
 More information on our Help Center: [Who can manage and open Apps?](https://help.akeneo.com/pim/serenity/articles/manage-your-apps.html#who-can-manage-and-open-apps)
 :::
 
 ### Notify a PIM your app requires an authorization update
 
-Through Akeneo REST API, connected apps can notify Akeneo PIM users who can manage your app that the authorization scopes your app requires have changed. 
+Through Akeneo REST API, connected apps can notify Akeneo PIM users who can manage your app that the authorization scopes your app requires have changed.
 
 To do so, use the following `POST` method, with parameters below:
 
@@ -469,6 +471,6 @@ The notification will warn them and entice them to open your app so that you can
 <img class="img-responsive in-article" alt="Updated scopes - PIM notification" src="../img/apps/update-scopes-notification.png" style="max-width: 500px;">
 
 ::: warning
-Please, be aware that **this endpoint does not update any access scopes**.  
-It is only meant to provide a way for an app to warn Akeneo PIM. 
+Please, be aware that **this endpoint does not update any access scopes**.
+It is only meant to provide a way for an app to warn Akeneo PIM.
 :::
