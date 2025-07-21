@@ -34,9 +34,9 @@ While PX Insights processes reviews asynchronously, you can expect the following
 If your reviews don't appear in the PIM after the expected processing time (30+ minutes), it's likely due to an ID reconciliation failure:
 
 ### Common causes:
-1. **Missing product identifier**: Ensure you've included at least one product identifier (preferably `sku`) in the `metadata` object
-2. **Invalid identifiers**: Verify that the product identifiers in your requests match exactly with those in your PIM
-3. **Product not found**: Confirm that the products referenced actually exist in your PIM catalog
+1. **Missing product identifier**: Ensure you've included at least one product identifier (preferably `sku`) in the `metadata` object.
+2. **Invalid identifiers**: Verify that the product identifiers in your requests exactly match those in your PIM.
+3. **Product not found**: Confirm that the referenced products actually exist in your PIM catalog.
 
 ### Resolution steps:
 1. Check your request payload to ensure the `product_identification` section includes valid metadata
