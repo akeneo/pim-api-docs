@@ -2,11 +2,11 @@
 
 ## Asynchronous Processing
 
-The PX Insights API processes your reviews asynchronously. When you submit reviews to the `/api/v1/reviews/ingest/async` endpoint, they are placed in a queue for processing. This approach offers several benefits:
+The PX Insights API processes reviews asynchronously. When you submit reviews to the `/api/v1/reviews/ingest/async` endpoint, it is placed in a processing queue. This approach offers several benefits:
 
-- **Improved reliability**: Your requests complete quickly without waiting for the entire processing to finish
-- **Better scalability**: The system can handle large volumes of reviews without performance degradation
-- **Reduced client complexity**: You don't need to implement complex retry logic in your client applications
+- **Improved reliability**: Requests return quickly without waiting for review processing to complete.
+- **Enhanced scalability**: The system handles large volumes of reviews without performance degradation.
+- **Simplified client logic**: You don’t need to implement complex retry or timeout handling in your client application.
 
 ## Error Handling, Retries, and Rate Limiting
 
@@ -14,33 +14,32 @@ The PX Insights API intelligently manages errors, retries, and rate limiting to 
 
 ### Automatic Error Handling and Retries
 
-When you push your reviews into the system:
+When reviews are submitted:
 
-1. The API acknowledges receipt of your data immediately
-2. If processing errors occur, the system will automatically retry based on intelligent backoff strategies
-3. Permanent failures are logged and can be reviewed by administrators
+1. The API acknowledges receipt of the data immediately.
+2. If errors occur during processing, the system retries automatically using intelligent backoff strategies.
+3. Permanent failures are logged and made available for review by administrators.
 
 ### PIM Rate Limiting Management
 
-PX Insights includes built-in rate limiting management when interacting with your Akeneo PIM:
+PX Insights includes built-in logic to handle rate limits when interacting with your Akeneo PIM:
 
-1. **Automatic throttling**: The system respects the PIM API rate limits and automatically adjusts request frequency
-2. **Queue prioritization**: During high-volume operations, requests are intelligently queued and prioritized
-3. **Back-pressure handling**: If the PIM API becomes temporarily unavailable or overloaded, PX Insights will automatically reduce throughput and retry operations
-4. **Transparent resumption**: Processing continues automatically once rate limits reset without requiring any action from you
+1. **Automatic throttling**: The system respects your PIM’s API rate limits and adjusts request frequency accordingly.
+2. **Queue prioritization**: During high-load periods, requests are queued and prioritized based on system conditions.
+3. **Back-pressure handling**: If the PIM API becomes unavailable or overloaded, PX Insights reduces throughput and retries later.
+4. **Automatic recovery**: Once rate limits reset or the PIM becomes responsive again, processing resumes automatically — no action required on your side.
 
-These robust mechanisms eliminate the need for you to implement complex retry logic or rate limiting in your integration, ensuring smooth operations even during high-volume processing.
+These mechanisms ensure stability and performance, even under heavy load, without requiring additional logic in your integration.
 
 ## ID Reconciliation
 
-When processing reviews, PX Insights uses a sophisticated ID reconciliation mechanism to associate reviews with the correct products in your PIM:
+PX Insights uses a flexible and reliable ID reconciliation system to associate each review with the correct product in your PIM.
 
-1. **Direct product identification**: If you provide `product_uuid` or `product_model_code` and `product_type` in the request, the system will use these for direct mapping
-2. **Metadata-based matching**: If direct identifiers are not available, the system will use the `metadata` object (particularly the `sku` field) to locate the corresponding product in your PIM
-3. **Flexible mapping**: Additional metadata fields can be used to improve matching accuracy
+1. **Direct product identification**: If your request includes `product_type` and either `product_uuid` or `product_model_code`, PX Insights uses these for direct mapping.
+2. **Metadata-based matching**: If direct identifiers are missing, PX Insights uses the `metadata` object — typically the `sku` — to find the matching product.
+3. **Flexible mapping logic**: Additional metadata fields can be leveraged to improve matching accuracy where needed.
 
-To ensure successful product matching, always include at least one reliable identifier (preferably the `sku`) in the `metadata` object of your request.
-
+To maximize reconciliation success, always include at least one reliable identifier — preferably the `sku` — in the `metadata` object of your request.
 
 ::: panel-link Let's see the API reference! [Next](/px-insights/api-reference.html)
 :::
