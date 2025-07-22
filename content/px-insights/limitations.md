@@ -15,11 +15,11 @@ While there are technical limits outlined below to protect system stability, the
 
 To maintain system performance, we enforce the following constraints on request payloads:
 
-| Parameter                  | Limitation    | Notes                                             |
-|----------------------------|---------------|---------------------------------------------------|
-| Maximum requests per second | 1000 requests | Per client ID                                    |
-| Maximum reviews per request | 100 reviews   | For larger batches, split into multiple requests |
-| Supported score range       | 1-5           | Integer values only (1, 2, 3, 4, 5)              |
+| Parameter                   | Limitation    | Notes                                              |
+|-----------------------------|---------------|----------------------------------------------------|
+| Maximum requests per second | 1000 requests | Per client ID                                      |
+| Maximum reviews per request | 500 reviews   | For larger batches, split into multiple requests   |
+| Supported score range       | 1-5           | Integer values only (1, 2, 3, 4, 5)                |
 
 ## Processing Time Expectations
 
@@ -54,7 +54,7 @@ To optimize your experience with PX Insights:
 
 1. **Filter by relevance**: Consider filtering your reviews by date. Reviews lose relevancy over time, so you might not need to import everything.
 2. **Avoid duplication**: Only import new data rather than re-importing the same reviews. Our API handles duplicates well, but unnecessary re-imports consume resources.
-3. **Batch sensibly**: While you can send up to 100 reviews per request, consider using smaller batches (20-50) for more predictable processing.
+3. **Batch sensibly**: While you can send up to 500 reviews per request, consider using smaller batches (20-50) for more predictable processing.
 4. **Review processing status**: For large imports, consider implementing a monitoring mechanism to track overall progress.
 
 ::: panel-link Let's explore the key platform behaviors! [Next](/px-insights/key-platform-behaviors.html)
