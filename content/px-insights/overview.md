@@ -2,7 +2,7 @@
 
 **PX Insights** is a powerful add-on module that provides a comprehensive view of your product performance.
 It works by collecting and analyzing a wide range of customer behavior and shopping signals, turning them into actionable
-insights that help you grow sales and reduce returns. To know more, visit our [help center](https://help.akeneo.com/discovering-px-insights/what-is-px-insights).
+insights that help you grow sales and reduce returns. To learn more, visit our [help center](https://help.akeneo.com/discovering-px-insights/what-is-px-insights).
 
 ## Prerequisites
 
