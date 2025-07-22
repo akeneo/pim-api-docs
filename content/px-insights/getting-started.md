@@ -5,7 +5,7 @@ By the end, you’ll have successfully authenticated and triggered the synchroni
 
 ## Prerequisites
 
-Before proceeding, make sure you have an active <a href="https://api.akeneo.com/apps/overview.html#whats-an-akeneo-app" target="_blank">App</a> (either a <a href="https://api.akeneo.com/apps/create-custom-app.html" target="_blank">Custom App</a> or a standard <a href="https://api.akeneo.com/getting-started/connect-the-pim-4x/step-1.html#you-said-connection" target="_blank">Connection</a>) to an Akeneo PIM.
+Before proceeding, make sure you have either a <a href="https://api.akeneo.com/apps/create-custom-app.html" target="_blank">Custom App</a> or a standard <a href="https://api.akeneo.com/getting-started/connect-the-pim-4x/step-1.html#you-said-connection" target="_blank">Connection</a> to an Akeneo PIM.
 
 To learn how to create a connection, refer to the <a href="https://api.akeneo.com/documentation/authentication.html#client-idsecret-generation" target="_blank">Authentication Guide</a>.
 If you're setting up a custom App, follow <a href="https://api.akeneo.com/tutorials/how-to-get-your-app-token.html" target="_blank">this tutorial</a> to obtain an App token.
