@@ -574,15 +574,6 @@ div.code-tabs {
 
 pre {
     border: 0;
-
-    code[class*="language-"], pre[class*="language-"] {
-        font-size: 0.88em !important;
-        white-space: pre;
-        text-indent: 0 !important;
-        padding-left: 0 !important;
-        display: block;
-    }
-
     .copy-to-clipboard-button {
         font-family: 'Roobert';
         z-index: 10;
@@ -602,8 +593,10 @@ pre {
         background: rgba(224,224,224,.2);
         border-radius: 0.5em;
     }
-
     border-top-left-radius: 0;
+    code[class*="language-"], pre[class*="language-"]    {
+        font-size: 0.88em !important;
+    }
 }
 
 .copied {
