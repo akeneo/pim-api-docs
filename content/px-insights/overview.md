@@ -9,7 +9,7 @@ insights that help you grow sales and reduce returns. To learn more, visit our [
 To use PX Insights and the associated API, you must:
 
 - Be an active PX Insights customer.
-- Have valid API credentials (see “Getting Access” below).
+- Have valid API credentials to use the PX Insights API (see “Getting Access” below).
 
 ## The Role of the PX Insights API
 
