@@ -176,5 +176,5 @@ Upon successful submission, the API will acknowledge receipt of your reviews for
 - `403 Forbidden`: Not authorized to perform this action
 - `500 Internal Server Error`: Server-side error, retry recommended
 
-::: panel-link Let's see the API reference! [Next](/px-insights/api-reference.html)
+::: panel-link Let's see the API reference! [Next](/px-insights/key-platform-behaviors.html)
 :::

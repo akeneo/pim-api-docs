@@ -13,5 +13,5 @@ To ensure visibility of your data and avoid any disruption, please contact your 
 
 ![overview-schema.png](../img/px-insights/overview-schema.png)
 
-::: panel-link Understand the compatibility with your PIM version [Next](/px-insights/compatibility.html)
+::: panel-link Getting Started [Next](/px-insights/getting-started.html)
 :::

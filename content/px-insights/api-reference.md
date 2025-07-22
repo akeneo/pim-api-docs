@@ -8,5 +8,5 @@ Several choices are offered to deep dive into our API, to discover all the endpo
 
 
 
-::: panel-link Let's get started![Next](/px-insights/getting-started.html)
+::: panel-link See our Quotas & Limits [Next](/px-insights/limitations.html)
 :::
