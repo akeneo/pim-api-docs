@@ -797,6 +797,42 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
   }
 );
 
+gulp.task('build-px-insights', ['clean-dist','less'], function () {
+    var pages = {
+        'overview.md': "Overview",
+        'getting-started.md': "Getting started",
+        'key-platform-behaviors.md': "Key platform behaviors",
+        'api-reference.md': "API Reference",
+        'limitations.md': "Quota & Limits",
+    };
+
+      var isOnePage = false;
+
+      return gulp.src('content/px-insights/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/px-insights/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/px-insights') + "\n"))
+              .pipe(gulpMarkdownIt(mdGt))
+              .pipe(gulp.dest('tmp/px-insights/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/px-insights.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_api_resources: true,
+                        title: 'PX Insights',
+                        description: getPageDescription(file.path, "PX Insights"),
+                        mainContent: fs.readFileSync('tmp/px-insights/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/px-insights'));
+              })
+        }));
+  }
+);
+
 gulp.task('build-events-api', ['clean-dist','less'], function () {
 
     var pages = {

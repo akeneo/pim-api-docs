@@ -18,4 +18,6 @@ paths = [
     '''content/rest-api/authentication_old.md''',
     # UI Extension documentation
     '''content/extensions/api.md''',
+    # PX Insights getting started documentation
+    '''content/px-insights/getting-started.md''',
 ]

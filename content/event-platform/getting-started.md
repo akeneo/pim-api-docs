@@ -72,7 +72,7 @@ In this example, we will create a new `connection` in the PIM and use it to gene
    - Define the Client ID, Secret, Username, Password, and Akeneo host URL as environment variables:
 
    ```bash [snippet:Shell]
-        export CLIENT_ID="your-client-id"
+    export CLIENT_ID="your-client-id"
     export CLIENT_SECRET="your-client-secret"
     export API_USERNAME="your-API-username"
     export API_PASSWORD="your-API-password"
