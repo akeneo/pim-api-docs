@@ -32,14 +32,6 @@ The initial version of the PX Insights API provides access to the following sign
 Support for additional data signals will be added in future releases.
 For more details about this type of data, check [this article](https://help.akeneo.com/discovering-px-insights/rating-reviews).
 
-## Getting Access
-
-Access to the PX Insights API is exclusive to customers with the PX Insights module.
-
-To get started:
-
-1. **Ensure you are a PX Insights customer.** If you are not, please contact your Customer Success Manager (CSM) to add the module.
-2. **Request API credentials.** Once you are a customer, contact your CSM to have API access enabled and to receive your authentication credentials.
 
 ::: panel-link Getting Started [Next](/px-insights/getting-started.html)
 :::
