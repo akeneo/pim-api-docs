@@ -5,6 +5,7 @@ get:
     - Workflow
   x-versions:
     - "SaaS"
+  x-ee: true
   description: Retrieves a paginated list of assignees for a specified workflow step.
   parameters:
     - $ref: '#/parameters/uuid'
