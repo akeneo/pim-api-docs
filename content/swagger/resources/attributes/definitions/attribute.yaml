@@ -225,6 +225,11 @@ properties:
     type: number
     description: Defines the number of decimal places when decimal places strategy is `round` or `forbid`.
     x-warning: Only for `pim_catalog_number` or `pim_catalog_metric` attribute types
+  enable_option_creation_during_import:
+    type: boolean
+    description: Whether new attribute options can be created automatically during product or product model import (CSV, XLSX).
+    x-warning: Only for `pim_catalog_simpleselect` or `pim_catalog_multiselect` attribute types
+    x-from-version: "SaaS"
 example:
   {
     "code": "release_date",
