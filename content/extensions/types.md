@@ -159,6 +159,24 @@ Example :
 }
 ```
 
+### Reloading the parent page from the iframe
+
+In some cases, after executing an action within the iframe, you may need to refresh the parent PIM page to reflect the changes made. Due to browser security constraints, direct access to the parent window is restricted.
+
+To address this, we provides a mechanism to trigger a page reload via a PostMessage. To initiate a reload of the parent page, simply send a message from the iframe with the following structure:
+
+```js
+    window.parent.postMessage(
+      {
+        type: 'reload_parent'
+      },
+      "*"
+    );
+```
+
+This message will trigger a page reload in the PIM.
+
+
 ### Ensuring security of embedded iframes
 
 To help ensuring the security of iframes we recommand using these two solutions:
