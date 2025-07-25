@@ -8,7 +8,7 @@ DOCKER_RUN = docker run -it --rm -u $(UID):$(GID) -v "$${PWD}":/opt/workdir -w /
 .DEFAULT_GOAL := build
 
 docker-build:
-	docker build -t $(DOCKER_IMAGE_TAG) --load - < Dockerfile
+	docker build -t $(DOCKER_IMAGE_TAG) - < Dockerfile
 
 yarn-install: docker-build
 	$(DOCKER_RUN) -e HOME=/tmp -v /etc/passwd:/etc/passwd:ro $(DOCKER_IMAGE_TAG) yarn install
