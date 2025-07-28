@@ -115,3 +115,6 @@ When deduplication occurs:
 If three errors with the same `subscription_id` and `error_message` are generated between 10:00 AM and 10:05 AM, only one log entry will be visible in the system, and its `timestamp` will show the time of the last occurrence (e.g., `10:04:59 AM`).
 
 This mechanism ensures efficient error tracking without overwhelming the system with repetitive entries, while still preserving the traceability of recurring issues.
+
+::: panel-link Consult now our benchmark section [Next](/event-platform/benchmark.html)
+:::
