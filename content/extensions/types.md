@@ -279,7 +279,7 @@ Data sent within the POST body, formatted in JSON, contain:
 - A `user` object containing the `uuid`, `username` and `groups` of the connected user.
 - A `timestamp` that can be used with a [secret](#secret) to help you to protect your server against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 
-From the position `pim.product.header`, the data object contains:
+From the position `pim.product.header`, the `data` object contains:
 - A `productUuid` string field
 
 From the position `pim.product-model.header`, the `data` object contains:
