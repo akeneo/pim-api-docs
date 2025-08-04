@@ -27,6 +27,7 @@ Extension position determines where your extension appears within the Akeneo PIM
 | pim.sub-product-model.tab    | ❌     | ✔️     | ❌    |
 | pim.category.tab             | ❌     | ✔️     | ❌    |
 | pim.product-grid.action-bar  | ✔️     | ✔️     | ❌    |
+| pim.product.index            | ✔️     | ❌     | ❌    |
 | pim.activity.navigation.tab  | ❌     | ✔️     | ❌    |
 
 
@@ -67,6 +68,10 @@ This position refers to the action bar of the product grid. It is used to add ac
 For the moment, you can't use UI extensions with more than **500** selected products & product models.
 :::
 [![pim-product-grid-action-bar.png](../img/extensions/ui-extensions/positions/pim-product-grid-action-bar.png)](../img/extensions/ui-extensions/positions/pim-product-grid-action-bar.png)
+
+#### pim.product.index
+This position refers to the top left menu of the product list page.
+[![pim-product-index.png](../img/extensions/ui-extensions/positions/pim-product-index.png)](../img/extensions/ui-extensions/positions/pim-product-index.png)
 
 #### pim.activity.navigation.tab
 This position refers to the tab of the activity navigation. It is used to add custom tabs in the activity navigation of the PIM.

@@ -273,24 +273,26 @@ An **action** UI extension is designed to perform external tasks in the backgrou
 Here is a diagram illustrating the workflow:
 [![action-extension-schema.png](../img/extensions/ui-extensions/action-extension-schema.png)](../img/extensions/ui-extensions/action-extension-schema.png)
 
-Data sent within the POST body, formatted in JSON, contains :
+Data sent within the POST body, formatted in JSON, contain:
 - A `data` object with different fields depending on the [position](#position).
 - A `context` object containing the configured `locale` and `channel`.
 - A `user` object containing the `uuid`, `username` and `groups` of the connected user.
 - A `timestamp` that can be used with a [secret](#secret) to help you to protect your server against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 
-From a position `pim.product.header`, the `data` object contains :
+From the position `pim.product.header`, the `data` object contains:
 - A `productUuid` string field
 
-From a position `pim.product-model.header`, the `data` object contains :
+From the position `pim.product-model.header`, the `data` object contains:
 - A `productModelCode` string field representing the root model code.
 
-From a position `pim.sub-product-model.header`, the `data` object contains :
+From the position `pim.sub-product-model.header`, the `data` object contains:
 - A `productModelCode` string field representing the sub model code.
 
-From a position `pim.product-grid.action-bar`, the `data` object contains :
+From the position `pim.product-grid.action-bar`, the `data` object contains:
 - A `productUuids` field which is an array of string representing the UUIDs of selected products
 - A `productModelCodes` field which is an array of string representing the codes of selected product models and sub models
+
+From the position `pim.product.index`, the `data` object is `empty`.
 
 Examples :
 
