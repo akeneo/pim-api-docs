@@ -357,10 +357,9 @@ When fetching product, you can automatically load:
 
 Use `nestedObjectValueLevel: 2` if you need to go one level deeper.
 
-:::info
-We recommand using the `nestedObjectValueLevel` argument, as we may deprecate `withRelatedObjectValues` in the future.
+:::warning
+We recommend using the `nestedObjectValueLevel` argument, as `withRelatedObjectValues` is deprecated.
 :::
-
 
 :::info
 To make the response more readable, we load only two attributes `packshot` and `badge`
