@@ -351,7 +351,7 @@ All the examples below are demo data, and you must adapt the queries regarding y
 
 When fetching product, you can automatically load:
 * The linked `reference entity` or `asset family` linked to a product by requesting the object `relatedObject`
-* The linked `reference entity records` or `asset` linked to a product by adding the parameter `withRelatedObjectValues: true` when requesting the `values`
+* The linked `reference entity records` or `asset` linked to a product by adding the parameter `nestedObjectValueLevel: 1` when requesting the `values`. Use `nestedObjectValueLevel: 2` if you need to go one level deeper.
 
 :::info
 To make the response more readable, we load only two attributes `packshot` and `badge`
@@ -364,7 +364,7 @@ To make the response more readable, we load only two attributes `packshot` and `
     attributesToLoad: ["packshot", "badge"]
     locales: ["en_US"]
     limit: 1
-  ){
+  ) {
     items {
       uuid
       updated
@@ -375,7 +375,7 @@ To make the response more readable, we load only two attributes `packshot` and `
           code
           labels
         }
-        values(withRelatedObjectValues: true)
+        values(nestedObjectValueLevel: 1)
       }
     }
   }
