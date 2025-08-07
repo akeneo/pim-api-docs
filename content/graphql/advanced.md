@@ -255,7 +255,7 @@ query MyQuery {
       variationValues
       attributes {
         code
-        values(nestedObjectValuesLevel: 0)
+        values
       }
     }
     queryInformation {
