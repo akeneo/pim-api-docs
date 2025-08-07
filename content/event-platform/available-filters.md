@@ -40,6 +40,19 @@ Filters events based on the user.
 Useful for ignoring updates from designated user like job automation.
 :::
 
+### User Type
+Filters events based on the user type.
+
+**Type:** Field Match  
+**Syntax:** `user_type="<user_type>"`  
+**Parameter:** type string of the user who triggered the event.  
+**Example:** `user_type="api"` Possible values are `user`, `api`, `job`, `system`, and `unknown-user-type`  
+**Supported Events:** All event types ([list](/event-platform/available-events.html))
+
+::: tips
+Useful for ignoring updates from jobs.
+:::
+
 ---
 
 ### Attribute
