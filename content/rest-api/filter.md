@@ -664,7 +664,7 @@ In the following example, we will filter the `Food_Composition` attribute, which
 }
 ```
 
-It is also possible to filter on a Table attribute to find out if it has at least one value, or none. To do this, you can use the `EMPTY` and `NOT EMPTY` operators. In the example below, we will filter the `Food_Composition` attribute to get all products that have no values in this attribute:
+It is also possible to filter on a Table attribute to find out if it has at least one value, or none. To do this, you can use the `EMPTY` and `NOT EMPTY` operators. In the example below, we will filter the `Food_Composition` attribute to get all products that have no value in this attribute:
 
 ```json
 {
