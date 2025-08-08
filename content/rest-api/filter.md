@@ -627,7 +627,7 @@ With the IN operator, the list of product identifiers can contain up to **100** 
 | STARTS WITH, CONTAINS, DOES NOT CONTAIN, =, !=            | string             |
 | EMPTY, NOT EMPTY                                          | no value           |
 
-**The `pim_catalog_product_link` attribute types**
+**The `pim_catalog_product_link` attribute type**
 ::: availability versions=SaaS editions=EE
 
 | Allowed operators | Allowed value type      |
@@ -645,6 +645,35 @@ A product link has the following structure:
 ```
 
 Where `type` value can be one of the following: `product`, `product_model` and `id` is the product UUID in case the type is `product` or the product model code in case type is `product_model`.
+
+**The `pim_catalog_table` attribute type**
+::: availability versions=SaaS editions=EE
+
+The attributes of type `pim_catalog_table` are a little special, because the available operators will depend on the **type of cell (column) to be filtered**. Therefore, refer to the operators specific to each type above to filter the cells.
+
+In the following example, we will filter the `Food_Composition` attribute, which is a table attribute. The table has a column named `percentage` and a row named `sugar`, and we want to get all products that have a sugar percentage greater than 50. As the `percentage` is a number, we will inherit all `pim_catalog_number` operators, so we can use the `>` operator.
+```json
+{
+    "field": "Food_Composition",
+    "value": {
+        "row": "sugar",
+        "value": "50",
+        "column": "percentage"
+    },
+    "operator": ">"
+}
+```
+
+It is also possible to filter on a Table attribute to find out if it has at least one value, or none. To do this, you can use the `EMPTY` and `NOT EMPTY` operators. In the example below, we will filter the `Food_Composition` attribute to get all products that have no values in this attribute:
+
+```json
+{
+    "field": "Food_Composition",
+    "value": [],
+    "operator": "NOT EMPTY"
+}
+
+```
 
 ## Filter product values
 
