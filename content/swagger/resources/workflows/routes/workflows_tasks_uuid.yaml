@@ -1,0 +1,37 @@
+patch:
+  summary: Complete a workflow task
+  operationId: "patch_workflows_tasks__uuid_"
+  tags:
+    - Workflow task
+  x-versions:
+    - "SaaS"
+  x-ee: true
+  description: Completes a workflow task.
+  parameters:
+    - $ref: '#/parameters/uuid'
+    - name: body
+      in: body
+      schema:
+        type: object
+        required:
+          - status
+        properties:
+          status:
+            type: string
+            enum: ["completed"]
+            description: The new status of the workflow task (e.g. "completed").
+        example:
+          status: "completed"
+  responses:
+    204:
+      $ref: "#/responses/NoContentAfterUpdate"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    415:
+      $ref: "#/responses/415Error"
+    422:
+      $ref: "#/responses/422Error"
