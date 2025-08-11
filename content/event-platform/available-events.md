@@ -2984,5 +2984,65 @@ The event is triggered when any changes are made to the record values.
 }
 ```
 
+## com.akeneo.pim.v1.workflow.task.completed
+
+*This event is generated whenever a workflow task is completed in the PIM.*
+
+* Message ID: `com.akeneo.pim.v1.workflow.task.completed`
+* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
+
+### Payload
+
+| Name | Type | Description |
+|---|---|---|
+| data.task |	object | The completed task. |
+| data.task.uuid | string |	Unique identifier of the task. |
+| data.workflow |	object | The workflow to which the task belongs. |
+| data.workflow.uuid | string	| Unique identifier of the workflow. |
+| data.step |	object | The step to which the task belongs. |
+| data.step.uuid | string |	Unique identifier of the step. |
+| data.product | object | (Conditional) Present if the task is on a product. |
+| data.product.uuid | string | Unique identifier of a Product in the PIM. |
+| data.product_model | object | (Conditional) Present if the task is on a product model. |
+| data.product_model.code | string | Code of a Product Model in the PIM. |
+| data.author | object | - |
+| data.author.identifier | string | Identifier of the author. |
+| data.author.type | string | Type of the author (`user`, `api`, `job`, `system` or `unknown-user-type`). |
+
+> Example of payload
+
+
+```json [snippet:Payload]
+
+{
+  "specversion": "1.0",
+  "id": "018e32f9-dfe4-760e-a273-5da1c089dfdb",
+  "type": "com.akeneo.pim.v1.workflow.task.completed",
+  "source": "pim",
+  "subject": "019256aa-7f77-7f58-bc8c-770f7e369c5b",
+  "time": "2024-02-22T17:31:00Z",
+  "datacontenttype": "application/json",
+  "dataschema": "https://event.prd.sdk.akeneo.cloud/spec/com.akeneo.pim.v1.workflow.task.completed.schema.json",
+  "data": {
+    "task": {
+      "uuid": "0077faa5-7f20-4b47-9f46-f05f4140e816"
+    },
+    "workflow": {
+      "uuid": "6f37476a-04c2-46c0-b6d0-e18316959068"
+    },
+    "step": {
+      "uuid": "f626d0e5-84a5-41fc-8215-65508c253edb"
+    },
+    "product": {
+      "uuid": "7108ee60-a1ea-4fe1-baca-b39909e23d24"
+    },
+    "author": {
+      "type": "user",
+      "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244"
+    }
+  }
+}
+```
+
 ::: panel-link Let's check the requirements [Next](/event-platform/integration-examples.html)
 :::
