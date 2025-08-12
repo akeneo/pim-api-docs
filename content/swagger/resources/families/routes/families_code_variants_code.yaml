@@ -20,7 +20,7 @@ get:
       description: OK
       x-details: Returns the content of the family variant in JSON standard format
       schema:
-        $ref: '#/definitions/FamilyVariant'
+        $ref: '#/definitions/FamilyVariantRead'
     401:
       $ref: "#/responses/401Error"
     403:
