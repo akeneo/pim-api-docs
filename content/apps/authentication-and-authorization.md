@@ -426,6 +426,7 @@ These are the scopes you send in the authorization and authentication requests.
 | `write_reference_entity_records` <span class="label label-ee">EE</span> | Write reference entity records                                   |
 | `read_workflows`                                                        | Read workflows and their steps                                   |
 | `read_workflow_step_assignees`                                          | Read assignees for workflow steps                                |
+| `read_workflow_tasks`                                                   | Read workflow tasks                                              |
 
 ### Available authentication scopes
 
