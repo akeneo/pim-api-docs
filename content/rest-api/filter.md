@@ -627,13 +627,29 @@ With the IN operator, the list of product identifiers can contain up to **100** 
 | STARTS WITH, CONTAINS, DOES NOT CONTAIN, =, !=            | string             |
 | EMPTY, NOT EMPTY                                          | no value           |
 
+**The `pim_catalog_asset_collection` attribute type**
+::: availability versions=7.0,SaaS editions=EE
+
+| Allowed operators | Allowed value type  |
+|-------------------|---------------------|
+| IN, NOT IN        | list of asset codes |
+| EMPTY, NOT EMPTY  | no value            |
+
+**The `akeneo_reference_entity` and `akeneo_reference_entity_collection` attribute types**
+::: availability versions=7.0,SaaS editions=EE
+
+| Allowed operators | Allowed value type   |
+|-------------------|----------------------|
+| IN, NOT IN        | list of record codes |
+| EMPTY, NOT EMPTY  | no value             |
+
 **The `pim_catalog_product_link` attribute type**
 ::: availability versions=SaaS editions=EE
 
-| Allowed operators | Allowed value type      |
-|-------------------|-------------------------|
-| IN, NOT IN        | a list of product links |
-| EMPTY, NOT EMPTY  | no value                |
+| Allowed operators | Allowed value type    |
+|-------------------|-----------------------|
+| IN, NOT IN        | list of product links |
+| EMPTY, NOT EMPTY  | no value              |
 
 A product link has the following structure:
 
