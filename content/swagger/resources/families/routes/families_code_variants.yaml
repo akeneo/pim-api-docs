@@ -39,6 +39,10 @@ get:
           "en_US": "Shoes variant",
           "fr_FR": "Variante de chaussures"
         },
+        "common_attributes": [
+          "name",
+          "description"
+        ],
         "variant_attribute_sets": [
           {
             "level": 1,

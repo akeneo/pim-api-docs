@@ -119,12 +119,14 @@ FamilyList:
     - $ref: "#/definitions/Family"
 
 FamilyVariant:
-  $ref: ./resources/families/definitions/family_variant.yaml
+  $ref: ./resources/families/definitions/family_variant_write.yaml
+FamilyVariantRead:
+  $ref: ./resources/families/definitions/family_variant_read.yaml
 FamilyVariantList:
   type: object
   allOf:
     - $ref: "#/definitions/ItemList"
-    - $ref: "#/definitions/FamilyVariant"
+    - $ref: "#/definitions/FamilyVariantRead"
 
 Attribute:
   $ref: ./resources/attributes/definitions/attribute.yaml

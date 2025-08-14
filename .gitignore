@@ -7,3 +7,6 @@
 config.json
 .env
 /.idea
+
+# fetched from remote source :
+available-events.md
