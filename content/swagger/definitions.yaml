@@ -540,3 +540,7 @@ Workflow:
   $ref: ./resources/workflows/definitions/workflow.yaml
 WorkflowStepAssignee:
   $ref: ./resources/workflows/definitions/assignee.yaml
+WorkflowTask:
+  $ref: ./resources/workflows/definitions/workflow_task.yaml
+WorkflowTaskList:
+  $ref: ./resources/workflows/definitions/workflow_task_list.yaml

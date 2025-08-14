@@ -211,3 +211,7 @@
   $ref: ./resources/workflows/routes/workflows_uuid.yaml
 /api/rest/v1/workflows/steps/{uuid}/assignees:
   $ref: ./resources/workflows/routes/workflows_steps_uuid_assignees.yaml
+/api/rest/v1/workflows/tasks:
+  $ref: ./resources/workflows/routes/workflows_tasks.yaml
+/api/rest/v1/workflows/tasks/{uuid}:
+  $ref: ./resources/workflows/routes/workflows_tasks_uuid.yaml
