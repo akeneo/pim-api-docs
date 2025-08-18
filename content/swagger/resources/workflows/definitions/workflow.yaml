@@ -20,7 +20,7 @@ properties:
     description: List of workflow steps
     items:
       type: object
-      required: ["uuid", "code", "type", "labels", "descriptions", "allotted_time"]
+      required: ["uuid", "code", "type", "labels", "descriptions", "allotted_time", "channels_and_locales"]
       properties:
         uuid:
           type: string
@@ -53,6 +53,14 @@ properties:
               type: string
               description: Time unit (days)
           x-nullable: true
+        channels_and_locales:
+          type: object
+          description: Step configuration for channels and locales
+          additionalProperties:
+            type: array
+            items:
+              type: string
+              description: Locale code
 
 example:
   uuid: "6f37476a-04c2-46c0-b6d0-e18316959068"
@@ -73,9 +81,14 @@ example:
       allotted_time:
         value: 3
         unit: "days"
+      channels_and_locales:
+        ecommerce: ["en_US"]
+        mobile: ["en_US", "fr_FR"]
     - uuid: "b2c1f3d4-5e6a-4c8b-9f0e-2d3e4f5a6b7c"
       code: "marketing_review"
       type: "review"
       labels: {}
       descriptions: {}
       allotted_time: null
+      channels_and_locales:
+        ecommerce: ["en_US"]
