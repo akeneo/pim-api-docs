@@ -4,7 +4,7 @@ UI extensions are categorized by type, which determines their capabilities. Sele
 + Action
 + Iframe
 + Link
-+ Data source
++ Data component
 
 ## Link
 A **link** UI extension is crafted to open your external content in a new tab.
@@ -340,8 +340,8 @@ Examples :
 }
 ```
 
-## Data source
-An **data source** UI extension is designed to query data from an predefined endpoint and display them in a **colapsible panel** on the product edit form. It aims to ease the completion of product information without leaving the PIM. The panel is accessible via a button on the header of the form. It can be oppened and closed by clicking the button.
+## Data component
+An **data component** UI extension is designed to query data from an predefined endpoint and display them in a **colapsible panel** on the product edit form. It aims to ease the completion of product information without leaving the PIM. The panel is accessible via a button on the header of the form. It can be oppened and closed by clicking the button.
 
 Please note the following key points regarding its functionality:
 
