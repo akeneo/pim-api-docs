@@ -341,7 +341,7 @@ Examples :
 ```
 
 ## Data component
-A **data component** UI extension is designed to query data from an predefined endpoint and display them in a **colapsible panel** on the product edit form. It aims to ease the completion of product information without leaving the PIM. The panel is accessible via a button on the header of the form. It can be oppened and closed by clicking the button.
+A **data component** UI extension is designed to query data from an predefined endpoint and display them in a **colapsible panel** on the product edit form. It aims to ease the completion of product information without leaving the PIM. The panel is accessible via a button on the header of the form. It can be opened and closed by clicking the button.
 
 Please note the following key points regarding its functionality:
 
