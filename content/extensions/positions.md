@@ -81,18 +81,15 @@ This position refers to the tab of the activity navigation. It is used to add cu
 
 #### pim.product.panel
 This position refers to the right panel of a simple product or a variant edit page.
-// TODO change picture
-[![pim-product-header.png](../img/extensions/ui-extensions/positions/pim-product-header.png)](../img/extensions/ui-extensions/positions/pim-product-header.png)
+[![pim-product-panel.png](../img/extensions/ui-extensions/positions/pim-product-panel.png)](../img/extensions/ui-extensions/positions/pim-product-panel.png)
 
 #### pim.product-model.panel
 This position refers to the right panel of a root model edit page.
-// TODO change picture
-[![pim-product-model-header.png](../img/extensions/ui-extensions/positions/pim-product-model-header.png)](../img/extensions/ui-extensions/positions/pim-product-model-header.png)
+[![pim-product-panel.png](../img/extensions/ui-extensions/positions/pim-product-panel.png)](../img/extensions/ui-extensions/positions/pim-product-panel.png)
 
 #### pim.sub-product-model.panel
 This position refers to the right panel of a sub product model edit page.
-// TODO change picture
-[![pim-sub-product-model-header.png](../img/extensions/ui-extensions/positions/pim-sub-product-model-header.png)](../img/extensions/ui-extensions/positions/pim-sub-product-model-header.png)
+[![pim-product-panel.png](../img/extensions/ui-extensions/positions/pim-product-panel.png)](../img/extensions/ui-extensions/positions/pim-product-panel.png)
 
 ::: panel-link Credentials [Next](/extensions/credentials.html)
 :::
