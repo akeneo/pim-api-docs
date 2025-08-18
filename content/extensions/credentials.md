@@ -1,5 +1,5 @@
 # Credentials
-You have the ability to make authenticated calls via UI Extensions using credentials. Currently, credentials are available only for Action type UI Extensions, but they will be extended to other extension types in the future. These credentials will be used as headers in the POST requests generated when calling the specified URL.
+You have the ability to make authenticated calls via UI Extensions using credentials. Currently, credentials are available for **Action** and **Data source** type UI Extensions. These credentials will be used as headers in the POST requests generated when calling the specified URL.
 
 ### Available Credential Methods
 
