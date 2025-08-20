@@ -15,6 +15,12 @@ get:
       description: "(required) Filter tasks by workflow step UUID (e.g. f626d0e5-84a5-41fc-8215-65508c253edb)"
       required: true
       type: string
+    - name: with_attributes
+      in: query
+      description: "(optional) Whether to include task attributes in the response"
+      required: false
+      type: boolean
+      default: false
   responses:
     200:
       description: OK
@@ -25,11 +31,11 @@ get:
         x-example:
           _links:
             self:
-              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb&with_attributes=true"
             first:
-              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb&with_attributes=true"
             next:
-              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=2&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=2&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb&with_attributes=true"
           current_page: 1
           _embedded:
             items:
@@ -47,6 +53,7 @@ get:
                   code: "a-product-model-code"
                 due_date: "2024-03-28T18:00:00Z"
                 rejected: false
+                pending_attributes: ["a-pending-attribute-code", "another-pending-attribute-code"]
     400:
       $ref: "#/responses/400Error"
     401:
