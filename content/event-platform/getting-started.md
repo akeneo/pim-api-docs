@@ -51,7 +51,12 @@ With your subscription in place, you're ready to trigger the event you subscribe
 
 After deleting the product, verify that the event was successfully triggered by checking the payload received at your destination URL.
 
----
+### 6. Consider benchmarking your Subscription
+
+To ensure your endpoint can handle the event load from the PIM, we highly recommend performance testing your subscription.
+This will help you assess its performance and reliability under stress.
+
+To learn more, see our guide: [Benchmark your subscription](/event-platform/benchmark.html)
 
 ## Using Curl
 
@@ -203,5 +208,13 @@ Alternatively, you can also update a product using the [Akeneo PIM REST API](/ap
 
 After updating the product, verify that the event was successfully triggered by checking the payload received at your destination URL.
 
+### 5. Consider benchmarking your Subscription
+
+To ensure your endpoint can handle the event load from the PIM, we highly recommend performance testing your subscription. 
+This will help you assess its performance and reliability under stress.
+
+To learn more, see our guide: [Benchmark your subscription](/event-platform/benchmark.html)
+
 ::: panel-link Explore Key Concepts to deepen your understanding of the [Event Platform](/event-platform/concepts.html)
 :::
+
