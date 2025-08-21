@@ -2130,8 +2130,8 @@ To filter workflow tasks by one of its properties, you can use the `search` quer
 
 In the above url :
 
-- `PRODUCT_PROPERTY` can be any property detailed in the sections below,
-- `OPERATOR` is an allowed operator for this `PRODUCT_PROPERTY`,
+- `TASK_PROPERTY` can be any property detailed in the sections below,
+- `OPERATOR` is an allowed operator for this `TASK_PROPERTY`,
 - `VALUE` is a value whose type corresponds to the allowed type detailed below.
 
 #### Examples
