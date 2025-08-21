@@ -40,4 +40,4 @@ properties:
     type: array
     items:
       type: string
-    description: A list of pending attributes for the task
+    description: A list of attribute codes for the task that are awaiting completion or require user input. This field is only included when `with_attributes=true`.
