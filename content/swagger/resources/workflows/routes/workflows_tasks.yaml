@@ -18,7 +18,7 @@ get:
     - name: search
       in: query
       description: |
-        Stringified JSON to filter tasks, for more details see the <a href="/documentation/filter.html#filter-workflow-tasks">Filters</a> section.
+        Stringified JSON to filter tasks, for more details see the <a href="/documentation/filter.html#filter-on-workflow-tasks">Filters</a> section.
       required: false
       type: string
   responses:
