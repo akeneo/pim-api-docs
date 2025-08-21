@@ -2119,3 +2119,42 @@ To get the categories that have been updated since May 17th, 2021 at 10 am (UTC)
 ```
 /api/rest/v1/categories?search={"updated":[{"operator":">","value":"2021-05-17T10:00:00Z"}]}
 ```
+
+## Filter on workflow tasks
+
+To filter workflow tasks by one of its properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
+
+```
+/api/rest/v1/workflows/tasks?search={TASK_PROPERTY:[{"operator":OPERATOR,"value":VALUE}]}
+```
+
+In the above url :
+
+- `PRODUCT_PROPERTY` can be any property detailed in the sections below,
+- `OPERATOR` is an allowed operator for this `PRODUCT_PROPERTY`,
+- `VALUE` is a value whose type corresponds to the allowed type detailed below.
+
+#### Examples
+
+To only retrieve tasks on specified products, you can use the following URL.
+
+```
+/api/rest/v1/workflows/tasks?search={"product_uuids":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad"]}]}
+```
+
+### On their product uuid
+
+::: availability versions=SaaS editions=EE
+
+To filter tasks on their product uuids, use the `product_uuids` property.
+Here are the allowed operators you can use to filter on the product uuid as well as the corresponding type of value expected in the `search` query parameter.
+
+| Allowed operators | Allowed value type              |
+| ----------------- |---------------------------------|
+| IN, NOT IN        | list of strings (product uuids) |
+
+#### Example
+
+```
+/api/rest/v1/workflows/tasks?search={"product_uuids":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad", "b1c8f7a2-9039-4c22-970e-643939b54fad"]}]}
+```
