@@ -15,6 +15,12 @@ get:
       description: "(required) Filter tasks by workflow step UUID (e.g. f626d0e5-84a5-41fc-8215-65508c253edb)"
       required: true
       type: string
+    - name: search
+      in: query
+      description: |
+        Stringified JSON to filter tasks, for more details see the <a href="/documentation/filter.html#filter-on-workflow-tasks">Filters</a> section.
+      required: false
+      type: string
   responses:
     200:
       description: OK
