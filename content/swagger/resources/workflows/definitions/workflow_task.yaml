@@ -36,3 +36,8 @@ properties:
       code:
         type: string
         description: The code of the product model associated with the workflow task (object is present when the task is for a product model)
+  pending_attributes:
+    type: array
+    items:
+      type: string
+    description: A list of attribute codes for the task that are awaiting completion or require user input. This field is only included when `with_attributes=true`.
