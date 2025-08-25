@@ -2142,6 +2142,23 @@ To only retrieve tasks on specified products, you can use the following URL.
 /api/rest/v1/workflows/tasks?search={"product_uuids":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad"]}]}
 ```
 
+### On their task uuid
+
+::: availability versions=SaaS editions=EE
+
+To filter tasks on their uuids, use the `task_uuids` property.
+Here are the allowed operators you can use to filter on the task uuid as well as the corresponding type of value expected in the `search` query parameter.
+
+| Allowed operators | Allowed value type           |
+| ----------------- |------------------------------|
+| IN, NOT IN        | list of strings (task uuids) |
+
+#### Example
+
+```
+/api/rest/v1/workflows/tasks?search={"task_uuids":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad", "b1c8f7a2-9039-4c22-970e-643939b54fad"]}]}
+```
+
 ### On their product uuid
 
 ::: availability versions=SaaS editions=EE
