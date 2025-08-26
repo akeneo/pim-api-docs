@@ -54,7 +54,8 @@ Useful for tracking changes to business-critical fields like price, title, or st
 ---
 
 ### Scope and Channel
-Filters events based on scope or channel.
+Filters product (model) events based on the scope or channel of their modified attribute(s).
+For practical reasons, this filter also matches when the modified attribute(s) are non-scopable.
 
 **Type:** Field Exists and Match  
 **Syntax:** `scope="<channel_code>"` or `channel="<channel_code>"`  
@@ -71,7 +72,8 @@ Useful for filtering updates specific to a distribution channel like "mobile", "
 ---
 
 ### Locale
-Filters events based on locale.
+Filters product (model) events based on the locale of their modified attribute(s).
+For practical reasons, this filter also matches when the modified attribute(s) are non-localizable.
 
 **Type:** Field Exists and Match  
 **Syntax:** `locale="<locale_code>"`  
