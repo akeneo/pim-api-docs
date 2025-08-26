@@ -2175,3 +2175,20 @@ Here are the allowed operators you can use to filter on the product uuid as well
 ```
 /api/rest/v1/workflows/tasks?search={"product_uuids":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad", "b1c8f7a2-9039-4c22-970e-643939b54fad"]}]}
 ```
+
+### On their product model code
+
+::: availability versions=SaaS editions=EE
+
+To filter tasks on their product model codes, use the `product_model_codes` property.
+Here are the allowed operators you can use to filter on the product model code as well as the corresponding type of value expected in the `search` query parameter.
+
+| Allowed operators | Allowed value type                    |
+| ----------------- |---------------------------------------|
+| IN, NOT IN        | list of strings (product model codes) |
+
+#### Example
+
+```
+/api/rest/v1/workflows/tasks?search={"product_model_codes":[{"operator":"IN","value":["amor", "apollon"]}]}
+```
