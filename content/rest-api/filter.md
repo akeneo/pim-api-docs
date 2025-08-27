@@ -1661,17 +1661,17 @@ Finally, if you want to get the assets updated in the last 4 days, you can use t
 You can filter assets on their attribute values using the `search` query parameter. Put your attribute filters under the `values` key. Each property under `values` is an attribute identifier. For scopable/localizable attributes, you can optionally specify a `channel` and/or `locale` in the filter. If omitted, the API will try to use the `channel`/`locales` provided in the request.
 
 Supported types and operators:
-- text: `=`, `CONTAINS`, `DOES NOT CONTAIN`, `STARTS WITH`, `ENDS WITH`, `IS EMPTY`, `IS NOT EMPTY`
-- number: `=`, `IS EMPTY`, `IS NOT EMPTY`
-- boolean: `=`, `IS EMPTY`, `IS NOT EMPTY`
-- date: `=`, `<`, `>`, `BETWEEN`, `NOT BETWEEN`, `IS EMPTY`, `IS NOT EMPTY`
-- option/option_collection: `IN`, `IS EMPTY`, `IS NOT EMPTY`
-- record: `=`, `IN`, `IS EMPTY`
+- text: `=`, `CONTAINS`, `DOES NOT CONTAIN`, `STARTS WITH`, `ENDS WITH`, `EMPTY`, `NOT EMPTY`
+- number: `=`, `EMPTY`, `NOT EMPTY`
+- boolean: `=`, `EMPTY`, `NOT EMPTY`
+- date: `=`, `<`, `>`, `BETWEEN`, `NOT BETWEEN`, `EMPTY`, `NOT EMPTY`
+- option/option_collection: `IN`, `EMPTY`, `NOT EMPTY`
+- record: `=`, `IN`, `EMPTY`
 
 Notes:
 - Filtering on attribute types `media_file` and `media_link` is not supported. The API will return a 422 error.
 - Attribute identifiers must match the regex `^[a-zA-Z0-9_]+$`.
-- For `record` attributes, use operator `=` with value `true` to express non-empty (and `false` for empty). There is no `IS NOT EMPTY` operator for record.
+- For `record` attributes, use operator `=` with value `true` to express non-empty (and `false` for empty). There is no `NOT EMPTY` operator for record.
 
 #### Examples
 
