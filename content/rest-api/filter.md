@@ -181,7 +181,7 @@ To filter products on creation or update date, use respectively the product prop
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
 ::: info
-Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.    
+Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 Please also note that product variants, with an older updated date than the filter applied, will be part of the API answer if at least one of their parent product model has an updated date that matches the filter applied.
 :::
 
@@ -2168,7 +2168,7 @@ Here are the allowed operators you can use to filter on the product uuid as well
 
 | Allowed operators | Allowed value type              |
 | ----------------- |---------------------------------|
-| IN, NOT IN        | list of strings (product uuids) |
+| IN                | list of strings (product uuids) |
 
 #### Example
 
@@ -2185,7 +2185,7 @@ Here are the allowed operators you can use to filter on the product model code a
 
 | Allowed operators | Allowed value type                    |
 | ----------------- |---------------------------------------|
-| IN, NOT IN        | list of strings (product model codes) |
+| IN                | list of strings (product model codes) |
 
 #### Example
 
