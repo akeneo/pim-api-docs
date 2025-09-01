@@ -62,7 +62,7 @@ Useful for tracking changes to business-critical fields like price, title, or st
 
 ### Scope and Channel
 
-Filters product (model) events based on the scope or channel of their modified attribute(s).
+Filters product and product-model delta events based on the scope or channel of their modified attribute(s).
 For practical reasons, this filter also matches when the modified attribute(s) are non-scopable.
 
 **Type:** Field Exists and Match  
