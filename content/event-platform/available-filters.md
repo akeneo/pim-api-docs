@@ -4,7 +4,8 @@ Event filters let you **focus only on the events that matter to you** by applyin
 of receiving every single event, you can choose to receive just a subset—like changes made by a specific user or updates
 to a specific attribute.
 
-This helps you reduce noise and tailor your event subscription to your needs.
+This feature helps reduce irrelevant events in your subscription.
+However, to truly tailor it to your needs, more specific filtering may be required on the subscriber side.
 
 ::: info
 **Filters are optional**  
