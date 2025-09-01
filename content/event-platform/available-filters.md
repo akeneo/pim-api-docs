@@ -82,7 +82,7 @@ Useful for filtering updates specific to a distribution channel like "mobile", "
 
 ### Locale
 
-Filters product (model) events based on the locale of their modified attribute(s).
+Filters product or product-model delta events based on the locale of their modified attribute(s).
 For practical reasons, this filter also matches when the modified attribute(s) are non-localizable.
 
 **Type:** Field Exists and Match  
