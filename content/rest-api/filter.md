@@ -2151,7 +2151,7 @@ Here are the allowed operators you can use to filter on the task uuid as well as
 
 | Allowed operators | Allowed value type           |
 | ----------------- |------------------------------|
-| IN                | list of strings (task uuids) |
+| IN, NOT IN        | list of strings (task uuids) |
 
 #### Example
 
