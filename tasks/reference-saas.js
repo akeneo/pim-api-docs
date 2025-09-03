@@ -163,7 +163,7 @@ gulp.task('reference-saas', ['clean-dist', 'less'], function() {
                         }
                     });
                 });
-                return gulp.src('src/api-reference/index.handlebars')
+                return gulp.src('src/api-reference-saas/index.handlebars')
                     .pipe(gulpHandlebars(templateData, {}))
                     .pipe(rename(htmlReferenceIndexfileName + '.html'))
                     .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))
@@ -302,7 +302,7 @@ gulp.task('reference-saas', ['clean-dist', 'less'], function() {
                       }
                   });
               });
-              return gulp.src('src/api-reference/reference.handlebars')
+              return gulp.src('src/api-reference-saas/reference.handlebars')
                 .pipe(gulpHandlebars(templateData, {}))
                 .pipe(rename(htmlReferencefileName + '.html'))
                 .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))

@@ -1,0 +1,129 @@
+{{#> layout title="REST API reference" active_api_resources=true }}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="rest">REST API reference cheat sheet</h1>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <p><em>All our available endpoints. Just for you.</em></p>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <div class="dropdown pull-right">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Your PIM version: <strong>{{{pimVersion}}}</strong>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="dropdown-title">Choose your PIM version</li>
+                        <li><a href="/api-reference-index-17.html">1.7</a></li>
+                        <li><a href="/api-reference-index-20.html">2.0</a></li>
+                        <li><a href="/api-reference-index-21.html">2.1</a></li>
+                        <li><a href="/api-reference-index-22.html">2.2</a></li>
+                        <li><a href="/api-reference-index-23.html">2.3</a></li>
+                        <li><a href="/api-reference-index-30.html">3.0</a></li>
+                        <li><a href="/api-reference-index-31.html">3.1</a></li>
+                        <li><a href="/api-reference-index-32.html">3.2</a></li>
+                        <li><a href="/api-reference-index-40.html">4.0</a></li>
+                        <li><a href="/api-reference-index-50.html">5.0</a></li>
+                        <li><a href="/api-reference-index-60.html">6.0</a></li>
+                        <li><a href="/api-reference-index-70.html">7.0</a></li>
+                        <li><a href="/api-reference-index.html">SaaS</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row rest">
+            <div id="navbar" class="col-sm-3 hidden-xs">
+                <nav role="tablist" data-spy="affix" data-offset-top="80">
+                    <ul class="nav nav-stacked">
+                        <p class="pre-nav rest"> <img class="pull-left" style="margin-right: 5px; height: 27px;" src="/img/icons/icon--rest.svg"> REST API endpoints</p>
+                        {{#each categories as |category categoryId|}}
+                            <li class="main-nav">
+                                <a href="#{{{categoryId}}}">{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}{{#if isPublishedProduct}}<em> - Deprecated</em>{{/if}}</a>
+                                <ul class="nav">
+                                    {{#each category.resources as |resource resourceId|}}
+                                        <li class="sub-nav">
+                                            <a href="#{{{resourceId}}}">{{{resourceName}}}{{#if ../isPublishedProduct}}<em> - Deprecated</em>{{/if}}</a>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-9">
+                {{#each categories as |category categoryId|}}
+                    <a class="anchor" id="{{{categoryId}}}"></a>
+                    <h2>{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</h2>
+                    {{#if categoryDeprecated}}
+                        <div class="alert alert-warning">
+                            <p>With the introduction of our new way to handle assets, the Asset Manager, the PAM feature has been removed from the v4.0 of the PIM. As a result, from now on, <b>all the endpoints regarding the PAM assets are deprecated</b>. They will not be available anymore starting from the v4.0.<br/>To understand why, we recommend you to read this <a href="https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804">Medium post</a>, we wrote on this special occasion.<br/>Also, don't hesitate to take a look at the <a href="/documentation/asset-manager.html">Asset Manager documentation</a> to discover this new feature and how much more efficient it will be to handle your precious assets.</p>
+                        </div>
+                    {{/if}}
+                    {{#each category.resources as |resource resourceId|}}
+                        <a class="anchor" id="{{{resourceId}}}"></a>
+                        <h3 class="picto">
+                            <img src="img/illustrations/illus--{{{resourceId}}}.svg"/>
+                            {{{resourceName}}}{{#if ../categoryDeprecated}}<em> - Deprecated</em>{{/if}}
+                        </h3>
+                        {{#if ../isPublishedProduct}}
+                            <a class="anchor" id="{{{categoryId}}}"></a>
+                            <div class="alert alert-danger">
+                                <p><b>Important update: Published Products discontinuation.</b> This feature is no longer actively supported and will soon be retired.
+                                    We recommend exploring alternative solutions. <a target="_blank" href="https://help.akeneo.com/en_US/serenity-take-the-power-over-your-products/important-update-deprecation-of-the-published-products-feature-from-akeneo-pim">Learn more in the help center.</a></p>
+                            </div>
+                        {{/if}}
+                        {{#if isProductIdentifierOrUUID}}
+                            <a class="anchor" id="{{{categoryId}}}"></a>
+                            <div class="alert alert-warning">
+                                <p>This API provides two endpoints for interacting with products:</p>
+                                <ul>
+                                    <li><b><a href="/api-reference-index.html#Productuuid">Product (UUID):</a></b> We strongly recommend using this endpoint for its reliability and flexibility. UUIDs, or Universally Unique Identifiers, are guaranteed to be unique and never change, even if other product identifiers like SKUs are modified. This ensures consistent product identification regardless of future changes. Additionally, UUIDs allow interaction with products that lack a traditional identifier.</li>
+                                    <li><b><a href="/api-reference-index.html#Productidentifier">Product (Identifier):</a></b> This endpoint is useful when you already have a product identifier within your systems. This identifier, which could be a SKU or internal code, can be used to directly interact with the corresponding product in our API. This simplifies integration for workflows that rely on existing product identification methods.</li>
+                                </ul>
+                            </div>
+                        {{/if}}
+                        <div class="list-group">
+                            {{#each resource.operations as |operation operationId|}}
+                                <a class="list-group-item" href="{{../../../htmlReferencefileName}}.html#{{{operationId}}}">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <p class="list-group-item-heading">{{{summary}}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <p class="list-group-item-text">
+                                                <span class="label label-verb label-{{{verb}}}">{{{verb}}}</span>
+                                                <span class="text-api-url">{{{path}}}</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <p class="list-group-item-text pull-right">
+                                                <em class="small">PIM versions:</em>
+                                                {{#each x-versions as |version versionId|}}
+                                                    <span class="label label-version">{{{version}}}</span>
+                                                {{/each}}
+                                                <em class="small"> | PIM editions:</em>
+                                                {{#unless x-ee}}
+                                                    <span class="label label-ee">CE</span>
+                                                {{/unless}}
+                                                <span class="label label-ee">EE</span>
+                                                {{#if x-deprecated}}
+                                                    <em class="small"> | </em>
+                                                    <span class="label label-warning">deprecated</span>
+                                                {{/if}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            {{/each}}
+                        </div>
+                    {{/each}}
+                {{/each}}
+            </div>
+        </div>
+        {{> back-to-top-button}}
+    </div>
+{{/layout}}
