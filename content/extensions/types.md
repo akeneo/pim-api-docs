@@ -276,7 +276,10 @@ Here is a diagram illustrating the workflow:
 
 Data sent within the POST body, formatted in JSON, contain:
 - A `data` object with different fields depending on the [position](#position).
-- A `context` object containing the configured `locale` and `channel`.
+- A `context` object containing:
+  - the configured `locale`,
+  - the configured `channel`,
+  - the configured `category` (only available for product grid actions).
 - A `user` object containing the `uuid`, `username` and `groups` of the connected user.
 - A `timestamp` that can be used with a [secret](#secret) to help you to protect your server against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 
@@ -326,7 +329,8 @@ Examples :
   },
   "context": {
     "locale": "en_US",
-    "channel": "ecommerce"
+    "channel": "ecommerce",
+    "category": "master_men_blazers_deals"
   },
   "user": {
     "uuid": "e05cc457-b8ac-43b1-baa7-c4c112091ad8",
