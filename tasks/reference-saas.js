@@ -7,7 +7,6 @@
  * - Create HTML from Handlebars
  */
 var gulp = require('gulp');
-var swagger = require('gulp-swagger');
 var jsonTransform = require('gulp-json-transform');
 var _ = require('lodash');
 var hbs = require('handlebars');
@@ -110,10 +109,9 @@ gulp.task('reference-saas', ['clean-dist', 'less'], function() {
           data.tags = undefined;
           return data;
       }))
-      .pipe(jsonTransform(function(data, file) {
+      .pipe(jsonTransform(function(data) {
           var templateData = data;
-          var htmlReferencefileName = 'api-reference-saas';
-          data.htmlReferencefileName = htmlReferencefileName
+          data.htmlReferencefileName = 'api-reference-saas'
           data.categories = {};
           _.forEach(data.paths, function(path, pathUri) {
               _.forEach(path, function(operation, verb) {
@@ -164,9 +162,15 @@ gulp.task('reference-saas', ['clean-dist', 'less'], function() {
                   _.map(operation.parameters, function(parameter) {
                       if (parameter.description) {
                           parameter.description = md.render(parameter.description);
+                          if (parameter.description.startsWith('<p>') && parameter.description.endsWith('</p>\n')) {
+                              parameter.description = parameter.description.substring(3, parameter.description.length - 5);
+                          }
                       }
                       if(parameter.schema && parameter.schema.description) {
                           parameter.schema.description = md.render(parameter.schema.description);
+                          if (parameter.schema.description.startsWith('<p>') && parameter.schema.description.endsWith('</p>\n')) {
+                              parameter.schema.description = parameter.schema.description.substring(3, parameter.schema.description.length - 5);
+                          }
                       }
                       return parameter;
                   });
@@ -322,7 +326,7 @@ gulp.task('reference-saas', ['clean-dist', 'less'], function() {
                       }
                       return response;
                   });
-                  data.categories[escapeCategory].resources[escapeTag].operations[operationId] = _.extend(operation, { verb: verb, path: pathUri, groupedParameters: groupedParameters });
+                  data.categories[escapeCategory].resources[escapeTag].operations[operationId] = _.extend(operation, { verb: verb, path: pathUri, groupedParameters: groupedParameters, bodyParameters: (data?.requestBody?.content?.['application/json']?.schema?.properties ?? null) });
               });
           });
           return gulp.src('src/api-reference-saas/reference.handlebars')
