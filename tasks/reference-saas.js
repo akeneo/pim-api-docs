@@ -284,14 +284,28 @@ gulp.task('reference-saas', ['clean-dist', 'less'], function() {
                       if (null !== content) {
                           const contentType = Object.keys(content)[0] ?? null;
                           if (null !== contentType) {
-                              const responseExample = content[contentType].example ?? content[contentType].examples?.[0]?.value ?? null;
+                              let responseExample = content[contentType].example ?? null
+                              if (null === responseExample) {
+                                  let responseExamples = content[contentType].examples ?? null
+                                  if (null !== responseExamples) {
+                                      const firstExampleKey = Object.keys(responseExamples)[0] ?? null;
+                                      if (null !== firstExampleKey) {
+                                          responseExample = responseExamples[firstExampleKey]?.value ?? null;
+                                      }
+                                  }
+                              }
                               if (null !== responseExample) {
-                                  // const sortedExamples = _.reverse(_.sortBy(response['x-examples-per-version'], ['x-version']));
-                                  // const closestExample = _.find(sortedExamples, function(exemplePerVersion) {
-                                  //     return exemplePerVersion['x-version'] <= version;
-                                  // });
-                                  const stringValue = highlightJs.highlight('json', JSON.stringify(responseExample, null, 2), true);
-                                  response.hljsExample = '<pre class="hljs"><code>' + stringValue.value + '</code></pre>';
+                                  if ('application/vnd.akeneo.collection+json' === contentType && typeof responseExample === 'string') {
+                                      const responseExampleLines = responseExample.split('\n');
+                                      for (let i = 0; i < responseExampleLines.length; i++) {
+                                          responseExampleLines[i] = highlightJs.highlight('json', responseExampleLines[i], true).value;
+                                      }
+                                      response.hljsExample = '<pre class="hljs"><code>' + responseExampleLines.join("\n") + '</code></pre>';
+                                  } else {
+                                      const stringValue = highlightJs.highlight('json', JSON.stringify(responseExample, null, 2), true);
+                                      response.hljsExample = '<pre class="hljs"><code>' + stringValue.value + '</code></pre>';
+                                  }
+
                                   return response;
                               }
                           }
