@@ -71,8 +71,8 @@
                             <div class="alert alert-warning">
                                 <p>This API provides two endpoints for interacting with products:</p>
                                 <ul>
-                                    <li><b><a href="/api-reference.html#Productuuid">Product (UUID):</a></b> We strongly recommend using this endpoint for its reliability and flexibility. UUIDs, or Universally Unique Identifiers, are guaranteed to be unique and never change, even if other product identifiers like SKUs are modified. This ensures consistent product identification regardless of future changes. Additionally, UUIDs allow interaction with products that lack a traditional identifier.</li>
-                                    <li><b><a href="/api-reference.html#Productidentifier">Product (Identifier):</a></b> This endpoint is useful when you already have a product identifier within your systems. This identifier, which could be a SKU or internal code, can be used to directly interact with the corresponding product in our API. This simplifies integration for workflows that rely on existing product identification methods.</li>
+                                    <li><b><a href="/api-reference-saas.html#Productuuid">Product (UUID):</a></b> We strongly recommend using this endpoint for its reliability and flexibility. UUIDs, or Universally Unique Identifiers, are guaranteed to be unique and never change, even if other product identifiers like SKUs are modified. This ensures consistent product identification regardless of future changes. Additionally, UUIDs allow interaction with products that lack a traditional identifier.</li>
+                                    <li><b><a href="/api-reference-saas.html#Productidentifier">Product (Identifier):</a></b> This endpoint is useful when you already have a product identifier within your systems. This identifier, which could be a SKU or internal code, can be used to directly interact with the corresponding product in our API. This simplifies integration for workflows that rely on existing product identification methods.</li>
                                 </ul>
                             </div>
                         {{/if}}
@@ -93,12 +93,6 @@
                                                 {{/if}}
                                             </h3>
                                             <p>{{{description}}}</p>
-                                            <p>
-                                                <em class="small text-primary">Available in PIM versions:</em>
-                                                {{#each x-versions as |version versionId|}}
-                                                    <span class="label label-version">{{{version}}}</span>
-                                                {{/each}}
-                                            </p>
                                             <hr>
                                             <h4>REQUEST</h4>
                                             <p>

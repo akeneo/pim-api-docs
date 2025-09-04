@@ -144,7 +144,7 @@ gulp.task('reference-saas', ['clean-dist', 'less'], function() {
           });
           return gulp.src('src/api-reference-saas/index.handlebars')
             .pipe(gulpHandlebars(templateData, {}))
-            .pipe(rename('api-reference-index-saas.html'))
+            .pipe(rename('api-reference-saas-index.html'))
             .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))
             .pipe(gulp.dest('dist'));
       }))
