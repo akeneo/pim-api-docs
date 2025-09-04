@@ -11,7 +11,7 @@ patch:
     <ul>
       <li>To approve a 'review' task, set status to <code>approved</code>.</li>
       <li>To complete an 'enrichment' task, set status to <code>completed</code>.</li>
-      <li>To reject a 'review' task, set status to <code>rejected</code> and provide <code>send_back_to_step_uuid</code>.</li>
+      <li>To reject a 'review' task, set status to <code>rejected</code>, provide <code>send_back_to_step_uuid</code>, and optionally provide <code>rejected_attributes</code> to specify details about rejected attributes./li>
     </ul>
   parameters:
     - $ref: '#/parameters/uuid'
@@ -29,6 +29,23 @@ patch:
           send_back_to_step_uuid:
             type: string
             description: (required only for rejected status) The UUID of the workflow step to which the task should be returned.
+          rejected_attributes:
+            type: object
+            description: (optional, only for rejected status) Optionally provides details about which attributes were rejected. For each attribute name you can specify a comment, the locale, and the scope for the rejection.
+            additionalProperties:
+              type: array
+              items:
+                type: object
+                properties:
+                  comment:
+                    type: string
+                    description: Comment about the rejection reason for this attribute.
+                  locale:
+                    type: [string, "null"]
+                    description: Locale code, or null if not applicable.
+                  scope:
+                    type: [string, "null"]
+                    description: Scope code, or null if not applicable.
         example:
           [
             {
@@ -39,7 +56,28 @@ patch:
             },
             {
               status: "rejected",
-              send_back_to_step_uuid: "123e4567-e89b-12d3-a456-426614174000"
+              send_back_to_step_uuid: "7108ee60-a1ea-4fe1-baca-b39909e23d24",
+              rejected_attributes: {
+                name: [
+                  {
+                    comment: "",
+                    locale: null,
+                    scope: null
+                  }
+                ],
+                description: [
+                  {
+                    comment: "Wrong description",
+                    locale: "en_US",
+                    scope: "ecommerce"
+                  },
+                  {
+                    comment: "",
+                    locale: "fr_FR",
+                    scope: "mobile"
+                  }
+                ]
+              }
             }
           ]
   responses:
