@@ -11,7 +11,7 @@ Otherwise, your app submission will not be approved.
 
 ## The Submission Process in a Nutshell
 **Getting Started**
-- Register for the Partner Portal: Complete your registration at the [Akeneo Connect Portal](https://connect.akeneo.com/auth/realms/connect/protocol/openid-connect/auth?response_type=code&client_id=portal&scope=address+email+phone+profile&redirect_uri=https%3A%2F%2Fportal.akeneo.com%2Flogin%2Fkeycloak).
+- Register for the Partner Portal: Complete your registration at the [Akeneo Connect Portal](https://connect.akeneo.com/auth/realms/connect/protocol/openid-connect/auth?response_type=code&client_id=app-dev-registration&scope=address+email+phone+profile&redirect_uri=https%3A%2F%2Fapp-dev-registration.akeneo.com%2Flogin%2Fkeycloak&approval_prompt=auto).
 - Register for the HelpDesk: Once in the Partner Portal, set up your access to the HelpDesk by following the instructions [here](https://help.akeneo.com/akeneo-portal-project-console-helpdesk/manage-access-to-the-helpdesk).
 - Review App Requirements: Ensure your application complies with all requirements outlined in the [documentation](https://api.akeneo.com/app-portal/publish-your-app.html).
 
