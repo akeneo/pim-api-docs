@@ -207,6 +207,8 @@
 /api/rest/v1/ui-extensions/{uuid}:
   $ref: ./resources/ui_extensions/routes/ui_extensions_uuid.yaml
 
+/api/rest/v1/workflows:
+  $ref: ./resources/workflows/routes/workflows.yaml
 /api/rest/v1/workflows/{uuid}:
   $ref: ./resources/workflows/routes/workflows_uuid.yaml
 /api/rest/v1/workflows/steps/{uuid}/assignees:
