@@ -63,17 +63,17 @@ get:
                               properties:
                                 href:
                                   type: string
-                                  example: /workflows/6f37476a-04c2-46c0-b6d0-e18316959068
+                                  example: https://demo.akeneo.com/api/rest/v1/workflows/6f37476a-04c2-46c0-b6d0-e18316959068
       x-examples-per-version:
       - x-version: 'SaaS'
         x-example:
           _links:
             self:
-              href: "/workflows?page=1"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows?page=1"
             first:
-              href: "/workflows?page=1"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows?page=1"
             next:
-              href: "/workflows?page=2"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows?page=2"
           current_page: 1
           _embedded:
             items:
@@ -85,7 +85,7 @@ get:
                   fr_FR: "Workflow d'enrichissement"
                 _links:
                   self:
-                    href: "/workflows/6f37476a-04c2-46c0-b6d0-e18316959068"
+                    href: "https://demo.akeneo.com/api/rest/v1/workflows/6f37476a-04c2-46c0-b6d0-e18316959068"
               - uuid: "a1b2c3d4-e5f6-7890-1234-567890abcdef"
                 code: "translation_workflow"
                 enabled: false
@@ -94,7 +94,7 @@ get:
                   fr_FR: "Workflow de traduction"
                 _links:
                   self:
-                    href: "/workflows/a1b2c3d4-e5f6-7890-1234-567890abcdef"
+                    href: "https://demo.akeneo.com/api/rest/v1/workflows/a1b2c3d4-e5f6-7890-1234-567890abcdef"
     400:
       $ref: "#/responses/400Error"
     401:
