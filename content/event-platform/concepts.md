@@ -35,7 +35,7 @@ The following properties represent a subscription:
 | `id` | Automatically populated | Identifier of the subscription within the Event Platform |
 | `source` | Populated by the user at creation | Source of the event (currently, the only source available is `pim`) |
 | `subject` | From `X-PIM-URL` header parameter | URL of the targeted source |
-| `type` | Populated by the user at creation | Type of the subscription (currently, there are two available types:  `https` and `pubsub`) |
+| `type` | Populated by the user at creation | Type of the subscription (currently, there are three available types:  `https`, `pubsub`, and `kafka`) |
 | `events` | Populated by the user at creation | A list of events that the subscription is tracking |
 | `status` | Automatically populated | The subscription status |
 | `config` | Populated by the user at creation | The subscription configuration is based on the subscription type. See below for further details. |
@@ -204,6 +204,103 @@ If you want to add an additional layer of security, you can whitelist our servic
 We currently use a static IP address provided by Google Cloud: `34.140.80.128`
 
 **However, we cannot guarantee that this IP address will remain unchanged indefinitely.** Therefore, we strongly recommend whitelisting the `europe-west1` IP ranges from [Google Cloud's IP ranges list](https://www.gstatic.com/ipranges/cloud.json) to ensure continuous access.
+
+### Kafka subscription
+
+This option delivers events to an Apache Kafka topic. It provides high-throughput, fault-tolerant event streaming capabilities for enterprise integrations.
+
+#### Key Advantages
+
+- **High Throughput:** Kafka is designed to handle high-volume event streams with low latency.
+- **Durability & Reliability:** Events are persisted to disk and replicated across multiple brokers for fault tolerance.
+- **Scalability:** Kafka clusters can be scaled horizontally to handle increasing event volumes.
+- **Ordering Guarantees:** Events are delivered in order within each partition.
+
+#### Configuration
+
+For the `kafka` subscription type, the `config` property requires the Kafka cluster connection details and topic information.
+
+```json[snippet:Kafka subscription]
+
+{
+    "source": "pim",
+    "subject": "https://my-pim.cloud.akeneo.com",
+    "events": [
+        "com.akeneo.pim.v1.product.updated"
+    ],
+    "type": "kafka",
+    "config": {
+        "broker": "kafka-cluster.example.com:9092",
+        "topic": "pim-events",
+        "sasl_auth": {
+            "mechanism": "plain",
+            "username": "your_kafka_username",
+            "password": "your_kafka_password"
+        }
+    }
+}
+```
+
+#### Authentication Examples
+
+**Plain Authentication:**
+```json
+"sasl_auth": {
+    "mechanism": "plain",
+    "username": "your_kafka_username",
+    "password": "your_kafka_password"
+}
+```
+
+**SCRAM Authentication:**
+```json
+"sasl_auth": {
+    "mechanism": "scram",
+    "scram_variant": "sha-256",
+    "username": "your_kafka_username",
+    "password": "your_kafka_password"
+}
+```
+
+**OAuth Bearer Authentication:**
+```json
+"sasl_auth": {
+    "mechanism": "oauthbearer",
+    "mode": "static_token",
+    "token": "your_oauth_token"
+}
+```
+
+#### Required Configuration Properties
+
+| Property | Description | Required |
+| --- | --- | --- |
+| `broker` | Kafka broker address | Yes |
+| `topic` | Name of the Kafka topic where events will be published | Yes |
+| `sasl_auth` | SASL authentication configuration object | Yes |
+
+#### SASL Authentication Properties
+
+| Property | Description | Required | Valid Values |
+| --- | --- | --- | --- |
+| `mechanism` | SASL authentication mechanism | Yes | `plain`, `scram`, `oauthbearer` |
+| `username` | Username for authentication | Required for `plain` and `scram` | String |
+| `password` | Password for authentication | Required for `plain` and `scram` | String |
+| `scram_variant` | SCRAM variant (only for `scram` mechanism) | Required for `scram` | `sha-256`, `sha-512` |
+| `token` | OAuth token (only for `oauthbearer` mechanism) | Required for `oauthbearer` | String |
+| `mode` | OAuth mode (only for `oauthbearer` mechanism) | Required for `oauthbearer` | `static_token` |
+
+#### Event Delivery Guarantees
+
+- **At-least-once delivery:** Events are guaranteed to be delivered at least once to the Kafka topic.
+- **Ordering:** Events are delivered in the order they were generated within each partition.
+- **Retry mechanism:** Failed deliveries are automatically retried with exponential backoff.
+
+#### Monitoring and Troubleshooting
+
+- Monitor Kafka consumer lag to ensure your consumers are processing events in a timely manner.
+- Set up alerts for failed deliveries and consumer group lag.
+- Use Kafka's built-in monitoring tools to track topic health and performance.
 
 ## Subscription Filters
 
