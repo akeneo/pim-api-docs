@@ -11,7 +11,7 @@ patch:
     <ul>
       <li>To approve a 'review' task, set status to <code>approved</code>.</li>
       <li>To complete an 'enrichment' task, set status to <code>completed</code>.</li>
-      <li>To reject a 'review' task, set status to <code>rejected</code>, provide <code>send_back_to_step_uuid</code>, and optionally provide <code>rejected_attributes</code> to specify details about rejected attributes./li>
+      <li>To reject a 'review' task, set status to <code>rejected</code>, provide <code>send_back_to_step_uuid</code>, and optionally provide <code>rejected_attributes</code> to specify details about rejected attributes.</li>
     </ul>
   parameters:
     - $ref: '#/parameters/uuid'
