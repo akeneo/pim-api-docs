@@ -11,26 +11,6 @@ A **link** UI extension is crafted to open your external content in a new tab.
 
 To create a `link` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label` and `url`.
 
-### Url Placeholders
-The Url of a **link** UI extension can be based on the context thanks to a placeholder pattern.
-
-For example, you can configure a UI extension with the following url `https://www.google.com/search?q=%name%&tbm=shop&gl=us`. When the link is clicked, `%name%` will be replaced with the context attribute values.
-
-Valid placeholders attributes are:
-- `uuid` (for products), `code` (for product models) and other attribute of type `identifier`
-- all `text` attributes. Links will use the value related to the current locale or channel.
-
-You can add a placeholder anywhere in your url as soon as they're surrounded by `%` symbol.
-
-Examples:
-- `https://www.google.com/search?q=%name%`
-- `https://yourwebsite.com/%sku%`
-- `%base_url%/sub-url`
-
-::: warning
-If the URL begins with a placeholder, we won't verify its validity. The link might not work when used.
-:::
-
 ## Iframe
 An **iframe** UI extension allows to open your external content inside the PIM thanks to an iframe.
 
@@ -350,7 +330,25 @@ Please note the following key points regarding its functionality:
 * Signature: It's possible to configure a secret to sign the body of the POST request sent to the destination (SHA-512 protocol).
 * Authenticated calls: Thanks to the possibilty of adding [credentials](/extensions/credentials.html) to the extension, you are able to query endpoints requiring authentication.
 
+## Url Placeholders
+The Url of a **link** UI extension, an **action**, or a **data component** can be based on the context thanks to a placeholder pattern.
 
+For example, you can configure a UI extension with the following url `https://www.google.com/search?q=%name%&tbm=shop&gl=us`. When the link is clicked, `%name%` will be replaced with the context attribute values.
+
+Valid placeholders attributes are:
+- `uuid` (for products), `code` (for product models) and other attribute of type `identifier`
+- all `text` attributes. Links will use the value related to the current locale or channel.
+
+You can add a placeholder anywhere in your url as soon as they're surrounded by `%` symbol.
+
+Examples:
+- `https://www.google.com/search?q=%name%`
+- `https://yourwebsite.com/%sku%`
+- `%base_url%/sub-url`
+
+::: warning
+If the URL begins with a placeholder, we won't verify its validity. The link might not work when used.
+:::
 
 ::: panel-link UI extensions available positions [Next](/extensions/positions.html)
 :::
