@@ -85,6 +85,7 @@ function determineCategory(tag){
         case 'Jobs':
             return 'Jobs';
         case 'Workflow':
+        case 'Workflow execution':
         case 'Workflow task':
             return 'Workflows';
         default:
