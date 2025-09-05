@@ -236,6 +236,12 @@ For the `kafka` subscription type, the `config` property requires the Kafka clus
             "mechanism": "plain",
             "username": "your_kafka_username",
             "password": "your_kafka_password"
+        },
+        "tls": {
+            "server_name": "kafka.example.com",
+            "ca_pem": "-----BEGIN CERTIFICATE-----\n...",
+            "client_cert_pem": "-----BEGIN CERTIFICATE-----\n...",
+            "client_key_pem": "-----BEGIN PRIVATE KEY-----\n..."
         }
     }
 }
@@ -271,6 +277,28 @@ For the `kafka` subscription type, the `config` property requires the Kafka clus
 }
 ```
 
+#### TLS Configuration (Optional)
+
+For secure connections, you can optionally configure TLS settings in the `config` object:
+
+```json
+"tls": {
+    "server_name": "kafka.example.com",
+    "ca_pem": "-----BEGIN CERTIFICATE-----a-valid-certificate-----END CERTIFICATE-----",
+    "client_cert_pem": "-----BEGIN CERTIFICATE-----a-valid-certificate-----END CERTIFICATE-----",
+    "client_key_pem": "-----BEGIN PRIVATE KEY-----a-valid-private-key-----END PRIVATE KEY-----"
+}
+```
+
+#### TLS Configuration Properties
+
+| Property | Description | Required |
+| --- | --- | --- |
+| `server_name` | Server name for TLS verification | Yes |
+| `ca_pem` | Certificate Authority (CA) certificate in PEM format | Yes |
+| `client_cert_pem` | Client certificate in PEM format | Yes |
+| `client_key_pem` | Client private key in PEM format | Yes |
+
 #### Required Configuration Properties
 
 | Property | Description | Required |
@@ -278,6 +306,7 @@ For the `kafka` subscription type, the `config` property requires the Kafka clus
 | `broker` | Kafka broker address | Yes |
 | `topic` | Name of the Kafka topic where events will be published | Yes |
 | `sasl_auth` | SASL authentication configuration object | Yes |
+| `tls` | TLS configuration for secure connections | No |
 
 #### SASL Authentication Properties
 
