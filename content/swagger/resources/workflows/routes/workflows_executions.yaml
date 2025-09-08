@@ -56,17 +56,3 @@ post:
       $ref: "#/responses/403Error"
     406:
       $ref: "#/responses/406Error"
-    422:
-      description: Unprocessable Entity
-      x-details: The request contains invalid data that cannot be processed. Either product uuid or product model code should be provided, but not both.
-      schema:
-        type: object
-        properties:
-          code:
-            type: integer
-            description: HTTP status code
-            example: 422
-          message:
-            type: string
-            description: Error message
-            example: "Cannot start workflow execution: Either product uuid or product model code should be provided."
