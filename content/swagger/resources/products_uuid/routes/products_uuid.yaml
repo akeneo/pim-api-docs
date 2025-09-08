@@ -82,6 +82,13 @@ post:
       in: body
       schema:
         $ref: "#/definitions/ProductUuid"
+    - name: create_missing_options
+      in: query
+      description: Optional parameter to allow for the creation of missing options for attribute allowing it. (Only available since in Saas version)
+      required: false
+      type: string
+      default: no value
+
   responses:
     201:
       $ref: "#/responses/Created"
@@ -118,6 +125,12 @@ patch:
             '{"uuid":"573dd613-0c7f-4143-83d5-63cc5e535966","values":{"sku":[{"data":"updated_sku","locale":null,"scope":null}]}, "group":["promotion"]}'
           x-example-3:
             '{"uuid":"25566245-55c3-42ce-86d9-8610ac459fa8","values":{"sku":[{"data":"new_product","locale":null,"scope":null}]},"family":"clothes"}'
+    - name: create_missing_options
+      in: query
+      description: Optional parameter to allow for the creation of missing options for attribute allowing it. (Only available since in Saas version)
+      required: false
+      type: string
+      default: no value
   responses:
     200:
       description: OK
