@@ -73,7 +73,8 @@ get:
               "labels": {
                 "en_US": "Tshirt",
                 "fr_FR": "Tshirt"
-              }
+              },
+              "parent": null
             },
             {
               "_links": {
@@ -92,7 +93,8 @@ get:
               "labels": {
                 "en_US": "Caps",
                 "fr_FR": "Casquettes"
-              }
+              },
+              parent: "accessories"
             }
           ]
         }

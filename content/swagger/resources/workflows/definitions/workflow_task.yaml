@@ -1,0 +1,43 @@
+type: object
+required:
+  - uuid
+  - status
+  - created_at
+  - due_date
+  - rejected
+properties:
+  uuid:
+    type: string
+    description: The unique identifier of the workflow task
+  status:
+    type: string
+    description: The current status of the workflow task (e.g. "in_progress")
+    enum: ["in_progress"]
+  created_at:
+    type: string
+    format: date-time
+    description: The date and time when the workflow task was created
+  due_date:
+    type: string
+    format: date-time
+    description: The deadline for completing the workflow task
+  rejected:
+    type: boolean
+    description: Whether the product or product model was rejected from a follow-up review step
+  product:
+    type: object
+    properties:
+      uuid:
+        type: string
+        description: The unique identifier of the product associated with the workflow task (object is present when the task is for a product)
+  product_model:
+    type: object
+    properties:
+      code:
+        type: string
+        description: The code of the product model associated with the workflow task (object is present when the task is for a product model)
+  pending_attributes:
+    type: array
+    items:
+      type: string
+    description: A list of attribute codes for the task that are awaiting completion or require user input. This field is only included when `with_attributes=true`.

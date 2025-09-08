@@ -1,0 +1,25 @@
+get:
+  summary: Get a workflow
+  operationId: "get_workflows__uuid_"
+  tags:
+    - Workflow
+  x-versions:
+    - "SaaS"
+  x-ee: true
+  description: This endpoint allows you to get the information about a given workflow as well as its steps.
+  parameters:
+    - $ref: '#/parameters/uuid'
+  responses:
+    200:
+      description: OK
+      x-details: Returns the content of the workflow in JSON standard format
+      schema:
+        $ref: '#/definitions/Workflow'
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+    404:
+      $ref: "#/responses/404Error"

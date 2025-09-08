@@ -1,0 +1,19 @@
+type: object
+required:
+  - uuid
+  - first_name
+  - last_name
+  - email
+properties:
+  uuid:
+    type: string
+    description: Assignee UUID
+  first_name:
+    type: string
+    description: Assignee first name
+  last_name:
+    type: string
+    description: Assignee last name
+  email:
+    type: string
+    description: Assignee email address

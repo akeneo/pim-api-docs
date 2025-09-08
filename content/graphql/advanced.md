@@ -255,7 +255,7 @@ query MyQuery {
       variationValues
       attributes {
         code
-        values(withRelatedObjectValues: false)
+        values
       }
     }
     queryInformation {

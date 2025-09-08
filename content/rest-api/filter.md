@@ -127,19 +127,19 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 /api/rest/v1/products-uuid?search={"completeness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
 ```
 
-### On their group or family
+### On their group
 
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
 
-To filter products on groups or families, use respectively the product property `groups` and `family`.
+To filter products on groups, use the product property `groups`.
 Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
-| Operator    | Allowed value type                | Filter description                                                              |
-| ----------- | --------------------------------- | ------------------------------------------------------------------------------- |
-| `IN`        | array of existing group or family | Only returns products that are respectively in the given families or groups     |
-| `NOT IN`    | array of existing group or family | Only returns products that are respectively not in the given families or groups |
-| `EMPTY`     | no value                          | Only returns products that have respectively no groups or no family             |
-| `NOT EMPTY` | no value                          | Only returns products that have respectively a group or a family                |
+| Operator          | Allowed value type      | Filter description                                     |
+|-------------------|-------------------------|--------------------------------------------------------|
+| `IN`              | array of existing group | Only returns products that are in the given groups     |
+| `NOT IN`          | array of existing group | Only returns products that are not in the given groups |
+| `EMPTY`           | no value                | Only returns products that have no groups              |
+| `NOT EMPTY`       | no value                | Only returns products that have a group                |
 
 #### Examples
 
@@ -148,6 +148,24 @@ To get the products that are in the `promotion` group, you can use the following
 ```
 /api/rest/v1/products-uuid?search={"groups":[{"operator":"IN","value":["promotion"]}]}
 ```
+
+### On their family
+
+::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
+
+To filter products on families, use the product property `family`.
+Here are the allowed operators you can use to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
+
+| Operator          | Allowed value type       | Filter description                                                                                                       |
+|-------------------|--------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `IN`              | array of existing family | Only returns products that are in the given families                                                                     |
+| `NOT IN`          | array of existing family | Only returns products that are not in the given families                                                                 |
+| `IN CHILDREN`     | array of existing family | Only returns products that are in the given families and the children of the given families (only available on SaaS)     |
+| `NOT IN CHILDREN` | array of existing family | Only returns products that are not in the given families nor the children of the given families (only available on SaaS) |
+| `EMPTY`           | no value                 | Only returns products that have no family                                                                                |
+| `NOT EMPTY`       | no value                 | Only returns products that have a family                                                                                 |
+
+#### Examples
 
 To get the products that are not in the `camcorders` and `digital_cameras` family, you can use the following URL.
 
@@ -163,7 +181,7 @@ To filter products on creation or update date, use respectively the product prop
 Here are the allowed operators to filter on these properties as well as the corresponding type of value expected in the `search` query parameter.
 
 ::: info
-Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.    
+Please note that dates are interpreted in the time zone of the server that runs Akeneo (e.g. date.timezone setting in php.ini). For SaaS clients, please note that the time zone of the server is in UTC as this is the most precise and commonly referred to time standard.
 Please also note that product variants, with an older updated date than the filter applied, will be part of the API answer if at least one of their parent product model has an updated date that matches the filter applied.
 :::
 
@@ -609,13 +627,29 @@ With the IN operator, the list of product identifiers can contain up to **100** 
 | STARTS WITH, CONTAINS, DOES NOT CONTAIN, =, !=            | string             |
 | EMPTY, NOT EMPTY                                          | no value           |
 
-**The `pim_catalog_product_link` attribute types**
+**The `pim_catalog_asset_collection` attribute type**
+::: availability versions=7.0,SaaS editions=EE
+
+| Allowed operators | Allowed value type  |
+|-------------------|---------------------|
+| IN, NOT IN        | list of asset codes |
+| EMPTY, NOT EMPTY  | no value            |
+
+**The `akeneo_reference_entity` and `akeneo_reference_entity_collection` attribute types**
+::: availability versions=7.0,SaaS editions=EE
+
+| Allowed operators | Allowed value type   |
+|-------------------|----------------------|
+| IN, NOT IN        | list of record codes |
+| EMPTY, NOT EMPTY  | no value             |
+
+**The `pim_catalog_product_link` attribute type**
 ::: availability versions=SaaS editions=EE
 
-| Allowed operators | Allowed value type      |
-|-------------------|-------------------------|
-| IN, NOT IN        | a list of product links |
-| EMPTY, NOT EMPTY  | no value                |
+| Allowed operators | Allowed value type    |
+|-------------------|-----------------------|
+| IN, NOT IN        | list of product links |
+| EMPTY, NOT EMPTY  | no value              |
 
 A product link has the following structure:
 
@@ -627,6 +661,35 @@ A product link has the following structure:
 ```
 
 Where `type` value can be one of the following: `product`, `product_model` and `id` is the product UUID in case the type is `product` or the product model code in case type is `product_model`.
+
+**The `pim_catalog_table` attribute type**
+::: availability versions=SaaS editions=EE
+
+The attributes of type `pim_catalog_table` are a little special, because the available operators will depend on the **type of cell (column) to be filtered**. Therefore, refer to the operators specific to each type above to filter the cells.
+
+In the following example, we will filter the `Food_Composition` attribute, which is a table attribute. The table has a column named `percentage` and a row named `sugar`, and we want to get all products that have a sugar percentage greater than 50. As the `percentage` is a number, we will inherit all `pim_catalog_number` operators, so we can use the `>` operator.
+```json
+{
+    "field": "Food_Composition",
+    "value": {
+        "row": "sugar",
+        "value": "50",
+        "column": "percentage"
+    },
+    "operator": ">"
+}
+```
+
+It is also possible to filter on a Table attribute to find out if it has at least one value, or none. To do this, you can use the `EMPTY` and `NOT EMPTY` operators. In the example below, we will filter the `Food_Composition` attribute to get all products that have no value in this attribute:
+
+```json
+{
+    "field": "Food_Composition",
+    "value": [],
+    "operator": "NOT EMPTY"
+}
+
+```
 
 ## Filter product values
 
@@ -2055,4 +2118,77 @@ To get the categories that have been updated since May 17th, 2021 at 10 am (UTC)
 
 ```
 /api/rest/v1/categories?search={"updated":[{"operator":">","value":"2021-05-17T10:00:00Z"}]}
+```
+
+## Filter on workflow tasks
+
+To filter workflow tasks by one of its properties, you can use the `search` query parameter. The value given to this query parameter should be a valid JSON as shown below.
+
+```
+/api/rest/v1/workflows/tasks?search={TASK_PROPERTY:[{"operator":OPERATOR,"value":VALUE}]}
+```
+
+In the above url :
+
+- `TASK_PROPERTY` can be any property detailed in the sections below,
+- `OPERATOR` is an allowed operator for this `TASK_PROPERTY`,
+- `VALUE` is a value whose type corresponds to the allowed type detailed below.
+
+#### Examples
+
+To only retrieve tasks on specified products, you can use the following URL.
+
+```
+/api/rest/v1/workflows/tasks?search={"product_uuid":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad"]}]}
+```
+
+### On their task uuid
+
+::: availability versions=SaaS editions=EE
+
+To filter tasks on their uuids, use the `task_uuid` property.
+Here are the allowed operators you can use to filter on the task uuid as well as the corresponding type of value expected in the `search` query parameter.
+
+| Allowed operators | Allowed value type           |
+| ----------------- |------------------------------|
+| IN, NOT IN        | list of strings (task uuids) |
+
+#### Example
+
+```
+/api/rest/v1/workflows/tasks?search={"task_uuid":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad", "b1c8f7a2-9039-4c22-970e-643939b54fad"]}]}
+```
+
+### On their product uuid
+
+::: availability versions=SaaS editions=EE
+
+To filter tasks on their product uuids, use the `product_uuid` property.
+Here are the allowed operators you can use to filter on the product uuid as well as the corresponding type of value expected in the `search` query parameter.
+
+| Allowed operators | Allowed value type              |
+| ----------------- |---------------------------------|
+| IN                | list of strings (product uuids) |
+
+#### Example
+
+```
+/api/rest/v1/workflows/tasks?search={"product_uuid":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad", "b1c8f7a2-9039-4c22-970e-643939b54fad"]}]}
+```
+
+### On their product model code
+
+::: availability versions=SaaS editions=EE
+
+To filter tasks on their product model codes, use the `product_model_code` property.
+Here are the allowed operators you can use to filter on the product model code as well as the corresponding type of value expected in the `search` query parameter.
+
+| Allowed operators | Allowed value type                    |
+| ----------------- |---------------------------------------|
+| IN                | list of strings (product model codes) |
+
+#### Example
+
+```
+/api/rest/v1/workflows/tasks?search={"product_model_code":[{"operator":"IN","value":["amor", "apollon"]}]}
 ```

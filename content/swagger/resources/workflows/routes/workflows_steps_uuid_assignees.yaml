@@ -1,0 +1,56 @@
+get:
+  summary: Get list of workflow step assignees
+  operationId: "get_workflows_steps__uuid__assignees"
+  tags:
+    - Workflow
+  x-versions:
+    - "SaaS"
+  x-ee: true
+  description: Retrieves a paginated list of assignees for a specified workflow step.
+  parameters:
+    - $ref: '#/parameters/uuid'
+    - $ref: '#/parameters/page'
+    - $ref: '#/parameters/limit'
+  responses:
+    200:
+      description: OK
+      schema:
+        title: Assignees
+        type: object
+        allOf:
+          - $ref: '#/definitions/Pagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: "#/definitions/WorkflowStepAssignee"
+      x-examples-per-version:
+      - x-version: 'SaaS'
+        x-example:
+          _links:
+            self:
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/steps/f626d0e5-84a5-41fc-8215-65508c253edb/assignees?page=1&limit=10"
+            first:
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/steps/f626d0e5-84a5-41fc-8215-65508c253edb/assignees?page=1&limit=10"
+            next:
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/steps/f626d0e5-84a5-41fc-8215-65508c253edb/assignees?page=2&limit=10"
+          current_page: 1
+          _embedded:
+            items:
+              - uuid: "25566245-55c3-42ce-86d9-8610ac459fa8"
+                first_name: "John"
+                last_name: "Doe"
+                email: "john@example.com"
+              - uuid: "be6354b0-4545-4aaa-882d-aa14be68642c"
+                first_name: "Julia"
+                last_name: "Stark"
+                email: "julia@example.com"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"

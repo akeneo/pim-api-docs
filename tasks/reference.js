@@ -84,6 +84,9 @@ function determineCategory(tag){
             return 'Extensions';
         case 'Jobs':
             return 'Jobs';
+        case 'Workflow':
+        case 'Workflow task':
+            return 'Workflows';
         default:
             return 'Utilities';
     }

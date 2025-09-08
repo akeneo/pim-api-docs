@@ -37,6 +37,9 @@ post:
           attributes:
             type: string
             description: Filter product values to only return those concerning the given attributes. For more details, see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
+          convert_measurements:
+            type: boolean
+            description: Convert values of measurement attributes to the unit configured in the channel provided by the parameter "scope". Therefore, this parameter requires the "scope" parameter to be provided.
           with_attribute_options:
             type: boolean
             description: Return labels of attribute options in the response. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (Only available since the 5.0 version)
@@ -49,11 +52,6 @@ post:
           with_completenesses:
             type: boolean
             description: Return product completenesses in the response. (Only available since the 6.0 version)
-        x-examples:
-          x-example-1:
-            '{"scope": "ecommerce","locales": ["en_US"],"search": {"completeness":[{"operator": "=","value": 100,"scope": "ecommerce"}]}}'
-          x-example-2:
-            '{"attributes": ["sku","colors","a_localized_and_scopable_text_area"],"scope": "tablet"}'
   responses:
     200:
       description: Return products paginated

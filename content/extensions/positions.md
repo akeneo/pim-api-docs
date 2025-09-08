@@ -17,18 +17,21 @@ Extension position determines where your extension appears within the Akeneo PIM
 ## Available positions for UI extensions
 
 
-| Positions                    | Action | Iframe | Link  |
-|------------------------------|--------|--------|-------|
-| pim.product.header           | ✔️     | ❌     | ✔️    |
-| pim.product-model.header     | ✔️     | ❌     | ✔️    |
-| pim.sub-product-model.header | ✔️     | ❌     | ✔️    |
-| pim.product.tab              | ❌     | ✔️     | ❌    |
-| pim.product-model.tab        | ❌     | ✔️     | ❌    |
-| pim.sub-product-model.tab    | ❌     | ✔️     | ❌    |
-| pim.category.tab             | ❌     | ✔️     | ❌    |
-| pim.product-grid.action-bar  | ✔️     | ✔️     | ❌    |
-| pim.activity.navigation.tab  | ❌     | ✔️     | ❌    |
-
+| Positions                    | Action | Iframe | Link  | Data Source   |
+|------------------------------|--------|--------|-------|---------------|
+| pim.product.header           | ✔️     | ❌     | ✔️    | ❌            |
+| pim.product-model.header     | ✔️     | ❌     | ✔️    | ❌            |
+| pim.sub-product-model.header | ✔️     | ❌     | ✔️    | ❌            |
+| pim.product.tab              | ❌     | ✔️     | ❌    | ✔️            |
+| pim.product-model.tab        | ❌     | ✔️     | ❌    | ❌            |
+| pim.sub-product-model.tab    | ❌     | ✔️     | ❌    | ❌            |
+| pim.category.tab             | ❌     | ✔️     | ❌    | ✔️            |
+| pim.product-grid.action-bar  | ✔️     | ✔️     | ❌    | ❌            |
+| pim.product.index            | ✔️     | ❌     | ❌    | ❌            |
+| pim.activity.navigation.tab  | ❌     | ✔️     | ❌    | ❌            |
+| pim.product.panel            | ❌     | ✔️     | ❌    | ✔️            |
+| pim.product-model.panel      | ✔️     | ❌     | ✔️    | ✔️            |
+| pim.sub-product-model.panel  | ✔️     | ❌     | ✔️    | ✔️            |
 
 ### Positions list
 
@@ -68,9 +71,25 @@ For the moment, you can't use UI extensions with more than **500** selected prod
 :::
 [![pim-product-grid-action-bar.png](../img/extensions/ui-extensions/positions/pim-product-grid-action-bar.png)](../img/extensions/ui-extensions/positions/pim-product-grid-action-bar.png)
 
+#### pim.product.index
+This position refers to the top left menu of the product list page.
+[![pim-product-index.png](../img/extensions/ui-extensions/positions/pim-product-index.png)](../img/extensions/ui-extensions/positions/pim-product-index.png)
+
 #### pim.activity.navigation.tab
 This position refers to the tab of the activity navigation. It is used to add custom tabs in the activity navigation of the PIM.
 [![pim-activity-navigation-tab.png](../img/extensions/ui-extensions/positions/pim-activity-navigation-tab.png)](../img/extensions/ui-extensions/positions/pim-activity-navigation-tab.png)
+
+#### pim.product.panel
+This position refers to the right panel of a simple product or a variant edit page.
+[![pim-product-panel.png](../img/extensions/ui-extensions/positions/pim-product-panel.png)](../img/extensions/ui-extensions/positions/pim-product-panel.png)
+
+#### pim.product-model.panel
+This position refers to the right panel of a root model edit page.
+[![pim-product-panel.png](../img/extensions/ui-extensions/positions/pim-product-panel.png)](../img/extensions/ui-extensions/positions/pim-product-panel.png)
+
+#### pim.sub-product-model.panel
+This position refers to the right panel of a sub product model edit page.
+[![pim-product-panel.png](../img/extensions/ui-extensions/positions/pim-product-panel.png)](../img/extensions/ui-extensions/positions/pim-product-panel.png)
 
 ::: panel-link Credentials [Next](/extensions/credentials.html)
 :::

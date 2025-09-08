@@ -34,25 +34,23 @@ properties:
     default: null
     properties:
       attributeCode|attributeUuid|channelCode|localeCode:
-        type: array
-        items:
-          type: object
-          properties:
-            data:
-              type: object
-              description: Attribute value
-            type:
-              type: string
-              description: The attribute type
-            locale:
-              type: string
-              description: <a href='api-reference.html#Locale'>Locale</a> code of the attribute value
-            channel:
-              type: string
-              description: <a href='api-reference.html#Channel'>Channel</a> code of the attribute value
-            attribute_code:
-              type: string
-              description: The attribute code with its uuid (attributeCode|attributeUuid)
+        type: object
+        properties:
+          data:
+            type: object
+            description: Attribute value
+          type:
+            type: string
+            description: The attribute type
+          locale:
+            type: string
+            description: <a href='api-reference.html#Locale'>Locale</a> code of the attribute value
+          channel:
+            type: string
+            description: <a href='api-reference.html#Channel'>Channel</a> code of the attribute value
+          attribute_code:
+            type: string
+            description: The attribute code with its uuid (attributeCode|attributeUuid)
   channel_requirements:
     type: array
     description: List of <a href='api-reference.html#Channel'>Channel</a> codes on which the category tree is required for products completeness. Only category trees can be required, not child categories.

@@ -604,7 +604,7 @@ gulp.task('build-rest-api', ['clean-dist','less'], function () {
         'pagination.md': 'Pagination',
         'update.md': 'Update behavior',
         'filter.md': 'Filters',
-        'limitations.md': 'Limitations',
+        'good-practices.md': 'Good practices',
         'troubleshooting.md': 'Troubleshooting guide'
     };
 
@@ -712,7 +712,7 @@ gulp.task('build-supplier-data-manager', ['clean-dist','less'], function () {
 }
 );
 
-gulp.task('build-event-platform', ['clean-dist','less'], function () {
+gulp.task('build-event-platform', ['clean-dist','less', 'fetch-remote-events'], function () {
       var pages = {
           'overview.md': "Overview",
           'getting-started.md': "Getting started",
@@ -758,6 +758,36 @@ gulp.task('build-event-platform', ['clean-dist','less'], function () {
   }
 );
 
+gulp.task('fetch-remote-events', function(done) {
+  const https = require('https');
+  const fs = require('fs');
+  const url = 'https://storage.googleapis.com/akecld-prd-pim-saas-shared-event-asyncapi/asyncapi.md';
+  const filePath = 'content/event-platform/available-events.md';
+  
+  https.get(url, (response) => {
+    if (response.statusCode !== 200) {
+      done(new Error(`Failed to fetch remote file: ${response.statusCode}`));
+      return;
+    }
+    
+    const file = fs.createWriteStream(filePath);
+    response.pipe(file);
+    
+    file.on('finish', () => {
+      console.log('Successfully downloaded remote events documentation');
+      file.close();
+      done();
+    });
+    
+    file.on('error', (err) => {
+      fs.unlink(filePath, () => {}); // Delete the file if there was an error
+      done(err);
+    });
+  }).on('error', (err) => {
+    done(err);
+  });
+});
+
 gulp.task('build-extensions', ['clean-dist','less'], function () {
       var pages = {
           'overview.md': "Overview",
@@ -792,6 +822,42 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
                     .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
                     .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                     .pipe(gulp.dest('./dist/extensions'));
+              })
+        }));
+  }
+);
+
+gulp.task('build-px-insights', ['clean-dist','less'], function () {
+    var pages = {
+        'overview.md': "Overview",
+        'getting-started.md': "Getting started",
+        'key-platform-behaviors.md': "Key platform behaviors",
+        'api-reference.md': "API Reference",
+        'limitations.md': "Quota & Limits",
+    };
+
+      var isOnePage = false;
+
+      return gulp.src('content/px-insights/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/px-insights/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/px-insights') + "\n"))
+              .pipe(gulpMarkdownIt(mdGt))
+              .pipe(gulp.dest('tmp/px-insights/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/px-insights.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_api_resources: true,
+                        title: 'PX Insights',
+                        description: getPageDescription(file.path, "PX Insights"),
+                        mainContent: fs.readFileSync('tmp/px-insights/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/px-insights'));
               })
         }));
   }
@@ -1358,6 +1424,7 @@ gulp.task('build-tutorials', ['clean-dist', 'less'], function () {
 
 gulp.task('build-news', ['clean-dist','less'], function () {
     var pages = {
+        '2025.md': '2025',
         '2024.md': '2024',
         '2023.md': '2023',
         '2022.md': '2022',
