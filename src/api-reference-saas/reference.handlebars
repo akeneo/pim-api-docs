@@ -118,15 +118,15 @@
                                                         <p>
                                                             <code>{{{name}}}</code>
                                                             <em>({{{schema.type}}} </em>
-                                                            {{~#if default}} ,
-                                                                <strong>{{{default}}}</strong>
+                                                            {{~#if schema.default}} ,
+                                                                <strong>{{{schema.default}}}</strong>
                                                                 <em> by default </em>
                                                             {{~/if~}})
                                                             {{#if minimum}}
-                                                                <a href="#" data-placement="top" data-toggle="tooltip" title="Value between {{minimum}} and {{maximum}}"><i class="fa fa-check fa-success"></i></a>
+                                                                <a href="#" data-placement="top" data-toggle="tooltip" title="Value between {{schema.minimum}} and {{schema.maximum}}"><i class="fa fa-check fa-success"></i></a>
                                                             {{/if}}
                                                             {{#if x-validation-rules}}
-                                                                <a href="#" data-placement="top" data-toggle="tooltip" title="{{{x-validation-rules}}}{{#each enum}} `{{this}}`{{#unless @last}},{{/unless}}{{/each}}">
+                                                                <a href="#" data-placement="top" data-toggle="tooltip" title="{{{x-validation-rules}}}{{#each schema.enum}} `{{this}}`{{#unless @last}},{{/unless}}{{/each}}">
                                                                 <i class="fa fa-check fa-success"></i></a>
                                                             {{/if}}
                                                             <small>&bull; {{{description}}}</small>
