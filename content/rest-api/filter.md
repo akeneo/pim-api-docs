@@ -1654,6 +1654,40 @@ Finally, if you want to get the assets updated in the last 4 days, you can use t
 /api/rest/v1/asset-families/model_pictures/assets?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
 ```
 
+### By attribute values
+
+:::: availability SaaS editions=EE
+
+You can filter assets on their attribute values using the `search` query parameter. Put your attribute filters under the `values` key. Each property under `values` is an attribute identifier. For scopable/localizable attributes, you can optionally specify a `channel` and/or `locale` in the filter. If omitted, the API will try to use the `channel`/`locales` provided in the request.
+
+Supported types and operators:
+- text: `=`, `CONTAINS`, `DOES NOT CONTAIN`, `STARTS WITH`, `ENDS WITH`, `EMPTY`, `NOT EMPTY`
+- number: `=`, `EMPTY`, `NOT EMPTY`
+- boolean: `=`, `EMPTY`, `NOT EMPTY`
+- date: `=`, `<`, `>`, `BETWEEN`, `NOT BETWEEN`, `EMPTY`, `NOT EMPTY`
+- option/option_collection: `IN`, `EMPTY`, `NOT EMPTY`
+- record: `=`, `IN`, `EMPTY`
+
+Notes:
+- Filtering on attribute types `media_file` and `media_link` is not supported. The API will return a 422 error.
+- Attribute identifiers must match the regex `^[a-zA-Z0-9_]+$`.
+- For `record` attributes, use operator `=` with value `true` to express non-empty (and `false` for empty). There is no `NOT EMPTY` operator for record.
+
+#### Examples
+
+Filter by a text attribute value:
+
+```
+/api/rest/v1/asset-families/{asset_family_code}/assets?search={"values":{"title":{"operator":"CONTAINS","value":"summer","locale":"en_US","channel":"ecommerce"}}}
+```
+
+Filter by an option (simple or collection):
+
+```
+/api/rest/v1/asset-families/{asset_family_code}/assets?search={"values":{"usage":{"operator":"IN","value":["web","print"]}}}
+```
+::::
+
 ### Asset values by locale
 
 ::: availability versions=3.2,4.0,5.0,6.0,7.0,SaaS editions=EE
