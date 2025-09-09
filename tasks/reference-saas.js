@@ -356,7 +356,7 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                       }
                       return response;
                   });
-                  data.categories[escapeCategory].resources[escapeTag].operations[operationId] = _.extend(operation, { verb: verb, path: pathUri, groupedParameters: groupedParameters, bodyParameters: (data?.requestBody?.content?.['application/json']?.schema?.properties ?? null) });
+                  data.categories[escapeCategory].resources[escapeTag].operations[operationId] = _.extend(operation, { verb: verb, path: pathUri, groupedParameters: groupedParameters});
               });
           });
           return gulp.src('src/api-reference-saas/reference.handlebars')
