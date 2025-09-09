@@ -189,6 +189,12 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
           // translate markdown to html in each parameter description
           _.map(data.paths, function(path) {
               _.map(path, function(operation) {
+                  if (operation.description) {
+                      operation.description = md.render(operation.description);
+                      if (operation.description.startsWith('<p>') && operation.description.endsWith('</p>\n')) {
+                          operation.description = operation.description.substring(3, operation.description.length - 5);
+                      }
+                  }
                   _.map(operation.parameters, function(parameter) {
                       if (parameter.description) {
                           parameter.description = md.render(parameter.description);
