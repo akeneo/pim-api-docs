@@ -2139,7 +2139,24 @@ In the above url :
 To only retrieve tasks on specified products, you can use the following URL.
 
 ```
-/api/rest/v1/workflows/tasks?search={"product_uuid":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad"]}]}
+/api/rest/v1/workflows/tasks?search={"step_uuid":[{"operator":"=","value":"9a655835-2f62-4193-89d8-3ce5f8677dea"}],"product_uuid":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad"]}]}
+```
+
+### On their step uuid (mandatory)
+
+::: availability versions=SaaS editions=EE
+
+Filter tasks by their step uuid with the `step_uuid` property. **This is mandatory to query the tasks.**
+Here are the allowed operators you can use to filter on the step uuid as well as the corresponding type of value expected in the `search` query parameter.
+
+| Allowed operators | Allowed value type           |
+| ----------------- |------------------------------|
+| =                 | string (step uuid)           |
+
+#### Example
+
+```
+/api/rest/v1/workflows/tasks?search={"step_uuid":[{"operator":"=","value":"9a655835-2f62-4193-89d8-3ce5f8677dea"}],"task_uuid":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad", "b1c8f7a2-9039-4c22-970e-643939b54fad"]}]}
 ```
 
 ### On their task uuid
@@ -2156,7 +2173,7 @@ Here are the allowed operators you can use to filter on the task uuid as well as
 #### Example
 
 ```
-/api/rest/v1/workflows/tasks?search={"task_uuid":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad", "b1c8f7a2-9039-4c22-970e-643939b54fad"]}]}
+/api/rest/v1/workflows/tasks?search={"step_uuid":[{"operator":"=","value":"9a655835-2f62-4193-89d8-3ce5f8677dea"}],"task_uuid":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad", "b1c8f7a2-9039-4c22-970e-643939b54fad"]}]}
 ```
 
 ### On their product uuid
@@ -2173,7 +2190,7 @@ Here are the allowed operators you can use to filter on the product uuid as well
 #### Example
 
 ```
-/api/rest/v1/workflows/tasks?search={"product_uuid":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad", "b1c8f7a2-9039-4c22-970e-643939b54fad"]}]}
+/api/rest/v1/workflows/tasks?search={"step_uuid":[{"operator":"=","value":"9a655835-2f62-4193-89d8-3ce5f8677dea"}],"product_uuid":[{"operator":"IN","value":["9c8fc7b2-9039-4c22-970e-643939b54fad", "b1c8f7a2-9039-4c22-970e-643939b54fad"]}]}
 ```
 
 ### On their product model code
@@ -2190,5 +2207,5 @@ Here are the allowed operators you can use to filter on the product model code a
 #### Example
 
 ```
-/api/rest/v1/workflows/tasks?search={"product_model_code":[{"operator":"IN","value":["amor", "apollon"]}]}
+/api/rest/v1/workflows/tasks?search={"step_uuid":[{"operator":"=","value":"9a655835-2f62-4193-89d8-3ce5f8677dea"}],"product_model_code":[{"operator":"IN","value":["amor", "apollon"]}]}
 ```
