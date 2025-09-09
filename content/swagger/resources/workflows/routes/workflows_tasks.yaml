@@ -10,16 +10,11 @@ get:
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
-    - name: step_uuid
-      in: query
-      description: "(required) Filter tasks by workflow step UUID (e.g. f626d0e5-84a5-41fc-8215-65508c253edb)"
-      required: true
-      type: string
     - name: search
       in: query
       description: |
         Stringified JSON to filter tasks, for more details see the <a href="/documentation/filter.html#filter-on-workflow-tasks">Filters</a> section.
-      required: false
+      required: true
       type: string
     - name: with_attributes
       in: query
@@ -37,11 +32,11 @@ get:
         x-example:
           _links:
             self:
-              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb&with_attributes=true"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&search={\"step_uuid\":[{\"operator\":\"=\",\"value\":\"f626d0e5-84a5-41fc-8215-65508c253edb\"}]}&with_attributes=true"
             first:
-              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb&with_attributes=true"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&search={\"step_uuid\":[{\"operator\":\"=\",\"value\":\"f626d0e5-84a5-41fc-8215-65508c253edb\"}]}&with_attributes=true"
             next:
-              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=2&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb&with_attributes=true"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=2&limit=10&search={\"step_uuid\":[{\"operator\":\"=\",\"value\":\"f626d0e5-84a5-41fc-8215-65508c253edb\"}]}&with_attributes=true"
           current_page: 1
           _embedded:
             items:
