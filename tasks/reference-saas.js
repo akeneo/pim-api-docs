@@ -91,7 +91,37 @@ function determineCategory(tag){
     }
 }
 
-gulp.task('reference-saas', ['clean-dist', 'less'], function() {
+gulp.task('fetch-remote-openapi', function(done) {
+    const https = require('https');
+    const fs = require('fs');
+    const url = 'https://storage.googleapis.com/akecld-prd-pim-saas-shared-openapi-spec/openapi.json';
+    const filePath = 'content/openapi/openapi.json';
+
+    https.get(url, (response) => {
+        if (response.statusCode !== 200) {
+            done(new Error(`Failed to fetch remote file: ${response.statusCode}`));
+            return;
+        }
+
+        const file = fs.createWriteStream(filePath);
+        response.pipe(file);
+
+        file.on('finish', () => {
+            console.log('Successfully downloaded remote events documentation');
+            file.close();
+            done();
+        });
+
+        file.on('error', (err) => {
+            fs.unlink(filePath, () => {});
+            done(err);
+        });
+    }).on('error', (err) => {
+        done(err);
+    });
+});
+
+gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], function() {
 
     gulp.src('content/openapi/openapi.json')
       .pipe(jsonTransform(function(data) {
