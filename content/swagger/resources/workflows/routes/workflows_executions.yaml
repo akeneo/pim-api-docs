@@ -1,0 +1,58 @@
+post:
+  summary: Execute workflow actions
+  operationId: "post_workflows_executions"
+  tags:
+    - Workflow execution
+  x-versions:
+    - "SaaS"
+  x-ee: true
+  description: This endpoint allows you to start workflow executions for products and/or product models. For each item in the array, you must provide either a product UUID or a product model code, but not both.
+  parameters:
+    - name: body
+      in: body
+      schema:
+        $ref: "#/definitions/WorkflowExecution"
+  responses:
+    201:
+      description: Created
+      x-details: All workflow executions were successfully started
+    207:
+      description: Multi-Status
+      x-details: Workflow executions started with some errors
+      schema:
+        type: object
+        properties:
+          code:
+            type: integer
+            description: HTTP status code
+            example: 207
+          message:
+            type: string
+            description: Status message
+            example: "Workflow executions started with some errors"
+          processed:
+            type: integer
+            description: Number of processed elements
+            example: 2
+          errors:
+            type: array
+            description: List of errors that occurred during processing
+            items:
+              type: object
+              properties:
+                index:
+                  type: integer
+                  description: Index of the element that caused an error
+                  example: 3
+                message:
+                  type: string
+                  description: Error message
+                  example: "Cannot start workflow execution: Workflow not found"
+    400:
+      $ref: "#/responses/400Error"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
