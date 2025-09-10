@@ -125,6 +125,23 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
 
     gulp.src('content/openapi/openapi.json')
       .pipe(jsonTransform(function(data) {
+          for (let path in data.paths) {
+              for (let operation in data.paths[path]) {
+                  for (let response in data.paths[path][operation].responses) {
+                      for (let content in (data.paths[path][operation].responses[response].content ?? {})) {
+                          if (data.paths[path][operation].responses[response].content[content].schema) {
+                              if (data.paths[path][operation].responses[response].content[content].schema['allOf']) {
+                                  for (subElement in Object.keys(data.paths[path][operation].responses[response].content[content].schema['allOf'])) {
+                                      for (let property in Object.keys(data.paths[path][operation].responses[response].content[content].schema['allOf'][subElement].properties ?? {})) {
+                                          data.paths[path][operation].responses[response].content[content].schema.properties[property] = data.paths[path][operation].responses[response].content[content].schema['allOf'][subElement].properties[property];
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
           // const new_paths = {};
           // for (path of Object.keys(data.paths)) {
           //     if (path === '/api/rest/v1/products-uuid') {
@@ -137,6 +154,7 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
           // }
           // data.paths = new_paths;
           data.tags = undefined;
+          console.log(data.paths['/api/rest/v1/products-uuid']['get'].responses['200'].content['application/json'].schema);
           return data;
       }))
       .pipe(jsonTransform(function(data) {
