@@ -19,7 +19,7 @@ If you encounter any **challenges** with the `rate limits`, please don't hesitat
 
 Your insights are invaluable in fine-tuning our system for optimal performance.
 
-You can also find more details about the [REST API Limitations](/documentation/limitations.html)
+You can also find more details about the [REST API Good practices](/documentation/good-practices.html)
 :::
 The **GraphQL API** is limited to `500req/10s` per **PIM URL.**
 
@@ -136,7 +136,7 @@ If you encounter any **challenges** with the `depth limit`, please don't hesitat
 
 Your insights are invaluable in fine-tuning our system for optimal performance.
 
-You can also find more details about the [REST API Limitations](/documentation/limitations.html)
+You can also find more details about the [REST API Good practices](/documentation/good-practices.html)
 :::
 
 
