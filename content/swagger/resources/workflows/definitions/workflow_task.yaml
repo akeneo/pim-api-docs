@@ -67,3 +67,26 @@ properties:
         {"locale": "en_US", "scope": null},
         {"locale": "fr_FR", "scope": null}
       ]
+  _links:
+    type: object
+    description: Hypermedia links related to the workflow task
+    properties:
+      self:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+            description: URI of this resource
+      edit:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+            description: The URL to access the task in Akeneo
+    example:
+      self:
+        href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07"
+      edit:
+        href: "https://demo.akeneo.com/workflow/task/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07/edit"
