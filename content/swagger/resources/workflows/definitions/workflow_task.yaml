@@ -89,4 +89,4 @@ properties:
       self:
         href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07"
       edit:
-        href: "https://demo.akeneo.com/workflow/task/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07/edit"
+        href: "https://demo.akeneo.com/public/workflows/tasks/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07/edit"

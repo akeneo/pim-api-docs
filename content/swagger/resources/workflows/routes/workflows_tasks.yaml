@@ -57,7 +57,7 @@ get:
                   self:
                     href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07"
                   edit:
-                    href: "https://demo.akeneo.com/workflow/task/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07/edit"
+                    href: "https://demo.akeneo.com/public/workflows/tasks/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07/edit"
               - uuid: "782dd26a-b58d-40d3-a8e2-c41bb342f20f"
                 status: "in_progress"
                 created_at: "2024-02-22T17:31:00Z"
@@ -76,7 +76,7 @@ get:
                   self:
                     href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks/782dd26a-b58d-40d3-a8e2-c41bb342f20f"
                   edit:
-                    href: "https://demo.akeneo.com/workflow/task/782dd26a-b58d-40d3-a8e2-c41bb342f20f/edit"
+                    href: "https://demo.akeneo.com/public/workflows/tasks/782dd26a-b58d-40d3-a8e2-c41bb342f20f/edit"
     400:
       $ref: "#/responses/400Error"
     401:
