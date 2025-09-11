@@ -40,6 +40,7 @@ gulp.task('create-dist', [
   'less',
   'copy-assets',
   'reference',
+  'reference-saas',
   'landings',
   'build-concepts',
   'build-rest-api',
