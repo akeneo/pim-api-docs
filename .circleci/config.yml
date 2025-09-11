@@ -244,7 +244,7 @@ jobs:
       - run:
           name: Run rsync between local sources and the target bucket
           command: |
-            gcloud storage rsync --recursive ~/dist gs://<<parameters.environment>>-${GOOGLE_CLOUD_PROJECT}-front
+            gcloud storage rsync --delete-unmatched-destination-objects --recursive ~/dist gs://<<parameters.environment>>-${GOOGLE_CLOUD_PROJECT}-front
 
   infrastructure: &infrastructure
     parameters:

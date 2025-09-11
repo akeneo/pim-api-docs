@@ -37,7 +37,56 @@ properties:
         type: string
         description: The code of the product model associated with the workflow task (object is present when the task is for a product model)
   pending_attributes:
-    type: array
-    items:
-      type: string
-    description: A list of attribute codes for the task that are awaiting completion or require user input. This field is only included when `with_attributes=true`.
+    type: object
+    description: |
+      Object of attributes for the task that are awaiting completion or require user input.
+      The keys of this object are attribute codes (e.g. "name", "description", "size"), and
+      each value is an array of objects with locale and scope information.
+      This field is only included when `with_attributes=true`.
+    additionalProperties:
+      type: array
+      description: List of locale/scope combinations for which the attribute value needs to be filled
+      items:
+        type: object
+        properties:
+          locale:
+            type: string
+            x-nullable: true
+            description: The locale code for the attribute value, null if the attribute is not localizable
+          scope:
+            type: string
+            x-nullable: true
+            description: The scope (channel) code for the attribute value, null if the attribute is not scopable
+    example:
+      "name": [{"locale": null, "scope": null}]
+      "description": [
+        {"locale": "en_US", "scope": "ecommerce"},
+        {"locale": "fr_FR", "scope": "ecommerce"}
+      ]
+      "color": [
+        {"locale": "en_US", "scope": null},
+        {"locale": "fr_FR", "scope": null}
+      ]
+  _links:
+    type: object
+    description: Hypermedia links related to the workflow task
+    properties:
+      self:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+            description: URI of this resource
+      edit:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+            description: The URL to access the task in Akeneo
+    example:
+      self:
+        href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07"
+      edit:
+        href: "https://demo.akeneo.com/public/workflows/tasks/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07/edit"

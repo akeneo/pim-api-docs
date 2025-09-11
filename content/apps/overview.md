@@ -117,7 +117,7 @@ In short, everything you need to guide you in your app journey!
 Your app is good to go?
 
 - Read our [how to publish your app](/app-portal/publish-your-app.html) guide
-- Consult our recommendations about [how to write your app information](/app-portal/manage-app-information.html#app-identity-and-description)
+- Consult our recommendations about [how to write your app information](/app-portal/publish-your-app.html#your-app-must-have-comprehensive-information)
 
 ## Develop an app for a custom need
 

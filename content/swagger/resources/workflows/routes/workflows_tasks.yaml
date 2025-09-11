@@ -10,16 +10,11 @@ get:
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
-    - name: step_uuid
-      in: query
-      description: "(required) Filter tasks by workflow step UUID (e.g. f626d0e5-84a5-41fc-8215-65508c253edb)"
-      required: true
-      type: string
     - name: search
       in: query
       description: |
         Stringified JSON to filter tasks, for more details see the <a href="/documentation/filter.html#filter-on-workflow-tasks">Filters</a> section.
-      required: false
+      required: true
       type: string
     - name: with_attributes
       in: query
@@ -37,11 +32,11 @@ get:
         x-example:
           _links:
             self:
-              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb&with_attributes=true"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&search={\"step_uuid\":[{\"operator\":\"=\",\"value\":\"f626d0e5-84a5-41fc-8215-65508c253edb\"}]}&with_attributes=true"
             first:
-              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb&with_attributes=true"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&search={\"step_uuid\":[{\"operator\":\"=\",\"value\":\"f626d0e5-84a5-41fc-8215-65508c253edb\"}]}&with_attributes=true"
             next:
-              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=2&limit=10&step_uuid=f626d0e5-84a5-41fc-8215-65508c253edb&with_attributes=true"
+              href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=2&limit=10&search={\"step_uuid\":[{\"operator\":\"=\",\"value\":\"f626d0e5-84a5-41fc-8215-65508c253edb\"}]}&with_attributes=true"
           current_page: 1
           _embedded:
             items:
@@ -52,6 +47,17 @@ get:
                   uuid: "7108ee60-a1ea-4fe1-baca-b39909e23d24"
                 due_date: "2024-03-31T18:00:00Z"
                 rejected: true
+                pending_attributes:
+                  "name": [{"locale": null, "scope": null}]
+                  "description": [
+                    {"locale": "en_US", "scope": "ecommerce"},
+                    {"locale": "fr_FR", "scope": "ecommerce"}
+                  ]
+                _links:
+                  self:
+                    href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07"
+                  edit:
+                    href: "https://demo.akeneo.com/public/workflows/tasks/8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07/edit"
               - uuid: "782dd26a-b58d-40d3-a8e2-c41bb342f20f"
                 status: "in_progress"
                 created_at: "2024-02-22T17:31:00Z"
@@ -59,7 +65,18 @@ get:
                   code: "a-product-model-code"
                 due_date: "2024-03-28T18:00:00Z"
                 rejected: false
-                pending_attributes: ["a-pending-attribute-code", "another-pending-attribute-code"]
+                pending_attributes:
+                  "name": [{"locale": null, "scope": null}]
+                  "size": [{"locale": null, "scope": null}]
+                  "color": [
+                    {"locale": "en_US", "scope": null},
+                    {"locale": "fr_FR", "scope": null}
+                  ]
+                _links:
+                  self:
+                    href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks/782dd26a-b58d-40d3-a8e2-c41bb342f20f"
+                  edit:
+                    href: "https://demo.akeneo.com/public/workflows/tasks/782dd26a-b58d-40d3-a8e2-c41bb342f20f/edit"
     400:
       $ref: "#/responses/400Error"
     401:

@@ -2,7 +2,7 @@
 In this section, you will learn how to create your first UI Extension in under a minute. By following this quick guide, you'll gain the skills needed to effectively use the UI for creating and managing UI Extensions.
 
 ### Prerequisites
-Having the proper permisison to create and manage UI-Extensions (more information [here](https://api.akeneo.com/extensions/ui-extensions.html#prerequisites-2)).
+Having the proper permisison to create and manage UI-Extensions.
 
 ### Access the UI-extensions management Interface
 
