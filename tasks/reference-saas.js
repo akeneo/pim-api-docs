@@ -128,6 +128,9 @@ const mergeResponsesAllOf = (data) => {
                 for (let content in (data.paths[path][operation].responses[response].content ?? {})) {
                     if (data.paths[path][operation].responses[response].content[content].schema) {
                         if (data.paths[path][operation].responses[response].content[content].schema['allOf']) {
+                            if (undefined === data.paths[path][operation].responses[response].content[content].schema.properties) {
+                                data.paths[path][operation].responses[response].content[content].schema.properties = {};
+                            }
                             for (subElement in Object.keys(data.paths[path][operation].responses[response].content[content].schema['allOf'])) {
                                 for (let property in Object.keys(data.paths[path][operation].responses[response].content[content].schema['allOf'][subElement].properties ?? {})) {
                                     data.paths[path][operation].responses[response].content[content].schema.properties[property] = data.paths[path][operation].responses[response].content[content].schema['allOf'][subElement].properties[property];
@@ -140,6 +143,7 @@ const mergeResponsesAllOf = (data) => {
         }
     }
 }
+
 gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], function() {
 
     gulp.src('content/openapi/openapi.json')
