@@ -435,13 +435,13 @@
                                                                                         <br>&nbsp; &nbsp; { <br>
                                                                                         {{#each properties}}
                                                                                             <p class="def-key">&nbsp; &nbsp; &nbsp; &nbsp;<code>{{{@key}}}</code>
-                                                                                            <em> ({{{schema.type}}} {{#if items}} [{{{items.type}}}] {{/if}}) </em>
+                                                                                            <em> ({{{type}}} {{#if items}} [{{{items.type}}}] {{/if}}) </em>
                                                                                             {{#if properties}}: { <br>
                                                                                                 {{#each properties}}
                                                                                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                     <code>{{{@key}}}</code>
                                                                                                     <em>
-                                                                                                        ({{{schema.type}}}
+                                                                                                        ({{{type}}}
                                                                                                         {{#if items}}
                                                                                                             [{{{items.type}}}]
                                                                                                         {{/if}})
@@ -452,7 +452,7 @@
                                                                                                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                             <code>{{{@key}}}</code>
                                                                                                             <em>
-                                                                                                                ({{{schema.type}}}
+                                                                                                                ({{{type}}}
                                                                                                                 {{#if items}}
                                                                                                                   [{{{items.type}}}]
                                                                                                                 {{/if}})
@@ -468,19 +468,19 @@
                                                                                                                         {{#each properties}}
                                                                                                                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                             <code>{{{@key}}}</code>
-                                                                                                                            <em>({{{schema.type}}})</em>
+                                                                                                                            <em>({{{type}}})</em>
                                                                                                                             {{#if properties}}
                                                                                                                                 : { <br>
                                                                                                                                     {{#each properties}}
                                                                                                                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                                         <code>{{{@key}}}</code>
-                                                                                                                                        <em>({{{schema.type}}})</em>
+                                                                                                                                        <em>({{{type}}})</em>
                                                                                                                                         {{#if properties}}
                                                                                                                                             : { <br>
                                                                                                                                             {{#each properties}}
                                                                                                                                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                                                 <code>{{{@key}}}</code>
-                                                                                                                                                <em>({{{schema.type}}})</em>
+                                                                                                                                                <em>({{{type}}})</em>
                                                                                                                                                 &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
                                                                                                                                             {{/each}}
                                                                                                                                             <br>&nbsp;
@@ -504,7 +504,7 @@
                                                                                                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                     <code>{{{@key}}}</code>
                                                                                                                     <em>
-                                                                                                                        ({{{schema.type}}}
+                                                                                                                        ({{{type}}}
                                                                                                                         {{#if items}}
                                                                                                                             [{{{items.type}}}
                                                                                                                         ]{{/if}})
@@ -528,7 +528,7 @@
                                                                                                                     {{#each properties}}
                                                                                                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                         <code>{{{@key}}}</code>
-                                                                                                                        <em>({{{schema.type}}})</em>
+                                                                                                                        <em>({{{type}}})</em>
                                                                                                                         &bull; {{{description}}} <br>
                                                                                                                     {{/each}}
                                                                                                                 &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ]
@@ -545,13 +545,13 @@
                                                                                 {{/with}}
                                                                                 {{#each properties}}
                                                                                     <p class="def-key"><code>{{{@key}}}</code>
-                                                                                    <em> ({{{schema.type}}} {{#if items}} [{{{items.type}}}] {{/if}}) </em>
+                                                                                    <em> ({{{type}}} {{#if items}} [{{{items.type}}}] {{/if}}) </em>
                                                                                     {{#if properties}}: { <br>
                                                                                         {{#each properties}}
                                                                                             &nbsp; &nbsp;
                                                                                             <code>{{{@key}}}</code>
                                                                                             <em>
-                                                                                                ({{{schema.type}}}
+                                                                                                ({{{type}}}
                                                                                                 {{#if items}}
                                                                                                     [{{{items.type}}}]
                                                                                                 {{/if}})
@@ -562,7 +562,7 @@
                                                                                                     &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                     <code>{{{@key}}}</code>
                                                                                                     <em>
-                                                                                                        ({{{schema.type}}}
+                                                                                                        ({{{type}}}
                                                                                                         {{#if items}}
                                                                                                           [{{{items.type}}}]
                                                                                                         {{/if}})
@@ -578,19 +578,19 @@
                                                                                                                 {{#each properties}}
                                                                                                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                     <code>{{{@key}}}</code>
-                                                                                                                    <em>({{{schema.type}}})</em>
+                                                                                                                    <em>({{{type}}})</em>
                                                                                                                     {{#if properties}}
                                                                                                                         : { <br>
                                                                                                                             {{#each properties}}
                                                                                                                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                                 <code>{{{@key}}}</code>
-                                                                                                                                <em>({{{schema.type}}})</em>
+                                                                                                                                <em>({{{type}}})</em>
                                                                                                                                 {{#if properties}}
                                                                                                                                     : { <br>
                                                                                                                                     {{#each properties}}
                                                                                                                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                                         <code>{{{@key}}}</code>
-                                                                                                                                        <em>({{{schema.type}}})</em>
+                                                                                                                                        <em>({{{type}}})</em>
                                                                                                                                         &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
                                                                                                                                     {{/each}}
                                                                                                                                     <br>&nbsp;
@@ -614,7 +614,7 @@
                                                                                                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                             <code>{{{@key}}}</code>
                                                                                                             <em>
-                                                                                                                ({{{schema.type}}}
+                                                                                                                ({{{type}}}
                                                                                                                 {{#if items}}
                                                                                                                     [{{{items.type}}}
                                                                                                                 ]{{/if}})
@@ -638,7 +638,7 @@
                                                                                                             {{#each properties}}
                                                                                                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                 <code>{{{@key}}}</code>
-                                                                                                                <em>({{{schema.type}}})</em>
+                                                                                                                <em>({{{type}}})</em>
                                                                                                                 &bull; {{{description}}} <br>
                                                                                                             {{/each}}
                                                                                                         &nbsp; &nbsp; &nbsp; &nbsp; } <br> &nbsp; &nbsp; ]
@@ -654,19 +654,19 @@
                                                                                         {{#each properties}}
                                                                                         <p class="def-key">
                                                                                             <code>{{{@key}}}</code>
-                                                                                            <em>({{{schema.type}}}{{#if items}} [{{{items.type}}}]{{/if}})</em>
+                                                                                            <em>({{{type}}}{{#if items}} [{{{items.type}}}]{{/if}})</em>
                                                                                             {{#if properties}}: { <br>
                                                                                                 {{#each properties}}
-                                                                                                    &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{schema.type}}} )</em>
+                                                                                                    &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}} )</em>
                                                                                                     {{#if properties}}: { <br>
                                                                                                         {{#each properties}}
-                                                                                                            &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{schema.type}}} )</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                                                            &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}} )</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
                                                                                                         {{/each}}
                                                                                                         <br>&nbsp; &nbsp;  }
                                                                                                     {{else}}
                                                                                                         {{#with items}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; { <br>
                                                                                                                 {{#each properties}}
-                                                                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{schema.type}}}{{#if items}} [{{{items.type}}} ]{{/if}})</em>
+                                                                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}} [{{{items.type}}} ]{{/if}})</em>
                                                                                                                     {{#if properties}} : { <br>
                                                                                                                         {{#each properties}}
                                                                                                                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{schema.type}}}{{#if items}} [{{{items.type}}} ]{{/if}})</em>
@@ -674,7 +674,7 @@
                                                                                                                                 {{#each properties}}
                                                                                                                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                                     <code>{{{@key}}}</code>
-                                                                                                                                    <em>({{{schema.type}}}{{#if items}} [{{{items.type}}} ]{{/if}} )</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                                                                                    <em>({{{type}}}{{#if items}} [{{{items.type}}} ]{{/if}} )</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
                                                                                                                                 {{/each}}
                                                                                                                                 <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } {{#unless @last}} <br> {{/unless}}
                                                                                                                             {{else}}
@@ -682,7 +682,7 @@
                                                                                                                                     {{#if properties}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { <br>
                                                                                                                                         {{#each properties}}
                                                                                                                                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code>
-                                                                                                                                            <em>({{{schema.type}}}{{#if items}} [{{{items.type}}} ]{{/if}} )</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                                                                                            <em>({{{type}}}{{#if items}} [{{{items.type}}} ]{{/if}} )</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
                                                                                                                                         {{/each}}
                                                                                                                                         <br>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]
                                                                                                                                     {{else}}
@@ -700,15 +700,15 @@
                                                                                                                 {{/each}}
                                                                                                             {{#each allOf}}
                                                                                                                 {{#each properties}}
-                                                                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{schema.type}}}{{#if items}} [{{{items.type}}} ]{{/if}})</em>
+                                                                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}} [{{{items.type}}} ]{{/if}})</em>
                                                                                                                     {{#if properties}} : { <br>
                                                                                                                         {{#each properties}}
-                                                                                                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{schema.type}}}{{#if items}} [{{{items.type}}} ]{{/if}})</em>
+                                                                                                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}} [{{{items.type}}} ]{{/if}})</em>
                                                                                                                             {{#if properties}} : { <br>
                                                                                                                                 {{#each properties}}
                                                                                                                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                                     <code>{{{@key}}}</code>
-                                                                                                                                    <em>({{{schema.type}}}{{#if items}} [{{{items.type}}} ]{{/if}} )</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                                                                                    <em>({{{type}}}{{#if items}} [{{{items.type}}} ]{{/if}} )</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
                                                                                                                                 {{/each}}
                                                                                                                                 <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } {{#unless @last}} <br> {{/unless}}
                                                                                                                             {{else}}
@@ -717,7 +717,7 @@
                                                                                                                                     {{#if properties}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { <br>
                                                                                                                                         {{#each properties}}
                                                                                                                                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code>
-                                                                                                                                            <em>({{{schema.type}}}{{#if items}} [{{{items.type}}} ]{{/if}} )</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
+                                                                                                                                            <em>({{{type}}}{{#if items}} [{{{items.type}}} ]{{/if}} )</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
                                                                                                                                         {{/each}}
                                                                                                                                         <br>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]
                                                                                                                                     {{else}}
@@ -757,6 +757,7 @@
                                                                                     <p>Ø</p>
                                                                                 {{/if}}
                                                                             {{/with}}
+                                                                        {{/each}}
                                                                     </div>
                                                                     {{#if hljsExample}}
                                                                         <div class="col-xs-12">
