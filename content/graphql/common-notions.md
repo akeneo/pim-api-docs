@@ -130,6 +130,10 @@ By passing this value to the `page` argument in the next query, the result of th
 The result should show a max of 5 new results with potentially a new value for the `next` attribute.
 When no more pages are available, the `next` value is set to `null`.
 
+It's possible to get a page with no results. For example, if you use a `limit` of 5 and you get the third page, the 
+`next` field will be filled with the identifier of the last item of the page. If you use this identifier to get the fourth page,
+you will get an empty list of items (and the `next` field will be `null`).
+
 ## Aliasing fields in response
 
 Aliases in GraphQL provide a way to:
