@@ -204,3 +204,15 @@ convert_measurements:
   type: boolean
   required: false
   x-from-version: "SaaS"
+with_workflow_execution_statuses:
+  name: with_workflow_execution_statuses
+  in: query
+  description: |
+    Return an array of workflow_execution_statuses directly associated with the requested entity (product or product model) in the response.
+    Statuses are level-specific and are not inherited from parent models. For a complete overview of a variant product, you must query the variant itself and its parent model(s) in separate requests.
+    Each workflow object contains:
+    - The overall execution status (e.g., in_progress, completed).
+    - A list of all associated tasks.
+  required: false
+  type: boolean
+  x-from-version: "SaaS"

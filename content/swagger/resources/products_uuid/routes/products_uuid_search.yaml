@@ -52,6 +52,9 @@ post:
           with_completenesses:
             type: boolean
             description: Return product completenesses in the response. (Only available since the 6.0 version)
+          with_workflow_execution_statuses:
+            type: boolean
+            description: Return an array of workflow_execution_statuses in the response. (Only available in the SaaS version)
   responses:
     200:
       description: Return products paginated
