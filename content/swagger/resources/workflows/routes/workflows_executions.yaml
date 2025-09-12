@@ -1,5 +1,5 @@
 post:
-  summary: Execute workflow actions
+  summary: Start several workflow executions
   operationId: "post_workflows_executions"
   tags:
     - Workflow execution
