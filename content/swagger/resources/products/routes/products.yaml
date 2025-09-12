@@ -44,6 +44,7 @@ get:
     - $ref: '#/parameters/with_asset_share_links'
     - $ref: '#/parameters/with_quality_scores__products'
     - $ref: '#/parameters/with_completenesses'
+    - $ref: '#/parameters/with_workflow_execution_statuses'
   responses:
     200:
       description: Return products paginated

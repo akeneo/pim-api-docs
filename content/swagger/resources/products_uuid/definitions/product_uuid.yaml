@@ -177,6 +177,76 @@ properties:
           type: string
         data:
           type: integer
+  workflow_execution_statuses:
+    type: array
+    description: |
+      Workflow execution statuses of the product (only available when the "with_workflow_execution_statuses" query parameter is set to "true")
+    x-immutable: true
+    x-read-only: true
+    x-from-version: 'SaaS'
+    items:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: Workflow execution UUID
+        status:
+          type: string
+          description: Status of the workflow execution
+          enum: [in_progress, completed]
+        started_at:
+          type: string
+          format: date-time
+          description: Date and time when the workflow execution was started
+        completed_at:
+          type: [string, "null"]
+          format: date-time
+          description: Date and time when the workflow execution was completed, null if still in progress
+        workflow:
+          type: object
+          properties:
+            uuid:
+              type: string
+              description: Workflow UUID
+            code:
+              type: string
+              description: Workflow code
+            labels:
+              type: object
+              description: Workflow labels for each locale
+              additionalProperties:
+                type: string
+        tasks:
+          type: array
+          description: Tasks associated with the workflow execution
+          items:
+            type: object
+            properties:
+              uuid:
+                type: string
+                description: Task UUID
+              status:
+                type: string
+                description: Status of the task
+                enum: [in_progress]
+              created_at:
+                type: string
+                format: date-time
+                description: Date and time when the task was created
+              step:
+                type: object
+                properties:
+                  uuid:
+                    type: string
+                    description: Step UUID
+                  code:
+                    type: string
+                    description: Step code
+                  labels:
+                    type: object
+                    description: Step labels for each locale
+                    additionalProperties:
+                      type: string
 
 example: {
   "uuid": "25566245-55c3-42ce-86d9-8610ac459fa8",
@@ -363,6 +433,49 @@ example: {
       "scope": "tablet",
       "locale": "fr_FR",
       "data": 40
+    }
+  ],
+  "workflow_execution_statuses": [
+    {
+      "uuid": "8c0fe59f-4d29-4faa-b4c3-d327e7f3cc52",
+      "status": "in_progress",
+      "started_at": "2024-02-22T17:31:00Z",
+      "completed_at": null,
+      "workflow": {
+        "uuid": "6f37476a-04c2-46c0-b6d0-e18316959068",
+        "code": "enrichment_workflow",
+        "labels": {
+          "en_US": "Enrichment workflow",
+          "fr_FR": "Workflow d'enrichissement"
+        }
+      },
+      "tasks": [
+        {
+          "uuid": "8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07",
+          "status": "in_progress",
+          "created_at": "2024-02-22T17:31:00Z",
+          "step": {
+            "uuid": "f626d0e5-84a5-41fc-8215-65508c253edb",
+            "code": "review_step",
+            "labels": {
+              "en_US": "Marketing review",
+              "fr_FR": "Revue marketing"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "uuid": "59169984-6d6c-4fa7-b925-68b8e9d31ddb",
+      "status": "completed",
+      "started_at": "2024-02-22T17:31:00Z",
+      "completed_at": "2024-02-22T17:31:00Z",
+      "workflow": {
+        "uuid": "b69ee158-a421-4680-bec0-a71bc73b8e31",
+        "code": "compliance_workflow",
+        "labels": {}
+      },
+      "tasks": []
     }
   ]
 }

@@ -39,6 +39,7 @@ get:
     - $ref: '#/parameters/with_quality_scores__products'
     - $ref: '#/parameters/with_completenesses'
     - $ref: '#/parameters/with_root_parent'
+    - $ref: '#/parameters/with_workflow_execution_statuses'
 
   responses:
     200:
