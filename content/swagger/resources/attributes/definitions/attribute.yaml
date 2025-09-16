@@ -227,12 +227,12 @@ properties:
     x-warning: Only for `pim_catalog_number` or `pim_catalog_metric` attribute types
   enable_option_creation_during_import:
     type: boolean
-    description: Whether new attribute options can be created automatically during product or product model import (CSV, XLSX). This feature will be available soon.
+    description: Whether new attribute options can be created automatically during product or product model import (CSV, XLSX), when the attribute type is `pim_catalog_simpleselect` or `pim_catalog_multiselect`.
     x-warning: Only for `pim_catalog_simpleselect` or `pim_catalog_multiselect` attribute types
     x-from-version: "SaaS"
   max_items_count:
     type: number
-    description: Limit the number of items in a collection attribute. Currently only available for Asset Collection attribute.
+    description: Maximum number of items allowed in an asset collection when the attribute type is `pim_catalog_asset_collection`.
     x-warning: Only for `pim_catalog_asset_collection` attribute types
     x-from-version: "SaaS"
 example:
