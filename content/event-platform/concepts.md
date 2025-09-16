@@ -258,24 +258,7 @@ For the `kafka` subscription type, the `config` property requires the Kafka clus
 }
 ```
 
-**SCRAM Authentication:**
-```json
-"sasl_auth": {
-    "mechanism": "scram",
-    "scram_variant": "sha-256",
-    "username": "your_kafka_username",
-    "password": "your_kafka_password"
-}
-```
-
-**OAuth Bearer Authentication:**
-```json
-"sasl_auth": {
-    "mechanism": "oauthbearer",
-    "mode": "static_token",
-    "token": "your_oauth_token"
-}
-```
+Additional authentication methods such as SCRAM and OAuth Bearer will be available in future releases.
 
 #### TLS Configuration (Optional)
 
@@ -312,12 +295,9 @@ For secure connections, you can optionally configure TLS settings in the `config
 
 | Property | Description | Required | Valid Values |
 | --- | --- | --- | --- |
-| `mechanism` | SASL authentication mechanism | Yes | `plain`, `scram`, `oauthbearer` |
-| `username` | Username for authentication | Required for `plain` and `scram` | String |
-| `password` | Password for authentication | Required for `plain` and `scram` | String |
-| `scram_variant` | SCRAM variant (only for `scram` mechanism) | Required for `scram` | `sha-256`, `sha-512` |
-| `token` | OAuth token (only for `oauthbearer` mechanism) | Required for `oauthbearer` | String |
-| `mode` | OAuth mode (only for `oauthbearer` mechanism) | Required for `oauthbearer` | `static_token` |
+| `mechanism` | SASL authentication mechanism | Yes | `plain` |
+| `username` | Username for authentication | Yes | String |
+| `password` | Password for authentication | Yes | String |
 
 #### Event Delivery Guarantees
 
