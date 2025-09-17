@@ -250,6 +250,15 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                       if (response.description) {
                           response.description = md.render(response.description);
                       }
+                      for (let content in response.content) {
+                          for (let property in response.content[content].properties) {
+                              property.description = md.render(property.description);
+
+                              if (property.description.startsWith('<p>') && property.description.endsWith('</p>\n')) {
+                                  property.description = property.description.substring(3, property.description.length - 5);
+                              }
+                          }
+                      }
                       return response;
                   });
 
