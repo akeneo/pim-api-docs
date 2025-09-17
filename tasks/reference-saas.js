@@ -201,6 +201,18 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
           data.paths['/api/rest/v1/products-uuid']['post']['requestBody']['content']['application/json']['schema']['properties']['quantified_associations'] =
             data.paths['/api/rest/v1/products-uuid']['post']['requestBody']['content']['application/json']['schema']['properties']['quantified_associations']['anyOf'][0];
 
+          // use x-body-by-line-schema when available
+          for (let path in data.paths) {
+              for (let operation in data.paths[path]) {
+                  if (data.paths[path][operation].requestBody) {
+                      for (let content in (data.paths[path][operation].requestBody.content ?? {})) {
+                          if (data.paths[path][operation].requestBody.content[content]['x-body-by-line-schema']) {
+                              data.paths[path][operation].requestBody.content[content].schema = data.paths[path][operation].requestBody.content[content]['x-body-by-line-schema'];
+                          }
+                      }
+                  }
+              }
+          }
           // translate markdown to html in each parameter description
           _.map(data.paths, function(path) {
               _.map(path, function(operation) {
