@@ -213,6 +213,7 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                   }
               }
           }
+
           // translate markdown to html in each parameter description
           _.map(data.paths, function(path) {
               _.map(path, function(operation) {
@@ -345,7 +346,11 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                   for (content in (operation?.requestBody?.content ?? {})) {
                       let highlightjsExample;
                       if (operation.requestBody.content[content].example) {
-                          highlightjsExample = highlightJs.highlight('json', JSON.stringify(operation.requestBody.content[content].example, null, 2), true);
+                          let exampleStr = operation.requestBody.content[content].example;
+                          if (typeof exampleStr !== "string") {
+                              exampleStr = JSON.stringify(exampleStr, null, 0)
+                          }
+                          highlightjsExample = highlightJs.highlight('json', exampleStr, true);
                           operation.requestBody.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
                       } else if (operation.requestBody.content[content].examples){
                           const firstKey = Object.keys(operation.requestBody.content[content].examples)[0];
