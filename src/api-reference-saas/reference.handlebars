@@ -85,9 +85,6 @@
                                             <a class="anchor" id="{{{operationId}}}"></a>
                                             <h3>
                                                 {{{summary}}}
-                                                {{#if x-ee}}
-                                                    &nbsp;<span class="label label-ee">EE only</span>
-                                                {{/if}}
                                                 {{#if x-deprecated}}
                                                     <span class="label label-warning">deprecated</span>
                                                 {{/if}}
@@ -371,7 +368,7 @@
                                                                 </div>
                                                                 <div class="col-xs-12">
                                                                     <p>Example</p>
-                                                                    {{{schema.hljsExample}}}
+                                                                    {{{hljsExample}}}
                                                                 </div>
                                                             {{/if}}
                                                         </div>

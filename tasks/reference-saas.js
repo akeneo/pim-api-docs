@@ -148,8 +148,7 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
 
     gulp.src('content/openapi/openapi.json')
       .pipe(jsonTransform(function(data) {
-          mergeResponsesAllOf(data);
-
+          //mergeResponsesAllOf(data);
           data.tags = undefined;
           return data;
       }))
@@ -186,6 +185,7 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                   });
               });
           });
+
           return gulp.src('src/api-reference-saas/index.handlebars')
             .pipe(gulpHandlebars(templateData, {}))
             .pipe(rename('api-reference-saas-index.html'))
@@ -193,13 +193,14 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
             .pipe(gulp.dest('dist'));
       }))
 
-
-
-
-
     gulp.src('content/openapi/openapi.json')
       .pipe(gulp.dest('content/swagger'))
       .pipe(jsonTransform(function(data) {
+
+          // Ignore retrocompatibility possibility of quantified_associations
+          data.paths['/api/rest/v1/products-uuid']['post']['requestBody']['content']['application/json']['schema']['properties']['quantified_associations'] =
+            data.paths['/api/rest/v1/products-uuid']['post']['requestBody']['content']['application/json']['schema']['properties']['quantified_associations']['anyOf'][0];
+
           // translate markdown to html in each parameter description
           _.map(data.paths, function(path) {
               _.map(path, function(operation) {
@@ -323,11 +324,23 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                             highlightJs.highlight('bash', parameter.schema['x-examples']['x-example-1'] + '\n' +
                               parameter.schema['x-examples']['x-example-2'] + '\n' +
                               parameter.schema['x-examples']['x-example-3'], true) :
-                            highlightJs.highlight('json', JSON.stringify(parameter.schema.example, null, 2), true);
+                            highlightJs.highlight('json', JSON.stringify(parameter.schema.examples, null, 2), true);
                           parameter.schema.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
                       }
                       return parameter;
                   });
+
+                  for (content in (operation?.requestBody?.content ?? {})) {
+                      let highlightjsExample;
+                      if (operation.requestBody.content[content].example) {
+                          highlightjsExample = highlightJs.highlight('json', JSON.stringify(operation.requestBody.content[content].example, null, 2), true);
+                          operation.requestBody.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
+                      } else if (operation.requestBody.content[content].examples){
+                          const firstKey = Object.keys(operation.requestBody.content[content].examples)[0];
+                          highlightjsExample =  highlightJs.highlight('json', JSON.stringify(operation.requestBody.content[content].examples[firstKey], null, 2), true);
+                          operation.requestBody.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
+                      }
+                  }
 
                   _.map(operation.responses, function(response, code) {
                       var status = code.match(/^2.*$/) ? 'success' : 'error';
