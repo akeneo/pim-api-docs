@@ -252,6 +252,21 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                       }
                       return response;
                   });
+
+                  _.map(operation?.requestBody?.content ?? {}, function(content) {
+                      _.map(content.schema.properties, function (property) {
+                          if (property.description) {
+                              property.description = md.render(property.description);
+
+                              if (property.description.startsWith('<p>') && property.description.endsWith('</p>\n')) {
+                                  property.description = property.description.substring(3, property.description.length - 5);
+                              }
+                          }
+                          return property;
+                      });
+                      return content;
+                  });
+
                   return operation;
               });
               return path;
