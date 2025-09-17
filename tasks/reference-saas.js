@@ -211,6 +211,14 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                           }
                       }
                   }
+
+                  for (let response in (data.paths[path][operation].responses ?? {})) {
+                      for (let content in (data.paths[path][operation].responses[response].content ?? {})) {
+                          if (data.paths[path][operation].responses[response].content[content]['x-body-by-line-schema']) {
+                              data.paths[path][operation].responses[response].content[content].schema = data.paths[path][operation].responses[response].content[content]['x-body-by-line-schema'];
+                          }
+                      }
+                  }
               }
           }
 
