@@ -1656,7 +1656,7 @@ Finally, if you want to get the assets updated in the last 4 days, you can use t
 
 ### By attribute values
 
-:::: availability SaaS editions=EE
+::: availability versions=SaaS editions=EE
 
 You can filter assets on their attribute values using the `search` query parameter. Put your attribute filters under the `values` key. Each property under `values` is an attribute identifier. For scopable/localizable attributes, you can optionally specify a `channel` and/or `locale` in the filter. If omitted, the API will try to use the `channel`/`locales` provided in the request.
 
