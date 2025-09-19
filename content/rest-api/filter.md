@@ -1666,12 +1666,12 @@ Supported types and operators:
 - boolean: `=`, `EMPTY`, `NOT EMPTY`
 - date: `=`, `<`, `>`, `BETWEEN`, `NOT BETWEEN`, `EMPTY`, `NOT EMPTY`
 - option/option_collection: `IN`, `EMPTY`, `NOT EMPTY`
-- record: `=`, `IN`, `EMPTY`
+- record: `IN`, `EMPTY`, `NOT EMPTY`
 
 Notes:
 - Filtering on attribute types `media_file` and `media_link` is not supported. The API will return a 422 error.
 - Attribute identifiers must match the regex `^[a-zA-Z0-9_]+$`.
-- For `record` attributes, use operator `=` with value `true` to express non-empty (and `false` for empty). There is no `NOT EMPTY` operator for record.
+- For `record` attributes, the value used in the filter is the code of the linked reference entity record.
 
 #### Examples
 
