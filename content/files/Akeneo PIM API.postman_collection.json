@@ -5827,7 +5827,7 @@
 								}
 							]
 						},
-						"description": "Performs a state transition on a task. \nThe request body's structure depends on the action being performed.\n\n- To **approve** a 'review' task, set status to `approved`.\n- To **complete** an 'enrichment' task, set status to `completed`.\n- To **reject** a 'review' task, set status to `rejected`, provide `send_back_to_step_uuid`, and optionally provide `rejected_attributes` to specify details about rejected attributes.\n"
+						"description": "Approves or completes a task. \nThe request body's structure depends on the action being performed.\n\n- To **approve** a 'review' task, set status to `approved`.\n- To **complete** an 'enrichment' task, set status to `completed`.\n- To **reject** a 'review' task, set status to `rejected`, provide `send_back_to_step_uuid`, and optionally provide `rejected_attributes` to specify details about rejected attributes.\n"
 					},
 					"response": []
 				}
