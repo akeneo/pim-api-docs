@@ -3329,6 +3329,12 @@
 									"value": "true",
 									"description": "(boolean ) • Return asset collection share link urls in the response. (Only available in the SaaS version).",
 									"disabled": true
+								},
+								{
+									"key": "with_workflow_execution_statuses",
+									"value": "true",
+									"description": "Return an array of workflow_execution_statuses directly associated with the requested entity (product or product model) in the response.\nStatuses are level-specific and are not inherited from parent models. For a complete overview of a variant product, you must query the variant itself and its parent model(s) in separate requests.\nEach workflow object contains:\n- The overall execution status (e.g., in_progress, completed).\n- A list of all associated tasks.\n",
+									"disabled": true
 								}
 							]
 						},
@@ -3568,6 +3574,12 @@
 									"key": "with_asset_share_links",
 									"value": "true",
 									"description": "(boolean ) • Return asset collection share link urls in the response. (Only available in the SaaS version).",
+									"disabled": true
+								},
+								{
+									"key": "with_workflow_execution_statuses",
+									"value": "true",
+									"description": "Return an array of workflow_execution_statuses directly associated with the requested entity (product or product model) in the response.\nStatuses are level-specific and are not inherited from parent models. For a complete overview of a variant product, you must query the variant itself and its parent model(s) in separate requests.\nEach workflow object contains:\n- The overall execution status (e.g., in_progress, completed).\n- A list of all associated tasks.\n",
 									"disabled": true
 								}
 							]
@@ -3828,6 +3840,12 @@
 									"value": "true",
 									"description": "(boolean ) • Return asset collection share link urls in the response. (Only available in the SaaS version).",
 									"disabled": true
+								},
+								{
+									"key": "with_workflow_execution_statuses",
+									"value": "true",
+									"description": "Return an array of workflow_execution_statuses directly associated with the requested entity (product or product model) in the response.\nStatuses are level-specific and are not inherited from parent models. For a complete overview of a variant product, you must query the variant itself and its parent model(s) in separate requests.\nEach workflow object contains:\n- The overall execution status (e.g., in_progress, completed).\n- A list of all associated tasks.\n",
+									"disabled": true
 								}
 							]
 						},
@@ -4067,6 +4085,12 @@
 									"key": "with_asset_share_links",
 									"value": "true",
 									"description": "(boolean ) • Return asset collection share link urls in the response. (Only available in the SaaS version).",
+									"disabled": true
+								},
+								{
+									"key": "with_workflow_execution_statuses",
+									"value": "true",
+									"description": "Return an array of workflow_execution_statuses directly associated with the requested entity (product or product model) in the response.\nStatuses are level-specific and are not inherited from parent models. For a complete overview of a variant product, you must query the variant itself and its parent model(s) in separate requests.\nEach workflow object contains:\n- The overall execution status (e.g., in_progress, completed).\n- A list of all associated tasks.\n",
 									"disabled": true
 								}
 							]
@@ -4314,6 +4338,12 @@
 									"value": "true",
 									"description": "(boolean ) • Return product model quality scores in the response. (Only available since the 7.0 version).",
 									"disabled": true
+								},
+								{
+									"key": "with_workflow_execution_statuses",
+									"value": "true",
+									"description": "Return an array of workflow_execution_statuses directly associated with the requested entity (product or product model) in the response.\nStatuses are level-specific and are not inherited from parent models. For a complete overview of a variant product, you must query the variant itself and its parent model(s) in separate requests.\nEach workflow object contains:\n- The overall execution status (e.g., in_progress, completed).\n- A list of all associated tasks.\n",
+									"disabled": true
 								}
 							]
 						},
@@ -4428,6 +4458,12 @@
 									"key": "with_quality_scores",
 									"value": "true",
 									"description": "(boolean ) • Return product model quality scores in the response. (Only available since the 7.0 version).",
+									"disabled": true
+								},
+								{
+									"key": "with_workflow_execution_statuses",
+									"value": "true",
+									"description": "Return an array of workflow_execution_statuses directly associated with the requested entity (product or product model) in the response.\nStatuses are level-specific and are not inherited from parent models. For a complete overview of a variant product, you must query the variant itself and its parent model(s) in separate requests.\nEach workflow object contains:\n- The overall execution status (e.g., in_progress, completed).\n- A list of all associated tasks.\n",
 									"disabled": true
 								}
 							]
@@ -5323,16 +5359,134 @@
 			]
 		},
 		{
-			"name": "Workflow",
+			"name": "Workflows",
 			"item": [
 				{
-					"name": "Get a workflow",
+					"name": "Get list of workflows",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Validate if response header has matching content-type",
+									"pm.test(\"[GET]::/api/rest/v1/workflows - Content-Type is application/json\", function () {",
+									"   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"// Validate if response has JSON Body ",
+									"pm.test(\"[GET]::/api/rest/v1/workflows - Response has JSON Body\", function () {",
+									"    pm.response.to.have.jsonBody();",
+									"});",
+									"",
+									"// Response Validation",
+									"const schema = {\"title\":\"Workflows\",\"type\":\"object\",\"allOf\":[{\"type\":\"object\",\"properties\":{\"_links\":{\"type\":\"object\",\"properties\":{\"self\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the current page of resources\"}}},\"first\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the first page of resources\"}}},\"previous\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the previous page of resources\"}}},\"next\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the next page of resources\"}}}}}}},{\"type\":\"object\",\"properties\":{\"current_page\":{\"type\":\"integer\",\"description\":\"Current page number\"},\"_embedded\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"allOf\":[{\"type\":\"object\",\"properties\":{\"_links\":{\"type\":\"object\",\"properties\":{\"self\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the resource\"}}}}}}},{\"type\":\"object\",\"properties\":{\"uuid\":{\"type\":\"string\",\"format\":\"uuid\",\"description\":\"Workflow UUID\"},\"code\":{\"type\":\"string\",\"description\":\"Workflow code\"},\"labels\":{\"type\":\"object\",\"description\":\"Workflow labels per locale\",\"default\":{},\"patternProperties\":{\"^[a-zA-Z]{2,}_[a-zA-Z0-9_]{2,}$\":{\"type\":[\"string\",\"null\"],\"description\":\"Label for locale\"}}},\"enabled\":{\"type\":\"boolean\",\"description\":\"Whether the workflow is enabled\"}}}]}}}}}}]}",
+									"",
+									"// Validate if response matches JSON schema ",
+									"pm.test(\"[GET]::/api/rest/v1/workflows - Schema is valid\", function() {",
+									"    pm.response.to.have.jsonSchema(schema,{unknownFormats: [\"int32\", \"int64\", \"float\", \"double\"]});",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/workflows",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"workflows"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Specify which page of results to retrieve when using pagination.\nIt is useful for navigating through large datasets by breaking them into smaller, manageable pages.\nSee [Pagination](https://api.akeneo.com/documentation/pagination.html) section for more details.\n",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Specify the maximum number of results to return per page.\nIt is useful for controlling the amount of data returned in a single request, especially when dealing with large datasets.\nSee [Pagination](https://api.akeneo.com/documentation/pagination.html) section for more details.\n",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Retrieves a paginated list of workflows"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a workflow",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Validate if response header has matching content-type",
+									"pm.test(\"[GET]::/api/rest/v1/workflows/:uuid - Content-Type is application/json\", function () {",
+									"   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"// Validate if response has JSON Body ",
+									"pm.test(\"[GET]::/api/rest/v1/workflows/:uuid - Response has JSON Body\", function () {",
+									"    pm.response.to.have.jsonBody();",
+									"});",
+									"",
+									"// Response Validation",
+									"const schema = {\"type\":\"object\",\"properties\":{\"uuid\":{\"type\":\"string\",\"format\":\"uuid\",\"description\":\"Workflow UUID\"},\"code\":{\"type\":\"string\",\"description\":\"Workflow code\"},\"labels\":{\"type\":\"object\",\"description\":\"Locale code\",\"default\":{},\"patternProperties\":{\"^[a-zA-Z]{2,}_[a-zA-Z0-9_]{2,}$\":{\"type\":[\"string\",\"null\"],\"description\":\"Workflow labels per locale\"}}},\"enabled\":{\"type\":\"boolean\",\"description\":\"Whether the workflow is enabled\"},\"steps\":{\"type\":\"array\",\"description\":\"List of workflow steps\",\"items\":{\"type\":\"object\",\"properties\":{\"uuid\":{\"type\":\"string\",\"format\":\"uuid\",\"description\":\"Step UUID\"},\"code\":{\"type\":\"string\",\"description\":\"Step code\"},\"type\":{\"type\":\"string\",\"description\":\"Step type (e.g. enrichment, review)\"},\"labels\":{\"type\":\"object\",\"description\":\"Locale code\",\"default\":{},\"patternProperties\":{\"^[a-zA-Z]{2,}_[a-zA-Z0-9_]{2,}$\":{\"type\":[\"string\",\"null\"],\"description\":\"Step labels per locale\"}}},\"descriptions\":{\"type\":\"object\",\"description\":\"Locale code\",\"default\":{},\"patternProperties\":{\"^[a-zA-Z]{2,}_[a-zA-Z0-9_]{2,}$\":{\"type\":[\"string\",\"null\"],\"description\":\"Step descriptions per locale\"}}},\"allotted_time\":{\"type\":[\"object\",\"null\"],\"description\":\"Allotted time for the step (e.g. `{\\\"value\\\": 1, \\\"unit\\\": \\\"days\\\"}` or nullable)\",\"properties\":{\"value\":{\"type\":\"integer\",\"description\":\"Amount of time\"},\"unit\":{\"type\":\"string\",\"description\":\"Time unit (days)\"}}},\"channels_and_locales\":{\"type\":\"object\",\"description\":\"Step configuration for channels and locales\",\"additionalProperties\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"Locale code\"}}}}}}}}",
+									"",
+									"// Validate if response matches JSON schema ",
+									"pm.test(\"[GET]::/api/rest/v1/workflows/:uuid - Schema is valid\", function() {",
+									"    pm.response.to.have.jsonSchema(schema,{unknownFormats: [\"int32\", \"int64\", \"float\", \"double\"]});",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
 							}
 						],
 						"url": {
@@ -5350,31 +5504,62 @@
 							"variable": [
 								{
 									"key": "uuid",
-									"value": "",
-									"description": "(string) • Uuid of the Workflow"
+									"value": "123e4567-e89b-12d3-a456-426614174000",
+									"description": "(Required) This path parameter is used to specify the unique identifier of the entity you want to retrieve or manipulate.\nIt is essential for identifying the specific entity in the API requests.\nEnsure that the UUID is correctly formatted and corresponds to an existing entity in the system.\n"
 								}
 							]
 						},
-						"description": "Assuming that the given identifier is the identifier of an existing product"
+						"description": "This endpoint allows you to get the information about a given workflow as well as its steps"
 					},
 					"response": []
 				},
 				{
 					"name": "Get list of workflow step assignees",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Validate if response header has matching content-type",
+									"pm.test(\"[GET]::/api/rest/v1/workflows/steps/:uuid/assignees - Content-Type is application/json\", function () {",
+									"   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"// Validate if response has JSON Body ",
+									"pm.test(\"[GET]::/api/rest/v1/workflows/steps/:uuid/assignees - Response has JSON Body\", function () {",
+									"    pm.response.to.have.jsonBody();",
+									"});",
+									"",
+									"// Response Validation",
+									"const schema = {\"type\":\"object\",\"allOf\":[{\"type\":\"object\",\"properties\":{\"_links\":{\"type\":\"object\",\"properties\":{\"self\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the current page of resources\"}}},\"first\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the first page of resources\"}}},\"previous\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the previous page of resources\"}}},\"next\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the next page of resources\"}}}}}}}],\"properties\":{\"current_page\":{\"type\":\"integer\",\"description\":\"Current page number\"},\"_embedded\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"uuid\":{\"type\":\"string\",\"description\":\"Assignee UUID\",\"format\":\"uuid\"},\"first_name\":{\"type\":\"string\",\"description\":\"Assignee first name\"},\"last_name\":{\"type\":\"string\",\"description\":\"Assignee last name\"},\"email\":{\"type\":\"string\",\"description\":\"Assignee email address\"}}}}}}}}",
+									"",
+									"// Validate if response matches JSON schema ",
+									"pm.test(\"[GET]::/api/rest/v1/workflows/steps/:uuid/assignees - Schema is valid\", function() {",
+									"    pm.response.to.have.jsonSchema(schema,{unknownFormats: [\"int32\", \"int64\", \"float\", \"double\"]});",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
-								"key": "Content-Type",
+								"key": "Accept",
 								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							},
-							{
-								"key": "Cookie",
-								"value": ""
 							}
 						],
 						"url": {
@@ -5395,29 +5580,259 @@
 								{
 									"key": "page",
 									"value": "1",
-									"description": "(integer , 1 by default ) • Number of the page to retrieve when using the `page` pagination method type.",
+									"description": "Specify which page of results to retrieve when using pagination.\nIt is useful for navigating through large datasets by breaking them into smaller, manageable pages.\nSee [Pagination](https://api.akeneo.com/documentation/pagination.html) section for more details.\n",
 									"disabled": true
 								},
 								{
 									"key": "limit",
-									"value": "10",
-									"description": "(integer , 10 by default )  • Number of results by page.",
+									"value": "100",
+									"description": "Specify the maximum number of results to return per page.\nIt is useful for controlling the amount of data returned in a single request, especially when dealing with large datasets.\nSee [Pagination](https://api.akeneo.com/documentation/pagination.html) section for more details.\n",
 									"disabled": true
 								}
 							],
 							"variable": [
 								{
 									"key": "uuid",
-									"value": "",
-									"description": "(string) • Uuid of the Workflow Step"
+									"value": "123e4567-e89b-12d3-a456-426614174000",
+									"description": "(Required) This path parameter is used to specify the unique identifier of the entity you want to retrieve or manipulate.\nIt is essential for identifying the specific entity in the API requests.\nEnsure that the UUID is correctly formatted and corresponds to an existing entity in the system.\n"
 								}
 							]
 						},
-						"description": "\n"
+						"description": "Retrieves a paginated list of assignees for a specified workflow step"
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "The Workflows endpoints allow you to retrieve the configuration of the Workflows and Steps.\n"
+		},
+		{
+			"name": "Workflow executions",
+			"item": [
+				{
+					"name": "Start several workflow executions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"workflow\": {\n      \"uuid\": \"4a230ef4-3e63-4d24-a214-73d4b404f278\"\n    },\n    \"product\": {\n      \"uuid\": \"87654321-4321-4321-4321-210987654321\"\n    }\n  },\n  {\n    \"workflow\": {\n      \"uuid\": \"4a230ef4-3e63-4d24-a214-73d4b404f278\"\n    },\n    \"product_model\": {\n      \"code\": \"model_1234\"\n    }\n  }\n]",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/workflows/executions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"workflows",
+								"executions"
+							]
+						},
+						"description": "This endpoint allows you to start workflow executions for products and/or product models"
+					},
+					"response": []
+				}
+			],
+			"description": "The Workflow executions endpoints allow you to start workflows on products and product models.\n"
+		},
+		{
+			"name": "Workflow tasks",
+			"item": [
+				{
+					"name": "Get list of workflow tasks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Validate if response header has matching content-type",
+									"pm.test(\"[GET]::/api/rest/v1/workflows/tasks - Content-Type is application/json\", function () {",
+									"   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"// Validate if response has JSON Body ",
+									"pm.test(\"[GET]::/api/rest/v1/workflows/tasks - Response has JSON Body\", function () {",
+									"    pm.response.to.have.jsonBody();",
+									"});",
+									"",
+									"// Response Validation",
+									"const schema = {\"title\":\"Workflow Tasks\",\"type\":\"object\",\"allOf\":[{\"type\":\"object\",\"properties\":{\"_links\":{\"type\":\"object\",\"properties\":{\"self\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the current page of resources\"}}},\"first\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the first page of resources\"}}},\"previous\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the previous page of resources\"}}},\"next\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"description\":\"URI of the next page of resources\"}}}}}}},{\"type\":\"object\",\"properties\":{\"current_page\":{\"type\":\"integer\",\"description\":\"Current page number\"},\"_embedded\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"allOf\":[{\"type\":\"object\",\"properties\":{\"_links\":{\"type\":\"object\",\"properties\":{\"self\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"format\":\"uri\",\"description\":\"URI of the resource\"}}},\"edit\":{\"type\":\"object\",\"properties\":{\"href\":{\"type\":\"string\",\"format\":\"uri\",\"description\":\"URL to access the task in Akeneo\"}}}}}}},{\"type\":\"object\",\"properties\":{\"uuid\":{\"type\":\"string\",\"description\":\"Task UUID\",\"format\":\"uuid\"},\"status\":{\"type\":\"string\",\"description\":\"Task status\"},\"created_at\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"Task creation date\"},\"product\":{\"type\":\"object\",\"properties\":{\"uuid\":{\"type\":\"string\",\"format\":\"uuid\",\"description\":\"Product UUID\"}}},\"product_model\":{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"string\",\"description\":\"Product model code\"}}},\"due_date\":{\"type\":[\"string\",\"null\"],\"format\":\"date-time\",\"description\":\"Due date\"},\"rejected\":{\"type\":\"boolean\",\"description\":\"Whether the task is rejected\"},\"pending_attributes\":{\"type\":\"object\",\"description\":\"Object of attributes for the task that are awaiting completion or require user input.\\nEach key is an attribute code and each value is an array of objects with information on locale, scope, rejection status and comment.\\nThis field is only included when `with_attributes=true`.\\n\",\"additionalProperties\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"rejected\"],\"properties\":{\"locale\":{\"type\":[\"string\",\"null\"],\"description\":\"The locale code for the attribute value, null if the attribute is not localizable\"},\"scope\":{\"type\":[\"string\",\"null\"],\"description\":\"The scope (channel) code for the attribute value, null if the attribute is not scopable\"},\"rejected\":{\"type\":\"boolean\",\"description\":\"Whether this attribute value has been rejected\"},\"comment\":{\"type\":\"string\",\"description\":\"Optional comment explaining why the attribute value was rejected.\"}}}}}}}]}}}}}}]}",
+									"",
+									"// Validate if response matches JSON schema ",
+									"pm.test(\"[GET]::/api/rest/v1/workflows/tasks - Schema is valid\", function() {",
+									"    pm.response.to.have.jsonSchema(schema,{unknownFormats: [\"int32\", \"int64\", \"float\", \"double\"]});",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rest/v1/workflows/tasks?search={\"step_uuid\":[{\"operator\":\"=\",\"value\":[\"0a2c9f49-2b4f-42a5-b7f9-6c50f6bce8e9\"]}]}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"workflows",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "{\"step_uuid\":[{\"operator\":\"=\",\"value\":[\"0a2c9f49-2b4f-42a5-b7f9-6c50f6bce8e9\"]}]}",
+									"description": "(Required) Stringified JSON to filter tasks.\nFor more details see the [Filters](https://api.akeneo.com/documentation/filter.html#filter-on-workflow-tasks) section.\n"
+								},
+								{
+									"key": "with_attributes",
+									"value": "false",
+									"description": "Whether to include task attributes in the response",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Specify which page of results to retrieve when using pagination.\nIt is useful for navigating through large datasets by breaking them into smaller, manageable pages.\nSee [Pagination](https://api.akeneo.com/documentation/pagination.html) section for more details.\n",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Specify the maximum number of results to return per page.\nIt is useful for controlling the amount of data returned in a single request, especially when dealing with large datasets.\nSee [Pagination](https://api.akeneo.com/documentation/pagination.html) section for more details.\n",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Retrieves a paginated list of tasks for a specified workflow step"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Workflow Task's Status (Approve, Reject, Complete)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Validate if response has empty Body ",
+									"pm.test(\"[PATCH]::/api/rest/v1/workflows/tasks/:uuid - Response has empty Body\", function () {",
+									"    pm.response.to.not.be.withBody;",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"completed\",\n  \"send_back_to_step_uuid\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"rejected_attributes\": {\n    \"name\": [\n      {\n        \"comment\": \"\",\n        \"locale\": null,\n        \"scope\": null\n      }\n    ],\n    \"description\": [\n      {\n        \"comment\": \"Wrong description\",\n        \"locale\": \"en_US\",\n        \"scope\": \"ecommerce\"\n      },\n      {\n        \"comment\": \"\",\n        \"locale\": \"fr_FR\",\n        \"scope\": \"mobile\"\n      }\n    ]\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/rest/v1/workflows/tasks/:uuid",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"v1",
+								"workflows",
+								"tasks",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "7895af43-cfdd-43dc-989b-215000832539",
+									"description": "(Required) This path parameter is used to specify the unique identifier of the entity you want to retrieve or manipulate.\nIt is essential for identifying the specific entity in the API requests.\nEnsure that the UUID is correctly formatted and corresponds to an existing entity in the system.\n"
+								}
+							]
+						},
+						"description": "Performs a state transition on a task. \nThe request body's structure depends on the action being performed.\n\n- To **approve** a 'review' task, set status to `approved`.\n- To **complete** an 'enrichment' task, set status to `completed`.\n- To **reject** a 'review' task, set status to `rejected`, provide `send_back_to_step_uuid`, and optionally provide `rejected_attributes` to specify details about rejected attributes.\n"
+					},
+					"response": []
+				}
+			],
+			"description": "The Tasks endpoints allow you to retrieve the tasks for each workflow steps, products and product models.\nIt also allows you to manage the tasks by approving, rejecting or completing them.\n"
 		},
 		{
 			"name": "Authentification by password",
