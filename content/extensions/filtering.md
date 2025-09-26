@@ -19,5 +19,14 @@ In addition to the filtering capacity, you can order the UI extension in the UI 
 
 [![ui-extension-product-selection.png](../img/extensions/ui-extensions/weight.png)](../img/extensions/ui-extensions/weight.png)
 
+### UI extensions statuses
+
+Extensions can have three different statuses: `Active`, `Inactive` and `To update`.
+
+* `Active` extensions are displayed for user on the UI.
+* `Inactive` extensions are only visible in Extensions list page and must be enabled for user use.
+* Extensions `To update`, have this status due to an incorrect or outdated configuration. They must be updated or deleted. This may result from a migration or update of the PIM. Most time the credentials or secret fields are the cause. To update it just open it in the UI add a new value on the missing fileds and save the extension. It will pass on `Inactive` status.  
+
+
 ::: panel-link API [Next](/extensions/api.html)
 :::
