@@ -43,8 +43,6 @@ function determineCategory(tag){
         case 'Product model':
         case 'Product media file':
             return 'Products';
-        case 'Published product':
-            return 'Published products';
         case 'Family':
         case 'Family variant':
         case 'Attribute':
@@ -65,12 +63,6 @@ function determineCategory(tag){
         case 'Asset attribute option':
         case 'Asset media file':
             return 'Asset Manager';
-        case 'PAM asset category':
-        case 'PAM asset tag':
-        case 'PAM asset':
-        case 'PAM asset reference file':
-        case 'PAM asset variation file':
-            return 'PAM';
         case 'Reference entity record':
         case 'Reference entity':
         case 'Reference entity media file':
@@ -86,6 +78,10 @@ function determineCategory(tag){
             return 'Extensions';
         case 'Jobs':
             return 'Jobs';
+        case 'Workflows':
+        case 'Workflow executions':
+        case 'Workflow tasks':
+            return 'Workflows';
         default:
             return 'Utilities';
     }
@@ -173,9 +169,6 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                   if(category.includes('Catalogs for Apps')) {
                       data.categories[escapeCategory].isAppCategory = true;
                   }
-                  if(category.includes('Published products')) {
-                      data.categories[escapeCategory].isPublishedProduct = true;
-                  }
                   if(escapeTag.includes('Productidentifier') || escapeTag.includes('Productuuid')) {
                       data.categories[escapeCategory].resources[escapeTag].isProductIdentifierOrUUID = true;
                   }
@@ -246,34 +239,57 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                       }
                       return parameter;
                   });
+
+                  function renderDescriptions(schema) {
+                      if (!schema) return;
+                      if (schema.description) {
+                          schema.description = md.render(schema.description);
+                          if (schema.description.startsWith('<p>') && schema.description.endsWith('</p>\n')) {
+                              schema.description = schema.description.substring(3, schema.description.length - 5);
+                          }
+                      }
+                      // Always recurse into 'properties' if present
+                      if (schema.properties) {
+                          _.forEach(schema.properties, renderDescriptions);
+                      }
+                      // Always recurse into 'items' if present (for arrays)
+                      if (schema.items) {
+                          renderDescriptions(schema.items);
+                      }
+                      // Recurse into 'allOf', 'anyOf', 'oneOf' if present (for composed schemas)
+                      ['allOf', 'anyOf', 'oneOf'].forEach(key => {
+                          if (Array.isArray(schema[key])) {
+                              schema[key].forEach(renderDescriptions);
+                          }
+                      });
+                      // Recurse into nested 'schema' if present
+                      if (schema.schema) {
+                          renderDescriptions(schema.schema);
+                      }
+                  }
+
+                  // For requestBody
+                  _.map(operation?.requestBody?.content ?? {}, function(content) {
+                      if (content.schema) {
+                          renderDescriptions(content.schema);
+                      }
+                      return content;
+                  });
+
+                  // For responses
                   _.map(operation.responses, function(response) {
                       if (response.description) {
                           response.description = md.render(response.description);
+                          if (response.description.startsWith('<p>') && response.description.endsWith('</p>\n')) {
+                              response.description = response.description.substring(3, response.description.length - 5);
+                          }
                       }
                       for (let content in response.content) {
-                          for (let property in response.content[content].properties) {
-                              property.description = md.render(property.description);
-
-                              if (property.description.startsWith('<p>') && property.description.endsWith('</p>\n')) {
-                                  property.description = property.description.substring(3, property.description.length - 5);
-                              }
+                          if (response.content[content].schema) {
+                              renderDescriptions(response.content[content].schema);
                           }
                       }
                       return response;
-                  });
-
-                  _.map(operation?.requestBody?.content ?? {}, function(content) {
-                      _.map(content.schema.properties, function (property) {
-                          if (property.description) {
-                              property.description = md.render(property.description);
-
-                              if (property.description.startsWith('<p>') && property.description.endsWith('</p>\n')) {
-                                  property.description = property.description.substring(3, property.description.length - 5);
-                              }
-                          }
-                          return property;
-                      });
-                      return content;
                   });
 
                   return operation;
@@ -308,9 +324,6 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                   }
                   if(category.includes('Catalogs for Apps')) {
                       data.categories[escapeCategory].isAppCategory = true;
-                  }
-                  if(category.includes('Published products')) {
-                      data.categories[escapeCategory].isPublishedProduct = true;
                   }
                   if(escapeTag.includes('Productidentifier') || escapeTag.includes('Productuuid')) {
                       data.categories[escapeCategory].resources[escapeTag].isProductIdentifierOrUUID = true;
@@ -365,32 +378,31 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                           _.forEach(readOnlyProperties, function(propToDelete) {
                               delete parameter.schema.example[propToDelete];
                           });
-                          var highlightjsExample = parameter.schema['x-examples'] ?
-                            highlightJs.highlight('bash', parameter.schema['x-examples']['x-example-1'] + '\n' +
-                              parameter.schema['x-examples']['x-example-2'] + '\n' +
-                              parameter.schema['x-examples']['x-example-3'], true) :
-                            highlightJs.highlight('json', JSON.stringify(parameter.schema.examples, null, 2), true);
+                          var highlightjsExample = highlightJs.highlight('json', JSON.stringify(parameter.schema.examples, null, 2), true);
                           parameter.schema.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
                       }
                       return parameter;
                   });
 
+                  // Get example from request body schema or request body examples
                   for (content in (operation?.requestBody?.content ?? {})) {
                       let highlightjsExample;
                       if (operation.requestBody.content[content].example) {
                           let exampleStr = operation.requestBody.content[content].example;
-                          if (typeof exampleStr !== "string") {
-                              exampleStr = JSON.stringify(exampleStr, null, 0)
+                          if (operation['x-body-by-line']) {
+                              highlightjsExample =  highlightJs.highlight('json', exampleStr, true)
+                          } else {
+                              highlightjsExample =  highlightJs.highlight('json', JSON.stringify(exampleStr, null, 2), true);
                           }
-                          highlightjsExample = highlightJs.highlight('json', exampleStr, true);
                           operation.requestBody.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
                       } else if (operation.requestBody.content[content].examples){
                           const firstKey = Object.keys(operation.requestBody.content[content].examples)[0];
-                          highlightjsExample =  highlightJs.highlight('json', JSON.stringify(operation.requestBody.content[content].examples[firstKey], null, 2), true);
+                          highlightjsExample =  highlightJs.highlight('json', JSON.stringify(operation.requestBody.content[content].examples[firstKey]?.value, null, 2), true);
                           operation.requestBody.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
                       }
                   }
 
+                  // Get example from response schema or response examples
                   _.map(operation.responses, function(response, code) {
                       var status = code.match(/^2.*$/) ? 'success' : 'error';
                       response[status] = true;
@@ -427,13 +439,10 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                           }
                       }
 
-
-
-                      var example = response.examples || response['x-examples'] || ((response.schema) ? response.schema.example : undefined);
+                      // Fallback to example in schema
+                      var example = response.examples || ((response.schema) ? response.schema.example : undefined);
                       if (example) {
-                          var highlightjsExample = example['x-example-1'] ?
-                            highlightJs.highlight('bash', example['x-example-1'] + '\n' + example['x-example-2'] + '\n' + example['x-example-3'], true) :
-                            highlightJs.highlight('json', JSON.stringify(example, null, 2), true);
+                          var highlightjsExample = highlightJs.highlight('json', JSON.stringify(example, null, 2), true);
                           response.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
                       }
                       return response;
