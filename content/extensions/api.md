@@ -127,8 +127,9 @@ Note that the token has a lifespan of one hour.
 #### 2. Create a UI extension
 You can create a UI extension once you have a valid PIM API token.
 
-```bash [snippet:Shell]
-    curl --request POST "$TARGET_PIM_URL/api/rest/v1/ui-extensions" \
+
+```bash [snippet:Link]
+curl --request POST "$TARGET_PIM_URL/api/rest/v1/ui-extensions" \
 --header "Authorization: Bearer $PIM_API_TOKEN" \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -141,6 +142,50 @@ You can create a UI extension once you have a valid PIM API token.
         "default_label": "My awesome extension",
         "labels": {
           "en_US": "My awesome extension"
+        }
+    }
+}'
+```
+```bash [snippet:Action]
+curl --request POST "$TARGET_PIM_URL/api/rest/v1/ui-extensions" \
+--header "Authorization: Bearer $PIM_API_TOKEN" \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "my_awesome_extension",
+    "version": "V1.03",
+    "type": "action",
+    "position": "pim.product.header",
+    "configuration": {
+        "url": "https://myapp.com/product",
+        "default_label": "My awesome extension",
+        "labels": {
+          "en_US": "My awesome extension"
+        },
+        "secret": "the_secret_need_tobe_32_characthers_long"
+    },
+    "credentials": [
+        {
+            "type": "Bearer Token",
+            "value": "your_auth_token"
+        }
+    ]
+}'
+```
+```bash [snippet:Iframe]
+curl --request POST "$TARGET_PIM_URL/api/rest/v1/ui-extensions" \
+--header "Authorization: Bearer $PIM_API_TOKEN" \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "my_awesome_extension",
+    "version": "V1.04",
+    "type": "iframe",
+    "position": "pim.product.tab",
+    "configuration": {
+        "url": "https://myapp.com/product",
+        "default_label": "My awesome extension",
+        "labels": {
+          "en_US": "My awesome extension",
+          "fr_FR": "Mon extension géniale"
         }
     }
 }'
