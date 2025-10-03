@@ -18,6 +18,56 @@ var revReplace = require('gulp-rev-replace');
 var MarkdownIt = require('markdown-it');
 var md = new MarkdownIt();
 
+// Helper function to render markdown with consistent formatting
+function renderMarkdown(text) {
+    if (!text) return text;
+    let rendered = md.render(text);
+    // Remove wrapping <p> tags for inline content
+    if (rendered.startsWith('<p>') && rendered.endsWith('</p>\n')) {
+        return rendered.substring(3, rendered.length - 5);
+    }
+    return rendered;
+}
+
+// Helper function to format JSON examples with syntax highlighting
+function formatJsonExample(example, isBodyByLine = false) {
+    if (!example) return null;
+
+    let highlightedExample;
+    if (isBodyByLine && typeof example === 'string') {
+        highlightedExample = highlightJs.highlight('json', example, true);
+    } else {
+        const jsonString = typeof example === 'string' ? example : JSON.stringify(example, null, 2);
+        highlightedExample = highlightJs.highlight('json', jsonString, true);
+    }
+    return '<pre class="hljs"><code>' + highlightedExample.value + '</code></pre>';
+}
+
+// Helper function to create or update category and resource structure
+function setupCategoryAndResource(data, operation, escapeTag, escapeCategory, category) {
+    if (!data.categories[escapeCategory]) {
+        data.categories[escapeCategory] = { categoryName: category, resources: {} };
+        if (escapeCategory === 'PAM') {
+            data.categories[escapeCategory].categoryDeprecated = true;
+        }
+    }
+
+    if (!data.categories[escapeCategory].resources[escapeTag]) {
+        data.categories[escapeCategory].resources[escapeTag] = {
+            resourceName: operation.tags[0],
+            operations: {}
+        };
+    }
+
+    if (category.includes('Catalogs for Apps')) {
+        data.categories[escapeCategory].isAppCategory = true;
+    }
+
+    if (escapeTag.includes('Productidentifier') || escapeTag.includes('Productuuid')) {
+        data.categories[escapeCategory].resources[escapeTag].isProductIdentifierOrUUID = true;
+    }
+}
+
 const ignoreVersionImcompatibleProperties = async (data, version) => {
     const { default: objectScan } = await import('object-scan')
     objectScan(['**.x-from-version'], {
@@ -121,7 +171,6 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
 
     gulp.src('content/openapi/openapi.json')
       .pipe(jsonTransform(function(data) {
-          var templateData = data;
           data.htmlReferencefileName = 'api-reference-saas'
           data.categories = {};
           _.forEach(data.paths, function(path, pathUri) {
@@ -133,22 +182,10 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                   }
                   var escapeTag = operation.tags[0].replace(/[^\w]/g, '');
                   var category = determineCategory(operation.tags[0]);
-                  escapeCategory = category.replace(/[^\w]/g, '');
-                  if (!data.categories[escapeCategory]){
-                      data.categories[escapeCategory] = { categoryName: category, resources: {}};
-                      if(escapeCategory === 'PAM') {
-                          data.categories[escapeCategory].categoryDeprecated = true;
-                      }
-                  }
-                  if (!data.categories[escapeCategory].resources[escapeTag]) {
-                      data.categories[escapeCategory].resources[escapeTag] = { resourceName: operation.tags[0], operations: {}};
-                  }
-                  if(category.includes('Catalogs for Apps')) {
-                      data.categories[escapeCategory].isAppCategory = true;
-                  }
-                  if(escapeTag.includes('Productidentifier') || escapeTag.includes('Productuuid')) {
-                      data.categories[escapeCategory].resources[escapeTag].isProductIdentifierOrUUID = true;
-                  }
+                  var escapeCategory = category.replace(/[^\w]/g, '');
+
+                  setupCategoryAndResource(data, operation, escapeTag, escapeCategory, category);
+
                   data.categories[escapeCategory].resources[escapeTag].operations[operation.operationId] = _.extend(operation, {
                       verb: verb,
                       path: pathUri
@@ -157,7 +194,7 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
           });
 
           return gulp.src('src/api-reference-saas/index.handlebars')
-            .pipe(gulpHandlebars(templateData, {
+            .pipe(gulpHandlebars(data, {
                 partialsDirectory: ['./src/partials']
             }))
             .pipe(rename('api-reference-saas-index.html'))
@@ -194,23 +231,14 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
           _.map(data.paths, function(path) {
               _.map(path, function(operation) {
                   if (operation.description) {
-                      operation.description = md.render(operation.description);
-                      if (operation.description.startsWith('<p>') && operation.description.endsWith('</p>\n')) {
-                          operation.description = operation.description.substring(3, operation.description.length - 5);
-                      }
+                      operation.description = renderMarkdown(operation.description);
                   }
                   _.map(operation.parameters, function(parameter) {
                       if (parameter.description) {
-                          parameter.description = md.render(parameter.description);
-                          if (parameter.description.startsWith('<p>') && parameter.description.endsWith('</p>\n')) {
-                              parameter.description = parameter.description.substring(3, parameter.description.length - 5);
-                          }
+                          parameter.description = renderMarkdown(parameter.description);
                       }
                       if(parameter.schema && parameter.schema.description) {
-                          parameter.schema.description = md.render(parameter.schema.description);
-                          if (parameter.schema.description.startsWith('<p>') && parameter.schema.description.endsWith('</p>\n')) {
-                              parameter.schema.description = parameter.schema.description.substring(3, parameter.schema.description.length - 5);
-                          }
+                          parameter.schema.description = renderMarkdown(parameter.schema.description);
                       }
                       return parameter;
                   });
@@ -218,10 +246,7 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                   function renderDescriptions(schema) {
                       if (!schema) return;
                       if (schema.description) {
-                          schema.description = md.render(schema.description);
-                          if (schema.description.startsWith('<p>') && schema.description.endsWith('</p>\n')) {
-                              schema.description = schema.description.substring(3, schema.description.length - 5);
-                          }
+                          schema.description = renderMarkdown(schema.description);
                       }
                       // Always recurse into 'properties' if present
                       if (schema.properties) {
@@ -254,10 +279,7 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                   // For responses
                   _.map(operation.responses, function(response) {
                       if (response.description) {
-                          response.description = md.render(response.description);
-                          if (response.description.startsWith('<p>') && response.description.endsWith('</p>\n')) {
-                              response.description = response.description.substring(3, response.description.length - 5);
-                          }
+                          response.description = renderMarkdown(response.description);
                       }
                       for (let content in response.content) {
                           if (response.content[content].schema) {
@@ -325,11 +347,8 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
               // If schema has oneOf, replace with first element
               if (schema.oneOf && Array.isArray(schema.oneOf) && schema.oneOf.length > 0) {
                   const firstOption = schema.oneOf[0];
-                  // Copy properties from first option to schema
-                  Object.keys(firstOption).forEach(key => {
-                      schema[key] = firstOption[key];
-                  });
-                  // Remove oneOf
+                  // Use spread operator to merge properties
+                  Object.assign(schema, firstOption);
                   delete schema.oneOf;
               }
 
@@ -385,40 +404,25 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
 
           return data;
       }))
-      .pipe(jsonTransform(async function(data) {
-          var templateData = data;
+      .pipe(jsonTransform(function(data) {
           data.categories = {};
           _.forEach(data.paths, function(path, pathUri) {
               _.forEach(path, function(operation, verb) {
-                  var operationId = operation.operationId;
+                  const operationId = operation.operationId;
                   // Check if tags exist and have at least one element
                   if (!operation.tags || !operation.tags[0]) {
                       console.warn('Warning: Operation missing tags for operationId', operationId, verb);
                       return; // Skip this operation
                   }
-                  var escapeTag = operation.tags[0].replace(/[^\w]/g, '');
-                  var category = determineCategory(operation.tags[0]);
-                  escapeCategory = category.replace(/[^\w]/g, '');
-                  if (!data.categories[escapeCategory]){
-                      data.categories[escapeCategory] = { categoryName: category, resources: {}};
-                      if(escapeCategory === 'PAM') {
-                          data.categories[escapeCategory].categoryDeprecated = true;
-                      }
-                  }
-                  if (!data.categories[escapeCategory].resources[escapeTag]) {
-                      data.categories[escapeCategory].resources[escapeTag] = { resourceName: operation.tags[0], operations: {}};
-                  }
-                  if(category.includes('Catalogs for Apps')) {
-                      data.categories[escapeCategory].isAppCategory = true;
-                  }
-                  if(escapeTag.includes('Productidentifier') || escapeTag.includes('Productuuid')) {
-                      data.categories[escapeCategory].resources[escapeTag].isProductIdentifierOrUUID = true;
-                  }
-                  var groupedParameters = _.groupBy(operation.parameters, function(parameter) {
-                      return parameter.in;
-                  });
+                  const escapeTag = operation.tags[0].replace(/\W/g, '');
+                  const category = determineCategory(operation.tags[0]);
+                  const escapeCategory = category.replace(/\W/g, '');
+
+                  setupCategoryAndResource(data, operation, escapeTag, escapeCategory, category);
+                  const groupedParameters = _.groupBy(operation.parameters, parameter => parameter.in);
+
                   _.map(groupedParameters.body, function(parameter) {
-                      var readOnlyProperties = [];
+                      const readOnlyProperties = [];
                       _.map(parameter.schema.properties, function(property, propertyName) {
                           property.default = (property.default === 0) ? '0' :
                             (property.default === null) ? 'null' :
@@ -464,36 +468,37 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                           _.forEach(readOnlyProperties, function(propToDelete) {
                               delete parameter.schema.example[propToDelete];
                           });
-                          var highlightjsExample = highlightJs.highlight('json', JSON.stringify(parameter.schema.examples, null, 2), true);
-                          parameter.schema.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
+                          parameter.schema.hljsExample = formatJsonExample(parameter.schema.examples);
                       }
                       return parameter;
                   });
 
                   // Get example from request body schema or request body examples
-                  for (content in (operation?.requestBody?.content ?? {})) {
-                      let highlightjsExample;
-                      if (operation.requestBody.content[content].example) {
-                          let exampleStr = operation.requestBody.content[content].example;
-                          if (operation['x-body-by-line']) {
-                              highlightjsExample =  highlightJs.highlight('json', exampleStr, true)
-                          } else {
-                              highlightjsExample =  highlightJs.highlight('json', JSON.stringify(exampleStr, null, 2), true);
-                          }
-                          operation.requestBody.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
-                      } else if (operation.requestBody.content[content].examples){
-                          const examplesKeys = Object.keys(operation.requestBody.content[content].examples);
-                          if (examplesKeys.length > 0) {
-                              const firstKey = examplesKeys[0];
-                              highlightjsExample =  highlightJs.highlight('json', JSON.stringify(operation.requestBody.content[content].examples[firstKey]?.value, null, 2), true);
-                              operation.requestBody.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
+                  if (operation.requestBody && operation.requestBody.content) {
+                      for (let content in operation.requestBody.content) {
+                          const contentObj = operation.requestBody.content[content];
+                          if (contentObj.example) {
+                              operation.requestBody.hljsExample = formatJsonExample(
+                                  contentObj.example,
+                                  operation['x-body-by-line']
+                              );
+                              break;
+                          } else if (contentObj.examples) {
+                              const examplesKeys = Object.keys(contentObj.examples);
+                              if (examplesKeys.length > 0) {
+                                  const firstKey = examplesKeys[0];
+                                  operation.requestBody.hljsExample = formatJsonExample(
+                                      contentObj.examples[firstKey]?.value
+                                  );
+                                  break;
+                              }
                           }
                       }
                   }
 
                   // Get example from response schema or response examples
                   _.map(operation.responses, function(response, code) {
-                      var status = code.match(/^2.*$/) ? 'success' : 'error';
+                      const status = code.match(/^2.*$/) ? 'success' : 'error';
                       response[status] = true;
                       response.id = operationId + '_' + code;
 
@@ -521,8 +526,7 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                                       }
                                       response.hljsExample = '<pre class="hljs"><code>' + responseExampleLines.join("\n") + '</code></pre>';
                                   } else {
-                                      const stringValue = highlightJs.highlight('json', JSON.stringify(responseExample, null, 2), true);
-                                      response.hljsExample = '<pre class="hljs"><code>' + stringValue.value + '</code></pre>';
+                                      response.hljsExample = formatJsonExample(responseExample);
                                   }
 
                                   return response;
@@ -531,10 +535,9 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                       }
 
                       // Fallback to example in schema
-                      var example = response.examples || ((response.schema) ? response.schema.example : undefined);
+                      const example = response.examples || ((response.schema) ? response.schema.example : undefined);
                       if (example) {
-                          var highlightjsExample = highlightJs.highlight('json', JSON.stringify(example, null, 2), true);
-                          response.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
+                          response.hljsExample = formatJsonExample(example);
                       }
                       return response;
                   });
@@ -542,7 +545,7 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
               });
           });
           return gulp.src('src/api-reference-saas/reference.handlebars')
-            .pipe(gulpHandlebars(templateData, {
+            .pipe(gulpHandlebars(data, {
                 partialsDirectory: ['./src/partials']
             }))
             .pipe(rename('api-reference-saas.html'))
