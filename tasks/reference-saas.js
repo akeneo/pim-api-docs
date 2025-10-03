@@ -117,43 +117,20 @@ gulp.task('fetch-remote-openapi', function(done) {
     });
 });
 
-const mergeResponsesAllOf = (data) => {
-    for (let path in data.paths) {
-        for (let operation in data.paths[path]) {
-            for (let response in data.paths[path][operation].responses) {
-                for (let content in (data.paths[path][operation].responses[response].content ?? {})) {
-                    if (data.paths[path][operation].responses[response].content[content].schema) {
-                        if (data.paths[path][operation].responses[response].content[content].schema['allOf']) {
-                            if (undefined === data.paths[path][operation].responses[response].content[content].schema.properties) {
-                                data.paths[path][operation].responses[response].content[content].schema.properties = {};
-                            }
-                            for (subElement in Object.keys(data.paths[path][operation].responses[response].content[content].schema['allOf'])) {
-                                for (let property in Object.keys(data.paths[path][operation].responses[response].content[content].schema['allOf'][subElement].properties ?? {})) {
-                                    data.paths[path][operation].responses[response].content[content].schema.properties[property] = data.paths[path][operation].responses[response].content[content].schema['allOf'][subElement].properties[property];
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
 gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], function() {
 
     gulp.src('content/openapi/openapi.json')
-      .pipe(jsonTransform(function(data) {
-          //mergeResponsesAllOf(data);
-          data.tags = undefined;
-          return data;
-      }))
       .pipe(jsonTransform(function(data) {
           var templateData = data;
           data.htmlReferencefileName = 'api-reference-saas'
           data.categories = {};
           _.forEach(data.paths, function(path, pathUri) {
               _.forEach(path, function(operation, verb) {
+                  // Check if tags exist and have at least one element
+                  if (!operation.tags || !operation.tags[0]) {
+                      console.warn('Warning: Operation missing tags for path', pathUri, verb);
+                      return; // Skip this operation
+                  }
                   var escapeTag = operation.tags[0].replace(/[^\w]/g, '');
                   var category = determineCategory(operation.tags[0]);
                   escapeCategory = category.replace(/[^\w]/g, '');
@@ -180,7 +157,9 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
           });
 
           return gulp.src('src/api-reference-saas/index.handlebars')
-            .pipe(gulpHandlebars(templateData, {}))
+            .pipe(gulpHandlebars(templateData, {
+                partialsDirectory: ['./src/partials']
+            }))
             .pipe(rename('api-reference-saas-index.html'))
             .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))
             .pipe(gulp.dest('dist'));
@@ -189,10 +168,6 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
     gulp.src('content/openapi/openapi.json')
       .pipe(gulp.dest('content/swagger'))
       .pipe(jsonTransform(function(data) {
-
-          // Ignore retrocompatibility possibility of quantified_associations
-          data.paths['/api/rest/v1/products-uuid']['post']['requestBody']['content']['application/json']['schema']['properties']['quantified_associations'] =
-            data.paths['/api/rest/v1/products-uuid']['post']['requestBody']['content']['application/json']['schema']['properties']['quantified_associations']['anyOf'][0];
 
           // use x-body-by-line-schema when available
           for (let path in data.paths) {
@@ -296,20 +271,131 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
               });
               return path;
           });
+
+          // Remove empty requestBody
+          for (let path in data.paths) {
+              for (let operation in data.paths[path]) {
+                  if (data.paths[path][operation].requestBody) {
+                      const requestBody = data.paths[path][operation].requestBody;
+                      // Check if requestBody has no content or empty content
+                      if (!requestBody.content || Object.keys(requestBody.content).length === 0) {
+                          delete data.paths[path][operation].requestBody;
+                      } else {
+                          // Check if all content types have empty or meaningless schemas
+                          let hasNonEmptyContent = false;
+                          for (let contentType in requestBody.content) {
+                              const content = requestBody.content[contentType];
+                              if (content.schema) {
+                                  // Check if schema is truly non-empty
+                                  // A schema with just type: object and no properties is considered empty
+                                  const schema = content.schema;
+                                  const isEmptyObjectSchema =
+                                      schema.type === 'object' &&
+                                      (!schema.properties || Object.keys(schema.properties).length === 0) &&
+                                      !schema.additionalProperties &&
+                                      !schema.allOf &&
+                                      !schema.oneOf &&
+                                      !schema.anyOf;
+
+                                  // Check if example is also empty
+                                  const hasEmptyExample =
+                                      content.example !== undefined &&
+                                      (content.example === null ||
+                                       (typeof content.example === 'object' && Object.keys(content.example).length === 0));
+
+                                  // If schema is not an empty object schema, or has meaningful content
+                                  if (!isEmptyObjectSchema || (!hasEmptyExample && content.example !== undefined)) {
+                                      hasNonEmptyContent = true;
+                                      break;
+                                  }
+                              }
+                          }
+                          if (!hasNonEmptyContent) {
+                              delete data.paths[path][operation].requestBody;
+                          }
+                      }
+                  }
+              }
+          }
+
+          // Handle oneOf by keeping only the first element
+          function simplifyOneOf(schema) {
+              if (!schema) return;
+
+              // If schema has oneOf, replace with first element
+              if (schema.oneOf && Array.isArray(schema.oneOf) && schema.oneOf.length > 0) {
+                  const firstOption = schema.oneOf[0];
+                  // Copy properties from first option to schema
+                  Object.keys(firstOption).forEach(key => {
+                      schema[key] = firstOption[key];
+                  });
+                  // Remove oneOf
+                  delete schema.oneOf;
+              }
+
+              // Recursively process nested schemas
+              if (schema.properties) {
+                  Object.values(schema.properties).forEach(simplifyOneOf);
+              }
+              if (schema.items) {
+                  simplifyOneOf(schema.items);
+              }
+              if (schema.additionalProperties && typeof schema.additionalProperties === 'object') {
+                  simplifyOneOf(schema.additionalProperties);
+              }
+              // Process allOf, anyOf arrays
+              ['allOf', 'anyOf'].forEach(key => {
+                  if (Array.isArray(schema[key])) {
+                      schema[key].forEach(simplifyOneOf);
+                  }
+              });
+          }
+
+          // Apply oneOf simplification to all operations
+          for (let path in data.paths) {
+              for (let operation in data.paths[path]) {
+                  // Process request body schemas
+                  if (data.paths[path][operation].requestBody) {
+                      for (let contentType in (data.paths[path][operation].requestBody.content ?? {})) {
+                          if (data.paths[path][operation].requestBody.content[contentType].schema) {
+                              simplifyOneOf(data.paths[path][operation].requestBody.content[contentType].schema);
+                          }
+                      }
+                  }
+
+                  // Process response schemas
+                  for (let response in (data.paths[path][operation].responses ?? {})) {
+                      for (let contentType in (data.paths[path][operation].responses[response].content ?? {})) {
+                          if (data.paths[path][operation].responses[response].content[contentType].schema) {
+                              simplifyOneOf(data.paths[path][operation].responses[response].content[contentType].schema);
+                          }
+                      }
+                  }
+
+                  // Process parameters schemas
+                  if (data.paths[path][operation].parameters) {
+                      data.paths[path][operation].parameters.forEach(param => {
+                          if (param.schema) {
+                              simplifyOneOf(param.schema);
+                          }
+                      });
+                  }
+              }
+          }
+
           return data;
       }))
       .pipe(jsonTransform(async function(data) {
           var templateData = data;
           data.categories = {};
-          // _.map(data.definitions, function(definition) {
-          //     _.forEach(definition.required, function(requiredProperty) {
-          //         definition.properties[requiredProperty].required = true;
-          //     });
-          //     return definition;
-          // });
           _.forEach(data.paths, function(path, pathUri) {
               _.forEach(path, function(operation, verb) {
                   var operationId = operation.operationId;
+                  // Check if tags exist and have at least one element
+                  if (!operation.tags || !operation.tags[0]) {
+                      console.warn('Warning: Operation missing tags for operationId', operationId, verb);
+                      return; // Skip this operation
+                  }
                   var escapeTag = operation.tags[0].replace(/[^\w]/g, '');
                   var category = determineCategory(operation.tags[0]);
                   escapeCategory = category.replace(/[^\w]/g, '');
@@ -396,9 +482,12 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                           }
                           operation.requestBody.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
                       } else if (operation.requestBody.content[content].examples){
-                          const firstKey = Object.keys(operation.requestBody.content[content].examples)[0];
-                          highlightjsExample =  highlightJs.highlight('json', JSON.stringify(operation.requestBody.content[content].examples[firstKey]?.value, null, 2), true);
-                          operation.requestBody.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
+                          const examplesKeys = Object.keys(operation.requestBody.content[content].examples);
+                          if (examplesKeys.length > 0) {
+                              const firstKey = examplesKeys[0];
+                              highlightjsExample =  highlightJs.highlight('json', JSON.stringify(operation.requestBody.content[content].examples[firstKey]?.value, null, 2), true);
+                              operation.requestBody.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
+                          }
                       }
                   }
 
@@ -410,14 +499,16 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
 
                       const content = response?.content ?? null;
                       if (null !== content) {
-                          const contentType = Object.keys(content)[0] ?? null;
-                          if (null !== contentType) {
+                          const contentKeys = Object.keys(content);
+                          if (contentKeys.length > 0) {
+                              const contentType = contentKeys[0];
                               let responseExample = content[contentType].example ?? null
                               if (null === responseExample) {
                                   let responseExamples = content[contentType].examples ?? null
                                   if (null !== responseExamples) {
-                                      const firstExampleKey = Object.keys(responseExamples)[0] ?? null;
-                                      if (null !== firstExampleKey) {
+                                      const exampleKeys = Object.keys(responseExamples);
+                                      if (exampleKeys.length > 0) {
+                                          const firstExampleKey = exampleKeys[0];
                                           responseExample = responseExamples[firstExampleKey]?.value ?? null;
                                       }
                                   }
@@ -451,7 +542,9 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
               });
           });
           return gulp.src('src/api-reference-saas/reference.handlebars')
-            .pipe(gulpHandlebars(templateData, {}))
+            .pipe(gulpHandlebars(templateData, {
+                partialsDirectory: ['./src/partials']
+            }))
             .pipe(rename('api-reference-saas.html'))
             .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))
             .pipe(gulp.dest('dist'));
