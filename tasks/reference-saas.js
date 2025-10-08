@@ -473,10 +473,73 @@ gulp.task('reference-saas', ['clean-dist', 'less', 'fetch-remote-openapi'], func
                       return parameter;
                   });
 
-                  // Get example from request body schema or request body examples
+                  // Process requestBody schema properties (same as body parameters)
                   if (operation.requestBody && operation.requestBody.content) {
                       for (let content in operation.requestBody.content) {
                           const contentObj = operation.requestBody.content[content];
+                          // Process schema properties if schema exists
+                          if (contentObj.schema) {
+                              const readOnlyProperties = [];
+                              // Process main properties
+                              if (contentObj.schema.properties) {
+                                  _.map(contentObj.schema.properties, function(property, propertyName) {
+                                      property.default = (property.default === 0) ? '0' :
+                                          (property.default === null) ? 'null' :
+                                              (property.default === true) ? 'true' :
+                                                  (property.default === false) ? 'false' :
+                                                      (property.default && _.isEmpty(property.default)) ? '[]' : property.default;
+                                      property['x-immutable'] = (verb === 'patch') ? property['x-immutable'] : false;
+                                      if (verb === 'post' && property['x-read-only']) {
+                                          readOnlyProperties.push(propertyName);
+                                      }
+                                  });
+                                  _.forEach(contentObj.schema.required, function(requiredProperty) {
+                                      if (contentObj.schema.properties && contentObj.schema.properties[requiredProperty]) {
+                                          if (verb !== 'patch') {
+                                              contentObj.schema.properties[requiredProperty].required = true;
+                                          } else {
+                                              contentObj.schema.properties[requiredProperty].patchRequired = true;
+                                          }
+                                      }
+                                  });
+                              }
+                              // Process items properties if schema.items exists
+                              if (contentObj.schema.items && contentObj.schema.items.properties) {
+                                  _.map(contentObj.schema.items.properties, function(property, propertyName) {
+                                      property.default = (property.default === 0) ? '0' :
+                                          (property.default === null) ? 'null' :
+                                              (property.default === true) ? 'true' :
+                                                  (property.default === false) ? 'false' :
+                                                      (property.default && _.isEmpty(property.default)) ? '[]' : property.default;
+                                      property['x-immutable'] = (verb === 'patch') ? property['x-immutable'] : false;
+                                      if (verb === 'post' && property['x-read-only']) {
+                                          readOnlyProperties.push(propertyName);
+                                      }
+                                  });
+                                  _.forEach(contentObj.schema.items.required, function(requiredProperty) {
+                                      if (contentObj.schema.items.properties && contentObj.schema.items.properties[requiredProperty]) {
+                                          if (verb !== 'patch') {
+                                              contentObj.schema.items.properties[requiredProperty].required = true;
+                                          } else {
+                                              contentObj.schema.items.properties[requiredProperty].patchRequired = true;
+                                          }
+                                      }
+                                  });
+                              }
+                              // Remove read-only properties from schema
+                              if (contentObj.schema.properties) {
+                                  _.forEach(readOnlyProperties, function(propToDelete) {
+                                      delete contentObj.schema.properties[propToDelete];
+                                  });
+                              }
+                              // Remove read-only properties from example
+                              if (contentObj.schema && contentObj.schema.example) {
+                                  _.forEach(readOnlyProperties, function(propToDelete) {
+                                      delete contentObj.schema.example[propToDelete];
+                                  });
+                              }
+                          }
+                          // Get example from request body schema or request body examples
                           if (contentObj.example) {
                               operation.requestBody.hljsExample = formatJsonExample(
                                   contentObj.example,
