@@ -49,6 +49,12 @@ patch:
       required: true
       schema:
         $ref: "#/definitions/ProductModel"
+    - name: create_missing_options
+      in: query
+      description: Optional parameter to allow for the creation of missing options for attribute allowing it. (Only available since in Saas version)
+      required: false
+      type: string
+      default: no value
   responses:
     201:
       $ref: "#/responses/Created"
