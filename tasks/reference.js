@@ -7,7 +7,6 @@
  * - Create HTML from Handlebars
  */
 var gulp = require('gulp');
-var swagger = require('gulp-swagger');
 var jsonTransform = require('gulp-json-transform');
 var _ = require('lodash');
 var hbs = require('handlebars');
@@ -15,6 +14,59 @@ var gulpHandlebars = require('gulp-handlebars-html')(hbs);
 var rename = require('gulp-rename');
 var highlightJs = require('highlightjs');
 var revReplace = require('gulp-rev-replace');
+
+var MarkdownIt = require('markdown-it');
+var md = new MarkdownIt();
+
+// Helper function to render markdown with consistent formatting
+function renderMarkdown(text) {
+    if (!text) return text;
+    let rendered = md.render(text);
+    // Remove wrapping <p> tags for inline content
+    if (rendered.startsWith('<p>') && rendered.endsWith('</p>\n')) {
+        return rendered.substring(3, rendered.length - 5);
+    }
+    return rendered;
+}
+
+// Helper function to format JSON examples with syntax highlighting
+function formatJsonExample(example, isBodyByLine = false) {
+    if (!example) return null;
+
+    let highlightedExample;
+    if (isBodyByLine && typeof example === 'string') {
+        highlightedExample = highlightJs.highlight('json', example, true);
+    } else {
+        const jsonString = typeof example === 'string' ? example : JSON.stringify(example, null, 2);
+        highlightedExample = highlightJs.highlight('json', jsonString, true);
+    }
+    return '<pre class="hljs"><code>' + highlightedExample.value + '</code></pre>';
+}
+
+// Helper function to create or update category and resource structure
+function setupCategoryAndResource(data, operation, escapeTag, escapeCategory, category) {
+    if (!data.categories[escapeCategory]) {
+        data.categories[escapeCategory] = { categoryName: category, resources: {} };
+        if (escapeCategory === 'PAM') {
+            data.categories[escapeCategory].categoryDeprecated = true;
+        }
+    }
+
+    if (!data.categories[escapeCategory].resources[escapeTag]) {
+        data.categories[escapeCategory].resources[escapeTag] = {
+            resourceName: operation.tags[0],
+            operations: {}
+        };
+    }
+
+    if (category.includes('Catalogs for Apps')) {
+        data.categories[escapeCategory].isAppCategory = true;
+    }
+
+    if (escapeTag.includes('Productidentifier') || escapeTag.includes('Productuuid')) {
+        data.categories[escapeCategory].resources[escapeTag].isProductIdentifierOrUUID = true;
+    }
+}
 
 const ignoreVersionImcompatibleProperties = async (data, version) => {
     const { default: objectScan } = await import('object-scan')
@@ -41,8 +93,6 @@ function determineCategory(tag){
         case 'Product model':
         case 'Product media file':
             return 'Products';
-        case 'Published product':
-            return 'Published products';
         case 'Family':
         case 'Family variant':
         case 'Attribute':
@@ -63,12 +113,6 @@ function determineCategory(tag){
         case 'Asset attribute option':
         case 'Asset media file':
             return 'Asset Manager';
-        case 'PAM asset category':
-        case 'PAM asset tag':
-        case 'PAM asset':
-        case 'PAM asset reference file':
-        case 'PAM asset variation file':
-            return 'PAM';
         case 'Reference entity record':
         case 'Reference entity':
         case 'Reference entity media file':
@@ -84,231 +128,556 @@ function determineCategory(tag){
             return 'Extensions';
         case 'Jobs':
             return 'Jobs';
-        case 'Workflow':
-        case 'Workflow execution':
-        case 'Workflow task':
+        case 'Workflows':
+        case 'Workflow executions':
+        case 'Workflow tasks':
             return 'Workflows';
         default:
             return 'Utilities';
     }
 }
 
-gulp.task('reference', ['clean-dist', 'less'], function() {
+gulp.task('fetch-remote-openapi', function(done) {
+    const https = require('https');
+    const fs = require('fs');
+    const url = 'https://storage.googleapis.com/akecld-prd-pim-saas-shared-openapi-spec/openapi.json';
+    const filePath = 'content/openapi/openapi.json';
 
-    var versions = ['1.7', '2.0', '2.1', '2.2', '2.3', '3.0', '3.1', '3.2', '4.0', '5.0', '6.0', '7.0', 'SaaS'];
-    // We construct a reference index file and a complete reference file for each PIM version: 1.7, 2.0 and 2.1.
-    // When we construct the 1.7 files, we filter to not include the new 2.0 and the 2.1 endpoints.
-    // Same thing when we construct the 2.0 files, we filter to not include the 2.1 endpoints.
-    _.forEach(versions, function(version) {
+    https.get(url, (response) => {
+        if (response.statusCode !== 200) {
+            done(new Error(`Failed to fetch remote file: ${response.statusCode}`));
+            return;
+        }
 
-        var htmlReferenceIndexfileName = (version === '1.7') ? 'api-reference-index-17' :
-                                        (version === '2.0') ? 'api-reference-index-20' :
-                                        (version === '2.1') ? 'api-reference-index-21' :
-                                        (version === '2.2') ? 'api-reference-index-22' :
-                                        (version === '2.3') ? 'api-reference-index-23' :
-                                        (version === '3.0') ? 'api-reference-index-30' :
-                                        (version === '3.1') ? 'api-reference-index-31' :
-                                        (version === '3.2') ? 'api-reference-index-32' :
-                                        (version === '4.0') ? 'api-reference-index-40' :
-                                        (version === '5.0') ? 'api-reference-index-50' :
-                                        (version === '6.0') ? 'api-reference-index-60' :
-                                        (version === '7.0') ? 'api-reference-index-70' : 'api-reference-index';
-        var htmlReferencefileName = (version === '1.7') ? 'api-reference-17' :
-                                    (version === '2.0') ? 'api-reference-20' :
-                                    (version === '2.1') ? 'api-reference-21' :
-                                    (version === '2.2') ? 'api-reference-22' :
-                                    (version === '2.3') ? 'api-reference-23' :
-                                    (version === '3.0') ? 'api-reference-30' :
-                                    (version === '3.1') ? 'api-reference-31' :
-                                    (version === '3.2') ? 'api-reference-32' :
-                                    (version === '4.0') ? 'api-reference-40' :
-                                    (version === '5.0') ? 'api-reference-50' :
-                                    (version === '6.0') ? 'api-reference-60' :
-                                    (version === '7.0') ? 'api-reference-70' : 'api-reference';
+        const file = fs.createWriteStream(filePath);
+        response.pipe(file);
 
-        gulp.src('./content/swagger/akeneo-web-api.yaml')
-            .pipe(swagger('akeneo-web-api.json'))
-            .pipe(jsonTransform(function(data, file) {
-                var templateData = data;
-                data.categories = {};
-                data.pimVersion = version;
-                data.htmlReferencefileName = htmlReferencefileName;
-                _.forEach(data.paths, function(path, pathUri) {
-                    _.forEach(path, function(operation, verb) {
-                        // This is where we filter the endpoints depending on their availability in the PIM versions
-                        if (_.find(operation['x-versions'], function(o) { return (o === version) || o.startsWith(version.split('.')[0]) && o.endsWith('x'); })) {
-                            var escapeTag = operation.tags[0].replace(/[^\w]/g, '');
-                            var category = determineCategory(operation.tags[0]);
-                            escapeCategory = category.replace(/[^\w]/g, '');
-                            if (!data.categories[escapeCategory]){
-                                data.categories[escapeCategory] = { categoryName: category, resources: {}};
-                                if(escapeCategory === 'PAM') {
-                                    data.categories[escapeCategory].categoryDeprecated = true;
-                                }
-                            }
-                            if (!data.categories[escapeCategory].resources[escapeTag]) {
-                                data.categories[escapeCategory].resources[escapeTag] = { resourceName: operation.tags[0], operations: {}};
-                            }
-                            if(category.includes('Catalogs for Apps')) {
-                                data.categories[escapeCategory].isAppCategory = true;
-                            }
-                            if(category.includes('Published products')) {
-                                data.categories[escapeCategory].isPublishedProduct = true;
-                            }
-                            if(escapeTag.includes('Productidentifier') || escapeTag.includes('Productuuid')) {
-                                data.categories[escapeCategory].resources[escapeTag].isProductIdentifierOrUUID = true;
-                            }
-                            data.categories[escapeCategory].resources[escapeTag].operations[operation.operationId] = _.extend(operation, {
-                                verb: verb,
-                                path: pathUri
-                            });
-                        }
-                    });
-                });
-                return gulp.src('src/api-reference/index.handlebars')
-                    .pipe(gulpHandlebars(templateData, {}))
-                    .pipe(rename(htmlReferenceIndexfileName + '.html'))
-                    .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))
-                    .pipe(gulp.dest('dist'));
-            }));
+        file.on('finish', () => {
+            console.log('Successfully downloaded remote events documentation');
+            file.close();
+            done();
+        });
 
-        gulp.src('content/swagger/akeneo-web-api.yaml')
-            .pipe(swagger('akeneo-web-api.json'))
-            .pipe(gulp.dest('content/swagger'))
-            .pipe(jsonTransform(async function(data) {
-                await ignoreVersionImcompatibleProperties(data, version);
-                var templateData = data;
-                data.categories = {};
-                data.pimVersion = version;
-                _.map(data.definitions, function(definition) {
-                    _.forEach(definition.required, function(requiredProperty) {
-                        definition.properties[requiredProperty].required = true;
-                    });
-                    return definition;
-                });
-                _.forEach(data.paths, function(path, pathUri) {
-                    _.forEach(path, function(operation, verb) {
-                        // This is where we filter the endpoints depending on their availability in the PIM versions
-                        if (_.find(operation['x-versions'], function(o) { return o === version || o.startsWith(version.split('.')[0]) && o.endsWith('x'); })) {
-                            var operationId = operation.operationId;
-                            var escapeTag = operation.tags[0].replace(/[^\w]/g, '');
-                            var category = determineCategory(operation.tags[0]);
-                            escapeCategory = category.replace(/[^\w]/g, '');
-                            if (!data.categories[escapeCategory]){
-                                data.categories[escapeCategory] = { categoryName: category, resources: {}};
-                                if(escapeCategory === 'PAM') {
-                                    data.categories[escapeCategory].categoryDeprecated = true;
-                                }
-                            }
-                            if (!data.categories[escapeCategory].resources[escapeTag]) {
-                                data.categories[escapeCategory].resources[escapeTag] = { resourceName: operation.tags[0], operations: {}};
-                            }
-                            if(category.includes('Catalogs for Apps')) {
-                                data.categories[escapeCategory].isAppCategory = true;
-                            }
-                            if(category.includes('Published products')) {
-                                data.categories[escapeCategory].isPublishedProduct = true;
-                            }
-                            if(escapeTag.includes('Productidentifier') || escapeTag.includes('Productuuid')) {
-                                data.categories[escapeCategory].resources[escapeTag].isProductIdentifierOrUUID = true;
-                            }
-                            var groupedParameters = _.groupBy(operation.parameters, function(parameter) {
-                                return parameter.in;
-                            });
-                            _.map(groupedParameters.body, function(parameter) {
-                                var readOnlyProperties = [];
-                                _.map(parameter.schema.properties, function(property, propertyName) {
-                                    property.default = (property.default === 0) ? '0' :
-                                        (property.default === null) ? 'null' :
-                                        (property.default === true) ? 'true' :
-                                        (property.default === false) ? 'false' :
-                                        (property.default && _.isEmpty(property.default)) ? '[]' : property.default;
-                                    property['x-immutable'] = (verb === 'patch') ? property['x-immutable'] : false;
-                                    if (verb === 'post' && property['x-read-only']) {
-                                        readOnlyProperties.push(propertyName);
-                                    }
-                                });
-                                _.forEach(parameter.schema.required, function(requiredProperty) {
-                                    if (verb !== 'patch') {
-                                        parameter.schema.properties[requiredProperty].required = true;
-                                    } else {
-                                        parameter.schema.properties[requiredProperty].patchRequired = true;
-                                    }
-                                });
-                                if(parameter.schema.items){
-                                    _.map(parameter.schema.items.properties, function(property, propertyName) {
-                                        property.default = (property.default === 0) ? '0' :
-                                            (property.default === null) ? 'null' :
-                                            (property.default === true) ? 'true' :
-                                            (property.default === false) ? 'false' :
-                                            (property.default && _.isEmpty(property.default)) ? '[]' : property.default;
-                                        property['x-immutable'] = (verb === 'patch') ? property['x-immutable'] : false;
-                                        if (verb === 'post' && property['x-read-only']) {
-                                            readOnlyProperties.push(propertyName);
-                                        }
-                                    });
-                                    _.forEach(parameter.schema.items.required, function(requiredProperty) {
-                                        if (verb !== 'patch') {
-                                            parameter.schema.items.properties[requiredProperty].required = true;
-                                        } else {
-                                            parameter.schema.items.properties[requiredProperty].patchRequired = true;
-                                        }
-                                    });
-                                }
-                                _.forEach(readOnlyProperties, function(propToDelete) {
-                                    delete parameter.schema.properties[propToDelete];
-                                });
-                                if (parameter.schema && parameter.schema.example) {
-                                    _.forEach(readOnlyProperties, function(propToDelete) {
-                                        delete parameter.schema.example[propToDelete];
-                                    });
-                                    var highlightjsExample = parameter.schema['x-examples'] ?
-                                        highlightJs.highlight('bash', parameter.schema['x-examples']['x-example-1'] + '\n' +
-                                            parameter.schema['x-examples']['x-example-2'] + '\n' +
-                                            parameter.schema['x-examples']['x-example-3'], true) :
-                                        highlightJs.highlight('json', JSON.stringify(parameter.schema.example, null, 2), true);
-                                    parameter.schema.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
-                                }
-                                return parameter;
-                            });
-
-                            _.map(operation.responses, function(response, code) {
-                                var status = code.match(/^2.*$/) ? 'success' : 'error';
-                                response[status] = true;
-                                response.id = operationId + '_' + code;
-
-                                if (response.hasOwnProperty('x-examples-per-version')) {
-                                    const sortedExamples = _.reverse(_.sortBy(response['x-examples-per-version'], ['x-version']));
-                                    const closestExample = _.find(sortedExamples, function(exemplePerVersion) {
-                                        return exemplePerVersion['x-version'] <= version;
-                                    });
-                                    if (closestExample === undefined) {
-                                        console.log('Error: Missing example for version "' + version + '" of route "' + verb + ' ' + pathUri + '"');
-                                        return;
-                                    }
-                                    const stringValue = highlightJs.highlight('json', JSON.stringify(closestExample['x-example'], null, 2), true);
-                                    response.hljsExample = '<pre class="hljs"><code>' + stringValue.value + '</code></pre>';
-                                    return response;
-                                }
-
-                                var example = response.examples || response['x-examples'] || ((response.schema) ? response.schema.example : undefined);
-                                if (example) {
-                                    var highlightjsExample = example['x-example-1'] ?
-                                        highlightJs.highlight('bash', example['x-example-1'] + '\n' + example['x-example-2'] + '\n' + example['x-example-3'], true) :
-                                        highlightJs.highlight('json', JSON.stringify(example, null, 2), true);
-                                    response.hljsExample = '<pre class="hljs"><code>' + highlightjsExample.value + '</code></pre>';
-                                }
-                                return response;
-                            });
-                            data.categories[escapeCategory].resources[escapeTag].operations[operationId] = _.extend(operation, { verb: verb, path: pathUri, groupedParameters: groupedParameters });
-                        }
-                    });
-                });
-                return gulp.src('src/api-reference/reference.handlebars')
-                    .pipe(gulpHandlebars(templateData, {}))
-                    .pipe(rename(htmlReferencefileName + '.html'))
-                    .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))
-                    .pipe(gulp.dest('dist'));
-            }));
+        file.on('error', (err) => {
+            fs.unlink(filePath, () => {});
+            done(err);
+        });
+    }).on('error', (err) => {
+        done(err);
     });
+});
+
+gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function() {
+
+    gulp.src('content/openapi/openapi.json')
+      .pipe(jsonTransform(function(data) {
+          data.htmlReferencefileName = 'api-reference'
+          data.categories = {};
+          _.forEach(data.paths, function(path, pathUri) {
+              _.forEach(path, function(operation, verb) {
+                  // Check if tags exist and have at least one element
+                  if (!operation.tags || !operation.tags[0]) {
+                      console.warn('Warning: Operation missing tags for path', pathUri, verb);
+                      return; // Skip this operation
+                  }
+                  var escapeTag = operation.tags[0].replace(/[^\w]/g, '');
+                  var category = determineCategory(operation.tags[0]);
+                  var escapeCategory = category.replace(/[^\w]/g, '');
+
+                  setupCategoryAndResource(data, operation, escapeTag, escapeCategory, category);
+
+                  data.categories[escapeCategory].resources[escapeTag].operations[operation.operationId] = _.extend(operation, {
+                      verb: verb,
+                      path: pathUri
+                  });
+              });
+          });
+
+          return gulp.src('src/api-reference/index.handlebars')
+            .pipe(gulpHandlebars(data, {
+                partialsDirectory: ['./src/partials']
+            }))
+            .pipe(rename('api-reference-index.html'))
+            .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))
+            .pipe(gulp.dest('dist'));
+      }))
+
+    gulp.src('content/openapi/openapi.json')
+      .pipe(gulp.dest('content/swagger'))
+      .pipe(jsonTransform(function(data) {
+
+          // use x-body-by-line-schema when available
+          for (let path in data.paths) {
+              for (let operation in data.paths[path]) {
+                  if (data.paths[path][operation].requestBody) {
+                      for (let content in (data.paths[path][operation].requestBody.content ?? {})) {
+                          if (data.paths[path][operation].requestBody.content[content]['x-body-by-line-schema']) {
+                              data.paths[path][operation].requestBody.content[content].schema = data.paths[path][operation].requestBody.content[content]['x-body-by-line-schema'];
+                          }
+                      }
+                  }
+
+                  for (let response in (data.paths[path][operation].responses ?? {})) {
+                      for (let content in (data.paths[path][operation].responses[response].content ?? {})) {
+                          if (data.paths[path][operation].responses[response].content[content]['x-body-by-line-schema']) {
+                              data.paths[path][operation].responses[response].content[content].schema = data.paths[path][operation].responses[response].content[content]['x-body-by-line-schema'];
+                          }
+                      }
+                  }
+              }
+          }
+
+          // translate markdown to html in each parameter description
+          _.map(data.paths, function(path) {
+              _.map(path, function(operation) {
+                  if (operation.description) {
+                      operation.description = renderMarkdown(operation.description);
+                  }
+                  _.map(operation.parameters, function(parameter) {
+                      if (parameter.description) {
+                          parameter.description = renderMarkdown(parameter.description);
+                      }
+                      if(parameter.schema && parameter.schema.description) {
+                          parameter.schema.description = renderMarkdown(parameter.schema.description);
+                      }
+                      return parameter;
+                  });
+
+                  function renderDescriptions(schema) {
+                      if (!schema) return;
+                      if (schema.description) {
+                          schema.description = renderMarkdown(schema.description);
+                      }
+                      // Always recurse into 'properties' if present
+                      if (schema.properties) {
+                          _.forEach(schema.properties, renderDescriptions);
+                      }
+                      // Recurse into 'patternProperties' if present (for dynamic properties)
+                      if (schema.patternProperties) {
+                          _.forEach(schema.patternProperties, renderDescriptions);
+                      }
+                      // Always recurse into 'items' if present (for arrays)
+                      if (schema.items) {
+                          renderDescriptions(schema.items);
+                      }
+                      // Recurse into 'allOf', 'anyOf', 'oneOf' if present (for composed schemas)
+                      ['allOf', 'anyOf', 'oneOf'].forEach(key => {
+                          if (Array.isArray(schema[key])) {
+                              schema[key].forEach(renderDescriptions);
+                          }
+                      });
+                      // Recurse into nested 'schema' if present
+                      if (schema.schema) {
+                          renderDescriptions(schema.schema);
+                      }
+                  }
+
+                  // For requestBody
+                  _.map(operation?.requestBody?.content ?? {}, function(content) {
+                      if (content.schema) {
+                          renderDescriptions(content.schema);
+                      }
+                      return content;
+                  });
+
+                  // For responses
+                  _.map(operation.responses, function(response) {
+                      if (response.description) {
+                          response.description = renderMarkdown(response.description);
+                      }
+                      for (let content in response.content) {
+                          if (response.content[content].schema) {
+                              renderDescriptions(response.content[content].schema);
+                          }
+                      }
+                      return response;
+                  });
+
+                  return operation;
+              });
+              return path;
+          });
+
+          // Remove empty requestBody
+          for (let path in data.paths) {
+              for (let operation in data.paths[path]) {
+                  if (data.paths[path][operation].requestBody) {
+                      const requestBody = data.paths[path][operation].requestBody;
+                      // Check if requestBody has no content or empty content
+                      if (!requestBody.content || Object.keys(requestBody.content).length === 0) {
+                          delete data.paths[path][operation].requestBody;
+                      } else {
+                          // Check if all content types have empty or meaningless schemas
+                          let hasNonEmptyContent = false;
+                          for (let contentType in requestBody.content) {
+                              const content = requestBody.content[contentType];
+                              if (content.schema) {
+                                  // Check if schema is truly non-empty
+                                  // A schema with just type: object and no properties is considered empty
+                                  const schema = content.schema;
+                                  const isEmptyObjectSchema =
+                                      schema.type === 'object' &&
+                                      (!schema.properties || Object.keys(schema.properties).length === 0) &&
+                                      !schema.additionalProperties &&
+                                      !schema.allOf &&
+                                      !schema.oneOf &&
+                                      !schema.anyOf;
+
+                                  // Check if example is also empty
+                                  const hasEmptyExample =
+                                      content.example !== undefined &&
+                                      (content.example === null ||
+                                       (typeof content.example === 'object' && Object.keys(content.example).length === 0));
+
+                                  // If schema is not an empty object schema, or has meaningful content
+                                  if (!isEmptyObjectSchema || (!hasEmptyExample && content.example !== undefined)) {
+                                      hasNonEmptyContent = true;
+                                      break;
+                                  }
+                              }
+                          }
+                          if (!hasNonEmptyContent) {
+                              delete data.paths[path][operation].requestBody;
+                          }
+                      }
+                  }
+              }
+          }
+
+          // Transform patternProperties into displayable format
+          function transformPatternProperties(schema, parentKey = null) {
+              if (!schema) return;
+
+              // First, recursively process all nested schemas
+              if (schema.properties) {
+                  Object.entries(schema.properties).forEach(([key, prop]) => {
+                      // Skip transforming patternProperties for 'values' property
+                      transformPatternProperties(prop, key);
+                  });
+              }
+              if (schema.items) {
+                  transformPatternProperties(schema.items, parentKey);
+              }
+              if (schema.additionalProperties && typeof schema.additionalProperties === 'object') {
+                  transformPatternProperties(schema.additionalProperties, parentKey);
+              }
+              ['allOf', 'anyOf', 'oneOf'].forEach(key => {
+                  if (Array.isArray(schema[key])) {
+                      schema[key].forEach(s => transformPatternProperties(s, parentKey));
+                  }
+              });
+
+              // Skip patternProperties transformation for 'values' schemas
+              if (parentKey === 'values') {
+                  return;
+              }
+
+              // Then, handle patternProperties at this level
+              if (schema.patternProperties) {
+                  // If the schema doesn't have properties yet, create an empty object
+                  if (!schema.properties) {
+                      schema.properties = {};
+                  }
+
+                  // Convert patternProperties to regular properties for display
+                  for (const [pattern, patternSchema] of Object.entries(schema.patternProperties)) {
+                      // Use the pattern as the key, wrapped to show it's a pattern
+                      const patternKey = `{${pattern}}`;
+
+                      // Merge the pattern schema into properties
+                      schema.properties[patternKey] = {
+                          ...patternSchema,
+                          description: patternSchema.description || '',
+                          isPatternProperty: true,
+                          pattern: pattern
+                      };
+                  }
+
+                  // Remove patternProperties after converting them to avoid duplication
+                  delete schema.patternProperties;
+              }
+          }
+
+          // Handle oneOf by keeping only the first element
+          function simplifyOneOf(schema) {
+              if (!schema) return;
+
+              // If schema has oneOf, replace with first element
+              if (schema.oneOf && Array.isArray(schema.oneOf) && schema.oneOf.length > 0) {
+                  const firstOption = schema.oneOf[0];
+                  // Use spread operator to merge properties
+                  Object.assign(schema, firstOption);
+                  delete schema.oneOf;
+              }
+
+              // Recursively process nested schemas
+              if (schema.properties) {
+                  Object.values(schema.properties).forEach(simplifyOneOf);
+              }
+              if (schema.patternProperties) {
+                  Object.values(schema.patternProperties).forEach(simplifyOneOf);
+              }
+              if (schema.items) {
+                  simplifyOneOf(schema.items);
+              }
+              if (schema.additionalProperties && typeof schema.additionalProperties === 'object') {
+                  simplifyOneOf(schema.additionalProperties);
+              }
+              // Process allOf, anyOf arrays
+              ['allOf', 'anyOf'].forEach(key => {
+                  if (Array.isArray(schema[key])) {
+                      schema[key].forEach(simplifyOneOf);
+                  }
+              });
+          }
+
+          // Apply oneOf simplification and patternProperties transformation to all operations
+          for (let path in data.paths) {
+              for (let operation in data.paths[path]) {
+                  // Process request body schemas
+                  if (data.paths[path][operation].requestBody) {
+                      for (let contentType in (data.paths[path][operation].requestBody.content ?? {})) {
+                          if (data.paths[path][operation].requestBody.content[contentType].schema) {
+                              simplifyOneOf(data.paths[path][operation].requestBody.content[contentType].schema);
+                              transformPatternProperties(data.paths[path][operation].requestBody.content[contentType].schema);
+                          }
+                      }
+                  }
+
+                  // Process response schemas
+                  for (let response in (data.paths[path][operation].responses ?? {})) {
+                      for (let contentType in (data.paths[path][operation].responses[response].content ?? {})) {
+                          if (data.paths[path][operation].responses[response].content[contentType].schema) {
+                              simplifyOneOf(data.paths[path][operation].responses[response].content[contentType].schema);
+                              transformPatternProperties(data.paths[path][operation].responses[response].content[contentType].schema);
+                          }
+                      }
+                  }
+
+                  // Process parameters schemas
+                  if (data.paths[path][operation].parameters) {
+                      data.paths[path][operation].parameters.forEach(param => {
+                          if (param.schema) {
+                              simplifyOneOf(param.schema);
+                              transformPatternProperties(param.schema);
+                          }
+                      });
+                  }
+              }
+          }
+
+          return data;
+      }))
+      .pipe(jsonTransform(function(data) {
+          data.categories = {};
+          _.forEach(data.paths, function(path, pathUri) {
+              _.forEach(path, function(operation, verb) {
+                  const operationId = operation.operationId;
+                  // Check if tags exist and have at least one element
+                  if (!operation.tags || !operation.tags[0]) {
+                      console.warn('Warning: Operation missing tags for operationId', operationId, verb);
+                      return; // Skip this operation
+                  }
+                  const escapeTag = operation.tags[0].replace(/\W/g, '');
+                  const category = determineCategory(operation.tags[0]);
+                  const escapeCategory = category.replace(/\W/g, '');
+
+                  setupCategoryAndResource(data, operation, escapeTag, escapeCategory, category);
+                  const groupedParameters = _.groupBy(operation.parameters, parameter => parameter.in);
+
+                  _.map(groupedParameters.body, function(parameter) {
+                      const readOnlyProperties = [];
+                      _.map(parameter.schema.properties, function(property, propertyName) {
+                          property.default = (property.default === 0) ? '0' :
+                            (property.default === null) ? 'null' :
+                              (property.default === true) ? 'true' :
+                                (property.default === false) ? 'false' :
+                                  (property.default && _.isEmpty(property.default)) ? '[]' : property.default;
+                          property['x-immutable'] = (verb === 'patch') ? property['x-immutable'] : false;
+                          if (verb === 'post' && property['x-read-only']) {
+                              readOnlyProperties.push(propertyName);
+                          }
+                      });
+                      _.forEach(parameter.schema.required, function(requiredProperty) {
+                          if (verb !== 'patch') {
+                              parameter.schema.properties[requiredProperty].required = true;
+                          } else {
+                              parameter.schema.properties[requiredProperty].patchRequired = true;
+                          }
+                      });
+                      if(parameter.schema.items){
+                          _.map(parameter.schema.items.properties, function(property, propertyName) {
+                              property.default = (property.default === 0) ? '0' :
+                                (property.default === null) ? 'null' :
+                                  (property.default === true) ? 'true' :
+                                    (property.default === false) ? 'false' :
+                                      (property.default && _.isEmpty(property.default)) ? '[]' : property.default;
+                              property['x-immutable'] = (verb === 'patch') ? property['x-immutable'] : false;
+                              if (verb === 'post' && property['x-read-only']) {
+                                  readOnlyProperties.push(propertyName);
+                              }
+                          });
+                          _.forEach(parameter.schema.items.required, function(requiredProperty) {
+                              if (verb !== 'patch') {
+                                  parameter.schema.items.properties[requiredProperty].required = true;
+                              } else {
+                                  parameter.schema.items.properties[requiredProperty].patchRequired = true;
+                              }
+                          });
+                      }
+                      _.forEach(readOnlyProperties, function(propToDelete) {
+                          delete parameter.schema.properties[propToDelete];
+                      });
+                      if (parameter.schema && parameter.schema.example) {
+                          _.forEach(readOnlyProperties, function(propToDelete) {
+                              delete parameter.schema.example[propToDelete];
+                          });
+                          parameter.schema.hljsExample = formatJsonExample(parameter.schema.examples);
+                      }
+                      return parameter;
+                  });
+
+                  // Process requestBody schema properties (same as body parameters)
+                  if (operation.requestBody && operation.requestBody.content) {
+                      for (let content in operation.requestBody.content) {
+                          const contentObj = operation.requestBody.content[content];
+                          // Process schema properties if schema exists
+                          if (contentObj.schema) {
+                              const readOnlyProperties = [];
+                              // Process main properties
+                              if (contentObj.schema.properties) {
+                                  _.map(contentObj.schema.properties, function(property, propertyName) {
+                                      property.default = (property.default === 0) ? '0' :
+                                          (property.default === null) ? 'null' :
+                                              (property.default === true) ? 'true' :
+                                                  (property.default === false) ? 'false' :
+                                                      (property.default && _.isEmpty(property.default)) ? '[]' : property.default;
+                                      property['x-immutable'] = (verb === 'patch') ? property['x-immutable'] : false;
+                                      if (verb === 'post' && property['x-read-only']) {
+                                          readOnlyProperties.push(propertyName);
+                                      }
+                                  });
+                                  _.forEach(contentObj.schema.required, function(requiredProperty) {
+                                      if (contentObj.schema.properties && contentObj.schema.properties[requiredProperty]) {
+                                          if (verb !== 'patch') {
+                                              contentObj.schema.properties[requiredProperty].required = true;
+                                          } else {
+                                              contentObj.schema.properties[requiredProperty].patchRequired = true;
+                                          }
+                                      }
+                                  });
+                              }
+                              // Process items properties if schema.items exists
+                              if (contentObj.schema.items && contentObj.schema.items.properties) {
+                                  _.map(contentObj.schema.items.properties, function(property, propertyName) {
+                                      property.default = (property.default === 0) ? '0' :
+                                          (property.default === null) ? 'null' :
+                                              (property.default === true) ? 'true' :
+                                                  (property.default === false) ? 'false' :
+                                                      (property.default && _.isEmpty(property.default)) ? '[]' : property.default;
+                                      property['x-immutable'] = (verb === 'patch') ? property['x-immutable'] : false;
+                                      if (verb === 'post' && property['x-read-only']) {
+                                          readOnlyProperties.push(propertyName);
+                                      }
+                                  });
+                                  _.forEach(contentObj.schema.items.required, function(requiredProperty) {
+                                      if (contentObj.schema.items.properties && contentObj.schema.items.properties[requiredProperty]) {
+                                          if (verb !== 'patch') {
+                                              contentObj.schema.items.properties[requiredProperty].required = true;
+                                          } else {
+                                              contentObj.schema.items.properties[requiredProperty].patchRequired = true;
+                                          }
+                                      }
+                                  });
+                              }
+
+                              // Remove read-only properties from schema
+                              if (contentObj.schema.properties) {
+                                  _.forEach(readOnlyProperties, function(propToDelete) {
+                                      delete contentObj.schema.properties[propToDelete];
+                                  });
+                              }
+                              // Remove read-only properties from example
+                              if (contentObj.schema && contentObj.schema.example) {
+                                  _.forEach(readOnlyProperties, function(propToDelete) {
+                                      delete contentObj.schema.example[propToDelete];
+                                  });
+                              }
+                          }
+                          // Get example from request body schema or request body examples
+                          if (contentObj.example) {
+                              operation.requestBody.hljsExample = formatJsonExample(
+                                  contentObj.example,
+                                  operation['x-body-by-line']
+                              );
+                              break;
+                          } else if (contentObj.examples) {
+                              const examplesKeys = Object.keys(contentObj.examples);
+                              if (examplesKeys.length > 0) {
+                                  const firstKey = examplesKeys[0];
+                                  operation.requestBody.hljsExample = formatJsonExample(
+                                      contentObj.examples[firstKey]?.value
+                                  );
+                                  break;
+                              }
+                          }
+                      }
+                  }
+
+                  // Get example from response schema or response examples
+                  _.map(operation.responses, function(response, code) {
+                      const status = code.match(/^2.*$/) ? 'success' : 'error';
+                      response[status] = true;
+                      response.id = operationId + '_' + code;
+
+                      const content = response?.content ?? null;
+                      if (null !== content) {
+                          const contentKeys = Object.keys(content);
+                          if (contentKeys.length > 0) {
+                              const contentType = contentKeys[0];
+                              let responseExample = content[contentType].example ?? null
+                              if (null === responseExample) {
+                                  let responseExamples = content[contentType].examples ?? null
+                                  if (null !== responseExamples) {
+                                      const exampleKeys = Object.keys(responseExamples);
+                                      if (exampleKeys.length > 0) {
+                                          const firstExampleKey = exampleKeys[0];
+                                          responseExample = responseExamples[firstExampleKey]?.value ?? null;
+                                      }
+                                  }
+                              }
+                              if (null !== responseExample) {
+                                  if ('application/vnd.akeneo.collection+json' === contentType && typeof responseExample === 'string') {
+                                      const responseExampleLines = responseExample.split('\n');
+                                      for (let i = 0; i < responseExampleLines.length; i++) {
+                                          responseExampleLines[i] = highlightJs.highlight('json', responseExampleLines[i], true).value;
+                                      }
+                                      response.hljsExample = '<pre class="hljs"><code>' + responseExampleLines.join("\n") + '</code></pre>';
+                                  } else {
+                                      response.hljsExample = formatJsonExample(responseExample);
+                                  }
+
+                                  return response;
+                              }
+                          }
+                      }
+
+                      // Fallback to example in schema
+                      const example = response.examples || ((response.schema) ? response.schema.example : undefined);
+                      if (example) {
+                          response.hljsExample = formatJsonExample(example);
+                      }
+                      return response;
+                  });
+                  data.categories[escapeCategory].resources[escapeTag].operations[operationId] = _.extend(operation, { verb: verb, path: pathUri, groupedParameters: groupedParameters});
+              });
+          });
+          return gulp.src('src/api-reference/reference.handlebars')
+            .pipe(gulpHandlebars(data, {
+                partialsDirectory: ['./src/partials']
+            }))
+            .pipe(rename('api-reference.html'))
+            .pipe(revReplace({ manifest: gulp.src("./tmp/rev/rev-manifest.json") }))
+            .pipe(gulp.dest('dist'));
+      }));
 });
