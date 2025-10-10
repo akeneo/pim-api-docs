@@ -178,7 +178,7 @@ patch:
         x-example-1:
           '{"line":1,"code":"technical","status_code":201}'
         x-example-2:
-          '{"line":2,"code":"marketing","status_code":422,"message":"Property \"type\" does not exist. Check the standard format documentation.","_links":{"documentation":{"href":"http:\/\/api.akeneo.com\/api-reference.html#patch_attribute_groups__code_"}}}'
+          '{"line":2,"code":"marketing","status_code":422,"message":"Property \"type\" does not exist. Check the standard format documentation.","_links":{"documentation":{"href":"http:\/\/api.akeneo.com\/api-reference-paas.html#patch_attribute_groups__code_"}}}'
         x-example-3:
           '{"line":3,"code":"design","status_code":204}'
     401:

@@ -13,6 +13,7 @@ get:
     - "7.0"
     - "SaaS"
   x-ee: true
+  x-deprecated: true
   parameters:
     - name: search
       in: query

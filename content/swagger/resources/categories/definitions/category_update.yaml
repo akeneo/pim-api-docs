@@ -40,10 +40,10 @@ properties:
           description: Attribute value. It should be a `string` for Text and Text Area attributes, a `boolean` for Yes/No attribute and for Image attribute use the <a href="api-reference.html#post_category_media_files">create category media file endpoint</a>. It can also be `null` to remove the value.
         locale:
           type: string
-          description: <a href="api-reference.html#Locale">Locale</a> code of the attribute value.
+          description: <a href="api-reference-paas.html#Locale">Locale</a> code of the attribute value.
         channel:
           type: string
-          description: <a href="api-reference.html#Channel">Channel</a> code of the attribute value.
+          description: <a href="api-reference-paas.html#Channel">Channel</a> code of the attribute value.
         attribute_code:
           type: string
           description: The attribute code.
@@ -64,7 +64,7 @@ properties:
         description: Set category as mandatory for every product
   channel_requirements:
     type: array
-    description: List of <a href='api-reference.html#Channel'>Channel</a> codes on which the category is required for products completeness. Only category trees can be required, not child categories.
+    description: List of <a href='api-reference-paas.html#Channel'>Channel</a> codes on which the category is required for products completeness. Only category trees can be required, not child categories.
     x-validation-rules: Only applicable to root category
     items:
       type: string

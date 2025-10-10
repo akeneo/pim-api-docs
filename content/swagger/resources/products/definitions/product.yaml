@@ -14,12 +14,12 @@ properties:
     default: true
   family:
     type: string
-    description: <a href='api-reference.html#Family'>Family</a> code from which the product inherits its attributes and attributes requirements.
+    description: <a href='api-reference-paas.html#Family'>Family</a> code from which the product inherits its attributes and attributes requirements.
     x-validation-rules: It is equal to an existing family code. In the case of variant product, the given family should be the same as the product model family.
     default: "null only in the case of a non variant product"
   categories:
     type: array
-    description: Codes of the <a href='api-reference.html#Category'>categories</a> in which the product is classified
+    description: Codes of the <a href='api-reference-paas.html#Category'>categories</a> in which the product is classified
     x-validation-rules: Each string of the array is equal to an existing category code
     items:
       type: string
@@ -33,7 +33,7 @@ properties:
     default: []
   parent:
     type: string
-    description: Code of the parent <a href='api-reference.html#Productmodel'>product model</a> when the product is a variant (only available since the 2.0). This parent can be modified since the 2.3.
+    description: Code of the parent <a href='api-reference-paas.html#Productmodel'>product model</a> when the product is a variant (only available since the 2.0). This parent can be modified since the 2.3.
     x-validation-rules: It is equal to an existing product model code only if the product is variant otherwise it's equal to null
     default: "null"
     x-from-version: '2.0'
@@ -48,10 +48,10 @@ properties:
         properties:
           scope:
             type: string
-            description: <a href='api-reference.html#Channel'>Channel</a> code of the product value
+            description: <a href='api-reference-paas.html#Channel'>Channel</a> code of the product value
           locale:
             type: string
-            description: <a href='api-reference.html#Locale'>Locale</a> code of the product value
+            description: <a href='api-reference-paas.html#Locale'>Locale</a> code of the product value
           data:
             type: object
             description: Product value. See <a href='/concepts/products.html#the-data-format'>the `data` format</a> section for more details.

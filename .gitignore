@@ -8,5 +8,9 @@ config.json
 .env
 /.idea
 
+# OpenAPI spec file updated automatically
+/content/openapi/openapi.json
+/content/swagger/openapi.json
+
 # fetched from remote source :
 available-events.md
