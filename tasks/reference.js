@@ -256,6 +256,10 @@ gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function(
                       if (schema.patternProperties) {
                           _.forEach(schema.patternProperties, renderDescriptions);
                       }
+                      // Recurse into 'additionalProperties' if present (for dynamic properties)
+                      if (schema.additionalProperties && typeof schema.additionalProperties === 'object') {
+                          renderDescriptions(schema.additionalProperties);
+                      }
                       // Always recurse into 'items' if present (for arrays)
                       if (schema.items) {
                           renderDescriptions(schema.items);
@@ -345,31 +349,52 @@ gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function(
           }
 
           // Transform patternProperties into displayable format
-          function transformPatternProperties(schema, parentKey = null) {
+          function transformPatternProperties(schema, parentKey = null, isCategoryEndpoint = false) {
               if (!schema) return;
 
               // First, recursively process all nested schemas
               if (schema.properties) {
                   Object.entries(schema.properties).forEach(([key, prop]) => {
-                      // Skip transforming patternProperties for 'values' property
-                      transformPatternProperties(prop, key);
+                      // Skip transforming patternProperties for 'values' property (except for category endpoints)
+                      transformPatternProperties(prop, key, isCategoryEndpoint);
                   });
               }
               if (schema.items) {
-                  transformPatternProperties(schema.items, parentKey);
+                  transformPatternProperties(schema.items, parentKey, isCategoryEndpoint);
               }
               if (schema.additionalProperties && typeof schema.additionalProperties === 'object') {
-                  transformPatternProperties(schema.additionalProperties, parentKey);
+                  transformPatternProperties(schema.additionalProperties, parentKey, isCategoryEndpoint);
               }
               ['allOf', 'anyOf', 'oneOf'].forEach(key => {
                   if (Array.isArray(schema[key])) {
-                      schema[key].forEach(s => transformPatternProperties(s, parentKey));
+                      schema[key].forEach(s => transformPatternProperties(s, parentKey, isCategoryEndpoint));
                   }
               });
 
-              // Skip patternProperties transformation for 'values' schemas
-              if (parentKey === 'values') {
+              // Skip patternProperties transformation for 'values' schemas (except for category endpoints)
+              if (parentKey === 'values' && !isCategoryEndpoint) {
                   return;
+              }
+
+              // For category endpoints, transform additionalProperties into displayable format (applies to values property)
+              if (isCategoryEndpoint && schema.additionalProperties && typeof schema.additionalProperties === 'object') {
+                  // If the schema doesn't have properties yet, create an empty object
+                  if (!schema.properties) {
+                      schema.properties = {};
+                  }
+
+                  // Use a pattern-like key to indicate this is a dynamic property
+                  const dynamicKey = '{attributeCode|attributeUuid|channel|locale}';
+
+                  // Convert additionalProperties to a property for display
+                  schema.properties[dynamicKey] = {
+                      ...schema.additionalProperties,
+                      description: schema.additionalProperties.description || 'Attribute value object',
+                      isAdditionalProperty: true
+                  };
+
+                  // Remove additionalProperties after converting to avoid duplication
+                  delete schema.additionalProperties;
               }
 
               // Then, handle patternProperties at this level
@@ -398,7 +423,7 @@ gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function(
               }
           }
 
-          // Handle oneOf by keeping only the first element
+          // Handle oneOf and anyOf by keeping only the first element
           function simplifyOneOf(schema) {
               if (!schema) return;
 
@@ -408,6 +433,14 @@ gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function(
                   // Use spread operator to merge properties
                   Object.assign(schema, firstOption);
                   delete schema.oneOf;
+              }
+
+              // If schema has anyOf, replace with first element (same treatment as oneOf)
+              if (schema.anyOf && Array.isArray(schema.anyOf) && schema.anyOf.length > 0) {
+                  const firstOption = schema.anyOf[0];
+                  // Use spread operator to merge properties
+                  Object.assign(schema, firstOption);
+                  delete schema.anyOf;
               }
 
               // Recursively process nested schemas
@@ -423,23 +456,25 @@ gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function(
               if (schema.additionalProperties && typeof schema.additionalProperties === 'object') {
                   simplifyOneOf(schema.additionalProperties);
               }
-              // Process allOf, anyOf arrays
-              ['allOf', 'anyOf'].forEach(key => {
-                  if (Array.isArray(schema[key])) {
-                      schema[key].forEach(simplifyOneOf);
-                  }
-              });
+              // Process allOf arrays (anyOf is now handled above)
+              if (Array.isArray(schema.allOf)) {
+                  schema.allOf.forEach(simplifyOneOf);
+              }
           }
 
           // Apply oneOf simplification and patternProperties transformation to all operations
           for (let path in data.paths) {
               for (let operation in data.paths[path]) {
+                  // Check if this is a category endpoint
+                  const isCategoryEndpoint = data.paths[path][operation].tags &&
+                                            data.paths[path][operation].tags[0] === 'Category';
+
                   // Process request body schemas
                   if (data.paths[path][operation].requestBody) {
                       for (let contentType in (data.paths[path][operation].requestBody.content ?? {})) {
                           if (data.paths[path][operation].requestBody.content[contentType].schema) {
                               simplifyOneOf(data.paths[path][operation].requestBody.content[contentType].schema);
-                              transformPatternProperties(data.paths[path][operation].requestBody.content[contentType].schema);
+                              transformPatternProperties(data.paths[path][operation].requestBody.content[contentType].schema, null, isCategoryEndpoint);
                           }
                       }
                   }
@@ -449,7 +484,7 @@ gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function(
                       for (let contentType in (data.paths[path][operation].responses[response].content ?? {})) {
                           if (data.paths[path][operation].responses[response].content[contentType].schema) {
                               simplifyOneOf(data.paths[path][operation].responses[response].content[contentType].schema);
-                              transformPatternProperties(data.paths[path][operation].responses[response].content[contentType].schema);
+                              transformPatternProperties(data.paths[path][operation].responses[response].content[contentType].schema, null, isCategoryEndpoint);
                           }
                       }
                   }
@@ -459,7 +494,7 @@ gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function(
                       data.paths[path][operation].parameters.forEach(param => {
                           if (param.schema) {
                               simplifyOneOf(param.schema);
-                              transformPatternProperties(param.schema);
+                              transformPatternProperties(param.schema, null, isCategoryEndpoint);
                           }
                       });
                   }
