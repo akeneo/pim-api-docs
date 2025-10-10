@@ -1,0 +1,37 @@
+get:
+  summary: Get user's channels permissions
+  operationId: get_permissions_channels
+  description: This endpoint allows you to get the channels' permissions for a given user.
+  tags:
+    - Permissions
+  x-versions:
+    - "SaaS"
+  parameters:
+    - name: user_uuid
+      in: path
+      type: string
+      description: User UUID
+      required: true
+  responses:
+    200:
+      description: OK
+      x-details: Returns the user's channels permissions
+      x-examples-per-version:
+        - x-version: 'SaaS'
+          x-example:
+            userUuid: "abcd1234-5678-90ef-ghij-klmnopqrstuv"
+            channels:
+              ecommerce:
+                canView: "true"
+                canEdit: "false"
+              mobile:
+                canView: "false"
+                canEdit: "true"
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    404:
+      $ref: "#/responses/404Error"
+    406:
+      $ref: "#/responses/406Error"
