@@ -2,34 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1 class="rest">REST API reference cheat sheet</h1>
+                <h1 class="rest">REST API reference</h1>
             </div>
             <div class="col-xs-12 col-sm-9">
-                <p><em>All our available endpoints. Just for you.</em></p>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-                <div class="dropdown pull-right">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Your PIM version: <strong>{{{pimVersion}}}</strong>
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li class="dropdown-title">Choose your PIM version</li>
-                        <li><a href="/api-reference-index-17.html">1.7</a></li>
-                        <li><a href="/api-reference-index-20.html">2.0</a></li>
-                        <li><a href="/api-reference-index-21.html">2.1</a></li>
-                        <li><a href="/api-reference-index-22.html">2.2</a></li>
-                        <li><a href="/api-reference-index-23.html">2.3</a></li>
-                        <li><a href="/api-reference-index-30.html">3.0</a></li>
-                        <li><a href="/api-reference-index-31.html">3.1</a></li>
-                        <li><a href="/api-reference-index-32.html">3.2</a></li>
-                        <li><a href="/api-reference-index-40.html">4.0</a></li>
-                        <li><a href="/api-reference-index-50.html">5.0</a></li>
-                        <li><a href="/api-reference-index-60.html">6.0</a></li>
-                        <li><a href="/api-reference-index-70.html">7.0</a></li>
-                        <li><a href="/api-reference-index.html">SaaS</a></li>
-                    </ul>
-                </div>
+                <p><em>Complete reference on how to handle Akeneo PIM resources</em></p>
             </div>
         </div>
         <div class="row rest">
@@ -39,11 +15,11 @@
                         <p class="pre-nav rest"> <img class="pull-left" style="margin-right: 5px; height: 27px;" src="/img/icons/icon--rest.svg"> REST API endpoints</p>
                         {{#each categories as |category categoryId|}}
                             <li class="main-nav">
-                                <a href="#{{{categoryId}}}">{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}{{#if isPublishedProduct}}<em> - Deprecated</em>{{/if}}</a>
+                                <a href="#{{{categoryId}}}">{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</a>
                                 <ul class="nav">
                                     {{#each category.resources as |resource resourceId|}}
                                         <li class="sub-nav">
-                                            <a href="#{{{resourceId}}}">{{{resourceName}}}{{#if ../isPublishedProduct}}<em> - Deprecated</em>{{/if}}</a>
+                                            <a href="#{{{resourceId}}}">{{{resourceName}}}</a>
                                         </li>
                                     {{/each}}
                                 </ul>
@@ -56,24 +32,12 @@
                 {{#each categories as |category categoryId|}}
                     <a class="anchor" id="{{{categoryId}}}"></a>
                     <h2>{{{categoryName}}}{{#if categoryDeprecated}}<em> - Deprecated</em>{{/if}}</h2>
-                    {{#if categoryDeprecated}}
-                        <div class="alert alert-warning">
-                            <p>With the introduction of our new way to handle assets, the Asset Manager, the PAM feature has been removed from the v4.0 of the PIM. As a result, from now on, <b>all the endpoints regarding the PAM assets are deprecated</b>. They will not be available anymore starting from the v4.0.<br/>To understand why, we recommend you to read this <a href="https://medium.com/akeneo-labs/between-stability-and-innovation-c2d2dd61a804">Medium post</a>, we wrote on this special occasion.<br/>Also, don't hesitate to take a look at the <a href="/documentation/asset-manager.html">Asset Manager documentation</a> to discover this new feature and how much more efficient it will be to handle your precious assets.</p>
-                        </div>
-                    {{/if}}
                     {{#each category.resources as |resource resourceId|}}
                         <a class="anchor" id="{{{resourceId}}}"></a>
                         <h3 class="picto">
                             <img src="img/illustrations/illus--{{{resourceId}}}.svg"/>
                             {{{resourceName}}}{{#if ../categoryDeprecated}}<em> - Deprecated</em>{{/if}}
                         </h3>
-                        {{#if ../isPublishedProduct}}
-                            <a class="anchor" id="{{{categoryId}}}"></a>
-                            <div class="alert alert-danger">
-                                <p><b>Important update: Published Products discontinuation.</b> This feature is no longer actively supported and will soon be retired.
-                                    We recommend exploring alternative solutions. <a target="_blank" href="https://help.akeneo.com/en_US/serenity-take-the-power-over-your-products/important-update-deprecation-of-the-published-products-feature-from-akeneo-pim">Learn more in the help center.</a></p>
-                            </div>
-                        {{/if}}
                         {{#if isProductIdentifierOrUUID}}
                             <a class="anchor" id="{{{categoryId}}}"></a>
                             <div class="alert alert-warning">
@@ -97,23 +61,6 @@
                                             <p class="list-group-item-text">
                                                 <span class="label label-verb label-{{{verb}}}">{{{verb}}}</span>
                                                 <span class="text-api-url">{{{path}}}</span>
-                                            </p>
-                                        </div>
-                                        <div class="col-xs-12">
-                                            <p class="list-group-item-text pull-right">
-                                                <em class="small">PIM versions:</em>
-                                                {{#each x-versions as |version versionId|}}
-                                                    <span class="label label-version">{{{version}}}</span>
-                                                {{/each}}
-                                                <em class="small"> | PIM editions:</em>
-                                                {{#unless x-ee}}
-                                                    <span class="label label-ee">CE</span>
-                                                {{/unless}}
-                                                <span class="label label-ee">EE</span>
-                                                {{#if x-deprecated}}
-                                                    <em class="small"> | </em>
-                                                    <span class="label label-warning">deprecated</span>
-                                                {{/if}}
                                             </p>
                                         </div>
                                     </div>

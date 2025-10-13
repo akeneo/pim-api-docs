@@ -10,12 +10,12 @@ properties:
     default: true
   family:
     type: string
-    description: <a href='api-reference.html#Family'>Family</a> code from which the published product inherits its attributes and attributes requirements
+    description: <a href='api-reference-paas.html#Family'>Family</a> code from which the published product inherits its attributes and attributes requirements
     x-validation-rules: It is equal to an existing family code
     default: "null"
   categories:
     type: array
-    description: Codes of the <a href='api-reference.html#Category'>categories</a> in which the published product is classified
+    description: Codes of the <a href='api-reference-paas.html#Category'>categories</a> in which the published product is classified
     x-validation-rules: Each string of the array is equal to an existing category code
     items:
       type: string
@@ -38,13 +38,13 @@ properties:
         properties:
           scope:
             type: string
-            description: <a href='api-reference.html#Channel'>Channel</a> code of the product value
+            description: <a href='api-reference-paas.html#Channel'>Channel</a> code of the product value
           locale:
             type: string
-            description: <a href='api-reference.html#Locale'>Locale</a> code of the product value
+            description: <a href='api-reference-paas.html#Locale'>Locale</a> code of the product value
           data:
             type: object
-            description: <a href='api-reference.html#Productuuid'>Product</a> value
+            description: <a href='api-reference-paas.html#Productuuid'>Product</a> value
   associations:
     type: object
     description: Several associations related to groups and/or other published products, grouped by association types

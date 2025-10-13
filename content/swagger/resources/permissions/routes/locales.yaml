@@ -1,6 +1,6 @@
 get:
   summary: Get user's locales permissions
-  operationId: "get_permissions_locales"
+  operationId: get_permissions_locales
   description: This endpoint allows you to get the locales' permissions about a given user.
   tags:
     - Permissions

@@ -12,6 +12,7 @@ get:
     - "6.0"
     - "7.0"
     - "SaaS"
+  x-deprecated: true
   responses:
     200:
       description: Return measure families paginated
