@@ -1583,6 +1583,11 @@ As a result you will receive the following answer:
 
 When requesting a [list of assets via the REST API](/api-reference.html#get_assets), you can apply filters to get only the ones you want and also the kind of information you want in them.
 
+::: info
+For complex queries combining multiple conditions, you can use **logical operators** (`AND`, `OR`) to build more flexible filters.
+See [Filter assets with logical operators](/documentation/assets-filter-logical-operators.html) for detailed examples and usage.
+:::
+
 ### By asset codes
 
 ::: availability versions=7.0,SaaS editions=EE
