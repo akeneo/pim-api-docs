@@ -121,7 +121,7 @@ For this simple case, using the `IN` operator is more efficient:
 
 ### Example: Multi-language search
 
-Find assets with "summer" in the English title OR "�t�" in the French title:
+Find assets with "summer" in the English title OR "été" in the French title:
 
 ```
 /api/rest/v1/asset-manager/assets?search={
@@ -139,7 +139,7 @@ Find assets with "summer" in the English title OR "�t�" in the French title:
             "values": {
                 "title": {
                     "operator": "CONTAINS",
-                    "value": "�t�",
+                    "value": "été",
                     "locale": "fr_FR"
                 }
             }
