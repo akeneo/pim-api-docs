@@ -207,14 +207,8 @@ We currently use a static IP address provided by Google Cloud: `34.140.80.128`
 
 ### Kafka subscription
 
-This option delivers events to an Apache Kafka topic. It provides high-throughput, fault-tolerant event streaming capabilities for enterprise integrations.
-
-#### Key Advantages
-
-- **High Throughput:** Kafka is designed to handle high-volume event streams with low latency.
-- **Durability & Reliability:** Events are persisted to disk and replicated across multiple brokers for fault tolerance.
-- **Scalability:** Kafka clusters can be scaled horizontally to handle increasing event volumes.
-- **Ordering Guarantees:** Events are delivered in order within each partition.
+This option delivers events to an Apache Kafka topic. It provides high-throughput, fault-tolerant event streaming capabilities for enterprise integrations.  
+Failed deliveries are automatically retried with exponential backoff.
 
 #### Configuration
 
@@ -298,18 +292,6 @@ For secure connections, you can optionally configure TLS settings in the `config
 | `mechanism` | SASL authentication mechanism | Yes | `plain` |
 | `username` | Username for authentication | Yes | String |
 | `password` | Password for authentication | Yes | String |
-
-#### Event Delivery Guarantees
-
-- **At-least-once delivery:** Events are guaranteed to be delivered at least once to the Kafka topic.
-- **Ordering:** Events are delivered in the order they were generated within each partition.
-- **Retry mechanism:** Failed deliveries are automatically retried with exponential backoff.
-
-#### Monitoring and Troubleshooting
-
-- Monitor Kafka consumer lag to ensure your consumers are processing events in a timely manner.
-- Set up alerts for failed deliveries and consumer group lag.
-- Use Kafka's built-in monitoring tools to track topic health and performance.
 
 ## Subscription Filters
 
