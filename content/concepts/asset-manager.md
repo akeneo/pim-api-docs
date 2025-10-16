@@ -2326,6 +2326,26 @@ Whenever the attribute type is `media_link`, the `linked_data` field will contai
 }
 ```
 
+If the media type is "youtube" or "vimeo", and the `prefix` is empty, then the `full_url` is transformed to make it a valid url.
+
+**Example**
+```json
+{
+  "a_youtube_media_link_attribute": [
+    {
+      "locale": null,
+      "channel": null,
+      "data": "dQw4w9WgXcQ",
+      "linked_data": {
+        "full_url": "https://youtube.com/watch?v=dQw4w9WgXcQ",
+        "prefix": null,
+        "suffix": null
+      }
+    }
+  ]
+}
+```
+
 ## Asset attribute option
 ::: availability versions=3.2,4.0,5.0,6.0,7.0,SaaS editions=EE
 :::
