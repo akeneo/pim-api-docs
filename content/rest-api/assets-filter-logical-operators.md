@@ -83,12 +83,10 @@ Find specific assets that are complete with a specific color in the US market:
         {"code": {"operator": "STARTS_WITH", "value": "product_"}},
         {"complete": {"operator": "=", "value": true, "context": {"channel": "ecommerce", "locales": ["en_US"]}}},
         {
-            "values": {
-                "main_color": {
-                    "operator": "IN",
-                    "value": ["red", "blue"],
-                    "locale": "en_US"
-                }
+            "main_color": {
+                "operator": "IN",
+                "value": ["red", "blue"],
+                "locale": "en_US"
             }
         }
     ]
@@ -127,21 +125,17 @@ Find assets with "summer" in the English title OR "été" in the French title:
 /api/rest/v1/asset-manager/assets?search={
     "or": [
         {
-            "values": {
-                "title": {
-                    "operator": "CONTAINS",
-                    "value": "summer",
-                    "locale": "en_US"
-                }
+            "title": {
+                "operator": "CONTAINS",
+                "value": "summer",
+                "locale": "en_US"
             }
         },
         {
-            "values": {
-                "title": {
-                    "operator": "CONTAINS",
-                    "value": "été",
-                    "locale": "fr_FR"
-                }
+            "title": {
+                "operator": "CONTAINS",
+                "value": "été",
+                "locale": "fr_FR"
             }
         }
     ]
@@ -163,21 +157,17 @@ Find assets where the alt text contains "shoes" OR the category is "footwear" or
         {
             "or": [
                 {
-                    "values": {
-                        "alt_text": {
-                            "operator": "CONTAINS",
-                            "value": "shoes",
-                            "locale": "en_US"
-                        }
+                    "alt_text": {
+                        "operator": "CONTAINS",
+                        "value": "shoes",
+                        "locale": "en_US"
                     }
                 },
                 {
-                    "values": {
-                        "category": {
-                            "operator": "IN",
-                            "value": ["footwear", "accessories"],
-                            "channel": "ecommerce"
-                        }
+                    "category": {
+                        "operator": "IN",
+                        "value": ["footwear", "accessories"],
+                        "channel": "ecommerce"
                     }
                 }
             ]
@@ -232,17 +222,15 @@ You can filter on these asset properties:
 
 ### Attribute values
 
-You can filter on asset attribute values using the `values` property:
+You can filter on asset attribute values using the attribute code as a key:
 
 ```json
 {
-    "values": {
-        "attribute_code": {
-            "operator": "CONTAINS",
-            "value": "search_term",
-            "locale": "en_US",
-            "channel": "ecommerce"
-        }
+    "attribute_code": {
+        "operator": "CONTAINS",
+        "value": "search_term",
+        "locale": "en_US",
+        "channel": "ecommerce"
     }
 }
 ```

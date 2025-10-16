@@ -1683,13 +1683,13 @@ Notes:
 Filter by a text attribute value:
 
 ```
-/api/rest/v1/asset-families/{asset_family_code}/assets?search={"values":{"title":{"operator":"CONTAINS","value":"summer","locale":"en_US","channel":"ecommerce"}}}
+/api/rest/v1/asset-families/{asset_family_code}/assets?search={"title":{"operator":"CONTAINS","value":"summer","locale":"en_US","channel":"ecommerce"}}
 ```
 
 Filter by an option (simple or collection):
 
 ```
-/api/rest/v1/asset-families/{asset_family_code}/assets?search={"values":{"usage":{"operator":"IN","value":["web","print"]}}}
+/api/rest/v1/asset-families/{asset_family_code}/assets?search={"usage":{"operator":"IN","value":["web","print"]}}
 ```
 ::::
 
