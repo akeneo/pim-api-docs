@@ -252,7 +252,7 @@ For the `kafka` subscription type, the `config` property requires the Kafka clus
 }
 ```
 
-If you need other authentication methods (e.g., SCRAM or OAuth Bearer), please contact [our support team](https://www.akeneo.com/fr/support-help-center/).
+If you require alternative authentication methods (e.g., SCRAM or OAuth Bearer), please notify us through our [contact form](https://akeneo.atlassian.net/servicedesk/customer/portal/8).
 
 #### TLS Configuration (Optional)
 
