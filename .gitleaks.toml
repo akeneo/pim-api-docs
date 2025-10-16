@@ -20,4 +20,6 @@ paths = [
     '''content/extensions/api.md''',
     # PX Insights getting started documentation
     '''content/px-insights/getting-started.md''',
+    # Event Platform concepts documentation with example certificates
+    '''content/event-platform/concepts.md''',
 ]

@@ -35,7 +35,7 @@ The following properties represent a subscription:
 | `id` | Automatically populated | Identifier of the subscription within the Event Platform |
 | `source` | Populated by the user at creation | Source of the event (currently, the only source available is `pim`) |
 | `subject` | From `X-PIM-URL` header parameter | URL of the targeted source |
-| `type` | Populated by the user at creation | Type of the subscription (currently, there are two available types:  `https` and `pubsub`) |
+| `type` | Populated by the user at creation | Type of the subscription (currently, there are three available types:  `https`, `pubsub`, and `kafka`) |
 | `events` | Populated by the user at creation | A list of events that the subscription is tracking |
 | `status` | Automatically populated | The subscription status |
 | `config` | Populated by the user at creation | The subscription configuration is based on the subscription type. See below for further details. |
@@ -204,6 +204,94 @@ If you want to add an additional layer of security, you can whitelist our servic
 We currently use a static IP address provided by Google Cloud: `34.140.80.128`
 
 **However, we cannot guarantee that this IP address will remain unchanged indefinitely.** Therefore, we strongly recommend whitelisting the `europe-west1` IP ranges from [Google Cloud's IP ranges list](https://www.gstatic.com/ipranges/cloud.json) to ensure continuous access.
+
+### Kafka subscription
+
+This option delivers events to an Apache Kafka topic. It provides high-throughput, fault-tolerant event streaming capabilities for enterprise integrations.  
+Failed deliveries are automatically retried with exponential backoff.
+
+#### Configuration
+
+For the `kafka` subscription type, the `config` property requires the Kafka cluster connection details and topic information.
+
+```json[snippet:Kafka subscription]
+
+{
+    "source": "pim",
+    "subject": "https://my-pim.cloud.akeneo.com",
+    "events": [
+        "com.akeneo.pim.v1.product.updated"
+    ],
+    "type": "kafka",
+    "config": {
+        "broker": "kafka-cluster.example.com:9092",
+        "topic": "pim-events",
+        "sasl_auth": {
+            "mechanism": "plain",
+            "username": "your_kafka_username",
+            "password": "your_kafka_password"
+        },
+        "tls": {
+            "server_name": "kafka.example.com",
+            "ca_pem": "-----BEGIN CERTIFICATE-----\nMIIDsjCCApqgAwIBAgIBATANBgkqhkiG9w0BAQsFADBrMQswCQYDVQQGEwJVUzEJ\nMAcGA1UECBMAMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMQkwBwYDVQQJEwAxCTAH\nBgNVBBETADEQMA4GA1UEChMHVGVzdCBDQTERMA8GA1UEAxMIa2Fma2EtY2EwHhcN\nMjUwOTA0MTQxNDMyWhcNMjYwOTA0MTQxNDMyWjBrMQswCQYDVQQGEwJVUzEJMAcG\nA1UECBMAMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMQkwBwYDVQQJEwAxCTAHBgNV\nBBETADEQMA4GA1UEChMHVGVzdCBDQTERMA8GA1UEAxMIa2Fma2EtY2EwggEiMA0G\nCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDi2ZwtEbGR/5ERr7bYd5hj/Y49hM1E\nl50TRFW5JwEAPSpysT7dbHDffuYoRGpxTUg2wk2iqNk6t0eKLkhXRKEXW9Pgfnn0\njoyc8SXsEo6wcN30Ie4wuI7lg4ELJTaMgViciIDxpwCagAHakHOo5khWjfIsFeia\nDI1RNvC1fZ+/8r64B7zWnggGbAlP8dSihyNCmXTETPriIY8089I/PIhICJpvOzB9\nWbIr8Po+MJMd9/sf7wHsTKq5IMzAUgUzTIXPuQKnfcIGW+CFFX27In1qMGAICTjl\nGn6hMf0O88xJC6Tydn17WGEYC94aI/DRPLUAeywM5H8vzU8I+M98YV7fAgMBAAGj\nYTBfMA4GA1UdDwEB/wQEAwICpDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH\nAwIwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU4zUGaDqlNmta3BAc5B0RjN1X\nhhYwDQYJKoZIhvcNAQELBQADggEBAF3HkOcPnIuRH3RNkZ49ye39w/nkATs7RNtu\nY7fBJgAC8x0SMsRIiVC85eAUUB2fFt+QpBw9DYrHkAwAHFRa4+mC0bR9Cx3ngVFk\nwXTMX1ZXwdJkok2oUj6QRXEYjqrXUheMr2EBYc4wKPdZVskBKq5zdK7RGFbGNB7Q\ngQW1UThJuPcjd86IrxlJqKhPNinFHrRQArPbvvEYo77npEA0fwJZSJp42zNn2UEd\nVKrBFc1nBv+OPcAmKmspu04frSmHO1/ug3JPispGWSR8GPD5OWQZQuS3taDfMq8X\nzP2PQ9cWo+xTUk2nUbETVIbP4DjNo6NgHx3bEVQFoTRTxd7aw4I=\n-----END CERTIFICATE-----",
+            "client_cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDoTCCAomgAwIBAgIBAjANBgkqhkiG9w0BAQsFADBrMQswCQYDVQQGEwJVUzEJ\nMAcGA1UECBMAMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMQkwBwYDVQQJEwAxCTAH\nBgNVBBETADEQMA4GA1UEChMHVGVzdCBDQTERMA8GA1UEAxMIa2Fma2EtY2EwHhcN\nMjUwOTA0MTQxNDMyWhcNMjYwOTA0MTQxNDMyWjBzMQswCQYDVQQGEwJVUzEJMAcG\nA1UECBMAMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMQkwBwYDVQQJEwAxCTAHBgNV\nBBETADEUMBIGA1UEChMLVGVzdCBDbGllbnQxFTATBgNVBAMTDGthZmthLWNsaWVu\ndDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALI3c9jCNZInBaLBvUss\ngfQ3xR3ebo8kX5qeuV/oMwLr1HjP8wriJ2zA+oMEqZyJrCmqlCr3tv+nSK/qUeF8\nAV7k84bEUofkumwa5t3fgd4wXtuU8ZD0iKzXkjcwZFIDuxOWsIMXX586LAtVU/RY\ncoWWLNbyel7xJz4qG+VoJngG4d2xyifUDQ4JCRKgK4Pav1DefAEC8QcaHKI8vxpc\nCKNJPFHq3PHg6KLCizEnklM/q07v6Zo5AsyNuarA1DRTtf9ivMwcUNkESotbjl1e\n7s2tHnnza3HOHQcTXMvmdNSVMnD4xkljMowdzcN3hodFHZfZB94gAG/dY0vf3n9D\n1qUCAwEAAaNIMEYwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMC\nMB8GA1UdIwQYMBaAFOM1Bmg6pTZrWtwQHOQdEYzdV4YWMA0GCSqGSIb3DQEBCwUA\nA4IBAQAVhNIdcD3VrwVB8d6wmVAvemzV9Cv59bBko1t+/NISXryuiZMR1odY9X+r\niocmpZE7BkyFPFqhDch8ITTBjHRZIKw2O48TeAp0j74a7YzAzHMlt59aadLK3AlA\ntb7xc7pAZmk3EM1o7q1W15P1ASS42CAd4RHjSp+sGVU8wzxMQdqIJ8c8+1JEPp5X\nGNBNgBE8QcbTK9v0OBvZ0xfRwbyx3JvJpQxCq3sNEr3hdvrKdc4tapGB1Qo7reN7\nVM0lk/c2drM/vOq/jF+BjEJR18LuFXkxadOjSDDVYNb98PqoOTkudwG+cZDKOk7Y\nVWFW/VUPdZfyZcuUzvN5DOVqvpX+\n-----END CERTIFICATE-----",
+            "client_key_pem": "-----BEGIN PRIVATE KEY-----\nMIIEowIBAAKCAQEAsjdz2MI1kicFosG9SyyB9DfFHd5ujyRfmp65X+gzAuvUeM/z\nCuInbMD6gwSpnImsKaqUKve2/6dIr+pR4XwBXuTzhsRSh+S6bBrm3d+B3jBe25Tx\nkPSIrNeSNzBkUgO7E5awgxdfnzosC1VT9FhyhZYs1vJ6XvEnPiob5WgmeAbh3bHK\nJ9QNDgkJEqArg9q/UN58AQLxBxocojy/GlwIo0k8Uerc8eDoosKLMSeSUz+rTu/p\nmjkCzI25qsDUNFO1/2K8zBxQ2QRKi1uOXV7uza0eefNrcc4dBxNcy+Z01JUycPjG\nSWMyjB3Nw3eGh0Udl9kH3iAAb91jS9/ef0PWpQIDAQABAoIBAACVq/yfDnvvQtZ4\n2j0f5UE+2ZeyfhxcGzAvqx4Ebf5pdaX70KlNeqGhtHCvmDraPMVaOOg3LdOC4fsp\nwqEBviNojt/3TuoBNxdZsz4xGIT5FaaUw4IdO0GN533k279lIbz7tpKHhhnIoBJd\nckwP6jhD+NuvqfUbx2wtyS+ketPT+ItRlq1siPRAWmpXgK+HU1xV07Ztt8TtuY3m\n6Od+BTauDh2NkEp79yrHcg1d3g3ryY6VH5QKw98WxoKr0Kmjxd/MiENuNvDO3gJ9\nW+fb4ixRK5wGLMsWpIqKoqLJbN6rbsKK9kUz4wu4YXKExK9hGKH43/TsvIkRrmZY\nG/TnJ/UCgYEA6u6D3k8FMlPcuivcyVozD1EPFhAjAPdUJhVbx8U2rdW8jyH67wrG\n/J2id14wwtjqtJ2AvkYWQcSCwt8itQFmz0cVVRi512e9mb8frNC7FyboEPuLUzEY\niIc42xC4KrkfoAGHJtTc+/FZ2XR7BEnxJC546jYZG7gAEPtP7sqMJmcCgYEAwjLk\nGkTomX5Ftaoim0dotltFOGPcIU0Z7XgVlmhJbQUxPImfJc77YQM0hSn7Emio7xvJ\neIbtRpAz7LzxEsAZiSogFZY9HuwlkWooW+6HOj2UUlKbgxoWd7QIu5Kf0IsGU1uI\nd/dQVgfNR8b9dPdWV2Uy9Dh3djcC3ZiWuOta+xMCgYEAz5SOWfiyW8SzzKADBrq3\nUPpLfTAm7ayb4saOgRZlePXZFRNuOJbqOb1DF3vXU+L8hzh/0B/3fIcZDvzAGvUx\nFUb2t2kQlB7q7ZVtdHI+TXeoJ5FLiudfiQsKFq5QPBe0tNmExK/izo5z2GtOYvy+\noDybxD6mstJC5L5Z42F+slMCgYA00CBGoJzdOYD9wbI9pnLsvO+bQVUZXV2Cvlio\nmd32HyZfv1Gft6WXoYaD/IHCZOIkfNsSwyb+PLNSW6P4JHQNYH5vQHeI1FH3NPaa\n4ci25w5SQRL32X1ounZxhJOf5F8pBkibz49yhhamwZAmYimCBQyRbFXYuWc3GotK\n6P7KLwKBgBol+DJMjqO0GNRbDOAUYKqxgJWVD2GerOSOkYtknUTzfLjfqumMaQrL\nUmdtEvplYiA53B8/+gYJ88x/1g01TWptDQUrye4rHL7FTTUBIY1fEJwQWSVQCCUm\nTyCQjkv2KXoRc+Evda4D8z+S2Xj3pDK/s+oh0/xGzLbbgFkxXCJp\n-----END PRIVATE KEY-----"
+        }
+    }
+}
+```
+
+#### Authentication Examples
+
+**Plain Authentication:**
+```json
+"sasl_auth": {
+    "mechanism": "plain",
+    "username": "your_kafka_username",
+    "password": "your_kafka_password"
+}
+```
+
+If you require alternative authentication methods (e.g., SCRAM or OAuth Bearer), please notify us through our [contact form](https://akeneo.atlassian.net/servicedesk/customer/portal/8).
+
+#### TLS Configuration (Optional)
+
+For secure connections, you can optionally configure TLS settings in the `config` object:
+
+```json
+"tls": {
+    "server_name": "kafka.example.com",
+    "ca_pem": "-----BEGIN CERTIFICATE-----\nMIIDsjCCApqgAwIBAgIBATANBgkqhkiG9w0BAQsFADBrMQswCQYDVQQGEwJVUzEJ\nMAcGA1UECBMAMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMQkwBwYDVQQJEwAxCTAH\nBgNVBBETADEQMA4GA1UEChMHVGVzdCBDQTERMA8GA1UEAxMIa2Fma2EtY2EwHhcN\nMjUwOTA0MTQxNDMyWhcNMjYwOTA0MTQxNDMyWjBrMQswCQYDVQQGEwJVUzEJMAcG\nA1UECBMAMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMQkwBwYDVQQJEwAxCTAHBgNV\nBBETADEQMA4GA1UEChMHVGVzdCBDQTERMA8GA1UEAxMIa2Fma2EtY2EwggEiMA0G\nCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDi2ZwtEbGR/5ERr7bYd5hj/Y49hM1E\nl50TRFW5JwEAPSpysT7dbHDffuYoRGpxTUg2wk2iqNk6t0eKLkhXRKEXW9Pgfnn0\njoyc8SXsEo6wcN30Ie4wuI7lg4ELJTaMgViciIDxpwCagAHakHOo5khWjfIsFeia\nDI1RNvC1fZ+/8r64B7zWnggGbAlP8dSihyNCmXTETPriIY8089I/PIhICJpvOzB9\nWbIr8Po+MJMd9/sf7wHsTKq5IMzAUgUzTIXPuQKnfcIGW+CFFX27In1qMGAICTjl\nGn6hMf0O88xJC6Tydn17WGEYC94aI/DRPLUAeywM5H8vzU8I+M98YV7fAgMBAAGj\nYTBfMA4GA1UdDwEB/wQEAwICpDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH\nAwIwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU4zUGaDqlNmta3BAc5B0RjN1X\nhhYwDQYJKoZIhvcNAQELBQADggEBAF3HkOcPnIuRH3RNkZ49ye39w/nkATs7RNtu\nY7fBJgAC8x0SMsRIiVC85eAUUB2fFt+QpBw9DYrHkAwAHFRa4+mC0bR9Cx3ngVFk\nwXTMX1ZXwdJkok2oUj6QRXEYjqrXUheMr2EBYc4wKPdZVskBKq5zdK7RGFbGNB7Q\ngQW1UThJuPcjd86IrxlJqKhPNinFHrRQArPbvvEYo77npEA0fwJZSJp42zNn2UEd\nVKrBFc1nBv+OPcAmKmspu04frSmHO1/ug3JPispGWSR8GPD5OWQZQuS3taDfMq8X\nzP2PQ9cWo+xTUk2nUbETVIbP4DjNo6NgHx3bEVQFoTRTxd7aw4I=\n-----END CERTIFICATE-----",
+    "client_cert_pem": "-----BEGIN CERTIFICATE-----\nMIIDoTCCAomgAwIBAgIBAjANBgkqhkiG9w0BAQsFADBrMQswCQYDVQQGEwJVUzEJ\nMAcGA1UECBMAMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMQkwBwYDVQQJEwAxCTAH\nBgNVBBETADEQMA4GA1UEChMHVGVzdCBDQTERMA8GA1UEAxMIa2Fma2EtY2EwHhcN\nMjUwOTA0MTQxNDMyWhcNMjYwOTA0MTQxNDMyWjBzMQswCQYDVQQGEwJVUzEJMAcG\nA1UECBMAMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMQkwBwYDVQQJEwAxCTAHBgNV\nBBETADEUMBIGA1UEChMLVGVzdCBDbGllbnQxFTATBgNVBAMTDGthZmthLWNsaWVu\ndDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALI3c9jCNZInBaLBvUss\ngfQ3xR3ebo8kX5qeuV/oMwLr1HjP8wriJ2zA+oMEqZyJrCmqlCr3tv+nSK/qUeF8\nAV7k84bEUofkumwa5t3fgd4wXtuU8ZD0iKzXkjcwZFIDuxOWsIMXX586LAtVU/RY\ncoWWLNbyel7xJz4qG+VoJngG4d2xyifUDQ4JCRKgK4Pav1DefAEC8QcaHKI8vxpc\nCKNJPFHq3PHg6KLCizEnklM/q07v6Zo5AsyNuarA1DRTtf9ivMwcUNkESotbjl1e\n7s2tHnnza3HOHQcTXMvmdNSVMnD4xkljMowdzcN3hodFHZfZB94gAG/dY0vf3n9D\n1qUCAwEAAaNIMEYwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMC\nMB8GA1UdIwQYMBaAFOM1Bmg6pTZrWtwQHOQdEYzdV4YWMA0GCSqGSIb3DQEBCwUA\nA4IBAQAVhNIdcD3VrwVB8d6wmVAvemzV9Cv59bBko1t+/NISXryuiZMR1odY9X+r\niocmpZE7BkyFPFqhDch8ITTBjHRZIKw2O48TeAp0j74a7YzAzHMlt59aadLK3AlA\ntb7xc7pAZmk3EM1o7q1W15P1ASS42CAd4RHjSp+sGVU8wzxMQdqIJ8c8+1JEPp5X\nGNBNgBE8QcbTK9v0OBvZ0xfRwbyx3JvJpQxCq3sNEr3hdvrKdc4tapGB1Qo7reN7\nVM0lk/c2drM/vOq/jF+BjEJR18LuFXkxadOjSDDVYNb98PqoOTkudwG+cZDKOk7Y\nVWFW/VUPdZfyZcuUzvN5DOVqvpX+\n-----END CERTIFICATE-----",
+    "client_key_pem": "-----BEGIN PRIVATE KEY-----\nMIIEowIBAAKCAQEAsjdz2MI1kicFosG9SyyB9DfFHd5ujyRfmp65X+gzAuvUeM/z\nCuInbMD6gwSpnImsKaqUKve2/6dIr+pR4XwBXuTzhsRSh+S6bBrm3d+B3jBe25Tx\nkPSIrNeSNzBkUgO7E5awgxdfnzosC1VT9FhyhZYs1vJ6XvEnPiob5WgmeAbh3bHK\nJ9QNDgkJEqArg9q/UN58AQLxBxocojy/GlwIo0k8Uerc8eDoosKLMSeSUz+rTu/p\nmjkCzI25qsDUNFO1/2K8zBxQ2QRKi1uOXV7uza0eefNrcc4dBxNcy+Z01JUycPjG\nSWMyjB3Nw3eGh0Udl9kH3iAAb91jS9/ef0PWpQIDAQABAoIBAACVq/yfDnvvQtZ4\n2j0f5UE+2ZeyfhxcGzAvqx4Ebf5pdaX70KlNeqGhtHCvmDraPMVaOOg3LdOC4fsp\nwqEBviNojt/3TuoBNxdZsz4xGIT5FaaUw4IdO0GN533k279lIbz7tpKHhhnIoBJd\nckwP6jhD+NuvqfUbx2wtyS+ketPT+ItRlq1siPRAWmpXgK+HU1xV07Ztt8TtuY3m\n6Od+BTauDh2NkEp79yrHcg1d3g3ryY6VH5QKw98WxoKr0Kmjxd/MiENuNvDO3gJ9\nW+fb4ixRK5wGLMsWpIqKoqLJbN6rbsKK9kUz4wu4YXKExK9hGKH43/TsvIkRrmZY\nG/TnJ/UCgYEA6u6D3k8FMlPcuivcyVozD1EPFhAjAPdUJhVbx8U2rdW8jyH67wrG\n/J2id14wwtjqtJ2AvkYWQcSCwt8itQFmz0cVVRi512e9mb8frNC7FyboEPuLUzEY\niIc42xC4KrkfoAGHJtTc+/FZ2XR7BEnxJC546jYZG7gAEPtP7sqMJmcCgYEAwjLk\nGkTomX5Ftaoim0dotltFOGPcIU0Z7XgVlmhJbQUxPImfJc77YQM0hSn7Emio7xvJ\neIbtRpAz7LzxEsAZiSogFZY9HuwlkWooW+6HOj2UUlKbgxoWd7QIu5Kf0IsGU1uI\nd/dQVgfNR8b9dPdWV2Uy9Dh3djcC3ZiWuOta+xMCgYEAz5SOWfiyW8SzzKADBrq3\nUPpLfTAm7ayb4saOgRZlePXZFRNuOJbqOb1DF3vXU+L8hzh/0B/3fIcZDvzAGvUx\nFUb2t2kQlB7q7ZVtdHI+TXeoJ5FLiudfiQsKFq5QPBe0tNmExK/izo5z2GtOYvy+\noDybxD6mstJC5L5Z42F+slMCgYA00CBGoJzdOYD9wbI9pnLsvO+bQVUZXV2Cvlio\nmd32HyZfv1Gft6WXoYaD/IHCZOIkfNsSwyb+PLNSW6P4JHQNYH5vQHeI1FH3NPaa\n4ci25w5SQRL32X1ounZxhJOf5F8pBkibz49yhhamwZAmYimCBQyRbFXYuWc3GotK\n6P7KLwKBgBol+DJMjqO0GNRbDOAUYKqxgJWVD2GerOSOkYtknUTzfLjfqumMaQrL\nUmdtEvplYiA53B8/+gYJ88x/1g01TWptDQUrye4rHL7FTTUBIY1fEJwQWSVQCCUm\nTyCQjkv2KXoRc+Evda4D8z+S2Xj3pDK/s+oh0/xGzLbbgFkxXCJp\n-----END PRIVATE KEY-----"
+}
+```
+
+#### TLS Configuration Properties
+
+| Property | Description | Required |
+| --- | --- | --- |
+| `server_name` | Server name for TLS verification | Yes |
+| `ca_pem` | Certificate Authority (CA) certificate in PEM format | Yes |
+| `client_cert_pem` | Client certificate in PEM format | Yes |
+| `client_key_pem` | Client private key in PEM format | Yes |
+
+#### Required Configuration Properties
+
+| Property | Description | Required |
+| --- | --- | --- |
+| `broker` | Kafka broker address | Yes |
+| `topic` | Name of the Kafka topic where events will be published | Yes |
+| `sasl_auth` | SASL authentication configuration object | Yes |
+| `tls` | TLS configuration for secure connections | No |
+
+#### SASL Authentication Properties
+
+| Property | Description | Required | Valid Values |
+| --- | --- | --- | --- |
+| `mechanism` | SASL authentication mechanism | Yes | `plain` |
+| `username` | Username for authentication | Yes | String |
+| `password` | Password for authentication | Yes | String |
 
 ## Subscription Filters
 
