@@ -1663,7 +1663,9 @@ Finally, if you want to get the assets updated in the last 4 days, you can use t
 
 ::: availability versions=SaaS editions=EE
 
-You can filter assets on their attribute values using the `search` query parameter. Put your attribute filters under the `values` key. Each property under `values` is an attribute identifier. For scopable/localizable attributes, you can optionally specify a `channel` and/or `locale` in the filter. If omitted, the API will try to use the `channel`/`locales` provided in the request.
+You can filter assets on their attribute values using the `search` query parameter.
+For scopable/localizable attributes, you can optionally specify a `channel` and/or `locale` in the filter.
+If omitted, the API will try to use the `channel`/`locales` provided in the request.
 
 Supported types and operators:
 - text: `=`, `CONTAINS`, `DOES NOT CONTAIN`, `STARTS WITH`, `ENDS WITH`, `EMPTY`, `NOT EMPTY`
@@ -1697,7 +1699,8 @@ Filter by an option (simple or collection):
 
 ::: availability versions=3.2,4.0,5.0,6.0,7.0,SaaS editions=EE
 
-If you want to receive assets with only the asset values of specific locales, as well as the attribute values of the non localizable attributes, you can specify it thanks to the `locales` query parameter.
+If you want to receive assets with only the asset values of specific locales, as well as the attribute values of the non localizable attributes, 
+you can specify it thanks to the `locales` query parameter.
 
 #### Example 1
 
