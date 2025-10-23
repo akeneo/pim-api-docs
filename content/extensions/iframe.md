@@ -268,5 +268,5 @@ Consider these alternatives if iframe extensions don't meet your needs:
 - [Positions](/extensions/positions.html) - Where to place your extension
 - [API Reference](/extensions/api.html) - Programmatic management
 
-::: panel-link Action Extensions [Next](/extensions/types/action.html)
+::: panel-link Action Extensions [Next](/extensions/action.html)
 :::

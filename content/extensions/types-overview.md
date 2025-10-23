@@ -99,5 +99,5 @@ Consider these questions when selecting an extension type:
 - Review [Available Positions](/extensions/positions.html) to see where extensions can be placed
 - Check the [Getting Started](/extensions/getting-started.html) guide for a hands-on tutorial
 
-::: panel-link Link Extensions [Next](/extensions/types/link.html)
+::: panel-link Link Extensions [Next](/extensions/link.html)
 :::

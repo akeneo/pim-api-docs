@@ -47,5 +47,5 @@ Learn more about the availables types of UI-extension in the [Types section](/ex
 ## Administration of UI extensions
 For a deeprer overview of the Ui extension administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).
 
-::: panel-link UI extensions available types [Next](/extensions/types/overview.html)
+::: panel-link UI extensions available types [Next](/extensions/types-overview.html)
 :::

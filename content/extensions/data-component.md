@@ -45,5 +45,5 @@ Consider these alternatives:
 - [Positions](/extensions/positions.html) - Where to place panels
 - [API Reference](/extensions/api.html) - Programmatic management
 
-::: panel-link Custom Component Extensions [Next](/extensions/types/custom-component.html)
+::: panel-link URL PlaceHolders [Next](/extensions/url-placeholders.html)
 :::

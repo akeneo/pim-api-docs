@@ -50,5 +50,5 @@ Consider these alternatives if link extensions don't meet your needs:
 - [Positions](/extensions/positions.html) - Where to place your extension
 - [API Reference](/extensions/api.html) - Programmatic extension management
 
-::: panel-link Iframe Extensions [Next](/extensions/types/iframe.html)
+::: panel-link Iframe Extensions [Next](/extensions/iframe.html)
 :::

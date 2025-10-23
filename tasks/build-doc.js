@@ -791,11 +791,11 @@ gulp.task('fetch-remote-events', function(done) {
 gulp.task('build-extensions', ['clean-dist','less'], function () {
       var pages = {
           'getting-started.md': "Getting started",
-          'types/overview.md': "Extension Types",
-          'types/link.md': "Link",
-          'types/iframe.md': "Iframe",
-          'types/action.md': "Action",
-          'types/data-component.md': "Data Component",
+          'types-overview.md': "Extension Types",
+          'link.md': "Link",
+          'iframe.md': "Iframe",
+          'action.md': "Action",
+          'data-component.md': "Data Component",
           'integration/url-placeholders.md': "URL Placeholders",
           'security/credentials.md': "Credentials",
           'filtering.md': "Filter and display",
@@ -840,8 +840,8 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
 
 gulp.task('build-advanced-extensions', ['clean-dist','less'], function () {
       var pages = {
-          'types/custom-component.md': "Custom Component (SDK)",
-          'security/sdk-credentials.md': "Credentials",
+          'custom-component.md': "Custom Component (SDK)",
+          'sdk-credentials.md': "Credentials",
           'filtering.md': "Filter and display",
           'api.md': "API",
           'faq.md': "FAQ",
@@ -860,10 +860,10 @@ gulp.task('build-advanced-extensions', ['clean-dist','less'], function () {
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
               .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, relativePath, '/extensions') + "\n"))
               .pipe(gulpMarkdownIt(mdGt))
-              .pipe(gulp.dest('tmp/extensions/'))
+              .pipe(gulp.dest('tmp/advanced-extensions/'))
               .on('end', function () {
-                  var tmpPath = 'tmp/extensions/' + relativePath.replace(/\.md/, '.html');
-                  var distPath = './dist/extensions' + (dirName !== '.' ? '/' + dirName : '');
+                  var tmpPath = 'tmp/advanced-extensions/' + relativePath.replace(/\.md/, '.html');
+                  var distPath = './dist/advanced-extensions' + (dirName !== '.' ? '/' + dirName : '');
 
                   return gulp.src('src/partials/extensions.handlebars')
                     .pipe(gulpHandlebars({
