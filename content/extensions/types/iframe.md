@@ -227,3 +227,46 @@ The JWT token consists of three main parts: the header, the body (payload), and 
 **Verifying the Signature**
 
 To ensure that the JWT token was issued by Akeneo, you can verify the signature by re-encoding the header and payload and then signing them using the same secret key. This will allow you to confirm that the token is valid and has not been altered.
+
+
+## Available Positions
+
+Iframe extensions can be placed in:
+
+| Position | Location | Context | Communication |
+|----------|----------|---------|---------------|
+| `pim.product.tab` | Product edit page tab | Simple products and variants | Yes |
+| `pim.product-model.tab` | Product model tab | Root product models | Yes |
+| `pim.sub-product-model.tab` | Sub-product model tab | Sub-product models | Yes |
+| `pim.category.tab` | Category edit page tab | Categories | Yes |
+| `pim.product-grid.action-bar` | Product grid action bar | Multiple products | Yes |
+| `pim.activity.navigation.tab` | Activity navigation tab | Global context | No |
+| `pim.product.panel` | Product right panel | Simple products and variants | Yes |
+| `pim.product-model.panel` | Product model right panel | Root product models | Yes |
+| `pim.sub-product-model.panel` | Sub-product model right panel | Sub-product models | Yes |
+
+## Limitations
+
+- **Same-origin policy**: Your iframe has limited access to parent window
+- **Size constraints**: Iframe dimensions are controlled by the PIM
+- **Performance**: Each iframe loads a complete web page
+- **Browser compatibility**: Some browsers have stricter iframe policies
+
+## When to Use Another Type
+
+Consider these alternatives if iframe extensions don't meet your needs:
+
+- **Simple link needed?** → Use [Link Extensions](/extensions/types/link.html)
+- **Need background processing?** → Use [Action Extensions](/extensions/types/action.html)
+- **Just displaying data?** → Use [Data Component Extensions](/extensions/types/data-component.html)
+- **Need full SDK access?** → Use [Custom Component Extensions](/extensions/types/custom-component.html)
+
+## Learn More
+
+- [Iframe Communication](/extensions/integration/iframe-communication.html) - PostMessage patterns
+- [Iframe Security](/extensions/security/iframe-security.html) - JWT and CSP
+- [Positions](/extensions/positions.html) - Where to place your extension
+- [API Reference](/extensions/api.html) - Programmatic management
+
+::: panel-link Action Extensions [Next](/extensions/types/action.html)
+:::

@@ -52,6 +52,18 @@ Build with modern tools and frameworks:
 - Module bundlers
 - Local development with hot reload
 
+## Available Positions
+
+Data component extensions can only be placed in panel positions:
+
+| Position | Context |
+|----------|---------|
+| `pim.product.panel` | Simple products and variant products |
+| `pim.category.tab` | Category edit pages |
+| `pim.product.tab` | Product tab (alternative to panel) |
+
+See the [Positions documentation](/extensions/positions.html) for visual examples of panel locations.
+
 ## Prerequisites
 
 Before building custom component extensions, you'll need:

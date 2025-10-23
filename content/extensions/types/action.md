@@ -80,3 +80,33 @@ Examples :
   "timestamp": 1739948408
 }
 ```
+
+## Available Positions
+
+Action extensions can be placed in:
+
+| Position | Context | Data Sent |
+|----------|---------|-----------|
+| `pim.product.header` | Single product | `productUuid` |
+| `pim.product-model.header` | Root product model | `productModelCode` |
+| `pim.sub-product-model.header` | Sub product model | `productModelCode` |
+| `pim.product-grid.action-bar` | Multiple products/models | `productUuids[]`, `productModelCodes[]` |
+| `pim.product.index` | Product list page | No product data |
+
+## Limitations
+
+- **5-second timeout**: Your endpoint must respond quickly
+- **No retry mechanism**: Failed requests are not automatically retried
+- **No progress updates**: Users don't see real-time progress
+- **500 item limit**: Grid actions limited to 500 products/models
+- **Single execution**: One action at a time per extension
+
+## Learn More
+
+- [Credentials](/extensions/security/credentials.html) - Authentication methods
+- [URL Placeholders](/extensions/integration/url-placeholders.html) - Dynamic URLs
+- [Positions](/extensions/positions.html) - Where to place actions
+- [API Reference](/extensions/api.html) - Programmatic management
+
+::: panel-link Data Component Extensions [Next](/extensions/types/data-component.html)
+:::

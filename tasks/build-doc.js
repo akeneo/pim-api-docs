@@ -796,10 +796,8 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
           'types/iframe.md': "Iframe",
           'types/action.md': "Action",
           'types/data-component.md': "Data Component",
-          'types/custom-component.md': "Custom Component (SDK)",
           'integration/url-placeholders.md': "URL Placeholders",
           'security/credentials.md': "Credentials",
-          'positions.md': "Positions",
           'filtering.md': "Filter and display",
           'api.md': "API",
           'faq.md': "FAQ",
@@ -842,16 +840,8 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
 
 gulp.task('build-advanced-extensions', ['clean-dist','less'], function () {
       var pages = {
-          'getting-started.md': "Getting started",
-          'types/overview.md': "Extension Types",
-          'types/link.md': "Link",
-          'types/iframe.md': "Iframe",
-          'types/action.md': "Action",
-          'types/data-component.md': "Data Component",
           'types/custom-component.md': "Custom Component (SDK)",
-          'integration/url-placeholders.md': "URL Placeholders",
-          'security/credentials.md': "Credentials",
-          'positions.md': "Positions",
+          'security/sdk-credentials.md': "Credentials",
           'filtering.md': "Filter and display",
           'api.md': "API",
           'faq.md': "FAQ",
@@ -878,8 +868,8 @@ gulp.task('build-advanced-extensions', ['clean-dist','less'], function () {
                   return gulp.src('src/partials/extensions.handlebars')
                     .pipe(gulpHandlebars({
                         active_api_resources: true,
-                        title: 'Extensions',
-                        description: getPageDescription(file.path, "Extensions"),
+                        title: 'Advanced Extensions',
+                        description: getPageDescription(file.path, "Advanced Extensions"),
                         mainContent: fs.readFileSync(tmpPath)
                     }, {
                         partialsDirectory: ['./src/partials']
