@@ -2,7 +2,7 @@
 
 ## Overview
 
-A **custom component** extension is a JavaScript application built with the Akeneo Extension SDK that runs securely within the PIM. Unlike other extension types that load external URLs, custom components are JavaScript code that executes directly in the PIM's secure sandbox.
+A **custom component** extension is a JavaScript application built with the **Akeneo Extension** SDK that runs securely within the PIM. Unlike other extension types that load external URLs, custom components are JavaScript code that executes directly in the PIM's secure sandbox.
 
 This is the most powerful extension type, allowing you to build rich, interactive user interfaces with full access to PIM APIs, all without requiring external hosting infrastructure.
 
@@ -62,7 +62,7 @@ Before building custom component extensions, you'll need:
 4. **Development Environment**: A code editor and terminal
 5. **PIM Access**: A connection or app with appropriate permissions
 
-### Integration Architecture
+## Integration Architecture
 
 Applications you will build are designed to run within the Akeneo PIM application itself, executing in a secure sandbox environment. This architecture provides several benefits:
 
@@ -70,7 +70,7 @@ Applications you will build are designed to run within the Akeneo PIM applicatio
 2. **Security**: The SDK code operates in a secure sandbox environment using the [SES (Secure ECMAScript)](https://github.com/endojs/endo) library, which restricts access to potentially harmful JavaScript capabilities.
 3. **Controlled API Access**: All API calls are automatically authenticated using the current user's session.
 
-### Important Constraints
+## Important Constraints
 
 When developing with the SDK, keep these constraints in mind:
 
@@ -80,7 +80,7 @@ When developing with the SDK, keep these constraints in mind:
 - **Global State**: The sandbox isolates your code from affecting the global state of the PIM application.
 - **Resources**: Your script should be efficient as it runs within the PIM application context.
 
-### Permissions and Access Control
+## Permissions and Access Control
 
 The SDK operates under the permissions of the currently logged-in user. This means:
 
@@ -163,7 +163,7 @@ curl -X POST '{YOUR_PIM_HOST}/api/rest/v1/ui-extensions/{YOUR_EXTENSION_UUID}' \
 
 Here's a simple example showing how to use the SDK to list assets from a specific family:
 
-```typescript
+```js
 // Access the Asset API
 const assetApi = PIM.api.asset_v1;
 
@@ -236,7 +236,7 @@ The SDK provides access to the following API resources:
 Most API methods follow these common patterns:
 
 ### List Resources
-```typescript
+```js
 // List with optional filtering and pagination
 const listParams = {
   // Required parameters specific to the resource
@@ -246,7 +246,7 @@ const items = await PIM.api.resource_v1.list(listParams);
 ```
 
 ### Get a Single Resource
-```typescript
+```js
 // Fetch a specific resource by its identifier
 const getParams = {
   // Required parameters to identify the resource
@@ -255,7 +255,7 @@ const item = await PIM.api.resource_v1.get(getParams);
 ```
 
 ### Create or Update Resources
-```typescript
+```js
 // Create or update a resource
 const upsertParams = {
   // Resource identifier
@@ -264,7 +264,7 @@ const upsertParams = {
 const response = await PIM.api.resource_v1.upsert(upsertParams);
 ```
 
-```typescript
+```js
 // Patch a resource
 const patchParams = {
   // Resource identifier
@@ -273,7 +273,7 @@ const patchParams = {
 const response = await PIM.api.resource_v1.patch(patchParams);
 ```
 
-```typescript
+```js
 // Create a resource
 const createParams = {
   // Resource identifier
@@ -286,7 +286,7 @@ const response = await PIM.api.resource_v1.create(createParams);
 
 The SDK provides access to the current user context through:
 
-```typescript
+```js
 // Get user information
 const currentUser = PIM.user;
 console.log(`Current user: ${currentUser.first_name} ${currentUser.last_name}`);
@@ -302,7 +302,7 @@ if ('product' in context) {
 
 The SDK provides a navigation method that allows you to open new tabs, but only within the Akeneo PIM application. This is useful for directing users to different sections of the PIM from your extension:
 
-```typescript
+```js
 // Navigate to a product edit page
 PIM.navigate.internal('#/enrich/product/6b7546f8-929c-4ba3-b7ed-d55b61753313');
 
@@ -327,7 +327,7 @@ The position you choose will determine where and how your extension is presented
 
 The SDK provides a secure gateway for making calls to external APIs and services. Since direct network requests (fetch, XMLHttpRequest) are not allowed within the sandbox environment, the SDK offers a dedicated method for external communication:
 
-```typescript
+```js
 // Make a GET request to an external API
 const response = await PIM.api.external.call({
   method: 'GET',
@@ -355,7 +355,7 @@ const createResponse = await PIM.api.external.call({
 #### Authenticated calls and credentials:
 You have the ability to make authenticated calls using the `external.call` method. To do so you have to specify as a paramter the code of the credential you want to use. The specified credential will be used as headers in the generated requests.
 
-```typescript
+```js
 // Make a request using stored credentials
 const secureResponse = await PIM.api.external.call({
   method: 'GET',
@@ -380,7 +380,7 @@ The external gateway provides a secure way to integrate your extension with exte
 
 The SDK methods return promises that you can handle with try/catch:
 
-```typescript
+```js
 try {
   const result = await PIM.api.resource_v1.method(params);
   // Process successful result
@@ -390,10 +390,6 @@ try {
   // You may want to check for specific error types/codes
 }
 ```
-
-## Further Documentation
-
-For more detailed information about the Akeneo PIM API, please refer to the official [Akeneo API documentation](https://api.akeneo.com/).
 
 ## Troubleshooting
 
@@ -477,6 +473,7 @@ module.exports = {
     }),
   ],
 }
+```
 
 ## When to Use Another Type
 
@@ -492,5 +489,5 @@ Consider these alternatives:
 - [Example Projects](https://github.com/akeneo/extension-sdk) - Sample code on GitHub
 - [Positions](/extensions/positions.html) - Where to place your component
 
-::: panel-link Iframe Communication [Next](/extensions/integration/iframe-communication.html)
+::: panel-link Url placeholders [Next](/extensions/integration/url-placeholder.html)
 :::

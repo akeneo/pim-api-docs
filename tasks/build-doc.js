@@ -840,6 +840,58 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
   }
 );
 
+gulp.task('build-advanced-extensions', ['clean-dist','less'], function () {
+      var pages = {
+          'getting-started.md': "Getting started",
+          'types/overview.md': "Extension Types",
+          'types/link.md': "Link",
+          'types/iframe.md': "Iframe",
+          'types/action.md': "Action",
+          'types/data-component.md': "Data Component",
+          'types/custom-component.md': "Custom Component (SDK)",
+          'integration/url-placeholders.md': "URL Placeholders",
+          'security/credentials.md': "Credentials",
+          'positions.md': "Positions",
+          'filtering.md': "Filter and display",
+          'api.md': "API",
+          'faq.md': "FAQ",
+      };
+
+      var isOnePage = false;
+
+      return gulp.src('content/extensions/**/*.md')
+        .pipe(flatmap(function(stream, file){
+            // Get relative path from content/extensions/
+            var relativePath = path.relative('content/extensions', file.path);
+            var dirName = path.dirname(relativePath);
+            var baseName = path.basename(relativePath);
+
+            return gulp.src('content/extensions/**/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, relativePath, '/extensions') + "\n"))
+              .pipe(gulpMarkdownIt(mdGt))
+              .pipe(gulp.dest('tmp/extensions/'))
+              .on('end', function () {
+                  var tmpPath = 'tmp/extensions/' + relativePath.replace(/\.md/, '.html');
+                  var distPath = './dist/extensions' + (dirName !== '.' ? '/' + dirName : '');
+
+                  return gulp.src('src/partials/extensions.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_api_resources: true,
+                        title: 'Extensions',
+                        description: getPageDescription(file.path, "Extensions"),
+                        mainContent: fs.readFileSync(tmpPath)
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(baseName.replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest(distPath));
+              })
+        }));
+  }
+);
+
 gulp.task('build-px-insights', ['clean-dist','less'], function () {
     var pages = {
         'overview.md': "Overview",
