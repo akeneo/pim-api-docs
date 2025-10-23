@@ -1,5 +1,5 @@
 # Credentials
-You have the ability to make authenticated calls via UI Extensions using credentials. Currently, credentials are available for **Action** and **Data source** type UI Extensions. These credentials will be used as headers in the POST requests generated when calling the specified URL.
+You have the ability to make authenticated calls via UI Extensions using credentials. These credentials will be used as headers in the POST requests generated when calling the specified URL.
 
 ### Available Credential Methods
 
@@ -16,10 +16,9 @@ Basic Authentication and Bearer Token credentials are encrypted before being sto
 
 ## Learn More
 
-- [Security Overview](/extensions/security/overview.html) - General security principles
-- [Iframe Security](/extensions/security/iframe-security.html) - JWT and CSP
 - [Action Extensions](/extensions/types/action.html) - Using credentials with actions
 - [Data Component Extensions](/extensions/types/data-component.html) - Using credentials with data components
+- [Custom Componet Extensions](extensions/types/custom-componetns.html) - Using credentials with custom components
 
 ::: panel-link Filtering [Next](/extensions/filtering.html)
 :::

@@ -1,250 +1,229 @@
-# Iframe Extensions
+## Iframe
+An **iframe** UI extension allows to open your external content inside the PIM thanks to an iframe.
 
-## Overview
+An iframe (inline frame) is an HTML element that allows you to embed another HTML document within the current document. It is commonly used to display content from another source, such as a webpage, video, or interactive content, without leaving the current page.
 
-An **iframe** UI extension embeds external content directly within the PIM using an HTML iframe element. Your web application loads inside the PIM interface, allowing users to interact with it without leaving their current context.
+For more detailed information, you can refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
-An iframe (inline frame) is an HTML element that allows you to embed another HTML document within the current document. It is commonly used to display content from another source, such as a webpage, video, or interactive application.
-
-For more detailed information about iframes, refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
-
-## Use Cases
-
-Iframe extensions are ideal for:
-
-- **External Dashboards**: Embed analytics or business intelligence tools
-- **Third-Party Tools**: Integrate external applications seamlessly
-- **Custom Interfaces**: Display custom-built tools within PIM context
-- **Contextual Information**: Show data from external systems alongside PIM data
-- **Interactive Forms**: Embed forms for data collection or validation
-
-## Configuration
-
-To create an iframe UI extension, you need to specify:
-
-### Required Fields
-
-- **name**: Technical identifier (no spaces or special characters)
-- **position**: Where the iframe appears (see [Available Positions](/extensions/positions.html))
-- **type**: Must be `"iframe"`
-- **configuration**:
-  - **default_label**: The label displayed on the tab/button
-  - **secret**: Secret key for JWT token generation (security)
-  - **url**: The URL of your web application
-
-### Optional Fields
-
-- **labels**: Localized labels (object with locale codes as keys)
-- **version**: Your extension version for tracking
-
-## Example Configuration
-
-### Basic Iframe
-
-```json
-{
-  "name": "my_dashboard",
-  "version": "1.0.0",
-  "type": "iframe",
-  "position": "pim.product.tab",
-  "configuration": {
-    "url": "https://dashboard.example.com/product-view",
-    "secret": "your-secret-key-min-32-chars",
-    "default_label": "Product Dashboard",
-    "labels": {
-      "en_US": "Product Dashboard",
-      "fr_FR": "Tableau de bord produit"
-    }
-  }
-}
-```
-
-### Iframe with Credentials
-
-For authenticated external endpoints:
-
-```json
-{
-  "name": "secure_dashboard",
-  "version": "1.0.0",
-  "type": "iframe",
-  "position": "pim.product.tab",
-  "configuration": {
-    "url": "https://dashboard.example.com/secure",
-    "secret": "your-secret-key-min-32-chars",
-    "default_label": "Secure Dashboard"
-  },
-  "credentials": [
-    {
-      "type": "Bearer Token",
-      "value": "your_api_token_here"
-    }
-  ]
-}
-```
-
-## Available Positions
-
-Iframe extensions can be placed in:
-
-| Position | Location | Context | Communication |
-|----------|----------|---------|---------------|
-| `pim.product.tab` | Product edit page tab | Simple products and variants | Yes |
-| `pim.product-model.tab` | Product model tab | Root product models | Yes |
-| `pim.sub-product-model.tab` | Sub-product model tab | Sub-product models | Yes |
-| `pim.category.tab` | Category edit page tab | Categories | Yes |
-| `pim.product-grid.action-bar` | Product grid action bar | Multiple products | Yes |
-| `pim.activity.navigation.tab` | Activity navigation tab | Global context | No |
-| `pim.product.panel` | Product right panel | Simple products and variants | Yes |
-| `pim.product-model.panel` | Product model right panel | Root product models | Yes |
-| `pim.sub-product-model.panel` | Sub-product model right panel | Sub-product models | Yes |
-
-See the [Positions documentation](/extensions/positions.html) for visual examples.
-
-## How Iframes Receive Context
-
-The PIM automatically passes contextual information to your iframe in two ways:
-
-### 1. Query Parameters (Default)
-
-For most positions, the PIM sends context data as URL query parameters:
-
-```
-https://your-app.com/?user[username]=julia&product[uuid]=abc-123&position=pim.product.tab
-```
-
-**Always included:**
-- User information (uuid, username, email, locale, catalog_locale, catalog_scope)
-- Extension position
-- Tenant identifier
-
-**Position-specific:**
-- Product tab: `product[uuid]`, `product[identifier]`
-- Product model tab: `product[code]`
-- Category tab: `category[code]`
-
-### 2. PostMessage API (Advanced)
-
-For positions like `pim.product-grid.action-bar` (where many products may be selected), the PIM uses the PostMessage API to send data.
-
-Your iframe receives context data and can request updates dynamically. This is also useful for modern frameworks like React where the iframe may load before components.
-
-**Learn more:** [Iframe Communication](/extensions/integration/iframe-communication.html)
-
-## Security Considerations
+To configure an `iframe` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label`, `secret` and `url`.
 
 ::: warning
 **Important security notice**
 
-For production deployments with sensitive data, implement proper security measures to protect your iframe application.
+For sensitive data, we recommend implementing [security measures](#ensuring-security-of-embedded-iframes) to protect your information.
 :::
 
-Iframe extensions should implement:
+### Default query parameters
+To help identify the  **iframe** caller (insecure) and context, several parameters are sent by default as SearchParameters in the GET query.
 
-1. **Content Security Policy (CSP)**: Control what resources can be loaded
-2. **JWT Token Verification**: Validate requests using the secret key
-3. **HTTPS Only**: Always use secure connections
+For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebite.com/iframe/?position=pim.product.tab&user[username]=julia`
 
-**Learn more:** [Iframe Security](/extensions/security/iframe-security.html)
+For all positions, parameters relative to the connected user, the extension position and the tenant are sent:
+- `user[uuid]`
+- `user[id]`
+- `user[username]`
+- `user[email]`
+- `user[ui_locale]`
+- `user[catalog_locale]` except for `pim.product-grid.action-bar`
+- `user[catalog_scope]` except for `pim.product-grid.action-bar`
+- `position`
+- `tenant`
 
-## Quick Start Example
+For `pim.product.tab` position, these parameters are sent:
+- `product[uuid]`
+- `product[identifier]`
 
-Here's a minimal HTML page that can be embedded as an iframe extension:
+For `pim.product-model.tab` and `pim.sub-product-model.header` position, this parameter is sent:
+- `product[code]`
 
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Iframe Extension</title>
-</head>
-<body>
-    <h1>Product Information</h1>
-    <div id="info"></div>
+For `pim.category.tab` position, this parameter is sent:
+- `category[code]`
 
-    <script>
-        // Get URL parameters
-        const params = new URLSearchParams(window.location.search);
-        const productUuid = params.get('product[uuid]');
-        const username = params.get('user[username]');
+### Get PIM data from the iframe
 
-        // Display information
-        document.getElementById('info').innerHTML = `
-            <p>Product UUID: ${productUuid || 'N/A'}</p>
-            <p>User: ${username || 'N/A'}</p>
-        `;
+For the **product grid action bar position** (`pim.product-grid.action-bar`), passing product or product model information through query parameters is not ideal, as it can result in excessively long URLs. To address this issue, we opted to use the [PostMessage](https://developer.mozilla.org/docs/Web/API/Window/postMessage) to transmit this information instead.
 
-        // Listen for PostMessage events
-        window.addEventListener('message', (event) => {
-            console.log('Received message from PIM:', event.data);
-        });
-    </script>
-</body>
-</html>
+After the iframe is loaded, the PIM send an *event* which is a normalized message [MessageEvent](https://developer.mozilla.org/docs/Web/API/MessageEvent) with a field `data` containing our information. 
+
+This field contains :
+- A `data` object with :
+  - A `productUuids` field which is an array of string representing the UUIDs of selected products
+  - A `productModelCodes` field which is an array of string representing the codes of selected product models and sub models
+- A `context` object containing the configured `locale` and `channel`.
+- A `user` object containing the `uuid`, `username` and `groups` of the connected user.
+
+Example :
+```json
+{
+  "data": {
+    "productUuids": [
+      "63139bf3-a7f7-4eaa-ba5e-6ffc8a2f14e9",
+      "6fa3bd36-6b5a-4e80-afcd-c224fdf6f3ea",
+      "78f38e4a-8d25-41e1-8e09-42a9c246689a"
+    ],
+    "productModelCodes": []
+  },
+  "context": {
+    "locale": "en_US",
+    "channel": "ecommerce"
+  },
+  "user": {
+    "uuid": "4ebad9a4-7728-4d90-9db0-9e5a5c6a4d45",
+    "username": "admin",
+    "groups": [
+      "IT support",
+      "All"
+    ]
+  }
+}
 ```
 
-## Best Practices
+For a *classical* project with HTML and JavaScript code, you can include this kind of code to catch those events :
 
-### 1. Optimize Loading Performance
-- Minimize initial load time
-- Show loading indicators
-- Lazy load heavy resources
+```html
+    <script>
+        window.addEventListener('message', (event) => {
+            console.log(event)            
+        });
+    </script>
+```
 
-### 2. Responsive Design
-- Design for various iframe sizes
-- Handle different panel widths
-- Consider mobile viewports
+For more *modern* technologies like ReactJS, the iframe could be loaded before components. To solve this problem we added the possibility to ask for the data. To do this, just send a PostMessage with an object containing the property `type: 'request_context'`.
 
-### 3. Error Handling
-- Display friendly error messages
-- Handle missing context data gracefully
-- Log errors for debugging
+Example :
+```js
+    window.parent.postMessage(
+      {
+        type: 'request_context'
+      },
+      "*"
+    );
+```
+After receiving this *event*, the PIM will send a PostMessage *event*, similar to the one sent after the iframe loading.
 
-### 4. Security
-- Always use HTTPS
-- Implement JWT token validation
-- Set appropriate CSP headers
+### Product and product model context change
 
-### 5. User Experience
-- Maintain consistent styling with PIM
-- Provide clear navigation
-- Show loading states
+The **PIM context** is propagated within the iframe when it changes using **postmessage**. This only applies to the product and product model positions: **pim.product-model.header**, **pim.sub-product-model.header** and **pim.product.header**.
 
-## Limitations
+The message contains :
+- A `context` object containing the selected `locale` and `channel`.
+- A `user` object containing the `uuid`, `username` and `groups` of the connected user.
 
-- **Same-origin policy**: Your iframe has limited access to parent window
-- **Size constraints**: Iframe dimensions are controlled by the PIM
-- **Performance**: Each iframe loads a complete web page
-- **Browser compatibility**: Some browsers have stricter iframe policies
+Example :
+```json
+{
+  "context": {
+    "locale": "en_US",
+    "channel": "ecommerce"
+  },
+  "user": {
+    "uuid": "c71228d3-695c-4ded-8f3d-b3ed881a1f59",
+    "username": "admin",
+    "groups": [
+      "IT support",
+      "All"
+    ]
+  }
+}
+```
 
-## Advanced Topics
+### Reloading the parent page from the iframe
 
-### Communication Patterns
-Learn how to exchange data with the PIM using PostMessage:
-- [Iframe Communication](/extensions/integration/iframe-communication.html)
+In some cases, after executing an action within the iframe, you may need to refresh the parent PIM page to reflect the changes made. Due to browser security constraints, direct access to the parent window is restricted.
 
-### Security Implementation
-Implement JWT token validation and CSP headers:
-- [Iframe Security](/extensions/security/iframe-security.html)
+To address this, we provides a mechanism to trigger a page reload via a PostMessage. To initiate a reload of the parent page, simply send a message from the iframe with the following structure:
 
-### Authentication
-Add credentials for authenticated API calls:
-- [Credentials](/extensions/security/credentials.html)
+```js
+    window.parent.postMessage(
+      {
+        type: 'reload_parent'
+      },
+      "*"
+    );
+```
 
-## When to Use Another Type
+This message will trigger a page reload in the PIM.
 
-Consider these alternatives if iframe extensions don't meet your needs:
 
-- **Simple link needed?** → Use [Link Extensions](/extensions/types/link.html)
-- **Need background processing?** → Use [Action Extensions](/extensions/types/action.html)
-- **Just displaying data?** → Use [Data Component Extensions](/extensions/types/data-component.html)
-- **Need full SDK access?** → Use [Custom Component Extensions](/extensions/types/custom-component.html)
+### Ensuring security of embedded iframes
 
-## Learn More
+To help ensuring the security of iframes we recommand using these two solutions:
 
-- [Iframe Communication](/extensions/integration/iframe-communication.html) - PostMessage patterns
-- [Iframe Security](/extensions/security/iframe-security.html) - JWT and CSP
-- [Positions](/extensions/positions.html) - Where to place your extension
-- [API Reference](/extensions/api.html) - Programmatic management
+* Properly configure [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers to control the sources from which content can be loaded.
 
-::: panel-link Action Extensions [Next](/extensions/types/action.html)
+::: warning
+ Please note that if these headers are misconfigured, iframe functionality may not work as intended.
 :::
+
+* Use your extension secret and ```postMessage``` to get and verify the signature of a JW token. This secret will be used to generate a JWT token when the iframe is loaded by the PIM system.
+
+**Get a JW Token via ```postMessage```**
+
+First, from your iframe, you must request for the JWT by doing a PostMessage with a payload containing ```type: 'request_jwt'```
+
+Example :
+```js
+    window.parent.postMessage(
+      {
+        type: 'request_jwt'
+      },
+      "*"
+    );
+```
+
+ the PIM will then answer with a postMessage containing the JWT token. The message will be structured as follows:
+
+```json
+{
+  "type": "JWT_TOKEN",
+  "token": "jwt_value"
+}
+```
+
+* The JWT token in the token field is generated using SHA256 encryption based on the secret you provided.
+
+For more information on how JWT tokens are structured and used, you can refer to the associated [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519).
+
+**JWT Token Structure**
+
+The JWT token consists of three main parts: the header, the body (payload), and the signature.
+
+*Header*
+
+* The header typically contains information about the token type and the signing algorithm. In this case, it will look like:
+
+```json
+{
+  "typ": "JWT",
+  "alg": "HS256"
+}
+```
+
+*Payload*
+
+* The payload contains the claims. The JWT token’s will look like this:
+
+```json
+{
+  "jti": "c1b6b9f1-8486-4f9e-9f96-8d1b40fccb65",
+  "iat": 1743410036.116152,
+  "exp": 1743413636.116162,
+  "userId": "1",
+  "userUuid": "557ed4c9-e155-4f4c-802d-4d90bca37d45"
+}
+```
+
+* ```jti``` The unique identifier for the token.
+* ```iat``` The issued at time.
+* ```exp``` The expiration time of the token.
+* ```userId``` The PIM user legacy identifier (in this case, ```1```).
+* ```userUuid``` The PIM user Uuid.
+
+*A signature*
+
+* The signature is used to verify that the token is valid and has not been tampered with. It is generated by combining the encoded header and payload, and then signing them with the secret key. The resulting signature might look like:  
+```9WBB7ayP8UnFrOlMrI9NzTj3kxaiXOWJzElyacEKt48```
+
+**Verifying the Signature**
+
+To ensure that the JWT token was issued by Akeneo, you can verify the signature by re-encoding the header and payload and then signing them using the same secret key. This will allow you to confirm that the token is valid and has not been altered.

@@ -97,7 +97,6 @@ Consider these questions when selecting an extension type:
 
 - Explore detailed documentation for each type
 - Review [Available Positions](/extensions/positions.html) to see where extensions can be placed
-- Learn about [Security](/extensions/security/overview.html) best practices
 - Check the [Getting Started](/extensions/getting-started.html) guide for a hands-on tutorial
 
 ::: panel-link Link Extensions [Next](/extensions/types/link.html)
