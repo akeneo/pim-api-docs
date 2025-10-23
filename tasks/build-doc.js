@@ -790,11 +790,19 @@ gulp.task('fetch-remote-events', function(done) {
 
 gulp.task('build-extensions', ['clean-dist','less'], function () {
       var pages = {
-          'overview.md': "Overview",
           'getting-started.md': "Getting started",
-          'types.md': "Types",
+          'types/overview.md': "Extension Types",
+          'types/link.md': "Link",
+          'types/iframe.md': "Iframe",
+          'types/action.md': "Action",
+          'types/data-component.md': "Data Component",
+          'types/custom-component.md': "Custom Component (SDK)",
+          'integration/iframe-communication.md': "Iframe Communication",
+          'integration/url-placeholders.md': "URL Placeholders",
+          'security/overview.md': "Security",
+          'security/iframe-security.md': "Iframe Security",
+          'security/credentials.md': "Credentials",
           'positions.md': "Positions",
-          'credentials.md': "Credentials",
           'filtering.md': "Filter and display",
           'api.md': "API",
           'faq.md': "FAQ",
@@ -802,26 +810,34 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
 
       var isOnePage = false;
 
-      return gulp.src('content/extensions/*.md')
+      return gulp.src('content/extensions/**/*.md')
         .pipe(flatmap(function(stream, file){
-            return gulp.src('content/extensions/*.md')
+            // Get relative path from content/extensions/
+            var relativePath = path.relative('content/extensions', file.path);
+            var dirName = path.dirname(relativePath);
+            var baseName = path.basename(relativePath);
+
+            return gulp.src('content/extensions/**/*.md')
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/extensions') + "\n"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, relativePath, '/extensions') + "\n"))
               .pipe(gulpMarkdownIt(mdGt))
               .pipe(gulp.dest('tmp/extensions/'))
               .on('end', function () {
+                  var tmpPath = 'tmp/extensions/' + relativePath.replace(/\.md/, '.html');
+                  var distPath = './dist/extensions' + (dirName !== '.' ? '/' + dirName : '');
+
                   return gulp.src('src/partials/extensions.handlebars')
                     .pipe(gulpHandlebars({
                         active_api_resources: true,
                         title: 'Extensions',
                         description: getPageDescription(file.path, "Extensions"),
-                        mainContent: fs.readFileSync('tmp/extensions/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        mainContent: fs.readFileSync(tmpPath)
                     }, {
                         partialsDirectory: ['./src/partials']
                     }))
-                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(rename(baseName.replace(/\.md/, '.html')))
                     .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                    .pipe(gulp.dest('./dist/extensions'));
+                    .pipe(gulp.dest(distPath));
               })
         }));
   }
