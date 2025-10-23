@@ -796,7 +796,7 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
           'iframe.md': "Iframe",
           'action.md': "Action",
           'data-component.md': "Data Component",
-          'integration/url-placeholders.md': "URL Placeholders",
+          'url-placeholders.md': "URL Placeholders",
           'security/credentials.md': "Credentials",
           'filtering.md': "Filter and display",
           'api.md': "API",
@@ -849,16 +849,16 @@ gulp.task('build-advanced-extensions', ['clean-dist','less'], function () {
 
       var isOnePage = false;
 
-      return gulp.src('content/extensions/**/*.md')
+      return gulp.src('content/advanced-extensions/**/*.md')
         .pipe(flatmap(function(stream, file){
             // Get relative path from content/extensions/
-            var relativePath = path.relative('content/extensions', file.path);
+            var relativePath = path.relative('content/advanced-extensions', file.path);
             var dirName = path.dirname(relativePath);
             var baseName = path.basename(relativePath);
 
-            return gulp.src('content/extensions/**/*.md')
+            return gulp.src('content/advanced-extensions/**/*.md')
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, relativePath, '/extensions') + "\n"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, relativePath, '/advanced-extensions') + "\n"))
               .pipe(gulpMarkdownIt(mdGt))
               .pipe(gulp.dest('tmp/advanced-extensions/'))
               .on('end', function () {
