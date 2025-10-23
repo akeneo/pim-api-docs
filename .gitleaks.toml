@@ -18,7 +18,7 @@ paths = [
     '''content/rest-api/authentication_old.md''',
     # UI Extension documentation
     '''content/extensions/api.md''',
-    '''content/extension/security/iframe-security.md''',
+    '''content/extensions/security/iframe-security.md''',
     # PX Insights getting started documentation
     '''content/px-insights/getting-started.md''',
     # Event Platform concepts documentation with example certificates
