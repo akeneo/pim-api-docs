@@ -54,12 +54,16 @@ Via PIM UI (Recommended):
     - Leave the position to the default value **Product Tab**
 
     ::: info
-    //TODO: Update with correct positions
-    There is 3 positions available for the type Custom Component:
+    There is 8 positions available for the type Custom Component:
 
-    - Product Header
-    - Product Model Header
-    - Sub-Product Model Header
+    - Product Tab
+    - Product Model Tab
+    - Sub-Product Model Tab
+    - Product panel
+    - Product Model panel
+    - Sub-Product Model panel
+    - Category Tab
+    - Activity Tab
     :::
 
   - Upload your built JavaScript file from the dist/ folder
