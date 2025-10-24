@@ -763,22 +763,22 @@ gulp.task('fetch-remote-events', function(done) {
   const fs = require('fs');
   const url = 'https://storage.googleapis.com/akecld-prd-pim-saas-shared-event-asyncapi/asyncapi.md';
   const filePath = 'content/event-platform/available-events.md';
-  
+
   https.get(url, (response) => {
     if (response.statusCode !== 200) {
       done(new Error(`Failed to fetch remote file: ${response.statusCode}`));
       return;
     }
-    
+
     const file = fs.createWriteStream(filePath);
     response.pipe(file);
-    
+
     file.on('finish', () => {
       console.log('Successfully downloaded remote events documentation');
       file.close();
       done();
     });
-    
+
     file.on('error', (err) => {
       fs.unlink(filePath, () => {}); // Delete the file if there was an error
       done(err);
@@ -790,11 +790,14 @@ gulp.task('fetch-remote-events', function(done) {
 
 gulp.task('build-extensions', ['clean-dist','less'], function () {
       var pages = {
-          'overview.md': "Overview",
           'getting-started.md': "Getting started",
-          'types.md': "Types",
-          'positions.md': "Positions",
-          'credentials.md': "Credentials",
+          'types-overview.md': "Extension Types",
+          'link.md': "Link",
+          'iframe.md': "Iframe",
+          'action.md': "Action",
+          'data-component.md': "Data Component",
+          'url-placeholders.md': "URL Placeholders",
+          'security/credentials.md': "Credentials",
           'filtering.md': "Filter and display",
           'api.md': "API",
           'faq.md': "FAQ",
@@ -802,26 +805,82 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
 
       var isOnePage = false;
 
-      return gulp.src('content/extensions/*.md')
+      return gulp.src('content/extensions/**/*.md')
         .pipe(flatmap(function(stream, file){
-            return gulp.src('content/extensions/*.md')
+            // Get relative path from content/extensions/
+            var relativePath = path.relative('content/extensions', file.path);
+            var dirName = path.dirname(relativePath);
+            var baseName = path.basename(relativePath);
+
+            return gulp.src('content/extensions/**/*.md')
               .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/extensions') + "\n"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, relativePath, '/extensions') + "\n"))
               .pipe(gulpMarkdownIt(mdGt))
               .pipe(gulp.dest('tmp/extensions/'))
               .on('end', function () {
+                  var tmpPath = 'tmp/extensions/' + relativePath.replace(/\.md/, '.html');
+                  var distPath = './dist/extensions' + (dirName !== '.' ? '/' + dirName : '');
+
                   return gulp.src('src/partials/extensions.handlebars')
                     .pipe(gulpHandlebars({
                         active_api_resources: true,
                         title: 'Extensions',
                         description: getPageDescription(file.path, "Extensions"),
-                        mainContent: fs.readFileSync('tmp/extensions/' + path.basename(file.path).replace(/\.md/, '.html'))
+                        mainContent: fs.readFileSync(tmpPath)
                     }, {
                         partialsDirectory: ['./src/partials']
                     }))
-                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(rename(baseName.replace(/\.md/, '.html')))
                     .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                    .pipe(gulp.dest('./dist/extensions'));
+                    .pipe(gulp.dest(distPath));
+              })
+        }));
+  }
+);
+
+gulp.task('build-advanced-extensions', ['clean-dist','less'], function () {
+      var pages = {
+          'overview.md': "Overview",
+          'getting-started.md': "Getting started",
+          'sdk-in-depth.md': "SDK in depth",
+          'development-workflow.md': "Development Workflow",
+          'api-deployment.md': "API Deployment",
+          'ui-deployment.md': "UI Deployment",
+          'sdk-credentials.md': "Credentials",
+          'filtering.md': "Filter and display",
+          'faq.md': "FAQ & Troubleshooting",
+      };
+
+      var isOnePage = false;
+
+      return gulp.src('content/advanced-extensions/**/*.md')
+        .pipe(flatmap(function(stream, file){
+            // Get relative path from content/extensions/
+            var relativePath = path.relative('content/advanced-extensions', file.path);
+            var dirName = path.dirname(relativePath);
+            var baseName = path.basename(relativePath);
+
+            return gulp.src('content/advanced-extensions/**/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, relativePath, '/advanced-extensions') + "\n"))
+              .pipe(gulpMarkdownIt(mdGt))
+              .pipe(gulp.dest('tmp/advanced-extensions/'))
+              .on('end', function () {
+                  var tmpPath = 'tmp/advanced-extensions/' + relativePath.replace(/\.md/, '.html');
+                  var distPath = './dist/advanced-extensions' + (dirName !== '.' ? '/' + dirName : '');
+
+                  return gulp.src('src/partials/extensions.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_api_resources: true,
+                        title: 'Advanced Extensions',
+                        description: getPageDescription(file.path, "Advanced Extensions"),
+                        mainContent: fs.readFileSync(tmpPath)
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(baseName.replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest(distPath));
               })
         }));
   }

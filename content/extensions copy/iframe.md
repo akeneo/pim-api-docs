@@ -1,16 +1,3 @@
-# Types
-
-UI extensions are categorized by type, which determines their capabilities. Select the type that best suits your requirements:
-+ Action
-+ Iframe
-+ Link
-+ Data component
-
-## Link
-A **link** UI extension is crafted to open your external content in a new tab.
-
-To create a `link` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label` and `url`.
-
 ## Iframe
 An **iframe** UI extension allows to open your external content inside the PIM thanks to an iframe.
 
@@ -241,118 +228,45 @@ The JWT token consists of three main parts: the header, the body (payload), and 
 
 To ensure that the JWT token was issued by Akeneo, you can verify the signature by re-encoding the header and payload and then signing them using the same secret key. This will allow you to confirm that the token is valid and has not been altered.
 
-## Action
-An **action** UI extension is designed to perform external tasks in the background. Please note the following key points regarding its functionality:
 
-+ **Single execution**: An action cannot be executed multiple times simultaneously. This ensures that tasks are processed in a controlled manner.
-+ **Menu deactivation**: During the execution of an action, the associated menu will be deactivated to prevent further interactions until the task is complete.
-+ **Notification on completion**: A notification will appear once the external server responds to the request, keeping users informed of the task's status.
-+ **Timeout**: The PIM HTTP client that communicates with the destination is configured with a timeout of 5 seconds.
-+ **POST HTTP method**: The request being sent to the destination is a POST request.
-+ **Signature**: It's possible to configure a `secret` to sign the body of the POST request sent to the destination (<a href='https://wikipedia.org/wiki/SHA-2'>SHA-512</a> protocol).
+## Available Positions
 
-Here is a diagram illustrating the workflow:
-[![action-extension-schema.png](../img/extensions/ui-extensions/action-extension-schema.png)](../img/extensions/ui-extensions/action-extension-schema.png)
+Iframe extensions can be placed in:
 
-Data sent within the POST body, formatted in JSON, contain:
-- A `data` object with different fields depending on the [position](#position).
-- A `context` object containing:
-  - the configured `locale`,
-  - the configured `channel`,
-  - the configured `category` (only available for product grid actions).
-- A `user` object containing the `uuid`, `username` and `groups` of the connected user.
-- A `timestamp` that can be used with a [secret](#secret) to help you to protect your server against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
+| Position | Location | Context | Communication |
+|----------|----------|---------|---------------|
+| `pim.product.tab` | Product edit page tab | Simple products and variants | Yes |
+| `pim.product-model.tab` | Product model tab | Root product models | Yes |
+| `pim.sub-product-model.tab` | Sub-product model tab | Sub-product models | Yes |
+| `pim.category.tab` | Category edit page tab | Categories | Yes |
+| `pim.product-grid.action-bar` | Product grid action bar | Multiple products | Yes |
+| `pim.activity.navigation.tab` | Activity navigation tab | Global context | No |
+| `pim.product.panel` | Product right panel | Simple products and variants | Yes |
+| `pim.product-model.panel` | Product model right panel | Root product models | Yes |
+| `pim.sub-product-model.panel` | Sub-product model right panel | Sub-product models | Yes |
 
-From the position `pim.product.header`, the `data` object contains:
-- A `productUuid` string field
+## Limitations
 
-From the position `pim.product-model.header`, the `data` object contains:
-- A `productModelCode` string field representing the root model code.
+- **Same-origin policy**: Your iframe has limited access to parent window
+- **Size constraints**: Iframe dimensions are controlled by the PIM
+- **Performance**: Each iframe loads a complete web page
+- **Browser compatibility**: Some browsers have stricter iframe policies
 
-From the position `pim.sub-product-model.header`, the `data` object contains:
-- A `productModelCode` string field representing the sub model code.
+## When to Use Another Type
 
-From the position `pim.product-grid.action-bar`, the `data` object contains:
-- A `productUuids` field which is an array of string representing the UUIDs of selected products
-- A `productModelCodes` field which is an array of string representing the codes of selected product models and sub models
+Consider these alternatives if iframe extensions don't meet your needs:
 
-From the position `pim.product.index`, the `data` object is `empty`.
+- **Simple link needed?** → Use [Link Extensions](/extensions/types/link.html)
+- **Need background processing?** → Use [Action Extensions](/extensions/types/action.html)
+- **Just displaying data?** → Use [Data Component Extensions](/extensions/types/data-component.html)
+- **Need full SDK access?** → Use [Custom Component Extensions](/extensions/types/custom-component.html)
 
-Examples :
+## Learn More
 
-```json
-{
-  "data": {
-    "productUuid": "ecfddba2-59bf-4d35-bd07-8ceeefde51fd"
-  },
-  "context": {
-    "locale": "en_US",
-    "channel": "ecommerce"
-  },
-  "user": {
-    "uuid": "e05cc457-b8ac-43b1-baa7-c4c112091ad8",
-    "username": "julia",
-    "groups": [
-      "Manager",
-      "All"
-    ]
-  },
-  "timestamp": 1739948408
-}
-```
+- [Iframe Communication](/extensions/integration/iframe-communication.html) - PostMessage patterns
+- [Iframe Security](/extensions/security/iframe-security.html) - JWT and CSP
+- [Positions](/extensions/positions.html) - Where to place your extension
+- [API Reference](/extensions/api.html) - Programmatic management
 
-```json
-{
-  "data": {
-    "productUuids": [],
-    "productModelCodes": ["armor", "apollon"]
-  },
-  "context": {
-    "locale": "en_US",
-    "channel": "ecommerce",
-    "category": "master_men_blazers_deals"
-  },
-  "user": {
-    "uuid": "e05cc457-b8ac-43b1-baa7-c4c112091ad8",
-    "username": "julia",
-    "groups": [
-      "Manager",
-      "All"
-    ]
-  },
-  "timestamp": 1739948408
-}
-```
-
-## Data component
-A **data component** UI extension is designed to query data from an predefined endpoint and display them in a **colapsible panel** on the product edit form. It aims to ease the completion of product information without leaving the PIM. The panel is accessible via a button on the header of the form. It can be opened and closed by clicking the button.
-
-Please note the following key points regarding its functionality:
-
-* Raw data display: The extension expect queried data to be of JSON format and will display it as it is. To ease navigation, section are collapsible.
-* GET HTTP method: The request being sent to the destination is a GET request.
-* Signature: It's possible to configure a secret to sign the body of the POST request sent to the destination (SHA-512 protocol).
-* Authenticated calls: Thanks to the possibilty of adding [credentials](/extensions/credentials.html) to the extension, you are able to query endpoints requiring authentication.
-
-## Url Placeholders
-The Url of a **link** UI extension, an **action**, or a **data component** can be based on the context thanks to a placeholder pattern.
-
-For example, you can configure a UI extension with the following url `https://www.google.com/search?q=%name%&tbm=shop&gl=us`. When the link is clicked, `%name%` will be replaced with the context attribute values.
-
-Valid placeholders attributes are:
-- `uuid` (for products), `code` (for product models) and other attribute of type `identifier`
-- all `text` attributes. Links will use the value related to the current locale or channel.
-
-You can add a placeholder anywhere in your url as soon as they're surrounded by `%` symbol.
-
-Examples:
-- `https://www.google.com/search?q=%name%`
-- `https://yourwebsite.com/%sku%`
-- `%base_url%/sub-url`
-
-::: warning
-If the URL begins with a placeholder, we won't verify its validity. The link might not work when used.
-:::
-
-::: panel-link UI extensions available positions [Next](/extensions/positions.html)
+::: panel-link Action Extensions [Next](/extensions/action.html)
 :::
