@@ -185,7 +185,6 @@ const response = await PIM.api.external.call({
   method: 'GET',
   url: 'https://api.example.com/data',
   headers: {
-    'my_super_header': 'your super header value',
     'Content-Type': 'application/json'
   }
 });
@@ -204,25 +203,28 @@ const createResponse = await PIM.api.external.call({
 });
 ```
 
-#### Authenticated calls and credentials:
-You have the ability to make authenticated calls using the `external.call` method. To do so you have to specify as a paramter the code of the credential you want to use. The specified credential will be used as headers in the generated requests.
+### Authenticated Calls
+
+For authenticated API calls, you can use stored credentials by referencing them with the `credentials_code` parameter:
 
 ```js
 // Make a request using stored credentials
 const secureResponse = await PIM.api.external.call({
   method: 'GET',
   url: 'https://api.secure-service.com/data',
-  credentials_code: 'my_registered_credentials' // Reference credentials stored in PIM
+  credentials_code: 'my_api_credentials' // Reference credentials stored in PIM
 });
 ```
 
-Important considerations for external calls:
+::: info
+**Never hardcode credentials** in your extension code. Always use the `credentials_code` parameter to reference credentials that are securely stored in the PIM. For detailed information on configuring and using credentials, see the [Credentials guide](/advanced-extensions/sdk-credentials.html).
+:::
+
+### Important Considerations
+
 - This is the **only method** allowed for accessing external resources from your extension
 - All external domains must be allowlisted in your extension configuration
 - For security reasons, requests are proxied through the PIM server
-- **Never hardcode credentials** in your extension code as it runs in the browser and can expose sensitive information
-- Always use the `credentials_code` parameter to reference credentials that are securely stored in the PIM configuration
-- The credential management is handled through the extension configuration in the PIM admin interface
 - The method supports standard HTTP methods (GET, POST, PUT, DELETE, etc.)
 - Responses are returned as promises that can be handled with async/await
 
