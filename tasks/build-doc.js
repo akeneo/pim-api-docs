@@ -763,22 +763,22 @@ gulp.task('fetch-remote-events', function(done) {
   const fs = require('fs');
   const url = 'https://storage.googleapis.com/akecld-prd-pim-saas-shared-event-asyncapi/asyncapi.md';
   const filePath = 'content/event-platform/available-events.md';
-  
+
   https.get(url, (response) => {
     if (response.statusCode !== 200) {
       done(new Error(`Failed to fetch remote file: ${response.statusCode}`));
       return;
     }
-    
+
     const file = fs.createWriteStream(filePath);
     response.pipe(file);
-    
+
     file.on('finish', () => {
       console.log('Successfully downloaded remote events documentation');
       file.close();
       done();
     });
-    
+
     file.on('error', (err) => {
       fs.unlink(filePath, () => {}); // Delete the file if there was an error
       done(err);
@@ -843,7 +843,9 @@ gulp.task('build-advanced-extensions', ['clean-dist','less'], function () {
           'overview.md': "Overview",
           'getting-started.md': "Getting started",
           'sdk-in-depth.md': "SDK in depth",
-          'api-deployment.md': "API & Deployment",
+          'development-workflow.md': "Development Workflow",
+          'api-deployment.md': "API Deployment",
+          'ui-deployment.md': "UI Deployment",
           'sdk-credentials.md': "Credentials",
           'filtering.md': "Filter and display",
           'faq.md': "FAQ & Troubleshooting",
