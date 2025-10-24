@@ -840,11 +840,13 @@ gulp.task('build-extensions', ['clean-dist','less'], function () {
 
 gulp.task('build-advanced-extensions', ['clean-dist','less'], function () {
       var pages = {
-          'custom-component.md': "Custom Component (SDK)",
+          'overview.md': "Overview",
+          'getting-started.md': "Getting started",
+          'sdk-in-depth.md': "SDK in depth",
+          'api-deployment.md': "API & Deployment",
           'sdk-credentials.md': "Credentials",
           'filtering.md': "Filter and display",
-          'api.md': "API",
-          'faq.md': "FAQ",
+          'faq.md': "FAQ & Troubleshooting",
       };
 
       var isOnePage = false;

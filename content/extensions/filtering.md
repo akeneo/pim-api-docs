@@ -27,7 +27,8 @@ Extensions can have three different statuses: `Active`, `Inactive` and `To updat
 * `Inactive` extensions are only visible in Extensions list page and must be enabled for user use.
 * Extensions `To update`, have this status due to an incorrect or outdated configuration. They must be updated or deleted. This may result from a migration or update of the PIM. Most time the credentials or secret fields are the cause. To update it just open it in the UI add a new value on the missing fileds and save the extension. It will pass on `Inactive` status.  
 
-TODO: talk about email filtering (also add it in extensions/filtering.md)
+TODO: talk about email filtering (also in extensions/filtering.md)
 
-::: panel-link FAQ & troubleshooting [Next](/advanced-extensions/faq.html)
+
+::: panel-link API [Next](/extensions/api.html)
 :::

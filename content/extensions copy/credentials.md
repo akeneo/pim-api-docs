@@ -1,8 +1,6 @@
 # Credentials
 You have the ability to make authenticated calls via UI Extensions using credentials. These credentials will be used as headers in the POST requests generated when calling the specified URL.
 
-// TODO: add doc about credentials code
-
 ### Available Credential Methods
 
 | Methode              | Header                                             |
@@ -22,5 +20,5 @@ Basic Authentication and Bearer Token credentials are encrypted before being sto
 - [Data Component Extensions](/extensions/types/data-component.html) - Using credentials with data components
 - [Custom Componet Extensions](extensions/types/custom-componetns.html) - Using credentials with custom components
 
-::: panel-link Filtering [Next](/advanced-extensions/filtering.html)
+::: panel-link Filtering [Next](/extensions/filtering.html)
 :::
