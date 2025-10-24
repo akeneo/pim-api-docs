@@ -1,4 +1,6 @@
-## FAQ & troubleshooting
+# FAQ & troubleshooting
+
+## FAQ
 ### Who is responsible for UI extensions?
 Akeneo is responsible for the UI extensions framework itself, including the APIs and administrative interface. We provide support for these components. Your organization or your integrator is responsible for any custom code, iframes, or other custom development built within the UI extensions. Support for this custom code falls to your organization or integrator, not Akeneo.
 
@@ -12,7 +14,6 @@ If you don't see the UI extensions entry in your PIM, it's likely due to permiss
 Currently, UI extension placements are limited to those defined by Akeneo. However, we highly value your feedback! Please contact your Customer Success Manager or our Support team to share your specific placement needs. This will help us understand your use case and consider it for future development.
 
 ## Troubleshooting
-
 ### SES_UNCAUGHT_EXCEPTION: TypeError: Cannot assign to read only property 'constructor' of object '[object Object]'
 
 **What this error means:**
