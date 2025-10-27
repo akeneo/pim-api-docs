@@ -1,6 +1,4 @@
-# MCP Overview
-
-**Connect your Akeneo PIM to AI-powered tools**
+# Overview
 
 The Akeneo MCP Server is a bridge between your Akeneo PIM instance and AI tools that support the Model Context Protocol (MCP). It lets you interact with your product catalog using natural language—search products, update attributes, check compliance, and more—all without leaving your IDE or AI assistant.
 
@@ -8,7 +6,9 @@ The Akeneo MCP Server is a bridge between your Akeneo PIM instance and AI tools 
 
 The Model Context Protocol (MCP) is a standard for connecting AI assistants to data sources and tools. It enables AI models to interact with external systems in a structured and secure way.
 
+::: info
 Learn more about MCP at [modelcontextprotocol.io](https://modelcontextprotocol.io/)
+:::
 
 ## Who is it for?
 

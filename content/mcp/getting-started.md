@@ -1,6 +1,6 @@
-# Getting Started with the Akeneo MCP Server
+# Getting started
 
-**Connect your Akeneo PIM to AI-powered tools**
+This guide provides step-by-step instructions to connect your Akeneo PIM to AI-powered tools using the Model Context Protocol (MCP). By the end of this guide, you will have configured your MCP client and be able to interact with your PIM using natural language.
 
 ## Before You Start
 
@@ -21,6 +21,10 @@
 2. Go to **Connect > Connection settings**
 3. Click **Create**
 4. Save your credentials
+
+::: info
+Need more details? See the [complete guide for creating API credentials](https://api-dev.akeneo.com/documentation/authentication.html#client-idsecret-generation) in the Akeneo documentation.
+:::
 
 ## Quick Setup
 
@@ -82,9 +86,9 @@ Add this configuration to Cursor's MCP settings.
 }
 ```
 
-## Tips for Best Results
-
-💡 To avoid unnecessary calls and potential trial and error, don't hesitate to use codes/SKUs/UUIDs with your LLM (instead of labels) when referring to a specific product, attribute, category or family.
+::: info
+To avoid unnecessary calls and potential trial and error, don't hesitate to use codes/SKUs/UUIDs with your LLM (instead of labels) when referring to a specific product, attribute, category or family.
+:::
 
 ## Test Your Connection
 
