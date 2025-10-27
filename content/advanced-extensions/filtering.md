@@ -132,5 +132,5 @@ Extensions in "To update" status will not be displayed to users, even if they we
 - Test with users who should NOT see the extension
 - Check that product selection filters work as expected
 
-::: panel-link API [Next](/extensions/api.html)
+::: panel-link [FAQ & Troubleshooting](/advanced-extensions/faq.html)
 :::

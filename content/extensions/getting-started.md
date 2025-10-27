@@ -7,7 +7,6 @@ Having the proper permisison to create and manage UI-Extensions.
 ### Access the UI-extensions management Interface
 
 - Navigate to the UI-extensions list, in the `PIM System > Ui Extensions`
-screenshot
 
 ### Create a New UI-extension Link
 
@@ -17,7 +16,7 @@ screenshot
     - Leave the position to the default value **Product Header**
 
     ::: info
-    There is 3 position available for the type Link:
+    There is 3 positions available for the type Link:
 
     - Product Header
     - Product Model Header
@@ -47,5 +46,5 @@ Learn more about the availables types of UI-extension in the [Types section](/ex
 ## Administration of UI extensions
 For a deeprer overview of the Ui extension administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).
 
-::: panel-link UI extensions available types [Next](/extensions/types.html)
+::: panel-link UI extensions available types [Next](/extensions/types-overview.html)
 :::

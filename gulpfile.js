@@ -49,6 +49,7 @@ gulp.task('create-dist', [
   'build-event-platform',
   'build-events-api',
   'build-extensions',
+  'build-advanced-extensions',
   'build-php-client',
   'build-misc-documentation',
   'build-guides',
