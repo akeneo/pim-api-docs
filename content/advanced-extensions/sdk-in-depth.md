@@ -18,6 +18,8 @@ When developing with the SDK, keep these constraints in mind:
 - **Global State**: The sandbox isolates your code from affecting the global state of the PIM application.
 - **Resources**: Your script should be efficient as it runs within the PIM application context.
 
+[![indepth_custom_extension.png](../img/extensions/ui-extensions/indepth_custom_extension.png)](../img/extensions/ui-extensions/indepth_custom_extension.png)
+
 ## Permissions and Access Control
 
 The SDK operates under the permissions of the currently logged-in user. This means:
