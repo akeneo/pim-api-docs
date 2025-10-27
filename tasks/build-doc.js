@@ -1523,6 +1523,8 @@ gulp.task('build-mcp', ['clean-dist','less'], function () {
     var pages = {
         'overview.md': "Overview",
         'getting-started.md': "Getting started",
+        'use-cases.md': "Use cases examples",
+        'capabilities.md': "MCP Capabilities",
     };
 
     var isOnePage = false;
