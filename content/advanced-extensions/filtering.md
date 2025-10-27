@@ -34,21 +34,33 @@ Product selection filtering uses the same interface as other Akeneo product filt
 
 ## Filter by Individual User Email
 
-You can restrict extensions to specific individual users by entering their email addresses in the **user filter field**. This is useful for:
+You can restrict extensions to specific individual users by entering their email addresses in the **Filter by users** field. This is useful for:
 
 - **Beta Testing**: Roll out new extensions to selected users before general availability
 - **Special Access**: Provide custom tools to specific team members
 - **Troubleshooting**: Enable diagnostic extensions for support staff only
 
 **How to configure:**
+
+- In the UI:
 1. Go to the UI extensions creation/edition form
-2. Find the "User emails" field // TODO REAL NAME
-3. Enter email addresses separated by commas // TODO check
-4. Save the extension
+2. Open the **permissions** tab
+3. Enter email addresses in the **Filter by users** field.
+4. You can add several emails
+5. Save the extension
+
+- With the API:
+Add a `userEmails`field in the configuration section.
 
 **Example:**
-```
-john.doe@company.com, jane.smith@company.com, admin@company.com
+```json
+{
+"configuration": {
+    "userEmails": [
+        john.doe@company.com, jane.smith@company.com, admin@company.com
+    ]
+  }
+}
 ```
 
 ## Order Extensions
@@ -68,7 +80,6 @@ When multiple extensions are available in the same position, you can control the
 - Extension B (weight: 5) → Appears second
 - Extension C (weight: 10) → Appears third
 
-TODO (Should be here ?)
 ## Extension Statuses
 
 Extensions can have three different statuses:

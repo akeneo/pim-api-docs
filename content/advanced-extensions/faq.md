@@ -22,17 +22,17 @@ This error occurs when your code (or a library you're using) attempts to modify 
 
 **Common causes:**
 
-1. **Your code is trying to reassign `constructor`**
-   - Check if you're directly assigning to `.constructor` anywhere in your code
-   - Look for patterns like `obj.constructor = ...` or `prototype.constructor = ...`
+- **Your code is trying to reassign `constructor`**
+  - Check if you're directly assigning to `.constructor` anywhere in your code
+  - Look for patterns like `obj.constructor = ...` or `prototype.constructor = ...`
 
-2. **A library you're using has compatibility issues**
-   - Some older libraries may try to modify built-in objects in ways that aren't allowed in secure environments
-   - Check if the error occurs after importing a specific library
-   - Try updating the library to the latest version
+- **A library you're using has compatibility issues**
+  - Some older libraries may try to modify built-in objects in ways that aren't allowed in secure environments
+  - Check if the error occurs after importing a specific library
+  - Try updating the library to the latest version
 
-3. **Attempting to modify frozen or sealed objects**
-   - You may be trying to change properties on objects created with `Object.freeze()` or `Object.seal()`
+- **Attempting to modify frozen or sealed objects**
+  - You may be trying to change properties on objects created with `Object.freeze()` or `Object.seal()`
 
 **How to fix it:**
 
@@ -55,15 +55,15 @@ This error occurs when your code (or a library you're using) tries to access the
 
 **Common causes:**
 
-1. **A library expects a Node.js environment**
+- **A library expects a Node.js environment**
    - Some libraries are designed for Node.js and assume `process` is available
    - This commonly happens with libraries that check `process.env` for environment variables
 
-2. **Your code references `process` directly**
+- **Your code references `process` directly**
    - Check if you're using `process.env.VARIABLE_NAME` or similar in your code
    - Browser code should use `import.meta.env.VARIABLE_NAME` instead (in Vite)
 
-3. **Missing polyfills or configuration**
+- **Missing polyfills or configuration**
    - Your build tool may need to be configured to provide browser-compatible shims
 
 **How to fix it:**
