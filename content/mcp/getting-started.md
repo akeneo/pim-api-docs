@@ -86,17 +86,19 @@ Add this configuration to Cursor's MCP settings.
 }
 ```
 
-::: info
-To avoid unnecessary calls and potential trial and error, don't hesitate to use codes/SKUs/UUIDs with your LLM (instead of labels) when referring to a specific product, attribute, category or family.
-:::
-
 ## Test Your Connection
 
 Once configured, try these natural language queries:
 
 - `"Show me the name of my first 10 products"`
 - `"List all product families"`
-- `"What attributes are available?`
+- `"What attributes are available?"`
+
+You should receive accurate responses from your PIM. If you encounter any issues, verify your credentials are correct and that your PIM instance is accessible.
+
+::: info
+For more detailed examples and use cases, see our [Use Cases Examples](/mcp/use-cases.html) page.
+:::
 
 ## Learn More
 
