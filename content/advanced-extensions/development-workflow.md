@@ -6,13 +6,13 @@ To get started with an example, navigate to one of the project folders (e.g., `e
 
 The general workflow is:
 
-1.  **Run the setup command**:
+- **Run the setup command**:
     ```bash
     make start
     ```
     This command installs dependencies, helps you configure your environment, and creates the UI extension in your PIM for the first time.
 
-2.  **Develop and Update**:
+- **Develop and Update**:
     Modify the source code in the `src/` directory. To see your changes in the PIM, you can either:
     - Run `make update-dev` to manually build and push an update.
     - Run `make watch` to automatically update the extension whenever you save a file.
@@ -25,8 +25,8 @@ To help you with development, we have created several examples in the `examples/
 
 | Example                  | Description                                                                          | Link                                                                    |
 |--------------------------|--------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| **Quickstart**           | A basic "Hello World" example to get you started with the fundamental project setup. | [Go to Quickstart](./examples/quickstart/README.md)                     |
-| **Stock Data on Panel**  | A more advanced example showing how to fetch and display external data in a panel.   | [Go to Stock Data on Panel](./examples/stock_data_on_panel/README.md)   |
+| **Quickstart**           | A basic "Hello World" example to get you started with the fundamental project setup. | [Go to Quickstart](https://github.com/akeneo/extension-sdk/tree/main/examples/quickstart)                     |
+| **Stock Data on Panel**  | A more advanced example showing how to fetch and display external data in a panel.   | [Go to Stock Data on Panel](https://github.com/akeneo/extension-sdk/tree/main/examples/stock_data_on_panel)   |
 
 ## Development Commands
 
@@ -118,5 +118,5 @@ Each object in the `credentials` array can have the following properties:
 }
 ```
 
-::: panel-link [Learn more about how to manage your credentials](/advanced-extensions/sdk-credentials.html)
+::: panel-link [Learn more about the API deployment](/advanced-extensions/api-deployment.html)
 :::

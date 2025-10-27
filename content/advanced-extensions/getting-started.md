@@ -1,6 +1,7 @@
 # Getting Started
 
-In this section, you will learn how to create your first Custom Component extension quickly. This quick guide will help you understand the basic workflow for creating and managing UI Extensions.
+In this section, you will learn how to create your first Custom Component extension quickly.
+This quick guide will help you understand the basic workflow for creating and managing UI Extensions.
 
 ## Prerequisites
 
@@ -30,7 +31,7 @@ The `make start` command will:
 - Create the extension in your PIM for the first time
 
 ::: info
-The SDK provides ready-to-use example projects that serve as templates for building your own extensions. Start with `examples/quickstart` for a basic setup, or explore `examples/stock_data_on_panel` for a more advanced example.
+The SDK repository provides ready-to-use example projects that serve as templates for building your own extensions. Start with `examples/quickstart` for a basic setup, or explore `examples/stock_data_on_panel` for a more advanced example.
 :::
 
 ### 2. Build Your Extension
@@ -51,16 +52,12 @@ You have two options for deploying your extension:
 - Navigate to System → Extensions → UI Extensions
 - Click "Create" and upload your built JavaScript file
 - Configure the extension name, position, and labels
+- [Learn about UI deployment](/advanced-extensions/ui-deployment.html)
 
 **Option B: Via API** (For automation and CI/CD)
 - Use the REST API to programmatically deploy extensions
 - Ideal for automated workflows and managing multiple environments
-
-::: panel-link [Learn about UI deployment](/advanced-extensions/ui-deployment.html)
-:::
-
-::: panel-link [Learn about API deployment](/advanced-extensions/api-deployment.html)
-:::
+- [Learn about API deployment](/advanced-extensions/api-deployment.html)
 
 ## Testing Your Extension
 

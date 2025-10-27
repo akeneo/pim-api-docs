@@ -243,5 +243,5 @@ try {
 }
 ```
 
-::: panel-link [Learn more about how to deploy using the API](/advanced-extensions/api-deployment.html)
+::: panel-link [Learn more about the development workflow](/advanced-extensions/development-workflow.html)
 :::

@@ -8,15 +8,6 @@ This page describes how to deploy UI extensions programmatically using the Akene
 If you prefer a manual deployment method that doesn't require an API token, check out the [UI deployment guide](/advanced-extensions/ui-deployment.html).
 :::
 
-## When to Use API Deployment
-
-**Use API deployment when:**
-- You're automating deployments in a CI/CD pipeline
-- You need to update extensions programmatically
-- You're managing multiple extensions across environments
-- You want to version control your deployment process
-
-
 ## Prerequisites
 
 Before using the API to deploy extensions, you need:
@@ -97,3 +88,6 @@ Several choices are offered to deep dive into our API, to discover all the endpo
 
 - You can <a href="https://api.akeneo.com/api-reference-index.html#UIExtensions" target="_blank">consult the static documentation</a>
 - Discover it thanks to <a href="https://api.akeneo.com/files/Akeneo%20PIM%20API.postman_collection.json" target="_blank">the postman collection</a>
+
+::: panel-link [Learn more about the UI deployment](/advanced-extensions/ui-deployment.html)
+:::
