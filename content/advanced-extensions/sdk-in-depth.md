@@ -1,6 +1,4 @@
-# SDK in depth
-
-// TODO: j'ai collé en vrac des trucs à réorganiser
+# SDK in Depth
 
 ## Integration Architecture
 
@@ -172,8 +170,6 @@ Important limitations to keep in mind:
 - Navigation will open in a new tab, preserving the current extension context
 
 Use this feature to create helpful shortcuts or workflows that connect your extension's functionality with standard PIM screens.
-
-The position you choose will determine where and how your extension is presented to users in the PIM interface.
 
 ## External API Calls
 

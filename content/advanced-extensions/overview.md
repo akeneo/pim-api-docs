@@ -37,20 +37,6 @@ Build with TypeScript, React, or your favorite JavaScript tools. Use npm package
 ### Full PIM Access
 Access products, assets, reference entities, catalog structure, and all PIM resources through simple APIs.
 
-## Is This Right for You?
-
-### Use Custom Components When:
-- You need to modify or display PIM data in custom ways
-- You want to integrate with external systems securely
-- You need interactive, dynamic user interfaces
-- You want to add business logic or validation
-- You don't want to manage external hosting
-
-### Consider Other Options When:
-- You only need to open an external URL (use Action or iframe extensions)
-- You don't need access to PIM APIs
-- You want something simpler than JavaScript development
-
 ## How It Works
 
 1. **Build**: Develop your extension using the SDK with access to TypeScript definitions and example projects
