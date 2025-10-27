@@ -20,6 +20,8 @@ paths = [
     '''content/extensions/api.md''',
     '''content/extensions/security/iframe-security.md''',
     '''content/advanced-extensions/api-deployment.md''',
+    '''content/advanced-extensions/development-workflow.md''',
+    '''content/advanced-extensions/sdk-credentials.md''',
     # PX Insights getting started documentation
     '''content/px-insights/getting-started.md''',
     # Event Platform concepts documentation with example certificates
