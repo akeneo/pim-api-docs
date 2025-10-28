@@ -28,4 +28,5 @@ paths = [
     '''content/event-platform/concepts.md''',
     # MCP getting started documentation with example credentials
     '''content/mcp/getting-started.md''',
+    '''content/mcp/capabilities.md''',
 ]
