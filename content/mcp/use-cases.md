@@ -1,6 +1,6 @@
 # Use cases examples
 
-:::info
+:::tips
 We highly recommend using specific product codes, SKUs, or UUIDs with your LLM (instead of labels) when referring to a specific product, attribute, category or family to avoid unnecessary calls and potential trial and error.
 :::
 

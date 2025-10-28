@@ -55,14 +55,15 @@ Postman now includes built-in support for MCP requests. You can directly query a
 
 ## Understanding Tool Responses
 
-When you call MCP tools directly, you'll get detailed information:
+When you call MCP tools directly, the response is wrapped in a standard MCP structure:
 
-- **API Response**: The actual data from your Akeneo PIM
-- **Endpoint Used**: Shows which REST API endpoint was called
-- **Parameters Used**: Shows the search filters and parameters applied
-- **Metadata**: Additional context about the operation
+- **structuredContent**: Structured JSON payload with tool-specific data
+  - Example for `get_product`: a `product` object and `endpoint_used`
+  - For search tools, you may also see `parameters_used`
+- **content[]**: Raw, textual representation of the same data (for LLM rendering)
+- **isError**: Boolean indicating whether the tool call failed
 
-This is exactly what your LLM sees when processing your natural language requests, giving you full visibility into how the MCP server works.
+This mirrors what your LLM receives when handling your request, providing full visibility into the MCP server behavior.
 
 ## Learn More
 
