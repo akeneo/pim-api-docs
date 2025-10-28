@@ -4,6 +4,14 @@ This guide provides step-by-step instructions to connect your Akeneo PIM to AI-p
 
 ## Before You Start
 
+::: info
+The Akeneo MCP Server is currently available by invitation only. To access the server, please contact our team at [mcp@akeneo.com](mailto:mcp@akeneo.com) to request access.
+:::
+
+::: tips
+Include your PIM instance URL and a brief description of your use case in your request.
+:::
+
 ### What you'll need
 
 **From your Akeneo PIM:**
@@ -22,7 +30,7 @@ This guide provides step-by-step instructions to connect your Akeneo PIM to AI-p
 3. Click **Create**
 4. Save your credentials
 
-::: info
+::: tips
 Need more details? See the [complete guide for creating API credentials](https://api-dev.akeneo.com/documentation/authentication.html#client-idsecret-generation) in the Akeneo documentation.
 :::
 
@@ -35,6 +43,19 @@ Our hosted server is available at:
 **No installation needed!** Just configure your client with the URL above.
 
 ## Connecting Your Client
+
+### Claude CLI
+
+Use the following command to add the Akeneo MCP Server to Claude CLI:
+
+```bash
+claude mcp add --transport http akeneo-mcp https://server.mcp.akeneo.cloud/mcp \
+  -H "X-Akeneo-API-URL: https://yourcompany.akeneo.com" \
+  -H "X-Akeneo-Client-ID: your_client_id" \
+  -H "X-Akeneo-Client-Secret: your_client_secret" \
+  -H "X-Akeneo-Username: your_username" \
+  -H "X-Akeneo-Password: your_password"
+```
 
 ### Claude Desktop
 
@@ -96,7 +117,7 @@ Once configured, try these natural language queries:
 
 You should receive accurate responses from your PIM. If you encounter any issues, verify your credentials are correct and that your PIM instance is accessible.
 
-::: info
+::: tips
 For more detailed examples and use cases, see our [Use Cases Examples](/mcp/use-cases.html) page.
 :::
 
