@@ -4,15 +4,13 @@ When you interact with the Akeneo MCP Server through natural language (for examp
 
 These tools represent the "capabilities" of the Akeneo MCP Server — for instance:
 
-- `get_product` - Retrieve a specific product by UUID or identifier
-- `search_products` - Search for products with filters
-- `families` - List all product families
-- `attributes` - List attributes with filtering options
-- `edit_product` - Update product information
-- `categories` - List categories
+- `get_products` - Retrieve one or multiple products
+- `get_families` - List product families
+- `get_attributes` - List attributes with filtering options
+- `upsert_product` - Update product information
 - And more...
 
-Your LLM interprets your intent (e.g. *"Show me all disabled products"*) and dynamically selects and fills the right tool parameters (e.g. calling `search_products` with `enabled=false`).
+Your LLM interprets your intent (e.g. *"Show me all disabled products"*) and dynamically selects and fills the right tool parameters (e.g. calling `get_products` with `enabled=false`).
 
 ## List & Debug The MCP Capabilities
 
