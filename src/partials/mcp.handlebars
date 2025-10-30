@@ -30,6 +30,7 @@
             }, 3000);
 
             const parentTextContent = event.target.parentElement.firstChild.innerText;
+            console.log(parentTextContent);
             navigator.clipboard.writeText(parentTextContent);
         }
         $( "pre" ).append( `<span class="copy-to-clipboard-button">Copy</span>`);

@@ -21,12 +21,12 @@ If you want to explore the Akeneo MCP capabilities, check our [MCP Capabilities]
 ### Request all families
 
 **User input**
-```
+```text [snippet: MCP]
 "Show me all product families"
 ```
 
 **What your agent receives**
-```json
+```json [snippet: MCP]
 {
   "families": [
     {
@@ -47,7 +47,7 @@ If you want to explore the Akeneo MCP capabilities, check our [MCP Capabilities]
 ```
 
 **What your agent replies**
-```
+```text
 I found 1 product family in your PIM:
 
 🏷️ **Electronics** (electronics)
@@ -59,12 +59,12 @@ I found 1 product family in your PIM:
 ### Get product information
 
 **User input**
-```
+```text [snippet: MCP]
 "Show me the details for product 'ABC123'"
 ```
 
 **What your agent receives**
-```json
+```json [snippet: MCP]
 {
   "product": {
     "uuid": "12345678-1234-1234-1234-123456789abc",
@@ -119,7 +119,7 @@ I found 1 product family in your PIM:
 ```
 
 **What your agent replies**
-```
+```text
 📱 **Premium Smartphone** (ABC123)
 - **Status:** ✅ Enabled
 - **Family:** Electronics
@@ -132,12 +132,12 @@ I found 1 product family in your PIM:
 ### Search products by criteria
 
 **User input**
-```
+```text [snippet: MCP]
 "Find all enabled products in the electronics family with price over 500"
 ```
 
 **What your agent receives**
-```json
+```json [snippet: MCP]
 {
   "products": [
     {
@@ -212,7 +212,7 @@ I found 1 product family in your PIM:
 ```
 
 **What your agent replies**
-```
+```text
 🔍 Found 2 enabled electronics products over $500:
 
 1. **Premium Smartphone** (ABC123)
@@ -227,12 +227,12 @@ I found 1 product family in your PIM:
 ### Get attribute information
 
 **User input**
-```
+```text [snippet: MCP]
 "What attributes are available for the electronics family?"
 ```
 
 **What your agent receives**
-```json
+```json [snippet: MCP]
 {
   "attributes": [
     {
@@ -304,7 +304,7 @@ I found 1 product family in your PIM:
 ```
 
 **What your agent replies**
-```
+```text
 📋 Available attributes for electronics family:
 
 **Marketing Group:**
@@ -320,12 +320,12 @@ Total: 3 attributes found
 ### Update product information
 
 **User input**
-```
+```text [snippet: MCP]
 "Update product 'ABC123' description to 'Latest generation smartphone with 5G connectivity'"
 ```
 
 **What your agent receives**
-```json
+```json [snippet: MCP]
 {
   "status": "success",
   "message": "Product updated successfully",
@@ -336,7 +336,7 @@ Total: 3 attributes found
 ```
 
 **What your agent replies**
-```
+```text
 ✅ **Product Updated Successfully**
 
 - **Product:** ABC123 (12345678-1234-1234-1234-123456789abc)
