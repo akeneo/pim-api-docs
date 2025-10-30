@@ -20,12 +20,12 @@ If you want to explore the Akeneo MCP capabilities, check our [MCP Capabilities]
 
 ### Request all families
 
-**User Input:**
+**User input**
 ```
 "Show me all product families"
 ```
 
-**Response Example:**
+**What your agent receives**
 ```json
 {
   "families": [
@@ -46,7 +46,7 @@ If you want to explore the Akeneo MCP capabilities, check our [MCP Capabilities]
 }
 ```
 
-**Human-Readable Output:**
+**What your agent replies**
 ```
 I found 1 product family in your PIM:
 
@@ -58,12 +58,12 @@ I found 1 product family in your PIM:
 
 ### Get product information
 
-**User Input:**
+**User input**
 ```
 "Show me the details for product 'ABC123'"
 ```
 
-**Response Example:**
+**What your agent receives**
 ```json
 {
   "product": {
@@ -118,7 +118,7 @@ I found 1 product family in your PIM:
 }
 ```
 
-**Human-Readable Output:**
+**What your agent replies**
 ```
 📱 **Premium Smartphone** (ABC123)
 - **Status:** ✅ Enabled
@@ -131,12 +131,12 @@ I found 1 product family in your PIM:
 
 ### Search products by criteria
 
-**User Input:**
+**User input**
 ```
 "Find all enabled products in the electronics family with price over 500"
 ```
 
-**Response Example:**
+**What your agent receives**
 ```json
 {
   "products": [
@@ -211,7 +211,7 @@ I found 1 product family in your PIM:
 }
 ```
 
-**Human-Readable Output:**
+**What your agent replies**
 ```
 🔍 Found 2 enabled electronics products over $500:
 
@@ -226,12 +226,12 @@ I found 1 product family in your PIM:
 
 ### Get attribute information
 
-**User Input:**
+**User input**
 ```
 "What attributes are available for the electronics family?"
 ```
 
-**Response Example:**
+**What your agent receives**
 ```json
 {
   "attributes": [
@@ -303,7 +303,7 @@ I found 1 product family in your PIM:
 }
 ```
 
-**Human-Readable Output:**
+**What your agent replies**
 ```
 📋 Available attributes for electronics family:
 
@@ -319,12 +319,12 @@ Total: 3 attributes found
 
 ### Update product information
 
-**User Input:**
+**User input**
 ```
 "Update product 'ABC123' description to 'Latest generation smartphone with 5G connectivity'"
 ```
 
-**Response Example:**
+**What your agent receives**
 ```json
 {
   "status": "success",
@@ -335,7 +335,7 @@ Total: 3 attributes found
 }
 ```
 
-**Human-Readable Output:**
+**What your agent replies**
 ```
 ✅ **Product Updated Successfully**
 
