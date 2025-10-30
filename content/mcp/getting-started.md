@@ -5,7 +5,7 @@ This guide provides step-by-step instructions to connect your Akeneo PIM to AI-p
 ## Before You Start
 
 ::: info
-The Akeneo MCP Server is currently available by invitation only. To access the server, please contact our team at [mcp@akeneo.com](mailto:mcp@akeneo.com) to request access.
+To request access, please contact our team at [mcp@akeneo.com](mailto:mcp@akeneo.com).
 :::
 
 ::: tips
@@ -43,6 +43,8 @@ Our hosted server is available at:
 **No installation needed!** Just configure your client with the URL above.
 
 ## Connecting Your Client
+
+Configurations vary from one AI Agent to another. Please check your Agent's documentation for more details. Here are some examples:
 
 ### Claude CLI
 
@@ -111,20 +113,14 @@ Add this configuration to Cursor's MCP settings.
 
 Once configured, try these natural language queries:
 
-- `"Show me the identifiers of my first 10 products"`
+- `"Show me the sku of my first 10 products"`
 - `"List all product families"`
-- `"What attributes are available?"`
+- `"How many attributes are available?"`
 
 You should receive accurate responses from your PIM. If you encounter any issues, verify your credentials are correct and that your PIM instance is accessible.
 
 ::: tips
 For more detailed examples and use cases, see our [Use Cases Examples](/mcp/use-cases.html) page.
 :::
-
-## Learn More
-
-- **Model Context Protocol:** [modelcontextprotocol.io](https://modelcontextprotocol.io/)
-- Understand [MCP Servers and Clients](https://modelcontextprotocol.io/docs/learn/architecture)
-- [MCP Server concepts](https://modelcontextprotocol.io/docs/learn/server-concepts)
 
 **Ready to start?** Configure your client with the production URL and your Akeneo credentials, then try: `"Show me the name of my first 10 products"`

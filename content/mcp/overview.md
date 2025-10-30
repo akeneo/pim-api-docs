@@ -12,14 +12,15 @@ Learn more about MCP at [modelcontextprotocol.io](https://modelcontextprotocol.i
 
 ## Who is it for?
 
-- **Product managers** managing catalogs
-- **Developers** building PIM integrations  
-- **Content teams** updating product information
-- **Compliance teams** validating product data
+The potential usage is diverse and remains to be fully explored. Here are some ideas:
+- **Product managers** manage catalogs
+- **Developers** build PIM integrations  
+- **Content teams** update product information
+- **Compliance teams** validate product data
 
 ## Supported Clients
 
-The Akeneo MCP Server works with any MCP-compatible client:
+The Akeneo MCP Server works with any MCP-compatible client, such as:
 
 - **Claude Desktop** - Desktop app with MCP support
 - **Cursor** - AI-first code editor
