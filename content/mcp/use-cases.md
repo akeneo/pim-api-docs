@@ -11,7 +11,7 @@ All the examples below are demo data, and you must adapt the queries regarding y
 This page provides examples of how to use the Akeneo MCP Server. Simply type your request in natural language, and the MCP server will automatically use the appropriate tools and prompts behind the scenes to fulfill your request.
 
 :::info
-The Akeneo MCP Server automatically selects the right tools and specialized prompts based on your request. For simple queries like "show me all families", it uses basic tools. For complex analysis like "check FIC compliance", it uses specialized prompts that perform multi-step operations.
+Your LLM client selects which MCP tools or specialized prompts to invoke based on your request. The Akeneo MCP Server advertises its capabilities, validates inputs, and executes the calls with proper authentication. For simple queries like "show me all families", the client typically uses basic tools; for complex analysis like "check FIC compliance", it may invoke specialized prompts that perform multi-step operations.
 :::
 
 If you want to explore the Akeneo MCP capabilities, check our [MCP Capabilities](/mcp/capabilities.html) page to learn how to list and debug available tools and prompts.
