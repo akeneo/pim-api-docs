@@ -7,7 +7,7 @@ These tools represent the "capabilities" of the Akeneo MCP Server — for instan
 - `get_products` - Retrieve one or multiple products
 - `get_families` - List product families
 - `get_attributes` - List attributes with filtering options
-- `upsert_product` - Update product information
+- `upsert_products` - Update or create several products
 - And more...
 
 Your LLM interprets your intent (e.g. *"Show me all disabled products"*) and dynamically selects and fills the right tool parameters (e.g. calling `get_products` with `enabled=false`).
@@ -49,14 +49,14 @@ Postman now includes built-in support for MCP requests. You can directly query a
    X-Akeneo-Password: "your_password"
    ```
 4. Click **"Run"** to see the full list of capabilities
-5. Select a tool (e.g. `get_product`) and test it directly
+5. Select a tool (e.g. `get_products`) and test it directly
 
 ## Understanding Tool Responses
 
 When you call MCP tools directly, the response is wrapped in a standard MCP structure:
 
 - **structuredContent**: Structured JSON payload with tool-specific data
-  - Example for `get_product`: a `product` object and `endpoint_used`
+  - Example for `get_products`: a `product` object and `endpoint_used`
   - For search tools, you may also see `parameters_used`
 - **content[]**: Raw, textual representation of the same data (for LLM rendering)
 - **isError**: Boolean indicating whether the tool call failed
