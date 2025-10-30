@@ -26,4 +26,7 @@ paths = [
     '''content/px-insights/getting-started.md''',
     # Event Platform concepts documentation with example certificates
     '''content/event-platform/concepts.md''',
+    # MCP getting started documentation with example credentials
+    '''content/mcp/getting-started.md''',
+    '''content/mcp/capabilities.md''',
 ]
