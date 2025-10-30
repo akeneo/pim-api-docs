@@ -111,7 +111,7 @@ Add this configuration to Cursor's MCP settings.
 
 Once configured, try these natural language queries:
 
-- `"Show me the name of my first 10 products"`
+- `"Show me the identifiers of my first 10 products"`
 - `"List all product families"`
 - `"What attributes are available?"`
 
