@@ -21,7 +21,7 @@ A **link** extension opens your external content in a new browser tab. This is t
 - Open related records in external systems
 - Direct users to admin panels
 
-**Learn more:** [Link Extensions](/extensions/types/link.html)
+**Learn more:** [Link Extensions](/extensions/link.html)
 
 ## Iframe
 
@@ -32,7 +32,7 @@ An **iframe** extension embeds external content directly within the PIM using an
 - Display external tools without leaving PIM
 - Show contextual information from third-party systems
 
-**Learn more:** [Iframe Extensions](/extensions/types/iframe.html)
+**Learn more:** [Iframe Extensions](/extensions/iframe.html)
 
 ## Action
 
@@ -43,7 +43,7 @@ An **action** extension executes external tasks in the background when triggered
 - Execute batch operations
 - Integrate with external automation systems
 
-**Learn more:** [Action Extensions](/extensions/types/action.html)
+**Learn more:** [Action Extensions](/extensions/action.html)
 
 ## Data Component
 
@@ -54,7 +54,7 @@ A **data component** extension displays data from an external endpoint in a coll
 - Show real-time inventory information
 - Present external validation results
 
-**Learn more:** [Data Component Extensions](/extensions/types/data-component.html)
+**Learn more:** [Data Component Extensions](/extensions/data-component.html)
 
 ## Custom Component
 
@@ -70,7 +70,7 @@ A **custom component** extension is a JavaScript application built with the Aken
 - Akeneo Extension SDK
 - Local development environment
 
-**Learn more:** [Custom Component Extensions](/extensions/types/custom-component.html)
+**Learn more:** [Custom Component Extensions](/advanced-extensions/overview.html)
 
 ## Choosing the Right Type
 
@@ -99,5 +99,5 @@ Consider these questions when selecting an extension type:
 - Review [Available Positions](/extensions/positions.html) to see where extensions can be placed
 - Check the [Getting Started](/extensions/getting-started.html) guide for a hands-on tutorial
 
-::: panel-link Link Extensions [Next](/extensions/link.html)
+::: panel-link Link Extensions [Next](/extensions/positions.html)
 :::

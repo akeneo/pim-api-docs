@@ -91,5 +91,5 @@ This position refers to the right panel of a root model edit page.
 This position refers to the right panel of a sub product model edit page.
 [![pim-product-panel.png](../img/extensions/ui-extensions/positions/pim-product-panel.png)](../img/extensions/ui-extensions/positions/pim-product-panel.png)
 
-::: panel-link Credentials [Next](/extensions/credentials.html)
+::: panel-link Credentials [Next](/extensions/link.html)
 :::

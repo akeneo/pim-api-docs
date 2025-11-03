@@ -306,11 +306,5 @@ https://api.example.com/data?
   tenant=%tenant%
 ```
 
-## Learn More
-
-- [Link Extensions](/extensions/types/link.html) - Using placeholders in links
-- [Action Extensions](/extensions/types/action.html) - Using placeholders in actions
-- [Data Component Extensions](/extensions/types/data-component.html) - Using placeholders for data component
-
-::: panel-link Security Overview [Next](/extensions/security/overview.html)
+::: panel-link Security Overview [Next](/extensions/credentials.html)
 :::
