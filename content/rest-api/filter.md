@@ -1579,6 +1579,54 @@ As a result you will receive the following answer:
 }
 ```
 
+### By attribute values
+
+::: availability versions=SaaS editions=EE
+
+You can filter reference entity records on their attribute values using the `search` query parameter.
+For scopable/localizable attributes, you can optionally specify a `channel` and/or `locale` in the filter.
+If omitted, the API will try to use the `channel`/`locales` provided in the request.
+
+Supported types and operators:
+- text: `=`, `!=`, `CONTAINS`, `DOES NOT CONTAIN`, `STARTS WITH`, `ENDS WITH`, `EMPTY`, `NOT EMPTY`
+- number: `=`, `!=`, `<`, `<=`, `>`, `>=`, `EMPTY`, `NOT EMPTY`
+- single_option: `IN`
+- multiple_options: `IN`
+- reference_entity_single_link: `IN`
+- reference_entity_multiple_links: `IN`
+
+Notes:
+- Filtering on attribute type `image` is not supported. The API will return a 422 error.
+- Filtering on attribute type `asset_collection` is not supported. The API will return a 422 error.
+- Attribute identifiers must match the regex `^[a-zA-Z0-9_]+$`.
+- For `reference_entity_single_link` and `reference_entity_multiple_links` attributes, the value used in the filter is the code of the linked reference entity record.
+
+#### Examples
+
+Filter by a text attribute value:
+
+```
+/api/rest/v1/reference-entities/brands/records?search={"description":{"operator":"CONTAINS","value":"furniture","locale":"en_US","channel":"ecommerce"}}
+```
+
+Filter by a number attribute value:
+
+```
+/api/rest/v1/reference-entities/brands/records?search={"creation_year":{"operator":">","value":"1950"}}
+```
+
+Filter by an option (single or multiple):
+
+```
+/api/rest/v1/reference-entities/designers/records?search={"nationality":{"operator":"IN","value":["french","italian"]}}
+```
+
+Filter by a reference entity link (single or multiple):
+
+```
+/api/rest/v1/reference-entities/brands/records?search={"designers":{"operator":"IN","value":["starck","dixon"]}}
+```
+
 ## Filter assets
 
 When requesting a [list of assets via the REST API](/api-reference.html#get_assets), you can apply filters to get only the ones you want and also the kind of information you want in them.
