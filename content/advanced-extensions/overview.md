@@ -46,13 +46,13 @@ Access products, assets, reference entities, catalog structure, and all PIM reso
 4. **Run**: Your code executes in the sandbox with authenticated access to PIM APIs
 
 
-# Understanding Your Responsibilities for Custom Components
+## Understanding Your Responsibilities for Custom Components
 
 Akeneo provides a powerful extension framework, the Akeneo SDK, and hosting for your Custom Components. This allows you to build and integrate custom solutions directly into your PIM.
 
 While we provide the platform and the tools, it's essential to understand the division of responsibilities for any custom code you create.
 
-> **Important:** Akeneo is responsible for the extension framework and the SDK, but **not** for the custom code you develop. You or your partner are solely responsible for the content, functionality, and maintenance of your Custom Component code.
+Akeneo is responsible for the extension framework and the SDK, but **not** for the custom code you develop. You or your partner are solely responsible for the content, functionality, and maintenance of your Custom Component code.
 
 ### How Responsibility is Divided
 
