@@ -29,21 +29,5 @@ See the [Positions documentation](/extensions/positions.html) for visual example
 - **Limited interactivity**: No buttons or form controls
 - **Single request**: Data loads once when panel opens (no auto-refresh)
 
-## When to Use Another Type
-
-Consider these alternatives:
-
-- **Need interactive UI?** → Use [Iframe Extensions](/extensions/types/iframe.html)
-- **Need to trigger actions?** → Use [Action Extensions](/extensions/types/action.html)
-- **Just need a link?** → Use [Link Extensions](/extensions/types/link.html)
-- **Need complex logic?** → Use [Custom Component Extensions](/extensions/types/custom-component.html)
-
-## Learn More
-
-- [URL Placeholders](/extensions/integration/url-placeholders.html) - Dynamic URLs
-- [Credentials](/extensions/security/credentials.html) - Authentication methods
-- [Positions](/extensions/positions.html) - Where to place panels
-- [API Reference](/extensions/api.html) - Programmatic management
-
 ::: panel-link URL PlaceHolders [Next](/extensions/url-placeholders.html)
 :::

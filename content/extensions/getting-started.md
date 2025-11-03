@@ -41,7 +41,7 @@ You might need to refresh the page to see the button appear
 - A new tab open following the configured URL. It uses the current value of the product uuid!
 
 **Congratulation**, you have created your first UI-extension!
-Learn more about the availables types of UI-extension in the [Types section](/extensions/types.html).
+Learn more about the availables types of UI-extension in the [Types section](/extensions/types-overview.html).
 
 ## Administration of UI extensions
 For a deeprer overview of the Ui extension administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).

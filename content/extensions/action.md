@@ -101,12 +101,5 @@ Action extensions can be placed in:
 - **500 item limit**: Grid actions limited to 500 products/models
 - **Single execution**: One action at a time per extension
 
-## Learn More
-
-- [Credentials](/extensions/security/credentials.html) - Authentication methods
-- [URL Placeholders](/extensions/integration/url-placeholders.html) - Dynamic URLs
-- [Positions](/extensions/positions.html) - Where to place actions
-- [API Reference](/extensions/api.html) - Programmatic management
-
-::: panel-link Data Component Extensions [Next](/extensions/types/data-component.html)
+::: panel-link Data Component Extensions [Next](/extensions/data-component.html)
 :::

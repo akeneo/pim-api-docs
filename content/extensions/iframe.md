@@ -252,21 +252,5 @@ Iframe extensions can be placed in:
 - **Performance**: Each iframe loads a complete web page
 - **Browser compatibility**: Some browsers have stricter iframe policies
 
-## When to Use Another Type
-
-Consider these alternatives if iframe extensions don't meet your needs:
-
-- **Simple link needed?** → Use [Link Extensions](/extensions/types/link.html)
-- **Need background processing?** → Use [Action Extensions](/extensions/types/action.html)
-- **Just displaying data?** → Use [Data Component Extensions](/extensions/types/data-component.html)
-- **Need full SDK access?** → Use [Custom Component Extensions](/extensions/types/custom-component.html)
-
-## Learn More
-
-- [Iframe Communication](/extensions/integration/iframe-communication.html) - PostMessage patterns
-- [Iframe Security](/extensions/security/iframe-security.html) - JWT and CSP
-- [Positions](/extensions/positions.html) - Where to place your extension
-- [API Reference](/extensions/api.html) - Programmatic management
-
 ::: panel-link Action Extensions [Next](/extensions/action.html)
 :::

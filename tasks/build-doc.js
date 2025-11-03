@@ -790,14 +790,16 @@ gulp.task('fetch-remote-events', function(done) {
 
 gulp.task('build-extensions', ['clean-dist','less'], function () {
       var pages = {
+          'overview.md': "Overview",
           'getting-started.md': "Getting started",
           'types-overview.md': "Extension Types",
+          'positions.md': "Positions",
           'link.md': "Link",
           'iframe.md': "Iframe",
           'action.md': "Action",
           'data-component.md': "Data Component",
           'url-placeholders.md': "URL Placeholders",
-          'security/credentials.md': "Credentials",
+          'credentials.md': "Credentials",
           'filtering.md': "Filter and display",
           'api.md': "API",
           'faq.md': "FAQ",
