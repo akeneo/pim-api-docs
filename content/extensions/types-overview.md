@@ -65,39 +65,7 @@ A **custom component** extension is a JavaScript application built with the Aken
 - Create interactive data visualizations
 - Develop complex business logic within PIM
 
-**Requirements:**
-- JavaScript/TypeScript knowledge
-- Akeneo Extension SDK
-- Local development environment
-
 **Learn more:** [Custom Component Extensions](/advanced-extensions/overview.html)
-
-## Choosing the Right Type
-
-Consider these questions when selecting an extension type:
-
-1. **Do you already have a web application?**
-   - Yes → Use **Link** (new tab) or **Iframe** (embedded)
-   - No → Use **Custom Component** (build with SDK)
-
-2. **Do you need to trigger server-side actions?**
-   - Yes → Use **Action**
-
-3. **Do you need to display read-only data?**
-   - Yes → Use **Data Component** or **Iframe**
-
-4. **Do you need rich interactivity and custom UI?**
-   - Yes → Use **Custom Component** or **Iframe**
-
-5. **Do you want to avoid hosting infrastructure?**
-   - Yes → Use **Custom Component** (runs in PIM)
-   - No → Use **Link**, **Iframe**, **Action**, or **Data Component**
-
-## Next Steps
-
-- Explore detailed documentation for each type
-- Review [Available Positions](/extensions/positions.html) to see where extensions can be placed
-- Check the [Getting Started](/extensions/getting-started.html) guide for a hands-on tutorial
 
 ::: panel-link Link Extensions [Next](/extensions/positions.html)
 :::
