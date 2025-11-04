@@ -1590,10 +1590,10 @@ If omitted, the API will try to use the `channel`/`locales` provided in the requ
 Supported types and operators:
 - text: `=`, `!=`, `CONTAINS`, `DOES NOT CONTAIN`, `STARTS WITH`, `ENDS WITH`, `EMPTY`, `NOT EMPTY`
 - number: `=`, `!=`, `<`, `<=`, `>`, `>=`, `EMPTY`, `NOT EMPTY`
-- single_option: `IN`
-- multiple_options: `IN`
-- reference_entity_single_link: `IN`
-- reference_entity_multiple_links: `IN`
+- single_option: `IN`, `=`, `EMPTY`, `NOT EMPTY`
+- multiple_options: `IN`, `=`, `EMPTY`, `NOT EMPTY`
+- reference_entity_single_link: `IN`, `=`, `EMPTY`, `NOT EMPTY`
+- reference_entity_multiple_links: `IN`, `=`, `EMPTY`, `NOT EMPTY`
 
 Notes:
 - Filtering on attribute type `image` is not supported. The API will return a 422 error.
