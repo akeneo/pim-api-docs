@@ -74,7 +74,7 @@ https://api.com/v1/items/%sku%/pricing
 
 ```
 https://google.com/search?q=%name%
-https://api.com/products?sku=%sku%&locale=%locale%
+https://api.com/products?sku=%sku%
 https://tool.com/check?product=%name%
 ```
 
