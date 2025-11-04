@@ -74,8 +74,8 @@ https://api.com/v1/items/%sku%/pricing
 
 ```
 https://google.com/search?q=%name%
-https://api.com/products?sku=%sku%&locale=%locale%
-https://tool.com/check?product=%name%&user=%username%
+https://api.com/products?sku=%sku%
+https://tool.com/check?product=%name%
 ```
 
 ### Multiple Placeholders
