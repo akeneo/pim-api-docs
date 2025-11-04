@@ -30,9 +30,6 @@ For complete placeholder documentation, see [URL Placeholders](/extensions/url-p
 ## Limitations
 
 - Links always open in a new browser tab (no control over this behavior)
-- No way to receive data back from the opened page
-- Cannot execute JavaScript in the PIM context
-- Users must have network access to the target URL
 
 ::: panel-link Iframe Extensions [Next](/extensions/iframe.html)
 :::

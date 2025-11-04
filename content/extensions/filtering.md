@@ -71,7 +71,6 @@ When multiple extensions are available in the same position, you can control the
 
 **How weight works:**
 - Lower numbers appear first (e.g., weight 1 appears before weight 10)
-- Default weight is typically 0
 - Applies to **header** and **tab** positions
 - Extensions with the same weight are ordered alphabetically
 
@@ -105,7 +104,7 @@ Extensions can have three different statuses:
 **How to fix:**
 1. Open the extension in the UI
 2. Review the configuration
-3. Update any missing or invalid fields (especially credentials)
+3. Update any missing or invalid fields
 4. Save the extension
 5. Status will change to "Inactive" - you can then activate it
 
@@ -119,13 +118,6 @@ Extensions in "To update" status will not be displayed to users, even if they we
 - Begin by limiting extensions to a small test group
 - Gather feedback and fix issues
 - Gradually expand access to more user groups
-
-### Use Meaningful Weights
-- Leave gaps in weight numbers (1, 10, 20) to allow inserting extensions later
-- Group related extensions with similar weights
-
-### Document Your Filters
-- Keep track of which extensions are restricted and why
 
 ### Test Different User Scenarios
 - Verify extensions appear correctly for different user groups

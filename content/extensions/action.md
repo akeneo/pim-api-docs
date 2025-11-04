@@ -16,7 +16,6 @@ Data sent within the POST body, formatted in JSON, contain:
 - A `context` object containing:
   - the configured `locale`,
   - the configured `channel`,
-  - the configured `category` (only available for product grid actions).
 - A `user` object containing the `uuid`, `username` and `groups` of the connected user.
 - A `timestamp` that can be used with a [secret](#secret) to help you to protect your server against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 
