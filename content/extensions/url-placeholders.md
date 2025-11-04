@@ -78,7 +78,6 @@ https://api.com/products?sku=%sku%&locale=%locale%
 https://tool.com/check?product=%name%&user=%username%
 ```
 
-
 ### Multiple Placeholders
 
 ```
@@ -118,10 +117,7 @@ For Link extension, if you create a placeholder with a localizable or scopable a
 
 ### Missing Values
 
-If an attribute value is empty or doesn't exist:
-- The placeholder is replaced with an empty string
-- URL becomes: `https://example.com/products//details`
-
+If an attribute value is empty or doesn't exist, the placeholder is replaced with an empty string
 
 ::: panel-link Credentials Overview [Next](/extensions/credentials.html)
 :::
