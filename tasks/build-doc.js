@@ -1518,3 +1518,38 @@ gulp.task('build-news', ['clean-dist','less'], function () {
         }));
   }
 );
+
+gulp.task('build-mcp', ['clean-dist','less'], function () {
+    var pages = {
+        'overview.md': "Overview",
+        'getting-started.md': "Getting started",
+        'use-cases.md': "Use cases examples",
+        'capabilities.md': "MCP Capabilities",
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/mcp/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/mcp/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/mcp') + "\n"))
+              .pipe(gulpMarkdownIt(mdGt))
+              .pipe(gulp.dest('tmp/mcp/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/mcp.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_api_resources: true,
+                        title: 'MCP',
+                        description: getPageDescription(file.path, "Model Context Protocol"),
+                        mainContent: fs.readFileSync('tmp/mcp/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/mcp'));
+              })
+        }));
+  }
+);
