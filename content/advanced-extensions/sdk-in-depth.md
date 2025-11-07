@@ -83,6 +83,11 @@ The SDK provides access to the following API resources:
 - **Locale API** (`PIM.api.locale_v1`): Work with locales
 - **Measurement Family API** (`PIM.api.measurement_family_v1`): Manage measurement families
 
+### Workflows
+- **Workflow API** (`PIM.api.workflows_v1`): Manage workflows and their configurations
+- **Workflow Tasks API** (`PIM.api.workflow_tasks_v1`): Work with workflow tasks
+- **Workflow Executions API** (`PIM.api.workflow_executions_v1`): Monitor and manage workflow executions
+
 ## Common Patterns
 
 Most API methods follow these common patterns:
