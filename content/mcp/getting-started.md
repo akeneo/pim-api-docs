@@ -1,6 +1,6 @@
 # Getting started
 
-This guide provides step-by-step instructions to connect your Akeneo PIM to AI-powered tools using the Model Context Protocol (MCP). By the end of this guide, you will have configured your MCP client and be able to interact with your PIM using natural language.
+This guide provides step-by-step instructions to connect your Akeneo PIM to AI-powered tools using Model Context Protocol (MCP). By the end of this guide, you will have configured your MCP client and be able to interact with your PIM using natural language.
 
 ## Before You Start
 
