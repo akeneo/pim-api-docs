@@ -5,11 +5,9 @@ This guide provides step-by-step instructions to connect your Akeneo PIM to AI-p
 ## Before You Start
 
 ::: info
-To request access, please contact our team at [mcp@akeneo.com](mailto:mcp@akeneo.com).
-:::
+Please note that this service is currently in the beta phase. As such, Akeneo reserves the right to modify the access conditions and the service's functionality in the future.
 
-::: tips
-Include your PIM instance URL and a brief description of your use case in your request.
+The Akeneo MCP Server is currently available by invitation only. To request access, please contact our team at [mcp@akeneo.com](mailto:mcp@akeneo.com).
 :::
 
 ### What you'll need
