@@ -1,6 +1,6 @@
 # Getting started
 
-This guide provides step-by-step instructions to connect your Akeneo PIM to AI-powered tools using the Model Context Protocol (MCP). By the end of this guide, you will have configured your MCP client and be able to interact with your PIM using natural language.
+This guide provides step-by-step instructions to connect your Akeneo PIM to AI-powered tools using Model Context Protocol (MCP). By the end of this guide, you will have configured your MCP client and be able to interact with your PIM using natural language.
 
 ## Before You Start
 
@@ -41,6 +41,10 @@ Our hosted server is available at:
 **No installation needed!** Just configure your client with the URL above.
 
 ## Connecting Your Client
+
+::: warning
+Since API credentials are used to connect your AI Agent to the Akeneo MCP Server, you must ensure the permissions of those credentials are limited to the actions you intend the AI Agent to perform (particularly for data edition).
+:::
 
 Configurations vary from one AI Agent to another. Please check your Agent's documentation for more details. Here are some examples:
 
