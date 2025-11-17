@@ -1719,7 +1719,7 @@ Note that the "Asset attribute" resource is not the same as the "Attribute" reso
 
 There are several types of asset attributes, that will allow you to handle different types of data:
 - the [`text` attribute](#the-text-attribute),
-- the [`single and multiple options` attributes](#the-single-and-multiple-options-attributes),
+- the [`single_option` and `multiple_options` attributes](#the-single_option-and-multiple_options-attributes),
 - the [`number` attribute](#the-number-attribute),
 - the [`media file` attribute](#the-media_file-attribute),
 - the [`media link` attribute](#the-media-link-attribute).
@@ -1760,7 +1760,7 @@ And here is the JSON format of the `text` attribute type.
 }
 ```
 
-### The `single and multiple options` attributes
+### The `single_option` and `multiple_options` attributes
 The single and multiple options attributes are useful to hold data that can be selected among a list of choices. The single option attribute allows the selection of one single value, whereas the multiple options can hold one or several values.
 
 Here are some examples of a `single option` and `multiple options` attributes.
