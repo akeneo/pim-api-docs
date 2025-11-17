@@ -750,7 +750,7 @@ In fine, below is the JSON of our dear `XMLD500_fr_FR_user_guide` asset, once we
 ```json
 {
   "code": "XMLD500_fr_FR_user_guide",
-  "family": "user_instructions",
+  "asset_family_code": "user_instructions",
   "values": {
     "media_preview": [
       {
@@ -759,7 +759,7 @@ In fine, below is the JSON of our dear `XMLD500_fr_FR_user_guide` asset, once we
         "data": "XMLD500_fr_FR_user_guide.pdf"
       }
     ],
-    "product_ref":[
+    "product_ref": [
       {
         "locale": null,
         "channel": null,
@@ -841,7 +841,7 @@ Let's consider the `amor_red_model_picture` and `amor_blue_model_picture` assets
 ```json
 {
   "code": "amor_red_model_picture",
-  "family": "model_pictures",
+  "asset_family_code": "model_pictures",
   "values": {
     "media_preview": [
       {
@@ -850,18 +850,11 @@ Let's consider the `amor_red_model_picture` and `amor_blue_model_picture` assets
         "data": "amor_red_model_picture.jpg"
       }
     ],
-    "product_ref":[
+    "product_ref": [
       {
         "locale": null,
         "channel": null,
         "data": "amor"
-      }
-    ],
-    "model_is_wearing_size": [
-      {
-        "locale": null,
-        "channel": null,
-        "data": "s"
       }
     ],
     "main_color": [
@@ -877,7 +870,7 @@ Let's consider the `amor_red_model_picture` and `amor_blue_model_picture` assets
 ```json
 {
   "code": "amor_blue_model_picture",
-  "family": "model_pictures",
+  "asset_family_code": "model_pictures",
   "values": {
     "media_preview": [
       {
@@ -886,18 +879,11 @@ Let's consider the `amor_red_model_picture` and `amor_blue_model_picture` assets
         "data": "amor_blue_model_picture.jpg"
       }
     ],
-    "product_ref":[
+    "product_ref": [
       {
         "locale": null,
         "channel": null,
         "data": "amor"
-      }
-    ],
-    "model_is_wearing_size": [
-      {
-        "locale": null,
-        "channel": null,
-        "data": "S"
       }
     ],
     "main_color": [
@@ -948,7 +934,7 @@ Let's consider the `men_women_ambient_picture` and `children_ambient_picture` as
 ```json
 {
   "code": "men_women_ambient_picture",
-  "family": "ambient_images",
+  "asset_family_code": "ambient_images",
   "values": {
     "media_preview": [
       {
@@ -957,7 +943,7 @@ Let's consider the `men_women_ambient_picture` and `children_ambient_picture` as
         "data": "men_women_ambient_picture.jpg"
       }
     ],
-    "product_categories":[
+    "product_categories": [
       {
         "locale": null,
         "channel": null,
@@ -970,7 +956,7 @@ Let's consider the `men_women_ambient_picture` and `children_ambient_picture` as
 ```json
 {
   "code": "children_ambient_picture",
-  "family": "ambient_images",
+  "asset_family_code": "ambient_images",
   "values": {
     "media_preview": [
       {
@@ -979,7 +965,7 @@ Let's consider the `men_women_ambient_picture` and `children_ambient_picture` as
         "data": "children_ambient_picture.jpg"
       }
     ],
-    "product_categories":[
+    "product_categories": [
       {
         "locale": null,
         "channel": null,
@@ -2004,7 +1990,7 @@ Below is the JSON format representing an example of an asset of the Asset Manage
 ```json
 {
   "code": "sku_54628_picture1",
-  "family": "frontview",
+  "asset_family_code": "frontview",
   "values": {
     "media_preview": [
       {
@@ -2013,7 +1999,7 @@ Below is the JSON format representing an example of an asset of the Asset Manage
         "data": "sku_54628_picture1.jpg"
       }
     ],
-    "alt_tag":[
+    "alt_tag": [
       {
         "locale": "en_US",
         "channel": null,
@@ -2078,7 +2064,7 @@ An asset can hold one or several files. This comes in pretty handy if, for insta
 ```json
 {
   "code": "user_instructions_TV_2948430",
-  "family": "user_guides",
+  "asset_family_code": "user_guides",
   "values": {
     "pdf_preview": [
       {
