@@ -1726,6 +1726,7 @@ There are several types of asset attributes, that will allow you to handle diffe
 - the [`boolean` attribute](#the-boolean-attribute).
 - the [`date` attribute](#the-date-attribute).
 - the [`record` attribute](#the-record-attribute).
+- the [`auto_tagging` attribute](#the-auto-tagging-attribute).
 
 ::: warning
 You can have a maximum of 100 attributes to describe the structure for one given asset family.    
@@ -1792,6 +1793,24 @@ And here is the JSON format of the `multiple options` attribute type.
   "value_per_locale": false,
   "value_per_channel": false,
   "is_required_for_completeness": true,
+  "is_read_only": false
+}
+```
+
+### The `auto_tagging` attributes
+The auto tagging attribute is automatically created when the option has been enabled on the asset family (See how to [Automatically generate tags for your assets](https://help.akeneo.com/akeneo-dam-organize-and-find/automatically-generate-tags-for-your-assets)).
+
+This attribute cannot be created through the Asset Attribute API.
+
+Here is the JSON format of the `auto_tagging` attribute type.
+```json
+{
+  "code": "auto_tags",
+  "labels": {},
+  "type": "auto_tagging",
+  "value_per_locale": false,
+  "value_per_channel": false,
+  "is_required_for_completeness": false,
   "is_read_only": false
 }
 ```
