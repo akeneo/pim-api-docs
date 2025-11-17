@@ -750,27 +750,30 @@ In fine, below is the JSON of our dear `XMLD500_fr_FR_user_guide` asset, once we
 ```json
 {
   "code": "XMLD500_fr_FR_user_guide",
-  "family": "user_instructions",
+  "asset_family_code": "user_instructions",
   "values": {
     "media_preview": [
       {
         "locale": null,
         "channel": null,
-        "data": "XMLD500_fr_FR_user_guide.pdf"
+        "data": "XMLD500_fr_FR_user_guide.pdf",
+        "attribute_type": "media_file"
       }
     ],
-    "product_ref":[
+    "product_ref": [
       {
         "locale": null,
         "channel": null,
-        "data": "XMLD500"
+        "data": "XMLD500",
+        "attribute_type": "text"
       }
     ],
     "locale": [
       {
         "locale": null,
         "channel": null,
-        "data": "fr_FR"
+        "data": "fr_FR",
+        "attribute_type": "text"
       }
     ]
   }
@@ -841,34 +844,30 @@ Let's consider the `amor_red_model_picture` and `amor_blue_model_picture` assets
 ```json
 {
   "code": "amor_red_model_picture",
-  "family": "model_pictures",
+  "asset_family_code": "model_pictures",
   "values": {
     "media_preview": [
       {
         "locale": null,
         "channel": null,
-        "data": "amor_red_model_picture.jpg"
+        "data": "amor_red_model_picture.jpg",
+        "attribute_type": "media_file"
       }
     ],
-    "product_ref":[
+    "product_ref": [
       {
         "locale": null,
         "channel": null,
-        "data": "amor"
-      }
-    ],
-    "model_is_wearing_size": [
-      {
-        "locale": null,
-        "channel": null,
-        "data": "s"
+        "data": "amor",
+        "attribute_type": "text"
       }
     ],
     "main_color": [
       {
         "locale": null,
         "channel": null,
-        "data": "red"
+        "data": "red",
+        "attribute_type": "text"
       }
     ]
   }
@@ -877,34 +876,30 @@ Let's consider the `amor_red_model_picture` and `amor_blue_model_picture` assets
 ```json
 {
   "code": "amor_blue_model_picture",
-  "family": "model_pictures",
+  "asset_family_code": "model_pictures",
   "values": {
     "media_preview": [
       {
         "locale": null,
         "channel": null,
-        "data": "amor_blue_model_picture.jpg"
+        "data": "amor_blue_model_picture.jpg",
+        "attribute_type": "media_file"
       }
     ],
-    "product_ref":[
+    "product_ref": [
       {
         "locale": null,
         "channel": null,
-        "data": "amor"
-      }
-    ],
-    "model_is_wearing_size": [
-      {
-        "locale": null,
-        "channel": null,
-        "data": "S"
+        "data": "amor",
+        "attribute_type": "text"
       }
     ],
     "main_color": [
       {
         "locale": null,
         "channel": null,
-        "data": "blue"
+        "data": "blue",
+        "attribute_type": "text"
       }
     ]
   }
@@ -948,20 +943,22 @@ Let's consider the `men_women_ambient_picture` and `children_ambient_picture` as
 ```json
 {
   "code": "men_women_ambient_picture",
-  "family": "ambient_images",
+  "asset_family_code": "ambient_images",
   "values": {
     "media_preview": [
       {
         "locale": null,
         "channel": null,
-        "data": "men_women_ambient_picture.jpg"
+        "data": "men_women_ambient_picture.jpg",
+        "attribute_type": "media_file"
       }
     ],
-    "product_categories":[
+    "product_categories": [
       {
         "locale": null,
         "channel": null,
-        "data": ["men", "women"]
+        "data": ["men", "women"],
+        "attribute_type": "multiple_options"
       }
     ]
   }
@@ -970,20 +967,22 @@ Let's consider the `men_women_ambient_picture` and `children_ambient_picture` as
 ```json
 {
   "code": "children_ambient_picture",
-  "family": "ambient_images",
+  "asset_family_code": "ambient_images",
   "values": {
     "media_preview": [
       {
         "locale": null,
         "channel": null,
-        "data": "children_ambient_picture.jpg"
+        "data": "children_ambient_picture.jpg",
+        "attribute_type": "media_file"
       }
     ],
-    "product_categories":[
+    "product_categories": [
       {
         "locale": null,
         "channel": null,
-        "data": ["children"]
+        "data": ["children"],
+        "attribute_type": "multiple_options"
       }
     ]
   }
@@ -1719,13 +1718,14 @@ Note that the "Asset attribute" resource is not the same as the "Attribute" reso
 
 There are several types of asset attributes, that will allow you to handle different types of data:
 - the [`text` attribute](#the-text-attribute),
-- the [`single and multiple options` attributes](#the-single-and-multiple-options-attributes),
+- the [`single_option` and `multiple_options` attributes](#the-single_option-and-multiple_options-attributes),
 - the [`number` attribute](#the-number-attribute),
 - the [`media file` attribute](#the-media_file-attribute),
 - the [`media link` attribute](#the-media-link-attribute).
 - the [`boolean` attribute](#the-boolean-attribute).
 - the [`date` attribute](#the-date-attribute).
 - the [`record` attribute](#the-record-attribute).
+- the [`auto_tagging` attribute](#the-auto-tagging-attribute).
 
 ::: warning
 You can have a maximum of 100 attributes to describe the structure for one given asset family.    
@@ -1759,7 +1759,7 @@ And here is the JSON format of the `text` attribute type.
 }
 ```
 
-### The `single and multiple options` attributes
+### The `single_option` and `multiple_options` attributes
 The single and multiple options attributes are useful to hold data that can be selected among a list of choices. The single option attribute allows the selection of one single value, whereas the multiple options can hold one or several values.
 
 Here are some examples of a `single option` and `multiple options` attributes.
@@ -1792,6 +1792,24 @@ And here is the JSON format of the `multiple options` attribute type.
   "value_per_locale": false,
   "value_per_channel": false,
   "is_required_for_completeness": true,
+  "is_read_only": false
+}
+```
+
+### The `auto_tagging` attributes
+The auto tagging attribute is automatically created when the option has been enabled on the asset family (See how to [Automatically generate tags for your assets](https://help.akeneo.com/akeneo-dam-organize-and-find/automatically-generate-tags-for-your-assets)).
+
+This attribute cannot be created through the Asset Attribute API.
+
+Here is the JSON format of the `auto_tagging` attribute type.
+```json
+{
+  "code": "auto_tags",
+  "labels": {},
+  "type": "auto_tagging",
+  "value_per_locale": false,
+  "value_per_channel": false,
+  "is_required_for_completeness": false,
   "is_read_only": false
 }
 ```
@@ -1985,53 +2003,63 @@ Below is the JSON format representing an example of an asset of the Asset Manage
 ```json
 {
   "code": "sku_54628_picture1",
-  "family": "frontview",
+  "asset_family_code": "frontview",
   "values": {
     "media_preview": [
       {
         "locale": null,
         "channel": null,
-        "data": "sku_54628_picture1.jpg"
+        "data": "sku_54628_picture1.jpg",
+        "attribute_type": "media_file"
       }
     ],
-    "alt_tag":[
+    "alt_tag": [
       {
         "locale": "en_US",
         "channel": null,
-        "data": "Amor jacket, blue"
+        "data": "Amor jacket, blue",
+        "attribute_type": "text"
       },
       {
         "locale": "fr_FR",
         "channel": null,
-        "data": "Veste Amor, bleu"
+        "data": "Veste Amor, bleu",
+        "attribute_type": "text"
       }
     ],
     "model_is_wearing_size": [
       {
         "locale": null,
         "channel": null,
-        "data": "s"
+        "data": "s",
+        "attribute_type": "single_option"
       }
     ],
     "photographer": [
       {
         "locale": null,
         "channel": null,
-        "data": "ben_levy"
+        "data": "ben_levy",
+        "attribute_type": "text"
       }
     ],
     "main_colors": [
       {
         "locale": null,
         "channel": null,
-        "data": ["red","purple"]
+        "data": [
+          "red",
+          "purple"
+        ],
+        "attribute_type": "multiple_options"
       }
     ],
     "model_height": [
       {
         "locale": null,
         "channel": "ecommerce",
-        "data": "1.65m"
+        "data": "1.65m",
+        "attribute_type": "text"
       }
     ]
   },
@@ -2059,18 +2087,20 @@ An asset can hold one or several files. This comes in pretty handy if, for insta
 ```json
 {
   "code": "user_instructions_TV_2948430",
-  "family": "user_guides",
+  "asset_family_code": "user_guides",
   "values": {
     "pdf_preview": [
       {
         "locale": "en_US",
         "channel": null,
-        "data": "user_instructions_TV_2948430_en.pdf"
+        "data": "user_instructions_TV_2948430_en.pdf",
+        "attribute_type": "media_file"
       },
       {
         "locale": "fr_FR",
         "channel": null,
-        "data": "user_instructions_TV_2948430_fr.pdf"
+        "data": "user_instructions_TV_2948430_fr.pdf",
+        "attribute_type": "media_file"
       }
     ]
   },
@@ -2108,7 +2138,8 @@ Asset values follow the same format as [product values](/concepts/products.html#
       {
         "locale": LOCALE_CODE,
         "channel": CHANNEL_CODE,
-        "data": DATA_INFORMATION
+        "data": DATA_INFORMATION,
+        "attribute_type": ATTRIBUTE_TYPE
       }
     ]
   }
@@ -2119,6 +2150,7 @@ In this formula:
  - `LOCALE_CODE` is the code of a locale when the attribute is localizable. When it's not, it should be `null`. [Check some examples here.](#the-locale-and-channel-format)
  - `CHANNEL_CODE` is the code of a channel when the attribute is scopable. When it's not, it should be `null`. [Check some examples here.](#the-locale-and-channel-format)
  - `DATA_INFORMATION` is the value stored for this attribute, this locale (if the attribute is localizable) and this channel (if the attribute is scopable). Its type and format depend on the attribute type. [Check some examples here.](#the-data-format)
+ - `ATTRIBUTE_TYPE` is the type of the value's attribute. (Only available in the SaaS version)
 
 ### The `data` format
 
@@ -2150,7 +2182,8 @@ Whenever the attribute's type is `record`, the `data` field references a [Refere
       {
         "locale": null,
         "channel": null,
-        "data": "kartell"
+        "data": "kartell",
+        "attribute_type": "record"
       }
     ]
   }
@@ -2175,12 +2208,14 @@ The `alt_tag` attribute is localizable but not scopable, so it can hold several 
     {
       "locale": "en_US",
       "channel": null,
-      "data": "Amor jacket, blue"
+      "data": "Amor jacket, blue",
+      "attribute_type": "text"
     },
     {
       "locale": "fr_FR",
       "channel": null,
-      "data": "Veste Amor, bleu"
+      "data": "Veste Amor, bleu",
+      "attribute_type": "text"
     }
   ]
 }
@@ -2198,12 +2233,14 @@ The `model_height` attribute is scopable but not localizable, so it can hold sev
     {
       "locale": null,
       "channel": "ecommerce",
-      "data": "1.65m"
+      "data": "1.65m",
+      "attribute_type": "text"
     },
     {
       "locale": null,
       "channel": "print",
-      "data": "165cm"
+      "data": "165cm",
+      "attribute_type": "text"
     }
   ]
 }
@@ -2221,22 +2258,26 @@ The `warning_message` attribute is both scopable and localizable, so it can hold
     {
       "locale": "en_US",
       "channel": "mobile",
-      "data": "Retouched photo."
+      "data": "Retouched photo.",
+      "attribute_type": "text"
     },
     {
       "locale": "en_US",
       "channel": "ecommerce",
-      "data": "Retouched photograph, not contractual."
+      "data": "Retouched photograph, not contractual.",
+      "attribute_type": "text"
     },
     {
       "locale": "fr_FR",
       "channel": "mobile",
-      "data": "Photo retouchée."
+      "data": "Photo retouchée.",
+      "attribute_type": "text"
     },
     {
       "locale": "fr_FR",
       "channel": "ecommerce",
-      "data": "Photographie retouchée, non contractuelle."
+      "data": "Photographie retouchée, non contractuelle.",
+      "attribute_type": "text"
     }
   ]
 }
@@ -2251,7 +2292,8 @@ The `photographer` attribute is neither scopable nor localizable, so it can hold
     {
       "locale": null,
       "channel": null,
-      "data": "Ben Levy"
+      "data": "Ben Levy",
+      "attribute_type": "text"
     }
   ]
 }
@@ -2282,6 +2324,7 @@ The `share_link` is present only when asset sharing is enabled.
       "locale": null,
       "channel": null,
       "data": "0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_amy_socks_model_picture.png",
+      "attribute_type": "media_file",
       "_links": {
         "download": {
             "href": "https://example.akeneo.com/api/rest/v1/asset-media-files/0/0/9/d/009d38fe8c97e16f6b48bbf8f6cf8a9564401cc9_amy_socks_model_picture.png"
@@ -2320,7 +2363,8 @@ Whenever the attribute type is `media_link`, the `linked_data` field will contai
         "full_url": "https://example.com/amy_socks_model_picture.png",
         "prefix": "https://example.com/",
         "suffix": null
-      }
+      },
+      "attribute_type": "media_link"
     }
   ]
 }
@@ -2340,7 +2384,8 @@ If the media type is "youtube" or "vimeo", and the `prefix` is empty, then the `
         "full_url": "https://youtube.com/watch?v=dQw4w9WgXcQ",
         "prefix": null,
         "suffix": null
-      }
+      },
+      "attribute_type": "media_link"
     }
   ]
 }
@@ -2373,7 +2418,8 @@ Whenever the query parameter `with_asset_auto_tags` is set to `true`, the `linke
             "fr_FR": "Mode"
           }
         }
-      }
+      },
+      "attribute_type": "auto_tagging"
     }
   ]
 }
