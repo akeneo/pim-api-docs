@@ -31,20 +31,18 @@ properties:
     default: []
   add_categories:
     type: array
-    description: Codes of the <a href='api-reference-paas.html#Category'>categories</a> to add to the product. Existing categories will be preserved. Available in SaaS only.
+    description: Codes of the <a href='api-reference-paas.html#Category'>categories</a> to add to the product. Existing categories will be preserved
     x-validation-rules: Each string of the array is equal to an existing category code. Cannot be used with the `categories` key.
     items:
       type: string
     default: []
-    x-from-version: 'SaaS'
   remove_categories:
     type: array
-    description: Codes of the <a href='api-reference-paas.html#Category'>categories</a> to remove from the product. Other categories will be preserved. Available in SaaS only.
+    description: Codes of the <a href='api-reference-paas.html#Category'>categories</a> to remove from the product. Other categories will be preserved
     x-validation-rules: Each string of the array is equal to an existing category code. Cannot be used with the `categories` key.
     items:
       type: string
     default: []
-    x-from-version: 'SaaS'
   values:
     type: object
     description: "Product model attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details"
@@ -67,7 +65,6 @@ properties:
             type: object
             x-read-only: true
             description: Object containing additional data when a related query parameter is enabled. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (only available since the 5.0)
-            x-from-version: 'SaaS'
             properties:
               attribute:
                 type: string

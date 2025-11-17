@@ -12,7 +12,6 @@ get:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   parameters:
     - name: search
       in: query
@@ -192,7 +191,6 @@ post:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   parameters:
     - name: body
       in: body
@@ -224,7 +222,6 @@ patch:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to update several categories at once.
   x-body-by-line: Contains several lines, each line is a category in JSON standard format
   parameters:

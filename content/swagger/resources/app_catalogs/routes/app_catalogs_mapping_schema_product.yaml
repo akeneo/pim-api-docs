@@ -7,7 +7,6 @@ put:
   tags:
     - Mapping schema for products
   x-versions:
-    - "SaaS"
   x-app-token: true
   parameters:
     - name: id
@@ -35,7 +34,6 @@ put:
       schema:
         $ref: "#/definitions/Error"
       x-examples-per-version:
-        - x-version: 'SaaS'
           x-example: {
             "code": 422,
             "message": "Validation failed.",
@@ -53,7 +51,6 @@ get:
   tags:
     - Mapping schema for products
   x-versions:
-    - "SaaS"
   x-app-token: true
   parameters:
     - name: id
@@ -80,7 +77,6 @@ delete:
   tags:
     - Mapping schema for products
   x-versions:
-    - "SaaS"
   x-app-token: true
   parameters:
     - name: id

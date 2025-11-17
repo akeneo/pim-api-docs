@@ -51,7 +51,6 @@ properties:
             type: object
             x-read-only: true
             description: Object containing additional data when a related query parameter is enabled. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (only available since the 5.0)
-            x-from-version: 'SaaS'
             properties:
               attribute:
                 type: string
@@ -146,7 +145,6 @@ properties:
       Workflow execution statuses of the product (only available when the "with_workflow_execution_statuses" query parameter is set to "true")
     x-immutable: true
     x-read-only: true
-    x-from-version: 'SaaS'
     items:
       type: object
       properties:

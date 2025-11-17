@@ -6,7 +6,6 @@ get:
   tags:
     - Category
   x-versions:
-    - "SaaS"
   parameters:
     - $ref: '#/parameters/file_path'
   responses:

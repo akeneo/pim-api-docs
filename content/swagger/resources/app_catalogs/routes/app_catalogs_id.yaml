@@ -5,7 +5,6 @@ get:
   tags:
     - Catalogs
   x-versions:
-    - "SaaS"
   x-app-token: true
   parameters:
     - name: id
@@ -31,7 +30,6 @@ patch:
   tags:
     - Catalogs
   x-versions:
-    - "SaaS"
   x-app-token: true
   description: This endpoint allows you to update a catalog.
   parameters:
@@ -64,7 +62,6 @@ patch:
       schema:
         $ref: "#/definitions/Error"
       x-examples-per-version:
-        - x-version: 'SaaS'
           x-example: {
             "code": 422,
             "message": "Validation failed.",
@@ -85,7 +82,6 @@ delete:
   tags:
     - Catalogs
   x-versions:
-    - "SaaS"
   x-app-token: true
   description: This endpoint allows you to delete a catalog.
   parameters:

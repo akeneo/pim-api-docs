@@ -115,11 +115,10 @@ with_attribute_options:
 with_attribute_options__product_models:
   name: with_attribute_options
   in: query
-  description: Return labels of attribute options in the response. <strong>(Only available on SaaS platforms)</strong>
+  description: Return labels of attribute options in the response. 
   default: false
   type: boolean
   required: false
-  x-from-version: "SaaS"
 with_table_select_options:
   name: with_table_select_options
   in: query
@@ -131,11 +130,10 @@ with_table_select_options:
 with_asset_share_links:
   name: with_asset_share_links
   in: query
-  description: Return asset collection share link urls in the response. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (Only available in the SaaS version)
+  description: Return asset collection share link urls in the response. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
   default: false
   type: boolean
   required: false
-  x-from-version: "SaaS"
 with_quality_scores__products:
   name: with_quality_scores
   in: query
@@ -173,7 +171,6 @@ updated_before:
   type: string
   format: date
   required: false
-  x-from-version: "SaaS"
 updated_after:
   name: updated_after
   in: query
@@ -181,21 +178,18 @@ updated_after:
   type: string
   format: date
   required: false
-  x-from-version: "SaaS"
 with_enriched_attributes:
   name: with_enriched_attributes
   in: query
-  description: Return attribute values of the category (only available on SaaS platforms)
+  description: Return attribute values of the category
   required: false
   type: boolean
-  x-from-version: "SaaS"
 with_root_parent:
   name: with_root_parent
   in: query
   description: Return the root parent product model code of a variant
   required: false
   type: boolean
-  x-from-version: "SaaS"
 convert_measurements:
   name: convert_measurements
   in: query
@@ -203,7 +197,6 @@ convert_measurements:
   default: false
   type: boolean
   required: false
-  x-from-version: "SaaS"
 with_workflow_execution_statuses:
   name: with_workflow_execution_statuses
   in: query
@@ -215,4 +208,3 @@ with_workflow_execution_statuses:
     - A list of all associated tasks.
   required: false
   type: boolean
-  x-from-version: "SaaS"

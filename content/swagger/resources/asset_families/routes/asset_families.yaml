@@ -10,7 +10,6 @@ get:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   x-ee: true
   parameters:
     - $ref: "#/parameters/search_after"
@@ -46,9 +45,6 @@ get:
         - x-version: "7.0"
           x-example:
             $ref: "#/definitions/AssetFamiliesExamples/x-1.7-to-7.0"
-        - x-version: "SaaS"
-          x-example:
-            $ref: "#/definitions/AssetFamiliesExamples/x-SaaS"
     401:
       $ref: "#/responses/401Error"
     406:

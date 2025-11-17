@@ -6,7 +6,6 @@ get:
   tags:
     - Catalog products
   x-versions:
-    - "SaaS"
   x-app-token: true
   parameters:
     - name: id

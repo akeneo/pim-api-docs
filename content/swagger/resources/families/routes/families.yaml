@@ -12,7 +12,6 @@ get:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   parameters:
     - name: search
       in: query
@@ -119,7 +118,6 @@ post:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   parameters:
     - name: body
       in: body
@@ -151,7 +149,6 @@ patch:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to update and/or create several families at once.
   x-body-by-line: Contains several lines, each line is a family in JSON standard format
   parameters:

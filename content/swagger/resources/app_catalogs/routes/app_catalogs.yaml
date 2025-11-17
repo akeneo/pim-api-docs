@@ -5,7 +5,6 @@ get:
   tags:
     - Catalogs
   x-versions:
-    - "SaaS"
   x-app-token: true
   parameters:
     - $ref: '#/parameters/page'
@@ -91,7 +90,6 @@ post:
   tags:
     - Catalogs
   x-versions:
-    - "SaaS"
   x-app-token: true
   description: This endpoint allows you to create a new catalog.
   parameters:
@@ -117,7 +115,6 @@ post:
       schema:
         $ref: "#/definitions/Error"
       x-examples-per-version:
-        - x-version: 'SaaS'
           x-example: {
             "code": 422,
             "message": "Validation failed.",

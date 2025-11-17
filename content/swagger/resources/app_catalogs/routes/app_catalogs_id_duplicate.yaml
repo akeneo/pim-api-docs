@@ -4,7 +4,6 @@ post:
     tags:
         - Catalogs
     x-versions:
-        - "SaaS"
     x-app-token: true
     description: This endpoint allows you to duplicate an existing catalog. Note that the duplicated catalog will be deactivated (set to `false`).
     parameters:
@@ -53,7 +52,6 @@ post:
             schema:
                 $ref: "#/definitions/Error"
             x-examples-per-version:
-                - x-version: 'SaaS'
                   x-example: {
                       "code": 422,
                       "message": "Validation failed.",

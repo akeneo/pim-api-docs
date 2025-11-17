@@ -4,7 +4,6 @@ get:
   tags:
     - Workflow
   x-versions:
-    - "SaaS"
   x-ee: true
   description: This endpoint allows you to get the information about a given workflow as well as its steps.
   parameters:

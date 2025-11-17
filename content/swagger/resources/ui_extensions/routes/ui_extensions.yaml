@@ -4,7 +4,6 @@ get:
   tags:
     - UI Extensions
   x-versions:
-    - "SaaS"
   x-ee: true
   description: List all UI extensions associated with your token.
   parameters: []
@@ -17,8 +16,6 @@ get:
         items:
           $ref: '#/definitions/UiExtension'
       x-examples-per-version:
-        - x-version: 'SaaS'
-          x-example:
             - $ref: ../definitions/examples/ui_extension.yaml
 post:
   summary: Create a new UI extension
@@ -26,7 +23,6 @@ post:
   tags:
     - UI Extensions
   x-versions:
-    - "SaaS"
   x-ee: true
   description: This endpoint allows you to create a new UI extension. <code>default_label</code> and <code>url</code> configuration fields are mandatory for all UI extensions. <code>secret</code> is optional and only available for <a href='extensions/getting-started.html#action'>action</a> UI extension.
   parameters:
@@ -39,8 +35,6 @@ post:
       description: 'OK'
       x-details: Returns a JSON document representing the UI extension created
       x-examples-per-version:
-        - x-version: 'SaaS'
-          x-example:
             $ref: ../definitions/examples/ui_extension.yaml
     422:
       $ref: "#/responses/422Error"

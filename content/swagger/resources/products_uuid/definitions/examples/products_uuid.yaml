@@ -1,4 +1,4 @@
-x-SaaS: {
+x-7.0: {
   _links: {
     self: {
       href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=3&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true&with_workflow_execution_statuses=true"

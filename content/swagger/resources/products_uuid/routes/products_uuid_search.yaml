@@ -4,7 +4,6 @@ post:
   tags:
     - Product [uuid]
   x-versions:
-    - "SaaS"
   description: |
     This endpoint allows you to search for products that match the filters provided in the request body. Products are paginated and can be filtered by scope, locales, attributes, and other criteria. User-group-based permissions are applied to the products you request.
     <br /><br />
@@ -45,7 +44,7 @@ post:
             description: Return labels of attribute options in the response. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (Only available since the 5.0 version)
           with_asset_share_links:
             type: boolean
-            description: Return asset collection share link urls in the response. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (Only available in the SaaS version)
+            description: Return asset collection share link urls in the response. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
           with_quality_scores__products:
             type: boolean
             description: Return product quality scores in the response. (Only available since the 5.0 version)
@@ -54,7 +53,7 @@ post:
             description: Return product completenesses in the response. (Only available since the 6.0 version)
           with_workflow_execution_statuses:
             type: boolean
-            description: Return an array of workflow_execution_statuses in the response. (Only available in the SaaS version)
+            description: Return an array of workflow_execution_statuses in the response.
   responses:
     200:
       description: Return products paginated
@@ -72,9 +71,6 @@ post:
                     items:
                       $ref: '#/definitions/ProductUuidList'
       x-examples-per-version:
-        - x-version: 'SaaS'
-          x-example:
-            $ref: '#/definitions/ProductUuidExamples/x-SaaS'
     401:
       $ref: "#/responses/401Error"
     403:

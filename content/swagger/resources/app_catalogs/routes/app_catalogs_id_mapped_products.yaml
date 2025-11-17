@@ -4,7 +4,6 @@ get:
   tags:
     - Catalog products
   x-versions:
-    - "SaaS"
   description: This endpoint is available when the mapping is enabled on a specified catalog. When the mapping is in a
     basic mode, this endpoint allows you to get the list of all flattened products related to the catalog. When it's in
     models/variants mode, this endpoint allows you to get the list of simple products with all specified targets in the
@@ -47,7 +46,6 @@ get:
                       type: string
                       format: uuid
       x-examples-per-version:
-        - x-version: 'SaaS'
           x-example: {
                 "_links": {
                     "self": {

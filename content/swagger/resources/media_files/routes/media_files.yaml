@@ -12,7 +12,6 @@ get:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -134,7 +133,6 @@ post:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   parameters:
     - name: Content-type
       in: header

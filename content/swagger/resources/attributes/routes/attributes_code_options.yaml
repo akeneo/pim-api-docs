@@ -12,7 +12,6 @@ get:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   parameters:
     - $ref: '#/parameters/attribute_code'
     - $ref: '#/parameters/page'
@@ -117,7 +116,6 @@ post:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   parameters:
     - $ref: '#/parameters/attribute_code'
     - name: body
@@ -151,7 +149,6 @@ patch:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to update several attribute options at once. Please note that this endpoint applies a rate limit of 3 concurrent API requests per second.
   x-body-by-line: Contains several lines, each line is an attribute option in JSON standard format
   parameters:

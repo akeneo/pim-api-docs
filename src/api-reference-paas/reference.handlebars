@@ -10,7 +10,7 @@
             <div class="col-xs-12 col-sm-3">
                 <div class="dropdown pull-right">
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Your PIM version: <strong>{{{pimVersion}}}</strong>
+                        PaaS Your PIM version: <strong>{{{pimVersion}}}</strong>
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -27,7 +27,6 @@
                         <li><a href="/api-reference-paas-50.html">5.0</a></li>
                         <li><a href="/api-reference-paas-60.html">6.0</a></li>
                         <li><a href="/api-reference-paas-70.html">7.0</a></li>
-                        <li><a href="/api-reference-paas.html">SaaS</a></li>
                     </ul>
                 </div>
             </div>
@@ -95,8 +94,8 @@
                             <div class="alert alert-warning">
                                 <p>This API provides two endpoints for interacting with products:</p>
                                 <ul>
-                                    <li><b><a href="/api-reference-paas.html#Productuuid">Product (UUID):</a></b> We strongly recommend using this endpoint for its reliability and flexibility. UUIDs, or Universally Unique Identifiers, are guaranteed to be unique and never change, even if other product identifiers like SKUs are modified. This ensures consistent product identification regardless of future changes. Additionally, UUIDs allow interaction with products that lack a traditional identifier.</li>
-                                    <li><b><a href="/api-reference-paas.html#Productidentifier">Product (Identifier):</a></b> This endpoint is useful when you already have a product identifier within your systems. This identifier, which could be a SKU or internal code, can be used to directly interact with the corresponding product in our API. This simplifies integration for workflows that rely on existing product identification methods.</li>
+                                    <li><b><a href="/api-reference-paas-70.html#Productuuid">Product (UUID):</a></b> We strongly recommend using this endpoint for its reliability and flexibility. UUIDs, or Universally Unique Identifiers, are guaranteed to be unique and never change, even if other product identifiers like SKUs are modified. This ensures consistent product identification regardless of future changes. Additionally, UUIDs allow interaction with products that lack a traditional identifier.</li>
+                                    <li><b><a href="/api-reference-paas-70.html#Productidentifier">Product (Identifier):</a></b> This endpoint is useful when you already have a product identifier within your systems. This identifier, which could be a SKU or internal code, can be used to directly interact with the corresponding product in our API. This simplifies integration for workflows that rely on existing product identification methods.</li>
                                 </ul>
                             </div>
                         {{/if}}

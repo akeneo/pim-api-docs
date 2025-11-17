@@ -4,7 +4,6 @@ get:
   tags:
     - Workflow task
   x-versions:
-    - "SaaS"
   x-ee: true
   description: Retrieves a paginated list of workflow tasks. Tasks should be filtered by workflow step UUID.
   parameters:
@@ -28,8 +27,6 @@ get:
       schema:
         $ref: "#/definitions/WorkflowTaskList"
       x-examples-per-version:
-      - x-version: 'SaaS'
-        x-example:
           _links:
             self:
               href: "https://demo.akeneo.com/api/rest/v1/workflows/tasks?page=1&limit=10&search={\"step_uuid\":[{\"operator\":\"=\",\"value\":\"f626d0e5-84a5-41fc-8215-65508c253edb\"}]}&with_attributes=true"

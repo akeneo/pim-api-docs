@@ -4,7 +4,6 @@ post:
   tags:
     - Workflow execution
   x-versions:
-    - "SaaS"
   x-ee: true
   description: This endpoint allows you to start workflow executions for products and/or product models. For each item in the array, you must provide either a product UUID or a product model code, but not both.
   parameters:

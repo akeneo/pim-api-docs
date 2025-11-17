@@ -5,7 +5,6 @@ get:
   tags:
     - Permissions
   x-versions:
-    - "SaaS"
   parameters:
     - name: user_uuid
       in: path
@@ -17,8 +16,6 @@ get:
       description: OK
       x-details: Returns the user's channels permissions
       x-examples-per-version:
-        - x-version: 'SaaS'
-          x-example:
             userUuid: "abcd1234-5678-90ef-ghij-klmnopqrstuv"
             channels:
               ecommerce:

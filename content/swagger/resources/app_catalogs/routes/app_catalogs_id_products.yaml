@@ -4,7 +4,6 @@ get:
   tags:
     - Catalog products
   x-versions:
-    - "SaaS"
   description: This endpoint allows you to get the list of products related to a catalog. Products are paginated and they can be filtered. In the Enterprise Edition, permissions based on your app settings are applied to the set of products you request. Please, note that a disabled catalog can return an HTTP 200 with a payload containing an error message,
     for more details see the <a href="apps/catalogs.html#troubleshooting">App Catalog</a> section.
   parameters:
@@ -43,7 +42,6 @@ get:
                       type: string
                       format: uuid
       x-examples-per-version:
-        - x-version: 'SaaS'
           x-example: {
             "_links": {
                 "self": {

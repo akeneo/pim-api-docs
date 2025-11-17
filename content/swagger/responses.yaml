@@ -142,7 +142,7 @@ NoContentAfterDelete:
     "message": "Property \"labels\" expects an array as data, \"NULL\" given. Check the API reference documentation.",
     "_links": {
       "documentation": {
-        "href": "http://api.akeneo.com/api-reference-paas.html"
+        "href": "http://api.akeneo.com/api-reference-paas-70.html"
       }
     }
   }

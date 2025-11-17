@@ -144,7 +144,6 @@ properties:
   sharing_enabled:
     type: boolean
     description: Share links are available/unavailable for media file attributes of all the assets in this family
-    x-from-version: "SaaS"
 example:
   {
     "code": "model_pictures",

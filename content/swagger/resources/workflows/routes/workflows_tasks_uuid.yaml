@@ -4,7 +4,6 @@ patch:
   tags:
     - Workflow task
   x-versions:
-    - "SaaS"
   x-ee: true
   description: >
     Performs a state transition on a task.<br>

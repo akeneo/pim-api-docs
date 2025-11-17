@@ -30,7 +30,7 @@ properties:
         description: Category label for the locale `localeCode`
   values:
     type: array
-    description: Attribute values (only available on SaaS).
+    description: Attribute values .
     default: []
     items:
       type: object

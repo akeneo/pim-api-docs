@@ -4,7 +4,6 @@ patch:
   tags:
     - UI Extensions
   x-versions:
-    - "SaaS"
   x-ee: true
   description: This endpoint allows you to update an existing UI extension. You can send only the fields that you want to update. If a field is not sent, the previous value is kept.
   parameters:
@@ -19,8 +18,6 @@ patch:
       description: 'OK'
       x-details: Returns a JSON document representing the UI extension updated
       x-examples-per-version:
-        - x-version: 'SaaS'
-          x-example:
             $ref: ../definitions/examples/ui_extension_patch_response.yaml
     400:
       $ref: "#/responses/400IncorrectUuid"
@@ -34,7 +31,6 @@ post:
   tags:
     - UI Extensions
   x-versions:
-    - "SaaS"
   x-ee: true
   description: This endpoint allows you to update an existing UI extension. You can send only the fields that you want to update. If a field is not sent, the previous value is kept.
   parameters:
@@ -49,8 +45,6 @@ post:
       description: 'OK'
       x-details: Returns a JSON document representing the UI extension updated
       x-examples-per-version:
-        - x-version: 'SaaS'
-          x-example:
             $ref: ../definitions/examples/ui_extension_patch_response.yaml
     400:
       $ref: "#/responses/400IncorrectUuid"
@@ -64,7 +58,6 @@ delete:
   tags:
     - UI Extensions
   x-versions:
-    - "SaaS"
   x-ee: true
   description: This endpoint allows you to delete a given UI extension.
   parameters:

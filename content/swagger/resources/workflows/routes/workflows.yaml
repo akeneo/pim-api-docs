@@ -4,7 +4,6 @@ get:
   tags:
     - Workflow
   x-versions:
-    - "SaaS"
   x-ee: true
   description: Retrieves a paginated list of workflows.
   parameters:
@@ -65,8 +64,6 @@ get:
                                   type: string
                                   example: https://demo.akeneo.com/api/rest/v1/workflows/6f37476a-04c2-46c0-b6d0-e18316959068
       x-examples-per-version:
-      - x-version: 'SaaS'
-        x-example:
           _links:
             self:
               href: "https://demo.akeneo.com/api/rest/v1/workflows?page=1"

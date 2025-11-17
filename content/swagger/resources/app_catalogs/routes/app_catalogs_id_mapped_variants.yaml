@@ -4,7 +4,6 @@ get:
   tags:
     - Catalog products
   x-versions:
-    - "SaaS"
   description: This endpoint allows you to get the list of variants of a model related to a catalog when the mapping is
     enabled. Please, note that a disabled catalog can return an HTTP 200 with a payload containing an error message,
     for more details see the <a href="apps/catalogs.html#troubleshooting">App Catalog</a> section.
@@ -49,7 +48,6 @@ get:
                       type: string
                       format: uuid
       x-examples-per-version:
-        - x-version: 'SaaS'
           x-example: {
               "_links": {
                   "first": {

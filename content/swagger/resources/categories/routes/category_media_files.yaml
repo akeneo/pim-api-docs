@@ -5,7 +5,6 @@ post:
   tags:
     - Category
   x-versions:
-    - "SaaS"
   parameters:
     - name: Content-type
       in: header

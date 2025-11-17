@@ -4,7 +4,6 @@ get:
   tags:
     - Workflow
   x-versions:
-    - "SaaS"
   x-ee: true
   description: Retrieves a paginated list of assignees for a specified workflow step.
   parameters:
@@ -28,8 +27,6 @@ get:
                     items:
                       $ref: "#/definitions/WorkflowStepAssignee"
       x-examples-per-version:
-      - x-version: 'SaaS'
-        x-example:
           _links:
             self:
               href: "https://demo.akeneo.com/api/rest/v1/workflows/steps/f626d0e5-84a5-41fc-8215-65508c253edb/assignees?page=1&limit=10"
