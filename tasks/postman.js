@@ -1,5 +1,5 @@
 /**
- * Fetch and process Postman collection with OpenAPI examples
+ * Enrich the Postman collection with OpenAPI examples
  *
  * This script will:
  * - Fetch the Postman collection JSON from remote URL
@@ -179,6 +179,17 @@ function addExamplesToPostmanRequest(item, examplesMap) {
                         item.request.url.query.push(queryParam);
                         console.log(`  Added example "${exampleName}" for parameter "${paramName}" to ${item.name}`);
                     }
+                }
+
+                // Sort query parameters by key to group same parameters together
+                if (item.request.url.query && item.request.url.query.length > 0) {
+                    item.request.url.query.sort((a, b) => {
+                        // Sort by key first
+                        if (a.key < b.key) return -1;
+                        if (a.key > b.key) return 1;
+                        // If keys are equal, maintain original order (stable sort)
+                        return 0;
+                    });
                 }
 
                 modifiedCount++;
