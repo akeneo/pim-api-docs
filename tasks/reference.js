@@ -424,11 +424,15 @@ gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function(
           }
 
           // Handle oneOf and anyOf by keeping only the first element
+          // Returns true if oneOf or anyOf was found at any level
           function simplifyOneOf(schema) {
-              if (!schema) return;
+              if (!schema) return false;
+
+              let hasOneOfOrAnyOf = false;
 
               // If schema has oneOf, replace with first element
               if (schema.oneOf && Array.isArray(schema.oneOf) && schema.oneOf.length > 0) {
+                  hasOneOfOrAnyOf = true;
                   const firstOption = schema.oneOf[0];
                   // Use spread operator to merge properties
                   Object.assign(schema, firstOption);
@@ -437,6 +441,7 @@ gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function(
 
               // If schema has anyOf, replace with first element (same treatment as oneOf)
               if (schema.anyOf && Array.isArray(schema.anyOf) && schema.anyOf.length > 0) {
+                  hasOneOfOrAnyOf = true;
                   const firstOption = schema.anyOf[0];
                   // Use spread operator to merge properties
                   Object.assign(schema, firstOption);
@@ -445,21 +450,29 @@ gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function(
 
               // Recursively process nested schemas
               if (schema.properties) {
-                  Object.values(schema.properties).forEach(simplifyOneOf);
+                  Object.values(schema.properties).forEach(prop => {
+                      if (simplifyOneOf(prop)) hasOneOfOrAnyOf = true;
+                  });
               }
               if (schema.patternProperties) {
-                  Object.values(schema.patternProperties).forEach(simplifyOneOf);
+                  Object.values(schema.patternProperties).forEach(prop => {
+                      if (simplifyOneOf(prop)) hasOneOfOrAnyOf = true;
+                  });
               }
               if (schema.items) {
-                  simplifyOneOf(schema.items);
+                  if (simplifyOneOf(schema.items)) hasOneOfOrAnyOf = true;
               }
               if (schema.additionalProperties && typeof schema.additionalProperties === 'object') {
-                  simplifyOneOf(schema.additionalProperties);
+                  if (simplifyOneOf(schema.additionalProperties)) hasOneOfOrAnyOf = true;
               }
               // Process allOf arrays (anyOf is now handled above)
               if (Array.isArray(schema.allOf)) {
-                  schema.allOf.forEach(simplifyOneOf);
+                  schema.allOf.forEach(s => {
+                      if (simplifyOneOf(s)) hasOneOfOrAnyOf = true;
+                  });
               }
+
+              return hasOneOfOrAnyOf;
           }
 
           // Apply oneOf simplification and patternProperties transformation to all operations
@@ -471,21 +484,37 @@ gulp.task('reference', ['clean-dist', 'less', 'fetch-remote-openapi'], function(
 
                   // Process request body schemas
                   if (data.paths[path][operation].requestBody) {
+                      let requestBodyHasOneOfOrAnyOf = false;
                       for (let contentType in (data.paths[path][operation].requestBody.content ?? {})) {
                           if (data.paths[path][operation].requestBody.content[contentType].schema) {
-                              simplifyOneOf(data.paths[path][operation].requestBody.content[contentType].schema);
+                              const hasOneOfOrAnyOf = simplifyOneOf(data.paths[path][operation].requestBody.content[contentType].schema);
+                              if (hasOneOfOrAnyOf) {
+                                  requestBodyHasOneOfOrAnyOf = true;
+                              }
                               transformPatternProperties(data.paths[path][operation].requestBody.content[contentType].schema, null, isCategoryEndpoint);
                           }
+                      }
+                      // Add marker if oneOf/anyOf was found
+                      if (requestBodyHasOneOfOrAnyOf) {
+                          data.paths[path][operation].requestBody.hasOneOfOrAnyOf = true;
                       }
                   }
 
                   // Process response schemas
                   for (let response in (data.paths[path][operation].responses ?? {})) {
+                      let responseHasOneOfOrAnyOf = false;
                       for (let contentType in (data.paths[path][operation].responses[response].content ?? {})) {
                           if (data.paths[path][operation].responses[response].content[contentType].schema) {
-                              simplifyOneOf(data.paths[path][operation].responses[response].content[contentType].schema);
+                              const hasOneOfOrAnyOf = simplifyOneOf(data.paths[path][operation].responses[response].content[contentType].schema);
+                              if (hasOneOfOrAnyOf) {
+                                  responseHasOneOfOrAnyOf = true;
+                              }
                               transformPatternProperties(data.paths[path][operation].responses[response].content[contentType].schema, null, isCategoryEndpoint);
                           }
+                      }
+                      // Add marker if oneOf/anyOf was found
+                      if (responseHasOneOfOrAnyOf) {
+                          data.paths[path][operation].responses[response].hasOneOfOrAnyOf = true;
                       }
                   }
 

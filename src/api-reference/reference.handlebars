@@ -201,6 +201,12 @@
                                                                     {{#unless ../x-body-by-line}}
                                                                         <p>Follow the standard format of the entity</p>
                                                                     {{/unless}}
+                                                                    {{#if hasOneOfOrAnyOf}}
+                                                                        <p>
+                                                                            Body contains complex objects not visible here.
+                                                                            <a href="https://storage.googleapis.com/akecld-prd-pim-saas-shared-openapi-spec/openapi_specification.html" target="_blank">Consult the static documentation</a> for more details
+                                                                        </p>
+                                                                    {{/if}}
                                                                     <div class="def">
                                                                         {{#each content}}
                                                                             {{#with schema.items}}
@@ -398,6 +404,12 @@
                                                             {{/if}}
                                                             <div class="row">
                                                                 <div class="col-xs-12">
+                                                                    {{#if hasOneOfOrAnyOf}}
+                                                                        <p>
+                                                                            Response contains complex objects not visible here.
+                                                                            <a href="https://storage.googleapis.com/akecld-prd-pim-saas-shared-openapi-spec/openapi_specification.html" target="_blank">Consult the static documentation</a> for more details
+                                                                        </p>
+                                                                    {{/if}}
                                                                     {{#if ../x-content-type}}
                                                                         Media file binary
                                                                     {{else}}
