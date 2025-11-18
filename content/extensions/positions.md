@@ -17,7 +17,7 @@ Extension position determines where your extension appears within the Akeneo PIM
 ## Available positions for UI extensions
 
 
-| Positions                    | Action | Iframe | Link  | Data Source   | Custom Component|
+| Positions                    | Action | Iframe | Link  | Data Component| Custom Component|
 |------------------------------|--------|--------|-------|---------------|-----------------|
 | pim.product.header           | ✔️     | ❌     | ✔️    | ❌            |     ❌            |
 | pim.product-model.header     | ✔️     | ❌     | ✔️    | ❌            |     ❌            |
