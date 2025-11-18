@@ -322,6 +322,9 @@ Below is the JSON standard format representing a reference entity record.
 ::: panel-link Want more details about the reference entity record resource? [Check its endpoints here!](/api-reference.html#Referenceentityrecord)
 :::
 
+::: panel-link Want to filter reference entity records by their attribute values? [Check the filtering documentation here!](/documentation/filter.html#by-attribute-values)
+:::
+
 ## Focus on the reference entity record values
 
 Reference entity record values hold all the information of a reference entity record. In concrete terms, it is the values of the attributes you will find in the record of a reference entity.
