@@ -17,22 +17,22 @@ Extension position determines where your extension appears within the Akeneo PIM
 ## Available positions for UI extensions
 
 
-| Positions                    | Action | Iframe | Link  | Data Source   |
-|------------------------------|--------|--------|-------|---------------|
-| pim.product.header           | ✔️     | ❌     | ✔️    | ❌            |
-| pim.product-model.header     | ✔️     | ❌     | ✔️    | ❌            |
-| pim.sub-product-model.header | ✔️     | ❌     | ✔️    | ❌            |
-| pim.product.tab              | ❌     | ✔️     | ❌    | ✔️            |
-| pim.product-model.tab        | ❌     | ✔️     | ❌    | ❌            |
-| pim.sub-product-model.tab    | ❌     | ✔️     | ❌    | ❌            |
-| pim.category.tab             | ❌     | ✔️     | ❌    | ✔️            |
-| pim.product-grid.action-bar  | ✔️     | ✔️     | ❌    | ❌            |
-| pim.product.index            | ✔️     | ❌     | ❌    | ❌            |
-| pim.activity.navigation.tab  | ❌     | ✔️     | ❌    | ❌            |
-| pim.product.panel            | ❌     | ✔️     | ❌    | ✔️            |
-| pim.product-model.panel      | ✔️     | ❌     | ✔️    | ✔️            |
-| pim.sub-product-model.panel  | ✔️     | ❌     | ✔️    | ✔️            |
-
+| Positions                    | Action | Iframe | Link  | Data Component| Custom Component|
+|------------------------------|--------|--------|-------|---------------|-----------------|
+| pim.product.header           | ✔️     | ❌     | ✔️    | ❌            |     ❌            |
+| pim.product-model.header     | ✔️     | ❌     | ✔️    | ❌            |     ❌            |
+| pim.sub-product-model.header | ✔️     | ❌     | ✔️    | ❌            |     ❌            |
+| pim.product.tab              | ❌     | ✔️     | ❌    | ✔️            |     ✔️            |
+| pim.product-model.tab        | ❌     | ✔️     | ❌    | ❌            |     ✔️            |
+| pim.sub-product-model.tab    | ❌     | ✔️     | ❌    | ❌            |     ✔️            |
+| pim.category.tab             | ❌     | ✔️     | ❌    | ✔️            |     ✔️            |
+| pim.product-grid.action-bar  | ✔️     | ✔️     | ❌    | ❌            |     ✔️            |
+| pim.product.index            | ✔️     | ❌     | ❌    | ❌            |     ❌            |
+| pim.activity.navigation.tab  | ❌     | ✔️     | ❌    | ❌            |     ✔️            |
+| pim.product.panel            | ❌     | ✔️     | ❌    | ✔️            |     ✔️            |
+| pim.product-model.panel      | ✔️     | ✔️     | ✔️    | ✔️            |     ✔️            |
+| pim.sub-product-model.panel  | ✔️     | ✔️     | ✔️    | ✔️            |     ✔️            |
+| pim.performance.analytics.tab| ❌     | ✔️     | ❌    | ❌            |     ✔️            |
 ### Positions list
 
 #### pim.product.header
