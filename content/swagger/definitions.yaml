@@ -14,6 +14,8 @@ ProductUuid:
   $ref: ./resources/products_uuid/definitions/product_uuid.yaml
 ProductUUidWithIntents:
   $ref: ./resources/products/definitions/product_with_intents.yaml
+ProductUuidExamples:
+  $ref: ./resources/products_uuid/definitions/examples/products_uuid.yaml
 ProductUuidList:
   type: object
   allOf:
@@ -260,12 +262,6 @@ AssetItemList:
             href:
               type: string
               description: URI of the resource
-
-AppCatalogList:
-  type: object
-  allOf:
-    - $ref: "#/definitions/ItemList"
-    - $ref: ./resources/app_catalogs/definitions/app_catalog.yaml
 
 Error:
   type: object

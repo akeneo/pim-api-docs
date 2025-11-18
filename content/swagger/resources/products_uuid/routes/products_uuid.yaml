@@ -31,14 +31,10 @@ get:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/search_after'
     - $ref: '#/parameters/limit'
-    - $ref: '#/parameters/convert_measurements'
     - $ref: '#/parameters/with_count'
     - $ref: '#/parameters/with_attribute_options'
-    - $ref: '#/parameters/with_asset_share_links'
     - $ref: '#/parameters/with_quality_scores__products'
     - $ref: '#/parameters/with_completenesses'
-    - $ref: '#/parameters/with_root_parent'
-    - $ref: '#/parameters/with_workflow_execution_statuses'
 
   responses:
     200:
@@ -57,6 +53,8 @@ get:
                     items:
                       $ref: '#/definitions/ProductUuidList'
       x-examples-per-version:
+        x-example:
+          $ref: '#/definitions/ProductUuidExamples/x-7.0'
     401:
       $ref: "#/responses/401Error"
     403:
@@ -78,12 +76,6 @@ post:
       in: body
       schema:
         $ref: "#/definitions/ProductUuid"
-    - name: create_missing_options
-      in: query
-      description: Optional parameter to allow for the creation of missing options for attribute allowing it. (Only available since in Saas version)
-      required: false
-      type: string
-      default: no value
 
   responses:
     201:
@@ -120,12 +112,6 @@ patch:
             '{"uuid":"573dd613-0c7f-4143-83d5-63cc5e535966","values":{"sku":[{"data":"updated_sku","locale":null,"scope":null}]}, "group":["promotion"]}'
           x-example-3:
             '{"uuid":"25566245-55c3-42ce-86d9-8610ac459fa8","values":{"sku":[{"data":"new_product","locale":null,"scope":null}]},"family":"clothes"}'
-    - name: create_missing_options
-      in: query
-      description: Optional parameter to allow for the creation of missing options for attribute allowing it. (Only available since in Saas version)
-      required: false
-      type: string
-      default: no value
   responses:
     200:
       description: OK

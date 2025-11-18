@@ -153,21 +153,3 @@ DeprecatedAssetReferenceFileUploaded:
   x-no-entity: true
   schema:
     $ref: "#/definitions/DeprecatedAssetReferenceFileUploadWarning"
-403CatalogError:
-  description: Access forbidden
-  x-details: The app does not have the permission to execute this request
-  schema:
-    $ref: "#/definitions/Error"
-  examples: {
-    "code":403,
-    "message":"Access forbidden. You are not allowed to list catalogs."
-  }
-404CatalogError:
-  description: Catalog not found
-  x-details: The catalog id given in the URI does not exist
-  schema:
-    $ref: "#/definitions/Error"
-  examples: {
-    "code": 404,
-    "message": "Catalog \"65f5a521-e65c-4d7b-8be8-1f267fa2729c\" does not exist or you can't access it."
-  }

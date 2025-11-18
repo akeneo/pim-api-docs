@@ -41,11 +41,6 @@ properties:
       localeCode:
         type: string
         description: Family label for the locale `localeCode`
-  parent:
-    type: string
-    description: Code of the parent family. If null, the family is a root family.
-    x-validation-rules: "&bull; It is equal to an existing family code"
-    default: null
 example: {
   "code": "caps",
   "attributes": ["sku", "name", "description", "price", "color", "picture"],
@@ -59,5 +54,4 @@ example: {
     "en_US": "Caps",
     "fr_FR": "Casquettes"
   },
-  "parent": "accessories",
 }

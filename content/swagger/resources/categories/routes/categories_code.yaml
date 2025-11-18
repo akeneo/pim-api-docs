@@ -15,7 +15,6 @@ get:
   parameters:
     - $ref: '#/parameters/code'
     - $ref: '#/parameters/with_position'
-    - $ref: '#/parameters/with_enriched_attributes'
   responses:
     200:
       description: OK

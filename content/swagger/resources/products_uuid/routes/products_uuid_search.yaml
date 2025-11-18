@@ -36,24 +36,15 @@ post:
           attributes:
             type: string
             description: Filter product values to only return those concerning the given attributes. For more details, see the <a href="/documentation/filter.html#filter-product-values">Filter on product values</a> section
-          convert_measurements:
-            type: boolean
-            description: Convert values of measurement attributes to the unit configured in the channel provided by the parameter "scope". Therefore, this parameter requires the "scope" parameter to be provided.
           with_attribute_options:
             type: boolean
             description: Return labels of attribute options in the response. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (Only available since the 5.0 version)
-          with_asset_share_links:
-            type: boolean
-            description: Return asset collection share link urls in the response. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
           with_quality_scores__products:
             type: boolean
             description: Return product quality scores in the response. (Only available since the 5.0 version)
           with_completenesses:
             type: boolean
             description: Return product completenesses in the response. (Only available since the 6.0 version)
-          with_workflow_execution_statuses:
-            type: boolean
-            description: Return an array of workflow_execution_statuses in the response.
   responses:
     200:
       description: Return products paginated
@@ -71,6 +62,8 @@ post:
                     items:
                       $ref: '#/definitions/ProductUuidList'
       x-examples-per-version:
+        x-example:
+          $ref: '#/definitions/ProductUuidExamples/x-7.0'
     401:
       $ref: "#/responses/401Error"
     403:

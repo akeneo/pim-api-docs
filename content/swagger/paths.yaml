@@ -172,27 +172,6 @@
 /api/rest/v1/asset-tags/{code}:
   $ref: ./resources/deprecated/asset_tags/routes/asset_tags_code.yaml
 
-/api/rest/v1/catalogs:
-  $ref: ./resources/app_catalogs/routes/app_catalogs.yaml
-/api/rest/v1/catalogs/{id}:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id.yaml
-/api/rest/v1/catalogs/{id}/duplicate:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_duplicate.yaml
-/api/rest/v1/catalogs/{id}/product-uuids:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_product_uuids.yaml
-/api/rest/v1/catalogs/{id}/products:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_products.yaml
-/api/rest/v1/catalogs/{id}/products/{uuid}:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_products_uuid.yaml
-/api/rest/v1/catalogs/{id}/mapping-schemas/product:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_mapping_schema_product.yaml
-/api/rest/v1/catalogs/{id}/mapped-products:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_mapped_products.yaml
-/api/rest/v1/catalogs/{id}/mapped-models:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_mapped_models.yaml
-/api/rest/v1/catalogs/{id}/mapped-models/{model_code}/variants:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_mapped_variants.yaml
-
 /api/rest/v1:
   $ref: ./resources/list_endpoints.yaml
 

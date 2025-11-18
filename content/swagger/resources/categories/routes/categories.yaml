@@ -22,7 +22,6 @@ get:
     - $ref: '#/parameters/limit'
     - $ref: '#/parameters/with_count'
     - $ref: '#/parameters/with_position'
-    - $ref: '#/parameters/with_enriched_attributes'
   responses:
     200:
       description: Return categories paginated

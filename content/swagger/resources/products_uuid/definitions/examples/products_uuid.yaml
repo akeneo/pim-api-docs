@@ -1,16 +1,16 @@
 x-7.0: {
   _links: {
     self: {
-      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=3&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true&with_workflow_execution_statuses=true"
+      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=3&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
     },
     first: {
-      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=1&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true&with_workflow_execution_statuses=true"
+      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=1&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
     },
     previous: {
-      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=2&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true&with_workflow_execution_statuses=true"
+      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=2&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
     },
     next: {
-      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=4&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true&with_workflow_execution_statuses=true"
+      href: "https://demo.akeneo.com/api/rest/v1/products-uuid?page=4&limit=3&with_quality_scores=true&with_completenesses=true&with_attribute_options=true"
     }
   },
   current_page: 3,
@@ -218,49 +218,6 @@ x-7.0: {
             "locale": "fr_FR",
             "data": 70
           }
-        ],
-        "workflow_execution_statuses": [
-          {
-            "uuid": "8c0fe59f-4d29-4faa-b4c3-d327e7f3cc52",
-            "status": "in_progress",
-            "started_at": "2024-02-22T17:31:00Z",
-            "completed_at": null,
-            "workflow": {
-              "uuid": "6f37476a-04c2-46c0-b6d0-e18316959068",
-              "code": "enrichment_workflow",
-              "labels": {
-                "en_US": "Enrichment workflow",
-                "fr_FR": "Workflow d'enrichissement"
-              }
-            },
-            "tasks": [
-              {
-                "uuid": "8f6c2d18-fbd4-4f7e-81df-cb3dc368fe07",
-                "status": "in_progress",
-                "created_at": "2024-02-22T17:31:00Z",
-                "step": {
-                  "uuid": "f626d0e5-84a5-41fc-8215-65508c253edb",
-                  "code": "review_step",
-                  "labels": {
-                    "en_US": "Marketing review",
-                    "fr_FR": "Revue marketing"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "uuid": "59169984-6d6c-4fa7-b925-68b8e9d31ddb",
-            "status": "completed",
-            "started_at": "2024-02-22T17:31:00Z",
-            "completed_at": "2024-02-22T17:31:00Z",
-            "workflow": {
-              "uuid": "b69ee158-a421-4680-bec0-a71bc73b8e31",
-              "code": "compliance_workflow",
-              "labels": {}
-            },
-            "tasks": []
-          }
         ]
       },
       {
@@ -400,8 +357,7 @@ x-7.0: {
             "locale": "fr_FR",
             "data": 70
           }
-        ],
-        "workflow_execution_statuses": []
+        ]
       },
       {
         "_links": {
@@ -429,8 +385,7 @@ x-7.0: {
         "associations": {},
         "quantified_associations": {},
         "quality_scores": {},
-        "completenesses": [],
-        "workflow_execution_statuses": []
+        "completenesses": []
       }
     ]
   }

@@ -15,10 +15,8 @@ get:
   parameters:
     - $ref: '#/parameters/code'
     - $ref: '#/parameters/with_attribute_options'
-    - $ref: '#/parameters/with_asset_share_links'
     - $ref: '#/parameters/with_quality_scores__products'
     - $ref: '#/parameters/with_completenesses'
-    - $ref: '#/parameters/with_workflow_execution_statuses'
   responses:
     200:
       description: OK
@@ -54,12 +52,6 @@ patch:
       required: true
       schema:
         $ref: "#/definitions/Product"
-    - name: create_missing_options
-      in: query
-      description: Optional parameter to allow for the creation of missing options for attribute allowing it. (Only available since in Saas version)
-      required: false
-      type: string
-      default: no value
   responses:
     201:
       $ref: "#/responses/Created"
