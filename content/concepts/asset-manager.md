@@ -1719,13 +1719,13 @@ Note that the "Asset attribute" resource is not the same as the "Attribute" reso
 There are several types of asset attributes, that will allow you to handle different types of data:
 - the [`text` attribute](#the-text-attribute),
 - the [`single_option` and `multiple_options` attributes](#the-single_option-and-multiple_options-attributes),
+- the [`auto_tagging` attribute](#the-auto_tagging-attribute).
 - the [`number` attribute](#the-number-attribute),
 - the [`media file` attribute](#the-media_file-attribute),
 - the [`media link` attribute](#the-media-link-attribute).
 - the [`boolean` attribute](#the-boolean-attribute).
 - the [`date` attribute](#the-date-attribute).
 - the [`record` attribute](#the-record-attribute).
-- the [`auto_tagging` attribute](#the-auto-tagging-attribute).
 
 ::: warning
 You can have a maximum of 100 attributes to describe the structure for one given asset family.    
@@ -1796,7 +1796,7 @@ And here is the JSON format of the `multiple options` attribute type.
 }
 ```
 
-### The `auto_tagging` attributes
+### The `auto_tagging` attribute
 The auto tagging attribute is automatically created when the option has been enabled on the asset family (See how to [Automatically generate tags for your assets](https://help.akeneo.com/akeneo-dam-organize-and-find/automatically-generate-tags-for-your-assets)).
 
 This attribute cannot be created through the Asset Attribute API.
