@@ -104,7 +104,6 @@ patch:
       in: body
       schema:
         $ref: "#/definitions/ProductUUidWithIntents"
-        required: ["uuid"]
         x-examples:
           x-example-1:
             '{"uuid":"fc24e6c3-933c-4a93-8a81-e5c703d134d5","values":{"description":[{"scope":"ecommerce","locale":"en_US","data":"My amazing cap"}]}}'

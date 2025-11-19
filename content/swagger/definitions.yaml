@@ -13,7 +13,7 @@ ProductList:
 ProductUuid:
   $ref: ./resources/products_uuid/definitions/product_uuid.yaml
 ProductUUidWithIntents:
-  $ref: ./resources/products/definitions/product_with_intents.yaml
+  $ref: ./resources/products_uuid/definitions/product_uuid_with_intents.yaml
 ProductUuidExamples:
   $ref: ./resources/products_uuid/definitions/examples/products_uuid.yaml
 ProductUuidList:
