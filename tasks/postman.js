@@ -3,13 +3,150 @@
  *
  * This script will:
  * - Fetch the Postman collection JSON from remote URL
- * - Fetch the OpenAPI specification JSON
+ * - Fetch the OpenAPI specification JSON from remote URL
  * - Extract examples from OpenAPI parameters for GET requests
  * - Add these examples as query parameters to matching Postman requests
  */
-var gulp = require('gulp');
+const gulp = require('gulp');
 const https = require('https');
 const fs = require('fs');
+
+const POSTMAN_URL = 'https://storage.googleapis.com/akecld-prd-pim-saas-shared-openapi-spec/postman_collection.json';
+const OPENAPI_URL = 'https://storage.googleapis.com/akecld-prd-pim-saas-shared-openapi-spec/openapi.json';
+const POSTMAN_FILE = 'content/files/akeneo-postman-collection.json';
+gulp.task('fetch-postman-collection', async function () {
+    try {
+        const postmanCollection = await fetchJson(POSTMAN_URL);
+        const openApiSpec = await fetchJson(OPENAPI_URL);
+
+
+        const queryExamples = extractQueryExamplesFromOpenApi(openApiSpec);
+
+        if (postmanCollection.item && Array.isArray(postmanCollection.item)) {
+            for (let item of postmanCollection.item) {
+                addQueryExamplesToPostmanCollection(item, queryExamples);
+            }
+        }
+
+        fs.writeFileSync(POSTMAN_FILE, JSON.stringify(postmanCollection, null, 2));
+
+    } catch (error) {
+        throw error;
+    }
+});
+
+/**
+ * Add examples to a Postman collection request item recursively
+ * @param {Object} item - Postman collection item (folder or request)
+ * @example
+ * item structure:
+ * {
+ *   name: "Get list of products",
+ *   request: {
+ *     url: {
+ *       path: [
+ *          "api",
+ *          "rest",
+ *          "v1",
+ *          "products-uuid"
+ *       ],
+ *       query: [
+ *         { key: "limit", value: "10", disabled: false }
+ *       ]
+ *     },
+ *     method: "GET"
+ *   }
+ * }
+ *
+ * @param {Object} queryExamples - Map of path -> parameter -> examples
+ * @example
+ * queryExamples structure:
+ * {
+ *   "api/rest/v1/products-uuid": {
+ *     "search": {
+ *       description: "Filter products by criteria",
+ *       examples: {
+ *         "getProductsByCategory": {
+ *           summary: "Filter by category",
+ *           value: '{"categories":[{"operator":"IN","value":["winter"]}]}'
+ *         }
+ *       }
+ *     }
+ *   }
+ * }
+ */
+function addQueryExamplesToPostmanCollection(item, queryExamples) {
+    if (item.request && item.request.method === 'GET') {
+        const urlPath = item.request.url.path;
+
+        for (const [openApiPath, parameters] of Object.entries(queryExamples)) {
+            const openApiPathArray = openApiPath.split('/').filter(segment => segment.length > 0);
+
+            if (!pathsMatch(urlPath, openApiPathArray)) {
+                continue;
+            }
+
+            if (!item.request.url.query) {
+                item.request.url.query = [];
+            }
+
+            for (const [paramName, paramData] of Object.entries(parameters)) {
+                // Skip if description type is not text/plain
+                if (paramData.type !== "text/plain") {
+                    continue;
+                }
+
+                for (const [exampleName, exampleData] of Object.entries(paramData.examples)) {
+                    const newValue = exampleData.value;
+
+                    const isDuplicate = item.request.url.query.some(existing => existing.key === paramName && existing.value === newValue);
+                    if (isDuplicate) {
+                        continue;
+                    }
+
+                    const queryParam = {
+                        disabled: true,
+                        description: {
+                            content: exampleData.summary || paramData.description,
+                            type: paramData.type
+                        },
+                        key: paramName,
+                        value: newValue
+                    };
+
+                    item.request.url.query.push(queryParam);
+                }
+            }
+
+            sortQueryParametersByKey(item.request.url.query);
+            break;
+        }
+    }
+
+    // If this is a folder, recursively process items
+    if (item.item && Array.isArray(item.item)) {
+        for (let subItem of item.item) {
+            addQueryExamplesToPostmanCollection(subItem, queryExamples);
+        }
+    }
+}
+
+
+/**
+ * Sort query parameters by key to group same parameters together
+ * @param {Array} queryParameters - Array of query parameters to sort in place
+ */
+function sortQueryParametersByKey(queryParameters) {
+    if (!queryParameters || queryParameters.length === 0) {
+        return;
+    }
+
+    queryParameters.sort((a, b) => {
+        if (a.key < b.key) return -1;
+        if (a.key > b.key) return 1;
+        return 0;
+    });
+}
 
 /**
  * Fetch JSON from a URL
@@ -43,16 +180,6 @@ function fetchJson(url) {
 }
 
 /**
- * Convert OpenAPI path to Postman path array
- * Example: "/api/rest/v1/products-uuid" -> ["api", "rest", "v1", "products-uuid"]
- * @param {string} openApiPath - OpenAPI path string
- * @returns {Array<string>} Path array
- */
-function openApiPathToArray(openApiPath) {
-    return openApiPath.split('/').filter(segment => segment.length > 0);
-}
-
-/**
  * Check if Postman path matches OpenAPI path
  * @param {Array|String} postmanPath - Postman URL path
  * @param {Array} openApiPath - OpenAPI path as array
@@ -83,163 +210,39 @@ function pathsMatch(postmanPath, openApiPath) {
  * @param {Object} openApiSpec - OpenAPI specification object
  * @returns {Object} Map of path -> parameter -> examples
  */
-function extractExamplesFromOpenApi(openApiSpec) {
-    const examplesMap = {};
+function extractQueryExamplesFromOpenApi(openApiSpec) {
+    const queryExamples = {};
 
     if (!openApiSpec.paths) {
-        return examplesMap;
+        return queryExamples;
     }
 
-    // Iterate through all paths
     for (const [path, pathItem] of Object.entries(openApiSpec.paths)) {
-        // Only process GET requests
         if (!pathItem.get) {
             continue;
         }
-
         const getOperation = pathItem.get;
-
-        // Check if this operation has parameters
         if (!getOperation.parameters || !Array.isArray(getOperation.parameters)) {
             continue;
         }
 
-        const pathArray = openApiPathToArray(path);
-        const pathKey = pathArray.join('/');
-
-        // Extract parameters with examples
         for (const parameter of getOperation.parameters) {
             // Only process query parameters with examples
             if (parameter.in !== 'query' || !parameter.examples) {
                 continue;
             }
 
-            if (!examplesMap[pathKey]) {
-                examplesMap[pathKey] = {};
+            if (!queryExamples[path]) {
+                queryExamples[path] = {};
             }
 
-            examplesMap[pathKey][parameter.name] = {
+            queryExamples[path][parameter.name] = {
                 description: parameter.description || '',
+                type: "text/plain",  // Postman description type
                 examples: parameter.examples
             };
         }
     }
 
-    return examplesMap;
+    return queryExamples;
 }
-
-/**
- * Add examples to a Postman request item recursively
- * @param {Object} item - Postman collection item (folder or request)
- * @param {Object} examplesMap - Map of path -> parameter -> examples
- * @returns {number} Count of requests modified
- */
-function addExamplesToPostmanRequest(item, examplesMap) {
-    let modifiedCount = 0;
-
-    // If this is a request item
-    if (item.request && item.request.method === 'GET') {
-        const urlPath = item.request.url.path;
-
-        // Try to find matching examples in the map
-        for (const [openApiPath, parameters] of Object.entries(examplesMap)) {
-            const openApiPathArray = openApiPath.split('/');
-
-            if (pathsMatch(urlPath, openApiPathArray)) {
-                // Initialize query array if it doesn't exist
-                if (!item.request.url.query) {
-                    item.request.url.query = [];
-                }
-
-                // Add examples for each parameter
-                for (const [paramName, paramData] of Object.entries(parameters)) {
-                    for (const [exampleName, exampleData] of Object.entries(paramData.examples)) {
-                        const newValue = exampleData.value;
-
-                        // Check if this exact parameter (key + value) already exists
-                        const isDuplicate = item.request.url.query.some(existing =>
-                            existing.key === paramName && existing.value === newValue
-                        );
-
-                        if (isDuplicate) {
-                            console.log(`  Skipped duplicate example "${exampleName}" for parameter "${paramName}" in ${item.name}`);
-                            continue;
-                        }
-
-                        const queryParam = {
-                            disabled: true,
-                            description: {
-                                content: exampleData.summary || paramData.description,
-                                type: "text/plain"
-                            },
-                            key: paramName,
-                            value: newValue
-                        };
-
-                        item.request.url.query.push(queryParam);
-                        console.log(`  Added example "${exampleName}" for parameter "${paramName}" to ${item.name}`);
-                    }
-                }
-
-                // Sort query parameters by key to group same parameters together
-                if (item.request.url.query && item.request.url.query.length > 0) {
-                    item.request.url.query.sort((a, b) => {
-                        // Sort by key first
-                        if (a.key < b.key) return -1;
-                        if (a.key > b.key) return 1;
-                        // If keys are equal, maintain original order (stable sort)
-                        return 0;
-                    });
-                }
-
-                modifiedCount++;
-                break;
-            }
-        }
-    }
-
-    // If this is a folder, recursively process items
-    if (item.item && Array.isArray(item.item)) {
-        for (let subItem of item.item) {
-            modifiedCount += addExamplesToPostmanRequest(subItem, examplesMap);
-        }
-    }
-
-    return modifiedCount;
-}
-
-gulp.task('fetch-postman-collection', async function() {
-    try {
-        console.log('Fetching Postman collection...');
-        const postmanUrl = 'https://storage.googleapis.com/akecld-prd-pim-saas-shared-openapi-spec/postman_collection.json';
-        const collection = await fetchJson(postmanUrl);
-        console.log('✓ Postman collection fetched');
-
-        console.log('Fetching OpenAPI specification...');
-        const openApiUrl = 'https://storage.googleapis.com/akecld-prd-pim-saas-shared-openapi-spec/openapi.json';
-        const openApiSpec = await fetchJson(openApiUrl);
-        console.log('✓ OpenAPI specification fetched');
-
-        console.log('Extracting examples from OpenAPI...');
-        const examplesMap = extractExamplesFromOpenApi(openApiSpec);
-        const pathCount = Object.keys(examplesMap).length;
-        console.log(`✓ Found examples for ${pathCount} paths`);
-
-        console.log('Adding examples to Postman collection...');
-        let modifiedCount = 0;
-        if (collection.item && Array.isArray(collection.item)) {
-            for (let item of collection.item) {
-                modifiedCount += addExamplesToPostmanRequest(item, examplesMap);
-            }
-        }
-        console.log(`✓ Modified ${modifiedCount} GET requests`);
-
-        // Save the modified collection
-        const outputPath = 'content/files/postman-results.json';
-        fs.writeFileSync(outputPath, JSON.stringify(collection, null, 2));
-        console.log(`✓ Postman collection saved to ${outputPath}`);
-
-    } catch (error) {
-        throw error;
-    }
-});
