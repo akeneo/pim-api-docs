@@ -1,10 +1,10 @@
 {
   "_": {
-    "postman_id": "d6832f84-9e25-4e26-b445-4c706c91e0cd"
+    "postman_id": "1a6b1c5c-d3a4-4102-86a0-64e89b871183"
   },
   "item": [
     {
-      "id": "d03725ad-0bda-4b8c-b5ac-da2cb6ffffa8",
+      "id": "1048acb5-a6bf-4bca-bc37-01575302647d",
       "name": "Product [uuid]",
       "description": {
         "content": "A product is a single item that can be managed in the PIM.\nIt can have various attributes and values, and can be associated with product models, categories, and other entities.\nProducts are the core entities in the PIM and are used to manage the product information.\nWe strongly recommend using this endpoint for its reliability and flexibility.\nUUIDs, or Universally Unique Identifiers, are guaranteed to be unique and never change, even if other product identifiers like SKUs are modified.\nThis ensures consistent product identification regardless of future changes.\nAdditionally, UUIDs allow interaction with products that lack a traditional identifier.\n",
@@ -12,7 +12,7 @@
       },
       "item": [
         {
-          "id": "8a15cae5-d1f7-412d-8ec2-1daf1d4705f9",
+          "id": "51c44054-e78b-49af-8dd9-498894a935bc",
           "name": "Get list of products",
           "request": {
             "name": "Get list of products",
@@ -427,7 +427,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "1a9b70ad-e964-4530-ae64-4dad5893e06b",
+                "id": "c359639b-ff2b-4ce3-9586-88f11b4782a3",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/products-uuid - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -442,7 +442,7 @@
           }
         },
         {
-          "id": "9160dbff-e95f-4040-a579-4027ed75e93f",
+          "id": "8aa12860-b518-4f8b-9408-3acee59b2504",
           "name": "Create a new product",
           "request": {
             "name": "Create a new product",
@@ -512,7 +512,7 @@
           }
         },
         {
-          "id": "22a807be-01c9-4ca5-a0b2-6a4d5ecbd757",
+          "id": "d1e2a525-53aa-43a5-aed0-ccb1dd6471fe",
           "name": "Update/create several products",
           "request": {
             "name": "Update/create several products",
@@ -580,7 +580,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "5112b5ce-a7c6-4dea-b0da-ea389e9b2d41",
+                "id": "d38a501d-1898-4093-8116-f142255a1b79",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/products-uuid - Content-Type is application/vnd.akeneo.collection+json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/vnd.akeneo.collection+json\");\n});\n",
@@ -595,7 +595,7 @@
           }
         },
         {
-          "id": "07ccd8d8-9cdd-425c-8dbe-ad9c10fe5854",
+          "id": "648ffd51-d1e3-45ba-a488-448274dfc25b",
           "name": "Search list of products",
           "request": {
             "name": "Search list of products",
@@ -700,7 +700,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "f9a4a505-cdb7-4310-a42f-94f037773b06",
+                "id": "168ebed8-b599-448a-8d61-e320b33efa39",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[POST]::/api/rest/v1/products-uuid/search - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -715,7 +715,7 @@
           }
         },
         {
-          "id": "5d3cce3c-c5c5-4647-ac34-8d70f59ec5aa",
+          "id": "93981362-8fda-4c39-84ee-c8a98b32fd80",
           "name": "Get a product",
           "request": {
             "name": "Get a product",
@@ -827,7 +827,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "f4426776-8340-44de-aafa-351f836f78a8",
+                "id": "68b664c1-62ba-4c5b-9714-6391d7c22d42",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/products-uuid/:uuid - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -842,7 +842,7 @@
           }
         },
         {
-          "id": "35847141-d464-43a4-af15-9536a8b328e2",
+          "id": "f46e95f9-3fe0-4595-a693-4c9352137216",
           "name": "Update/create a product",
           "request": {
             "name": "Update/create a product",
@@ -924,7 +924,7 @@
           }
         },
         {
-          "id": "97dbd8cb-a869-40d1-8e9b-00a128c9906f",
+          "id": "00c6f661-3759-465d-841e-0e3517fd36d3",
           "name": "Delete a product",
           "request": {
             "name": "Delete a product",
@@ -981,7 +981,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "009c2afa-743b-4741-9c22-2fab9191560f",
+                "id": "f882febb-016d-4d58-921f-1ebb382f042c",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response has empty Body \npm.test(\"[DELETE]::/api/rest/v1/products-uuid/:uuid - Response has empty Body\", function () {\n    pm.response.to.not.be.withBody;\n});\n"
@@ -994,7 +994,7 @@
           }
         },
         {
-          "id": "20a847b2-e970-4a9e-b325-877721120cf6",
+          "id": "337e6ecd-c747-49fe-b628-52bc7711f936",
           "name": "Submit a draft for approval",
           "request": {
             "name": "Submit a draft for approval",
@@ -1054,7 +1054,7 @@
           }
         },
         {
-          "id": "39575197-35c8-4af5-9523-54a29ce6162f",
+          "id": "15993861-fb54-41b1-8b49-7d34455f7fe2",
           "name": "Get a draft",
           "request": {
             "name": "Get a draft",
@@ -1112,7 +1112,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "96cb67df-3169-4dcf-90fa-40c639b8adf7",
+                "id": "ade0b33d-0b10-4039-a4d0-424b6c06db4c",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/products-uuid/:uuid/draft - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -1130,7 +1130,7 @@
       "event": []
     },
     {
-      "id": "cd682b06-d6df-4ada-8170-5186de5c73ba",
+      "id": "82399578-656a-42d9-bc52-890c47a71f55",
       "name": "Product [identifier]",
       "description": {
         "content": "A product is a single item that can be managed in the PIM.\nIt can have various attributes and values, and can be associated with product models, categories, and other entities.\nProducts are the core entities in the PIM and are used to manage the product information.\nThis endpoint is useful when you already have a product identifier within your systems.\nThis identifier, which could be a SKU or internal code, can be used to directly interact with the corresponding product in our API.\nThis simplifies integration for workflows that rely on existing product identification methods.\n",
@@ -1138,7 +1138,7 @@
       },
       "item": [
         {
-          "id": "da797dd8-14be-47e7-af23-7873cdb9dec9",
+          "id": "26c8b2aa-ccb7-4471-8249-8e6481418c14",
           "name": "Get list of products",
           "request": {
             "name": "Get list of products",
@@ -1535,7 +1535,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "979c5378-68e2-44aa-ba7b-cfb9c2f0e19a",
+                "id": "029f3957-08c4-4864-b9a9-fe07c3cb293d",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/products - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -1550,7 +1550,7 @@
           }
         },
         {
-          "id": "c32737eb-6b09-4b9e-9073-f5dc921b1d65",
+          "id": "0ea4c032-d0c2-4ea1-8055-5e041834860e",
           "name": "Create a new product",
           "request": {
             "name": "Create a new product",
@@ -1620,7 +1620,7 @@
           }
         },
         {
-          "id": "3e5d15c3-edba-4e7a-be0f-2a468f0c2fb9",
+          "id": "9b4b962b-4fc9-4f8c-83b5-73241a08668b",
           "name": "Update/create several products",
           "request": {
             "name": "Update/create several products",
@@ -1688,7 +1688,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "0cb6f6bc-4191-49cb-ba0d-5225567c793c",
+                "id": "2eec0c86-8e1a-4a88-81e3-18a5f588f223",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/products - Content-Type is application/vnd.akeneo.collection+json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/vnd.akeneo.collection+json\");\n});\n",
@@ -1703,7 +1703,7 @@
           }
         },
         {
-          "id": "6a88fb51-1f63-4d2d-8f7b-e276fabe2319",
+          "id": "ba0b9995-331f-476f-8861-bfffdc2627d2",
           "name": "Get a product",
           "request": {
             "name": "Get a product",
@@ -1806,7 +1806,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "c96fff12-8b43-4efa-b5c3-b7bae634b45e",
+                "id": "ee0d52ca-1938-426e-9223-273ac963c64b",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/products/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -1821,7 +1821,7 @@
           }
         },
         {
-          "id": "a02255e0-8ef5-4795-9e1c-02c6149bdbca",
+          "id": "ecb63867-496d-4093-8f47-f717d3bb4f2e",
           "name": "Update/create a product",
           "request": {
             "name": "Update/create a product",
@@ -1903,7 +1903,7 @@
           }
         },
         {
-          "id": "157cbac1-b89d-4b8f-8eaa-c8740025ed8d",
+          "id": "a47813e2-3c32-4e3d-bbf8-80fbe576c51a",
           "name": "Delete a product",
           "request": {
             "name": "Delete a product",
@@ -1960,7 +1960,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "8ae1bc14-838b-4c20-a6b3-a3b3ba74848a",
+                "id": "11d64658-833d-47c5-9214-c9fcc5819331",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response has empty Body \npm.test(\"[DELETE]::/api/rest/v1/products/:code - Response has empty Body\", function () {\n    pm.response.to.not.be.withBody;\n});\n"
@@ -1973,7 +1973,7 @@
           }
         },
         {
-          "id": "704d525b-656c-45fb-9ee6-5a6f25eaa47d",
+          "id": "f2a70135-9157-475a-a857-3a66e5f343a9",
           "name": "Submit a draft for approval",
           "request": {
             "name": "Submit a draft for approval",
@@ -2046,7 +2046,7 @@
           }
         },
         {
-          "id": "89978a00-6bed-44d1-a212-d82b807bc84f",
+          "id": "49a52078-5584-477d-adc2-0bcbf192ab4e",
           "name": "Get a draft",
           "request": {
             "name": "Get a draft",
@@ -2104,7 +2104,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "1103ca7b-384e-4af8-82c7-990a80df53fd",
+                "id": "e6776652-2f02-41e8-a85b-07873f912acc",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/products/:code/draft - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -2122,7 +2122,7 @@
       "event": []
     },
     {
-      "id": "867cc6a5-022d-43c8-99c3-5617aa9e3b8e",
+      "id": "7f65910f-bdce-4139-9ab2-5d460704f8ab",
       "name": "Product model",
       "description": {
         "content": "A product model is a template for products that share the same attributes and values.\nIt allows you to create a hierarchy of products, where a product model can have several variants.\nA product model can also have its own attributes and values, which are inherited by its variants.\n",
@@ -2130,7 +2130,7 @@
       },
       "item": [
         {
-          "id": "8b84c0d6-275f-4ef0-93f3-43fd2214010c",
+          "id": "ca4c956b-e928-4106-81d4-354881afbc0e",
           "name": "Get list of product models",
           "request": {
             "name": "Get list of product models",
@@ -2401,7 +2401,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "ec20d6d7-6cdb-4ae6-8e40-272883dca7f0",
+                "id": "22cf7322-775a-4476-9b35-b031f9583611",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/product-models - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -2416,7 +2416,7 @@
           }
         },
         {
-          "id": "97fff5bc-ac52-4f25-93de-61aaff0436f2",
+          "id": "34891085-16cb-4876-a48a-e763bf8585a5",
           "name": "Create a new product model",
           "request": {
             "name": "Create a new product model",
@@ -2486,7 +2486,7 @@
           }
         },
         {
-          "id": "24403f5b-beca-4b37-b0ef-86e43aa5ded3",
+          "id": "a92df276-9948-453d-97af-61fccec424aa",
           "name": "Update/create several product models",
           "request": {
             "name": "Update/create several product models",
@@ -2554,7 +2554,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "5010fe17-4483-4e25-8f24-d49a73fcfc9b",
+                "id": "ce9415d4-13a4-46f4-a3b5-6cfd5b75fe69",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/product-models - Content-Type is application/vnd.akeneo.collection+json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/vnd.akeneo.collection+json\");\n});\n",
@@ -2569,7 +2569,7 @@
           }
         },
         {
-          "id": "efd6cf4f-1cc3-409a-a38c-6f96a77a9dc1",
+          "id": "c4fd81fc-37d1-4c43-ab2d-1048dc3a4466",
           "name": "Get a product model",
           "request": {
             "name": "Get a product model",
@@ -2654,7 +2654,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "091f602e-792a-4ffa-baf7-de0194ac507b",
+                "id": "b47b3377-0c1e-4d74-8e18-a5fc9602917f",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/product-models/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -2669,7 +2669,7 @@
           }
         },
         {
-          "id": "4ddcfba5-7e7c-40b7-9585-a37422309fd8",
+          "id": "4233d4ca-b6d5-41a3-bc38-24550dcb3542",
           "name": "Update/create a product model",
           "request": {
             "name": "Update/create a product model",
@@ -2751,7 +2751,7 @@
           }
         },
         {
-          "id": "9fe3ad61-7dcd-4f12-95c7-8c6d0c4c9342",
+          "id": "97a04e7e-489b-4edc-8b94-0ec2c5803cd0",
           "name": "Delete a product model",
           "request": {
             "name": "Delete a product model",
@@ -2808,7 +2808,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "01d0112b-7205-4a78-8805-9164383c0c8e",
+                "id": "099f4252-0f40-49fb-9b18-c61f951b991c",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response has empty Body \npm.test(\"[DELETE]::/api/rest/v1/product-models/:code - Response has empty Body\", function () {\n    pm.response.to.not.be.withBody;\n});\n"
@@ -2821,7 +2821,7 @@
           }
         },
         {
-          "id": "1accc68e-1f39-4311-8366-fca563aa2ef9",
+          "id": "7a9b1e1f-8c93-4a60-84d1-3d36a5b3330e",
           "name": "Submit a draft for approval",
           "request": {
             "name": "Submit a draft for approval",
@@ -2894,7 +2894,7 @@
           }
         },
         {
-          "id": "7e03f45c-9463-4ea2-b128-1a39fd422ac1",
+          "id": "dfad017f-e315-42b0-b077-024ca4457890",
           "name": "Get a draft",
           "request": {
             "name": "Get a draft",
@@ -2952,7 +2952,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "655486bb-77fd-4680-80bc-e61d8e8f1258",
+                "id": "c898c67f-f156-4ade-be47-ffa65b79fdd7",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/product-models/:code/draft - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -2970,7 +2970,7 @@
       "event": []
     },
     {
-      "id": "201d58ff-4540-4010-b8f8-c1e697ef367a",
+      "id": "1dc771e7-56b6-4ffd-93cc-6d0bd0ed6d28",
       "name": "Product media file",
       "description": {
         "content": "A media file is a file that can be attached to a product, product model, category, or asset.\nIt can be an image, a video, a PDF, or any other type of file.\nMedia files are used to enrich the product information and provide additional context to the products.\n",
@@ -2978,7 +2978,7 @@
       },
       "item": [
         {
-          "id": "1eb007c9-c285-4ec1-923d-2b5768507c17",
+          "id": "d7cdc3dc-3cc1-4405-a9b6-f5b78f4c91ce",
           "name": "Get a list of product media files",
           "request": {
             "name": "Get a list of product media files",
@@ -3051,7 +3051,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "28b4a0f9-711f-4d39-b93a-dddeca72508f",
+                "id": "acbd42b9-dae7-4ed2-921d-91c366a87d56",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/media-files - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -3066,7 +3066,7 @@
           }
         },
         {
-          "id": "691e776a-f447-4df5-82e6-aaab6599f427",
+          "id": "ebdbea72-2458-48cb-9065-0b840862b422",
           "name": "Create a new product media file",
           "request": {
             "name": "Create a new product media file",
@@ -3107,7 +3107,7 @@
                     "type": "text/plain"
                   },
                   "key": "file",
-                  "value": "dolor nulla do",
+                  "value": "adipisicing",
                   "type": "text"
                 },
                 {
@@ -3139,7 +3139,7 @@
           }
         },
         {
-          "id": "e58c803c-dcff-4f69-a075-69ada7e6d6be",
+          "id": "d8c9e97f-be4c-456a-b25d-c5503a48bb4e",
           "name": "Get a product media file",
           "request": {
             "name": "Get a product media file",
@@ -3196,7 +3196,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "ce574141-3ac9-4c27-b9ee-d734e0ebeb7a",
+                "id": "1f01bff8-1aba-4dfa-9789-2fa9e7e4ca8d",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/media-files/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -3211,7 +3211,7 @@
           }
         },
         {
-          "id": "324b26a4-423b-40c5-969e-b711c48c433f",
+          "id": "e21884f6-bc8e-4910-ba61-d18b69b9a3a8",
           "name": "Download a product media file",
           "request": {
             "name": "Download a product media file",
@@ -3269,7 +3269,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "b2b7e410-c59b-40d3-a113-1548de19d368",
+                "id": "b247e18a-8aed-4f80-ac7f-a2f5b33b6414",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/media-files/:code/download - Content-Type is image/png\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"image/png\");\n});\n"
@@ -3285,7 +3285,7 @@
       "event": []
     },
     {
-      "id": "f2040270-af85-42fb-82e6-193f7d4cd411",
+      "id": "b19c90bd-b357-48f5-a5f7-8b2a5a565877",
       "name": "Jobs",
       "description": {
         "content": "A job is a process that can be executed in the PIM to perform various tasks, such as importing or exporting data.\nJobs can be used to synchronize data between the PIM and external systems, or to perform bulk operations on products, product models, or other entities.\n",
@@ -3293,7 +3293,7 @@
       },
       "item": [
         {
-          "id": "b05dc71a-0008-4562-8853-17b8ed953bfe",
+          "id": "2379be52-42c2-4f19-b604-0d87ed5cc1b4",
           "name": "Launch export job by code",
           "request": {
             "name": "Launch export job by code",
@@ -3364,7 +3364,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "29b37042-715e-4612-bf07-2a13fbcf0a7c",
+                "id": "42532ff2-632b-42a0-8faa-0cc2149792d4",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[POST]::/api/rest/v1/jobs/export/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -3379,7 +3379,7 @@
           }
         },
         {
-          "id": "419b052e-7ff8-4cb7-8489-76e3d055c1b2",
+          "id": "bae4f7d7-6182-4546-99fb-3d961c6e820f",
           "name": "Launch import job by code",
           "request": {
             "name": "Launch import job by code",
@@ -3450,7 +3450,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "9b4da4f6-6111-404b-ad0d-07fbb5767561",
+                "id": "3a524ab7-4624-4cab-9624-9421812698de",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[POST]::/api/rest/v1/jobs/import/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -3468,7 +3468,7 @@
       "event": []
     },
     {
-      "id": "6d4d1c8a-c416-40d0-a95c-019a24e4804e",
+      "id": "3a48d078-1abf-4396-8f3a-ad1ce1a08d2e",
       "name": "Family",
       "description": {
         "content": "A family is a set of attributes that are shared by products belonging to this family.\nIn other words, a family can be considered as a template for products.\nA product family can use all of the attributes available in the PIM.\nSeveral families of products can use the same attributes.\n",
@@ -3476,7 +3476,7 @@
       },
       "item": [
         {
-          "id": "eaf5aaaa-3327-4e10-a2bd-d4819938976a",
+          "id": "8e3c2360-a8bd-43d7-898d-fcd249dfca3b",
           "name": "Get list of families",
           "request": {
             "name": "Get list of families",
@@ -3576,7 +3576,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "8e741bdf-533e-445d-9e5a-874b320f73ff",
+                "id": "49b3b162-8edf-49c0-af65-bcdede3a4dd6",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/families - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -3591,7 +3591,7 @@
           }
         },
         {
-          "id": "3e706de3-384c-447d-90d3-b32a67c268ed",
+          "id": "34d4b13e-6fe5-400f-94ff-d78a52565ed7",
           "name": "Create a new family",
           "request": {
             "name": "Create a new family",
@@ -3660,7 +3660,7 @@
           }
         },
         {
-          "id": "3484c6cb-2051-4812-8358-9ed1e49548be",
+          "id": "8cf3d477-8cd3-4840-9993-539b5ff60ae5",
           "name": "Update/create several families",
           "request": {
             "name": "Update/create several families",
@@ -3727,7 +3727,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "939c3f39-9dd1-453a-902c-87f0d95f03db",
+                "id": "19eca4ac-d99e-4cc9-b535-382441f6c84f",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/families - Content-Type is application/vnd.akeneo.collection+json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/vnd.akeneo.collection+json\");\n});\n",
@@ -3742,7 +3742,7 @@
           }
         },
         {
-          "id": "34345d8f-581e-4827-8b06-84a2ab25f918",
+          "id": "df8f7e5f-63ea-4b38-987d-f92d0902d854",
           "name": "Get a family",
           "request": {
             "name": "Get a family",
@@ -3799,7 +3799,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "616c72f2-7180-4ad6-af56-0395502a6ab7",
+                "id": "c0f53339-aeeb-4b8e-ba8b-089c39f650b7",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/families/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -3814,7 +3814,7 @@
           }
         },
         {
-          "id": "a6f1c85a-f3ad-4851-b132-ace2847bd929",
+          "id": "f102b43f-66ca-4020-af22-6203807c2ec7",
           "name": "Update/create a family",
           "request": {
             "name": "Update/create a family",
@@ -3898,7 +3898,7 @@
       "event": []
     },
     {
-      "id": "fa25219c-a474-4c48-bfc3-ec9e12df4fff",
+      "id": "1259f91c-9b0d-45b8-a02a-5b7c8e98778e",
       "name": "Family variant",
       "description": {
         "content": "A family variant is a specific type of family that allows you to create variants of a product model.\nIt allows you to define the attributes and values that are specific to the variants of a product model.\nFamily variants are used to manage the relationships between product models and their variants.\n",
@@ -3906,7 +3906,7 @@
       },
       "item": [
         {
-          "id": "4fe1e1be-65ee-4e79-8d25-75767d8cb6fa",
+          "id": "99e07295-cd3b-4b3c-83ec-6127273d8a91",
           "name": "Get list of family variants",
           "request": {
             "name": "Get list of family variants",
@@ -3992,7 +3992,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "41f3a600-81da-4edc-acd2-abeb7c7feb10",
+                "id": "76acf5fd-0622-4f30-b751-b5378dab04f3",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/families/:family_code/variants - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -4007,7 +4007,7 @@
           }
         },
         {
-          "id": "95c301fd-a841-4048-842d-043b48bbb19e",
+          "id": "dc769aef-b568-4be6-a86e-9789c57537c3",
           "name": "Create a new family variant",
           "request": {
             "name": "Create a new family variant",
@@ -4080,7 +4080,7 @@
           }
         },
         {
-          "id": "e3f6a15d-e7eb-4483-bc59-a1c39fe8de94",
+          "id": "7db6b0c1-20a7-4a8c-81ff-7a6f5af846a2",
           "name": "Update/create several family variants",
           "request": {
             "name": "Update/create several family variants",
@@ -4151,7 +4151,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "f3c39c7d-b01b-41b0-9635-8c375f885273",
+                "id": "75b22f2e-fcdd-4004-9383-74b5f0cdf889",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/families/:family_code/variants - Content-Type is application/vnd.akeneo.collection+json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/vnd.akeneo.collection+json\");\n});\n",
@@ -4166,7 +4166,7 @@
           }
         },
         {
-          "id": "845fcb31-c182-43bf-b6ee-caec98345b50",
+          "id": "07f687b9-0f2a-4624-9b86-6d86e2635a8e",
           "name": "Get a family variant",
           "request": {
             "name": "Get a family variant",
@@ -4235,7 +4235,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "7ba02277-169b-4bb7-b837-31c6506f9869",
+                "id": "5b0e0dda-817a-4a55-8d11-329108ae7ad4",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/families/:family_code/variants/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -4250,7 +4250,7 @@
           }
         },
         {
-          "id": "182e78bb-fb5e-4960-a3bd-4b8030700c21",
+          "id": "3092ad95-32c0-4fac-88ec-832c00de5bf7",
           "name": "Update/create a family variant",
           "request": {
             "name": "Update/create a family variant",
@@ -4337,7 +4337,7 @@
       "event": []
     },
     {
-      "id": "5e79ee78-74d7-437a-9d39-61cbe97b05cc",
+      "id": "42977c55-2c44-422e-a318-80a2b5985046",
       "name": "Attribute",
       "description": {
         "content": "An attribute is a piece of information that can be associated with a product or product model.\nAttributes can be used to store various types of data, such as text, numbers, dates, or media files.\nThey are used to define the characteristics of products and to provide additional information about them.\n",
@@ -4345,7 +4345,7 @@
       },
       "item": [
         {
-          "id": "2226a8e6-0919-459b-80f6-5dea5a555756",
+          "id": "58b092c3-41be-443e-aa9f-891445c288a3",
           "name": "Get list of attributes",
           "request": {
             "name": "Get list of attributes",
@@ -4463,7 +4463,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "b011d658-c160-49ca-8bfb-1d1db334d4fc",
+                "id": "41ed2b30-b178-40d7-aa58-a5092f1e9f4f",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/attributes - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -4478,7 +4478,7 @@
           }
         },
         {
-          "id": "3aa76536-2cd7-4f7f-9736-68091eb5f8d6",
+          "id": "91e084a6-9855-4c6e-99f7-2b074a1707d3",
           "name": "Create a new attribute",
           "request": {
             "name": "Create a new attribute",
@@ -4538,7 +4538,7 @@
           }
         },
         {
-          "id": "f42eff69-7b76-4994-9915-0c23290bc942",
+          "id": "7610e938-42ba-4a14-ba32-0a47a178d057",
           "name": "Update/create several attributes",
           "request": {
             "name": "Update/create several attributes",
@@ -4596,7 +4596,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "6ea3c260-f82f-47ff-83ec-26bf7486d2cb",
+                "id": "6ec734ea-e876-49e9-a1b5-39cec6bd2acb",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/attributes - Content-Type is application/vnd.akeneo.collection+json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/vnd.akeneo.collection+json\");\n});\n",
@@ -4611,7 +4611,7 @@
           }
         },
         {
-          "id": "121c6bf5-a048-407d-9068-83b8d476db5c",
+          "id": "c00a612f-eedb-4486-af83-5a16bb569e12",
           "name": "Get an attribute",
           "request": {
             "name": "Get an attribute",
@@ -4678,7 +4678,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "ea3db1fb-63e6-4df2-aca7-496b8ec50297",
+                "id": "63a1db30-7132-4391-932f-db09c497f440",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/attributes/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -4693,7 +4693,7 @@
           }
         },
         {
-          "id": "e2991dae-85a3-44c1-870f-ba190365343b",
+          "id": "8759394a-8603-41e7-8336-f14866a061c6",
           "name": "Update/create an attribute",
           "request": {
             "name": "Update/create an attribute",
@@ -4768,7 +4768,7 @@
       "event": []
     },
     {
-      "id": "227f31d6-da6f-46c6-84ba-775b626d9892",
+      "id": "48747cd2-e65b-4589-beaf-97cf4fd99068",
       "name": "Attribute option",
       "description": {
         "content": "An attribute option is a value that can be associated with an attribute.\nFor example, if you have an attribute called \"Color\", the options could be \"Red\", \"Blue\", \"Green\", etc.\nOptions are used to provide predefined values for attributes, making it easier to manage and maintain product data.\n",
@@ -4776,7 +4776,7 @@
       },
       "item": [
         {
-          "id": "a025f1f2-ae61-4cfb-9da3-da06e915431b",
+          "id": "ff46544a-7c68-4506-a161-20be1d02b465",
           "name": "Get list of attribute options",
           "request": {
             "name": "Get list of attribute options",
@@ -4862,7 +4862,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "133a8a2a-b611-4214-9c88-537377f3a0ee",
+                "id": "a4374dd7-e55b-46ad-aa13-9ecaad57c336",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/attributes/:attribute_code/options - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -4877,7 +4877,7 @@
           }
         },
         {
-          "id": "bb7e2f36-2fec-4287-b4e0-d08bb0496847",
+          "id": "468e4d91-8ed0-474a-b284-357d49fd1f05",
           "name": "Create a new attribute option",
           "request": {
             "name": "Create a new attribute option",
@@ -4950,7 +4950,7 @@
           }
         },
         {
-          "id": "927f762f-7728-48eb-bbc0-60652e10cc05",
+          "id": "95b51672-b823-46d7-8799-6ebcf8b59fe2",
           "name": "Update/create several attribute options",
           "request": {
             "name": "Update/create several attribute options",
@@ -5021,7 +5021,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "59c7b9d5-da71-4b8e-bab7-1aa278a76bdb",
+                "id": "9c96e34d-0da3-4e0a-aa97-77d063ebb6f5",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/attributes/:attribute_code/options - Content-Type is application/vnd.akeneo.collection+json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/vnd.akeneo.collection+json\");\n});\n",
@@ -5036,7 +5036,7 @@
           }
         },
         {
-          "id": "5dc82d41-d77f-46d5-9338-9e67552644ab",
+          "id": "0dd06618-cdb5-4243-a63c-d4cff772ebd8",
           "name": "Get an attribute option",
           "request": {
             "name": "Get an attribute option",
@@ -5105,7 +5105,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "f62ac76d-3502-4490-9e29-bd12cbde8687",
+                "id": "615663b5-45b3-4a3b-a52b-88829f1a4730",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/attributes/:attribute_code/options/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -5120,7 +5120,7 @@
           }
         },
         {
-          "id": "846a1567-42bb-4f24-996c-dfbee8c1d17d",
+          "id": "9b3bafef-1354-4ca5-93f3-aa67d9a76ac7",
           "name": "Update/create an attribute option",
           "request": {
             "name": "Update/create an attribute option",
@@ -5207,7 +5207,7 @@
       "event": []
     },
     {
-      "id": "6e5c44b2-c65f-4c49-ba06-88ec6e9fdf00",
+      "id": "59da2be8-b724-4e13-862b-cdc54c04c8a3",
       "name": "Attribute group",
       "description": {
         "content": "An attribute group is a way to organize attributes in the PIM.\nIt allows you to group related attributes together, making it easier to manage and maintain product data.\nFor example, you could have an attribute group called \"Specifications\" that contains attributes like \"Weight\", \"Dimensions\", and \"Material\".\n",
@@ -5215,7 +5215,7 @@
       },
       "item": [
         {
-          "id": "9977e60b-0f96-4e5f-90f2-eae32685563d",
+          "id": "78fd4a43-ef13-450a-86c9-faa81b23bb07",
           "name": "Get list of attribute groups",
           "request": {
             "name": "Get list of attribute groups",
@@ -5306,7 +5306,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "4bd0a43c-0935-424c-880f-53fba8015ea4",
+                "id": "04e5cdc7-3878-4bbb-ac5b-0da054e8be37",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/attribute-groups - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -5321,7 +5321,7 @@
           }
         },
         {
-          "id": "547318a0-7ce1-4a17-a8ff-75cab97208d8",
+          "id": "db7b4076-face-4e4b-be99-91bf81655d12",
           "name": "Create a new attribute group",
           "request": {
             "name": "Create a new attribute group",
@@ -5381,7 +5381,7 @@
           }
         },
         {
-          "id": "33d35c17-4b77-42b9-ae61-c7ea793a7d9a",
+          "id": "c7cc2225-7ea6-406d-a594-e1b1f6b4eef2",
           "name": "Update/create several attribute groups",
           "request": {
             "name": "Update/create several attribute groups",
@@ -5439,7 +5439,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "8331e84d-33b8-4d9a-8eee-89c19a80a5d0",
+                "id": "dd9a21b3-b60a-4faf-b7e0-f40157335898",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/attribute-groups - Content-Type is application/vnd.akeneo.collection+json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/vnd.akeneo.collection+json\");\n});\n",
@@ -5454,7 +5454,7 @@
           }
         },
         {
-          "id": "f75c742f-c02e-40e8-b566-41fb47d592f6",
+          "id": "fbebd826-6c2d-488f-80e1-2f860bc863e9",
           "name": "Get an attribute group",
           "request": {
             "name": "Get an attribute group",
@@ -5511,7 +5511,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "52401ba2-bf0e-4410-82ea-7426a39f61e5",
+                "id": "4923e530-e63f-4b4e-bec8-c444d908d49e",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/attribute-groups/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -5526,7 +5526,7 @@
           }
         },
         {
-          "id": "88da6700-500e-471a-8bb8-65fe18f8df9b",
+          "id": "80403df8-26d3-479c-a3bb-d7533b8c8043",
           "name": "Update/create an attribute group",
           "request": {
             "name": "Update/create an attribute group",
@@ -5601,7 +5601,7 @@
       "event": []
     },
     {
-      "id": "6135b5a5-1d54-41fc-b0af-925ca4df4ac9",
+      "id": "8d30efbe-6bfd-40ba-8941-fca7c8b8efc6",
       "name": "Association type",
       "description": {
         "content": "An association type is a way to define the relationship between products or product models.\nIt allows you to create links between products, such as \"related products\", \"up-sell products\", or \"cross-sell products\".\nAssociation types are used to manage the relationships between products and to provide additional context to the product information.\n",
@@ -5609,7 +5609,7 @@
       },
       "item": [
         {
-          "id": "a18ce342-f3cf-423f-aeba-ef4aa2916d9b",
+          "id": "3ba5610e-005d-4065-9917-57ae81d09454",
           "name": "Get a list of association types",
           "request": {
             "name": "Get a list of association types",
@@ -5682,7 +5682,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "a1a9b7fc-f43d-4400-95fc-d0c88b577c0c",
+                "id": "e331fb46-6c57-4db2-af3c-1c2ce0caad33",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/association-types - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -5697,7 +5697,7 @@
           }
         },
         {
-          "id": "729be8db-5e71-456b-881b-ca29182e3625",
+          "id": "9a43c062-8982-4313-9961-210590420b37",
           "name": "Create a new association type",
           "request": {
             "name": "Create a new association type",
@@ -5757,7 +5757,7 @@
           }
         },
         {
-          "id": "09e03bdb-4162-4557-bf0d-8484c22fdfe7",
+          "id": "93675f98-cf56-4d86-9679-7ce22dc1ef41",
           "name": "Update/create several association types",
           "request": {
             "name": "Update/create several association types",
@@ -5815,7 +5815,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "c30d7160-4dfa-46b2-aae3-31ac218b9bf3",
+                "id": "1e79dbc8-20a8-4b3b-87ad-7b07587cde11",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/association-types - Content-Type is application/vnd.akeneo.collection+json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/vnd.akeneo.collection+json\");\n});\n",
@@ -5830,7 +5830,7 @@
           }
         },
         {
-          "id": "8219a3a4-c8a8-423e-8832-56f21fa2844e",
+          "id": "5e5eecb2-c15f-4a9f-934d-ed4baa24d722",
           "name": "Get an association type",
           "request": {
             "name": "Get an association type",
@@ -5887,7 +5887,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "13a42367-4ade-45fd-99c3-12a8d2cdc1c7",
+                "id": "cbbeff5b-3a48-4655-8499-1f8c2db13fee",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/association-types/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -5902,7 +5902,7 @@
           }
         },
         {
-          "id": "44bf25cd-0471-41dc-a470-2349ad4798e9",
+          "id": "db48ea5c-de91-4d45-b8b3-7791ae526da8",
           "name": "Update/create an association type",
           "request": {
             "name": "Update/create an association type",
@@ -5977,7 +5977,7 @@
       "event": []
     },
     {
-      "id": "902b0d18-fe47-4aba-810b-d4e8c04f579d",
+      "id": "4d7fcdc9-e3f6-4b3c-bca1-8b63d3d41dcc",
       "name": "Category",
       "description": {
         "content": "A category is a way of classifying products.\nCategories constitute category trees and in Akeneo, you can have multiple category trees with an unlimited number of levels (categories, subcategories, subsubcategories..).\n",
@@ -5985,7 +5985,7 @@
       },
       "item": [
         {
-          "id": "7e696f97-b3c1-4948-879f-b4236b1d61bf",
+          "id": "d7280816-d58c-4136-ae78-ea2e62ee05ce",
           "name": "Get the list of categories",
           "request": {
             "name": "Get the list of categories",
@@ -6112,7 +6112,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "07c7cdee-b5d6-4b13-83c2-2118e516d3f4",
+                "id": "f16853de-82e1-4ed4-923d-917539f37e93",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/categories - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -6127,7 +6127,7 @@
           }
         },
         {
-          "id": "72744d6c-e2ac-4b18-8954-076ed5376e44",
+          "id": "8f344c49-398e-40bb-bd05-ca64d55399d4",
           "name": "Create a new category",
           "request": {
             "name": "Create a new category",
@@ -6187,7 +6187,7 @@
           }
         },
         {
-          "id": "caedf803-039d-4a4e-b002-dd1bfc9e7e69",
+          "id": "0b13824b-6256-4b12-ac77-58bf0e895ef3",
           "name": "Create or update several categories",
           "request": {
             "name": "Create or update several categories",
@@ -6245,7 +6245,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "6db8f249-2a76-44b6-9232-0e4e3316fdc9",
+                "id": "30675fc5-f1fd-4007-8830-8576092981ed",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/categories - Content-Type is application/vnd.akeneo.collection+json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/vnd.akeneo.collection+json\");\n});\n",
@@ -6260,7 +6260,7 @@
           }
         },
         {
-          "id": "67f17943-850c-496b-8e05-a2c7721edb94",
+          "id": "6eb7cd31-64b4-47bc-904c-ebfc3b9f2f91",
           "name": "Get a category",
           "request": {
             "name": "Get a category",
@@ -6336,7 +6336,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "f611e5c9-d674-4706-8d1c-ebc5e86e84a8",
+                "id": "1550f037-4f8a-4c61-8932-89d7d016522b",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/categories/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -6351,7 +6351,7 @@
           }
         },
         {
-          "id": "d49729fa-076c-48b6-8635-b7c95bf72aba",
+          "id": "fc09ae6a-b0ee-4310-8719-40b038e376a5",
           "name": "Create or update a category",
           "request": {
             "name": "Create or update a category",
@@ -6423,7 +6423,7 @@
           }
         },
         {
-          "id": "fdaefc75-d4dd-42bd-801f-38c8a66fcf05",
+          "id": "3cfaf7f6-a07a-4aba-a691-c819798d2ac2",
           "name": "Create a category media file",
           "request": {
             "name": "Create a category media file",
@@ -6495,7 +6495,7 @@
           }
         },
         {
-          "id": "3c171932-5a7b-4759-99ed-4b34b3c48025",
+          "id": "26e3e202-251f-4c3a-bed6-b7026f960e89",
           "name": "Download a category media file",
           "request": {
             "name": "Download a category media file",
@@ -6558,7 +6558,7 @@
       "event": []
     },
     {
-      "id": "527cbdfa-de61-487a-8785-a0b4b1a85808",
+      "id": "ff517a3f-ac2f-459e-9ac5-c62eaed8dde5",
       "name": "Channel",
       "description": {
         "content": "A channel is a way to define how products are presented in different contexts, such as online stores, mobile applications, or print catalogs.\nChannels can have different configurations, such as currencies, locales, and measurement systems.\nThey allow you to tailor the product information to specific markets or audiences.\n",
@@ -6566,7 +6566,7 @@
       },
       "item": [
         {
-          "id": "be85da7b-2ead-4207-b796-05151086d5e8",
+          "id": "2370b0f6-c1b3-46ec-bee2-3090838d09e0",
           "name": "Get a list of channels",
           "request": {
             "name": "Get a list of channels",
@@ -6639,7 +6639,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "86b7a7be-61fa-40d6-93fc-ecd3bbf11fd6",
+                "id": "d57e985e-1159-4c8d-8082-25c8f9e4277e",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/channels - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -6654,7 +6654,7 @@
           }
         },
         {
-          "id": "c03c0fd5-b1a4-43a5-bef4-55fc8314f516",
+          "id": "93e8607d-3c2b-4699-be47-79cccd9e5657",
           "name": "Create a new channel",
           "request": {
             "name": "Create a new channel",
@@ -6714,7 +6714,7 @@
           }
         },
         {
-          "id": "92ab0456-4178-4f19-8cc3-3ca335e37273",
+          "id": "fe8f1479-80d8-4b89-a137-c6c5d54e4cc9",
           "name": "Update/create several channels",
           "request": {
             "name": "Update/create several channels",
@@ -6772,7 +6772,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "b83ef011-6afd-4db8-bc59-72f5ed02330e",
+                "id": "1f0a4409-d4f7-42e3-a3fd-620f54d080bd",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/channels - Content-Type is application/vnd.akeneo.collection+json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/vnd.akeneo.collection+json\");\n});\n",
@@ -6787,7 +6787,7 @@
           }
         },
         {
-          "id": "df0e3296-4dff-4458-9fe5-16dbfab103f3",
+          "id": "33a240cd-4256-4bdf-9007-e74c6ecfa456",
           "name": "Get a channel",
           "request": {
             "name": "Get a channel",
@@ -6844,7 +6844,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "88f22b42-672d-4669-b547-d65e412c53e9",
+                "id": "386a52c2-5c55-4ed8-9aee-1c862fb6c558",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/channels/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -6859,7 +6859,7 @@
           }
         },
         {
-          "id": "efedf76a-24e5-485e-b3f7-7e0175be53ce",
+          "id": "7df472aa-dd37-456a-a06c-5ca5773a6c9a",
           "name": "Update/create a channel",
           "request": {
             "name": "Update/create a channel",
@@ -6934,7 +6934,7 @@
       "event": []
     },
     {
-      "id": "19ccddc3-7069-4516-bef0-99e230d589d6",
+      "id": "b85afe76-7b4d-4ee5-8ca3-522221176bba",
       "name": "Locale",
       "description": {
         "content": "A locale is a combination of a language (English, German, French...) and a country (United States, United Kingdom, France...).\nExamples: English UK (en_GB), English US (en_US), English AU (en_AU).\nYou can have one or more locales activated in your PIM.\n",
@@ -6942,7 +6942,7 @@
       },
       "item": [
         {
-          "id": "5ffa472d-fd2a-42a4-9cdb-98f89cc0a677",
+          "id": "c8ebba4d-61b0-4537-b0da-4413f7412ad5",
           "name": "Get a list of locales",
           "request": {
             "name": "Get a list of locales",
@@ -7024,7 +7024,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "e0fabb05-6b3e-4b68-af56-8f6c98d22337",
+                "id": "e1f31536-e1c8-472e-a753-34c0995e8e8a",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/locales - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -7039,7 +7039,7 @@
           }
         },
         {
-          "id": "2c01a4ed-81f5-441a-916f-4bfd6c1d8f61",
+          "id": "f4ddc327-ca4f-44b6-9585-9428e3fefe5d",
           "name": "Get a locale",
           "request": {
             "name": "Get a locale",
@@ -7096,7 +7096,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "a43ec31e-367a-4010-85a8-55774532330a",
+                "id": "ac545131-f1c7-42a7-9fe6-6ff2e3a28044",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/locales/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -7114,7 +7114,7 @@
       "event": []
     },
     {
-      "id": "eb3b45b0-2110-405a-9fb2-f5855c66d188",
+      "id": "3b6bbaf8-af24-4510-8bed-f9388e4db046",
       "name": "Currency",
       "description": {
         "content": "A currency is a unit of exchange that is used to price products.\nCurrencies are used in the PIM to define the prices of products in different markets.\n",
@@ -7122,7 +7122,7 @@
       },
       "item": [
         {
-          "id": "7f54094b-ee2f-4b50-b7c6-c81f987d380f",
+          "id": "ddc991e4-6842-451b-9e66-18d35c32e7f4",
           "name": "Get a list of currencies",
           "request": {
             "name": "Get a list of currencies",
@@ -7204,7 +7204,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "d39bf970-fbc2-4b2e-9b6a-e13fb4c27cf2",
+                "id": "3b5fb285-78df-40aa-aaef-025a774de84d",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/currencies - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -7219,7 +7219,7 @@
           }
         },
         {
-          "id": "e78d72fa-2c95-4f34-8948-c51b566e4084",
+          "id": "b507f913-9954-4b46-ac05-11575e8f0969",
           "name": "Get a currency",
           "request": {
             "name": "Get a currency",
@@ -7276,7 +7276,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "d60d42d3-6463-4b37-876d-9e20d672f5ea",
+                "id": "406d42e6-c277-49be-ba09-d87f25d7eaa4",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/currencies/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -7294,7 +7294,7 @@
       "event": []
     },
     {
-      "id": "8fa9c5a6-c50e-4522-a89a-c74e495df46a",
+      "id": "ff248e74-2465-4b1d-ade0-6c84cfbd99b5",
       "name": "Measurement family",
       "description": {
         "content": "A measurement family is a set of comparable units used to measure a specific physical quantity, such as Area, Weight, or Power.\nFor example, the \"Weight\" measurement family can group units like \"Kilogram\" and \"Pound\" together.\nEach family has a standard unit for conversions (e.g., \"Kilogram\"), and all other units within that family include their conversion formulas.\nThese families are used for metric attributes, allowing product data to be entered in one unit and automatically converted for different channels or locales.\n",
@@ -7302,7 +7302,7 @@
       },
       "item": [
         {
-          "id": "cc68f476-0f36-415c-b719-fcb80d527c9c",
+          "id": "29807cfe-c7e7-4e38-9d58-01f1f6cf7dc7",
           "name": "Get list of measurement families",
           "request": {
             "name": "Get list of measurement families",
@@ -7347,7 +7347,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "c355e8dc-695d-4abe-81df-966eecbc7a30",
+                "id": "058e536d-df73-465b-bb04-13f9cfb6c20a",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/measurement-families - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -7362,7 +7362,7 @@
           }
         },
         {
-          "id": "a3ce1723-2379-4475-a204-0a779bb3acd4",
+          "id": "ee504944-b8bb-47b6-ac77-2e5e94ba60c3",
           "name": "Update/create several measurement families",
           "request": {
             "name": "Update/create several measurement families",
@@ -7420,7 +7420,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "97005a4d-72b1-461c-9a42-ceadf94317d0",
+                "id": "a98b0e5b-d6e9-4c7d-abf4-25670c6228f8",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/measurement-families - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -7438,7 +7438,7 @@
       "event": []
     },
     {
-      "id": "85093760-76d1-4abb-ad2c-bdd931485736",
+      "id": "6cc41711-ee84-4568-b842-daeb3bf8f32a",
       "name": "Reference entity",
       "description": {
         "content": "A reference entity is a custom entity that can be used to store additional information about products or product models.\nIt allows you to create your own entities with their own attributes and values, which can be linked to products or product models.\nReference entities are useful for managing complex data structures or for integrating with external systems.\n",
@@ -7446,7 +7446,7 @@
       },
       "item": [
         {
-          "id": "8323945c-1a12-4334-a3d6-19b9f578a2c6",
+          "id": "9f9c9cfb-5e0c-4747-9c38-321acf06c16a",
           "name": "Get list of reference entities",
           "request": {
             "name": "Get list of reference entities",
@@ -7501,7 +7501,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "26e97775-dce8-4232-9411-c492f86e3624",
+                "id": "f1579cba-cc0c-47aa-a640-ef3e626ebd46",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/reference-entities - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -7516,7 +7516,7 @@
           }
         },
         {
-          "id": "0dbc97a9-084a-4a2f-a869-8a33d80607e0",
+          "id": "e364f361-9cb6-48a6-a64e-8887d79706d2",
           "name": "Get a reference entity",
           "request": {
             "name": "Get a reference entity",
@@ -7573,7 +7573,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "6e6b6918-f2c6-49db-a882-cafcf76a9a66",
+                "id": "f69bc30e-ac1a-4a0d-a551-0695cc55da4e",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/reference-entities/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -7588,7 +7588,7 @@
           }
         },
         {
-          "id": "25109a17-b566-4e44-8cd1-f10c454dcab8",
+          "id": "eaf3a1b3-0845-4595-9434-578061d94117",
           "name": "Update/create a reference entity",
           "request": {
             "name": "Update/create a reference entity",
@@ -7663,7 +7663,7 @@
       "event": []
     },
     {
-      "id": "99e81f27-bd47-418c-9f74-48448be44b4d",
+      "id": "8b59d6b5-7cf2-4d49-8023-9a7372b651bb",
       "name": "Reference entity attribute",
       "description": {
         "content": "A reference entity attribute is a piece of information that can be associated with a reference entity.\nReference entity attributes can be used to store various types of data, such as text, numbers, dates, or media files.\nThey are used to define the characteristics of reference entities and to provide additional information about them.\n",
@@ -7671,7 +7671,7 @@
       },
       "item": [
         {
-          "id": "c22519cf-d275-4ef7-9e1f-91439e63d96f",
+          "id": "8453ba88-2d55-4d19-a657-a83f88e9ca00",
           "name": "Get the list of attributes of a given reference entity",
           "request": {
             "name": "Get the list of attributes of a given reference entity",
@@ -7729,7 +7729,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "f61fb382-e65c-4679-85e6-da9c116ca273",
+                "id": "ac771fd7-5b7a-4b49-851e-096e12c5c94b",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/reference-entities/:reference_entity_code/attributes - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -7744,7 +7744,7 @@
           }
         },
         {
-          "id": "118c7b4e-41ac-4401-a6e0-59e87c2dd23f",
+          "id": "4efa139a-4133-42ef-8f9e-52807b1dcf3d",
           "name": "Get an attribute of a given reference entity",
           "request": {
             "name": "Get an attribute of a given reference entity",
@@ -7813,7 +7813,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "fb0a4338-9592-4ff5-92c4-9e559a627212",
+                "id": "deedb4f6-60fa-44f1-acc5-6e7e2f0257fc",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/reference-entities/:reference_entity_code/attributes/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -7828,7 +7828,7 @@
           }
         },
         {
-          "id": "1ac118a1-754e-4489-a718-22b146079ff3",
+          "id": "4f5a899c-a832-416d-85d2-3234fe59ac9c",
           "name": "Update/create an attribute of a given reference entity",
           "request": {
             "name": "Update/create an attribute of a given reference entity",
@@ -7915,7 +7915,7 @@
       "event": []
     },
     {
-      "id": "8c5594cd-2dd2-41de-8d73-78a3c0e43e83",
+      "id": "26068796-6faf-48f1-81ef-f3dee781d801",
       "name": "Reference entity attribute option",
       "description": {
         "content": "A reference entity attribute option is a value that can be associated with a reference entity attribute.\nFor example, if you have a reference entity attribute called \"Category\", the options could be \"Electronics\", \"Clothing\", \"Books\", etc.\nOptions are used to provide predefined values for reference entity attributes, making it easier to manage and maintain reference entity data.\n",
@@ -7923,7 +7923,7 @@
       },
       "item": [
         {
-          "id": "c244117b-c643-4fd1-afbf-64fbdb30648c",
+          "id": "0a4888f7-61fe-4172-aef5-0451b6823e3e",
           "name": "Get a list of attribute options of a given attribute for a given reference entity",
           "request": {
             "name": "Get a list of attribute options of a given attribute for a given reference entity",
@@ -7993,7 +7993,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "484c1c21-1eca-44a1-808f-6189463e16df",
+                "id": "cd9b4320-76d2-4e78-a9f8-7cdf533a9192",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/reference-entities/:reference_entity_code/attributes/:attribute_code/options - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -8008,7 +8008,7 @@
           }
         },
         {
-          "id": "aebebf05-a369-4933-8e8f-e2348b3e2285",
+          "id": "3fb146f1-7558-4186-b2b3-1b0209ab7799",
           "name": "Get an attribute option for a given attribute of a given reference entity",
           "request": {
             "name": "Get an attribute option for a given attribute of a given reference entity",
@@ -8089,7 +8089,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "99a7ae52-039d-4e0e-8e80-5d1bbc8b8ac2",
+                "id": "fa6e7675-34a5-4fad-8a3f-83055ce6fcf5",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/reference-entities/:reference_entity_code/attributes/:attribute_code/options/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -8104,7 +8104,7 @@
           }
         },
         {
-          "id": "1273d563-9d04-4d4e-944b-436f1b35e3c4",
+          "id": "44420277-06cc-4903-979e-3168815dcfaa",
           "name": "Update/create a reference entity attribute option",
           "request": {
             "name": "Update/create a reference entity attribute option",
@@ -8203,7 +8203,7 @@
       "event": []
     },
     {
-      "id": "89d4674d-9c4f-461e-b06b-d2a134a73a8c",
+      "id": "57120f9c-f540-4bad-a2da-f4ec7b6f8c8e",
       "name": "Reference entity record",
       "description": {
         "content": "A reference entity record is a specific instance of a reference entity.\nIt contains the values for the attributes defined in the reference entity.\nReference entity records can be linked to products or product models, allowing you to associate additional information with them.\n",
@@ -8211,7 +8211,7 @@
       },
       "item": [
         {
-          "id": "bdcc278f-a403-4607-b8ca-9170c5c2f377",
+          "id": "39ba2177-1c7c-4f10-9778-bb98d4293744",
           "name": "Get the list of the records of a reference entity",
           "request": {
             "name": "Get the list of the records of a reference entity",
@@ -8324,7 +8324,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "67eceb89-218e-45d1-aa47-5568b85839fd",
+                "id": "2171abf5-f670-40a8-bfaa-9766aee7cccb",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/reference-entities/:reference_entity_code/records - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -8339,7 +8339,7 @@
           }
         },
         {
-          "id": "3ae67cf6-7fcc-4a9f-99d2-d6cc528998fa",
+          "id": "814d4d73-cda7-4aea-aa2c-a61e8ff6492e",
           "name": "Update/create several reference entity records",
           "request": {
             "name": "Update/create several reference entity records",
@@ -8410,7 +8410,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "5bc351fa-ad80-4c4a-a0a3-bc217ea0cd0f",
+                "id": "ba8cc38b-57fb-4232-bd79-360a441d2fca",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/reference-entities/:reference_entity_code/records - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -8425,7 +8425,7 @@
           }
         },
         {
-          "id": "37f6d734-d625-4803-84fe-680219aeac92",
+          "id": "7cbb0de1-2e45-42db-b0d4-62b3e0534cce",
           "name": "Get a record of a given reference entity",
           "request": {
             "name": "Get a record of a given reference entity",
@@ -8494,7 +8494,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "51edeabc-919f-4c5b-8a39-269e2e5dba09",
+                "id": "a0b9bdc7-e2a7-4ff8-819c-cc3f8e54ae97",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/reference-entities/:reference_entity_code/records/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -8509,7 +8509,7 @@
           }
         },
         {
-          "id": "7a2ff214-fa26-4a61-b3bf-bfd30d1ad183",
+          "id": "171052a8-ddaf-41af-b434-0cc6337ecc37",
           "name": "Update or create a record of a given reference entity",
           "request": {
             "name": "Update or create a record of a given reference entity",
@@ -8596,7 +8596,7 @@
       "event": []
     },
     {
-      "id": "994bd0be-f11b-4045-b8f5-605da1777892",
+      "id": "aea3a6bd-ed71-4360-a2e9-0cf550db58b7",
       "name": "Reference entity media file",
       "description": {
         "content": "A reference entity media file is a file that can be attached to a reference entity record.\nIt can be an image, a video, a PDF, or any other type of file.\nReference entity media files are used to enrich the reference entity information and provide additional context to the reference entities.\n",
@@ -8604,7 +8604,7 @@
       },
       "item": [
         {
-          "id": "bec25291-4d28-42cd-981e-d223d6ccff36",
+          "id": "cd300bfc-2143-4244-804f-7e1aed7d787c",
           "name": "Create a new media file for a reference entity or a record",
           "request": {
             "name": "Create a new media file for a reference entity or a record",
@@ -8667,7 +8667,7 @@
           }
         },
         {
-          "id": "d605526c-1752-431d-8e72-497024de619c",
+          "id": "bdc3e84f-d508-40a3-8f23-97a302c10547",
           "name": "Download the media file associated to a reference entity or a record",
           "request": {
             "name": "Download the media file associated to a reference entity or a record",
@@ -8724,7 +8724,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "6641327d-b5f0-44d6-ab30-155fe3bc827b",
+                "id": "78b912b7-98a6-41e7-a79b-bd2cb42ebd9d",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/reference-entities-media-files/:code - Content-Type is image/png\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"image/png\");\n});\n"
@@ -8740,7 +8740,7 @@
       "event": []
     },
     {
-      "id": "cef04666-7e6d-43e6-81a4-65fcf1256d36",
+      "id": "31110879-8c60-4bc3-9334-f8eb04469892",
       "name": "Asset family",
       "description": {
         "content": "An asset family is a set of attributes that are shared by assets belonging to this family.\nIn other words, an asset family can be considered as a template for assets.\n",
@@ -8748,7 +8748,7 @@
       },
       "item": [
         {
-          "id": "1aa853c9-5ab5-4b18-a883-d758f44cd5a3",
+          "id": "40c08b5c-6396-4f74-8d46-0c11746de4d6",
           "name": "Get list of asset families",
           "request": {
             "name": "Get list of asset families",
@@ -8803,7 +8803,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "3c79cb1e-0073-4b44-ba9c-fc93c12dd016",
+                "id": "349abe61-28b2-484a-8885-0f1620f189df",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/asset-families - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -8818,7 +8818,7 @@
           }
         },
         {
-          "id": "b32eada5-5b21-41bb-8c4e-fe2a03bd78f5",
+          "id": "baa7c37a-4e36-4de4-b2af-a1c5d085788f",
           "name": "Get an asset family",
           "request": {
             "name": "Get an asset family",
@@ -8875,7 +8875,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "34263138-d502-42f8-9a3c-53efb4cf950e",
+                "id": "ca8c1354-4402-41e7-b3c4-34a524c7a5ad",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/asset-families/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -8890,7 +8890,7 @@
           }
         },
         {
-          "id": "4b9d01aa-83d0-403e-ba42-e25162b09ea3",
+          "id": "3673df09-4240-4f92-bef5-5b5c825faa57",
           "name": "Update/create an asset family",
           "request": {
             "name": "Update/create an asset family",
@@ -8965,7 +8965,7 @@
       "event": []
     },
     {
-      "id": "26ad8fd0-faed-4430-ae99-3b20a9913d6f",
+      "id": "988374f8-3425-4e9a-84b7-4d9a1be799ad",
       "name": "Asset attribute",
       "description": {
         "content": "An asset attribute is a piece of information that can be associated with an asset.\nAsset attributes can be used to store various types of data, such as text, numbers, dates, or media files.\nThey are used to define the characteristics of assets and to provide additional information about them.\n",
@@ -8973,7 +8973,7 @@
       },
       "item": [
         {
-          "id": "7b561486-59a0-431c-b2ec-e7ca3e7d87f7",
+          "id": "456bc100-4a22-4fb3-9890-0473a4554573",
           "name": "Get the list of attributes of a given asset family",
           "request": {
             "name": "Get the list of attributes of a given asset family",
@@ -9031,7 +9031,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "367139f5-5ce6-4e49-acdd-0106b450f7a5",
+                "id": "85753468-12f9-4c0d-9565-c7ad1c1bf95f",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/asset-families/:asset_family_code/attributes - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -9046,7 +9046,7 @@
           }
         },
         {
-          "id": "326487c6-a736-4903-b4ad-756b9b40f3dd",
+          "id": "8e538813-48fa-49d8-9a5e-7b7726103f97",
           "name": "Get an attribute of a given asset family",
           "request": {
             "name": "Get an attribute of a given asset family",
@@ -9115,7 +9115,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "fdb18d46-57f6-4ea4-8793-801c64119409",
+                "id": "7725390c-00e3-4954-a9f4-8c7cf319e9fe",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/asset-families/:asset_family_code/attributes/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -9130,7 +9130,7 @@
           }
         },
         {
-          "id": "996cfc6d-60a1-45e6-b3d7-b822f9acb072",
+          "id": "06065b08-f8f2-4b5c-aeb3-641535f41c86",
           "name": "Update/create an attribute of a given asset family",
           "request": {
             "name": "Update/create an attribute of a given asset family",
@@ -9217,7 +9217,7 @@
       "event": []
     },
     {
-      "id": "20fd500b-bd1a-40ae-b83b-a1395f7338e2",
+      "id": "fe525fac-f392-45b9-a80d-6d6405353eb1",
       "name": "Asset attribute option",
       "description": {
         "content": "An asset attribute option is a value that can be associated with an asset attribute.\nFor example, if you have an asset attribute called \"Type\", the options could be \"Image\", \"Video\", \"Document\", etc.\nOptions are used to provide predefined values for asset attributes, making it easier to manage and maintain asset data.\n",
@@ -9225,7 +9225,7 @@
       },
       "item": [
         {
-          "id": "0ec6a75d-3900-4a15-94ea-49f5e29dbcb9",
+          "id": "aec8793c-1414-43ad-a2e7-365992941505",
           "name": "Get a list of attribute options of a given attribute for a given asset family",
           "request": {
             "name": "Get a list of attribute options of a given attribute for a given asset family",
@@ -9295,7 +9295,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "fbeacaa6-2527-4588-92bc-ac0a9295b97d",
+                "id": "77235ef0-c9f6-428e-b12c-3a63380dc97d",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/asset-families/:asset_family_code/attributes/:attribute_code/options - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -9310,7 +9310,7 @@
           }
         },
         {
-          "id": "74df9207-bb38-4340-80e6-8cc85e31a5e1",
+          "id": "38ff7e07-a4e2-4f54-8c87-9ed516005dc8",
           "name": "Get an attribute option for a given attribute of a given asset family",
           "request": {
             "name": "Get an attribute option for a given attribute of a given asset family",
@@ -9391,7 +9391,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "eb6bf4c0-8296-42c9-b2b6-69aee49a8585",
+                "id": "a61020aa-5a9b-4977-97d7-d6ab3987217f",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/asset-families/:asset_family_code/attributes/:attribute_code/options/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -9406,7 +9406,7 @@
           }
         },
         {
-          "id": "54d1d602-35b6-420e-a837-834f7f8d10ca",
+          "id": "e688ac48-b20f-4d48-89eb-f8b4835451cd",
           "name": "Update/create an asset attribute option for a given asset family",
           "request": {
             "name": "Update/create an asset attribute option for a given asset family",
@@ -9505,7 +9505,7 @@
       "event": []
     },
     {
-      "id": "a70b3443-7223-4cee-9a63-053d4f2805dd",
+      "id": "19226776-abb0-45ca-a882-1add2175e2c2",
       "name": "Asset media file",
       "description": {
         "content": "An asset media file is a file that can be attached to an asset family or an asset.\nIt can be an image, a video, a PDF, or any other type of file.\nAsset media files are used to enrich the asset information and provide additional context to the assets.\n",
@@ -9513,7 +9513,7 @@
       },
       "item": [
         {
-          "id": "f4f66be4-c6db-4ba8-8042-c75c99a59319",
+          "id": "cab0e0ee-f0fc-4237-9121-3fdcc8d8658d",
           "name": "Create a new media file for an asset",
           "request": {
             "name": "Create a new media file for an asset",
@@ -9576,7 +9576,7 @@
           }
         },
         {
-          "id": "bb234294-303e-42dc-a277-cb9185cd7c13",
+          "id": "8a037419-551b-4252-8269-3552f3afe8d6",
           "name": "Download the media file associated to an asset",
           "request": {
             "name": "Download the media file associated to an asset",
@@ -9633,7 +9633,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "59b4b575-8835-4a55-9481-cbc1020a5fc7",
+                "id": "80d11589-e74a-41da-bec1-397c0235fe9c",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/asset-media-files/:code - Content-Type is image/png\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"image/png\");\n});\n"
@@ -9649,7 +9649,7 @@
       "event": []
     },
     {
-      "id": "0ff986d2-301f-466a-a9ee-a1101214ebff",
+      "id": "7d6c859f-41cc-41ca-85d3-de32f781dc09",
       "name": "Asset",
       "description": {
         "content": "An asset is a flexible object that makes it possible to enrich products with images, videos, documents…\nAn asset must be part of an asset family. That way, it will have its own attributes and lifecycle.\nAssets can be linked to products and product models, in order to enrich them.\n",
@@ -9657,7 +9657,7 @@
       },
       "item": [
         {
-          "id": "f805ae77-d000-441d-a140-9389977f147b",
+          "id": "163a29f7-c61c-4721-9d5b-ed12cb77dbd0",
           "name": "Get the list of the assets of a given asset family",
           "request": {
             "name": "Get the list of the assets of a given asset family",
@@ -9788,7 +9788,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "688f6705-2a37-4f68-a542-7465187b5595",
+                "id": "931f2370-4abc-4e25-a089-951f60171c75",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/asset-families/:asset_family_code/assets - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -9803,7 +9803,7 @@
           }
         },
         {
-          "id": "a1104d9a-adb1-4d1e-882b-6b219d3e15ef",
+          "id": "389ded3a-e34f-4373-af02-ffeb8224c9f8",
           "name": "Update/create several assets",
           "request": {
             "name": "Update/create several assets",
@@ -9874,7 +9874,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "9c392a0a-e98e-4b0d-a1ae-a129222763e7",
+                "id": "baa00d12-424d-48c1-920d-1f26a735bc31",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/asset-families/:asset_family_code/assets - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -9889,7 +9889,7 @@
           }
         },
         {
-          "id": "99058ffa-2bce-4466-b018-995ec344726a",
+          "id": "e719c8f3-aea5-4b9e-8880-b389f8a61054",
           "name": "Get an asset of a given asset family",
           "request": {
             "name": "Get an asset of a given asset family",
@@ -9968,7 +9968,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "9e17779f-021b-425d-b4d0-ceb602e6a261",
+                "id": "dbfa9dd0-4a3a-4b9f-b5cc-ef8e9aeb3a14",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/asset-families/:asset_family_code/assets/:code - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -9983,7 +9983,7 @@
           }
         },
         {
-          "id": "13f2c755-a09b-4ff4-a5ca-532b8490aa64",
+          "id": "a093a4a2-cc1a-4170-9a48-fb8f1dba8431",
           "name": "Update/create an asset",
           "request": {
             "name": "Update/create an asset",
@@ -10067,7 +10067,7 @@
           }
         },
         {
-          "id": "a198533e-f84b-4250-a280-2f49e796a5c0",
+          "id": "55b8b37e-d5e4-4dc1-be58-dad140b28275",
           "name": "Delete an asset",
           "request": {
             "name": "Delete an asset",
@@ -10136,7 +10136,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "68c2d68e-bb72-4fad-9bd6-b4ab680d3d8c",
+                "id": "b7ff9d70-9b04-4bff-8e9a-cdf7b32b9dd5",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response has empty Body \npm.test(\"[DELETE]::/api/rest/v1/asset-families/:asset_family_code/assets/:code - Response has empty Body\", function () {\n    pm.response.to.not.be.withBody;\n});\n"
@@ -10152,7 +10152,7 @@
       "event": []
     },
     {
-      "id": "f76b1e86-479e-4b5c-9c94-49724c9b783b",
+      "id": "8186f541-63b3-4ef1-8c2b-d8cae7d6f024",
       "name": "Catalogs",
       "description": {
         "content": "A catalog is a collection of products that can be managed in the PIM.\nIt allows you to create a subset of products that can be used in specific contexts, such as online stores, mobile applications, or print catalogs.\nCatalogs can have their own configurations, such as channels, locales, and measurement systems.\n",
@@ -10160,7 +10160,7 @@
       },
       "item": [
         {
-          "id": "9381f331-955c-4041-8ba6-183c3b8934d0",
+          "id": "59e327f9-be3c-4a5d-a25c-87d5d2e13752",
           "name": "Get the list of owned catalogs",
           "request": {
             "name": "Get the list of owned catalogs",
@@ -10224,7 +10224,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "46083118-0c6a-44a1-affe-8599d3012b9c",
+                "id": "ba292366-ac2f-42c1-a12f-54f0fa8ee427",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/catalogs - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -10239,7 +10239,7 @@
           }
         },
         {
-          "id": "adc1a3cd-7513-4a89-91b4-57b6bbd181dd",
+          "id": "f32d19bb-5170-4228-a5c2-15da410c099a",
           "name": "Create a new catalog",
           "request": {
             "name": "Create a new catalog",
@@ -10297,7 +10297,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "d39ff475-b5cc-4e48-bedd-2b43181125c1",
+                "id": "a98a736a-17d4-4abb-bca1-4842ec9c6e75",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[POST]::/api/rest/v1/catalogs - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -10312,7 +10312,7 @@
           }
         },
         {
-          "id": "c9936e78-27ff-4deb-9667-2f544631bb0b",
+          "id": "cdf7c317-f286-4b0e-8a01-8470bc1eb674",
           "name": "Get a catalog",
           "request": {
             "name": "Get a catalog",
@@ -10369,7 +10369,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "c74eebb5-28ea-430d-af41-c2c65db818f3",
+                "id": "e1e8c723-5db0-4057-8abb-3f3731d983a4",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/catalogs/:id - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -10384,7 +10384,7 @@
           }
         },
         {
-          "id": "bbc2630e-b0b7-4f9b-b4f4-fe3b0bdf6d86",
+          "id": "6fb0dbdf-d812-492d-b41b-8bab648cfcf0",
           "name": "Update a catalog",
           "request": {
             "name": "Update a catalog",
@@ -10454,7 +10454,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "65e63b1d-a2ff-4fce-ab0f-71097eac009e",
+                "id": "f98b230d-3e2d-43a3-92a3-6dfc329816c1",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/catalogs/:id - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -10469,7 +10469,7 @@
           }
         },
         {
-          "id": "c054bbed-34c8-429c-8025-b859e765d01e",
+          "id": "96790b98-55b9-40ec-ab22-2af5f639fe9b",
           "name": "Delete a catalog",
           "request": {
             "name": "Delete a catalog",
@@ -10526,7 +10526,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "ad826916-b0f9-4b3e-a38b-079f1c65dd30",
+                "id": "4e469164-8fb9-4280-aa6b-3c41622c0163",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response has empty Body \npm.test(\"[DELETE]::/api/rest/v1/catalogs/:id - Response has empty Body\", function () {\n    pm.response.to.not.be.withBody;\n});\n"
@@ -10539,7 +10539,7 @@
           }
         },
         {
-          "id": "7cface64-83fd-4250-afec-a29c44707a68",
+          "id": "06685737-59bb-441b-a77f-6d9fe145312c",
           "name": "Duplicate a catalog",
           "request": {
             "name": "Duplicate a catalog",
@@ -10610,7 +10610,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "d1bdc474-ce7d-4acf-98df-8a1fcfd48227",
+                "id": "a7d1c150-efd6-41b4-8fe4-4926bea1dc85",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[POST]::/api/rest/v1/catalogs/:id/duplicate - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -10628,7 +10628,7 @@
       "event": []
     },
     {
-      "id": "5e51a250-dac7-4cba-8de8-98dc36465719",
+      "id": "b924b667-0f32-4d46-8025-be902d90d8ac",
       "name": "Catalog products",
       "description": {
         "content": "A catalog contains a selection of products from the PIM, intended to be synchronized with a third-party application via the API.\nThe Catalog products endpoint allows you to retrieve the list of products for a given catalog, with options to filter, paginate, and select the returned fields.\nEach returned product includes its attributes, values, status information, and associated references, all in the context of the catalog.\nThis endpoint is mainly used by Apps to synchronize product data between Akeneo PIM and external platforms, while respecting access rights and catalog configuration.\n",
@@ -10636,7 +10636,7 @@
       },
       "item": [
         {
-          "id": "6838ca6f-e353-4d12-a52c-2a8f2d8441da",
+          "id": "19febe00-7507-4a27-8682-6e7c3cdb3ade",
           "name": "Get the list of product uuids",
           "request": {
             "name": "Get the list of product uuids",
@@ -10740,7 +10740,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "6d31a3d7-0a8c-4121-836c-6861c6286f6c",
+                "id": "b27b3507-431f-41d2-99f5-4219dba02250",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/catalogs/:id/product-uuids - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -10755,7 +10755,7 @@
           }
         },
         {
-          "id": "cc0222df-9153-475c-8247-bf0e3ba434e0",
+          "id": "98bb0812-6914-4c15-a9df-2e33cd2ecb75",
           "name": "Get the list of products related to a catalog",
           "request": {
             "name": "Get the list of products related to a catalog",
@@ -10850,7 +10850,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "bc182000-886b-4068-9a81-7a1afcfb8af8",
+                "id": "ceee0750-e6d1-489a-b9bc-e58690d1549e",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/catalogs/:id/products - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -10865,7 +10865,7 @@
           }
         },
         {
-          "id": "41ac8245-b20e-4bac-b128-00edadefa0ac",
+          "id": "ef99148f-79da-427e-926f-5dc39b5994fe",
           "name": "Get a product related to a catalog",
           "request": {
             "name": "Get a product related to a catalog",
@@ -10934,7 +10934,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "b45f853b-8bc4-4f80-beb3-ea810f9009bd",
+                "id": "c77336ee-ffba-40e4-8435-b19478014308",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/catalogs/:id/products/:uuid - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -10949,7 +10949,7 @@
           }
         },
         {
-          "id": "fe10b641-c8d1-482a-a6ef-d2058b5e2982",
+          "id": "48f5de2c-24ee-44e5-bbb0-bdb7d0d75451",
           "name": "Get the list of mapped flattened products or simple products related to a catalog",
           "request": {
             "name": "Get the list of mapped flattened products or simple products related to a catalog",
@@ -11044,7 +11044,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "ae305fd4-29b2-4621-9b6f-54b4bd40f0c8",
+                "id": "611e5da9-55c5-44e3-a7cf-81f640c6a3d9",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/catalogs/:id/mapped-products - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -11059,7 +11059,7 @@
           }
         },
         {
-          "id": "d5483bf7-4c52-4f55-bd87-8f1d5c5fa33c",
+          "id": "69de2e8e-042d-46ec-b10a-0039d58de9e7",
           "name": "Get the list of mapped models related to a catalog",
           "request": {
             "name": "Get the list of mapped models related to a catalog",
@@ -11154,7 +11154,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "9943f163-66b9-4224-97a3-af9ee2ac4580",
+                "id": "ab8d1f56-afef-47d8-809c-518eac7f0274",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/catalogs/:id/mapped-models - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -11169,7 +11169,7 @@
           }
         },
         {
-          "id": "7237f494-3b91-4c99-9d93-23dc712fe2b4",
+          "id": "2944645c-8cd2-4560-8143-b2680a6d9752",
           "name": "Get the list of mapped variants of a model related to a catalog",
           "request": {
             "name": "Get the list of mapped variants of a model related to a catalog",
@@ -11247,7 +11247,7 @@
                     "type": "text/plain"
                   },
                   "type": "any",
-                  "value": "occaecat magna laboris mollit commodo",
+                  "value": "cillum in consectetur occaecat",
                   "key": "model_code"
                 }
               ]
@@ -11276,7 +11276,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "df061d65-f293-46d1-b476-7f48d371c390",
+                "id": "37fcf0ea-e76d-4c82-98a4-c0a52a045fa6",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/catalogs/:id/mapped-models/:model_code/variants - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -11294,7 +11294,7 @@
       "event": []
     },
     {
-      "id": "bbb1334c-b2f8-4e96-bda9-62d7f024e40b",
+      "id": "61ba20c1-2b95-4331-b183-4043c301c72b",
       "name": "Mapping schema for products",
       "description": {
         "content": "The mapping schema for products defines the expected structure of product data when synchronizing via the API.\nIt describes the fields, their types, constraints, and transformation rules applied during the export or import of products in a catalog connected to an App.\nThis schema ensures data consistency between Akeneo PIM and third-party applications by clarifying how PIM attributes correspond to those expected by the App.\nFor each field, the schema specifies the data type (text, number, boolean, etc.), whether the field is required or optional, and any allowed values or transformations to apply.\n",
@@ -11302,7 +11302,7 @@
       },
       "item": [
         {
-          "id": "87702669-cbb2-4554-ba20-944e9a68eef5",
+          "id": "e3059db2-fe3e-4764-a9ac-64cca67ebd0f",
           "name": "Get the product mapping schema related to a catalog",
           "request": {
             "name": "Get the product mapping schema related to a catalog",
@@ -11361,7 +11361,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "6218efde-afb4-4e67-a1b3-5ace731d3e87",
+                "id": "b811fb61-580a-461d-b3f8-e765f9e53b67",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/catalogs/:id/mapping-schemas/product - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -11376,7 +11376,7 @@
           }
         },
         {
-          "id": "cdfab4a7-96ed-4ffb-bb44-f4143284721b",
+          "id": "c33a909a-331b-4818-99a3-142a67e719e1",
           "name": "Create or update the product mapping schema related to a catalog",
           "request": {
             "name": "Create or update the product mapping schema related to a catalog",
@@ -11448,7 +11448,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "5a8d8479-743e-4ef7-a669-6004bc33ee27",
+                "id": "2628c8c1-64a6-4bf1-b61b-d3d3a0b34282",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response has empty Body \npm.test(\"[PUT]::/api/rest/v1/catalogs/:id/mapping-schemas/product - Response has empty Body\", function () {\n    pm.response.to.not.be.withBody;\n});\n"
@@ -11461,7 +11461,7 @@
           }
         },
         {
-          "id": "9c297116-9e47-4e5e-b39e-e5eaec441025",
+          "id": "f73f964e-c1e2-47b2-afb2-e1df0b0f8c79",
           "name": "Delete the product mapping schema related to a catalog",
           "request": {
             "name": "Delete the product mapping schema related to a catalog",
@@ -11520,7 +11520,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "f3a6166c-0475-4d06-802f-3e432afb2073",
+                "id": "fa9c60e6-3f4d-40df-8d6e-2e0800bab7f6",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response has empty Body \npm.test(\"[DELETE]::/api/rest/v1/catalogs/:id/mapping-schemas/product - Response has empty Body\", function () {\n    pm.response.to.not.be.withBody;\n});\n"
@@ -11536,7 +11536,7 @@
       "event": []
     },
     {
-      "id": "aea2f612-6cd1-433e-b7d4-b5ed2bc3aa48",
+      "id": "d6d2fd67-0bdd-4e4a-a686-2eed8dacb364",
       "name": "Overview",
       "description": {
         "content": "This API reference provides comprehensive documentation for the Akeneo PIM REST API.\nIt describes all available endpoints, request and response formats, authentication methods, and error codes.\nThe Akeneo PIM REST API enables you to interact programmatically with your PIM instance, allowing you to manage products, product models, attributes, categories, assets, reference entities, and more.\nYou can use the API to integrate Akeneo PIM with other systems, automate data flows, and build custom applications.\nAll API endpoints are organized by resource type and support standard HTTP methods (GET, POST, PUT, PATCH, DELETE).\nAuthentication is required for all endpoints and is based on OAuth 2.0 or HTTP Basic authentication.\nFor more details, please refer to the [official Akeneo API documentation](https://api.akeneo.com/).\n",
@@ -11544,7 +11544,7 @@
       },
       "item": [
         {
-          "id": "622b33ff-58f3-4b40-bd90-fbf45d806728",
+          "id": "4f9ffed9-0bac-4dc0-a7aa-0b9c376aad92",
           "name": "Get list of all endpoints",
           "request": {
             "name": "Get list of all endpoints",
@@ -11593,7 +11593,7 @@
       "event": []
     },
     {
-      "id": "fef7f0eb-9113-45b3-a00b-33d46722142c",
+      "id": "c9f79e77-e7c4-4218-95d5-29a54c8c9d60",
       "name": "Authentication",
       "description": {
         "content": "The Authentication endpoints provide methods to authenticate and authorize access to the Akeneo PIM API.\nYou can use these endpoints to obtain an access token, which is required for accessing protected resources in the API.\nThe authentication process typically involves providing credentials (username and password) or using OAuth 2.0 for secure access.\n",
@@ -11601,7 +11601,7 @@
       },
       "item": [
         {
-          "id": "473b7d5f-79c4-4ce5-b04c-a506878ba2e4",
+          "id": "9d913f77-cf20-4228-a372-1870e7c20bd1",
           "name": "Get an authentication token",
           "request": {
             "name": "Get an authentication token",
@@ -11639,7 +11639,7 @@
                   "type": "text/plain"
                 },
                 "key": "Authorization",
-                "value": "occaecat magna laboris mollit commodo"
+                "value": "cillum in consectetur occaecat"
               },
               {
                 "key": "Content-Type",
@@ -11687,7 +11687,7 @@
       "event": []
     },
     {
-      "id": "9b76de48-a366-4dfc-9e24-d5ef1d9d72a0",
+      "id": "737552ca-57f2-44e4-8bd8-e5b88b61f293",
       "name": "System",
       "description": {
         "content": "The System endpoints provide information about the Akeneo PIM instance and its environment.\nYou can use these endpoints to retrieve details such as the PIM version, edition, enabled features, and system health.\nThis information is useful for monitoring, troubleshooting, and ensuring compatibility with integrations or applications that interact with the PIM API.\n",
@@ -11695,7 +11695,7 @@
       },
       "item": [
         {
-          "id": "ce13b84d-a1a6-4a8b-94b1-9b2210e8ec7a",
+          "id": "0e938473-2a70-4f87-bda4-a97d75d72cbe",
           "name": "Get system information",
           "request": {
             "name": "Get system information",
@@ -11740,7 +11740,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "eeb3c2cd-8035-478c-84b6-34100fb50500",
+                "id": "febc6fb3-0a4f-4dde-944d-46d14c4105f8",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/system-information - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -11758,7 +11758,7 @@
       "event": []
     },
     {
-      "id": "616c9e59-fe79-40dc-bf71-690771c4b27d",
+      "id": "523c2c4d-d0a2-4268-bed9-47fb5c07bbba",
       "name": "UI Extensions",
       "description": {
         "content": "UI Extensions allow you to extend the Akeneo PIM user interface with custom components.\nThey can be used to add new features or to modify the existing ones.\nUI Extensions are useful for integrating with external systems or for providing additional functionality to the PIM.\n",
@@ -11766,7 +11766,7 @@
       },
       "item": [
         {
-          "id": "88f0917e-96f2-441a-b00b-d588d751b52c",
+          "id": "af8b472f-d4f3-4a93-832d-1b9e73a669ef",
           "name": "List UI extensions",
           "request": {
             "name": "List UI extensions",
@@ -11811,7 +11811,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "e5292ee9-d87a-4a30-a9b7-0935d03074f1",
+                "id": "9a3b38eb-185c-4033-a5d5-5c49c93e4c48",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/ui-extensions - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -11826,7 +11826,7 @@
           }
         },
         {
-          "id": "bd88c6d5-c721-4d7c-a30d-09763986f978",
+          "id": "c65a0b2f-fbd6-4fd3-afd3-d5ea570e83b7",
           "name": "Create a new UI extension",
           "request": {
             "name": "Create a new UI extension",
@@ -11884,7 +11884,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "2deefd37-fa38-4713-9b2c-8378c21f3a23",
+                "id": "062d6f2f-6696-4dbf-9b15-6b8cb641a676",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[POST]::/api/rest/v1/ui-extensions - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -11899,7 +11899,7 @@
           }
         },
         {
-          "id": "72b06540-035e-43be-997d-4ce0c22eee52",
+          "id": "09208a19-4e1d-4c07-964c-de702f1b2dd7",
           "name": "Update a UI extension",
           "request": {
             "name": "Update a UI extension",
@@ -11969,7 +11969,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "be8a3cc6-5496-4a33-8396-85f96ab01b56",
+                "id": "d7ba7911-eb7c-44d9-aedb-fc9fb5f92276",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[PATCH]::/api/rest/v1/ui-extensions/:uuid - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -11984,7 +11984,7 @@
           }
         },
         {
-          "id": "6311ff49-839f-4d8a-96ce-32f38afd82b7",
+          "id": "242c2795-4f7f-4d4d-8146-278ac6697879",
           "name": "Delete a UI extension",
           "request": {
             "name": "Delete a UI extension",
@@ -12041,7 +12041,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "8efff58d-10ad-4195-8b09-de61f8aea57c",
+                "id": "6ae7f3c4-99dd-4509-bde7-1efee23f1c8b",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response has empty Body \npm.test(\"[DELETE]::/api/rest/v1/ui-extensions/:uuid - Response has empty Body\", function () {\n    pm.response.to.not.be.withBody;\n});\n"
@@ -12057,7 +12057,7 @@
       "event": []
     },
     {
-      "id": "0d33f528-2293-4ce5-8e94-7e70d15c21da",
+      "id": "4024a1ab-4104-4666-b7ec-750725272741",
       "name": "Workflows",
       "description": {
         "content": "The Workflows endpoints allow you to retrieve the configuration of the Workflows and Steps.\n",
@@ -12065,7 +12065,7 @@
       },
       "item": [
         {
-          "id": "7c04186b-9f75-4e8c-972a-93abdec3d550",
+          "id": "11f05c46-5e61-4a94-a0e5-1a7c9dd6e77b",
           "name": "Get list of workflows",
           "request": {
             "name": "Get list of workflows",
@@ -12129,7 +12129,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "76fdafe6-de10-4f64-a27b-c3680b5d0608",
+                "id": "148df12a-8e4b-4c44-9990-203576591a6c",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/workflows - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -12144,7 +12144,7 @@
           }
         },
         {
-          "id": "e8158f43-9b6f-4645-a11e-67e1caac9028",
+          "id": "142486a6-72dd-490d-8792-bc026a19fcbc",
           "name": "Get a workflow",
           "request": {
             "name": "Get a workflow",
@@ -12201,7 +12201,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "9b072468-8bf9-4b0f-92a6-bcff91b365df",
+                "id": "db402fab-d742-44d2-a838-f77e4eb5ce38",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/workflows/:uuid - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -12216,7 +12216,7 @@
           }
         },
         {
-          "id": "29526716-0f9e-4aa3-b230-fbca3f0652d9",
+          "id": "e25fd1cb-5f1e-4741-b687-ab30302f45ca",
           "name": "Get list of workflow step assignees",
           "request": {
             "name": "Get list of workflow step assignees",
@@ -12294,7 +12294,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "e935808c-6643-466b-b936-3f7a4472c36a",
+                "id": "53f206bf-c541-4ee8-9925-41b52ad371b1",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/workflows/steps/:uuid/assignees - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -12312,7 +12312,7 @@
       "event": []
     },
     {
-      "id": "eee94046-6a4d-431c-bd15-b7b69b2ee20a",
+      "id": "370c6235-315b-434a-bd7b-76a2b69961d1",
       "name": "Workflow executions",
       "description": {
         "content": "The Workflow executions endpoints allow you to start workflows on products and product models.\n",
@@ -12320,7 +12320,7 @@
       },
       "item": [
         {
-          "id": "a98f8fe4-85d3-4ea4-a16b-deeb5d2d2d45",
+          "id": "2da0b4c5-8d4a-4d95-9202-37806676a3b8",
           "name": "Start several workflow executions",
           "request": {
             "name": "Start several workflow executions",
@@ -12384,7 +12384,7 @@
       "event": []
     },
     {
-      "id": "c1d8f755-96e1-4957-8652-9e55cd22af77",
+      "id": "578260ec-a22a-405c-a97e-4d043ab778ba",
       "name": "Workflow tasks",
       "description": {
         "content": "The Tasks endpoints allow you to retrieve the tasks for each workflow steps, products and product models.\nIt also allows you to manage the tasks by approving, rejecting or completing them.\n",
@@ -12392,7 +12392,7 @@
       },
       "item": [
         {
-          "id": "c1a2b535-6694-407d-b490-e4d6a0828fea",
+          "id": "ec60b1d9-266a-4b1d-befe-214daac4f0e1",
           "name": "Get list of workflow tasks",
           "request": {
             "name": "Get list of workflow tasks",
@@ -12493,7 +12493,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "f3555e88-0fbb-4b3d-83b3-b63783e2f4e9",
+                "id": "09aba8a7-3c7e-478d-8572-aa540f76c846",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response header has matching content-type\npm.test(\"[GET]::/api/rest/v1/workflows/tasks - Content-Type is application/json\", function () {\n   pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\n});\n",
@@ -12508,7 +12508,7 @@
           }
         },
         {
-          "id": "1b05cc34-2398-497a-aba2-c3a7c16b506d",
+          "id": "139ac95d-9bc8-44e5-b6fc-ab4266114ba2",
           "name": "Update a Workflow Task's Status (Approve, Reject, Complete)",
           "request": {
             "name": "Update a Workflow Task's Status (Approve, Reject, Complete)",
@@ -12579,7 +12579,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "1cfccab8-4101-4435-9c9c-ad139ffda762",
+                "id": "11e3af0e-fe4f-4e47-9a71-e94e7374883c",
                 "type": "text/javascript",
                 "exec": [
                   "// Validate if response has empty Body \npm.test(\"[PATCH]::/api/rest/v1/workflows/tasks/:uuid - Response has empty Body\", function () {\n    pm.response.to.not.be.withBody;\n});\n"
@@ -12609,7 +12609,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "c96f673a-ce3d-43bf-8095-533c0bd5da97",
+        "id": "c5ee202f-700f-4427-b6b5-5ae29ead5311",
         "type": "text/javascript",
         "exec": [
           "/*\n For simplicity, we acquire a new token before each API call.\n This is not recommended to do the same in production.\n\n Benefit from the 1 hour validity of the access_token and leverage the refresh_token grant type.\n Explore the official PIM API documentation for details https://api.akeneo.com/documentation/authentication.html\n\n*/\n\n// In case an App token is defined, we use it directly\nappAccessToken = pm.environment.get('app_access_token');\nif (appAccessToken !== undefined) {\n  pm.environment.set('bearerToken', appAccessToken);\n  console.log('Used the token provided in the \"app_access_token\" variable instead of authenticating with the PIM.');\n\n  return;\n}\n\n// Deal with the token endpoint\nif (pm.request.url.getPath().endsWith('/api/oauth/v1/token') &&\n    pm.request.method === 'POST') {\n  const clientId = pm.collectionVariables.get('clientId');\n  const secret = pm.collectionVariables.get('secret');\n\n  if (clientId && secret) {\n    const encodedData = btoa(clientId + ':' + secret);\n    pm.request.auth = {\n      type: 'basic',\n      basic: [\n        {key: 'username', value: clientId},\n        {key: 'password', value: secret}\n      ]\n    };\n    pm.request.headers.upsert({\n      key: 'Authorization',\n      value: 'Basic ' + encodedData\n    });\n  }\n\n  const username = pm.collectionVariables.get('username');\n  const password = pm.collectionVariables.get('password');\n\n  if (username && password && pm.request.body && pm.request.body.raw) {\n    let body = JSON.parse(pm.request.body.raw);\n    body.username = username;\n    body.password = password;\n    pm.request.body.raw = JSON.stringify(body);\n  }\n\n  return;\n}\n\n// If the request is not to the OAuth token endpoint, we proceed with the authentication\nbase64ClientIdSecret = require('btoa')(pm.environment.get('clientId') + ':' + pm.environment.get('secret'));\n\npm.sendRequest({\n  url: pm.environment.get('baseUrl').replace(/\\/$/, '') + '/api/oauth/v1/token',\n  method: 'POST',\n  header: {\n    'Authorization': 'Basic ' + base64ClientIdSecret,\n    'Content-Type': 'application/json',\n  },\n  body: {\n    mode: 'raw',\n    raw: JSON.stringify(\n      {\n        'username': pm.environment.get('username'),\n        'password': pm.environment.get('password'),\n        'grant_type': 'password'\n      }\n    )\n  }\n}, function (err, res) {\n  if (err !== null) {\n    console.error('The following error occured during pre-script execution');\n    console.error(err);\n\n    return;\n  }\n  console.warn('For simplicity, we acquire a new token before each API call, this is not recommended in production. Benefit from the 1 hour validity of the access_token and refresh token mecanism.');\n  pm.environment.set('bearerToken', res.json().access_token);\n});\n\n"
@@ -12650,7 +12650,7 @@
     }
   ],
   "info": {
-    "_postman_id": "d6832f84-9e25-4e26-b445-4c706c91e0cd",
+    "_postman_id": "1a6b1c5c-d3a4-4102-86a0-64e89b871183",
     "name": "Akeneo API REFERENCE",
     "version": {
       "raw": "1.0.0",

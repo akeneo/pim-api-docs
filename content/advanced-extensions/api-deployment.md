@@ -87,7 +87,7 @@ You can find the extension UUID by listing all extensions using the API: `GET {Y
 Several choices are offered to deep dive into our API, to discover all the endpoints, and their request/response schema:
 
 - You can <a href="https://api.akeneo.com/api-reference-index.html#UIExtensions" target="_blank">consult the static documentation</a>
-- Discover it thanks to <a href="https://api.akeneo.com/files/Akeneo%20PIM%20API.postman_collection.json" target="_blank">the postman collection</a>
+- Discover it thanks to <a href="https://api.akeneo.com/files/akeneo-postman-collection.json" target="_blank">the postman collection</a>
 
 ::: panel-link [Learn more about the UI deployment](/advanced-extensions/ui-deployment.html)
 :::

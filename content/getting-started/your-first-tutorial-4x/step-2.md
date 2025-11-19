@@ -19,9 +19,9 @@ If you have trouble using Postman, do not hesitate to browse their really comple
 
 To set up Postman, follow these steps:
 1. Download the Postman application (which is free by the way) from their [official website](https://www.getpostman.com/downloads/).
-2. Download those two files:  
-    - [The Postman collection containing your first request](/files/your-very-first-collection.postman_collection.json)  
-    - [A pre-configured Postman environment](/files/akeneo-PIM-API-environment-4x.postman_environment.json)
+2. Download those two files:
+    - [The Postman collection containing your first request](/files/your-very-first-collection.postman_collection.json)
+    - [A pre-configured Postman environment](/files/akeneo-postman-environment.json)
 3. Import in Postman those files. To do so, click the `Import` button and drop the two files you just downloaded in the pop-in that should look like this.
 ![Postman import popin](/img/getting-started/postman-import-popin.png)
 As a result, you will see a new collection in the Collection tab, on the left side of your screen, like this.

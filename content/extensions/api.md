@@ -26,8 +26,8 @@ Granting these permissions before setup helps prevent unnecessary errors.
 The quickest way to get started with UI extensions is by using our Postman collection.
 
 #### 1. Import the Postman Collection
-1. Download our <a href="https://api.akeneo.com/files/Akeneo%20PIM%20API.postman_collection.json" target="_blank">Postman collection</a>
-2. Download our <a href="https://api.akeneo.com/files/akeneo-PIM-API-environment-4x.postman_environment.json" target="_blank">Postman environment variable template</a>
+1. Download our <a href="https://api.akeneo.com/files/akeneo-postman-collection.json" target="_blank">Postman collection</a>
+2. Download our <a href="https://api.akeneo.com/files/akeneo-postman-environment.json" target="_blank">Postman environment variable template</a>
 3. Import those files into Postman (follow <a href="https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/" target="_blank">this guide</a> if you're not familiar with how Postman collections work)
 
 #### 2. Fill the environment variables
@@ -217,7 +217,7 @@ To delete a UI extension, you must have a valid PIM API token and the UUID of th
 Several choices are offered to deep dive into our API, to discover all the endpoints, and their request/response schema:
 
 - You can <a href="https://api.akeneo.com/api-reference-index.html#UIExtensions" target="_blank">consult this static documentation</a>
-- Discover it thanks to <a href="https://api.akeneo.com/files/Akeneo%20PIM%20API.postman_collection.json" target="_blank">the postman collection</a> (see the [Postman section](https://api.akeneo.com/extensions/getting-started.html#using-postman))
+- Discover it thanks to <a href="https://api.akeneo.com/files/akeneo-postman-collection.json" target="_blank">the postman collection</a> (see the [Postman section](https://api.akeneo.com/extensions/getting-started.html#using-postman))
 
 ::: panel-link FAQ [Next](/extensions/faq.html)
 :::
