@@ -12,7 +12,6 @@ post:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   x-no-token: true
   parameters:
     - name: Content-type

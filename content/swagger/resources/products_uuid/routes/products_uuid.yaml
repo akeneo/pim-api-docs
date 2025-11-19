@@ -5,7 +5,6 @@ get:
     - Product [uuid]
   x-versions:
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to get a list of products. Products are paginated and they can be filtered. In the Enterprise Edition, permissions based on your user groups are applied to the set of products you request.
   parameters:
     - name: search
@@ -32,14 +31,10 @@ get:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/search_after'
     - $ref: '#/parameters/limit'
-    - $ref: '#/parameters/convert_measurements'
     - $ref: '#/parameters/with_count'
     - $ref: '#/parameters/with_attribute_options'
-    - $ref: '#/parameters/with_asset_share_links'
     - $ref: '#/parameters/with_quality_scores__products'
     - $ref: '#/parameters/with_completenesses'
-    - $ref: '#/parameters/with_root_parent'
-    - $ref: '#/parameters/with_workflow_execution_statuses'
 
   responses:
     200:
@@ -58,9 +53,8 @@ get:
                     items:
                       $ref: '#/definitions/ProductUuidList'
       x-examples-per-version:
-        - x-version: 'SaaS'
-          x-example:
-            $ref: '#/definitions/ProductUuidExamples/x-SaaS'
+        x-example:
+          $ref: '#/definitions/ProductUuidExamples/x-7.0'
     401:
       $ref: "#/responses/401Error"
     403:
@@ -76,19 +70,12 @@ post:
     - Product [uuid]
   x-versions:
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to create a new product. In the Enterprise Edition, permissions based on your user groups are applied to the product you try to create. If no uuid is provided, the PIM will generate one for you.
   parameters:
     - name: body
       in: body
       schema:
         $ref: "#/definitions/ProductUuid"
-    - name: create_missing_options
-      in: query
-      description: Optional parameter to allow for the creation of missing options for attribute allowing it. (Only available since in Saas version)
-      required: false
-      type: string
-      default: no value
 
   responses:
     201:
@@ -110,7 +97,6 @@ patch:
     - Product [uuid]
   x-versions:
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to update and/or create several products at once. Learn more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given uuid, it creates it. In the Enterprise Edition, permissions based on your user groups are applied to the products you try to update. It may result in the creation of drafts if you only have edit rights through the product's categories.
   x-body-by-line: Contains several lines, each line is a product in JSON standard format. Modifications to existing products can be specified using additional keys such as `add_categories` and `remove_categories`.
   parameters:
@@ -126,12 +112,6 @@ patch:
             '{"uuid":"573dd613-0c7f-4143-83d5-63cc5e535966","values":{"sku":[{"data":"updated_sku","locale":null,"scope":null}]}, "group":["promotion"]}'
           x-example-3:
             '{"uuid":"25566245-55c3-42ce-86d9-8610ac459fa8","values":{"sku":[{"data":"new_product","locale":null,"scope":null}]},"family":"clothes"}'
-    - name: create_missing_options
-      in: query
-      description: Optional parameter to allow for the creation of missing options for attribute allowing it. (Only available since in Saas version)
-      required: false
-      type: string
-      default: no value
   responses:
     200:
       description: OK

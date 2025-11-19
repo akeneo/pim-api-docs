@@ -10,7 +10,6 @@ get:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to get a list of product models. Product models are paginated. In the Enterprise Edition, since the 2.0, permissions based on your user groups are applied to the set of products you request.
   parameters:
     - name: search
@@ -37,12 +36,8 @@ get:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/search_after'
     - $ref: '#/parameters/limit'
-    - $ref: '#/parameters/convert_measurements'
     - $ref: '#/parameters/with_count'
-    - $ref: '#/parameters/with_attribute_options__product_models'
-    - $ref: '#/parameters/with_asset_share_links'
     - $ref: '#/parameters/with_quality_scores__product_models'
-    - $ref: '#/parameters/with_workflow_execution_statuses'
   responses:
     200:
       description: Return product models paginated
@@ -341,19 +336,12 @@ post:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to create a new product model. In the Enterprise Edition, since the v2.3, permissions based on your user groups are applied to the product model you try to create.
   parameters:
     - name: body
       in: body
       schema:
         $ref: "#/definitions/ProductModel"
-    - name: create_missing_options
-      in: query
-      description: Optional parameter to allow for the creation of missing options for attribute allowing it. (Only available since in Saas version)
-      required: false
-      type: string
-      default: no value
   responses:
     201:
       $ref: "#/responses/Created"
@@ -377,7 +365,6 @@ patch:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to update and/or create several product models at once. Learn more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product models exists for the given code, it creates it. In the Enterprise Edition, since the v2.3, permissions based on your user groups are applied to the product models you try to update. It may result in the creation of drafts if you only have edit rights through the product model's categories.
   x-body-by-line: Contains several lines, each line is a product model in JSON standard format. Modifications to existing product models can be specified using additional keys such as `add_categories` and `remove_categories`.
   parameters:
@@ -392,12 +379,6 @@ patch:
             '{"code": "sub_sweat_option_b", "parent": "sweat", "values": {"a_simple_select": [{"locale": null, "scope": null, "data": "optionA"}]}}'
           x-example-3:
             '{"code":"tshirt", "parent": "root_tshirt", "family_variant":"clothesvariant","values":{"description":[{"scope":"ecommerce","locale":"en_US","data":"My amazing tshirt"}]}}'
-    - name: create_missing_options
-      in: query
-      description: Optional parameter to allow for the creation of missing options for attribute allowing it. (Only available since in Saas version)
-      required: false
-      type: string
-      default: no value
   responses:
     200:
       description: OK

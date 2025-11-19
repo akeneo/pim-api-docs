@@ -5,16 +5,12 @@ get:
     - Product [uuid]
   x-versions:
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to get the information about a given product. In the Entreprise Edition, permissions based on your user groups are applied to the product you request.
   parameters:
     - $ref: '#/parameters/uuid'
     - $ref: '#/parameters/with_attribute_options'
-    - $ref: '#/parameters/with_asset_share_links'
     - $ref: '#/parameters/with_quality_scores__products'
     - $ref: '#/parameters/with_completenesses'
-    - $ref: '#/parameters/with_root_parent'
-    - $ref: '#/parameters/with_workflow_execution_statuses'
   responses:
     200:
       description: OK
@@ -36,7 +32,6 @@ patch:
     - Product [uuid]
   x-versions:
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to update a given product. Learn more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no product exists for the given uuid, it creates it. In the Entreprise Edition, permissions based on your user groups are applied to the product you try to update. It may result in the creation of a draft if you only have edit rights through the product's categories.
   parameters:
     - $ref: '#/parameters/uuid'
@@ -45,12 +40,6 @@ patch:
       required: true
       schema:
         $ref: "#/definitions/ProductUuid"
-    - name: create_missing_options
-      in: query
-      description: Optional parameter to allow for the creation of missing options for attribute allowing it. (Only available since in Saas version)
-      required: false
-      type: string
-      default: no value
   responses:
     201:
       $ref: "#/responses/Created"
@@ -71,7 +60,6 @@ delete:
     - Product [uuid]
   x-versions:
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to delete a given product. In the Enterprise Edition, permissions based on your user groups are applied to the product you try to delete.
   parameters:
     - $ref: '#/parameters/uuid'

@@ -12,7 +12,6 @@ get:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   parameters:
     - $ref: '#/parameters/page'
     - $ref: '#/parameters/limit'
@@ -126,7 +125,6 @@ post:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   parameters:
     - name: body
       in: body
@@ -157,7 +155,6 @@ patch:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to update and/or create several channels at once.
   x-body-by-line: Contains several lines, each line is a channel in JSON standard format
   parameters:
@@ -182,7 +179,7 @@ patch:
         x-example-1:
           '{"line":1,"code":"ecommerce_fr","status_code":201}'
         x-example-2:
-          '{"line":2,"code":"ecommerce_ch","status_code":422,"message":"Property \"type\" does not exist. Check the standard format documentation.","_links":{"documentation":{"href":"http:\/\/api.akeneo.com\/api-reference-paas.html#patch_channels__code_"}}}'
+          '{"line":2,"code":"ecommerce_ch","status_code":422,"message":"Property \"type\" does not exist. Check the standard format documentation.","_links":{"documentation":{"href":"http:\/\/api.akeneo.com\/api-reference-paas-70.html#patch_channels__code_"}}}'
         x-example-3:
           '{"line":3,"code":"tablet","status_code":204}'
     401:

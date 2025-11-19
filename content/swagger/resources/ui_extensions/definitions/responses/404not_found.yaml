@@ -1,8 +1,0 @@
-description: UI extension not found
-x-details: The UUID given in the URI does not correspond to any existing UI extension
-schema:
-  $ref: "#/definitions/Error"
-examples: {
-  "code": 404,
-  "message": "This UI Extension does not exist or you don't have access."
-}

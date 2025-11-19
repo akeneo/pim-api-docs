@@ -31,10 +31,6 @@ properties:
             type: object
             description: Related links for the `media file` attribute values. See <a href='/concepts/asset-manager.html#the-_links-format'>the `_links` format</a> section for more details.
             x-validation-rules: The share link is returned when asset sharing is enabled
-          linked_data:
-            type: object
-            description: Linked data for the `media link` attribute values. See <a href='/concepts/asset-manager.html#the-linked_data-format'>the `linked_data` format</a> section for more details.
-            x-from-version: "SaaS"
 
   created:
     type: string

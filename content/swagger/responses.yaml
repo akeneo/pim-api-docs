@@ -39,9 +39,6 @@ NoContentAfterUpdate:
     Location:
       description: URI of the updated resource
       type: string
-NoContentAfterDelete:
-  description: No content to return
-  x-details: Means that the deletion was successful
 400Error:
   description: Bad request
   x-details: Can be caused by a malformed JSON request
@@ -50,15 +47,6 @@ NoContentAfterDelete:
   examples: {
     "code":400,
     "message":"Invalid JSON message received"
-  }
-400IncorrectUuid:
-  description: Bad request
-  x-details: Can be caused by a non valid UUID
-  schema:
-    $ref: "#/definitions/Error"
-  examples: {
-    "code":400,
-    "message":"You must provide a UUID"
   }
 401Error:
   description: Authentication required
@@ -142,7 +130,7 @@ NoContentAfterDelete:
     "message": "Property \"labels\" expects an array as data, \"NULL\" given. Check the API reference documentation.",
     "_links": {
       "documentation": {
-        "href": "http://api.akeneo.com/api-reference-paas.html"
+        "href": "http://api.akeneo.com/api-reference-paas-70.html"
       }
     }
   }
@@ -165,21 +153,3 @@ DeprecatedAssetReferenceFileUploaded:
   x-no-entity: true
   schema:
     $ref: "#/definitions/DeprecatedAssetReferenceFileUploadWarning"
-403CatalogError:
-  description: Access forbidden
-  x-details: The app does not have the permission to execute this request
-  schema:
-    $ref: "#/definitions/Error"
-  examples: {
-    "code":403,
-    "message":"Access forbidden. You are not allowed to list catalogs."
-  }
-404CatalogError:
-  description: Catalog not found
-  x-details: The catalog id given in the URI does not exist
-  schema:
-    $ref: "#/definitions/Error"
-  examples: {
-    "code": 404,
-    "message": "Catalog \"65f5a521-e65c-4d7b-8be8-1f267fa2729c\" does not exist or you can't access it."
-  }

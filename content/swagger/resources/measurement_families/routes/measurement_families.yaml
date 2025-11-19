@@ -8,7 +8,6 @@ get:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   responses:
     200:
       description: Return the measurement families
@@ -82,7 +81,6 @@ patch:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to update and/or create several measurement families at once.
   parameters:
     - name: body

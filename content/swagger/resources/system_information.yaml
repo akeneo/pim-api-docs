@@ -12,12 +12,12 @@ get:
       </thead>
       <tbody>
         <tr>
-          <td align="center">SaaS EE</td>
+          <td align="center">Serenity EE</td>
           <td align="center">Serenity</td>
           <td align="center">v20230112013744</td>
         </tr>
         <tr>
-          <td align="center">SaaS CE</td>
+          <td align="center">Serenity CE</td>
           <td align="center">GE</td>
           <td align="center">v20210526040645</td>
         </tr>
@@ -38,7 +38,6 @@ get:
   x-versions:
     - "6.0"
     - "7.0"
-    - "SaaS"
   x-no-token: true
   responses:
     200:

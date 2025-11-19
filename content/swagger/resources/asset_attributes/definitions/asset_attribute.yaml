@@ -109,10 +109,9 @@ properties:
    x-warning: Only for `media_link` attribute type
   reference_entity:
    type: string
-   description: Reference entity code for the `record` attribute type (see <a href='/api-reference-paas.html#Referenceentity'>Reference entity</a>).
+   description: Reference entity code for the `record` attribute type (see <a href='/api-reference-paas-70.html#Referenceentity'>Reference entity</a>).
    default: null
    x-warning: Only for `record` attribute type
-   x-from-version: "SaaS"
 example: {
   "code": "model_is_wearing_size",
   "labels": {

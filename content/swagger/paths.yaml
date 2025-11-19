@@ -44,11 +44,6 @@
 /api/rest/v1/jobs/import/{code}:
   $ref: ./resources/jobs/routes/import.yaml
 
-/api/rest/v1/permissions/{user_uuid}/locales:
-  $ref: ./resources/permissions/routes/locales.yaml
-/api/rest/v1/permissions/{user_uuid}/channels:
-  $ref: ./resources/permissions/routes/channels.yaml
-
 /api/rest/v1/families:
   $ref: ./resources/families/routes/families.yaml
 /api/rest/v1/families/{code}:
@@ -177,27 +172,6 @@
 /api/rest/v1/asset-tags/{code}:
   $ref: ./resources/deprecated/asset_tags/routes/asset_tags_code.yaml
 
-/api/rest/v1/catalogs:
-  $ref: ./resources/app_catalogs/routes/app_catalogs.yaml
-/api/rest/v1/catalogs/{id}:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id.yaml
-/api/rest/v1/catalogs/{id}/duplicate:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_duplicate.yaml
-/api/rest/v1/catalogs/{id}/product-uuids:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_product_uuids.yaml
-/api/rest/v1/catalogs/{id}/products:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_products.yaml
-/api/rest/v1/catalogs/{id}/products/{uuid}:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_products_uuid.yaml
-/api/rest/v1/catalogs/{id}/mapping-schemas/product:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_mapping_schema_product.yaml
-/api/rest/v1/catalogs/{id}/mapped-products:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_mapped_products.yaml
-/api/rest/v1/catalogs/{id}/mapped-models:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_mapped_models.yaml
-/api/rest/v1/catalogs/{id}/mapped-models/{model_code}/variants:
-  $ref: ./resources/app_catalogs/routes/app_catalogs_id_mapped_variants.yaml
-
 /api/rest/v1:
   $ref: ./resources/list_endpoints.yaml
 
@@ -207,20 +181,3 @@
 /api/rest/v1/system-information:
   $ref: ./resources/system_information.yaml
 
-/api/rest/v1/ui-extensions:
-  $ref: ./resources/ui_extensions/routes/ui_extensions.yaml
-/api/rest/v1/ui-extensions/{uuid}:
-  $ref: ./resources/ui_extensions/routes/ui_extensions_uuid.yaml
-
-/api/rest/v1/workflows:
-  $ref: ./resources/workflows/routes/workflows.yaml
-/api/rest/v1/workflows/{uuid}:
-  $ref: ./resources/workflows/routes/workflows_uuid.yaml
-/api/rest/v1/workflows/executions:
-  $ref: ./resources/workflows/routes/workflows_executions.yaml
-/api/rest/v1/workflows/steps/{uuid}/assignees:
-  $ref: ./resources/workflows/routes/workflows_steps_uuid_assignees.yaml
-/api/rest/v1/workflows/tasks:
-  $ref: ./resources/workflows/routes/workflows_tasks.yaml
-/api/rest/v1/workflows/tasks/{uuid}:
-  $ref: ./resources/workflows/routes/workflows_tasks_uuid.yaml

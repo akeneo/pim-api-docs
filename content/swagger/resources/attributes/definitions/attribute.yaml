@@ -225,16 +225,6 @@ properties:
     type: number
     description: Defines the number of decimal places when decimal places strategy is `round` or `forbid`.
     x-warning: Only for `pim_catalog_number` or `pim_catalog_metric` attribute types
-  enable_option_creation_during_import:
-    type: boolean
-    description: Whether new attribute options can be created automatically during product or product model import (CSV, XLSX), when the attribute type is `pim_catalog_simpleselect` or `pim_catalog_multiselect`.
-    x-warning: Only for `pim_catalog_simpleselect` or `pim_catalog_multiselect` attribute types
-    x-from-version: "SaaS"
-  max_items_count:
-    type: number
-    description: Maximum number of items allowed in an asset collection when the attribute type is `pim_catalog_asset_collection`.
-    x-warning: Only for `pim_catalog_asset_collection` attribute types
-    x-from-version: "SaaS"
 example:
   {
     "code": "release_date",
@@ -267,6 +257,5 @@ example:
     "labels": { "en_US": "Sale date", "fr_FR": "Date des soldes" },
     "is_mandatory": false,
     "decimal_places_strategy": null,
-    "decimal_places": null,
-    "max_items_count": null
+    "decimal_places": null
   }

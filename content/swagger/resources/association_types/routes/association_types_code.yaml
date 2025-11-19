@@ -11,7 +11,6 @@ get:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   parameters:
     - $ref: '#/parameters/code'
   responses:
@@ -40,7 +39,6 @@ patch:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   description: This endpoint allows you to update a given association type. Know more about <a href="/documentation/update.html#update-behavior">Update behavior</a>. Note that if no association type exists for the given code, it creates it.
   parameters:
     - $ref: '#/parameters/code'

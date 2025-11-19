@@ -97,13 +97,6 @@ with_count:
   default: false
   type: boolean
   required: false
-with_count_for_catalogs:
-  name: with_count
-  in: query
-  description: Return the count of items in the response.
-  default: false
-  type: boolean
-  required: false
 with_attribute_options:
   name: with_attribute_options
   in: query
@@ -112,14 +105,6 @@ with_attribute_options:
   type: boolean
   required: false
   x-from-version: "5.0"
-with_attribute_options__product_models:
-  name: with_attribute_options
-  in: query
-  description: Return labels of attribute options in the response. <strong>(Only available on SaaS platforms)</strong>
-  default: false
-  type: boolean
-  required: false
-  x-from-version: "SaaS"
 with_table_select_options:
   name: with_table_select_options
   in: query
@@ -128,14 +113,6 @@ with_table_select_options:
   type: boolean
   required: false
   x-from-version: "7.0"
-with_asset_share_links:
-  name: with_asset_share_links
-  in: query
-  description: Return asset collection share link urls in the response. See <a href='/concepts/products.html#the-linked_data-format'>the `linked_data` format</a> section for more details. (Only available in the SaaS version)
-  default: false
-  type: boolean
-  required: false
-  x-from-version: "SaaS"
 with_quality_scores__products:
   name: with_quality_scores
   in: query
@@ -166,53 +143,3 @@ with_position:
   required: false
   type: boolean
   x-from-version: "7.0"
-updated_before:
-  name: updated_before
-  in: query
-  description: Filter products that have been updated BEFORE the provided date (Only available on Catalogs endpoints). This filter uses the PIM products updated date.
-  type: string
-  format: date
-  required: false
-  x-from-version: "SaaS"
-updated_after:
-  name: updated_after
-  in: query
-  description: Filter products that have been updated AFTER the provided date (Only available on Catalogs endpoints). This filter uses the PIM products updated date.
-  type: string
-  format: date
-  required: false
-  x-from-version: "SaaS"
-with_enriched_attributes:
-  name: with_enriched_attributes
-  in: query
-  description: Return attribute values of the category (only available on SaaS platforms)
-  required: false
-  type: boolean
-  x-from-version: "SaaS"
-with_root_parent:
-  name: with_root_parent
-  in: query
-  description: Return the root parent product model code of a variant
-  required: false
-  type: boolean
-  x-from-version: "SaaS"
-convert_measurements:
-  name: convert_measurements
-  in: query
-  description: Convert values of measurement attributes to the unit configured in the channel provided by the parameter "scope". Therefore, this parameter requires the "scope" parameter to be provided.
-  default: false
-  type: boolean
-  required: false
-  x-from-version: "SaaS"
-with_workflow_execution_statuses:
-  name: with_workflow_execution_statuses
-  in: query
-  description: |
-    Return an array of workflow_execution_statuses directly associated with the requested entity (product or product model) in the response.
-    Statuses are level-specific and are not inherited from parent models. For a complete overview of a variant product, you must query the variant itself and its parent model(s) in separate requests.
-    Each workflow object contains:
-    - The overall execution status (e.g., in_progress, completed).
-    - A list of all associated tasks.
-  required: false
-  type: boolean
-  x-from-version: "SaaS"

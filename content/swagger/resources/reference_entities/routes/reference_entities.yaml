@@ -10,7 +10,6 @@ get:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   x-ee: true
   parameters:
     - $ref: '#/parameters/search_after'

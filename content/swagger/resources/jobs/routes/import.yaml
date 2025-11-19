@@ -4,7 +4,6 @@ post:
   tags:
     - Jobs
   x-versions:
-    - "SaaS"
   description: This endpoint allows you to launch an import job by code.
   x-body-by-line: "The body is optional and can be be empty. If empty, the import profile options will be used."
   parameters:
@@ -26,7 +25,6 @@ post:
       description: OK
       x-details: Returns the execution ID for the launched job
       x-examples-per-version:
-        - x-version: 'SaaS'
           x-example: {"execution_id": "12345"}
     400:
       $ref: "#/responses/400Error"

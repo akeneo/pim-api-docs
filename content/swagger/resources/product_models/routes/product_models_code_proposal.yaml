@@ -10,7 +10,6 @@ post:
     - "5.0"
     - "6.0"
     - "7.0"
-    - "SaaS"
   x-ee: true
   description: This endpoint allows you to submit a product model draft for approval.
   parameters:
