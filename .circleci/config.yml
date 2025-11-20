@@ -248,8 +248,7 @@ jobs:
       - run:
           name: Invalidate CDN cache
           command: |
-            gcloud compute url-maps invalidate-cdn-cache <<parameters.environment>>-https-lb --path "/*" --async
-
+            gcloud compute url-maps invalidate-cdn-cache <<parameters.environment>>-https-lb --path "/*" --project=${GOOGLE_CLOUD_PROJECT} --async
   infrastructure: &infrastructure
     parameters:
       project_number:
