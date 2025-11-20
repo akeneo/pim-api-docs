@@ -284,7 +284,8 @@ function cleanMarkdownInCollection(item) {
     if (item.request && item.request.url && item.request.url.query) {
         for (let param of item.request.url.query) {
             if (param.description && param.description.content) {
-                param.description.content = cleanMarkdown(param.description.content);
+                const firstSentence = getFirstSentence(param.description.content);
+                param.description.content = cleanMarkdown(firstSentence);
             }
         }
     }
@@ -325,4 +326,26 @@ function cleanMarkdown(text) {
     text = text.replace(/`([^`]+)`/g, '$1');
 
     return text;
+}
+
+/**
+ * Extract the first sentence from a text
+ * A sentence is considered to end with a period, exclamation mark, or question mark
+ * @param {string} text - Text from which to extract the first sentence
+ * @returns {string} The first sentence
+ */
+function getFirstSentence(text) {
+    if (!text) {
+        return '';
+    }
+
+    // Match the first sentence ending with . ! or ?
+    // Include the punctuation in the result
+    const match = text.match(/^[^.!?]+[.!?]/);
+
+    if (match) {
+        return match[0].trim();
+    }
+
+    return text.trim();
 }
