@@ -70,6 +70,7 @@ gulp.task('fetch-postman-collection', async function () {
         if (postmanCollection.item && Array.isArray(postmanCollection.item)) {
             for (let item of postmanCollection.item) {
                 addQueryExamplesToPostmanCollection(item, queryExamples);
+                cleanMarkdownInCollection(item);
             }
         }
 
@@ -112,7 +113,7 @@ function extractQueryExamplesFromOpenApi(openApiSpec) {
             }
 
             queryExamples[path][parameter.name] = {
-                description: parameter.description || '',
+                description: cleanMarkdown(parameter.description || ''),
                 type: DESCRIPTION_TYPE_TEXT_PLAIN,  // Postman description type
                 examples: parameter.examples
             };
@@ -185,7 +186,7 @@ function addParameterExamples(queryParameters, paramName, paramData) {
         const queryParam = {
             disabled: true,
             description: {
-                content: exampleData.summary || paramData.description,
+                content: cleanMarkdown(exampleData.summary || paramData.description),
                 type: paramData.type
             },
             key: paramName,
@@ -263,4 +264,65 @@ function fetchJson(url) {
             reject(err);
         });
     });
+}
+
+/**
+ * Clean all markdown descriptions in a Postman collection item recursively
+ * @param {Object} item - Postman collection item (folder or request)
+ */
+function cleanMarkdownInCollection(item) {
+    // Clean request description
+    if (item.request && item.request.description) {
+        if (typeof item.request.description === 'string') {
+            item.request.description = cleanMarkdown(item.request.description);
+        } else if (item.request.description.content) {
+            item.request.description.content = cleanMarkdown(item.request.description.content);
+        }
+    }
+
+    // Clean query parameter descriptions in requests
+    if (item.request && item.request.url && item.request.url.query) {
+        for (let param of item.request.url.query) {
+            if (param.description && param.description.content) {
+                param.description.content = cleanMarkdown(param.description.content);
+            }
+        }
+    }
+
+    // If this is a folder, recursively process items
+    if (item.item && Array.isArray(item.item)) {
+        for (let subItem of item.item) {
+            cleanMarkdownInCollection(subItem);
+        }
+    }
+}
+
+/**
+ * Clean markdown formatting from text for Postman compatibility
+ * Postman doesn't handle markdown, so we convert it to plain text
+ * @param {string} text - Text potentially containing markdown
+ * @returns {string} Clean text without markdown
+ */
+function cleanMarkdown(text) {
+    if (!text) {
+        return '';
+    }
+
+    // Replace markdown links [text](url) with just the URL
+    // Example: "See [Pagination](https://api.akeneo.com/documentation/pagination.html) section"
+    // becomes: "See https://api.akeneo.com/documentation/pagination.html section"
+    text = text.replace(/\[.+?]\((.+?)\)/g, '$1');
+
+    // Remove bold formatting **text** or __text__
+    text = text.replace(/\*\*([^*]+)\*\*/g, '$1');
+    text = text.replace(/__([^_]+)__/g, '$1');
+
+    // Remove italic formatting *text* or _text_
+    text = text.replace(/\*([^*]+)\*/g, '$1');
+    text = text.replace(/_([^_]+)_/g, '$1');
+
+    // Remove inline code formatting `code`
+    text = text.replace(/`([^`]+)`/g, '$1');
+
+    return text;
 }
