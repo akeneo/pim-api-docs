@@ -153,7 +153,6 @@ gulp.task('fetch-remote-openapi', function(done) {
         response.pipe(file);
 
         file.on('finish', () => {
-            console.log('Successfully downloaded remote events documentation');
             file.close();
             done();
         });

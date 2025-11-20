@@ -774,7 +774,6 @@ gulp.task('fetch-remote-events', function(done) {
     response.pipe(file);
 
     file.on('finish', () => {
-      console.log('Successfully downloaded remote events documentation');
       file.close();
       done();
     });
@@ -1001,7 +1000,7 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
             'rows': [
                 {
                     'image': 'apps/dev-tools-download.svg',
-                    'link': '/files/Akeneo PIM API.postman_collection.json',
+                    'link': '/files/akeneo-postman-collection.json',
                     'link_content': 'Download',
                     'download': true,
                 },
