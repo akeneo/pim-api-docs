@@ -29,7 +29,7 @@ Your code runs in a secure sandbox environment that protects the PIM while givin
 ### Authenticated Access
 All API calls are automatically authenticated using the current user's session - no token management needed.
 
-###  No Infrastructure Required
+### No Infrastructure Required
 Deploy directly to the PIM. No web servers, domain names, or SSL certificates to manage.
 
 ### Modern Development

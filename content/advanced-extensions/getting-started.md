@@ -1,7 +1,7 @@
 # Getting Started
 
 In this section, you will learn how to create your first Custom Component extension quickly.
-This quick guide will help you understand the basic workflow for creating and managing UI Extensions.
+This quick guide will help you understand the basic workflow for creating and managing Extensions.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ Before building custom component extensions, you'll need:
 2. **Node.js and npm**: For dependency management
 3. **Akeneo Extension SDK**: [The official SDK for building extensions](https://github.com/akeneo/extension-sdk)
 4. **Development Environment**: A code editor and terminal
-5. **PIM Access**: A connection, an app, or the proper permissions to create and manage UI Extensions in the PIM
+5. **PIM Access**: A connection, an app, or the proper permissions to create and manage Extensions in the PIM
 
 ## Quick Start: Three Steps to Your First Extension
 

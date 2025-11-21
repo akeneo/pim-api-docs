@@ -2,7 +2,7 @@
 
 ## Overview
 
-This page describes how to deploy UI extensions programmatically using the Akeneo PIM REST API. This method is ideal for automated deployments, CI/CD pipelines, and managing extensions across multiple environments.
+This page describes how to deploy Extensions programmatically using the Akeneo PIM REST API. This method is ideal for automated deployments, CI/CD pipelines, and managing extensions across multiple environments.
 
 ::: info
 If you prefer a manual deployment method that doesn't require an API token, check out the [UI deployment guide](/advanced-extensions/ui-deployment.html).

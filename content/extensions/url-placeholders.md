@@ -119,5 +119,5 @@ For Link extension, if you create a placeholder with a localizable or scopable a
 
 If an attribute value is empty or doesn't exist, the placeholder is replaced with an empty string
 
-::: panel-link Credentials Overview [Next](/extensions/credentials.html)
+::: panel-link Credentials [Next](/extensions/credentials.html)
 :::

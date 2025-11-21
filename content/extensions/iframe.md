@@ -1,25 +1,14 @@
-## Iframe
-An **iframe** UI extension allows to open your external content inside the PIM thanks to an iframe.
-
-An iframe (inline frame) is an HTML element that allows you to embed another HTML document within the current document. It is commonly used to display content from another source, such as a webpage, video, or interactive content, without leaving the current page.
+## Embedded view (iframe)
+An **Embedded view** Extension allows to open your external content inside the PIM thanks to an iframe.
 
 For more detailed information, you can refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
-To configure an `iframe` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label`, `secret` and `url`.
-
-::: warning
-**Important security notice**
-
-For sensitive data, we recommend implementing [security measures](#ensuring-security-of-embedded-iframes) to protect your information.
-:::
-
 ### Default query parameters
-To help identify the  **iframe** caller (insecure) and context, several parameters are sent by default as SearchParameters in the GET query.
+Several parameters are sent by default as SearchParameters in the GET query.
 
-For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebite.com/iframe/?position=pim.product.tab&user[username]=julia`
+For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebsite.com/iframe/?position=pim.product.tab&user[username]=julia`
 
 For all positions, parameters relative to the connected user, the extension position and the tenant are sent:
-- `user[uuid]`
 - `user[id]`
 - `user[username]`
 - `user[email]`
@@ -78,32 +67,23 @@ Example :
 }
 ```
 
-For a *classical* project with HTML and JavaScript code, you can include this kind of code to catch those events :
+  #### Requesting Context Data on Demand
 
-```html
-    <script>
-        window.addEventListener('message', (event) => {
-            console.log(event)            
-        });
-    </script>
-```
+  In modern JavaScript frameworks like React, components may initialize after the iframe has already loaded, causing them to miss the initial context data message. To handle this scenario, your
+  application can explicitly request the context data by sending a PostMessage with the `type: 'request_context'` property.
 
-For more *modern* technologies like ReactJS, the iframe could be loaded before components. To solve this problem we added the possibility to ask for the data. To do this, just send a PostMessage with an object containing the property `type: 'request_context'`.
-
-Example :
-```js
-    window.parent.postMessage(
-      {
-        type: 'request_context'
-      },
-      "*"
-    );
-```
-After receiving this *event*, the PIM will send a PostMessage *event*, similar to the one sent after the iframe loading.
+  **Example:**
+  ```js
+  window.parent.postMessage(
+    {
+      type: 'request_context'
+    },
+    "*"
+  );
 
 ### Product and product model context change
 
-The **PIM context** is propagated within the iframe when it changes using **postmessage**. This only applies to the product and product model positions: **pim.product-model.header**, **pim.sub-product-model.header** and **pim.product.header**.
+When the user changes the **PIM context** (such as selecting a different **locale** or **channel**), these changes are automatically propagated to the iframe via PostMessage.
 
 The message contains :
 - A `context` object containing the selected `locale` and `channel`.
@@ -157,9 +137,9 @@ To help ensuring the security of iframes we recommand using these two solutions:
 
 * Use your extension secret and ```postMessage``` to get and verify the signature of a JW token. This secret will be used to generate a JWT token when the iframe is loaded by the PIM system.
 
-**Get a JW Token via ```postMessage```**
+**Get a JSON Web Token (JWT) Token via ```postMessage```**
 
-First, from your iframe, you must request for the JWT by doing a PostMessage with a payload containing ```type: 'request_jwt'```
+First, from your iframe, you must request for the JSON Web Token (JWT) by doing a PostMessage with a payload containing ```type: 'request_jwt'```
 
 Example :
 ```js
@@ -171,7 +151,7 @@ Example :
     );
 ```
 
- the PIM will then answer with a postMessage containing the JWT token. The message will be structured as follows:
+ the PIM will then answer with a postMessage containing the JSON Web Token (JWT). The message will be structured as follows:
 
 ```json
 {
@@ -180,11 +160,9 @@ Example :
 }
 ```
 
-* The JWT token in the token field is generated using SHA256 encryption based on the secret you provided.
+The JSON Web Token (JWT) is generated using SHA256 encryption based on the secret you provided.
 
-For more information on how JWT tokens are structured and used, you can refer to the associated [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519).
-
-**JWT Token Structure**
+**JSON Web Token (JWT) Structure**
 
 The JWT token consists of three main parts: the header, the body (payload), and the signature.
 
@@ -228,29 +206,11 @@ The JWT token consists of three main parts: the header, the body (payload), and 
 
 To ensure that the JWT token was issued by Akeneo, you can verify the signature by re-encoding the header and payload and then signing them using the same secret key. This will allow you to confirm that the token is valid and has not been altered.
 
+For more information on how JSON Web Token (JWT) are structured and used, you can refer to the associated [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519).
 
 ## Available Positions
 
-Iframe extensions can be placed in:
+See the [Positions documentation](/extensions/positions.html) for visual examples.
 
-| Position | Location | Context | Communication |
-|----------|----------|---------|---------------|
-| `pim.product.tab` | Product edit page tab | Simple products and variants | Yes |
-| `pim.product-model.tab` | Product model tab | Root product models | Yes |
-| `pim.sub-product-model.tab` | Sub-product model tab | Sub-product models | Yes |
-| `pim.category.tab` | Category edit page tab | Categories | Yes |
-| `pim.product-grid.action-bar` | Product grid action bar | Multiple products | Yes |
-| `pim.activity.navigation.tab` | Activity navigation tab | Global context | No |
-| `pim.product.panel` | Product right panel | Simple products and variants | Yes |
-| `pim.product-model.panel` | Product model right panel | Root product models | Yes |
-| `pim.sub-product-model.panel` | Sub-product model right panel | Sub-product models | Yes |
-
-## Limitations
-
-- **Same-origin policy**: Your iframe has limited access to parent window
-- **Size constraints**: Iframe dimensions are controlled by the PIM
-- **Performance**: Each iframe loads a complete web page
-- **Browser compatibility**: Some browsers have stricter iframe policies
-
-::: panel-link Action Extensions [Next](/extensions/action.html)
+::: panel-link URL PlaceHolders [Next](/extensions/url-placeholders.html)
 :::
