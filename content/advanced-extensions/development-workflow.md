@@ -73,7 +73,7 @@ The `extension_configuration.json` file can be use to define how your UI extensi
 | --- | --- | --- | --- |
 | `name` | `string` | A unique identifier for your extension. It's recommended to use a descriptive name, like `my-app-name`. | Yes |
 | `type` | `string` | Defines the type of extension. For SDK scripts, this should always be `sdk_script`. | Yes |
-| `position` | `string` | Determines where the extension will be displayed in the PIM interface. Examples: `pim.product.panel`, `pim.activity.navigation.tab`. See the [official documentation](https://api.akeneo.com/extensions/positions.html#available-positions-for-ui-extensions) for all available positions. | Yes |
+| `position` | `string` | defines where the extension will be displayed in the PIM interface. Examples: `pim.product.panel`, `pim.activity.navigation.tab`. See the [official documentation](https://api.akeneo.com/extensions/positions.html#available-positions-for-ui-extensions) for all available positions. | Yes |
 | `file` | `string` | The path to the compiled JavaScript file for your extension, relative to the project root. This is used by the build process (Vite) to name the output file. Example: `dist/my-app.js`. | Yes |
 | `configuration` | `object` | An object containing display settings for your extension. | Yes |
 | `configuration.default_label` | `string` | The default label for your extension, displayed if no translation is available for the user's locale. | Yes |

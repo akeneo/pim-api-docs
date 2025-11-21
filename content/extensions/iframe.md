@@ -1,20 +1,10 @@
-## Iframe
-An **iframe** UI extension allows to open your external content inside the PIM thanks to an iframe.
-
-An iframe (inline frame) is an HTML element that allows you to embed another HTML document within the current document. It is commonly used to display content from another source, such as a webpage, video, or interactive content, without leaving the current page.
+## Embeded view (iframe)
+An **Embeded view** Extension allows to open your external content inside the PIM thanks to an iframe.
 
 For more detailed information, you can refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
-To configure an `iframe` UI extension, mandatory fields are `name`, `position`, `type`, and `configuration`. Inside `configuration`, mandatory options are `default_label`, `secret` and `url`.
-
-::: warning
-**Important security notice**
-
-For sensitive data, we recommend implementing [security measures](#ensuring-security-of-embedded-iframes) to protect your information.
-:::
-
 ### Default query parameters
-To help identify the  **iframe** caller (insecure) and context, several parameters are sent by default as SearchParameters in the GET query.
+Several parameters are sent by default as SearchParameters in the GET query.
 
 For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebite.com/iframe/?position=pim.product.tab&user[username]=julia`
 
@@ -230,6 +220,8 @@ To ensure that the JWT token was issued by Akeneo, you can verify the signature 
 
 
 ## Available Positions
+
+See the [Positions documentation](/extensions/positions.html) for visual examples.
 
 Iframe extensions can be placed in:
 

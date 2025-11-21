@@ -1,16 +1,17 @@
 # Extension Types
 
-UI extensions are categorized by type, which determines their capabilities and use cases. Choose the type that best suits your requirements.
+Extensions are organized into distinct types. Choose the type that aligns precisely with your intended use case and requirements.
 
+// TODO: change order to move iframe on the side of custom component
 ## Available Extension Types
 
-| Type | Purpose | Embedded in PIM | External URL | Requires Coding |
-|------|---------|-----------------|--------------|-----------------|
-| [Link](#link) | Open external content in new tab | No | Yes | No |
-| [Iframe](#iframe) | Embed external content in PIM | Yes | Yes | No |
-| [Action](#action) | Execute background tasks | No | Yes | No |
-| [Data Component](#data-component) | Display external data in panel | Yes | Yes | No |
-| [Custom Component](#custom-component) | Build rich JavaScript applications | Yes | No | Yes (JavaScript/SDK) |
+| Type | Purpose 
+|------|---------|
+| [Link](#link) | Open external content in new tab |
+| [Iframe](#iframe) | Embed external content in PIM |
+| [Action](#action) | Execute background tasks |
+| [Data Component](#data-component) | Display external data in panel |
+| [Custom Component](#custom-component) | Build rich JavaScript applications |
 
 ## Link
 
@@ -28,7 +29,6 @@ A **link** extension opens your external content in a new browser tab. This is t
 An **iframe** extension embeds external content directly within the PIM using an HTML iframe element. The external application loads inside the PIM interface.
 
 **Common Use Cases:**
-- Embed dashboards
 - Display external tools without leaving PIM
 - Show contextual information from third-party systems
 
@@ -36,7 +36,7 @@ An **iframe** extension embeds external content directly within the PIM using an
 
 ## Action
 
-An **action** extension executes external tasks in the background when triggered by a user. The PIM sends data to your endpoint and displays a notification when complete.
+An **action** extension executes external tasks in the background when triggered by a user. The PIM calls your API and displays a notification when complete.
 
 **Common Use Cases:**
 - Trigger external workflows
@@ -46,7 +46,7 @@ An **action** extension executes external tasks in the background when triggered
 **Learn more:** [Action Extensions](/extensions/action.html)
 
 ## Data Component
-
+// TODO: to review completely
 A **data component** extension displays data from an external endpoint in a collapsible panel on product edit forms. This helps complete product information without leaving the PIM.
 
 **Common Use Cases:**
@@ -67,5 +67,5 @@ A **custom component** extension is a JavaScript application built with the Aken
 
 **Learn more:** [Custom Component Extensions](/advanced-extensions/overview.html)
 
-::: panel-link Link Extensions [Next](/extensions/positions.html)
+::: panel-link Extensions positions [Next](/extensions/positions.html)
 :::
