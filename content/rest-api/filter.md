@@ -554,7 +554,7 @@ This query parameter is also available for the published products.
 
 ### Available operators
 
-As seen previously, the attribute type defines which set of operators is available to use these filters.
+As seen previously, the attribute type determines which set of operators is available to use these filters.
 
 **The `pim_catalog_identifier` attribute type**
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
@@ -1113,7 +1113,7 @@ is equivalent to
 
 ### Available operators
 
-As seen previously, the attribute type defines which set of operators is available to use these filters.
+As seen previously, the attribute type determines which set of operators is available to use these filters.
 
 **The `pim_catalog_identifier`, `pim_catalog_text` and `pim_catalog_textarea` attribute types**
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE

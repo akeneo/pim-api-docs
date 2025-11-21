@@ -5,7 +5,6 @@ Here is a diagram illustrating the workflow:
 [![action-extension-schema.png](../img/extensions/ui-extensions/action-extension-schema.png)](../img/extensions/ui-extensions/action-extension-schema.png)
 
 Data sent within the POST body, formatted in JSON, contain:
-
 - A `context` object containing:
   - the configured `locale`,
   - the configured `channel`,

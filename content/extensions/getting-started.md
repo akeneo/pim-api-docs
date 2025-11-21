@@ -2,19 +2,18 @@
 In this section, you will learn how to create your first Extension in under a minute. By following this quick guide, you'll gain the skills needed to effectively use the UI for creating and managing Extensions.
 
 ### Prerequisites
-Having the proper permission to create and manage Extensions.
-// TODO: add a link to helpdesk
+Having the proper [permission](https://help.akeneo.com/extensions/ui-extentions#permissions) to create and manage Extensions.
 
 ### Access the Extensions management Interface
 
 - Navigate to the Extensions list, in the `PIM System > Ui Extensions`
 
-// TODO: reorder to match the form
 ### Create a New Extension Link
 
 - Click on **Create > Link**
 - In the form:
-    - Choose a name for your extension, the name is a technical field and should not contain spaces or specials characters
+    - Choose a **name** for your Extension, the name is a technical field and should not contain spaces or specials characters
+    - Enter a **label**, this label will be displayed in the UI. You can name your Extension in reference to its purpose (e.g., "link to Google")
     - Leave the position to the default value **Product Header**
 
     ::: info
@@ -27,7 +26,6 @@ Having the proper permission to create and manage Extensions.
     see more in [positions](/extensions/positions.html)
     :::
 
-    - Enter a **default label**, this label will be displayed in the UI. You can name your extension in reference to its purpose (e.g., "link to Google")
     - In the **URL** field, paste the following **URL**: https://www.google.com/search?q=%uuid%
 
 ### Test the link
@@ -42,12 +40,10 @@ You need to refresh the page to see the button appear
 - Click on the newly created button
 - A new tab opens following the configured URL. It uses the current value of the product UUID!
 
-// TODO: move to top page
 **Congratulations**, you have created your first Extension!
-Learn more about the availables types of Extension in the [Types section](/extensions/types-overview.html).
 
 ## Administration of Extensions
-For a deeprer overview of the Extension administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).
+For an overview of the Extension administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).
 
 ::: panel-link Extensions available types [Next](/extensions/types-overview.html)
 :::

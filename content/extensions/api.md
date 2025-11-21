@@ -125,7 +125,7 @@ Note that the token has a lifespan of one hour.
 :::
 
 #### 2. Create an Extension
-You can create a UI extension once you have a valid PIM API token.
+You can create an Extension once you have a valid PIM API token.
 
 
 ```bash [snippet:Link]
@@ -192,7 +192,7 @@ curl --request POST "$TARGET_PIM_URL/api/rest/v1/ui-extensions" \
 ```
 
 #### 3. Update an Extension
-To update a UI extension, you must have a valid PIM API token and the UUID of the extension you want to update.
+To update an Extension, you must have a valid PIM API token and the UUID of the Extension you want to update.
 
 ```bash [snippet:Shell]
     curl --request PATCH "$TARGET_PIM_URL/api/rest/v1/ui-extensions/$EXTENSION_UUID" \
@@ -205,8 +205,8 @@ To update a UI extension, you must have a valid PIM API token and the UUID of th
 }'
 ```
 
-#### 4. Delete anxtension
-To delete a UI extension, you must have a valid PIM API token and the UUID of the extension you want to delete.
+#### 4. Delete an Extension
+To delete an Extension, you must have a valid PIM API token and the UUID of the Extension you want to delete.
 
 ```bash [snippet:Shell]
     curl --request DELETE "$TARGET_PIM_URL/api/rest/v1/ui-extensions/$EXTENSION_UUID" \

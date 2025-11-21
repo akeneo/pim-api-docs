@@ -2,15 +2,14 @@
 
 Extensions are organized into distinct types. Choose the type that aligns precisely with your intended use case and requirements.
 
-// TODO: change order to move iframe on the side of custom component
 ## Available Extension Types
 
 | Type | Purpose 
 |------|---------|
 | [Link](#link) | Open external content in new tab |
-| [Iframe](#iframe) | Embed external content in PIM |
 | [Action](#action) | Execute background tasks |
 | [Data Component](#data-component) | Display external data in panel |
+| [Iframe](#iframe) | Embed external content in PIM |
 | [Custom Component](#custom-component) | Build rich JavaScript applications |
 
 ## Link
