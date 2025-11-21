@@ -29,5 +29,5 @@ See the [Positions documentation](/extensions/positions.html) for visual example
 - **Limited interactivity**: No buttons or form controls
 - **Single request**: Data loads once when panel opens (no auto-refresh)
 
-::: panel-link URL PlaceHolders [Next](/extensions/url-placeholders.html)
+::: panel-link Iframe Extensions [Next](/extensions/iframe.html)
 :::

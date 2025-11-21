@@ -244,5 +244,5 @@ Iframe extensions can be placed in:
 - **Performance**: Each iframe loads a complete web page
 - **Browser compatibility**: Some browsers have stricter iframe policies
 
-::: panel-link Action Extensions [Next](/extensions/action.html)
+::: panel-link URL PlaceHolders [Next](/extensions/url-placeholders.html)
 :::
