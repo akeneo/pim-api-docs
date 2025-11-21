@@ -2,7 +2,7 @@
 
 ## Overview
 
-You can deploy your UI extensions directly through the Akeneo PIM user interface. This method doesn't require an API token - you simply need to be logged into your PIM instance.
+You can deploy your Extensions directly through the Akeneo PIM user interface. This method doesn't require an API token - you simply need to be logged into your PIM instance.
 
 ::: info
 If you prefer an automated deployments method, check out the [API deployment guide](/advanced-extensions/api-deployment.html).
@@ -14,7 +14,7 @@ If you prefer an automated deployments method, check out the [API deployment gui
 
 - **Log into your Akeneo PIM** with appropriate permissions
 
-- **Navigate to the UI Extensions section**:
+- **Navigate to the Extensions section**:
    - Go to System → Extensions → UI Extensions
 
 - **Create or Update an Extension**:

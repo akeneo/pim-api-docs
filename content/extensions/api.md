@@ -205,7 +205,7 @@ To update a UI extension, you must have a valid PIM API token and the UUID of th
 }'
 ```
 
-#### 4. Delete an Extension
+#### 4. Delete anxtension
 To delete a UI extension, you must have a valid PIM API token and the UUID of the extension you want to delete.
 
 ```bash [snippet:Shell]

@@ -1,10 +1,10 @@
 # Filtering and Display
 
-You may want to create UI extensions that are only available to certain user groups, specific products, or individual users. This page explains how to control the visibility and display of your extensions.
+You may want to create Extensions that are only available to certain user groups, specific products, or individual users. This page explains how to control the visibility and display of your extensions.
 
 ## Filter by User Groups
 
-You can restrict which user groups are allowed to see and execute a UI extension by using the **permissions tab** on the UI extensions creation/edition form.
+You can restrict which user groups are allowed to see and execute an Extension by using the **permissions tab** on the Extensions creation/edition form.
 
 [![ui-extension-permissions.png](../img/extensions/ui-extensions/ui-extension-permissions.png)](../img/extensions/ui-extensions/ui-extension-permissions.png)
 
@@ -19,7 +19,7 @@ If no user groups are selected, the extension will be available to all users.
 
 ## Filter by Product Selection
 
-You can filter which products can be accessed by a UI extension using the **product selection tab** on the UI extensions creation/edition form.
+You can filter which products can be accessed by a Extension using the **product selection tab** on the Extensions creation/edition form.
 
 [![ui-extension-product-selection.png](../img/extensions/ui-extensions/ui-extension-product-selection.png)](../img/extensions/ui-extensions/ui-extension-product-selection.png)
 
@@ -43,7 +43,7 @@ You can restrict extensions to specific individual users by entering their email
 **How to configure:**
 
 - In the UI:
-1. Go to the UI extensions creation/edition form
+1. Go to the Extensions creation/edition form
 2. Open the **permissions** tab
 3. Enter email addresses in the **Filter by users** field.
 4. You can add several emails

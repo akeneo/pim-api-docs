@@ -10,7 +10,7 @@ The general workflow is:
     ```bash
     make start
     ```
-    This command installs dependencies, helps you configure your environment, and creates the UI extension in your PIM for the first time.
+    This command installs dependencies, helps you configure your environment, and creates the Extension in your PIM for the first time.
 
 - **Develop and Update**:
     Modify the source code in the `src/` directory. To see your changes in the PIM, you can either:
@@ -67,7 +67,7 @@ make update
 All the frontend logic is located in `src/App.tsx`. Please update this file to match your needs.
 
 ### Extension Configuration
-The `extension_configuration.json` file can be used to define how your UI extension behaves and appears within Akeneo PIM. Below is a detailed breakdown of its properties.
+The `extension_configuration.json` file can be used to define how your Extension behaves and appears within Akeneo PIM. Below is a detailed breakdown of its properties.
 
 | Key | Type | Description | Required |
 | --- | --- | --- | --- |
