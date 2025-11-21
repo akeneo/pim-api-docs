@@ -2,7 +2,7 @@
 In this section, you will learn how to create your first Extension in under a minute. By following this quick guide, you'll gain the skills needed to effectively use the UI for creating and managing Extensions.
 
 ### Prerequisites
-Having the proper permisison to create and manage Extensions.
+Having the proper permission to create and manage Extensions.
 // TODO: add a link to helpdesk
 
 ### Access the Extensions management Interface

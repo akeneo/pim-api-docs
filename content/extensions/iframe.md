@@ -1,12 +1,12 @@
-## Embeded view (iframe)
-An **Embeded view** Extension allows to open your external content inside the PIM thanks to an iframe.
+## Embedded view (iframe)
+An **Embedded view** Extension allows to open your external content inside the PIM thanks to an iframe.
 
 For more detailed information, you can refer to the [Mozilla Developer Network (MDN) documentation on iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
 ### Default query parameters
 Several parameters are sent by default as SearchParameters in the GET query.
 
-For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebite.com/iframe/?position=pim.product.tab&user[username]=julia`
+For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL is `https://customerwebsite.com/iframe/?position=pim.product.tab&user[username]=julia`
 
 For all positions, parameters relative to the connected user, the extension position and the tenant are sent:
 - `user[uuid]`

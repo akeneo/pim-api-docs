@@ -80,8 +80,10 @@ export default {
     },
   },
 }
+```
 
-If you're using webpack, add this to your webpack.config.js:
+If you're using webpack, add this to your `webpack.config.js`:
+```javascript
 module.exports = {
   resolve: {
     fallback: {

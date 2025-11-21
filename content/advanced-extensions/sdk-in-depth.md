@@ -73,7 +73,7 @@ The SDK provides access to the following API resources:
 ### Reference Entities
 - **Reference Entity API** (`PIM.api.reference_entity_v1`): Manage reference entities
 - **Reference Entity Attribute API** (`PIM.api.reference_entity_attribute_v1`): Work with reference entity attributes
-- **Reference Entity Attributes Option API** (`PIM.api.reference_entity_attribute_option_v1`): Manage reference entity attributes option
+- **Reference Entity Attribute Option API** (`PIM.api.reference_entity_attribute_option_v1`): Manage reference entity attributes option
 - **Reference Entity Record API** (`PIM.api.reference_entity_record_v1`): Manage reference entity records
 
 ### System & Configuration

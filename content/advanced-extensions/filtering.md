@@ -50,7 +50,7 @@ You can restrict extensions to specific individual users by entering their email
 5. Save the extension
 
 - With the API:
-Add a `userEmails`field in the configuration section.
+Add a `userEmails` field in the configuration section.
 
 **Example:**
 ```json

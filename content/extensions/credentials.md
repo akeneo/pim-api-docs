@@ -3,7 +3,7 @@ You have the ability to make authenticated calls via UI Extensions using credent
 
 ### Available Credential Methods
 
-| Methode              | Header                                             |
+| Method               | Header                                             |
 |----------------------|----------------------------------------------------|
 | Basic Authentication | `Authorization : base64_encode(username:password)` |    
 | Bearer Token         | `Authorization : Bearer token_value`               |

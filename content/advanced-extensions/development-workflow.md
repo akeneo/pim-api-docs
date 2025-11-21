@@ -67,7 +67,7 @@ make update
 All the frontend logic is located in `src/App.tsx`. Please update this file to match your needs.
 
 ### Extension Configuration
-The `extension_configuration.json` file can be use to define how your UI extension behaves and appears within Akeneo PIM. Below is a detailed breakdown of its properties.
+The `extension_configuration.json` file can be used to define how your UI extension behaves and appears within Akeneo PIM. Below is a detailed breakdown of its properties.
 
 | Key | Type | Description | Required |
 | --- | --- | --- | --- |
