@@ -2064,9 +2064,9 @@ You can filter the categories by parent.
 
 Below you will find the operator to filter on this property, as well as the corresponding type of value required in the `search` query parameter.
 
-| Operator | Allowed value type                                                                           | Filter description                                  |
-| -------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| `=`      | a string containing an [existing parent category](/concepts/catalog-structure.html#category) | Only returns the sub-categories of the given parent |
+| Operator | Allowed value type                                                                           | Filter description                                 |
+| -------- | -------------------------------------------------------------------------------------------- |----------------------------------------------------|
+| `=`      | a string containing an [existing parent category](/concepts/catalog-structure.html#category) | Returns all the sub-categories of the given parent |
 
 #### Example
 
