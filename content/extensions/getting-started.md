@@ -32,7 +32,7 @@ Having the proper permission to create and manage Extensions.
 
 ### Test the link
 
-Find your newly created UI-extension in the UI:
+Find your newly created Extension in the UI:
 - **Product Header** → At the top section of a product or variant enrichment page.
 
 ::: warning
@@ -46,7 +46,7 @@ You need to refresh the page to see the button appear
 **Congratulations**, you have created your first Extension!
 Learn more about the availables types of Extension in the [Types section](/extensions/types-overview.html).
 
-## Administration of UI extensions
+## Administration of Extensions
 For a deeprer overview of the Extension administration panel and permissions, see our [Help Center](https://help.akeneo.com/extensions/ui-extentions).
 
 ::: panel-link Extensions available types [Next](/extensions/types-overview.html)
