@@ -112,5 +112,5 @@ Extensions can have three different statuses:
 Extensions in "To update" status will not be displayed to users, even if they were previously active.
 :::
 
-::: panel-link API [Next](/extensions/api.html)
+::: panel-link [FAQ & Troubleshooting](/advanced-extensions/faq.html)
 :::

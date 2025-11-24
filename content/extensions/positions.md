@@ -7,9 +7,6 @@ Extension position defines where your extension appears within the Akeneo PIM in
 * **Position Options:** Each extension type offers a set of predefined positions. These positions control the location of your extension's interface elements.
 * **Contextual Relevance:** Position options are designed to align with the functionality of each extension type, ensuring a seamless user experience.
 
-
-// TODO: fix position for links, move iframe on the side of custom component
-// TODO: change order to match other orders
 ## Available positions for Extensions
 
 

@@ -45,8 +45,7 @@ An **action** extension executes external tasks in the background when triggered
 **Learn more:** [Action Extensions](/extensions/action.html)
 
 ## Data Component
-// TODO: to review completely
-A **data component** extension displays data from an external endpoint in a collapsible panel on product edit forms. This helps complete product information without leaving the PIM.
+A **Data component** extension retrieves data from a predefined endpoint via HTTP GET request and displays it within the PIM interface.
 
 **Common Use Cases:**
 - Display supplementary product data

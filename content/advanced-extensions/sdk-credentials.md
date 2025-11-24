@@ -22,7 +22,7 @@ This system provides several key benefits:
 
 ### Via the PIM UI
 
-When creating or editing a Extension in the PIM interface, you can add credentials in the credentials section:
+When creating or editing an Extension in the PIM interface, you can add credentials in the credentials section:
 
 1. **Select Authentication Method**: Choose from Bearer Token, Basic Auth, or Custom Header
 2. **Assign a Credential Code**: Enter a unique code to identify this credential (e.g., `erp_api_token`)

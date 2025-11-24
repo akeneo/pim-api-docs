@@ -38,7 +38,7 @@ Before making API requests, ensure your environment variables are filled with yo
 [![postman-fill-env.png](../img/extensions/ui-extensions/postman-fill-env.png)](../img/extensions/ui-extensions/postman-fill-env.png)
 
 
-#### 3. Create a Extension
+#### 3. Create an Extension
 1. Select the Postman environment you've just created
 2. Click on the `Add an extension` POST request
 3. Customize the data to send as you want before click on `Send`
