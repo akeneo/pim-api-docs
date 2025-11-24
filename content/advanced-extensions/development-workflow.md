@@ -10,7 +10,7 @@ The general workflow is:
     ```bash
     make start
     ```
-    This command installs dependencies, helps you configure your environment, and creates the UI extension in your PIM for the first time.
+    This command installs dependencies, helps you configure your environment, and creates the Extension in your PIM for the first time.
 
 - **Develop and Update**:
     Modify the source code in the `src/` directory. To see your changes in the PIM, you can either:
@@ -67,13 +67,13 @@ make update
 All the frontend logic is located in `src/App.tsx`. Please update this file to match your needs.
 
 ### Extension Configuration
-The `extension_configuration.json` file can be use to define how your UI extension behaves and appears within Akeneo PIM. Below is a detailed breakdown of its properties.
+The `extension_configuration.json` file can be used to define how your Extension behaves and appears within Akeneo PIM. Below is a detailed breakdown of its properties.
 
 | Key | Type | Description | Required |
 | --- | --- | --- | --- |
 | `name` | `string` | A unique identifier for your extension. It's recommended to use a descriptive name, like `my-app-name`. | Yes |
 | `type` | `string` | Defines the type of extension. For SDK scripts, this should always be `sdk_script`. | Yes |
-| `position` | `string` | Determines where the extension will be displayed in the PIM interface. Examples: `pim.product.panel`, `pim.activity.navigation.tab`. See the [official documentation](https://api.akeneo.com/extensions/positions.html#available-positions-for-ui-extensions) for all available positions. | Yes |
+| `position` | `string` | Defines where the extension will be displayed in the PIM interface. Examples: `pim.product.panel`, `pim.activity.navigation.tab`. See the [official documentation](https://api.akeneo.com/extensions/positions.html#available-positions-for-ui-extensions) for all available positions. | Yes |
 | `file` | `string` | The path to the compiled JavaScript file for your extension, relative to the project root. This is used by the build process (Vite) to name the output file. Example: `dist/my-app.js`. | Yes |
 | `configuration` | `object` | An object containing display settings for your extension. | Yes |
 | `configuration.default_label` | `string` | The default label for your extension, displayed if no translation is available for the user's locale. | Yes |

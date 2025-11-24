@@ -1,23 +1,11 @@
 ## Data component
-A **data component** UI extension is designed to query data from an predefined endpoint and display them in a **colapsible panel** on the product edit form. It aims to ease the completion of product information without leaving the PIM. The panel is accessible via a button on the header of the form. It can be opened and closed by clicking the button.
+A **Data component** extension retrieves data from a predefined endpoint via HTTP GET request and displays it within the PIM interface.
 
-Please note the following key points regarding its functionality:
+## Authenticated calls
 
-* Raw data display: The extension expect queried data to be of JSON format and will display it as it is. To ease navigation, section are collapsible.
-* GET HTTP method: The request being sent to the destination is a GET request.
-* Signature: It's possible to configure a secret to sign the body of the POST request sent to the destination (SHA-512 protocol).
-* Authenticated calls: Thanks to the possibilty of adding [credentials](/extensions/credentials.html) to the extension, you are able to query endpoints requiring authentication.
-
+Thanks to the possibilty of adding [credentials](/extensions/credentials.html) to the extension, you are able to query endpoints requiring authentication.
 
 ## Available Positions
-
-Data component extensions can only be placed in panel positions:
-
-| Position | Context |
-|----------|---------|
-| `pim.product.panel` | Simple products and variant products |
-| `pim.category.tab` | Category edit pages |
-| `pim.product.tab` | Product tab (alternative to panel) |
 
 See the [Positions documentation](/extensions/positions.html) for visual examples of panel locations.
 
@@ -29,5 +17,5 @@ See the [Positions documentation](/extensions/positions.html) for visual example
 - **Limited interactivity**: No buttons or form controls
 - **Single request**: Data loads once when panel opens (no auto-refresh)
 
-::: panel-link URL PlaceHolders [Next](/extensions/url-placeholders.html)
+::: panel-link Iframe Extensions [Next](/extensions/iframe.html)
 :::

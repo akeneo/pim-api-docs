@@ -2,7 +2,7 @@
 
 ## Overview
 
-Credentials allow your UI extensions to make authenticated calls to external APIs and services. When you configure credentials for your extension, they are securely stored in the PIM and automatically included as headers in your API requests.
+Credentials allow your Extensions to make authenticated calls to external APIs and services. When you configure credentials for your extension, they are securely stored in the PIM and automatically included as headers in your API requests.
 
 This system provides several key benefits:
 - **Security**: Credentials are encrypted before storage and never exposed to the browser
@@ -22,7 +22,7 @@ This system provides several key benefits:
 
 ### Via the PIM UI
 
-When creating or editing a UI extension in the PIM interface, you can add credentials in the credentials section:
+When creating or editing an Extension in the PIM interface, you can add credentials in the credentials section:
 
 1. **Select Authentication Method**: Choose from Bearer Token, Basic Auth, or Custom Header
 2. **Assign a Credential Code**: Enter a unique code to identify this credential (e.g., `erp_api_token`)

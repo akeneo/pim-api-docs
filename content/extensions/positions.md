@@ -1,38 +1,31 @@
 # Positions
 
-Extension position determines where your extension appears within the Akeneo PIM interface. You can select from a variety of available positions, which vary depending on the specific extension type.
+Extension position defines where your extension appears within the Akeneo PIM interface. You can select from a variety of available positions, which vary depending on the specific extension type.
 
 **Key Concepts:**
 
 * **Position Options:** Each extension type offers a set of predefined positions. These positions control the location of your extension's interface elements.
 * **Contextual Relevance:** Position options are designed to align with the functionality of each extension type, ensuring a seamless user experience.
 
-**Best Practices:**
-
-* Choose a position that aligns with the extension's intended functionality and user workflow.
-* Review the available position options for each extension type to ensure optimal integration.
-* Consider the impact of the position on the overall user experience within the PIM.
+## Available positions for Extensions
 
 
-## Available positions for UI extensions
-
-
-| Positions                    | Action | Iframe | Link  | Data Component| Custom Component|
-|------------------------------|--------|--------|-------|---------------|-----------------|
-| pim.product.header           | ✔️     | ❌     | ✔️    | ❌            |     ❌            |
-| pim.product-model.header     | ✔️     | ❌     | ✔️    | ❌            |     ❌            |
-| pim.sub-product-model.header | ✔️     | ❌     | ✔️    | ❌            |     ❌            |
-| pim.product.tab              | ❌     | ✔️     | ❌    | ✔️            |     ✔️            |
-| pim.product-model.tab        | ❌     | ✔️     | ❌    | ❌            |     ✔️            |
-| pim.sub-product-model.tab    | ❌     | ✔️     | ❌    | ❌            |     ✔️            |
-| pim.category.tab             | ❌     | ✔️     | ❌    | ✔️            |     ✔️            |
-| pim.product-grid.action-bar  | ✔️     | ✔️     | ❌    | ❌            |     ✔️            |
-| pim.product.index            | ✔️     | ❌     | ❌    | ❌            |     ❌            |
-| pim.activity.navigation.tab  | ❌     | ✔️     | ❌    | ❌            |     ✔️            |
-| pim.product.panel            | ❌     | ✔️     | ❌    | ✔️            |     ✔️            |
-| pim.product-model.panel      | ✔️     | ✔️     | ✔️    | ✔️            |     ✔️            |
-| pim.sub-product-model.panel  | ✔️     | ✔️     | ✔️    | ✔️            |     ✔️            |
-| pim.performance.analytics.tab| ❌     | ✔️     | ❌    | ❌            |     ✔️            |
+| Positions                    | Action | Link | Iframe | Data/Custom Component |
+|------------------------------|--------|------|--------|-----------------------|
+| pim.product.header           | ✔️     | ✔️   | ❌     | ❌                    |
+| pim.product-model.header     | ✔️     | ✔️   | ❌     | ❌                    |
+| pim.sub-product-model.header | ✔️     | ✔️   | ❌     | ❌                    |
+| pim.product.tab              | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.product-model.tab        | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.sub-product-model.tab    | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.category.tab             | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.product-grid.action-bar  | ✔️     | ❌   | ✔️     | ✔️                    |
+| pim.product.index            | ✔️     | ❌   | ❌     | ❌                    |
+| pim.activity.navigation.tab  | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.product.panel            | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.product-model.panel      | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.sub-product-model.panel  | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.performance.analytics.tab| ❌     | ❌   | ✔️     | ✔️                    |
 ### Positions list
 
 #### pim.product.header
@@ -91,5 +84,5 @@ This position refers to the right panel of a root model edit page.
 This position refers to the right panel of a sub product model edit page.
 [![pim-product-panel.png](../img/extensions/ui-extensions/positions/pim-product-panel.png)](../img/extensions/ui-extensions/positions/pim-product-panel.png)
 
-::: panel-link Credentials [Next](/extensions/link.html)
+::: panel-link Link extension [Next](/extensions/link.html)
 :::

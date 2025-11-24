@@ -1,10 +1,10 @@
 # Filtering and Display
 
-You may want to create UI extensions that are only available to certain user groups, specific products, or individual users. This page explains how to control the visibility and display of your extensions.
+Extensions can be configured to be available only to certain user groups, specific products, or individual users.
 
 ## Filter by User Groups
 
-You can restrict which user groups are allowed to see and execute a UI extension by using the **permissions tab** on the UI extensions creation/edition form.
+You can restrict which user groups are allowed to see and execute an Extension by using the **permissions tab** on the creation/edition form.
 
 [![ui-extension-permissions.png](../img/extensions/ui-extensions/ui-extension-permissions.png)](../img/extensions/ui-extensions/ui-extension-permissions.png)
 
@@ -19,7 +19,7 @@ If no user groups are selected, the extension will be available to all users.
 
 ## Filter by Product Selection
 
-You can filter which products can be accessed by a UI extension using the **product selection tab** on the UI extensions creation/edition form.
+You can filter which products can be accessed by an Extension using the **product selection tab** on the creation/edition form.
 
 [![ui-extension-product-selection.png](../img/extensions/ui-extensions/ui-extension-product-selection.png)](../img/extensions/ui-extensions/ui-extension-product-selection.png)
 
@@ -43,7 +43,7 @@ You can restrict extensions to specific individual users by entering their email
 **How to configure:**
 
 - In the UI:
-1. Go to the UI extensions creation/edition form
+1. Go to the Extensions creation/edition form
 2. Open the **permissions** tab
 3. Enter email addresses in the **Filter by users** field.
 4. You can add several emails
@@ -65,13 +65,12 @@ Add a `userEmails`field in the configuration section.
 
 ## Order Extensions
 
-When multiple extensions are available in the same position, you can control their display order using the **weight** field on the creation/update form.
+When multiple Extensions are available in the same position, you can control their display order using the **weight** field on the creation/update form.
 
 [![ui-extension-product-selection.png](../img/extensions/ui-extensions/weight.png)](../img/extensions/ui-extensions/weight.png)
 
 **How weight works:**
 - Lower numbers appear first (e.g., weight 1 appears before weight 10)
-- Default weight is typically 0
 - Applies to **header** and **tab** positions
 - Extensions with the same weight are ordered alphabetically
 
@@ -105,32 +104,13 @@ Extensions can have three different statuses:
 **How to fix:**
 1. Open the extension in the UI
 2. Review the configuration
-3. Update any missing or invalid fields (especially credentials)
+3. Update any missing or invalid fields
 4. Save the extension
 5. Status will change to "Inactive" - you can then activate it
 
 ::: warning
 Extensions in "To update" status will not be displayed to users, even if they were previously active.
 :::
-
-## Best Practices
-
-### Start Restrictive, Then Expand
-- Begin by limiting extensions to a small test group
-- Gather feedback and fix issues
-- Gradually expand access to more user groups
-
-### Use Meaningful Weights
-- Leave gaps in weight numbers (1, 10, 20) to allow inserting extensions later
-- Group related extensions with similar weights
-
-### Document Your Filters
-- Keep track of which extensions are restricted and why
-
-### Test Different User Scenarios
-- Verify extensions appear correctly for different user groups
-- Test with users who should NOT see the extension
-- Check that product selection filters work as expected
 
 ::: panel-link [FAQ & Troubleshooting](/advanced-extensions/faq.html)
 :::

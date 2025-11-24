@@ -1,5 +1,5 @@
 # API
-We offer an API that allows you to manage UI Extensions with the same capabilities as the UI interface. This enables you to efficiently integrate and control your UI Extensions programmatically.
+We offer an API that allows you to manage Extensions with the same capabilities as the UI interface. This enables you to efficiently integrate and control your Extensions programmatically.
 
 ### Prerequisites
 Before proceeding, ensure that you have an active <a href="https://api.akeneo.com/apps/overview.html#whats-an-akeneo-app" target="_blank">App</a> (it can be a <a href="https://api.akeneo.com/apps/create-custom-app.html" target="_blank">Custom App</a> or an active <a href="https://api.akeneo.com/getting-started/connect-the-pim-4x/step-1.html#you-said-connection" target="_blank">connection</a>) to an Akeneo PIM.
@@ -9,7 +9,7 @@ To learn how to create a Connection, see the <a href="https://api-dev.akeneo.com
 ### Authentication and authorization
 
 #### Authentication
-Having a valid Akeneo PIM API token provided by either a Connection or an App to be authenticated to use the UI extension API endpoints.
+Having a valid Akeneo PIM API token provided by either a Connection or an App to be authenticated to use the Extension API endpoints.
 
 #### Authorization
 To manage your extension, ensure that your Connection or App has the necessary permissions.
@@ -17,13 +17,13 @@ To manage your extension, ensure that your Connection or App has the necessary p
 2. For Apps: You need to request the scope **manage_extensions**.
 
 ::: info
-A UI extension is owned by a user, meaning that a Connection can only manage UI extensions created by itself or by Connections associated with the same user. Similarly, an App can only manage its own UI extensions.
+An Extension is owned by a user, meaning that a Connection can only manage Extensions created by itself or by Connections associated with the same user. Similarly, an App can only manage its own Extensions.
 :::
 
 Granting these permissions before setup helps prevent unnecessary errors.
 
 ### Using Postman
-The quickest way to get started with UI extensions is by using our Postman collection.
+The quickest way to get started with Extensions is by using our Postman collection.
 
 #### 1. Import the Postman Collection
 1. Download our <a href="https://api.akeneo.com/files/akeneo-postman-collection.json" target="_blank">Postman collection</a>
@@ -38,7 +38,7 @@ Before making API requests, ensure your environment variables are filled with yo
 [![postman-fill-env.png](../img/extensions/ui-extensions/postman-fill-env.png)](../img/extensions/ui-extensions/postman-fill-env.png)
 
 
-#### 3. Create a UI extension
+#### 3. Create an Extension
 1. Select the Postman environment you've just created
 2. Click on the `Add an extension` POST request
 3. Customize the data to send as you want before click on `Send`
@@ -46,7 +46,7 @@ Before making API requests, ensure your environment variables are filled with yo
 
 [![postman-add-extension.png](../img/extensions/ui-extensions/postman-add-extension.png)](../img/extensions/ui-extensions/postman-add-extension.png)
 
-#### 4. Update a UI extension
+#### 4. Update an Extension
 1. Make sure that the right environment is selected
 2. Click on the `Update an extension` POST request
 3. Fill the `ui_extension_uuid` parameter with the UUID of the concerned UI extension
@@ -56,7 +56,7 @@ Before making API requests, ensure your environment variables are filled with yo
 [![postman-update-extension-2.png](../img/extensions/ui-extensions/postman-update-extension-2.png)](../img/extensions/ui-extensions/postman-update-extension-2.png)
 
 
-#### 5. Delete a UI extension
+#### 5. Delete an Extension
 1. Make sure that the right environment is selected
 2. Click on the `Delete an extension` POST request
 3. Fill the `ui_extension_uuid` parameter with the UUID of the concerned UI extension
@@ -124,8 +124,8 @@ Note that the token has a lifespan of one hour.
 🛠 Custom Apps are also supported. To use one, add a variable `app_access_token` with your API token.
 :::
 
-#### 2. Create a UI extension
-You can create a UI extension once you have a valid PIM API token.
+#### 2. Create an Extension
+You can create an Extension once you have a valid PIM API token.
 
 
 ```bash [snippet:Link]
@@ -191,8 +191,8 @@ curl --request POST "$TARGET_PIM_URL/api/rest/v1/ui-extensions" \
 }'
 ```
 
-#### 3. Update a UI extension
-To update a UI extension, you must have a valid PIM API token and the UUID of the extension you want to update.
+#### 3. Update an Extension
+To update an Extension, you must have a valid PIM API token and the UUID of the Extension you want to update.
 
 ```bash [snippet:Shell]
     curl --request PATCH "$TARGET_PIM_URL/api/rest/v1/ui-extensions/$EXTENSION_UUID" \
@@ -205,8 +205,8 @@ To update a UI extension, you must have a valid PIM API token and the UUID of th
 }'
 ```
 
-#### 4. Delete a UI extension
-To delete a UI extension, you must have a valid PIM API token and the UUID of the extension you want to delete.
+#### 4. Delete an Extension
+To delete an Extension, you must have a valid PIM API token and the UUID of the Extension you want to delete.
 
 ```bash [snippet:Shell]
     curl --request DELETE "$TARGET_PIM_URL/api/rest/v1/ui-extensions/$EXTENSION_UUID" \
