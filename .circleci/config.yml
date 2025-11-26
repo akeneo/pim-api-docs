@@ -6,7 +6,7 @@ orbs:
 aliases:
   - &dockerExecutorWithPython
     docker:
-      - image: cimg/python:3.13.7
+      - image: 'python:3.13-alpine'
   - &dockerExecutorWithAlpineGit
     docker:
       - image: alpine/git
@@ -280,6 +280,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
+      - run:
+          name: Init python
+          command: source /home/circleci/.bashrc
       - terraform_handler:
           target_stage_id: <<parameters.target_stage_id>>
           deployment_scope: <<parameters.deployment_scope>>
