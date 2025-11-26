@@ -6,7 +6,7 @@ orbs:
 aliases:
   - &dockerExecutorWithPython
     docker:
-      - image: 'python:3.13-alpine'
+      - image: 'python:3.13-slim'
   - &dockerExecutorWithAlpineGit
     docker:
       - image: alpine/git
