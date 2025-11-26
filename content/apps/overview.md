@@ -38,20 +38,6 @@ For more information on apps usage, please read our help center articles
 and [Manage your apps](https://help.akeneo.com/pim/serenity/articles/manage-your-apps.html).
 ::::
 
-
-## Why apps over connectors?
-
-Both connectors and apps are SaaS compatible and use API.  
-However, there are some significant differences.
-
-- **Automatic configuration instead of manual configuration**: connectors use Akeneo PIM connections to get credentials, apps use the OAuth 2.0. When a user connects Akeneo PIM with an app, they click on Connect then follow the step-by-step activation process to accept requested authorizations and set up permissions. The app receives everything it needs to interact with Akeneo PIM at the end of this process.  No more manual configuration issues and more transparency!
-- **High visibility**: we give your app high visibility when you publish an app on the [Akeneo App Store](https://apps.akeneo.com/). Your app is displayed ***above all connectors***. We also give high visibility to apps to our Akeneo PIM users. To do so, we created a ***dedicated section*** to highlight them in Akeneo Product Cloud embedded App Store.
-- **Greater level of support**: we provide support to app developers to help them design, build, and test their app before publishing it on [Akeneo App Store](https://apps.akeneo.com/).
-- **Increase co-marketing opportunities**: Akeneo promotes apps and will communicate about new apps published on the Akeneo App Store.
-- **Benefit from all the future features & improvements**: Akeneo teams are also investing in apps by developing new features for you to ease and accelerate app development and publication in the coming years.
-
-![PIM App Store](../img/apps/pim-marketplace-with-apps.png)
-
 ## Understanding the differences: Custom Apps vs. SaaS Apps
 
 Akeneo provides powerful integration capabilities to enhance and streamline product data processes. As a partner or developer, understanding the differences between custom apps and SaaS apps is crucial for developing and proposing the right solutions for your customers. Here, we break down the critical distinctions between custom apps and SaaS apps in the Akeneo ecosystem from a developer's perspective.
@@ -95,29 +81,6 @@ By understanding these distinctions and leveraging Akeneo’s powerful integrati
 Please note that once you begin developing your app, you will need to use the custom app journey to add the URL of your app in the PIM of your choice for testing purposes. After your app has been submitted for Akeneo's validation, you can then decide whether you want to list it as a custom app or a SaaS app.
 :::
 
-
-## App developer starter kit
-
-Before starting to develop your app, we advise you to register and refer to our **[app development journey training course](https://partner-akademy.akeneo.com/app-development-journey)**, where you'll find everything you need to..:
-* Create your account on our different platforms
-* Access our Helpdesk support
-* Generate your Akeneo Product Cloud sandbox
-* Understand Akeneo Product Cloud data and capabilities
-* Understand the App Store and apps
-* Define your app's features
-* Develop your app
-* Submit your app to the App Store
-
-::: info
-In short, everything you need to guide you in your app journey!
-:::
-
-## Publish your app
-
-Your app is good to go?
-
-- Read our [how to publish your app](/app-portal/publish-your-app.html) guide
-- Consult our recommendations about [how to write your app information](/app-portal/publish-your-app.html#your-app-must-have-comprehensive-information)
 
 ## Develop an app for a custom need
 
