@@ -1,12 +1,12 @@
 version: 2.1
 
 orbs:
-  security-hunter: akeneo-orbs/security-hunter@2.6.14
+  security-hunter: akeneo-orbs/security-hunter@2.15.10
 
 aliases:
   - &dockerExecutorWithPython
     docker:
-      - image: 'cimg/python@sha256:fe156bd9d3262e6e7825bd5b0537ed908e5c1380dcaf4dc3f901a60f2cd7af66'
+      - image: 'google/cloud-sdk@sha256:25342a0d2f507dafb2e34a8b7dac6418a7178fb5a5cfeda9dbfab3d66c4d5a9e'
   - &dockerExecutorWithAlpineGit
     docker:
       - image: alpine/git
@@ -37,9 +37,7 @@ workflows:
       - security-hunter/detect-secrets-in-latest-commits:
             name: "secops/secrets/scan"
             context: SECOPS_SQUAD
-            leave_comment: always
             checkout_code: false
-            soft_fail: false
             requires:
               - checkout-with-persist
       - build:
@@ -455,7 +453,12 @@ commands:
       pull_request_id:
         type: string
     steps:
-      - security-hunter/install_terraform
+      - security-hunter/install_terraform:
+          version: 1.6.5
+          digest: f6404dc264aff75fc1b776670c1abf732cfed3d4a1ce49b64bc5b5d116fe87d5
+      - run:
+          name: PIP install
+          command: apk --no-cache add py3-pip jq
       - security-hunter/gcp_oidc_auth:
           impersonate: true
       - when:
