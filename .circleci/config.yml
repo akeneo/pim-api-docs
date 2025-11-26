@@ -6,7 +6,7 @@ orbs:
 aliases:
   - &dockerExecutorWithPython
     docker:
-      - image: 'cimg/python@sha256:d9ced63d94636f0bdec1ae7c703f4c1165fad9df6a8170cfcf05906c23952301'
+      - image: cimg/python:3.13.7
   - &dockerExecutorWithAlpineGit
     docker:
       - image: alpine/git
