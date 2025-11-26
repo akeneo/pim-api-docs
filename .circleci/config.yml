@@ -6,7 +6,7 @@ orbs:
 aliases:
   - &dockerExecutorWithPython
     docker:
-      - image: 'google/cloud-sdk@sha256:25342a0d2f507dafb2e34a8b7dac6418a7178fb5a5cfeda9dbfab3d66c4d5a9e'
+      - image: 'python:3.13-alpine'
   - &dockerExecutorWithAlpineGit
     docker:
       - image: alpine/git
