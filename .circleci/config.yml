@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  security-hunter: akeneo-orbs/security-hunter@2.15.6
+  security-hunter: akeneo-orbs/security-hunter@2.15.10
 
 aliases:
   - &dockerExecutorWithPython
@@ -453,11 +453,6 @@ commands:
       pull_request_id:
         type: string
     steps:
-      - run:
-          name: Fix pyenv PATH for security-hunter orb
-          command: |
-            echo 'export PATH=$(echo $PATH | sed -e "s|/opt/circleci/.pyenv/shims:||g")' >> $BASH_ENV
-            source $BASH_ENV
       - security-hunter/install_terraform
       - security-hunter/gcp_oidc_auth:
           impersonate: true
