@@ -1,7 +1,8 @@
+::: warning Thank you for your interest in building an app for the Akeneo App Store. At the moment, we are not actively accepting new submissions.:::
+
 # App Publication Security
 
-Because your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must be compliant with Akeneo security policies. Each app which will be submitted will be reviewed according to the security requirements described below.
-
+Because your app will either pull data from Akeneo to external services or push data to enrich the Akeneo PIM, your app must be compliant with Akeneo security policies. 
 ## Security Requirements   
 
 ### OAuth2 PIM Access Scope
