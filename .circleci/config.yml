@@ -6,7 +6,7 @@ orbs:
 aliases:
   - &dockerExecutorWithPython
     docker:
-      - image: 'cimg/python@sha256:fe156bd9d3262e6e7825bd5b0537ed908e5c1380dcaf4dc3f901a60f2cd7af66'
+      - image: 'cimg/python:3.13.7'
   - &dockerExecutorWithAlpineGit
     docker:
       - image: alpine/git
@@ -280,6 +280,11 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
+      - run:
+          name: Init python
+          command: |
+            export PYENV_ROOT="$HOME/.pyenv"
+            command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
       - terraform_handler:
           target_stage_id: <<parameters.target_stage_id>>
           deployment_scope: <<parameters.deployment_scope>>
