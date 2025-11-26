@@ -78,6 +78,7 @@ You can find the extension UUID by listing all extensions using the API: `GET {Y
 | Parameter | Description | Example |
 |-----------|-------------|---------|
 | `configuration[labels][{locale}]` | Localized labels | `configuration[labels][en_US]="My Extension"` |
+| `configuration[custom_variables]̀` | Custom variables | `configuration[custom_variables] = {"key": "value"}` |
 | `credentials[{n}][code]` | Credential identifier | `credentials[0][code]="api_token"` |
 | `credentials[{n}][type]` | Auth type: `Bearer Token`, `Basic Auth`, or `Custom Header` | `credentials[0][type]="Bearer Token"` |
 | `credentials[{n}][value]` | Credential value(s) | `credentials[0][value]="token123"` |
