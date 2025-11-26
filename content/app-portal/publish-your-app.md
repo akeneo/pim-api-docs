@@ -1,24 +1,18 @@
 # App Publication Requirements
 
-Thanks to you, the Akeneo App Store continues to grow. It has become increasingly important for us to review the submission process for new apps to maintain the quality standards that Akeneo users expect. By doing this, we will ensure that the Akeneo App Store remains a valuable resource for our joint customers.
-
-The requirements to submit an integration on Akeneo App Store are listed below.
-
-::: warning
-You must meet the following criteria to go live on the Akeneo App Store.
-Otherwise, your app submission will not be approved.
-:::
+::: warning Thank you for your interest in building an app for the Akeneo App Store.
+At the moment, we’re only able to actively support partners with whom we’ve defined a clear joint business case and roadmap. For other initiatives, we’re unfortunately not actively accepting new submissions.:::
 
 ## The Submission Process in a Nutshell
 **Getting Started**
-- Register for the Partner Portal: Complete your registration at the [Akeneo Connect Portal](https://connect.akeneo.com/auth/realms/connect/protocol/openid-connect/auth?response_type=code&client_id=app-dev-registration&scope=address+email+phone+profile&redirect_uri=https%3A%2F%2Fapp-dev-registration.akeneo.com%2Flogin%2Fkeycloak&approval_prompt=auto).
-- Register for the HelpDesk: Once in the Partner Portal, set up your access to the HelpDesk by following the instructions [here](https://help.akeneo.com/akeneo-portal-project-console-helpdesk/manage-access-to-the-helpdesk).
+- Register for the Partner Portal
+- Register for the HelpDesk
 - Review App Requirements: Ensure your application complies with all requirements outlined in the [documentation](https://api.akeneo.com/app-portal/publish-your-app.html).
 
 **App Portal Access & Submission**
-- Request App Portal Access: Send an email to apps@akeneo.com to gain access to the App Portal.
+- Request App Portal Access
 - Review App Portal Documentation: Once you receive access, familiarize yourself with the [getting started guide](https://api.akeneo.com/app-portal/get-started.html) for the App Portal.
-- Submit Your App: Proceed to submit your application via the [App Portal](https://manage.apps.akeneo.com/) using these [instructions](https://api.akeneo.com/app-portal/get-started.html).
+- Submit Your App
 
 **Review Process**
 - Request Security Review: Open a ticket through the HelpDesk to initiate a security review for your app. More details can be found in the [documentation](https://api.akeneo.com/app-portal/publish-your-app.html#your-app-must-guarantee-a-certain-level-of-security).
@@ -29,7 +23,7 @@ Otherwise, your app submission will not be approved.
 
 ## Your app must bring value to our joint customers
 
-We know that it can be challenging to create a first version of an app that is  comprehensive enough to suit all of our joint customers.
+We know that it can be challenging to create a first version of an app that is comprehensive enough to suit all of our joint customers.
 
 Investing in an app can be costly depending on its complexity, and we recommend an agile approach to gradually address all needed use cases.
 
