@@ -459,7 +459,7 @@ commands:
           command: |
             export PYENV_ROOT="$HOME/.pyenv"
             command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-            eval "$(pyenv init -)"
+            /bin/bash -c 'eval "$(pyenv init -)"' > /dev/null 2>&1
       - security-hunter/gcp_oidc_auth:
           impersonate: true
       - when:
