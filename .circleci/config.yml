@@ -37,9 +37,7 @@ workflows:
       - security-hunter/detect-secrets-in-latest-commits:
             name: "secops/secrets/scan"
             context: SECOPS_SQUAD
-            leave_comment: always
             checkout_code: false
-            soft_fail: false
             requires:
               - checkout-with-persist
       - build:
