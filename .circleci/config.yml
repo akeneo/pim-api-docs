@@ -453,7 +453,9 @@ commands:
       pull_request_id:
         type: string
     steps:
-      - security-hunter/install_terraform
+      - security-hunter/install_terraform:
+          version: 1.6.5
+          digest: f6404dc264aff75fc1b776670c1abf732cfed3d4a1ce49b64bc5b5d116fe87d5
       - run:
           name: PIP install
           command: apk --no-cache add py3-pip jq
