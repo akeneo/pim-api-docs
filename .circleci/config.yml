@@ -1,18 +1,12 @@
 version: 2.1
 
 orbs:
-  security-hunter: akeneo-orbs/security-hunter@2.15.6
-
-executors:
-  docker-python:
-    docker:
-      - image: cimg/python@sha256:fe156bd9d3262e6e7825bd5b0537ed908e5c1380dcaf4dc3f901a60f2cd7af66
-    resource_class: small
+  security-hunter: akeneo-orbs/security-hunter@2.15.10
 
 aliases:
-#  - &dockerExecutorWithPython
-#    docker:
-#      - image: python@sha256:c08bfdbffc9184cdfd225497bac12b2c0dac1d24bbe13287cfb7d99f1116cf43
+  - &dockerExecutorWithPython
+    docker:
+      - image: python@sha256:c08bfdbffc9184cdfd225497bac12b2c0dac1d24bbe13287cfb7d99f1116cf43
   - &dockerExecutorWithAlpineGit
     docker:
       - image: alpine/git
@@ -254,7 +248,6 @@ jobs:
           command: |
             gcloud compute url-maps invalidate-cdn-cache <<parameters.environment>>-https-lb --path "/*" --project=${GOOGLE_CLOUD_PROJECT} --async
   infrastructure: &infrastructure
-    executor: docker-python
     parameters:
       project_number:
         type: string
@@ -283,7 +276,7 @@ jobs:
       OIDC_PROVIDER: "circleci-jwt"
       GOOGLE_CLOUD_PROJECT: <<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>
       GOOGLE_COMPUTE_ZONE: europe-west3
-#    <<: *dockerExecutorWithPython
+    <<: *dockerExecutorWithPython
     steps:
       - attach_workspace:
           at: ~/
@@ -302,7 +295,6 @@ jobs:
           command: echo "The build has run with success! Let's merge :)"
 
   get_outdated_environment:
-    executor: docker-python
     parameters:
       project_number:
         type: string
@@ -312,7 +304,7 @@ jobs:
       project_id_without_stage:
         type: string
         default: "akecld-prd-pim-api-docs"
-#    <<: *dockerExecutorWithPython
+    <<: *dockerExecutorWithPython
     environment:
       GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
       OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
