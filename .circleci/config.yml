@@ -280,11 +280,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run:
-          name: Init python
-          command: |
-            export PYENV_ROOT="$HOME/.pyenv"
-            command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
       - terraform_handler:
           target_stage_id: <<parameters.target_stage_id>>
           deployment_scope: <<parameters.deployment_scope>>
@@ -459,6 +454,11 @@ commands:
         type: string
     steps:
       - security-hunter/install_terraform
+      - run:
+          name: Init python
+          command: |
+            export PYENV_ROOT="$HOME/.pyenv"
+            command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
       - security-hunter/gcp_oidc_auth:
           impersonate: true
       - when:
