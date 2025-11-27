@@ -316,6 +316,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
+      - run:
+          name: python/pip/install
+          command: apk --no-cache add py3-pip
       - security-hunter/gcp_oidc_auth:
           impersonate: true
       - run:
@@ -364,6 +367,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
+      - run:
+          name: python/pip/install
+          command: apk --no-cache add py3-pip
       - security-hunter/gcp_oidc_auth:
           impersonate: true
           token_type: 'access_token'
