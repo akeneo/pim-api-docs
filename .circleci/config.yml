@@ -324,7 +324,7 @@ jobs:
       - run:
           name: Install requirements
           command: |
-            pip3 install -r .circleci/tools/requirements.txt
+            pip3 install -r .circleci/tools/requirements.txt --quiet --break-system-packages
       - run:
           name: Generate config
           command: |
@@ -381,7 +381,7 @@ jobs:
           name: Install requirements
           command: |  
             export PATH=$(echo $PATH | sed -e 's|/opt/circleci/.pyenv/shims:||g')          
-            python3 -m pip install -r project/.circleci/tools/requirements.txt
+            python3 -m pip install -r project/.circleci/tools/requirements.txt --quiet --break-system-packages
       - run:
           name: Perform environment destroying
           command: |
