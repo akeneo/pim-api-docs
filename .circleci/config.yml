@@ -353,9 +353,8 @@ jobs:
       pull_request:
         type: boolean
         default: true
-    machine:
-      image: ubuntu-2204:2024.01.2
     working_directory: ~/
+    <<: *dockerExecutorWithPython
     environment:
       GOOGLE_PROJECT_NUMBER: << parameters.project_number >>
       OIDC_SERVICE_ACCOUNT_EMAIL: "ci-service-account@<<parameters.project_id_without_stage>>-<<parameters.target_stage_id>>.iam.gserviceaccount.com"
