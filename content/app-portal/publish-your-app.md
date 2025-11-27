@@ -1,7 +1,9 @@
 # App Publication Requirements
 
-::: warning Thank you for your interest in building an app for the Akeneo App Store.
-At the moment, we’re only able to actively support partners with whom we’ve defined a clear joint business case and roadmap. For other initiatives, we’re unfortunately not actively accepting new submissions.:::
+::: warning 
+Thank you for your interest in building an app for the Akeneo App Store.
+At the moment, we’re only able to actively support partners with whom we’ve defined a clear joint business case and roadmap. For other initiatives, we’re unfortunately not actively accepting new submissions.
+:::
 
 ## The Submission Process in a Nutshell
 **Getting Started**

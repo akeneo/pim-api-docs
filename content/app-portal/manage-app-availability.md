@@ -1,5 +1,7 @@
 # Manage your app's availability
-::: warning Thank you for your interest in building an app for the Akeneo App Store. At the moment, we are not actively accepting new submissions.:::
+::: warning 
+Thank you for your interest in building an app for the Akeneo App Store. At the moment, we are not actively accepting new submissions.
+:::
 
 ## Overview of publishing your app
 
