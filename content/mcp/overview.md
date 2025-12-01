@@ -31,7 +31,7 @@ The Akeneo MCP Server works with any MCP-compatible client, such as:
 
 The Akeneo MCP server supports the following PIM data concepts:
 
-| PIM data concept                     | Recovery           | Creation or update  |
+| PIM data concept                     | Read               | Creation or update  |
 |--------------------------------------|--------------------|---------------------|
 | `product`                            | :white_check_mark: | :white_check_mark:  |
 | `product model`                      | :white_check_mark: | :white_check_mark:  |
