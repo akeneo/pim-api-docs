@@ -1,4 +1,7 @@
 # Manage your app notifications
+::: warning 
+Thank you for your interest in building an app for the Akeneo App Store. At the moment, we are not actively accepting new submissions.
+:::
 
 With the notification subscription option, you can now stay up-to-date with app activation requests and new submissions effortlessly.
 

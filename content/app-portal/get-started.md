@@ -1,7 +1,9 @@
+
 # Get started in the App Portal
 Welcome to our [App Portal](https://manage.apps.akeneo.com/), a comprehensive platform empowering you to seamlessly manage, submit, and optimize your App extensions with ease.
-::: tips
-Ask us to send you an App Portal access via [apps@akeneo.com](mailto:apps@akeneo.com) when you're ready to start or submit your integration.
+
+::: warning 
+Thank you for your interest in building an app for the Akeneo App Store. At the moment, we are not actively accepting new submissions.
 :::
 
 ## App Portal dashboard
