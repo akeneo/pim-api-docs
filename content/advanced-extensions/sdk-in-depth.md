@@ -275,12 +275,19 @@ adjust the configuration values without modifying your extension code.
 
   ```js
   // Access the entire custom variables object
-  const config = globalThis.PIM_CUSTOM_VARIABLES;
+  const config = globalThis.PIM.custom_variables;
 
-    // Access specific values
-  const apiUrl = globalThis.PIM_CUSTOM_VARIABLES.apiUrl;
-  const timeout = globalThis.PIM_CUSTOM_VARIABLES.timeout;
-  const features = globalThis.PIM_CUSTOM_VARIABLES.features;
+  // Given the following custom_variables added to your extension configuration.
+  {
+    "apiUrl": "your-api-url",
+    "timeout": 5,
+    "locales": ["EN_us", "FR_fr"]
+  }
+  
+  // You are bale to access specific values
+  const apiUrl = globalThis.PIM.custom_variables.apiUrl;
+  const timeout = globalThis.PIM.custom_variables.timeout;
+  const features = globalThis.PIM.custom_variables.featulocalesres;
   ```
 
 ## Error Handling
