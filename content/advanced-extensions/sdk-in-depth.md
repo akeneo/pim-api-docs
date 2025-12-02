@@ -235,10 +235,10 @@ The external gateway provides a secure way to integrate your extension with exte
 
 ## Using Custom variables
 
-Custom Variables allow you to define configuration data that will be securely passed to your SDK Custom Component extensions at runtime. They are stored as encrypted JSON objects in the PIM database and made available to your extension's JavaScript code through a global variable.
+Custom Variables allow you to define configuration data that will be securely passed to your SDK Custom Component extensions at runtime. They are stored as encrypted JSON objects in the PIM database and made available in your extension's code through a global variable.
 
 This feature is designed to make your extensions adaptable across multiple PIM instances. By externalizing configuration through Custom Variables, you can deploy the same extension code to different environments (development, staging, production) or different customer PIM instances, and simply
-adjust the configuration values without modifying your JavaScript code.
+adjust the configuration values without modifying your extension code.
 
   ```js
   // Access the entire custom variables object
