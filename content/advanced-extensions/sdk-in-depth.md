@@ -190,7 +190,7 @@ if ('product' in PIM.context) {
 
 ## Navigation within the PIM
 
-The SDK provides a navigation method that allows you to open new tabs, but only within the Akeneo PIM application. This is useful for directing users to different sections of the PIM from your extension:
+The SDK provides navigation method that allows you to open new tabs. This is useful for directing users to different sections of the PIM from your extension:
 
 ```js
 // Navigate to a product edit page
@@ -204,12 +204,25 @@ PIM.navigate.internal('#/asset/video/asset/absorb_video/enrich');
 ```
 
 Important limitations to keep in mind:
-- This navigation method can **only** open tabs within the PIM application
+- The internal navigation method can **only** open tabs within the PIM application
 - It cannot be used to navigate to external websites or applications
 - The paths must be valid PIM routes that the user has permission to access
 - Navigation will open in a new tab, preserving the current extension context
 
 Use this feature to create helpful shortcuts or workflows that connect your extension's functionality with standard PIM screens.
+
+## Navigation to External Domains
+
+The SDK also provides a method to navigate to external websites outside the PIM application using `PIM.navigate.external()`:
+
+```js
+// Navigate to an external website
+PIM.navigate.external('https://example.com/page');
+```
+
+Important limitations to keep in mind:
+- **HTTPS Only**: Only HTTPS URLs are allowed for security reasons
+- Navigation will open in a new tab, preserving the current extension context
 
 ## External API Calls
 
