@@ -141,17 +141,50 @@ const response = await PIM.api.resource_v1.create(createParams);
 
 ## User Context
 
-The SDK provides access to the current user context through:
+The SDK provides access to the current user information through `PIM.user`:
+
+- `username`: The user's username
+- `uuid`: The user's UUID
+- `first_name`: The user's first name
+- `last_name`: The user's last name
+- `groups`: Array of user groups, each containing:
+  - `id`: The group ID
+  - `name`: The group name
 
 ```js
-// Get user information
 const currentUser = PIM.user;
 console.log(`Current user: ${currentUser.first_name} ${currentUser.last_name}`);
+```
 
-// Get contextual information (if available)
-const context = PIM.context;
-if ('product' in context) {
-  console.log(`Current product UUID: ${context.product.uuid}`);
+## Context Data by Extension Position
+
+The SDK provides access to the contextual information through `PIM.context`:
+
+### Product Page Positions
+- `product.uuid`: The product's UUID for simple product
+- `product.identifier`: The product's identifier for product-model & sub-product-model
+
+### Category Page Position
+- `category.code`: The category code
+
+### Product Grid Position
+- `productGrid.productUuids`: Array of selected product UUIDs
+- `productGrid.productModelCodes`: Array of selected product model codes
+
+### User Context (All Positions)
+For all positions, when available:
+- `user.catalog_locale`: The user's selected locale
+- `user.catalog_scope`: The user's selected channel
+
+Use type guards to determine which context is available:
+
+```js
+if ('product' in PIM.context) {
+  // Product page context
+} else if ('category' in PIM.context) {
+  // Category page context
+} else if ('productGrid' in PIM.context) {
+  // Product grid context
 }
 ```
 
