@@ -139,25 +139,58 @@ const createParams = {
 const response = await PIM.api.resource_v1.create(createParams);
 ```
 
-## User Context
+## User Information
 
-The SDK provides access to the current user context through:
+The SDK provides access to the current user information through `PIM.user`:
+
+- `username`: The user's username
+- `uuid`: The user's UUID
+- `first_name`: The user's first name
+- `last_name`: The user's last name
+- `groups`: Array of user groups, each containing:
+  - `id`: The group ID
+  - `name`: The group name
 
 ```js
-// Get user information
 const currentUser = PIM.user;
 console.log(`Current user: ${currentUser.first_name} ${currentUser.last_name}`);
+```
 
-// Get contextual information (if available)
-const context = PIM.context;
-if ('product' in context) {
-  console.log(`Current product UUID: ${context.product.uuid}`);
+## Context Data by Extension Position
+
+The SDK provides access to the contextual information through `PIM.context`:
+
+### Product Page Positions
+- `product.uuid`: The product's UUID for simple product
+- `product.identifier`: The product's identifier for product-model & sub-product-model
+
+### Category Page Position
+- `category.code`: The category code
+
+### Product Grid Position
+- `productGrid.productUuids`: Array of selected product UUIDs
+- `productGrid.productModelCodes`: Array of selected product model codes
+
+### User Context (All Positions)
+For all positions, when available:
+- `user.catalog_locale`: The user's selected locale
+- `user.catalog_scope`: The user's selected channel
+
+Use type guards to determine which context is available:
+
+```js
+if ('product' in PIM.context) {
+  // Product page context
+} else if ('category' in PIM.context) {
+  // Category page context
+} else if ('productGrid' in PIM.context) {
+  // Product grid context
 }
 ```
 
 ## Navigation within the PIM
 
-The SDK provides a navigation method that allows you to open new tabs, but only within the Akeneo PIM application. This is useful for directing users to different sections of the PIM from your extension:
+The SDK provides navigation method that allows you to open new tabs. This is useful for directing users to different sections of the PIM from your extension:
 
 ```js
 // Navigate to a product edit page
@@ -171,12 +204,25 @@ PIM.navigate.internal('#/asset/video/asset/absorb_video/enrich');
 ```
 
 Important limitations to keep in mind:
-- This navigation method can **only** open tabs within the PIM application
+- The internal navigation method can **only** open tabs within the PIM application
 - It cannot be used to navigate to external websites or applications
 - The paths must be valid PIM routes that the user has permission to access
 - Navigation will open in a new tab, preserving the current extension context
 
 Use this feature to create helpful shortcuts or workflows that connect your extension's functionality with standard PIM screens.
+
+## Navigation to External Domains
+
+The SDK also provides a method to navigate to external websites outside the PIM application using `PIM.navigate.external()`:
+
+```js
+// Navigate to an external website
+PIM.navigate.external('https://example.com/page');
+```
+
+Important limitations to keep in mind:
+- **HTTPS Only**: Only HTTPS URLs are allowed for security reasons
+- Navigation will open in a new tab, preserving the current extension context
 
 ## External API Calls
 
@@ -232,6 +278,29 @@ const secureResponse = await PIM.api.external.call({
 - Responses are returned as promises that can be handled with async/await
 
 The external gateway provides a secure way to integrate your extension with external systems while maintaining the security of the PIM environment.
+
+## Using Custom variables
+
+Custom Variables allow you to define configuration data that will be securely passed to your SDK Custom Component extensions at runtime. They are stored as encrypted JSON objects in the PIM database and made available in your extension's code through a global variable.
+
+This feature is designed to make your extensions adaptable across multiple PIM instances. By externalizing configuration through Custom Variables, you can deploy the same extension code to different environments (development, staging, production) or different customer PIM instances, and simply adjust the configuration values without modifying your extension code.
+
+  ```js
+  // Access the entire custom variables object
+  const config = globalThis.PIM.custom_variables;
+
+  // Given the following custom_variables added to your extension configuration.
+  {
+    "apiUrl": "your-api-url",
+    "timeout": 5,
+    "locales": ["EN_us", "FR_fr"]
+  }
+  
+  // You are able to access specific values
+  const apiUrl = globalThis.PIM.custom_variables.apiUrl;
+  const timeout = globalThis.PIM.custom_variables.timeout;
+  const features = globalThis.PIM.custom_variables.locales;
+  ```
 
 ## Error Handling
 

@@ -37,6 +37,9 @@ If you prefer an automated deployments method, check out the [API deployment gui
      - **Basic Auth**: For username/password authentication
      - **Custom Header**: For custom HTTP headers
 
+- **Add Custom variables**
+     - You can add custom variables that will be passed to your extension. The accepted format is JSON.
+
 - **Save and Activate**:
    - Click "Save" to store your extension configuration
    - The extension will be immediately available in the configured position
