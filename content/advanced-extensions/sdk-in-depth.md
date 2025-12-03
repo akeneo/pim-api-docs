@@ -139,7 +139,7 @@ const createParams = {
 const response = await PIM.api.resource_v1.create(createParams);
 ```
 
-## User Context
+## User Information
 
 The SDK provides access to the current user information through `PIM.user`:
 
@@ -283,8 +283,7 @@ The external gateway provides a secure way to integrate your extension with exte
 
 Custom Variables allow you to define configuration data that will be securely passed to your SDK Custom Component extensions at runtime. They are stored as encrypted JSON objects in the PIM database and made available in your extension's code through a global variable.
 
-This feature is designed to make your extensions adaptable across multiple PIM instances. By externalizing configuration through Custom Variables, you can deploy the same extension code to different environments (development, staging, production) or different customer PIM instances, and simply
-adjust the configuration values without modifying your extension code.
+This feature is designed to make your extensions adaptable across multiple PIM instances. By externalizing configuration through Custom Variables, you can deploy the same extension code to different environments (development, staging, production) or different customer PIM instances, and simply adjust the configuration values without modifying your extension code.
 
   ```js
   // Access the entire custom variables object
@@ -297,10 +296,10 @@ adjust the configuration values without modifying your extension code.
     "locales": ["EN_us", "FR_fr"]
   }
   
-  // You are bale to access specific values
+  // You are able to access specific values
   const apiUrl = globalThis.PIM.custom_variables.apiUrl;
   const timeout = globalThis.PIM.custom_variables.timeout;
-  const features = globalThis.PIM.custom_variables.featulocalesres;
+  const features = globalThis.PIM.custom_variables.locales;
   ```
 
 ## Error Handling
