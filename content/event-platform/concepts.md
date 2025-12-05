@@ -39,6 +39,7 @@ The following properties represent a subscription:
 | `events` | Populated by the user at creation | A list of events that the subscription is tracking |
 | `status` | Automatically populated | The subscription status |
 | `config` | Populated by the user at creation | The subscription configuration is based on the subscription type. See below for further details. |
+| `send_product_identifier` | Optional, default: `false` | If set to `true`, includes the product identifier in product events when available. This field only applies to product events (`com.akeneo.pim.v1.product.*`), not product-model events. |
 
 The statuses for a subscription are:
 
@@ -79,6 +80,7 @@ For the `pubsub` subscription type, the `config` property needed when creating t
         "com.akeneo.pim.v1.product.updated"
     ],
     "type": "pubsub",
+    "send_product_identifier": false,
     "config": {
         "project_id": "your_google_project_id",
         "topic_id": "your_google_pubsub_topic_id"
@@ -140,6 +142,7 @@ Additionally, it requires at least a primary secret (with an optional secondary 
     "com.akeneo.pim.v1.product.updated"
   ],
   "type": "https",
+  "send_product_identifier": false,
   "config": {
     "url": "https://your_webhook_url",
     "secret": {
@@ -223,6 +226,7 @@ For the `kafka` subscription type, the `config` property requires the Kafka clus
         "com.akeneo.pim.v1.product.updated"
     ],
     "type": "kafka",
+    "send_product_identifier": false,
     "config": {
         "broker": "kafka-cluster.example.com:9092",
         "topic": "pim-events",
@@ -313,6 +317,7 @@ You can configure your subscription with the following filter:
     "com.akeneo.pim.v1.product.updated"
   ],
   "type": "https",
+  "send_product_identifier": false,
   "config": {
     "url": "https://your_webhook_url",
   }
@@ -342,7 +347,8 @@ Example of an event payload for a productDeleted event
   "time": "2024-03-07T15:16:37Z",
   "data": {
     "product": {
-      "uuid": "3444ec1b-058e-4208-9b6c-284f47a7aa17"
+      "uuid": "3444ec1b-058e-4208-9b6c-284f47a7aa17",
+      "identifier": "my-product-identifier"
     }
     "author": {
       "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
@@ -351,6 +357,10 @@ Example of an event payload for a productDeleted event
   }
 }
 ```
+
+::: info
+The `identifier` field in product events is only included when the subscription has `send_product_identifier` set to `true`. If `send_product_identifier` is `false` or not set, only the `uuid` field will be present in the product object.
+:::
 
 |         |   |
 |----------|-----------------------------------------------|
