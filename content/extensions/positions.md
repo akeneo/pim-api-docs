@@ -60,7 +60,9 @@ This position refers to the tab of a category edit page.
 This position refers to the action bar of the product grid. It is used to add actions that can be applied to multiple products at once.
 
 ::: warning
-For the moment, you can't use UI extensions with more than **500** selected products & product models.
+  When using a UI extension in this context, note that:
+  - Some filters are not applied when listing products and product models
+  - The number of selected items is limited to 500
 :::
 [![pim-product-grid-action-bar.png](../img/extensions/ui-extensions/positions/pim-product-grid-action-bar.png)](../img/extensions/ui-extensions/positions/pim-product-grid-action-bar.png)
 

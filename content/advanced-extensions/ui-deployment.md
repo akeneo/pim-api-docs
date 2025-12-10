@@ -12,19 +12,19 @@ If you prefer an automated deployments method, check out the [API deployment gui
 
 [![custom-component-creation-form.png](../img/extensions/ui-extensions/custom-component-creation-form.png)](../img/extensions/ui-extensions/custom-component-creation-form.png)
 
-- **Log into your Akeneo PIM** with appropriate permissions
+- **Log into your Akeneo PIM** with appropriate [permissions](https://help.akeneo.com/extensions/ui-extentions#permissions)
 
 - **Navigate to the Extensions section**:
-   - Go to System → Extensions → UI Extensions
+   - Go to System → UI Extensions
 
 - **Create or Update an Extension**:
    - Click on "Create" to add a new extension, or select an existing extension to update it
 
 - **Fill in the Extension Details**:
    - **Name**: Enter a unique identifier for your extension (e.g., `my-custom-panel`)
+   - **Labels**: Add display labels for different locales
    - **Type**: Select `SDK Script`
    - **Position**: Choose where your extension should appear in the PIM (e.g., `pim.product.panel`, `pim.activity.navigation.tab`)
-   - **Labels**: Add display labels for different locales
 
 - **Upload Your Script File**:
    - Click the file upload button
@@ -43,10 +43,6 @@ If you prefer an automated deployments method, check out the [API deployment gui
 - **Save and Activate**:
    - Click "Save" to store your extension configuration
    - The extension will be immediately available in the configured position
-
-## Related content
-- [API deployment process](/advanced-extensions/positions.html)
-- [Learn more about the development workflow](advanced-extensions/development-workflow.html)
 
 ::: panel-link [Learn more about credentials](/advanced-extensions/sdk-credentials.html)
 :::
