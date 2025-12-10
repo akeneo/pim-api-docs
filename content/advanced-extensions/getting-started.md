@@ -1,7 +1,7 @@
 # Getting Started
 
 In this section, you will learn how to create your first Custom Component extension quickly.
-This quick guide will help you understand the basic workflow for creating and managing Extensions.
+This guide will help you understand the basic workflow for creating and managing Extensions.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ The `make start` command will:
 - Create the extension in your PIM for the first time
 
 ::: info
-The SDK repository provides ready-to-use example projects that serve as templates for building your own extensions. Start with `examples/quickstart` for a basic setup, or explore `examples/stock_data_on_panel` for a more advanced example.
+The SDK repository provides ready-to-use example projects that serve as templates for building your own extensions. Start with `examples/quickstart` for a basic setup, or explore the others for more advanced examples.
 :::
 
 ### 2. Build Your Extension
@@ -69,7 +69,7 @@ After deployment, find your extension in the PIM:
 4. The quickstart example will display information from the PIM API
 
 ::: warning
-You may need to refresh the page for the extension to appear.
+You need to refresh the page for the extension to appear.
 :::
 
 **Congratulations!** You've created your first custom component.
