@@ -272,7 +272,6 @@ const secureResponse = await PIM.api.external.call({
 ### Important Considerations
 
 - This is the **only method** allowed for accessing external resources from your extension
-- All external domains must be allowlisted in your extension configuration
 - For security reasons, requests are proxied through the PIM server
 - The method supports standard HTTP methods (GET, POST, PUT, DELETE, etc.)
 - Responses are returned as promises that can be handled with async/await
