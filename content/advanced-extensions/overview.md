@@ -3,7 +3,7 @@
 
 ## What Are Custom Components?
 
-A **custom component** extension is a JavaScript application built with the **Akeneo Extension SDK** that runs securely within the PIM. Unlike other extension types that load external URLs, custom components are self-contained JavaScript code that executes directly in the PIM's secure sandbox environment.
+A **custom component** extension is a self-contained JavaScript application built with the **Akeneo Extension SDK** that runs securely within the PIM.
 
 This is the most powerful extension type, allowing you to build rich, interactive user interfaces with full access to PIM APIs, all without requiring external hosting infrastructure.
 
