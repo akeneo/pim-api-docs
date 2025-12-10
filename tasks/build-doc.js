@@ -848,7 +848,6 @@ gulp.task('build-advanced-extensions', ['clean-dist','less'], function () {
           'api-deployment.md': "API Deployment",
           'ui-deployment.md': "UI Deployment",
           'sdk-credentials.md': "Credentials",
-          'filtering.md': "Filter and display",
           'faq.md': "FAQ & Troubleshooting",
       };
 

@@ -4,12 +4,6 @@
 
 Credentials allow your Extensions to make authenticated calls to external APIs and services. When you configure credentials for your extension, they are securely stored in the PIM and automatically included as headers in your API requests.
 
-This system provides several key benefits:
-- **Security**: Credentials are encrypted before storage and never exposed to the browser
-- **Server-side Execution**: All authenticated API calls are made server-side
-- **Ease of Use**: Simply reference a credential code in your extension - no manual header management needed
-- **Multiple Authentication Methods**: Support for Bearer tokens, Basic Auth, and custom headers
-
 ## Available Credential Methods
 
 | Method               | Header Format                                      | Use Case |
@@ -24,8 +18,8 @@ This system provides several key benefits:
 
 When creating or editing an Extension in the PIM interface, you can add credentials in the credentials section:
 
-1. **Select Authentication Method**: Choose from Bearer Token, Basic Auth, or Custom Header
-2. **Assign a Credential Code**: Enter a unique code to identify this credential (e.g., `erp_api_token`)
+1. **Assign a Credential Code**: Enter a unique code to identify this credential (e.g., `erp_api_token`)
+2. **Select Authentication Method**: Choose from Bearer Token, Basic Auth, or Custom Header
 3. **Enter Credential Values**:
    - **Bearer Token**: Enter the token value
    - **Basic Auth**: Enter username and password
@@ -180,14 +174,6 @@ By using the `credentials_code` parameter:
 - Credentials never reach the browser or client-side code
 - Your sensitive data remains protected
 
-### Additional Security Tips
-
-1. **Rotate Credentials Regularly**: Update stored credentials periodically
-2. **Use Least Privilege**: Grant only the minimum permissions needed for external APIs
-3. **Monitor Usage**: Track which extensions are accessing external services
-4. **Validate Responses**: Always validate data received from external APIs
-5. **Handle Errors Gracefully**: Don't expose sensitive information in error messages
-
 ## Complete Example
 
 Here's a complete example showing credential setup and usage:
@@ -250,6 +236,5 @@ If external API calls return 401 or 403 errors:
 - Check if the external API token has expired
 - Ensure the external API endpoint allows requests from your PIM server IP
 
-### Domain Allowlisting
-
-Remember that external API domains must be allowlisted in your extension configuration for security purposes.
+::: panel-link FAQ [Next](/advanced-extensions/faq.html)
+:::
