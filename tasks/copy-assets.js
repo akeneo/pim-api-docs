@@ -39,5 +39,5 @@ gulp.task('copy-assets', ['clean-dist'], function(){
     var mapping = gulp.src('content/mapping/**')
       .pipe(gulp.dest('dist/mapping/'));
 
-    return merge(fa, fonts, lib, img);
+    return merge(fa, fonts, lib, img, files, mapping);
 });
