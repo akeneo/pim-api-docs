@@ -4,7 +4,7 @@
 var gulp = require('gulp');
 var merge = require('merge-stream');
 
-gulp.task('copy-assets', ['clean-dist'], function(){
+gulp.task('copy-assets', ['clean-dist', 'fetch-postman-collection', 'fetch-postman-environment'], function(){
     var fa = gulp.src(['node_modules/font-awesome/css/font-awesome.min.css',
             'node_modules/prismjs/themes/prism-okaidia.css'])
         .pipe(gulp.dest('dist/css/'));
@@ -39,5 +39,5 @@ gulp.task('copy-assets', ['clean-dist'], function(){
     var mapping = gulp.src('content/mapping/**')
       .pipe(gulp.dest('dist/mapping/'));
 
-    return merge(fa, fonts, lib, img, files, mapping);
+    return merge(fa, fonts, lib, img);
 });
