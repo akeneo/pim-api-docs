@@ -11,6 +11,8 @@ config.json
 # OpenAPI spec file updated automatically
 /content/openapi/openapi.json
 /content/swagger/openapi.json
+/content/files/akeneo-postman-collection.json
+/content/files/akeneo-postman-environment.json
 
 # fetched from remote source :
 available-events.md

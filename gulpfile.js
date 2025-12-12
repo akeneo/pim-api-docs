@@ -41,8 +41,6 @@ gulp.task('create-dist', [
   'copy-assets',
   'reference',
   'reference-paas',
-  'fetch-postman-collection',
-  'fetch-postman-environment',
   'landings',
   'build-concepts',
   'build-rest-api',
