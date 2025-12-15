@@ -10,6 +10,7 @@ For example, when `url` is `https://customerwebsite.com/iframe/`, the called URL
 
 For all positions, parameters relative to the connected user, the extension position and the tenant are sent:
 - `user[id]`
+- `user[uuid]`
 - `user[username]`
 - `user[email]`
 - `user[ui_locale]`
@@ -63,6 +64,9 @@ Example :
       "IT support",
       "All"
     ]
+  },
+"filters": {
+//wip
   }
 }
 ```
