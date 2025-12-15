@@ -41,6 +41,7 @@ This field contains :
   - A `productModelCodes` field which is an array of string representing the codes of selected product models and sub models
 - A `context` object containing the configured `locale` and `channel`.
 - A `user` object containing the `uuid`, `username` and `groups` of the connected user.
+- A filter object containg the current filters for product and product models.
 
 Example :
 ```json
@@ -65,8 +66,9 @@ Example :
       "All"
     ]
   },
-"filters": {
-//wip
+  "filters": {
+    "productFilters": {"uuid":[{"operator":"IN","value":["f752ba10-ccb8-4574-b901-20c3a209a73c","761c5d65-391b-41c9-9f7a-255f533d1386","2f2df813-2f02-435f-946b-19f733e5d408"]}]}
+    "productModelFilters": {"identifier":[{"operator":"IN","value":["amor","aphrodite","apollon"]}]}
   }
 }
 ```
