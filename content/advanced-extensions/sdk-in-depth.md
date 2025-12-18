@@ -171,12 +171,18 @@ The SDK provides access to the contextual information through `PIM.context`:
 - `productGrid.productUuids`: Array of selected product UUIDs
 - `productGrid.productModelCodes`: Array of selected product model codes
 
-### User Context (All Positions)
-For all positions, when available:
+### All Positions
+
+Extension postion:
+- `position`: The extension display position
+
+User Context:
 - `user.catalog_locale`: The user's selected locale
 - `user.catalog_scope`: The user's selected channel
 
+::: info
 Use type guards to determine which context is available:
+:::
 
 ```js
 if ('product' in PIM.context) {
