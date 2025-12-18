@@ -95,7 +95,7 @@ Take a look at the [permissions](/documentation/permissions.html) documentation.
 :::
 
 :::warning
-In some specific cases, a `403 Forbidden` response may also be returned when the platform determines that the request cannot be processed due to operational constraints. If you encounter this error, consider reducing the scope of your request by sending fewer items per batch or splitting your data into smaller operations.
+If your request payload is too large for the platform to process, you may receive a `403 Forbidden` response. To resolve this, try splitting your data into smaller chunks or lowering the item count per request to ensure the payload remains within the allowed size.
 :::
 
 ### 404 error
@@ -163,7 +163,7 @@ The API limits batch operations to a maximum of 100 items per request. Additiona
 :::
 
 :::warning
-Note that in some cases, operational constraints may result in a `403 Forbidden` error instead of `413`. See the [403 error](#403-error) section above for more details.
+Note that if your request payload is too large for the platform to process, you may receive a `403 Forbidden` error instead of `413`. See the [403 error](#403-error) section above for more details.
 :::
 
 ### 415 error
