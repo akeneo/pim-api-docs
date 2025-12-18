@@ -95,7 +95,7 @@ Take a look at the [permissions](/documentation/permissions.html) documentation.
 :::
 
 :::warning
-In some specific cases, a `403 Forbidden` response may also be returned when the request payload exceeds infrastructure-level size limits. This is a protection measure to ensure API stability and availability for all users. If you encounter this error when sending large payloads, consider reducing the number of items per request or splitting your data into smaller batches. See the [413 error](#413-error) section below for more details about payload size limits.
+In some specific cases, a `403 Forbidden` response may also be returned when the platform determines that the request cannot be processed due to operational constraints. If you encounter this error, consider reducing the scope of your request by sending fewer items per batch or splitting your data into smaller operations.
 :::
 
 ### 404 error
@@ -163,7 +163,7 @@ The API limits batch operations to a maximum of 100 items per request. Additiona
 :::
 
 :::warning
-Note that in some cases, infrastructure-level protections may return a `403 Forbidden` error instead of `413` when payload size limits are exceeded. See the [403 error](#403-error) section above for more details.
+Note that in some cases, operational constraints may result in a `403 Forbidden` error instead of `413`. See the [403 error](#403-error) section above for more details.
 :::
 
 ### 415 error
