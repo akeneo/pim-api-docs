@@ -90,8 +90,12 @@ HTTP/1.1 403 Forbidden
 ```
 
 :::info
-You are experiencing this kind of error and you do not know how to solve it?  
+You are experiencing this kind of error and you do not know how to solve it?
 Take a look at the [permissions](/documentation/permissions.html) documentation. This might save your day!
+:::
+
+:::warning
+If your request payload is too large for the platform to process, you may receive a `403 Forbidden` response. To resolve this, try splitting your data into smaller chunks or lowering the item count per request to ensure the payload remains within the allowed size.
 :::
 
 ### 404 error
@@ -141,6 +145,27 @@ When a request could not be processed because of conflict, it results in a `409 
 HTTP/1.1 409 Conflict
 ```
 
+### 413 error
+Sending too many resources at once or a payload that is too large results in a `413 Request Entity Too Large` response.
+
+#### Example
+```http
+HTTP/1.1 413 Request Entity Too Large
+
+{
+    "code": 413,
+    "message": "Too many resources to process, 100 is the maximum allowed."
+}
+```
+
+:::info
+The API limits batch operations to a maximum of 100 items per request. Additionally, individual JSON lines cannot exceed 1,000,000 characters. If you need to process more data, please split your requests into smaller batches.
+:::
+
+:::warning
+Note that if your request payload is too large for the platform to process, you may receive a `403 Forbidden` error instead of `413`. See the [403 error](#403-error) section above for more details.
+:::
+
 ### 415 error
 Trying to give the `Content-type` header a value different from `application/json` when posting or patching data, results in a `415 Unsupported Media Type` response.
 
@@ -150,7 +175,7 @@ HTTP/1.1 415 Unsupported Media Type
 
 {
   "code": 415,
-  "message": "‘xxx’ in ‘Content-type’ header is not valid.  Only ‘application/json’ is allowed."
+  "message": "'xxx' in 'Content-type' header is not valid.  Only 'application/json' is allowed."
 }
 ```
 
@@ -162,7 +187,7 @@ HTTP/1.1 415 Unsupported Media Type
 
 {
   "code": 415,
-  "message":"The ‘Content-type’ header is missing. ‘application/json’ has to specified as value."
+  "message":"The 'Content-type' header is missing. 'application/json' has to specified as value."
 }
 ```
 
