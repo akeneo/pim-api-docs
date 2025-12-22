@@ -79,12 +79,12 @@ Here are some examples of requests that can be made:
 
 ### Update PIM data
 - `"Update product 'Super T-shirt' with description 'Premium quality fabric'"`
-- `"Adds my 'description' attribute to all my families"`
+- `"Add my 'description' attribute to all my families"`
 - `"Complete the missing labels for the options in my 'color' attribute"`
 
 ### Creation of new PIM data
 - `"Create a 'tshirt' family with variations on two axes: size and color"`
-- `"Created a new 'Color' reference entity with all the colors for our collection"`
+- `"Create a new 'Color' reference entity with all the colors for our collection"`
 - `"Add a new product to my 'tshirt' family, available in sizes S, M, L and XL and in white, black and red"`
 
 ### Check Compliance
