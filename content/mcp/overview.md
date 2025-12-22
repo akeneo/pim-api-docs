@@ -62,9 +62,9 @@ The Akeneo MCP server supports the following PIM data concepts:
 | `catalog product`                    | :x:                | :x:                 |
 | `mapping schema for product`         | :x:                | :x:                 |
 | `ui extension`                       | :x:                | :x:                 |
-| `workflow`                           | :x:                | :x:                 |
+| `workflow`                           | :white_check_mark: | :white_check_mark:  |
 | `workflow execution`                 | :x:                | :x:                 |
-| `workflow task`                      | :x:                | :x:                 |
+| `workflow task`                      | :white_check_mark: | :white_check_mark:  |
 
 ## What You Can Do
 
