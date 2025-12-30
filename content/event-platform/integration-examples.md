@@ -14,7 +14,11 @@ To respect our strict timeout policy, you should never run your business logic d
 
 Privilege the solution of exposing an HTTP endpoint, which will put the event in a queue. To illustrate the example, you can put events in an AWS SQS queue and run your business logic asynchronously.
 
-![custom-integration-with-aws.png](../img/aep/custom-integration-with-aws.png)
+<a href="../img/aep/custom-integration-with-aws.png" target="_blank">
+<img class="img-responsive in-article" src="../img/aep/custom-integration-with-aws.png" alt="custom-integration-with-aws.png">
+</a>
+
+*(Click on the image to view it in full size)*
 
 ### Handle multi-tenant use cases with the Event Platform
 
@@ -40,7 +44,11 @@ How can we manage it:
 | https://tenant-a.cloud.akeneo.com | subscriber-tenant-a | subscription-pubsub-tenant-a | `pim-events` |
 | https://tenant-b.cloud.akeneo.com | subscriber-tenant-b | subscription-pubsub-tenant-b | `pim-events` |
 
-![multitenant-use-case.png](../img/aep/multitenant-use-case.png)
+<a href="../img/aep/multitenant-use-case.png" target="_blank">
+<img class="img-responsive in-article" src="../img/aep/multitenant-use-case.png" alt="multitenant-use-case.png">
+</a>
+
+*(Click on the image to view it in full size)*
 
 This way, when a new tenant is configured in your App, call the Event platform management API again to create a new subscriber and a new subscription with the correct credentials without needing to deploy other resources or infrastructure changes.
 
@@ -61,7 +69,11 @@ In the example below, we can imagine the following change: let’s say we want t
 | https://tenant-b.cloud.akeneo.com | subscriber-tenant-b | subscription-pubsub-tenant-b | `pim-events` |  |
 | https://tenant-b.cloud.akeneo.com | subscriber-tenant-b | subscription-webhook-tenant-b |  | `https://myapp.com/tenant-b-hook` |
 
-![more-complex-use-case.png](../img/aep/more-complex-use-case.png)
+<a href="../img/aep/more-complex-use-case.png" target="_blank">
+<img class="img-responsive in-article" src="../img/aep/more-complex-use-case.png" alt="more-complex-use-case.png">
+</a>
+
+*(Click on the image to view it in full size)*
 
 You could also choose to keep only one Google Cloud Topic and deal with different event types coming from different tenants. Everything is possible. You should start simple and adapt the topology according to your needs.
 
