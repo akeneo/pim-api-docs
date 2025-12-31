@@ -49,7 +49,7 @@ This creates an optimized, production-ready JavaScript file in the `dist/` direc
 You have two options for deploying your extension:
 
 **Option A: Via PIM UI** (No API token required)
-- Navigate to System → Extensions → UI Extensions
+- Navigate to System → Extensions 
 - Click "Create" and upload your built JavaScript file
 - Configure the extension name, position, and labels
 - [Learn about UI deployment](/advanced-extensions/ui-deployment.html)

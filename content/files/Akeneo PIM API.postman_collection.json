@@ -5204,7 +5204,7 @@
 			"name": "Extensions",
 			"item": [
 				{
-					"name": "UI Extension",
+					"name": "Extension",
 					"item": [
 						{
 							"name": "List extensions",
@@ -5400,7 +5400,7 @@
 							"response": []
 						}
 					],
-					"description": "Manipulate UI Extensions"
+					"description": "Manipulate Extensions"
 				}
 			],
 			"auth": {

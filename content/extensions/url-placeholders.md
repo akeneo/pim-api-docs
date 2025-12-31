@@ -93,7 +93,7 @@ If the URL begins with a placeholder, we won't verify its validity. The link mig
 
 ### Locale and Channel
 
-For Link extension, if you create a placeholder with a localizable or scopable attributes, the placeholder uses the current user's context:
+If you create a placeholder with a localizable or scopable attributes, the placeholder uses the current user's context:
 
 **Product has:**
 ```json
