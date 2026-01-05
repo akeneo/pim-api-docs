@@ -24,11 +24,11 @@ The easiest way to manipulate the Event Platform API for a quickstart will be th
 
 The collection comes with a pre-script to deal with the authentication specificities when using a PIM Connection.
 
-Fill the environment variables with your PIM connection values, and it will automatically generate an `access_token` if the credentials you provide are valid.
+Fill the environment variables with your PIM connection values, and it will automatically generate a `pim_access_token` if the credentials you provide are valid.
 You can leave `subscriberId` and `subscriptionId` blank for now.
 
-<a href="../img/aep/postman-collection.png" target="_blank">
-<img class="img-responsive in-article" src="../img/aep/postman-collection.png" alt="postman-collection.png">
+<a href="../img/aep/postman-environment-template.png" target="_blank">
+<img class="img-responsive in-article" src="../img/aep/postman-environment-template.png" alt="postman-environment-template.png">
 </a>
 
 *(Click on the image to view it in full size)*
