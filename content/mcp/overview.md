@@ -35,36 +35,36 @@ The Akeneo MCP server supports the following PIM data concepts:
 |--------------------------------------|--------------------|---------------------|
 | `product`                            | :white_check_mark: | :white_check_mark:  |
 | `product model`                      | :white_check_mark: | :white_check_mark:  |
-| `Product media file`                 | :x:                | :x:                 |
-| `Jobs`                               | :x:                | :x:                 |
-| `Family`                             | :white_check_mark: | :white_check_mark:  |
-| `Family variant`                     | :white_check_mark: | :white_check_mark:  |
-| `Attribute`                          | :white_check_mark: | :white_check_mark:  |
-| `Attribute option`                   | :white_check_mark: | :white_check_mark:  |
-| `Attribute group`                    | :white_check_mark: | :white_check_mark:  |
-| `Association type`                   | :white_check_mark: | :white_check_mark:  |
-| `Category`                           | :white_check_mark: | :white_check_mark:  |
-| `Channel`                            | :white_check_mark: | :white_check_mark:  |
-| `Locale`                             | :white_check_mark: | :x:                 |
-| `Currency`                           | :white_check_mark: | :x:                 |
-| `Measurement family`                 | :white_check_mark: | :white_check_mark:  |
-| `Reference entity`                   | :white_check_mark: | :white_check_mark:  |
-| `Reference entity attribute`         | :white_check_mark: | :white_check_mark:  |
-| `Reference entity attribute option`  | :white_check_mark: | :white_check_mark:  |
-| `Reference entity record`            | :white_check_mark: | :white_check_mark:  |
-| `Reference entity media file`        | :x:                | :x:                 |
-| `Asset family`                       | :white_check_mark: | :white_check_mark:  |
-| `Asset attribute`                    | :white_check_mark: | :white_check_mark:  |
-| `Asset attribute option`             | :white_check_mark: | :white_check_mark:  |
-| `Asset`                              | :white_check_mark: | :white_check_mark:  |
-| `Asset media file`                   | :x:                | :x:                 |
-| `Catalog`                            | :x:                | :x:                 |
-| `Catalog product`                    | :x:                | :x:                 |
-| `Mapping schema for product`         | :x:                | :x:                 |
-| `UI extension`                       | :x:                | :x:                 |
-| `Workflow`                           | :x:                | :x:                 |
-| `Workflow execution`                 | :x:                | :x:                 |
-| `Workflow task`                      | :x:                | :x:                 |
+| `product media file`                 | :x:                | :x:                 |
+| `jobs`                               | :x:                | :x:                 |
+| `family`                             | :white_check_mark: | :white_check_mark:  |
+| `family variant`                     | :white_check_mark: | :white_check_mark:  |
+| `attribute`                          | :white_check_mark: | :white_check_mark:  |
+| `attribute option`                   | :white_check_mark: | :white_check_mark:  |
+| `attribute group`                    | :white_check_mark: | :white_check_mark:  |
+| `association type`                   | :white_check_mark: | :white_check_mark:  |
+| `category`                           | :white_check_mark: | :white_check_mark:  |
+| `channel`                            | :white_check_mark: | :white_check_mark:  |
+| `locale`                             | :white_check_mark: | :x:                 |
+| `currency`                           | :white_check_mark: | :x:                 |
+| `measurement family`                 | :white_check_mark: | :white_check_mark:  |
+| `reference entity`                   | :white_check_mark: | :white_check_mark:  |
+| `reference entity attribute`         | :white_check_mark: | :white_check_mark:  |
+| `reference entity attribute option`  | :white_check_mark: | :white_check_mark:  |
+| `reference entity record`            | :white_check_mark: | :white_check_mark:  |
+| `reference entity media file`        | :x:                | :x:                 |
+| `asset family`                       | :white_check_mark: | :white_check_mark:  |
+| `asset attribute`                    | :white_check_mark: | :white_check_mark:  |
+| `asset attribute option`             | :white_check_mark: | :white_check_mark:  |
+| `asset`                              | :white_check_mark: | :white_check_mark:  |
+| `asset media file`                   | :x:                | :x:                 |
+| `catalog`                            | :x:                | :x:                 |
+| `catalog product`                    | :x:                | :x:                 |
+| `mapping schema for product`         | :x:                | :x:                 |
+| `ui extension`                       | :x:                | :x:                 |
+| `workflow`                           | :white_check_mark: | :white_check_mark:  |
+| `workflow execution`                 | :x:                | :x:                 |
+| `workflow task`                      | :white_check_mark: | :white_check_mark:  |
 
 ## What You Can Do
 
@@ -79,12 +79,12 @@ Here are some examples of requests that can be made:
 
 ### Update PIM data
 - `"Update product 'Super T-shirt' with description 'Premium quality fabric'"`
-- `"Adds my 'description' attribute to all my families"`
+- `"Add my 'description' attribute to all my families"`
 - `"Complete the missing labels for the options in my 'color' attribute"`
 
 ### Creation of new PIM data
 - `"Create a 'tshirt' family with variations on two axes: size and color"`
-- `"Created a new 'Color' reference entity with all the colors for our collection"`
+- `"Create a new 'Color' reference entity with all the colors for our collection"`
 - `"Add a new product to my 'tshirt' family, available in sizes S, M, L and XL and in white, black and red"`
 
 ### Check Compliance

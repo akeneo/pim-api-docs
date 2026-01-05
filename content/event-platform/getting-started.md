@@ -27,7 +27,11 @@ The collection comes with a pre-script to deal with the authentication specifici
 Fill the environment variables with your PIM connection values, and it will automatically generate a `pim_access_token` if the credentials you provide are valid.
 You can leave `subscriberId` and `subscriptionId` blank for now.
 
-![postman-environment-template.png](../img/aep/postman-environment-template.png)
+<a href="../img/aep/postman-environment-template.png" target="_blank">
+<img class="img-responsive in-article" src="../img/aep/postman-environment-template.png" alt="postman-environment-template.png">
+</a>
+
+*(Click on the image to view it in full size)*
 
 ### 3. Create a Subscriber
 
@@ -35,7 +39,11 @@ You can leave `subscriberId` and `subscriptionId` blank for now.
 2. Send a `Create a Subscriber` POST request
 3. Copy/Paste the newly created Subscriber id in your `subscriberId` environment variable
 
-![postman-create-subscriber.png](../img/aep/postman-create-subscriber.png)
+<a href="../img/aep/postman-create-subscriber.png" target="_blank">
+<img class="img-responsive in-article" src="../img/aep/postman-create-subscriber.png" alt="postman-create-subscriber.png">
+</a>
+
+*(Click on the image to view it in full size)*
 
 ### 4. Create a Subscription
 
@@ -43,7 +51,11 @@ You can leave `subscriberId` and `subscriptionId` blank for now.
 2. You can update the `events` array to receive more event types
 3. Send a `Create a Subscription` POST request
 
-![postman-create-subscription.png](../img/aep/postman-create-subscription.png)
+<a href="../img/aep/postman-create-subscription.png" target="_blank">
+<img class="img-responsive in-article" src="../img/aep/postman-create-subscription.png" alt="postman-create-subscription.png">
+</a>
+
+*(Click on the image to view it in full size)*
 
 ### 5. Trigger an Event from the PIM
 
