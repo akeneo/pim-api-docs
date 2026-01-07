@@ -6,7 +6,7 @@ Having the proper [permission](https://help.akeneo.com/extensions/ui-extentions#
 
 ### Access the Extensions management Interface
 
-- Navigate to the Extensions list, in the `PIM System > Ui Extensions`
+- Navigate to the Extensions list, in the `PIM System > Extensions`
 
 ### Create a New Extension Link
 

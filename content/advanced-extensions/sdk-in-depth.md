@@ -158,7 +158,7 @@ console.log(`Current user: ${currentUser.first_name} ${currentUser.last_name}`);
 
 ## Context Data by Extension Position
 
-The SDK provides access to the contextual information through `PIM.context`:
+The SDK  access to the contextual information through `PIM.context`:
 
 ### Product Page Positions
 - `product.uuid`: The product's UUID for simple product
@@ -196,7 +196,7 @@ if ('product' in PIM.context) {
 
 ## Navigation within the PIM
 
-The SDK provides navigation method that allows you to open new tabs. This is useful for directing users to different sections of the PIM from your extension:
+The SDK  navigation method that allows you to open new tabs. This is useful for directing users to different sections of the PIM from your extension:
 
 ```js
 // Navigate to a product edit page
@@ -219,7 +219,7 @@ Use this feature to create helpful shortcuts or workflows that connect your exte
 
 ## Navigation to External Domains
 
-The SDK also provides a method to navigate to external websites outside the PIM application using `PIM.navigate.external()`:
+The SDK also  a method to navigate to external websites outside the PIM application using `PIM.navigate.external()`:
 
 ```js
 // Navigate to an external website
@@ -229,6 +229,17 @@ PIM.navigate.external('https://example.com/page');
 Important limitations to keep in mind:
 - **HTTPS Only**: Only HTTPS URLs are allowed for security reasons
 - Navigation will open in a new tab, preserving the current extension context
+
+## Refresh current page
+
+In some cases, after executing an action within the custom component, you may need to refresh the parent PIM page to reflect the changes made. Due to browser security constraints, direct access to the parent window is restricted.
+
+To address this, the SDK provides a method to trigger a page reload `PIM.navigate.refresh()`:
+
+```js
+// Reload current page
+PIM.navigate.refresh();
+```
 
 ## External API Calls
 

@@ -15,7 +15,7 @@ If you prefer an automated deployments method, check out the [API deployment gui
 - **Log into your Akeneo PIM** with appropriate [permissions](https://help.akeneo.com/extensions/ui-extentions#permissions)
 
 - **Navigate to the Extensions section**:
-   - Go to System → UI Extensions
+   - Go to System → Extensions
 
 - **Create or Update an Extension**:
    - Click on "Create" to add a new extension, or select an existing extension to update it

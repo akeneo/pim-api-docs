@@ -13,7 +13,7 @@ Having a valid Akeneo PIM API token provided by either a Connection or an App to
 
 #### Authorization
 To manage your extension, ensure that your Connection or App has the necessary permissions.
-1. For Connections: The user associated with the Connection must have the permission **UI extensions > Manage your extensions using the API** enabled.
+1. For Connections: The user associated with the Connection must have the permission **Extensions > Manage your extensions using the API** enabled.
 2. For Apps: You need to request the scope **manage_extensions**.
 
 ::: info
@@ -42,14 +42,14 @@ Before making API requests, ensure your environment variables are filled with yo
 1. Select the Postman environment you've just created
 2. Click on the `Add an extension` POST request
 3. Customize the data to send as you want before click on `Send`
-4. Copy the newly created extension UUID. It will be asked to modify or delete the UI extension.
+4. Copy the newly created extension UUID. It will be asked to modify or delete the Extension.
 
 [![postman-add-extension.png](../img/extensions/ui-extensions/postman-add-extension.png)](../img/extensions/ui-extensions/postman-add-extension.png)
 
 #### 4. Update an Extension
 1. Make sure that the right environment is selected
 2. Click on the `Update an extension` POST request
-3. Fill the `ui_extension_uuid` parameter with the UUID of the concerned UI extension
+3. Fill the `ui_extension_uuid` parameter with the UUID of the relevant Extension
 4. Customize the data according to your needs before clicking on `Send`
 
 [![postman-update-extension-1.png](../img/extensions/ui-extensions/postman-update-extension-1.png)](../img/extensions/ui-extensions/postman-update-extension-1.png)
@@ -59,7 +59,7 @@ Before making API requests, ensure your environment variables are filled with yo
 #### 5. Delete an Extension
 1. Make sure that the right environment is selected
 2. Click on the `Delete an extension` POST request
-3. Fill the `ui_extension_uuid` parameter with the UUID of the concerned UI extension
+3. Fill the `ui_extension_uuid` parameter with the UUID of the relevant Extension
 4. Click on `Send`
 
 [![postman-delete-extension.png](../img/extensions/ui-extensions/postman-delete-extension.png)](../img/extensions/ui-extensions/postman-delete-extension.png)
