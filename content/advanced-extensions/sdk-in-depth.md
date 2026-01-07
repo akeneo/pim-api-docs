@@ -230,6 +230,17 @@ Important limitations to keep in mind:
 - **HTTPS Only**: Only HTTPS URLs are allowed for security reasons
 - Navigation will open in a new tab, preserving the current extension context
 
+## Refresh current page
+
+In some cases, after executing an action within the custom component, you may need to refresh the parent PIM page to reflect the changes made. Due to browser security constraints, direct access to the parent window is restricted.
+
+To address this, we provides a method to trigger a page reload `PIM.navigate.refresh()`:
+
+```js
+// Reload current page
+PIM.navigate.refresh();
+```
+
 ## External API Calls
 
 The SDK provides a secure gateway for making calls to external APIs and services. Since direct network requests (fetch, XMLHttpRequest) are not allowed within the sandbox environment, the SDK offers a dedicated method for external communication:
