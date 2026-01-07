@@ -141,7 +141,7 @@ const response = await PIM.api.resource_v1.create(createParams);
 
 ## User Information
 
-The SDK provides access to the current user information through `PIM.user`:
+The SDK  access to the current user information through `PIM.user`:
 
 - `username`: The user's username
 - `uuid`: The user's UUID
@@ -158,7 +158,7 @@ console.log(`Current user: ${currentUser.first_name} ${currentUser.last_name}`);
 
 ## Context Data by Extension Position
 
-The SDK provides access to the contextual information through `PIM.context`:
+The SDK  access to the contextual information through `PIM.context`:
 
 ### Product Page Positions
 - `product.uuid`: The product's UUID for simple product
@@ -196,7 +196,7 @@ if ('product' in PIM.context) {
 
 ## Navigation within the PIM
 
-The SDK provides navigation method that allows you to open new tabs. This is useful for directing users to different sections of the PIM from your extension:
+The SDK  navigation method that allows you to open new tabs. This is useful for directing users to different sections of the PIM from your extension:
 
 ```js
 // Navigate to a product edit page
@@ -219,7 +219,7 @@ Use this feature to create helpful shortcuts or workflows that connect your exte
 
 ## Navigation to External Domains
 
-The SDK also provides a method to navigate to external websites outside the PIM application using `PIM.navigate.external()`:
+The SDK also  a method to navigate to external websites outside the PIM application using `PIM.navigate.external()`:
 
 ```js
 // Navigate to an external website
@@ -234,7 +234,7 @@ Important limitations to keep in mind:
 
 In some cases, after executing an action within the custom component, you may need to refresh the parent PIM page to reflect the changes made. Due to browser security constraints, direct access to the parent window is restricted.
 
-To address this, we provides a method to trigger a page reload `PIM.navigate.refresh()`:
+To address this, the SDK provides a method to trigger a page reload `PIM.navigate.refresh()`:
 
 ```js
 // Reload current page
