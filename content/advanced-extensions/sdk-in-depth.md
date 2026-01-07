@@ -141,7 +141,7 @@ const response = await PIM.api.resource_v1.create(createParams);
 
 ## User Information
 
-The SDK  access to the current user information through `PIM.user`:
+The SDK provides access to the current user information through `PIM.user`:
 
 - `username`: The user's username
 - `uuid`: The user's UUID

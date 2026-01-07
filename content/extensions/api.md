@@ -49,7 +49,7 @@ Before making API requests, ensure your environment variables are filled with yo
 #### 4. Update an Extension
 1. Make sure that the right environment is selected
 2. Click on the `Update an extension` POST request
-3. Fill the `ui_extension_uuid` parameter with the UUID of the concerned Extension
+3. Fill the `ui_extension_uuid` parameter with the UUID of the relevant Extension
 4. Customize the data according to your needs before clicking on `Send`
 
 [![postman-update-extension-1.png](../img/extensions/ui-extensions/postman-update-extension-1.png)](../img/extensions/ui-extensions/postman-update-extension-1.png)
@@ -59,7 +59,7 @@ Before making API requests, ensure your environment variables are filled with yo
 #### 5. Delete an Extension
 1. Make sure that the right environment is selected
 2. Click on the `Delete an extension` POST request
-3. Fill the `ui_extension_uuid` parameter with the UUID of the concerned Extension
+3. Fill the `ui_extension_uuid` parameter with the UUID of the relevant Extension
 4. Click on `Send`
 
 [![postman-delete-extension.png](../img/extensions/ui-extensions/postman-delete-extension.png)](../img/extensions/ui-extensions/postman-delete-extension.png)
