@@ -89,7 +89,7 @@ Feel free to utilize it by including the following code in your request header:
 `Accept-Encoding: gzip, deflate, br, zstd`
 
 ::: warning
-Our compression library now prioritizes Brotli (br) over Gzip for improved data transfer speeds. 
+Our compression library prioritizes Brotli (br) over Gzip for improved data transfer speeds. 
 If you include `br` in your `Accept-Encoding` request header, our server will return a Brotli-encoded response. 
 To avoid receiving unreadable binary data, ensure your integration can decompress Brotli or update your headers to request gzip only.
 :::
