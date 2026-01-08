@@ -25,6 +25,7 @@ The Akeneo MCP Server works with any MCP-compatible client, such as:
 - **Claude Desktop** - Desktop app with MCP support
 - **Cursor** - AI-first code editor
 - **VS Code** - With MCP extensions
+- **Google Antigravity** - With MCP extensions
 - **Custom clients** - Any tool supporting MCP over HTTP
 
 ## Supported PIM data concepts

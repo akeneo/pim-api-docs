@@ -93,9 +93,9 @@ Add this to your Claude Desktop config file (`claude_desktop_config.json`):
 If Node.js is not already installed on your machine, install it using `brew install node` (macOS only).
 :::
 
-### Cursor IDE
+### VS Code-based IDEs (including VS Code, Cursor, Google Antigravity...)
 
-Add this configuration to Cursor's MCP settings.
+Add this configuration to your IDE's MCP settings.
 
 ```json
 {
@@ -114,6 +114,12 @@ Add this configuration to Cursor's MCP settings.
   }
 }
 ```
+
+**Note:** Configuration location varies by IDE:
+- **Cursor**: Settings → Tools & MCP
+- **Google Antigravity**: Three dots menu (...) → MCP Servers → Manage MCP Servers → View raw config
+- **VS Code**: Refer to the [official IDE documentation](https://code.visualstudio.com/api/extension-guides/ai/mcp)
+
 
 ## Test Your Connection
 
