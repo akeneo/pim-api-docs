@@ -89,6 +89,10 @@ Add this to your Claude Desktop config file (`claude_desktop_config.json`):
 }
 ```
 
+::: info
+If Node.js is not already installed on your machine, install it using `brew install node` (macOS only).
+:::
+
 ### Cursor IDE
 
 Add this configuration to Cursor's MCP settings.
