@@ -120,7 +120,6 @@ Add this configuration to your IDE's MCP settings.
 - **Google Antigravity**: Three dots menu (...) → MCP Servers → Manage MCP Servers → View raw config
 - **VS Code**: Refer to the [official IDE documentation](https://code.visualstudio.com/api/extension-guides/ai/mcp)
 
-
 ## Test Your Connection
 
 Once configured, try these natural language queries:
