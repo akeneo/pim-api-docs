@@ -42,7 +42,7 @@ The following properties represent a subscription:
 | `send_product_identifier` | Optional, default: `false` | If set to `true`, includes the product identifier in product events when available. This field only applies to product events (`com.akeneo.pim.v1.product.*`), not product-model events. |
 
 ::: info
-**Subscription Activation Delay:** When you create a new subscription, there may be a delay of several minutes before it becomes fully active and ready to receive events. This delay occurs due to internal synchronization between the subscription management service and the event delivery service.
+**Subscription Activation Delay:** When you create or update a subscription, there may be a delay of several minutes before it becomes fully active and ready to receive events. This delay occurs due to internal synchronization between the subscription management service and the event delivery service.
 :::
 
 The statuses for a subscription are:

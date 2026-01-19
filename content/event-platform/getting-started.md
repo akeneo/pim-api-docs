@@ -58,7 +58,7 @@ You can leave `subscriberId` and `subscriptionId` blank for now.
 *(Click on the image to view it in full size)*
 
 ::: info
-⏱️ **Note:** After creating a subscription, there may be a delay of several minutes before it becomes fully active. This is due to synchronization between the subscription management service and the event delivery service. Wait a few minutes before triggering events to ensure proper delivery.
+⏱️ **Note:** After creating or updating a subscription, there may be a delay of several minutes before it becomes fully active. This is due to synchronization between the subscription management service and the event delivery service. Wait a few minutes before triggering events to ensure proper delivery.
 :::
 
 ### 5. Trigger an Event from the PIM
@@ -212,7 +212,7 @@ If you have already configured the Events API, do not use the same URL for your 
 ```
 
 ::: info
-⏱️ **Note:** After creating a subscription, there may be a delay of several minutes before it becomes fully active. This is due to synchronization between the subscription management service and the event delivery service. Wait a few minutes before triggering events to ensure proper delivery.
+⏱️ **Note:** After creating or updating a subscription, there may be a delay of several minutes before it becomes fully active. This is due to synchronization between the subscription management service and the event delivery service. Wait a few minutes before triggering events to ensure proper delivery.
 :::
 
 ### 4. Trigger an Event from the PIM
