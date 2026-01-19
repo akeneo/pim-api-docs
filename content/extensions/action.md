@@ -36,8 +36,8 @@ Examples :
     "uuid": "e05cc457-b8ac-43b1-baa7-c4c112091ad8",
     "username": "julia",
     "groups": [
-      "Manager",
-      "All"
+      {"id": 7, "name": "Manager"},
+      {"id": 11, "name": "All"}
     ]
   },
   "timestamp": 1739948408
