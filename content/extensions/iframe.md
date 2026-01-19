@@ -62,8 +62,8 @@ Example :
     "uuid": "4ebad9a4-7728-4d90-9db0-9e5a5c6a4d45",
     "username": "admin",
     "groups": [
-      "IT support",
-      "All"
+      {"id": 8, "name": "IT support"},
+      {"id": 11, "name": "All"}
     ]
   },
   "filters": {
@@ -107,8 +107,8 @@ Example :
     "uuid": "c71228d3-695c-4ded-8f3d-b3ed881a1f59",
     "username": "admin",
     "groups": [
-      "IT support",
-      "All"
+      {"id": 8, "name": "IT support"},
+      {"id": 11, "name": "All"}
     ]
   }
 }
