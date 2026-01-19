@@ -57,6 +57,10 @@ You can leave `subscriberId` and `subscriptionId` blank for now.
 
 *(Click on the image to view it in full size)*
 
+::: info
+⏱️ **Note:** After creating a subscription, there may be a delay of several minutes before it becomes fully active. This is due to synchronization between the subscription management service and the event delivery service. Wait a few minutes before triggering events to ensure proper delivery.
+:::
+
 ### 5. Trigger an Event from the PIM
 
 With your subscription in place, you're ready to trigger the event you subscribed to (in this example, `com.akeneo.pim.v1.product.deleted`). The simplest way to do this is by deleting a product directly within the Akeneo PIM UI. This approach allows you to trigger the event and manually observe the changes in real time.
@@ -206,6 +210,10 @@ If you have already configured the Events API, do not use the same URL for your 
     }
 }'
 ```
+
+::: info
+⏱️ **Note:** After creating a subscription, there may be a delay of several minutes before it becomes fully active. This is due to synchronization between the subscription management service and the event delivery service. Wait a few minutes before triggering events to ensure proper delivery.
+:::
 
 ### 4. Trigger an Event from the PIM
 
