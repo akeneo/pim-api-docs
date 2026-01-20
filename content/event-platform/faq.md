@@ -23,6 +23,10 @@ If there's an issue with your destination and the event doesn't go through on th
 
 Consequently, and especially in the case of a retried event, you should check the ID and the time of publication of the event to process it properly.
 
+### Why am I not receiving events immediately after creating or updating a subscription?
+
+When you create or update a subscription, there is a synchronization delay of several minutes before it becomes fully active. This delay is due to the propagation time between the subscription management service and the event delivery service. We recommend waiting a few minutes after subscription creation or modification before expecting to receive events.
+
 ### What are the subscription destinations proposed? Can I request another one?
 
 Subscription destinations:
