@@ -10,22 +10,23 @@ Extension position defines where your extension appears within the Akeneo PIM in
 ## Available positions for Extensions
 
 
-| Positions                    | Action | Link | Iframe | Data/Custom Component |
-|------------------------------|--------|------|--------|-----------------------|
-| pim.product.header           | ✔️     | ✔️   | ❌     | ❌                    |
-| pim.product-model.header     | ✔️     | ✔️   | ❌     | ❌                    |
-| pim.sub-product-model.header | ✔️     | ✔️   | ❌     | ❌                    |
-| pim.product.tab              | ❌     | ❌   | ✔️     | ✔️                    |
-| pim.product-model.tab        | ❌     | ❌   | ✔️     | ✔️                    |
-| pim.sub-product-model.tab    | ❌     | ❌   | ✔️     | ✔️                    |
-| pim.category.tab             | ❌     | ❌   | ✔️     | ✔️                    |
-| pim.product-grid.action-bar  | ✔️     | ❌   | ✔️     | ✔️                    |
-| pim.product.index            | ✔️     | ❌   | ❌     | ❌                    |
-| pim.activity.navigation.tab  | ❌     | ❌   | ✔️     | ✔️                    |
-| pim.product.panel            | ❌     | ❌   | ✔️     | ✔️                    |
-| pim.product-model.panel      | ❌     | ❌   | ✔️     | ✔️                    |
-| pim.sub-product-model.panel  | ❌     | ❌   | ✔️     | ✔️                    |
-| pim.performance.analytics.tab| ❌     | ❌   | ✔️     | ✔️                    |
+| Positions                      | Action | Link | Iframe | Data/Custom Component |
+|--------------------------------|--------|------|--------|-----------------------|
+| pim.product.header             | ✔️     | ✔️   | ❌     | ❌                    |
+| pim.product-model.header       | ✔️     | ✔️   | ❌     | ❌                    |
+| pim.sub-product-model.header   | ✔️     | ✔️   | ❌     | ❌                    |
+| pim.product.tab                | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.product-model.tab          | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.sub-product-model.tab      | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.category.tab               | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.product-grid.action-bar    | ✔️     | ❌   | ✔️     | ✔️                    |
+| pim.product.index              | ✔️     | ❌   | ❌     | ❌                    |
+| pim.activity.navigation.tab    | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.product.panel              | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.product-model.panel        | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.sub-product-model.panel    | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.performance.analytics.tab  | ❌     | ❌   | ✔️     | ✔️                    |
+| pim.reference-entity-record.tab| ❌     | ❌   | ✔️     | ✔️                    |
 ### Positions list
 
 #### pim.product.header
@@ -55,6 +56,10 @@ This position refers to the tab of a sub product model edit page.
 #### pim.category.tab
 This position refers to the tab of a category edit page.
 [![pim-category-tab.png](../img/extensions/ui-extensions/positions/pim-category-tab.png)](../img/extensions/ui-extensions/positions/pim-category-tab.png)
+
+#### pim.reference-entity-record.tab
+This position refers to the tab of a reference entity record edit page.
+[![pim-reference-entity-record-tab.png](../img/extensions/ui-extensions/positions/pim-reference-entity-record-tab.png)](../img/extensions/ui-extensions/positions/pim-reference-entity-record-tab.png)
 
 #### pim.product-grid.action-bar
 This position refers to the action bar of the product grid. It is used to add actions that can be applied to multiple products at once.
