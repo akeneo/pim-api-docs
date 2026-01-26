@@ -26,6 +26,8 @@ Extension position defines where your extension appears within the Akeneo PIM in
 | pim.product-model.panel      | ❌     | ❌   | ✔️     | ✔️                    |
 | pim.sub-product-model.panel  | ❌     | ❌   | ✔️     | ✔️                    |
 | pim.performance.analytics.tab| ❌     | ❌   | ✔️     | ✔️                    |
+| pim.reference.entity.record  | ❌     | ❌   | ✔️     | ✔️                    |
+
 ### Positions list
 
 #### pim.product.header
