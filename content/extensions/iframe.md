@@ -29,6 +29,10 @@ For `pim.product-model.tab` and `pim.sub-product-model.header` position, this pa
 For `pim.category.tab` position, this parameter is sent:
 - `category[code]`
 
+For `pim.reference-entity-record.tab` position, these parameters are sent:
+- `reference_entity[code]`
+- `record[code]`
+
 ### Get PIM data from the iframe
 
 For the **product grid action bar position** (`pim.product-grid.action-bar`), passing product or product model information through query parameters is not ideal, as it can result in excessively long URLs. To address this issue, we opted to use the [PostMessage](https://developer.mozilla.org/docs/Web/API/Window/postMessage) to transmit this information instead.
@@ -88,7 +92,7 @@ Example :
   );
 ```
 
-### Product and product model context change
+### Product, product model and reference entity record context change
 
 When the user changes the **PIM context** (such as selecting a different **locale** or **channel**), these changes are automatically propagated to the iframe via PostMessage.
 
