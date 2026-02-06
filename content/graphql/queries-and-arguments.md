@@ -21,6 +21,7 @@ The following arguments are available:
 | `parent`           | **String**   | Get **product variants** linked to the product models base on its **code**<br/>example `code: "code1"`                                                                                |
 | `noParent`         | **Enum**     | Only accepted value `YES`, will return **only simple products**.                                                                                                                      |
 | `attributesToLoad` | **String[]** | Restrict the attribute values loaded on the product, more details on [Best practices](/graphql/best-practices.html#load-only-required-product-attributes)                             |
+| `convertMeasurements` | **boolean** | Convert values of measurement attributes to the unit configured in the channel provided by the `channel` parameter. When set to `true`, the response will include measurement values converted to the appropriate unit. |
 
 :::info
 The `categories`, `families`, and `uuid` use the `Rest API search capabilities` under the hood to ease the data fetching.
@@ -46,6 +47,7 @@ Based on the REST API endpoint [https://api.akeneo.com/api-reference.html?#Produ
 | `families`         | **String[]** | Get product associated with these families based on families codes<br/>example `families: ["family-code1", "family-code2"]`                                                               |
 | `noParent`         | **Enum**     | Only accepted value `YES`, will return **only root product models**.                                                                                                                      |
 | `attributesToLoad` | **String[]** | Restrict the attribute values we will load on product, more details on [Best practices](/graphql/best-practices.html#load-only-required-product-attributes)                               |
+| `convertMeasurements` | **boolean** | Convert values of measurement attributes to the unit configured in the channel provided by the `channel` parameter. When set to `true`, the response will include measurement values converted to the appropriate unit. |
 
 :::info
 The `categories`, `families` and `codes` use under the hood the `Rest API search capabilities` to ease the data fetching.
