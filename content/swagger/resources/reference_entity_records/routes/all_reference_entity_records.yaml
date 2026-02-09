@@ -1,0 +1,210 @@
+get:
+  summary: Get all records across all reference entities
+  operationId: "get_all_reference_entity_records"
+  tags:
+    - Reference entity record
+  x-versions:
+    - "SaaS"
+  x-ee: true
+  description: This endpoint allows you to get a list of records across all reference entities you have access to. Records are paginated and can be filtered. You can optionally filter by a specific reference entity code using the <code>reference_entity</code> parameter. <strong>This endpoint is only available for Akeneo SaaS.</strong>
+  parameters:
+    - name: reference_entity
+      in: query
+      description: Filter records by a specific reference entity code
+      required: false
+      type: string
+    - name: search
+      in: query
+      description: Filter records, for more details see the <a href="/documentation/filter.html#filter-reference-entity-records">Filters</a> section
+      required: false
+      type: string
+    - name: channel
+      in: query
+      type: string
+      description: Filter record values to return scopable record attributes for the given channel as well as the non localizable/non scopable record attributes, for more details see the <a href="/documentation/filter.html#record-values-by-channel">Filter record values by channel</a> section
+      required: false
+    - name: locales
+      in: query
+      type: string
+      description: Filter record values to return localizable record attributes for the given locales as well as the non localizable/non scopable record attributes, for more details see the <a href="/documentation/filter.html#record-values-by-locale">Filter record values by locale</a> section (comma-separated locale codes, e.g. en_US,fr_FR)
+      required: false
+    - $ref: '#/parameters/search_after'
+  responses:
+    200:
+      description: Return all records paginated across all reference entities. Each record includes a <code>reference_entity_code</code> field to identify which reference entity it belongs to.
+      schema:
+        title: All reference entity records
+        type: object
+        allOf:
+          - $ref: '#/definitions/SearchAfterPagination'
+          - properties:
+              _embedded:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/definitions/ReferenceEntityRecordList'
+      examples: {
+        _links: {
+          self: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/records"
+          },
+          first: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/records"
+          },
+          next: {
+            href: "https://demo.akeneo.com/api/rest/v1/reference-entities/records?search_after=ligneroset"
+          }
+        },
+        _embedded: {
+          items: [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/kartell"
+                }
+              },
+              "code": "kartell",
+              "reference_entity_code": "brands",
+              "values": {
+                "label": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "Kartell"
+                  }
+                ],
+                "image": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "0/c/b/0/0cb0c0e115dedba676f8d1ad8343ec207ab54c7b_image.jpg"
+                  }
+                ],
+                "description": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "The contemporary Italian furniture brand"
+                  },
+                  {
+                    "locale": "fr_FR",
+                    "channel": null,
+                    "data": "L'éditeur de meubles comtemporain italien"
+                  }
+                ],
+                "country": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "italy"
+                  }
+                ]
+              },
+              "created": "2021-01-01T01:23:34+00:00",
+              "updated": "2021-02-03T23:45:59+00:00"
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/usm"
+                }
+              },
+              "code": "usm",
+              "reference_entity_code": "brands",
+              "values": {
+                "label": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "USM"
+                  }
+                ],
+                "image": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "9/c/g/1/0cb0c0e115dedba76f8d1ad8343ec897abc43bv4_image.jpg"
+                  }
+                ],
+                "description": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "Modular furniture from Switzerland for your home and office"
+                  },
+                  {
+                    "locale": "fr_FR",
+                    "channel": null,
+                    "data": "L'éditeur de meubles modulaires suisse pour votre intérieur et pour les entreprises"
+                  }
+                ],
+                "country": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "switzerland"
+                  }
+                ]
+              },
+              "created": "2021-01-01T01:23:34+00:00",
+              "updated": "2021-02-03T23:45:59+00:00"
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://demo.akeneo.com/api/rest/v1/reference-entities/brands/records/ligneroset"
+                }
+              },
+              "code": "ligneroset",
+              "reference_entity_code": "brands",
+              "values": {
+                "label": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "Ligne Roset"
+                  }
+                ],
+                "image": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "4/b/0/1/0cb0c0e115dedde78b8d1ad8343ec980cd5daa54_image.jpg"
+                  }
+                ],
+                "description": [
+                  {
+                    "locale": "en_US",
+                    "channel": null,
+                    "data": "Very well known French brand of modern and luxury furniture"
+                  },
+                  {
+                    "locale": "fr_FR",
+                    "channel": null,
+                    "data": "La marque renommée des meubles de luxe à la française"
+                  }
+                ],
+                "country": [
+                  {
+                    "locale": null,
+                    "channel": null,
+                    "data": "france"
+                  }
+                ]
+              },
+              "created": "2021-01-01T01:23:34+00:00",
+              "updated": "2021-02-03T23:45:59+00:00"
+            }
+          ]
+        }
+      }
+    401:
+      $ref: "#/responses/401Error"
+    403:
+      $ref: "#/responses/403Error"
+    406:
+      $ref: "#/responses/406Error"
+    422:
+      $ref: "#/responses/422Error"
