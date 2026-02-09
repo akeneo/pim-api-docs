@@ -843,6 +843,7 @@ gulp.task('build-advanced-extensions', ['clean-dist','less'], function () {
       var pages = {
           'overview.md': "Overview",
           'getting-started.md': "Getting started",
+          'build-sdk-with-ai.md': "AI Component Development",
           'sdk-in-depth.md': "SDK in depth",
           'development-workflow.md': "Development Workflow",
           'api-deployment.md': "API Deployment",
