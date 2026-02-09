@@ -208,10 +208,6 @@ To get the products that were created on the 4th of July 2016 at 10am, you can u
 To get the products that were updated during the last 4 days, you can use the following URL.
 
 ```
-        type: object
-        allOf:
-          - $ref: '#/definitions/SearchAfterPagination'
-          - properties:
 /api/rest/v1/products-uuid?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
 ```
 
@@ -976,11 +972,7 @@ Here are the allowed operators you can use to filter on these properties as well
 | `IN`        | array of existing group or family | Only returns published products that are respectively in the given families or groups     |
 | `NOT IN`    | array of existing group or family | Only returns published products that are respectively not in the given families or groups |
 | `EMPTY`     | no value                          | Only returns published products that have respectively no groups or no family             |
-| `NOT EMPTY` | no value      
-        type: object
-        allOf:
-          - $ref: '#/definitions/SearchAfterPagination'
-          - properties:                    | Only returns published products that have respectively a group or a family                |
+| `NOT EMPTY` | no value                          | Only returns published products that have respectively a group or a family                |
 
 #### Examples
 
@@ -1421,54 +1413,6 @@ To get the reference entity records that were updated since the 4th of July 2018
 
 ```
 /api/rest/v1/reference-entities/brands/records?search={"updated":[{"operator":">","value":"2018-07-04T10:00:00+00:00"}]}
-```
-
-### By attribute values
-
-::: availability versions=SaaS editions=EE
-
-You can filter reference entity records on their attribute values using the `search` query parameter.
-For scopable/localizable attributes, you can optionally specify a `channel` and/or `locale` in the filter.
-If omitted, the API will try to use the `channel`/`locales` provided in the request.
-
-Supported types and operators:
-- text: `=`, `!=`, `CONTAINS`, `DOES NOT CONTAIN`, `STARTS WITH`, `ENDS WITH`, `EMPTY`, `NOT EMPTY`
-- number: `=`, `!=`, `<`, `<=`, `>`, `>=`, `EMPTY`, `NOT EMPTY`
-- single_option: `IN`, `=`, `EMPTY`, `NOT EMPTY`
-- multiple_options: `IN`, `=`, `EMPTY`, `NOT EMPTY`
-- reference_entity_single_link: `IN`, `=`, `EMPTY`, `NOT EMPTY`
-- reference_entity_multiple_links: `IN`, `=`, `EMPTY`, `NOT EMPTY`
-
-Notes:
-- Filtering on attribute type `image` is not supported. The API will return a 422 error.
-- Filtering on attribute type `asset_collection` is not supported. The API will return a 422 error.
-- Attribute identifiers must match the regex `^[a-zA-Z0-9_]+$`.
-- For `reference_entity_single_link` and `reference_entity_multiple_links` attributes, the value used in the filter is the code of the linked reference entity record.
-
-#### Examples
-
-Filter by a text attribute value:
-
-```
-/api/rest/v1/reference-entities/brands/records?search={"description":{"operator":"CONTAINS","value":"furniture","locale":"en_US","channel":"ecommerce"}}
-```
-
-Filter by a number attribute value:
-
-```
-/api/rest/v1/reference-entities/brands/records?search={"creation_year":{"operator":">","value":"1950"}}
-```
-
-Filter by an option (single or multiple):
-
-```
-/api/rest/v1/reference-entities/designers/records?search={"nationality":{"operator":"IN","value":["french","italian"]}}
-```
-
-Filter by a reference entity link (single or multiple):
-
-```
-/api/rest/v1/reference-entities/brands/records?search={"designers":{"operator":"IN","value":["starck","dixon"]}}
 ```
 
 ### Record values by locale
