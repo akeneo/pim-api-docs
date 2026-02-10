@@ -39,7 +39,15 @@ The following properties represent a subscription:
 | `events` | Populated by the user at creation | A list of events that the subscription is tracking |
 | `status` | Automatically populated | The subscription status |
 | `config` | Populated by the user at creation | The subscription configuration is based on the subscription type. See below for further details. |
-| `send_product_identifier` | Optional, default: `false` | If set to `true`, includes the product identifier in product events when available. This field only applies to product events (`com.akeneo.pim.v1.product.*`), not product-model events. |
+| `options` | Optional | An object containing optional settings for the subscription. See [Subscription Options](#subscription-options) below. |
+
+### Subscription Options
+
+The `options` object supports the following properties:
+
+| Property | Default | Description |
+| --- | --- | --- |
+| `send_product_identifier` | `false` | If set to `true`, includes the product identifier in product events when available. This field only applies to product events (`com.akeneo.pim.v1.product.*`), not product-model events. |
 
 ::: info
 **Subscription Activation Delay:** When you create or update a subscription, there may be a delay of several minutes before it becomes fully active and ready to receive events. This delay occurs due to internal synchronization between the subscription management service and the event delivery service.
@@ -84,7 +92,9 @@ For the `pubsub` subscription type, the `config` property needed when creating t
         "com.akeneo.pim.v1.product.updated"
     ],
     "type": "pubsub",
-    "send_product_identifier": false,
+    "options": {
+        "send_product_identifier": false
+    },
     "config": {
         "project_id": "your_google_project_id",
         "topic_id": "your_google_pubsub_topic_id"
@@ -146,7 +156,9 @@ Additionally, it requires at least a primary secret (with an optional secondary 
     "com.akeneo.pim.v1.product.updated"
   ],
   "type": "https",
-  "send_product_identifier": false,
+  "options": {
+    "send_product_identifier": false
+  },
   "config": {
     "url": "https://your_webhook_url",
     "secret": {
@@ -230,7 +242,9 @@ For the `kafka` subscription type, the `config` property requires the Kafka clus
         "com.akeneo.pim.v1.product.updated"
     ],
     "type": "kafka",
-    "send_product_identifier": false,
+    "options": {
+        "send_product_identifier": false
+    },
     "config": {
         "broker": "kafka-cluster.example.com:9092",
         "topic": "pim-events",
@@ -321,10 +335,12 @@ You can configure your subscription with the following filter:
     "com.akeneo.pim.v1.product.updated"
   ],
   "type": "https",
-  "send_product_identifier": false,
+  "options": {
+    "send_product_identifier": false
+  },
   "config": {
-    "url": "https://your_webhook_url",
-  }
+    "url": "https://your_webhook_url"
+  },
   "filter": "user=\"ea0fe94f-417e-4078-a40b-38645ba90ebe\""
 }
 ```
@@ -363,7 +379,7 @@ Example of an event payload for a productDeleted event
 ```
 
 ::: info
-The `identifier` field in product events is only included when the subscription has `send_product_identifier` set to `true`. If `send_product_identifier` is `false` or not set, only the `uuid` field will be present in the product object.
+The `identifier` field in product events is only included when the subscription has `options.send_product_identifier` set to `true`. If `options.send_product_identifier` is `false` or not set, only the `uuid` field will be present in the product object.
 :::
 
 |         |   |
