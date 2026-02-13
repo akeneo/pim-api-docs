@@ -12,9 +12,9 @@ Extension position defines where your extension appears within the Akeneo PIM in
 
 | Positions                      | Action | Link | Iframe | Data/Custom Component |
 |--------------------------------|--------|------|--------|-----------------------|
-| pim.product.header             | ✔️     | ✔️   | ❌     | ❌                    |
-| pim.product-model.header       | ✔️     | ✔️   | ❌     | ❌                    |
-| pim.sub-product-model.header   | ✔️     | ✔️   | ❌     | ❌                    |
+| pim.product.header             | ✔️     | ✔️   | ❌     | ✔️                    |
+| pim.product-model.header       | ✔️     | ✔️   | ❌     | ✔️                    |
+| pim.sub-product-model.header   | ✔️     | ✔️   | ❌     | ✔️                    |
 | pim.product.tab                | ❌     | ❌   | ✔️     | ✔️                    |
 | pim.product-model.tab          | ❌     | ❌   | ✔️     | ✔️                    |
 | pim.sub-product-model.tab      | ❌     | ❌   | ✔️     | ✔️                    |
