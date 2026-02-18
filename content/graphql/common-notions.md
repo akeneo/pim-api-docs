@@ -202,7 +202,7 @@ To alias a field you only need to prefix the field with `your-desired-alias: `, 
 
 **AS GraphQL use the Rest API**, all available filters can be used in the **Graphql queries** `search` **argument**
 
-The `search` argument is of type **String** and expects a **JSON-encoded string**.
+The `search` argument is of type **String** and expects a **stringified JSON** (a JSON object converted to a string with escaped quotes).
 
 You can have a look at [all available filters](https://api.akeneo.com/documentation/filter.html)
 
