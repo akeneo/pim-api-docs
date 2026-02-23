@@ -2217,11 +2217,6 @@
 									"disabled": true
 								},
 								{
-									"key": "search",
-									"value": "{\"label\":{\"operator\":\"CONTAINS\",\"value\":\"Fatboy\",\"locale\":\"en_US\",\"channel\":null}}",
-									"disabled": true
-								},
-								{
 									"key": "locales",
 									"value": "en_US,fr_FR",
 									"disabled": true
@@ -2239,70 +2234,6 @@
 							]
 						},
 						"description": "Assuming that the given code is the code of an existing reference entity"
-					},
-					"response": []
-				},
-				{
-					"name": "all reference entity records (SaaS only)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/rest/v1/reference-entities/records",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"rest",
-								"v1",
-								"reference-entities",
-								"records"
-							],
-							"query": [
-								{
-									"key": "reference_entity",
-									"value": "brand",
-									"disabled": true
-								},
-								{
-									"key": "search",
-									"value": "{\"code\":[{\"operator\":\"IN\",\"value\":[\"brand_1\",\"brand_2\"]}]}",
-									"disabled": true
-								},
-								{
-									"key": "search",
-									"value": "{\"updated\":[{\"operator\":\">\",\"value\":\"2022-05-01T10:00:00Z\"}]}",
-									"disabled": true
-								},
-                                {
-                                    "key": "search",
-                                    "value": "{\"label\":{\"operator\":\"CONTAINS\",\"value\":\"Fatboy\",\"locale\":\"en_US\",\"channel\":null}}",
-                                    "disabled": true
-                                },
-								{
-									"key": "channel",
-									"value": "ecommerce",
-									"disabled": true
-								},
-								{
-									"key": "locales",
-									"value": "en_US,fr_FR",
-									"disabled": true
-								},
-								{
-									"key": "search_after",
-									"value": "brand_3",
-									"disabled": true
-								}
-							]
-						},
-						"description": "Get all reference entity records across all reference entities. You can optionally filter by a specific reference entity using the reference_entity parameter. This endpoint is only available for Akeneo SaaS."
 					},
 					"response": []
 				},
