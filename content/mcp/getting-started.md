@@ -5,9 +5,20 @@ This guide provides step-by-step instructions to connect your Akeneo PIM to AI-p
 ## Before You Start
 
 ::: info
-Please note that this service is currently in the beta phase. As such, Akeneo reserves the right to modify the access conditions and the service's functionality in the future.
+Note: We’re transitioning MCP Access to General Availability. Starting March 2026, Akeneo MCP may require additional commercial activation depending on your package. Contact your Akeneo Customer Success Manager (CSM) for more details. For early access please use the [MCP Access Request form](https://docs.google.com/forms/d/e/1FAIpQLScifhHRVMC6ssVk19jzmt-2S0MCb9UDS8wxh2F9LirHoyNzBw/viewform).
+:::
 
-The Akeneo MCP Server is currently available by invitation only. To request access, please contact our team at [mcp@akeneo.com](mailto:mcp@akeneo.com).
+::: danger
+MCP access is governed by the **API key configured in the MCP connection settings**, not by individual named-user permissions in the PIM.
+
+This means:
+- MCP actions are executed with the **permission level of the configured API key**.
+- Those permissions may **not match a specific user’s PIM permissions**.
+- Anyone with access to the MCP connection (via the AI tool using that API key) can perform actions allowed by that API key, including write/edit if enabled.
+:::
+
+::: tips
+**Best practice:** _We strongly recommend creating a dedicated API user for MCP Access and applying the **Principle of Least Privilege** (grant only the scopes absolutely necessary for your AI use case). Where supported, enforce this further in your MCP client by enabling only the tools/actions you need._
 :::
 
 ### What you'll need
