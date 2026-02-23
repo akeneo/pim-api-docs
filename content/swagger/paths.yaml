@@ -118,8 +118,6 @@
 /api/rest/v1/reference-entities/{reference_entity_code}/attributes/{attribute_code}/options/{code}:
   $ref: ./resources/reference_entity_attributes/routes/reference_entity_attributes_code_options_code.yaml
 
-/api/rest/v1/reference-entities/records:
-  $ref: ./resources/reference_entity_records/routes/all_reference_entity_records.yaml
 /api/rest/v1/reference-entities/{reference_entity_code}/records:
   $ref: ./resources/reference_entity_records/routes/reference_entity_records.yaml
 /api/rest/v1/reference-entities/{reference_entity_code}/records/{code}:
