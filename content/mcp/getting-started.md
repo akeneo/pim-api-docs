@@ -5,7 +5,9 @@ This guide provides step-by-step instructions to connect your Akeneo PIM to AI-p
 ## Before You Start
 
 ::: info
-Note: We’re transitioning MCP Access to General Availability. Starting March 2026, Akeneo MCP may require additional commercial activation depending on your package. Contact your Akeneo Customer Success Manager (CSM) for more details. For early access please use the [MCP Access Request form](https://docs.google.com/forms/d/e/1FAIpQLScifhHRVMC6ssVk19jzmt-2S0MCb9UDS8wxh2F9LirHoyNzBw/viewform).
+**Availability (SaaS only):** MCP is available only for Akeneo PIM SaaS instances. It is not available for Community Edition or self-hosted/on-prem deployments.
+
+**Note:** We’re transitioning MCP Access to General Availability. Starting March 2026, Akeneo MCP may require additional commercial activation depending on your package. Contact your Akeneo Customer Success Manager (CSM) for more details. For early access please use the [MCP Access Request form](https://docs.google.com/forms/d/e/1FAIpQLScifhHRVMC6ssVk19jzmt-2S0MCb9UDS8wxh2F9LirHoyNzBw/viewform).
 :::
 
 ::: danger
@@ -25,7 +27,7 @@ This means:
 
 **From your Akeneo PIM:**
 
-1. Your PIM instance URL (e.g., `https://yourcompany.akeneo.com`)
+1. Your PIM SAAS instance URL (e.g., `https://yourcompany.akeneo.com`)
 2. API credentials:
     - Client ID
     - Client secret
