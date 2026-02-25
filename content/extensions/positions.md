@@ -27,6 +27,7 @@ Extension position defines where your extension appears within the Akeneo PIM in
 | pim.sub-product-model.panel    | ❌     | ❌   | ✔️     | ✔️                    |
 | pim.performance.analytics.tab  | ❌     | ❌   | ✔️     | ✔️                    |
 | pim.reference-entity-record.tab| ❌     | ❌   | ✔️     | ✔️                    |
+
 ### Positions list
 
 #### pim.product.header / pim.product-model.header / pim.sub-product-model.header
@@ -34,7 +35,7 @@ This position refers to the header of a simple product, variant, root model or s
 
 ::: info
   When using a **Custom Component** or **Iframe** in this context, note that the size of the container is limited in height to keep the page readable.
-  A best practice is to limit the number of extension in this position to one.
+  A best practice is to limit the number of extensions in this position to one.
 :::
 
 [![pim-product-header.png](../img/extensions/ui-extensions/positions/pim-product-header.png)](../img/extensions/ui-extensions/positions/pim-product-header.png)
