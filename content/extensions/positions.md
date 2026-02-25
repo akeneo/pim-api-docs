@@ -12,9 +12,9 @@ Extension position defines where your extension appears within the Akeneo PIM in
 
 | Positions                      | Action | Link | Iframe | Data/Custom Component |
 |--------------------------------|--------|------|--------|-----------------------|
-| pim.product.header             | ✔️     | ✔️   | ❌     | ❌                    |
-| pim.product-model.header       | ✔️     | ✔️   | ❌     | ❌                    |
-| pim.sub-product-model.header   | ✔️     | ✔️   | ❌     | ❌                    |
+| pim.product.header             | ✔️     | ✔️   | ✔️     | ✔️                    |
+| pim.product-model.header       | ✔️     | ✔️   | ✔️     | ✔️                    |
+| pim.sub-product-model.header   | ✔️     | ✔️   | ✔️     | ✔️                    |
 | pim.product.tab                | ❌     | ❌   | ✔️     | ✔️                    |
 | pim.product-model.tab          | ❌     | ❌   | ✔️     | ✔️                    |
 | pim.sub-product-model.tab      | ❌     | ❌   | ✔️     | ✔️                    |
@@ -27,31 +27,22 @@ Extension position defines where your extension appears within the Akeneo PIM in
 | pim.sub-product-model.panel    | ❌     | ❌   | ✔️     | ✔️                    |
 | pim.performance.analytics.tab  | ❌     | ❌   | ✔️     | ✔️                    |
 | pim.reference-entity-record.tab| ❌     | ❌   | ✔️     | ✔️                    |
+
 ### Positions list
 
-#### pim.product.header
-This position refers to the header of a simple product or a variant edit page.
+#### pim.product.header / pim.product-model.header / pim.sub-product-model.header
+This position refers to the header of a simple product, variant, root model or sub product model edit page.
+
+::: info
+  When using a **Custom Component** or **Iframe** in this context, note that the size of the container is limited in height to keep the page readable.
+  A best practice is to limit the number of extensions in this position to one.
+:::
+
 [![pim-product-header.png](../img/extensions/ui-extensions/positions/pim-product-header.png)](../img/extensions/ui-extensions/positions/pim-product-header.png)
 
-#### pim.product-model.header
-This position refers to the header of a root model edit page.
-[![pim-product-model-header.png](../img/extensions/ui-extensions/positions/pim-product-model-header.png)](../img/extensions/ui-extensions/positions/pim-product-model-header.png)
-
-#### pim.sub-product-model.header
-This position refers to the header of a sub product model edit page.
-[![pim-sub-product-model-header.png](../img/extensions/ui-extensions/positions/pim-sub-product-model-header.png)](../img/extensions/ui-extensions/positions/pim-sub-product-model-header.png)
-
-#### pim.product.tab
-This position refers to the tab of a simple product or a variant edit page.
+#### pim.product.tab / pim.product-model.tab / pim.sub-product-model.tab
+This position refers to the tab of a simple product, variant, root model or sub product model edit page.
 [![pim-product-tab.png](../img/extensions/ui-extensions/positions/pim-product-tab.png)](../img/extensions/ui-extensions/positions/pim-product-tab.png)
-
-#### pim.product-model.tab
-This position refers to the tab of a root model edit page.
-[![pim-product-model-tab.png](../img/extensions/ui-extensions/positions/pim-product-model-tab.png)](../img/extensions/ui-extensions/positions/pim-product-model-tab.png)
-
-#### pim.sub-product-model.tab
-This position refers to the tab of a sub product model edit page.
-[![pim-product-model-tab.png](../img/extensions/ui-extensions/positions/pim-product-model-tab.png)](../img/extensions/ui-extensions/positions/pim-product-model-tab.png)
 
 #### pim.category.tab
 This position refers to the tab of a category edit page.
@@ -79,16 +70,8 @@ This position refers to the top left menu of the product list page.
 This position refers to the tab of the activity navigation. It is used to add custom tabs in the activity navigation of the PIM.
 [![pim-activity-navigation-tab.png](../img/extensions/ui-extensions/positions/pim-activity-navigation-tab.png)](../img/extensions/ui-extensions/positions/pim-activity-navigation-tab.png)
 
-#### pim.product.panel
-This position refers to the right panel of a simple product or a variant edit page.
-[![pim-product-panel.png](../img/extensions/ui-extensions/positions/pim-product-panel.png)](../img/extensions/ui-extensions/positions/pim-product-panel.png)
-
-#### pim.product-model.panel
-This position refers to the right panel of a root model edit page.
-[![pim-product-panel.png](../img/extensions/ui-extensions/positions/pim-product-panel.png)](../img/extensions/ui-extensions/positions/pim-product-panel.png)
-
-#### pim.sub-product-model.panel
-This position refers to the right panel of a sub product model edit page.
+#### pim.product.panel / pim.product-model.panel / pim.sub-product-model.panel
+This position refers to the right panel of a simple product, variant, root model or sub product model edit page.
 [![pim-product-panel.png](../img/extensions/ui-extensions/positions/pim-product-panel.png)](../img/extensions/ui-extensions/positions/pim-product-panel.png)
 
 ::: panel-link Link extension [Next](/extensions/link.html)
