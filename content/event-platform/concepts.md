@@ -92,6 +92,8 @@ For the `pubsub` subscription type, the `config` property needed when creating t
 }
 ```
 
+You can also configure [custom HTTP headers](#custom-http-headers) to be sent with each delivery request.
+
 #### Allow the Event Platform to publish in your Pub/Sub topic
 
 To use a Pub/Sub subscription, you need to complete a few additional steps to ensure we have permission to publish into your Pub/Sub topic:
@@ -156,6 +158,8 @@ Additionally, it requires at least a primary secret (with an optional secondary 
   }
 }
 ```
+
+You can also configure [custom HTTP headers](#custom-http-headers) to be sent with each delivery request.
 
 ##### HMAC signature for webhook payloads
 
@@ -300,6 +304,47 @@ For secure connections, you can optionally configure TLS settings in the `config
 | `mechanism` | SASL authentication mechanism | Yes | `plain` |
 | `username` | Username for authentication | Yes | String |
 | `password` | Password for authentication | Yes | String |
+
+You can also configure [custom HTTP headers](#custom-http-headers) to be sent with each delivery request.
+
+## Custom HTTP Headers
+
+You can optionally configure custom HTTP headers that will be sent with each event delivery request. This feature is available for all subscription types (`https`, `pubsub`, `kafka`). It is useful for pre-authentication (e.g., an API key) or for routing event traffic on the receiving end.
+
+Add a `headers` field to the `config` object of your subscription:
+
+```json[snippet:Subscription with custom headers]
+{
+  "config": {
+    "headers": {
+      "X-API-Key": "my-api-key-value",
+      "X-Custom-Routing": "my-routing-value"
+    }
+  }
+}
+```
+
+### Validation rules
+
+| Constraint | Details |
+| --- | --- |
+| Maximum number of headers | 5 |
+| Header name format | Alphanumeric characters and hyphens only (`a-zA-Z0-9-`) |
+| Header name max length | 128 characters |
+| Header value format | Printable ASCII characters only |
+| Header value max length | 256 characters |
+
+### Reserved header names
+
+The following header names cannot be used as custom headers: `Content-Type`, `User-Agent`, `X-Correlation-ID`, `Host`, `Authorization`, `Cookie`, and any name starting with `X-AKENEO-SIGNATURE-`.
+
+::: info
+For HTTPS subscriptions, custom headers are **not included in the HMAC signature** computation. They are injected after the signature is calculated.
+:::
+
+::: info
+Header values are **redacted** in API responses for security purposes. Only the header names are visible.
+:::
 
 ## Subscription Filters
 
