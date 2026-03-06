@@ -428,6 +428,9 @@ These are the scopes you send in the authorization and authentication requests.
 | `read_workflow_step_assignees` <span class="label label-ee">EE</span>   | Read assignees for workflow steps                                |
 | `read_workflow_tasks` <span class="label label-ee">EE</span>            | Read workflow tasks                                              |
 | `write_workflow_tasks` <span class="label label-ee">EE</span>           | Write workflow tasks                                             |
+| `create_suggestions` <span class="label label-ee">EE</span>             | Create suggestions                                               |
+| `read_suggestions` <span class="label label-ee">EE</span>               | Read suggestions                                                 |
+| `manage_suggestions` <span class="label label-ee">EE</span>             | Manage suggestions                                               |
 
 ### Available authentication scopes
 
