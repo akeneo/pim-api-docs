@@ -466,6 +466,7 @@ To do so, use the following `POST` method, with parameters below:
 ```
 https://my-pim.cloud.akeneo.com/connect/apps/v1/scopes/update?scopes=[REQUESTED_SCOPES]
 ```
+
 Requirements:
 - `scopes`: query parameter to specify app new scope list as a space-separated string
 - `Authorization: Bearer [AccessToken]`: header to authenticate your app
