@@ -428,6 +428,9 @@ These are the scopes you send in the authorization and authentication requests.
 | `read_workflow_step_assignees` <span class="label label-ee">EE</span>   | Read assignees for workflow steps                                |
 | `read_workflow_tasks` <span class="label label-ee">EE</span>            | Read workflow tasks                                              |
 | `write_workflow_tasks` <span class="label label-ee">EE</span>           | Write workflow tasks                                             |
+| `create_suggestions` <span class="label label-ee">EE</span>             | Create suggestions                                               |
+| `read_suggestions` <span class="label label-ee">EE</span>               | Read suggestions                                                 |
+| `manage_suggestions` <span class="label label-ee">EE</span>             | Manage suggestions                                               |
 
 ### Available authentication scopes
 
@@ -463,6 +466,7 @@ To do so, use the following `POST` method, with parameters below:
 ```
 https://my-pim.cloud.akeneo.com/connect/apps/v1/scopes/update?scopes=[REQUESTED_SCOPES]
 ```
+
 Requirements:
 - `scopes`: query parameter to specify app new scope list as a space-separated string
 - `Authorization: Bearer [AccessToken]`: header to authenticate your app

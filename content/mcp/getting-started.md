@@ -24,7 +24,7 @@ This means:
 
 **From your Akeneo PIM:**
 
-1. Your PIM instance URL (e.g., `https://yourcompany.akeneo.com`)
+1. Your PIM SAAS instance URL (e.g., `https://yourcompany.akeneo.com`)
 2. API credentials:
     - Client ID
     - Client secret
