@@ -16,7 +16,7 @@ When developing with the SDK, keep these constraints in mind:
 - **External Access**: Direct network requests (fetch, XMLHttpRequest) to external services are not allowed. All API interactions must go through the SDK methods. There is a specific method available to allow access to external resources.
 - **DOM Access**: Limited access to the DOM is provided, with restrictions on what elements can be modified.
 - **Global State**: The sandbox isolates your code from affecting the global state of the PIM application.
-- **Resources**: Your script should be efficient as it runs within the PIM application context. Also note that the uploaded file must no texceed 10MB.
+- **Resources**: Your script should be efficient as it runs within the PIM application context. Also, note that the uploaded file must not exceed 10MB.
 
 [![indepth_custom_extension.png](../img/extensions/ui-extensions/indepth_custom_extension.png)](../img/extensions/ui-extensions/indepth_custom_extension.png)
 
