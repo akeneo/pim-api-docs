@@ -27,7 +27,7 @@ These models may struggle with complex state management or the specifics of the 
 If your goal is a functional component that interacts with Akeneo data, we recommend using an **AI-native IDE** (like Cursor) or a code agent such as **Claude Code**. These tools have better "reasoning" capabilities and can index your entire project folder to understand context.
 
 ::: info
-If you use **Claude Code**, a dedicated plugin is available to streamline your workflow. See the [Claude Code Plugin](#claude-code-plugin-beta) section below.
+If you use **Claude Code**, a dedicated plugin is available to streamline your workflow. See the [Claude Code Plugin](#claude-code-plugin) section below.
 :::
 
 ## Step 1: Provide context
@@ -86,6 +86,7 @@ The [Akeneo Extension SDK repository](https://github.com/akeneo/extension-sdk?ta
 Run the following commands inside Claude Code:
 
 ```
+
 /plugin marketplace add akeneo/extension-sdk
 /plugin install akeneo-custom-component@akeneo-custom-component
 ```
