@@ -26,6 +26,10 @@ These models may struggle with complex state management or the specifics of the 
 
 If your goal is a functional component that interacts with Akeneo data, we recommend using an **AI-native IDE** (like Cursor) or a code agent such as **Claude Code**. These tools have better "reasoning" capabilities and can index your entire project folder to understand context.
 
+::: info
+If you use **Claude Code**, a dedicated plugin is available to streamline your workflow. See the [Claude Code Plugin](#claude-code-plugin-beta) section below.
+:::
+
 ## Step 1: Provide context
 
 AI is only as good as the context you provide. Before asking the AI to write code, "prime" it by providing the structure of a valid Akeneo extension.
@@ -67,3 +71,24 @@ Once the AI generates your code (typically a single JavaScript file or a small p
 | **Complex Integration** | Code agent + Manual Review | 50% (AI handles boilerplate, you debug) |
 
 By combining a clear functional goal with the right AI prompts and Akeneo’s SDK documentation, you can build sophisticated custom components without being a JavaScript expert.
+
+## Claude Code Plugin
+
+The [Akeneo Extension SDK repository](https://github.com/akeneo/extension-sdk?tab=readme-ov-file#claude-code-plugin-beta) ships a **Claude Code plugin** called `akeneo-custom-component` that is purpose-built to streamline Custom Component development directly inside Claude Code.
+
+### What it provides
+
+- **Awareness skill** — automatically activates when Custom Components are discussed, giving Claude Code the right context without any manual prompting.
+- **`/akeneo-cc-setup` skill** — a guided workflow that handles scaffolding, building, and deploying a Custom Component sequentially.
+
+### Installation
+
+Run the following commands inside Claude Code:
+
+```
+/plugin marketplace add akeneo/extension-sdk
+/plugin install akeneo-custom-component@akeneo-custom-component
+```
+
+Once installed, Claude Code will automatically provide Akeneo-specific guidance whenever you work on Custom Components, and you can trigger the full setup flow at any time with `/akeneo-cc-setup`.
+
