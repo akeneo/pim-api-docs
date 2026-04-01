@@ -93,3 +93,4 @@ Run the following commands inside Claude Code:
 
 Once installed, Claude Code will automatically provide Akeneo-specific guidance whenever you work on Custom Components, and you can trigger the full setup flow at any time with `/akeneo-cc-setup`.
 
+::: panel-link [Learn more about our SDK](/advanced-extensions/sdk-in-depth.html)
