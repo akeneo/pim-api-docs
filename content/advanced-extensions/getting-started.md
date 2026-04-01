@@ -74,4 +74,4 @@ You need to refresh the page for the extension to appear.
 
 **Congratulations!** You've created your first custom component.
 
-::: panel-link [Learn more about our SDK](/advanced-extensions/sdk-in-depth.html)
+::: panel-link [Accelerate your workflow: Learn how to build custom components with the power of AI](/advanced-extensions/build-sdk-with-ai.html)
