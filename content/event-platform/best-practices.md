@@ -26,7 +26,7 @@ Let's take an example:
   "data": {
     "product": {
       "uuid": "3444ec1b-058e-4208-9b6c-284f47a7aa17"
-    }
+    },
     "author": {
       "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "api"
@@ -37,7 +37,7 @@ Let's take an example:
 
 ## Handling 429 Responses for HTTPS destinations
 
-The platform can send many events in a short time, potentially causing overload and leading to `500` responses from your side. In such cases, event will enter the [retry mecanism](/event-platform/concepts.html##retry-policy-for-transient-failures) and your subscription may be suspended. By implementing a proper `429` response mechanism, you will optimize the event reception flow thanks to our [optimizez throughput](/event-platform/concepts.html#optimized-throughput).
+The platform can send many events in a short time, potentially causing overload and leading to `500` responses from your side. In such cases, event will enter the [retry mecanism](/event-platform/concepts.html##retry-policy-for-transient-failures) and your subscription may be suspended. By implementing a proper `429` response mechanism, you will optimize the event reception flow thanks to our [optimized throughput](/event-platform/key-platform-behaviors.html#optimized-throughput).
 
 If your 429 responses contains a `Retry-after` header, the platform **will not take it into account**.
 
