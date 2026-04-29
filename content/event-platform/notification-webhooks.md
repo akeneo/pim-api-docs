@@ -54,7 +54,7 @@ The request body is JSON with `Content-Type: application/json`:
 | Field             | Type                | Description                                                                                                                                       |
 |-------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | `notification_type` | string (enum)     | One of `subscription.suspended.system`, `subscription.suspended.user`, `subscription.revoked`, `subscription.resumed`.                            |
-| `timestamp`       | string (RFC3339)    | UTC timestamp set when the platform built the payload. Use it to reject stale or replayed requests.                                              |
+| `timestamp`       | string (RFC3339)    | UTC timestamp set when the platform built the payload.                                                                                             |
 | `subscription_id` | string (UUID)       | The Subscription whose status changed.                                                                                                           |
 | `subscriber_id`   | string (UUID)       | The Subscriber owning the Subscription.                                                                                                           |
 | `destination`     | string              | The Subscription destination (HTTPS URL or Pub/Sub topic identifier).                                                                            |
@@ -109,10 +109,6 @@ Always verify against the **raw request body bytes**, not a re-serialized JSON o
 ::: info
 Use a constant-time string comparison (`crypto.timingSafeEqual` in Node.js, `hash_equals` in PHP, `hmac.compare_digest` in Python) to avoid leaking signature bytes via timing side channels.
 :::
-
-## Replay protection
-
-The `timestamp` field in the body is signed along with the rest of the payload. We recommend rejecting any request whose `timestamp` is older than 5 minutes from your server's clock. This mitigates replay attacks if a signed request body is captured and resent later.
 
 ## Retry policy
 
