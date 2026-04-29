@@ -110,23 +110,9 @@ Always verify against the **raw request body bytes**, not a re-serialized JSON o
 Use a constant-time string comparison (`crypto.timingSafeEqual` in Node.js, `hash_equals` in PHP, `hmac.compare_digest` in Python) to avoid leaking signature bytes via timing side channels.
 :::
 
-## Retry policy
+## Delivery and retry
 
-The Event Platform attempts delivery up to **3 times** with delays of 1s and 2s between attempts. Each attempt has a **5 second** request timeout. The platform does **not** follow HTTP redirects.
-
-Your endpoint should respond as quickly as possible. If you need to do heavy processing, acknowledge the request first and process asynchronously.
-
-## Response handling
-
-Your endpoint signals success or failure through the HTTP status code:
-
-| Status code     | Treatment                                                          |
-|-----------------|--------------------------------------------------------------------|
-| `2xx`           | Delivery acknowledged. No retry.                                   |
-| `3xx`           | Treated as failure. The platform does not follow redirects.        |
-| `429`           | Rate-limited. Retried within the attempt budget.                   |
-| Other `4xx`     | Permanent client error. No retry.                                  |
-| `5xx`           | Transient server error. Retried within the attempt budget.         |
+Reply with a `2xx` status within **5 seconds** to acknowledge the notification. Any other response is treated as a delivery failure: the platform retries up to **3 times** with delays of 1s and 2s between attempts. `5xx` and `429` responses are retried within that budget; other `4xx` responses are not. The platform does **not** follow redirects, so `3xx` responses also count as failures.
 
 ## Email fallback
 
