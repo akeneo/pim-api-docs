@@ -13,6 +13,9 @@ The following properties represent a subscriber:
 | `name` | Populated by the user at creation | Name of the subscriber                                                          |
 | `subject` | From `X-PIM-URL` header parameter | URL of the targeted source                                                      |
 | `technical_email` | Populated by the user at creation | A contact email will be used to notify you in case of unexpected behaviour       |
+| `notification_channels` | Optional, default: `["email"]` | Channels used to notify subscription status changes (suspended, revoked, resumed). Accepts `email`, `webhook`, or both. See [Notification webhooks](/event-platform/notification-webhooks.html). |
+| `notification_webhook_url` | Required when `webhook` is in `notification_channels` | HTTPS URL receiving notification POSTs. The platform does not follow redirects.   |
+| `notification_webhook_secret` | Required when `webhook` is in `notification_channels` | Shared secret (16–256 characters) used to sign notification webhook payloads. Never returned in API responses. |
 | `status` | Automatically populated | The subscriber status                                                           |
 
 The statuses for a subscriber are:
