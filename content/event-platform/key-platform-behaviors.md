@@ -73,7 +73,7 @@ Here are the errors type that decrease the success rate:
 - `4xx Client Error Response` HTTP status
 - Delivery timeout
 
-When the platform suspends your subscription, a notification will be sent to the technical email address you provided, along with contextual information about the suspension.
+When the platform suspends, revokes, or resumes your subscription, a notification is sent on the channels configured on your subscriber. By default an email is sent to the `technical_email` you provided; you can also opt into a webhook notification on a URL of your choice. See the [Notification webhooks](/event-platform/notification-webhooks.html) page for the contract.
 
-::: panel-link Let's see the API reference! [Next](/event-platform/api-reference.html)
+::: panel-link Let's see how notification webhooks work! [Next](/event-platform/notification-webhooks.html)
 :::
