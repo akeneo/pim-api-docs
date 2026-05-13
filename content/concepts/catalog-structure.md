@@ -77,7 +77,7 @@ Below is the list of attribute types and their description:
 | Yes/No | pim_catalog_boolean | a boolean attribute |
 | Date | pim_catalog_date | a date field, the PIM will display a calendar to choose the date, which includes day, month and year. |
 | Number | pim_catalog_number | a single-line field that can only contain digits. |
-| Measurement | pim_catalog_metric | a single-line field composed of a first field containing a value and a second field containing a measurement unit. It allows you to automatically convert measurement values to others to fit your export needs. |
+| Measurement | pim_catalog_metric | a single-line field composed of a first field containing a value, a second field containing a measurement unit and a third field containing a measurement symbol. It allows you to automatically convert measurement values to others to fit your export needs. |
 | Price | pim_catalog_price_collection | a price attribute with values per currency. The displayed values will depend on the currencies enabled in the PIM. |
 | Image | pim_catalog_image | a drag and drop down zone to upload an image (extensions allowed: gif, jfif, jif, jpeg, jpg, pdf, png, psd, tif, tiff) |
 | File | pim_catalog_file | a drag and drop down zone to upload a file (allowed extensions: csv, doc, docx, mp3, pdf) |
