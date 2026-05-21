@@ -61,7 +61,8 @@ Below is the JSON standard format representing a product.
         "scope": null,
         "data": {
           "amount": "800.0000",
-          "unit": "GRAM"
+          "unit": "GRAM",
+          "symbol": "g"
         }
       }
     ],
@@ -457,6 +458,7 @@ Whenever the attribute type is pim_catalog_product_link, the data field must con
 Whenever the attribute's type is `pim_catalog_metric`, the `data` field should contain an object with following fields:
 - `amount`: a string representing a number if the `decimals_allowed` property of the attribute is set to `true`, otherwise an integer, containing amount value
 - `unit`: a string representing the metric unit for the specified amount
+- `symbol`: a string representing the symbol of the unit (e.g. `g`, `kW`), resolved from the measurement family definition
 
 ##### Examples
 ```json
@@ -468,7 +470,8 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
         "scope": null,
         "data": {
           "amount":10,
-          "unit": "KILOWATT"
+          "unit": "KILOWATT",
+          "symbol": "kW"
         },
         "attribute_type": "pim_catalog_metric"
       }
@@ -485,7 +488,8 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
         "scope": null,
         "data": {
           "amount":"25.45",
-          "unit": "CENTIMETER"
+          "unit": "CENTIMETER",
+          "symbol": "cm"
         },
         "attribute_type": "pim_catalog_metric"
       }
@@ -1085,7 +1089,8 @@ Below is the JSON standard format representing a published product. Notice how t
         "scope": null,
         "data": {
           "amount": "600.0000",
-          "unit": "GRAM"
+          "unit": "GRAM",
+          "symbol": "g"
         }
       }
     ],
