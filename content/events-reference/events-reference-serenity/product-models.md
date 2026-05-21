@@ -71,7 +71,8 @@ A product model created event follows this format:
                                 "scope": null,
                                 "data": {
                                     "amount": "800.0000",
-                                    "unit": "GRAM"
+                                    "unit": "GRAM",
+                                    "symbol": "g"
                                 }
                             }
                         ],
@@ -189,7 +190,8 @@ A product model updated event follows this format:
                                 "scope": null,
                                 "data": {
                                     "amount": "800.0000",
-                                    "unit": "GRAM"
+                                    "unit": "GRAM",
+                                    "symbol": "g"
                                 }
                             }
                         ],
