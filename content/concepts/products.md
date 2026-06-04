@@ -498,6 +498,9 @@ Whenever the attribute's type is `pim_catalog_metric`, the `data` field should c
 }
 ```
 
+::: panel-link Want your measurement values converted into channel-specific units, per locale? [Check the measurement conversion units!](/concepts/target-market-settings.html#measurement-conversion-units)
+:::
+
 #### Price attribute
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
 :::

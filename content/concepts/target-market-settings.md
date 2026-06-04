@@ -127,6 +127,112 @@ Below is the JSON standard format representing this set of channels when request
 ::: panel-link Want more details about the channel resource? [Check its endpoint here!](/api-reference.html#get_channels)
 :::
 
+### Measurement conversion units
+::: availability versions=SaaS editions=EE
+:::
+
+The `conversion_units` property of a channel tells the PIM into which units the measurement values of your products should be converted when you request them for that channel.
+
+You can define conversion rules at three levels. For a given attribute, measurement family and locale, they are evaluated in this order of priority:
+1. **Per attribute and locale**, under the reserved `pim_config_attribute_locale_rules` key. This is the most specific rule.
+2. **Per attribute**, as a flat `"attribute_code": "UNIT"` entry. It applies whatever the locale, and takes precedence over the family rule below.
+3. **Per measurement family and locale**, under the reserved `pim_config_family_rules` key. It applies to every attribute of that measurement family.
+
+::: warning
+`pim_config_family_rules` and `pim_config_attribute_locale_rules` are reserved keys: you cannot use them as attribute codes.
+:::
+
+Each per-locale cell is either a string containing the target unit code, or an object that also describes how the decimals should be formatted:
+- `unit`: the target unit code (e.g. `POUND`)
+- `decimal_places_strategy`: `round` to keep a fixed number of decimals, or `trim` to remove trailing zeros
+- `decimal_places`: the number of decimals to keep, from 1 to 4. Only used, and required, when the strategy is `round`
+
+When the resolved unit has no precision set, the decimals follow the attribute's own configuration.
+
+In the example below, for the `ecommerce` channel, every `Weight` attribute is converted to `POUND` (2 decimals) for `en_US` and to `KILOGRAM` (trailing zeros trimmed) for `fr_FR`. The `localisable_scopable_weight` attribute is an exception: it is converted to `OUNCE` (1 decimal) for `en_US`. Finally, `display_diagonal` is always converted to `INCH`, whatever the locale.
+
+```json
+{
+  "code": "ecommerce",
+  "conversion_units": {
+    "display_diagonal": "INCH",
+    "pim_config_family_rules": {
+      "Weight": {
+        "en_US": { "unit": "POUND", "decimal_places_strategy": "round", "decimal_places": 2 },
+        "fr_FR": { "unit": "KILOGRAM", "decimal_places_strategy": "trim" }
+      }
+    },
+    "pim_config_attribute_locale_rules": {
+      "localisable_scopable_weight": {
+        "en_US": { "unit": "OUNCE", "decimal_places_strategy": "round", "decimal_places": 1 }
+      }
+    }
+  }
+}
+```
+
+#### Requesting converted values
+
+To get your measurement values converted into the units configured for a channel, add the `convert_measurements` query parameter when you request products or product models, together with the `scope` parameter:
+
+```
+GET /api/rest/v1/products-uuid?scope=ecommerce&convert_measurements=true
+```
+
+The `scope` parameter is mandatory whenever `convert_measurements` is set to `true`.
+
+When a measurement family has per-locale rules, the converted unit can differ from one locale to another. How the values are returned then depends on whether the attribute is localizable:
+- For a **localizable** attribute, each value is converted into the unit configured for its own locale, and keeps its original `locale` and `scope`.
+- For a **non-localizable** attribute, the PIM returns the stored value plus one converted value per locale that has a rule.
+
+:::info
+For a non-localizable attribute, the converted entries carry a `locale` (and a `scope`), even though the attribute itself is neither localizable nor scopable.
+:::
+
+In the following examples, all values are stored in `KILOGRAM` and requested with `?scope=ecommerce&locales=en_US,fr_FR&convert_measurements=true`, using the `conversion_units` shown above.
+
+A non-localizable, non-scopable attribute returns the stored value and one converted value per configured locale:
+```json
+{
+  "weight": [
+    { "locale": null, "scope": null, "data": { "amount": "2", "unit": "KILOGRAM", "symbol": "kg" }, "attribute_type": "pim_catalog_metric" },
+    { "locale": "en_US", "scope": "ecommerce", "data": { "amount": "4.41", "unit": "POUND", "symbol": "lb" }, "attribute_type": "pim_catalog_metric" },
+    { "locale": "fr_FR", "scope": "ecommerce", "data": { "amount": "2", "unit": "KILOGRAM", "symbol": "kg" }, "attribute_type": "pim_catalog_metric" }
+  ]
+}
+```
+
+A localizable attribute converts each value in place, following its own locale:
+```json
+{
+  "localizable_weight": [
+    { "locale": "en_US", "scope": null, "data": { "amount": "11.02", "unit": "POUND", "symbol": "lb" }, "attribute_type": "pim_catalog_metric" },
+    { "locale": "fr_FR", "scope": null, "data": { "amount": "10", "unit": "KILOGRAM", "symbol": "kg" }, "attribute_type": "pim_catalog_metric" }
+  ]
+}
+```
+
+A non-localizable, scopable attribute behaves like the first case, with the channel as `scope`:
+```json
+{
+  "scopable_weight": [
+    { "locale": null, "scope": "ecommerce", "data": { "amount": "2", "unit": "KILOGRAM", "symbol": "kg" }, "attribute_type": "pim_catalog_metric" },
+    { "locale": "en_US", "scope": "ecommerce", "data": { "amount": "4.41", "unit": "POUND", "symbol": "lb" }, "attribute_type": "pim_catalog_metric" },
+    { "locale": "fr_FR", "scope": "ecommerce", "data": { "amount": "2", "unit": "KILOGRAM", "symbol": "kg" }, "attribute_type": "pim_catalog_metric" }
+  ]
+}
+```
+
+A localizable and scopable attribute is converted in place. Here the per-attribute rule applies for `en_US` (`OUNCE`, 1 decimal), while `fr_FR` falls back to the family rule:
+```json
+{
+  "localisable_scopable_weight": [
+    { "locale": "en_US", "scope": "ecommerce", "data": { "amount": "176.4", "unit": "OUNCE", "symbol": "oz" }, "attribute_type": "pim_catalog_metric" },
+    { "locale": "fr_FR", "scope": "ecommerce", "data": { "amount": "10", "unit": "KILOGRAM", "symbol": "kg" }, "attribute_type": "pim_catalog_metric" }
+  ]
+}
+```
+
 ## Currency
 ::: availability versions=2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
 :::
