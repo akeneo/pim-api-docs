@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  security-hunter: akeneo-orbs/security-hunter@2.16.0
+  security-hunter: akeneo-orbs/security-hunter@2.18.3
 
 aliases:
   - &dockerExecutorWithPython
@@ -40,9 +40,16 @@ workflows:
             checkout_code: false
             requires:
               - checkout-with-persist
+      - security-hunter/scan-pipeline-mutable-tags:
+            name: "secops/mutable-tags/scan"
+            context: SECOPS_SQUAD
+            checkout_code: false
+            requires:
+              - checkout-with-persist
       - build:
           requires:
             - secops/secrets/scan
+            - secops/mutable-tags/scan
       - workflow_success:
           requires:
             - build
