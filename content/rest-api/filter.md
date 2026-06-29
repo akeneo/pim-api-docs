@@ -211,6 +211,53 @@ To get the products that were updated during the last 4 days, you can use the fo
 /api/rest/v1/products-uuid?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
 ```
 
+### On their update date including linked entities changes
+
+::: availability versions=SaaS editions=EE
+
+To filter products on their update date while also taking into account the changes made to their **linked entities** (assets and reference entity records), use the `updated_including_linked_entities` product property.
+Contrary to the `updated` property, a product is returned not only when the product itself was updated, but also when one of its linked entities was updated during the given period.
+
+::: warning
+Using this filter requires the **Linked entities update** option to be enabled for the corresponding entity type in the PIM configuration (`System` > `Configuration`). When the option is disabled for an entity type, the changes made to this type of linked entity are not taken into account by the filter.
+:::
+
+Here are the allowed operators to filter on this property as well as the corresponding type of value expected in the `search` query parameter.
+
+| Operator            | Allowed value type                                    | Filter description                                                                                                                  |
+| ------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `=`                 | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_           | Only returns products that were updated, or whose linked entities were updated,<br> during the given day                             |
+| `!=`                | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_           | Only returns products that were not updated, and whose linked entities were not updated,<br> during the given day                    |
+| `<`                 | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_           | Only returns products that were updated, or whose linked entities were updated,<br> before the given day                             |
+| `>`                 | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_           | Only returns products that were updated, or whose linked entities were updated,<br> after the given day                              |
+| `BETWEEN`           | array of datetimes <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns products that were updated, or whose linked entities were updated,<br> between the two given dates                      |
+| `NOT BETWEEN`       | array of datetimes <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns products that were not updated, and whose linked entities were not updated,<br> between the two given dates             |
+| `SINCE LAST N DAYS` | integer                                               | Only returns products that were updated, or whose linked entities were updated,<br> during the last n days, n being the given value |
+
+|
+
+You can optionally restrict the linked entity types taken into account thanks to the companion `updated_including_linked_type` property. This property only accepts the `IN` operator and cannot be used without the `updated_including_linked_entities` property.
+
+| Operator | Allowed value type                                                                                              | Filter description                                                       |
+| -------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `IN`     | array of linked entity types <br> _Allowed values: `asset`, `reference_entity_record`_      | Only takes into account the changes made to the given linked entity types |
+
+|
+
+#### Examples
+
+To get the products updated — including any change made to one of their linked entities — during the last 7 days, you can use the following URL.
+
+```
+/api/rest/v1/products-uuid?search={"updated_including_linked_entities":[{"operator":"SINCE LAST N DAYS","value":7}]}
+```
+
+To get the products updated after the 1st of January 2025, taking into account only the changes made to their linked assets and reference entity records, you can use the following URL.
+
+```
+/api/rest/v1/products-uuid?search={"updated_including_linked_entities":[{"operator":">","value":"2025-01-01 00:00:00"}],"updated_including_linked_type":[{"operator":"IN","value":["asset","reference_entity_record"]}]}
+```
+
 ### On their parent
 
 ::: availability versions=3.2,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
@@ -419,6 +466,53 @@ To get the product models that were updated during the last 4 days, you can use 
 
 ```
 /api/rest/v1/product-models?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
+```
+
+### On their update date including linked entities changes
+
+::: availability versions=SaaS editions=EE
+
+To filter product models on their update date while also taking into account the changes made to their **linked entities** (assets and reference entity records), use the `updated_including_linked_entities` product property.
+Contrary to the `updated` property, a product model is returned not only when the product model itself was updated, but also when one of its linked entities was updated during the given period.
+
+::: warning
+Using this filter requires the **Linked entities update** option to be enabled for the corresponding entity type in the PIM configuration (`System` > `Configuration`). When the option is disabled for an entity type, the changes made to this type of linked entity are not taken into account by the filter.
+:::
+
+Here are the allowed operators to filter on this property as well as the corresponding type of value expected in the `search` query parameter.
+
+| Operator            | Allowed value type                                    | Filter description                                                                                                                        |
+| ------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `=`                 | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_           | Only returns product models that were updated, or whose linked entities were updated,<br> during the given day                             |
+| `!=`                | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_           | Only returns product models that were not updated, and whose linked entities were not updated,<br> during the given day                    |
+| `<`                 | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_           | Only returns product models that were updated, or whose linked entities were updated,<br> before the given day                             |
+| `>`                 | datetime <br> _Format: YYYY-MM-DD hh:mm:ss_           | Only returns product models that were updated, or whose linked entities were updated,<br> after the given day                              |
+| `BETWEEN`           | array of datetimes <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns product models that were updated, or whose linked entities were updated,<br> between the two given dates                      |
+| `NOT BETWEEN`       | array of datetimes <br> _Format: YYYY-MM-DD hh:mm:ss_ | Only returns product models that were not updated, and whose linked entities were not updated,<br> between the two given dates             |
+| `SINCE LAST N DAYS` | integer                                               | Only returns product models that were updated, or whose linked entities were updated,<br> during the last n days, n being the given value |
+
+|
+
+You can optionally restrict the linked entity types taken into account thanks to the companion `updated_including_linked_type` property. This property only accepts the `IN` operator and cannot be used without the `updated_including_linked_entities` property.
+
+| Operator | Allowed value type                                                                                              | Filter description                                                       |
+| -------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `IN`     | array of linked entity types <br> _Allowed values: `asset`, `reference_entity_record`_      | Only takes into account the changes made to the given linked entity types |
+
+|
+
+#### Examples
+
+To get the product models updated — including any change made to one of their linked entities — during the last 7 days, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"updated_including_linked_entities":[{"operator":"SINCE LAST N DAYS","value":7}]}
+```
+
+To get the product models updated after the 1st of January 2025, taking into account only the changes made to their linked assets and reference entity records, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"updated_including_linked_entities":[{"operator":">","value":"2025-01-01 00:00:00"}],"updated_including_linked_type":[{"operator":"IN","value":["asset","reference_entity_record"]}]}
 ```
 
 ### On their parent
