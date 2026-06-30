@@ -127,6 +127,55 @@ To get the products that are 100% complete on both the `en_US` and `fr_FR` local
 /api/rest/v1/products-uuid?search={"completeness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":100,"locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
 ```
 
+### On their readiness
+
+::: availability versions=SaaS editions=EE
+
+::: warning
+Readiness is currently in beta and is available by request only. If you would like to participate, please reach out to your Customer Success Manager.
+:::
+
+To filter products on their readiness, use the `readiness` product property. You will also need to provide:
+- a `readiness_code` value to specify which readiness configuration you want to filter on,
+- a `scope` value to specify on which channel you want to filter the readiness score,
+- a `locale` value (or a `locales` value, see below) to specify on which locale you want to filter the readiness score.
+
+The readiness score is a percentage given as an integer between 0 and 100.
+Here are the allowed operators you can use to filter by readiness as well as the corresponding type of value expected in the `search` query parameter.
+
+| Operator                                                                                            | Allowed value type     | Filter description                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<` or `<=`                                                                                         | integer                | Only returns products that have a readiness score lower than (or equal to) the given value for the given readiness, channel and locale.                  |
+| `>` or `>=`                                                                                         | integer                | Only returns products that have a readiness score greater than (or equal to) the given value for the given readiness, channel and locale.                |
+| `=`                                                                                                 | integer                | Only returns products that have a readiness score equal to the given value for the given readiness, channel and locale.                                  |
+| `!=`                                                                                                | integer                | Only returns products that have a readiness score different from the given value for the given readiness, channel and locale.                            |
+| `BETWEEN`                                                                                           | array of two integers  | Only returns products that have a readiness score between the two given values (inclusive) for the given readiness, channel and locale.                  |
+| `EMPTY`                                                                                             | no value               | Only returns products that have no readiness score for the given readiness.                                                                              |
+| `NOT EMPTY`                                                                                         | no value               | Only returns products that have a readiness score for the given readiness.                                                                               |
+| `GREATER THAN ON ALL LOCALES` or `GREATER OR EQUALS THAN ON ALL LOCALES`                            | integer                | Only returns products that have a readiness score greater than (or equal to) the given value on all the given locales for the given readiness and channel.       |
+| `LOWER THAN ON ALL LOCALES` or `LOWER OR EQUALS THAN ON ALL LOCALES`                                | integer                | Only returns products that have a readiness score lower than (or equal to) the given value on all the given locales for the given readiness and channel.         |
+| `GREATER THAN ON AT LEAST ONE LOCALE` or `GREATER OR EQUALS THAN ON AT LEAST ONE LOCALE`            | integer                | Only returns products that have a readiness score greater than (or equal to) the given value on at least one of the given locales for the given readiness and channel. |
+| `LOWER THAN ON AT LEAST ONE LOCALE` or `LOWER OR EQUALS THAN ON AT LEAST ONE LOCALE`                | integer                | Only returns products that have a readiness score lower than (or equal to) the given value on at least one of the given locales for the given readiness and channel.   |
+| `EQUALS ON AT LEAST ONE LOCALE` or `NOT EQUALS ON AT LEAST ONE LOCALE`                              | integer                | Only returns products that have (or don't have) a readiness score equal to the given value on at least one of the given locales for the given readiness and channel.   |
+
+::: info
+The `ON ALL LOCALES` and `ON AT LEAST ONE LOCALE` operators expect a set of locales, given through the `locales` property (an array of locale codes) instead of the single `locale` property.
+:::
+
+#### Examples
+
+To get the products that are 100% ready for the `camcorders_ecommerce` readiness on the `ecommerce` channel and the `en_US` locale, you can use the following URL.
+
+```
+/api/rest/v1/products-uuid?search={"readiness":[{"operator":">=","value":100,"readiness_code":"camcorders_ecommerce","scope":"ecommerce","locale":"en_US"}]}
+```
+
+To get the products that are at least 80% ready on both the `en_US` and `fr_FR` locales for the `camcorders_ecommerce` readiness on the `ecommerce` channel, you can use the following URL.
+
+```
+/api/rest/v1/products-uuid?search={"readiness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":80,"locales":["en_US","fr_FR"],"readiness_code":"camcorders_ecommerce","scope":"ecommerce"}]}
+```
+
 ### On their group
 
 ::: availability versions=1.7,2.x,3.x,4.0,5.0,6.0,7.0,SaaS editions=CE,EE
@@ -401,6 +450,55 @@ To get the product models that have at least one variant product 100% complete o
 
 ```
 /api/rest/v1/product-models?search={"completeness":[{"operator":"AT LEAST COMPLETE","locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
+```
+
+### On readiness
+
+::: availability versions=SaaS editions=EE
+
+::: warning
+Readiness is currently in beta and is available by request only. If you would like to participate, please reach out to your Customer Success Manager.
+:::
+
+To filter product models on their readiness, use the `readiness` product property. You will also need to provide:
+- a `readiness_code` value to specify which readiness configuration you want to filter on,
+- a `scope` value to specify on which channel you want to filter the readiness score,
+- a `locale` value (or a `locales` value, see below) to specify on which locale you want to filter the readiness score.
+
+The readiness score is a percentage given as an integer between 0 and 100.
+Here are the allowed operators you can use to filter by readiness as well as the corresponding type of value expected in the `search` query parameter.
+
+| Operator                                                                                            | Allowed value type     | Filter description                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<` or `<=`                                                                                         | integer                | Only returns product models that have a readiness score lower than (or equal to) the given value for the given readiness, channel and locale.                  |
+| `>` or `>=`                                                                                         | integer                | Only returns product models that have a readiness score greater than (or equal to) the given value for the given readiness, channel and locale.                |
+| `=`                                                                                                 | integer                | Only returns product models that have a readiness score equal to the given value for the given readiness, channel and locale.                                  |
+| `!=`                                                                                                | integer                | Only returns product models that have a readiness score different from the given value for the given readiness, channel and locale.                            |
+| `BETWEEN`                                                                                           | array of two integers  | Only returns product models that have a readiness score between the two given values (inclusive) for the given readiness, channel and locale.                  |
+| `EMPTY`                                                                                             | no value               | Only returns product models that have no readiness score for the given readiness.                                                                              |
+| `NOT EMPTY`                                                                                         | no value               | Only returns product models that have a readiness score for the given readiness.                                                                               |
+| `GREATER THAN ON ALL LOCALES` or `GREATER OR EQUALS THAN ON ALL LOCALES`                            | integer                | Only returns product models that have a readiness score greater than (or equal to) the given value on all the given locales for the given readiness and channel.       |
+| `LOWER THAN ON ALL LOCALES` or `LOWER OR EQUALS THAN ON ALL LOCALES`                                | integer                | Only returns product models that have a readiness score lower than (or equal to) the given value on all the given locales for the given readiness and channel.         |
+| `GREATER THAN ON AT LEAST ONE LOCALE` or `GREATER OR EQUALS THAN ON AT LEAST ONE LOCALE`            | integer                | Only returns product models that have a readiness score greater than (or equal to) the given value on at least one of the given locales for the given readiness and channel. |
+| `LOWER THAN ON AT LEAST ONE LOCALE` or `LOWER OR EQUALS THAN ON AT LEAST ONE LOCALE`                | integer                | Only returns product models that have a readiness score lower than (or equal to) the given value on at least one of the given locales for the given readiness and channel.   |
+| `EQUALS ON AT LEAST ONE LOCALE` or `NOT EQUALS ON AT LEAST ONE LOCALE`                              | integer                | Only returns product models that have (or don't have) a readiness score equal to the given value on at least one of the given locales for the given readiness and channel.   |
+
+::: info
+The `ON ALL LOCALES` and `ON AT LEAST ONE LOCALE` operators expect a set of locales, given through the `locales` property (an array of locale codes) instead of the single `locale` property.
+:::
+
+#### Examples
+
+To get the product models that are 100% ready for the `camcorders_ecommerce` readiness on the `ecommerce` channel and the `en_US` locale, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"readiness":[{"operator":">=","value":100,"readiness_code":"camcorders_ecommerce","scope":"ecommerce","locale":"en_US"}]}
+```
+
+To get the product models that are at least 80% ready on both the `en_US` and `fr_FR` locales for the `camcorders_ecommerce` readiness on the `ecommerce` channel, you can use the following URL.
+
+```
+/api/rest/v1/product-models?search={"readiness":[{"operator":"GREATER OR EQUALS THAN ON ALL LOCALES","value":80,"locales":["en_US","fr_FR"],"readiness_code":"camcorders_ecommerce","scope":"ecommerce"}]}
 ```
 
 ### On family
