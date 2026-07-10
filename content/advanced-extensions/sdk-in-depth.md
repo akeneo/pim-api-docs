@@ -194,6 +194,53 @@ if ('product' in PIM.context) {
 }
 ```
 
+## PIM context changes
+
+`PIM.context` and `PIM.user` are a snapshot taken when your component loads. To keep track of the **locale** or **channel** currently selected by the user, listen for [PostMessage](https://developer.mozilla.org/docs/Web/API/Window/postMessage) events — the same mechanism used by iframe extensions.
+
+The PIM sends this message when your component loads, and again whenever the user changes locale or channel:
+
+```json
+{
+  "context": {
+    "locale": "en_US",
+    "channel": "ecommerce"
+  },
+  "user": {
+    "uuid": "c71228d3-695c-4ded-8f3d-b3ed881a1f59",
+    "username": "admin",
+    "groups": [
+      {"id": 8, "name": "IT support"},
+      {"id": 11, "name": "All"}
+    ]
+  }
+}
+```
+
+Listen for it with:
+
+```js
+window.addEventListener('message', event => {
+  if (event.data?.context) {
+    const {locale, channel} = event.data.context;
+    // React to the new locale/channel
+  }
+});
+```
+
+### Requesting context on demand
+
+In modern JavaScript frameworks like React, components may initialize after the initial context message was already sent, causing them to miss it. In that case, request it explicitly:
+
+```js
+window.parent.postMessage(
+  {
+    type: 'request_context'
+  },
+  '*'
+);
+```
+
 ## Navigation within the PIM
 
 The SDK  navigation method that allows you to open new tabs. This is useful for directing users to different sections of the PIM from your extension:
