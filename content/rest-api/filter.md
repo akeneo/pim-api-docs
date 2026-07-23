@@ -184,21 +184,20 @@ To get the products that are at least 80% ready on both the `en_US` and `fr_FR` 
 Readiness is currently in beta and is available by request only. If you would like to participate, please reach out to your Customer Success Manager.
 :::
 
-To filter products or product models ready on a given channels, across all readiness configurations, use the `readiness_by_channel` property. You will also need to provide:
+To filter products or product models based on their readiness for a given channel, across all readiness configurations, use the `readiness_by_channel` property. You will also need to provide:
 - a `scope` value to specify on which channel you want to filter,
-- optionnaly a `locales` value to specify a list of locale codes you want to take in account. By default the locales selected in each readiness configurations are taken in account.
+- optionally, a `locales` value to specify the list of locale codes to take into account. By default, the locales selected in each readiness configuration are used.
 
-A product (or product  model) is ready on a channel when all its scores are 100 for the given channel and locales across all readiness configurations. The product doesn't need to belong in all readiness configurations, just one is necessary. Products that have no readiness score on the channel/locales are not returned.
+A product (or product model) is considered **ready** on a channel when all its readiness scores are 100 for the given channel and locales, across all readiness configurations it belongs to. The product only needs to belong to at least one readiness configuration. Products with no readiness score for the given channel and locales are not returned.
 
-A product is unready when at least one score is below 100 for the given channel and locales across all readiness configurations. Products that have no readiness score on the channel/locales are not returned.
+A product is considered **not ready** on a channel when at least one of its readiness scores is below 100 for the given channel and locales, across all readiness configurations it belongs to. Products with no readiness score for the given channel and locales are not returned.
 
+Here are the allowed operators you can use to filter on readiness by channel.
 
-Here are the allowed operators you can use to filter by readiness by channel.
-
-| Operator          | Allowed value type | Filter description |
-| ----------------- | ------------------ | ------------------ |
-| `ALL READY`       | no value           | See above          |
-| `ALL UNREADY`     | no value           | See above          |
+| Operator          | Allowed value type | Filter description                                                                                                                                   |
+| ----------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ALL READY`       | no value           | Only returns products whose readiness scores are all 100 for the given channel and locales, across all their readiness configurations.               |
+| `ALL UNREADY`     | no value           | Only returns products that have at least one readiness score below 100 for the given channel and locales, across all their readiness configurations. |
 
 #### Examples
 
@@ -208,10 +207,10 @@ To get the products that are ready on the `ecommerce` channel, you can use the f
 /api/rest/v1/products-uuid?search={"readiness_by_channel":[{"operator":"ALL READY","scope":"ecommerce"}]}
 ```
 
-To get the products that are ready on the `ecommerce` channel and only the locales `en_US` and `en_UK`, you can use the following URL.
+To get the products that are ready on the `ecommerce` channel for the `en_US` and `en_GB` locales only, you can use the following URL.
 
 ```
-/api/rest/v1/products-uuid?search={"readiness_by_channel":[{"operator":"ALL READY","scope":"ecommerce","locales":["en_US","en_UK"]}]}
+/api/rest/v1/products-uuid?search={"readiness_by_channel":[{"operator":"ALL READY","scope":"ecommerce","locales":["en_US","en_GB"]}]}
 ```
 
 To get the products that are not ready on the `ecommerce` channel, you can use the following URL.
@@ -219,7 +218,6 @@ To get the products that are not ready on the `ecommerce` channel, you can use t
 ```
 /api/rest/v1/products-uuid?search={"readiness_by_channel":[{"operator":"ALL UNREADY","scope":"ecommerce"}]}
 ```
-
 
 ### On their group
 
