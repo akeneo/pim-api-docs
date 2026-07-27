@@ -267,7 +267,20 @@ For the `kafka` subscription type, the `config` property requires the Kafka clus
 }
 ```
 
-If you require alternative authentication methods (e.g., SCRAM or OAuth Bearer), please notify us through our [contact form](https://akeneo.atlassian.net/servicedesk/customer/portal/8).
+**SCRAM Authentication:**
+
+The `scram` mechanism requires a `scram_variant` property to select the hash function (`sha-256` or `sha-512`).
+
+```json
+"sasl_auth": {
+    "mechanism": "scram",
+    "scram_variant": "sha-256",
+    "username": "your_kafka_username",
+    "password": "your_kafka_password"
+}
+```
+
+If you require alternative authentication methods (e.g., OAuth Bearer), please notify us through our [contact form](https://akeneo.atlassian.net/servicedesk/customer/portal/8).
 
 #### TLS Configuration (Optional)
 
@@ -304,9 +317,10 @@ For secure connections, you can optionally configure TLS settings in the `config
 
 | Property | Description | Required | Valid Values |
 | --- | --- | --- | --- |
-| `mechanism` | SASL authentication mechanism | Yes | `plain` |
+| `mechanism` | SASL authentication mechanism | Yes | `plain`, `scram` |
 | `username` | Username for authentication | Yes | String |
 | `password` | Password for authentication | Yes | String |
+| `scram_variant` | SCRAM hash variant. Required when `mechanism` is `scram` | Conditional | `sha-256`, `sha-512` |
 
 You can also configure [custom HTTP headers](#custom-http-headers) to be sent with each delivery request.
 
