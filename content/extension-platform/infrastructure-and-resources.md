@@ -10,10 +10,6 @@ Any language or runtime [supported by Upsun](https://developer.upsun.com/docs) w
 
 Your `.upsun/config.yaml` can declare backing services alongside your application — commonly Postgres, Redis, or a message queue.
 
-::: info
-For anything that handles an incoming `action` extension call or an Event Platform webhook, respond `202 Accepted` immediately and hand the actual work off to a worker reading from a queue, rather than doing it inline in the HTTP response. Both apps in the [demo apps catalog](https://github.com/akeneo/extension-platform-demo-apps/tree/main) follow this pattern.
-:::
-
 ## Scheduled jobs and background workers
 
 `.upsun/config.yaml` treats `workers` (long-running processes, e.g. a queue consumer) and `crons` (scheduled jobs) as first-class deploy concepts alongside your main application — declare them there rather than bolting on your own scheduler or process manager.

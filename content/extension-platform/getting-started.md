@@ -86,6 +86,8 @@ At this point you have a deployed, reachable app.
 - **Receiving Event Platform webhooks**: see the [Event Platform documentation](/event-platform/getting-started.html).
 - **Serving as a Custom App backend**: see [Custom apps](/apps/create-custom-app.html).
 
-**Everything else about running on Upsun** — local development (`tunnel:open`), scaling resources, backing services, custom domains, and the full `.upsun/config.yaml` reference — is covered in [Upsun's own documentation](https://developer.upsun.com/docs); this guide only covers what's specific to getting a PIM-connected backend running.
+**Environments, variables, resource sizing, team access, and custom domains**: see [Concepts](/extension-platform/concepts.html) for how these work on this platform.
 
-::: panel-link [Learn about the platform's infrastructure and resources](/extension-platform/infrastructure-and-resources.html)
+**Everything else about running on Upsun** — local development (`tunnel:open`), the full `.upsun/config.yaml` reference, and anything not covered above — is in [Upsun's own documentation](https://developer.upsun.com/docs); this guide only covers what's specific to getting a PIM-connected backend running.
+
+::: panel-link [Learn how environments, variables, and team access work](/extension-platform/concepts.html)

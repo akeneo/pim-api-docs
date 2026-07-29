@@ -2,7 +2,12 @@
 
 ## What you can see
 
-Deployment status, application logs, resource metrics (CPU, memory, disk), and request-level APM are all available through the Upsun Console or the `akeneo-extension-platform` CLI on your project — the same tooling covered in [Getting started](/extension-platform/getting-started.html).
+Deployment status, application logs, and resource metrics (CPU, memory, disk) are all available both through the Upsun Console and through the `akeneo-extension-platform` CLI/API on your project — the same tooling covered in [Getting started](/extension-platform/getting-started.html).
+
+For anything you can't diagnose from logs and metrics alone:
+
+- **SSH into a running environment**: `akeneo-extension-platform environment:ssh` (alias `ssh`) opens a shell in the environment, useful for inspecting files or running one-off commands directly.
+- **Blackfire**: for request-level performance profiling and APM beyond raw resource metrics, connect [Blackfire](https://www.blackfire.io/) as an add-on to your project.
 
 ## Common failure modes
 
@@ -22,6 +27,8 @@ Cost and usage data for your project is available in your Akeneo customer portal
 
 ## Where to escalate
 
-Akeneo owns provisioning (creating your project and admin account); day-to-day operation of what you deploy is yours to self-serve through the Upsun Console/CLI. Reach out to your Akeneo contact for anything provisioning-related — a new environment, access issues — rather than support requests about your own application's behavior.
+- **Provisioning**: Akeneo creates your project and admin account, so anything provisioning-related — a new project, account access — goes through your Akeneo contact.
+- **Platform or infrastructure issues**: you can contact Upsun support directly for any platform-related question — a stuck deploy, an infrastructure error, anything on the runtime side. You don't need to go through Akeneo for this.
+- **Your application's behavior**: that's your code, so debugging it is on you, using the tooling above.
 
 ::: panel-link [FAQ](/extension-platform/faq.html)

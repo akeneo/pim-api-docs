@@ -1558,6 +1558,7 @@ gulp.task('build-extension-platform', ['clean-dist','less'], function () {
     var pages = {
         'overview.md': "Overview",
         'getting-started.md': "Getting started",
+        'concepts.md': "Concepts",
         'infrastructure-and-resources.md': "Infrastructure and resources",
         'monitoring-and-troubleshooting.md': "Monitoring and troubleshooting",
         'faq.md': "FAQ",
