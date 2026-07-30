@@ -1,6 +1,6 @@
 # Getting Started
 
-This guide takes you from a freshly provisioned project on the Extension Platform to a "hello world" app deployed and reachable at a live URL, following the same steps as [Upsun's own get started guide](https://developer.upsun.com/docs/get-started).
+This guide takes you from a freshly provisioned project on the Extension Platform to a "hello world" app deployed and reachable at a live URL.
 
 ## Prerequisites
 
@@ -29,16 +29,16 @@ akeneo-extension-platform project:info
 
 ## 2. Add the project as a git remote
 
-Since your project is already created (Akeneo provisioned it for you), point a local repository at it:
+Your Upsun project is itself a git repository, and pushing to it is what triggers a build and deploy (you'll do that with the CLI's `push` command in step 4). Point your local repository at it:
 
 ```bash
 akeneo-extension-platform project:set-remote
 ```
 
-This adds a `upsun` git remote pointing at your project. It's the deploy mechanism end-to-end: every push to that remote triggers a build and a deploy.
+This adds a `upsun` git remote pointing at your project.
 
 ::: info
-Already have an app hosted on GitHub, GitLab, or Bitbucket? You don't have to switch to pushing on this new remote. Connect that repository directly with `akeneo-extension-platform integration:add --type github` (or `gitlab`, `bitbucket`) instead, and a push to your existing repo's branch triggers the build and deploy on its own — see [Upsun's source integrations documentation](https://developer.upsun.com/docs/integrations/source) for the provider-specific setup (each needs an access token or similar from that provider).
+Already have an app hosted on GitHub, GitLab, or Bitbucket? You don't have to push to this remote at all. Connect that repository directly instead, either from the Upsun Console or with `akeneo-extension-platform integration:add --type github` (or `gitlab`, `bitbucket`); a push to your existing repo's branch then triggers the build and deploy on its own. See [Upsun's source integrations documentation](https://developer.upsun.com/docs/integrations/source) for the provider-specific setup (each needs an access token or similar from that provider).
 :::
 
 ## 3. Initialize your project configuration
@@ -77,7 +77,7 @@ Open it — you should see a hello-world response.
 
 At this point you have a deployed, reachable app.
 
-**Starting from a working example instead of hello world**: rather than building up from `init`'s generated configuration, you can start from one of the app templates in the [`extension-platform-demo-apps`](https://github.com/akeneo/extension-platform-demo-apps/tree/main) catalog — pick whichever matches your stack. This is an alternative to the steps above, not the default path: use it if you want a working reference to adapt rather than a blank project to build up yourself.
+Starting from a working example instead of hello world: rather than building up from `init`'s generated configuration, you can start from one of the app templates in the [`extension-platform-demo-apps`](https://github.com/akeneo/extension-platform-demo-apps/tree/main) catalog — pick whichever matches your stack. This is an alternative to the steps above, not the default path: use it if you want a working reference to adapt rather than a blank project to build up yourself.
 
 **Connecting your app to the PIM**: your deployed app isn't yet connected to anything in your PIM. Depending on what you're building:
 
@@ -88,6 +88,6 @@ At this point you have a deployed, reachable app.
 
 **Environments, variables, resource sizing, team access, and custom domains**: see [Concepts](/extension-platform/concepts.html) for how these work on this platform.
 
-**Everything else about running on Upsun** — local development (`tunnel:open`), the full `.upsun/config.yaml` reference, and anything not covered above — is in [Upsun's own documentation](https://developer.upsun.com/docs); this guide only covers what's specific to getting a PIM-connected backend running.
+**Want more detail on any of these steps?** This guide follows the same steps as [Upsun's own get started guide](https://developer.upsun.com/docs/get-started). For everything else about running on Upsun (local development via `tunnel:open`, the full `.upsun/config.yaml` reference, and anything not covered above), see [Upsun's own documentation](https://developer.upsun.com/docs); this guide only covers what's specific to getting a PIM-connected backend running.
 
 ::: panel-link [Learn how environments, variables, and team access work](/extension-platform/concepts.html)

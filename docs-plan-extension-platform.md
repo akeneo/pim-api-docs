@@ -220,7 +220,34 @@ draw:
   languages/runtimes list, the CLI, autoscaling configuration, backup/restore, custom
   domains — anything that's true of Upsun regardless of Akeneo.
 
-## 5. Next steps
+## 5. Reserved content — not used in these docs, for the Help Desk article
+
+**Responsibility split (dropped from `overview.md` 2026-07-29):** you said this was better
+suited to the Help Desk than the API docs. Keeping the paragraph here since it was cut
+from the page rather than saved anywhere durable at the time:
+
+> Extension Platform follows the same split as Custom Components hosting: Akeneo manages
+> the infrastructure, you own everything you deploy to it.
+>
+> **What Akeneo is responsible for:**
+>
+> * **Provisioning**: creating your Upsun organization and project, and an admin account
+>   on it.
+> * **The runtime**: the Upsun application runtime, routing, TLS/SSL, and scaling
+>   primitives.
+> * **Billing**: consolidating Upsun usage into your Akeneo billing relationship (see your
+>   customer portal for usage and cost data).
+>
+> **What you (or your partner) are responsible for:**
+>
+> * **Your application code**: everything you push — its behavior, its dependencies, and
+>   its correctness.
+> * **Ongoing maintenance**: testing, debugging, and keeping your code and dependencies up
+>   to date.
+> * **Security of your code**: the platform is secure by design, but you're responsible
+>   for not introducing vulnerabilities in what you deploy.
+
+## 6. Next steps
 
 1. ~~You confirm the remaining open items in §1 (Beta vs. New badge, whether billing lives
    in Help Desk instead of here).~~ Done — badge is "Beta", billing lives in Help Desk.
