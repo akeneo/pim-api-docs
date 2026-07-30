@@ -2,7 +2,7 @@
 
 ## What you can see
 
-Deployment status, application logs, and resource metrics (CPU, memory, disk) are all available both through the Upsun Console and through the `akeneo-extension-platform` CLI/API on your project — the same tooling covered in [Getting started](/extension-platform/getting-started.html).
+Deployment status, application logs, and resource metrics (CPU, memory, disk) are all available both through the Platform Console and through the `akeneo-extension-platform` CLI/API on your project — the same tooling covered in [Getting started](/extension-platform/getting-started.html).
 
 For anything you can't diagnose from logs and metrics alone:
 
@@ -27,8 +27,8 @@ Cost and usage data for your project is available in your Akeneo customer portal
 
 ## Where to escalate
 
-- **Provisioning**: Akeneo creates your project and admin account, so anything provisioning-related — a new project, account access — goes through your Akeneo contact.
-- **Platform or infrastructure issues**: you can contact Upsun support directly for any platform-related question — a stuck deploy, an infrastructure error, anything on the runtime side. You don't need to go through Akeneo for this.
+- **Akeneo's integrations, provisioning, and billing**: issues with the PIM API, extensions, or Event Platform themselves, or with your project (a new project, account access), go through your Akeneo contact.
+- **Platform or infrastructure issues**: a stuck deploy, an infrastructure error, or anything on the runtime side is the Upsun team's responsibility, so contact Upsun support directly through the Platform; you don't need to go through Akeneo for this.
 - **Your application's behavior**: that's your code, so debugging it is on you, using the tooling above.
 
 ::: panel-link [FAQ](/extension-platform/faq.html)
