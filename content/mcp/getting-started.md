@@ -5,7 +5,7 @@ This guide provides step-by-step instructions to connect your Akeneo PIM to AI-p
 ## Before You Start
 
 ::: info
-Note: Akeneo MCP may require additional commercial activation depending on your package. Contact your Akeneo Customer Success Manager (CSM) for more details. Share your use cases with us here - [MCP Use Cases](https://forms.gle/UXuL5PkHnj3JkRke7).
+Availability may vary based on your Akeneo package. If you have any questions, contact your Akeneo Customer Success Manager (CSM). We'd also love to hear about your use cases [here](https://forms.gle/UXuL5PkHnj3JkRke7).
 :::
 
 ### Permissions and Governance
