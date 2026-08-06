@@ -8,6 +8,8 @@ Extensions run within the Akeneo PIM application itself, executed in a secure sa
 2. **Security**: The SDK code operates in a secure sandbox environment using the [SES (Secure ECMAScript)](https://github.com/endojs/endo) library, which restricts access to potentially harmful JavaScript capabilities.
 3. **Controlled API Access**: All API calls are automatically authenticated using the current user's session.
 
+Your extension is protected by two independent layers. SES restricts the JavaScript capabilities available to your code, while the browser sandbox of the iframe hosting your extension restricts what the page itself is allowed to do, such as opening windows or embedding external frames. Both shape what you can build, so read the constraints below before you start.
+
 ## Important Constraints
 
 When developing with the SDK, keep these constraints in mind:
@@ -16,6 +18,8 @@ When developing with the SDK, keep these constraints in mind:
 - **External Access**: Direct network requests (fetch, XMLHttpRequest) to external services are not allowed. All API interactions must go through the SDK methods. There is a specific method available to allow access to external resources.
 - **DOM Access**: Limited access to the DOM is provided, with restrictions on what elements can be modified.
 - **Global State**: The sandbox isolates your code from affecting the global state of the PIM application.
+- **Opening Windows and Tabs**: `window.open()` and `target="_blank"` links are blocked by the browser sandbox. Use [`PIM.navigate.external()`](#navigation-to-external-domains) to open an external URL in a new tab, or [`PIM.navigate.internal()`](#navigation-within-the-pim) for a PIM page.
+- **Embedded Frames**: Your extension cannot embed an `<iframe>` pointing to an external host, as the Content Security Policy only allows `data:` frames. Third-party libraries that inject their own iframe to display an external UI will not work either. To embed an external application as-is, use an [iframe extension](/extensions/iframe.html) instead of an advanced extension.
 - **Resources**: Your script should be efficient as it runs within the PIM application context. Also, note that the uploaded file must not exceed 10MB.
 
 [![indepth_custom_extension.png](../img/extensions/ui-extensions/indepth_custom_extension.png)](../img/extensions/ui-extensions/indepth_custom_extension.png)
@@ -158,7 +162,7 @@ console.log(`Current user: ${currentUser.first_name} ${currentUser.last_name}`);
 
 ## Context Data by Extension Position
 
-The SDK  access to the contextual information through `PIM.context`:
+The SDK provides access to the contextual information through `PIM.context`:
 
 ### Product Page Positions
 - `product.uuid`: The product's UUID for simple product
@@ -243,7 +247,7 @@ window.parent.postMessage(
 
 ## Navigation within the PIM
 
-The SDK  navigation method that allows you to open new tabs. This is useful for directing users to different sections of the PIM from your extension:
+The SDK provides a navigation method that allows you to open new tabs. This is useful for directing users to different sections of the PIM from your extension:
 
 ```js
 // Navigate to a product edit page
@@ -266,7 +270,7 @@ Use this feature to create helpful shortcuts or workflows that connect your exte
 
 ## Navigation to External Domains
 
-The SDK also  a method to navigate to external websites outside the PIM application using `PIM.navigate.external()`:
+The SDK also provides a method to navigate to external websites outside the PIM application using `PIM.navigate.external()`. This is the supported replacement for `window.open()`, which the browser sandbox blocks:
 
 ```js
 // Navigate to an external website
@@ -275,6 +279,7 @@ PIM.navigate.external('https://example.com/page');
 
 Important limitations to keep in mind:
 - **HTTPS Only**: Only HTTPS URLs are allowed for security reasons
+- **Maximum Length**: The URL must not exceed 2048 characters
 - Navigation will open in a new tab, preserving the current extension context
 
 ## Refresh current page
