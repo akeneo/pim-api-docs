@@ -94,7 +94,7 @@ Example :
 
 ### Product, product model and reference entity record context change
 
-When the user changes the **PIM context** (such as selecting a different **locale** or **channel**), these changes are automatically propagated to the iframe via PostMessage.
+When the user changes the **PIM context** (such as selecting a different **locale** or **channel**), these changes are automatically propagated to the iframe via PostMessage. This same message is also sent once when the iframe first loads.
 
 The message contains :
 - A `context` object containing the selected `locale` and `channel`.

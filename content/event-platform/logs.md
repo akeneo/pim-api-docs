@@ -25,6 +25,7 @@ Logs provide detailed insights into system events, which can be categorized as *
 | `subscription_id`   | String      | The unique identifier of the subscription linked to the log.                                     | `72c265f6-22ac-401a-ba75-d1b30c4653e5`       |
 | `operation`         | String      | Describes the operation or event related to the log (e.g., event delivery failure).              | `failed_to_deliver_event`                     |
 | `error_type`        | String      | Indicates the specific type of error, if the log represents an error.                            | `validation_error`                            |
+| `error_reason`      | String      | Stable, machine-readable cause of a delivery failure (delivery error logs only). Drawn from a fixed set of values and safe to filter on, unlike the free-text `error_message`. | `connection_refused`                          |
 | `error_code`        | Integer     | The HTTP status code or application-specific error code associated with the error (if present).  | `400`                                         |
 | `error_message`     | String      | A detailed message describing the error, helpful for diagnosing issues.                          | `Invalid request`                             |
 | `request`           | Object      | Represents the HTTP request data related to the log, if applicable.                              | `{ "url": "/api/v1/events", "method": "POST" }` |
@@ -92,12 +93,15 @@ An error occurs when trying to deliver an event, possibly due to a timeout or an
   "subscriber_id": "019363c4-6e22-7dd4-a811-6aab07f1d474",
   "subscription_id": "01934a2c-1491-7bea-bced-5176bf92ff3c",
   "error_type": "failed_delivery",
+  "error_reason": "destination_timeout",
   "error_code": 500,
   "error_message": "an error was returned when calling the destination, or it took too long to respond",
   "request": {},
   "response": {}
 }
 ```
+
+When filtering or alerting on delivery failures, prefer `error_reason` over `error_code` and `error_message`. The latter two can be generic: a transport failure (timeout, DNS, TLS, connection refused, ...) is reported with a `500` error code and a free-text message, which does not tell the failures apart. `error_reason` is drawn from a fixed set of values, so it is stable and safe to filter on.
 
 ### Notes on Logs
 Logs are only available for a rolling window of 30 days. Ensure you retrieve any required log data within this period to avoid losing critical information.
