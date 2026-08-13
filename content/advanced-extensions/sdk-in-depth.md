@@ -331,6 +331,8 @@ const secureResponse = await PIM.api.external.call({
 });
 ```
 
+The referenced credential can be a Bearer token, Basic authentication, a custom header, or an OAuth2 credential. With OAuth2, the PIM requests a short-lived access token from the configured token endpoint before forwarding your call, so your extension never fetches, stores or refreshes a token itself.
+
 ::: info
 **Never hardcode credentials** in your extension code. Always use the `credentials_code` parameter to reference credentials that are securely stored in the PIM. For detailed information on configuring and using credentials, see the [Credentials guide](/advanced-extensions/sdk-credentials.html).
 :::
