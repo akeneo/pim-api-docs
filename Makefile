@@ -1,5 +1,5 @@
-UID = $(id -u)
-GID = $(id -g)
+UID = $(shell id -u)
+GID = $(shell id -g)
 
 DOCKER_IMAGE_TAG = pim-api-docs:latest
 DOCKER_RUN = docker run -it --rm -u $(UID):$(GID) -v "$${PWD}":/opt/workdir -w /opt/workdir
