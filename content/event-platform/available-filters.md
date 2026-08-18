@@ -167,7 +167,7 @@ and makes the filter more readable.
 |--------------------------|----------------|------------------------------------------------|
 | Filters per subscription | 1              | Only one filter expression per subscription    |
 | Maximum length           | 500 characters | Total length of filter expression              |
-| Maximum operators        | 4              | Number of logical operators in a single filter |
+| Maximum operators        | 10             | Number of logical operators in a single filter |
 
 ### Syntax Rules
 
