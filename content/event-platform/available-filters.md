@@ -124,7 +124,8 @@ If a filter field is not in the event payload, the filter may silently skip the 
 This filter is only available on demand, and comes with the readiness feature in the PIM which is also on demand. Contact your CSM for futher information.
 :::
 
-Filters product or product-model events based on the readiness scores. All product's readiness configured with the channel need to be ready.
+Filters product or product-model events based on the readiness scores. All readiness scores configured for the channel
+   must be 100.
 
 **Type:** Field Exists and Match
 **Syntax:** `ready_on_scopes="<scope_code>"`
@@ -140,12 +141,11 @@ Filters product or product-model events based on the readiness scores. All produ
 - `com.akeneo.pim.v1.product_model.updated.delta`
 
 Examples where a filter `ready_on_scopes="ecommerce"` matches:
-- Product has a readiness scores of 100 on ecommerce/en_US and ecommerce/fr_FR.
-- Product has a readiness scores of 100 on ecommerce/en_US and ecommerce/fr_FR, and scores below 100 for another readiness only configured on mobile.
-- Product has a readiness scores of 100 on ecommerce/en_US and ecommerce/fr_FR, and scores of 100 on another readiness for ecommerce/en_US (no fr_FR for this readiness)
+- Product has readiness scores of 100 on ecommerce/en_US and ecommerce/fr_FR on all readiness configurations.
+- Product has readiness scores of 100 on ecommerce/en_US and ecommerce/fr_FR, and scores below 100 for another readiness not configured on ecommerce.
 
 Examples where a filter `ready_on_scopes="ecommerce"` does not match:
-- Product has one readiness score below 100 for any readiness configured on the channel, for instance it has a readiness score of 100 on ecommerce/en_US and 90 on ecommerce/fr_FR.
+- Product has at least one readiness score below 100 for any readiness configured on the channel, for instance it has a readiness score of 100 on ecommerce/en_US and 90 on ecommerce/fr_FR.
 - Product has no readiness configured on ecommerce
 
 ::: tips
@@ -190,7 +190,7 @@ For example, the following filter: `locale in ["en_US", "fr_FR"]` will also matc
 | Exclude System Updates      | `not user="system"`                                           | Focus on human-made changes only                                        |
 | Exclude Specific Attributes | `not (attribute in ["price", "internal_notes"])`              | Focus on content changes while ignoring logistical or internal updates. |
 | Complex Filtering           | `(attribute="name" and locale="fr_FR") and not user="system"` | Monitor French content updates while excluding automated changes        |
-| Readiness by channel (in)   | `ready_on_scopes in ["ecommerce", "mobile]`                   | Ready on at least one of the channel. Use `and` to check all.           |
+| Readiness by channel (in)   | `ready_on_scopes in ["ecommerce", "mobile"]`                  | Ready on at least one of the channels. Use `and` to check all.          |
 
 ::: tips
 Remember to use parentheses to group conditions when combining multiple operators. This ensures correct evaluation order
