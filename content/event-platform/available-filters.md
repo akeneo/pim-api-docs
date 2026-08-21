@@ -115,6 +115,43 @@ Useful for filtering updates specific to a particular language or region.
 ::: warning
 If a filter field is not in the event payload, the filter may silently skip the event.
 :::
+
+---
+
+### Readiness by channel (on demand)
+
+::: tips
+This filter is only available on demand, and comes with the readiness feature in the PIM which is also on demand. Contact your CSM for futher information.
+:::
+
+Filters product or product-model events based on the readiness scores. All product's readiness configured with the channel need to be ready.
+
+**Type:** Field Exists and Match
+**Syntax:** `ready_on_scopes="<scope_code>"`
+**Parameter:** String identifier of the channel
+**Example:** `ready_on_scopes="ecommerce"`
+**Supported Events:**
+
+- `com.akeneo.pim.v1.product.created`
+- `com.akeneo.pim.v1.product_model.created`
+- `com.akeneo.pim.v1.product.updated`
+- `com.akeneo.pim.v1.product_model.updated`
+- `com.akeneo.pim.v1.product.updated.delta`
+- `com.akeneo.pim.v1.product_model.updated.delta`
+
+Examples where a filter `ready_on_scopes="ecommerce"` matches:
+- Product has a readiness scores of 100 on ecommerce/en_US and ecommerce/fr_FR.
+- Product has a readiness scores of 100 on ecommerce/en_US and ecommerce/fr_FR, and scores below 100 for another readiness only configured on mobile.
+- Product has a readiness scores of 100 on ecommerce/en_US and ecommerce/fr_FR, and scores of 100 on another readiness for ecommerce/en_US (no fr_FR for this readiness)
+
+Examples where a filter `ready_on_scopes="ecommerce"` does not match:
+- Product has one readiness score below 100 for any readiness configured on the channel, for instance it has a readiness score of 100 on ecommerce/en_US and 90 on ecommerce/fr_FR.
+- Product has no readiness configured on ecommerce
+
+::: tips
+Useful for filtering creates and updates specific to products (or product models) only ready for a market.
+:::
+
 ---
 
 ## Filter Operators
@@ -134,7 +171,7 @@ combine or exclude criteria in a single filter expression.
 | `in`     | Checks if a field's value is present in a list. |
 
 ::: info
-**`in` operator behavior used with `channel`, `scope` and `locale` filters:**
+**`in` operator behavior used with `channel`, `scope`, `locale` and `ready_on_scopes` filters:**
 
 For practical reasons, when using the `in` operator with these filters will match not only the values you specify in the list but also any items where the filtered field is null.
 
@@ -153,6 +190,7 @@ For example, the following filter: `locale in ["en_US", "fr_FR"]` will also matc
 | Exclude System Updates      | `not user="system"`                                           | Focus on human-made changes only                                        |
 | Exclude Specific Attributes | `not (attribute in ["price", "internal_notes"])`              | Focus on content changes while ignoring logistical or internal updates. |
 | Complex Filtering           | `(attribute="name" and locale="fr_FR") and not user="system"` | Monitor French content updates while excluding automated changes        |
+| Readiness by channel (in)   | `ready_on_scopes in ["ecommerce", "mobile]`                   | Ready on at least one of the channel. Use `and` to check all.           |
 
 ::: tips
 Remember to use parentheses to group conditions when combining multiple operators. This ensures correct evaluation order
