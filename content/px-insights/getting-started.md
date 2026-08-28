@@ -105,26 +105,28 @@ curl --request POST 'https://px-insights.app.akeneo.cloud/api/v1/reviews/ingest/
  --header "X-PIM-CLIENT-ID: $CLIENT_ID" \
  --header 'Content-Type: application/json' \
  --data-raw '{
-  "product_identification": {
-    "origin": "Yotpo",
-    "metadata": {
-      "sku": "product-123"
-    }
-  },
-  "raw_reviews": [
-    {
-      "external_id": "review-001",
-      "score": 5,
-      "title": "Excellent product!",
-      "text": "This product exceeded my expectations. The quality is outstanding and it works perfectly."
+  "review": {
+    "product_identification": {
+      "origin": "Yotpo",
+      "metadata": {
+        "sku": "product-123"
+      }
     },
-    {
-      "external_id": "review-002",
-      "score": 3,
-      "title": "Good but could be better",
-      "text": "The product is good overall, but I had some issues with the packaging."
-    }
-  ]
+    "raw_reviews": [
+      {
+        "external_id": "review-001",
+        "score": 5,
+        "title": "Excellent product!",
+        "text": "This product exceeded my expectations. The quality is outstanding and it works perfectly."
+      },
+      {
+        "external_id": "review-002",
+        "score": 3,
+        "title": "Good but could be better",
+        "text": "The product is good overall, but I had some issues with the packaging."
+      }
+    ]
+  }
 }'
 ```
 
@@ -141,31 +143,57 @@ curl --request POST 'https://px-insights.app.akeneo.cloud/api/v1/reviews/ingest/
 ```
 
 ::: warning
-This endpoint processes reviews immediately and returns processing results in the response.
+This endpoint processes reviews immediately and returns the ingested review in the response.
 ⚠️ It is not intended for production use. Rate limits are much stricter, and it should only be used for debugging.
 :::
 
 **Request Body Parameters:**
 
-| Parameter                             | Type   | Description                                                               |
-|--------------------------------------|--------|----------------------------------------------------------------------------|
-| `product_identification`             | object | Information to identify the product associated with the reviews            |
-| `product_identification.origin`      | string | Source identifier for the reviews (e.g., Yotpo, Amazon, your own website)  |
-| `product_identification.metadata`    | object | Additional information to identify the product                             |
-| `product_identification.metadata.sku`| string | Product SKU that these reviews are associated with                         |
-| `raw_reviews`                        | array  | Collection of review objects to be ingested                                |
-| `raw_reviews[].external_id`          | string | Unique identifier for the review in your system                            |
-| `raw_reviews[].score`                | number | Rating score for the review (1–5)                                          |
-| `raw_reviews[].title`                | string | Review title or headline                                                   |
-| `raw_reviews[].text`                 | string | The full review content                                                    |
+Both endpoints take the same envelope: the review data under the `review` key, along with the synchronization metadata.
+
+| Parameter                                    | Type   | Required | Description                                                                       |
+|----------------------------------------------|--------|----------|-----------------------------------------------------------------------------------|
+| `review`                                     | object | **yes**  | The consolidated review data for one product, coming from a single origin          |
+| `review.product_identification`              | object | **yes**  | Information to identify the product associated with the reviews                    |
+| `review.product_identification.origin`       | string | **yes**  | Source identifier for the reviews (e.g., Yotpo, Amazon, your own website)          |
+| `review.product_identification.metadata`     | object | no       | Additional information to identify the product                                     |
+| `review.product_identification.metadata.sku` | string | no       | Product SKU that these reviews are associated with                                 |
+| `review.raw_reviews`                         | array  | no       | Collection of review objects to be ingested (500 max per request)                  |
+| `review.raw_reviews[].external_id`           | string | **yes**  | Unique identifier for the review in your system                                    |
+| `review.raw_reviews[].score`                 | number | **yes**  | Rating score for the review (1–5)                                                  |
+| `review.raw_reviews[].title`                 | string | no       | Review title or headline                                                           |
+| `review.raw_reviews[].text`                  | string | no       | The full review content                                                            |
 
 **Response:**
 
-Upon successful submission, the API will acknowledge receipt of your reviews for asynchronous processing.
+The two endpoints share the same payload, but not the same response.
+
+Asynchronous endpoint: upon successful submission, the API returns a `202 Accepted` acknowledging receipt of your reviews for background processing.
+
+```json [snippet:Response]
+"reviews received for processing"
+```
+
+Synchronous endpoint: the reviews are ingested during the request, and the API returns a `200 OK` with the ingested review,
+so that the reconciled product identification and the computed aggregates are immediately visible.
 
 ```json [snippet:Response]
 {
-  "message": "Reviews received for processing"
+  "uuid": "3f8e1c02-64b5-4a2f-9d1a-6c0f2b7e5a41",
+  "product_identification": {
+    "product_uuid": "8b1f5a3e-2c47-4d9b-9f0a-71e6c8d4b2a9",
+    "product_type": "product",
+    "origin": "Yotpo",
+    "metadata": {
+      "sku": "product-123"
+    }
+  },
+  "sync_date": "2025-06-12T09:31:44.512Z",
+  "average_score": 4,
+  "maximum_score": 5,
+  "count": 2,
+  "breakdown": { ... },
+  "raw_reviews": [ ... ]
 }
 ```
 
@@ -174,6 +202,7 @@ Upon successful submission, the API will acknowledge receipt of your reviews for
 - `400 Bad Request`: Invalid request format or missing required fields
 - `401 Unauthorized`: Invalid authentication credentials
 - `403 Forbidden`: Not authorized to perform this action
+- `404 Not Found`: No product matches the given identification (synchronous endpoint only)
 - `500 Internal Server Error`: Server-side error, retry recommended
 
 ::: panel-link Let's see the API reference! [Next](/px-insights/key-platform-behaviors.html)
