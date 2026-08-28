@@ -105,6 +105,7 @@ curl --request POST 'https://px-insights.app.akeneo.cloud/api/v1/reviews/ingest/
  --header "X-PIM-CLIENT-ID: $CLIENT_ID" \
  --header 'Content-Type: application/json' \
  --data-raw '{
+  "sync_id": "1a2b6453-45d0-4892-b3f6-836c2d2be758",
   "review": {
     "product_identification": {
       "origin": "Yotpo",
@@ -153,6 +154,7 @@ Both endpoints take the same envelope: the review data under the `review` key, a
 
 | Parameter                                    | Type   | Required | Description                                                                       |
 |----------------------------------------------|--------|----------|-----------------------------------------------------------------------------------|
+| `sync_id`                                    | string | **yes**  | UUID you generate to identify the synchronization operation. Accepted but ignored by the synchronous endpoint, which creates no synchronization report |
 | `review`                                     | object | **yes**  | The consolidated review data for one product, coming from a single origin          |
 | `review.product_identification`              | object | **yes**  | Information to identify the product associated with the reviews                    |
 | `review.product_identification.origin`       | string | **yes**  | Source identifier for the reviews (e.g., Yotpo, Amazon, your own website)          |
