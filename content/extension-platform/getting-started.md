@@ -1,4 +1,4 @@
-# Getting Started
+# Getting started
 
 This guide takes you from a freshly provisioned project on the Extension Platform to a "hello world" app deployed and reachable at a live URL.
 
@@ -35,7 +35,7 @@ Your project is itself a git repository, and pushing to it is what triggers a bu
 akeneo-extension-platform project:set-remote
 ```
 
-This adds a `upsun` git remote pointing at your project.
+This adds an `upsun` git remote pointing at your project.
 
 ::: info
 Already have an app hosted on GitHub, GitLab, or Bitbucket? You don't have to push to this remote at all. Connect that repository directly instead, either from the Platform Console or with `akeneo-extension-platform integration:add --type github` (or `gitlab`, `bitbucket`); a push to your existing repo's branch then triggers the build and deploy on its own. See [Upsun's source integrations documentation](https://developer.upsun.com/docs/integrations/source) for the provider-specific setup (each needs an access token or similar from that provider).
@@ -77,14 +77,14 @@ Open it — you should see a hello-world response.
 
 At this point you have a deployed, reachable app.
 
-Starting from a working example instead of hello world: rather than building up from `init`'s generated configuration, you can start from one of the app templates in the [`extension-platform-demo-apps`](https://github.com/akeneo/extension-platform-demo-apps/tree/main) catalog — pick whichever matches your stack. This is an alternative to the steps above, not the default path: use it if you want a working reference to adapt rather than a blank project to build up yourself.
+**Starting from a working example instead of hello world**: rather than building up from `init`'s generated configuration, you can start from one of the app templates in the [`extension-platform-demo-apps`](https://github.com/akeneo/extension-platform-demo-apps/tree/main) catalog — pick whichever matches your stack. This is an alternative to the steps above, not the default path: use it if you want a working reference to adapt rather than a blank project to build up yourself.
 
 **Connecting your app to the PIM**: your deployed app isn't yet connected to anything in your PIM. Depending on what you're building:
 
 - **Receiving an `action` extension call**: configure the extension in the PIM and verify the `signature` header — see [Extensions: Action](/extensions/action.html).
 - **Calling back into the PIM API, or handling credentials**: see [Extensions: Credentials](/extensions/credentials.html).
 - **Receiving Event Platform webhooks**: see the [Event Platform documentation](/event-platform/getting-started.html).
-- **Serving as a Custom App backend**: see [Custom apps](/apps/create-custom-app.html).
+- **Serving as a Custom App backend**: see [Custom Apps](/apps/create-custom-app.html).
 
 **Environments, variables, resource sizing, team access, and custom domains**: see [Concepts](/extension-platform/concepts.html) for how these work on this platform.
 

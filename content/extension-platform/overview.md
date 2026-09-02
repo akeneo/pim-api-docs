@@ -8,7 +8,7 @@ Under the hood, it runs on [Upsun](https://upsun.com) (formerly Platform.sh), wh
 
 ## Examples
 
-A few examples of what customers run on it:
+A few examples of what you can run on it:
 
 | Example | What runs on the Extension Platform |
 |---|---|

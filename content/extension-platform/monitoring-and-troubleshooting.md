@@ -1,4 +1,4 @@
-# Monitoring and Troubleshooting
+# Monitoring and troubleshooting
 
 ## What you can see
 

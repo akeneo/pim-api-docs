@@ -18,7 +18,7 @@ Any language or runtime [supported by the Platform](https://developer.upsun.com/
 
 ### Backing services
 
-Your `.upsun/config.yaml` can declare backing services alongside your application — commonly Postgres, Redis, or a message queue.
+Your `.upsun/config.yaml` file can declare backing services alongside your application — commonly Postgres, Redis, or a message queue.
 
 ### Scheduled jobs and background workers
 
@@ -44,7 +44,7 @@ Things you manage around your app, separately from `.upsun/config.yaml`.
 
 ### Environment variables and secrets
 
-[Extensions: Credentials](/extensions/credentials.html) and [Custom apps](/apps/create-custom-app.html) cover what credentials your app typically needs (a PIM API client ID/secret, for example) and how the PIM side is configured. This is about the other end: getting those values onto your deployed app.
+[Extensions: Credentials](/extensions/credentials.html) and [Custom Apps](/apps/create-custom-app.html) cover what credentials your app typically needs (a PIM API client ID/secret, for example) and how the PIM side is configured. This is about the other end: getting those values onto your deployed app.
 
 Set them as project or environment variables rather than committing them to your repository:
 
@@ -56,7 +56,7 @@ akeneo-extension-platform variable:create --level environment --sensitive PIM_CL
 
 ### Team access
 
-The admin account Akeneo provisions for you isn't the only person who can access the project — that admin can invite teammates directly, without going through Akeneo for each one:
+The admin account Akeneo provisions for you isn't the only way to access the project — that admin can invite teammates directly, without going through Akeneo for each one:
 
 ```bash
 akeneo-extension-platform user:add teammate@example.com -r admin
