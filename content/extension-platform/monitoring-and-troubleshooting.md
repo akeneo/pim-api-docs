@@ -23,7 +23,7 @@ A few issues worth knowing about before you hit them:
 
 ## Billing and usage
 
-Cost and usage data for your project is available in your Akeneo customer portal. This isn't documented here — see the Help Desk for details on billing.
+Cost and usage data for your project is available in your Akeneo customer portal. This isn't documented here: for details on billing, see the [Help Desk article on the Extension Platform](https://help.akeneo.com/extensions/extension-platform).
 
 ## Where to escalate
 

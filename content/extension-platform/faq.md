@@ -14,7 +14,7 @@ Any language or runtime that the Platform itself supports. It's not limited to P
 
 ### Where do I see what this is costing me?
 
-Cost and usage data is available in your Akeneo customer portal — see the Help Desk for details rather than this documentation.
+Cost and usage data is available in your Akeneo customer portal. For details on billing, see the [Help Desk article on the Extension Platform](https://help.akeneo.com/extensions/extension-platform) rather than this documentation.
 
 ### Can I use this hosting for something unrelated to a PIM extension?
 
