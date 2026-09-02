@@ -7,10 +7,10 @@ This guide takes you from a freshly provisioned project on the Extension Platfor
 Before you start, you need:
 
 1. **A provisioned project**: Akeneo has created your organization and project, and given you an admin account on it. Provisioning isn't self-service — if you don't have this yet, reach out to your Akeneo contact.
-2. **Git**: installed locally, with a local clone (or a new repository) for your app.
+2. **Git**: installed locally, with a local clone (or a new repository) for your app. Run `git --version` to confirm it's installed.
 
 ::: info
-You don't need a PIM extension configured yet to complete this guide. Wiring your deployed app up to an `action`, `iframe`, or `data-component` extension, an Event Platform webhook, or a Custom App happens after your app is live — see [Going further](#going-further) below.
+You don't need a PIM extension configured yet to complete this guide. Wiring your deployed app up to an [`action`](/extensions/action.html), [`iframe`](/extensions/iframe.html), or [`data-component`](/extensions/data-component.html) extension, an Event Platform webhook, or a Custom App happens after your app is live — see [Going further](#going-further) below.
 :::
 
 ## 1. Install the CLI tool
@@ -18,7 +18,7 @@ You don't need a PIM extension configured yet to complete this guide. Wiring you
 The Extension Platform CLI, `akeneo-extension-platform`, wraps the standard Upsun CLI with a few conveniences for Akeneo-provisioned projects.
 
 ```bash [snippet:Shell]
-curl -sfSk https://cli.extension.akeneo.cloud/installer | sh
+curl -sfS https://cli.extension.akeneo.cloud/installer | sh
 ```
 
 Once installed, confirm it can see your provisioned project:

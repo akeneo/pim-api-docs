@@ -12,7 +12,7 @@ A few examples of what you can run on it:
 
 | Example | What runs on the Extension Platform |
 |---|---|
-| An `action` extension that triggers a custom workflow | The endpoint receiving the `action` POST |
+| An [`action`](/extensions/action.html) extension that triggers a custom workflow | The endpoint receiving the `action` POST |
 | A Custom Component that needs a database | The server-side logic behind it |
 | Reacting to PIM changes as they happen | An Event Platform webhook receiver |
 | A full [Custom App](/apps/create-custom-app.html) | The whole application — front end, database, background jobs |
