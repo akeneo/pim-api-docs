@@ -2,7 +2,7 @@
 
 The Extension Platform is Akeneo-branded cloud hosting for extending and customizing the Akeneo Product Cloud.
 
-It can be the API server behind an `action` extension's POST or a `data-component` extension's GET, or the page shown inside an `iframe` extension. It can just as easily run a full [Custom App](/apps/create-custom-app.html), consume [Event Platform](/event-platform/overview.html) webhooks, or run custom workflows.
+Extensions, Custom Apps, and Event Platform webhooks all need somewhere to run: a server that answers when the PIM calls, or a page the PIM embeds. The Extension Platform is that somewhere, provisioned and managed by Akeneo rather than by you.
 
 Under the hood, it runs on [Upsun](https://upsun.com) (formerly Platform.sh), which builds, deploys, and scales your application automatically from a git push.
 

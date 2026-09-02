@@ -32,7 +32,7 @@ You can declare mounts for anything that needs to persist across deploys — a l
 
 New environments start with minimal default resources. Size CPU, memory, and disk per application with:
 
-```bash
+```bash [snippet:Shell]
 akeneo-extension-platform resources:set --size <app-name>:<size>
 ```
 
@@ -48,7 +48,7 @@ Things you manage around your app, separately from `.upsun/config.yaml`.
 
 Set them as project or environment variables rather than committing them to your repository:
 
-```bash
+```bash [snippet:Shell]
 akeneo-extension-platform variable:create --level environment --sensitive PIM_CLIENT_SECRET <value>
 ```
 
@@ -58,7 +58,7 @@ akeneo-extension-platform variable:create --level environment --sensitive PIM_CL
 
 The admin account Akeneo provisions for you isn't the only way to access the project — that admin can invite teammates directly, without going through Akeneo for each one:
 
-```bash
+```bash [snippet:Shell]
 akeneo-extension-platform user:add teammate@example.com -r admin
 ```
 
@@ -68,7 +68,7 @@ Access can be scoped per project or per environment (`admin`, `contributor`, `vi
 
 You're not limited to the default `*.platformsh.site` URL — you can attach your own domain:
 
-```bash
+```bash [snippet:Shell]
 akeneo-extension-platform domain:add your-domain.com
 ```
 

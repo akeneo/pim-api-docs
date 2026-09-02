@@ -17,13 +17,13 @@ You don't need a PIM extension configured yet to complete this guide. Wiring you
 
 The Extension Platform CLI, `akeneo-extension-platform`, wraps the standard Upsun CLI with a few conveniences for Akeneo-provisioned projects.
 
-```bash
+```bash [snippet:Shell]
 curl -sfSk https://cli.extension.akeneo.cloud/installer | sh
 ```
 
 Once installed, confirm it can see your provisioned project:
 
-```bash
+```bash [snippet:Shell]
 akeneo-extension-platform project:info
 ```
 
@@ -31,7 +31,7 @@ akeneo-extension-platform project:info
 
 Your project is itself a git repository, and pushing to it is what triggers a build and deploy (you'll do that with the CLI's `push` command in step 4). Point your local repository at it:
 
-```bash
+```bash [snippet:Shell]
 akeneo-extension-platform project:set-remote
 ```
 
@@ -45,7 +45,7 @@ Already have an app hosted on GitHub, GitLab, or Bitbucket? You don't have to pu
 
 Run:
 
-```bash
+```bash [snippet:Shell]
 akeneo-extension-platform init
 ```
 
@@ -55,7 +55,7 @@ This generates a `.upsun/config.yaml` in your project root, either from a guided
 
 Commit the generated configuration and push it:
 
-```bash
+```bash [snippet:Shell]
 git add .upsun/config.yaml
 git commit -m "Add Upsun configuration"
 akeneo-extension-platform push
@@ -65,7 +65,7 @@ This triggers a build (per your `.upsun/config.yaml` `build` hook) followed by a
 
 Once the deploy finishes, the CLI prints the URL of the environment it just deployed. You can also get it at any point with:
 
-```bash
+```bash [snippet:Shell]
 akeneo-extension-platform environment:url
 ```
 
