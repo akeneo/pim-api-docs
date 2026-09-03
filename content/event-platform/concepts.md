@@ -38,7 +38,7 @@ The following properties represent a subscription:
 | `id` | Automatically populated | Identifier of the subscription within the Event Platform                                                                                                                                                                                                                                                                                                                                                                              |
 | `source` | Populated by the user at creation | Source of the event (currently, the only source available is `pim`)                                                                                                                                                                                                                                                                                                                                                                   |
 | `subject` | From `X-PIM-URL` header parameter | URL of the targeted source                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `type` | Populated by the user at creation | Type of the subscription (currently, there are three available types:  `https`, `pubsub`, and `kafka`)                                                                                                                                                                                                                                                                                                                                |
+| `type` | Populated by the user at creation | Type of the subscription (currently, there are four available types: `https`, `pubsub`, `kafka`, and `amqp10`)                                                                                                                                                                                                                                                                                                                                |
 | `events` | Populated by the user at creation | A list of events that the subscription is tracking                                                                                                                                                                                                                                                                                                                                                                                    |
 | `status` | Automatically populated | The subscription status                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `config` | Populated by the user at creation | The subscription configuration is based on the subscription type. See below for further details.                                                                                                                                                                                                                                                                                                                                      |
@@ -323,6 +323,120 @@ For secure connections, you can optionally configure TLS settings in the `config
 | `scram_variant` | SCRAM hash variant. Required when `mechanism` is `scram` | Conditional | `sha-256`, `sha-512` |
 
 You can also configure [custom HTTP headers](#custom-http-headers) to be sent with each delivery request.
+
+### AMQP 1.0 subscription
+
+This option delivers events to any message broker that speaks the **AMQP 1.0** protocol, such as PubSub+, Azure Service Bus, Apache ActiveMQ, Solace, Apache Qpid, IBM MQ, or RabbitMQ 4.0 and above (RabbitMQ 3.x only speaks AMQP 0-9-1 and is not supported).
+
+#### Configuration
+
+For the `amqp10` subscription type, the `config` property requires the broker URL and the target address (the queue or topic the events will be sent to). 
+Credentials and TLS settings are optional.
+
+```json[snippet:AMQP 1.0 subscription]
+
+{
+    "source": "pim",
+    "subject": "https://my-pim.cloud.akeneo.com",
+    "events": [
+        "com.akeneo.pim.v1.product.updated"
+    ],
+    "type": "amqp10",
+    "send_product_identifier": false,
+    "config": {
+        "url": "amqps://broker.example.com:5671",
+        "address": "pim-events",
+        "username": "your_amqp_username",
+        "password": "your_amqp_password"
+    }
+}
+```
+
+#### Configuration Properties
+
+| Property | Description | Required |
+| --- | --- | --- |
+| `url` | Broker URL, in the form `amqps://host:port`. Only the `amqps` scheme is accepted: plaintext `amqp://` connections are rejected. Credentials must not be embedded in the URL, use the `username` and `password` fields instead. | Yes |
+| `address` | Target address the events are sent to: a queue or a topic. The format is broker-specific (see below). | Yes |
+| `username` | SASL PLAIN username. Must be provided together with `password`. | No |
+| `password` | SASL PLAIN password. Must be provided together with `username`. | No |
+| `tls` | TLS configuration object for a custom Certificate Authority or client-certificate authentication (see below). | No |
+
+::: warning
+The `address` value is passed to the broker as is, and each broker has its own addressing conventions. 
+For example, Solace PubSub+ expects the queue name (`pim-events`), whereas RabbitMQ 4 expects a path such as `/queues/pim-events`. 
+Refer to your broker's AMQP 1.0 documentation for the expected format.
+:::
+
+#### Authentication
+
+The authentication mechanism negotiated with the broker depends on the fields you provide:
+
+| Fields provided | SASL mechanism |
+| --- | --- |
+| `tls.client_cert_pem` and `tls.client_key_pem` | `EXTERNAL`: the client certificate authenticates the platform (mutual TLS). |
+| `username` and `password` | `PLAIN` |
+| None of the above | `ANONYMOUS` |
+
+When a client certificate is configured, it takes precedence over `username` and `password`.
+
+**Username and password (SASL PLAIN):**
+```json
+"config": {
+    "url": "amqps://broker.example.com:5671",
+    "address": "pim-events",
+    "username": "your_amqp_username",
+    "password": "your_amqp_password"
+}
+```
+
+**Client certificate (mutual TLS, SASL EXTERNAL):**
+```json
+"config": {
+    "url": "amqps://broker.example.com:5671",
+    "address": "pim-events",
+    "tls": {
+        "server_name": "broker.example.com",
+        "ca_pem": "-----BEGIN CERTIFICATE-----\nMIIB...\n-----END CERTIFICATE-----",
+        "client_cert_pem": "-----BEGIN CERTIFICATE-----\nMIIB...\n-----END CERTIFICATE-----",
+        "client_key_pem": "-----BEGIN PRIVATE KEY-----\nMIIE...\n-----END PRIVATE KEY-----"
+    }
+}
+```
+
+If you require another authentication method, please notify us through our [contact form](https://akeneo.atlassian.net/servicedesk/customer/portal/8).
+
+#### TLS Configuration (Optional)
+
+The connection is always encrypted with TLS (1.2 minimum) and the broker certificate is always verified. The `tls` object lets you adjust this verification, or authenticate with a client certificate.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| `ca_pem` | Certificate Authority (CA) certificate in PEM format. Provide it when your broker certificate is issued by a private PKI that is not trusted by default. | No |
+| `server_name` | Server name used for TLS verification (SNI) when it differs from the host in `url`. | No |
+| `client_cert_pem` | Client certificate in PEM format, for mutual TLS. Must be provided together with `client_key_pem`. | No |
+| `client_key_pem` | Client private key in PEM format, for mutual TLS. Must be provided together with `client_cert_pem`. | No |
+
+PEM values must be provided inline, with line breaks escaped as `\n` in the JSON payload. Passwords and PEM values are stored encrypted and are redacted in API responses.
+
+#### Message format
+
+Each event is delivered as one AMQP message:
+
+- the **body** is the [CloudEvent](#events-format) in JSON, exactly like for the other destination types;
+- the `content-type` message property is `application/cloudevents+json`;
+- the `message-id` property is the CloudEvent `id`, and the `correlation-id` property carries the platform correlation identifier;
+- the following application properties are set, so you can route or filter messages on the broker side without parsing the body:
+
+| Application property | Description |
+| --- | --- |
+| `type` | The event type, e.g. `com.akeneo.pim.v1.product.updated` |
+| `source` | The event source, `akeneo-event-platform` |
+| `subject` | The identifier of the subscription that produced the delivery |
+| `job_id` | The identifier of the delivery job, unique per delivery attempt |
+
+Connection establishment and message settlement are each bounded by a **5 seconds** timeout. 
+A broker that does not accept the message within that delay is treated as a transient failure and the delivery enters the retry process.
 
 ## Custom HTTP Headers
 
