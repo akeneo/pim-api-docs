@@ -320,8 +320,35 @@ const createResponse = await PIM.api.external.call({
 ```
 
 ::: warning
-For security reasons, some request headers are stripped before the request is forwarded and cannot be overridden. This includes `Content-Type`, along with sensitive or hop-by-hop headers such as `Host`, `Authorization`, `Cookie` and `X-Forwarded-*`. The request body is currently sent with a default `Content-Type: application/json`; custom content types such as `application/x-www-form-urlencoded` are not supported at this time. For authentication, use the `credentials_code` parameter instead of setting an `Authorization` header.
+For security reasons, sensitive and hop-by-hop headers such as `Host`, `Authorization`, `Cookie`, `Content-Length` and `X-Forwarded-*` are stripped before the request is forwarded, and cannot be overridden. For authentication, use the `credentials_code` parameter instead of setting an `Authorization` header.
 :::
+
+### Request Content Type
+
+The request body is sent with `Content-Type: application/json` by default. To send something else, set the `Content-Type` header on the call. Three content types are accepted:
+
+- `application/json`
+- `application/x-www-form-urlencoded`
+- `text/plain`
+
+Any other value is discarded and the default `application/json` applies. Parameters are preserved, so `application/json; charset=utf-8` is forwarded as you wrote it.
+
+```js
+// Send a form-encoded body
+const response = await PIM.api.external.call({
+  method: 'POST',
+  url: 'https://api.example.com/token',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
+  body: {
+    grant_type: 'client_credentials',
+    scope: 'products:read'
+  }
+});
+```
+
+When `body` is an object and the content type is `application/x-www-form-urlencoded`, the PIM URL-encodes it for you. When `body` is a string, it is forwarded as-is under the declared content type, which is what you need for `text/plain` or for a payload you have already serialized yourself.
 
 ### Authenticated Calls
 
@@ -346,7 +373,7 @@ The referenced credential can be a Bearer token, Basic authentication, a custom 
 
 - This is the **only method** allowed for accessing external resources from your extension
 - For security reasons, requests are proxied through the PIM server
-- For security reasons, some request headers (including `Content-Type`) are stripped and cannot be overridden; the body is sent with a default `Content-Type: application/json`
+- For security reasons, sensitive and hop-by-hop headers are stripped and cannot be overridden; the body is sent with a default `Content-Type: application/json`, which you can override with one of the accepted content types
 - The method supports standard HTTP methods (GET, POST, PUT, DELETE, etc.)
 - Responses are returned as promises that can be handled with async/await
 

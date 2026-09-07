@@ -13,7 +13,7 @@ Credentials allow your Extensions to make authenticated calls to external APIs a
 | Custom Header        | `{custom_header_key}: {custom_header_value}`       | Custom authentication schemes |
 | OAuth2               | `Authorization: Bearer {fetched_access_token}`     | APIs requiring a short-lived token obtained from a token endpoint |
 
-With the first three methods, you store the exact value that is sent in the header. With **OAuth2**, you store the details of a token endpoint instead, and the PIM obtains the access token for you on each call. See [OAuth2 Credentials](#oauth2-credentials).
+With the first three methods, you store the exact value that is sent in the header. With **OAuth2**, you store the details of a token endpoint instead, and the PIM obtains the access token for you on each call. OAuth2 is specific to Custom Components, see [OAuth2 Credentials](#oauth2-credentials).
 
 ## Configuring Credentials
 
@@ -51,7 +51,7 @@ curl --location '{YOUR_PIM_HOST}/api/rest/v1/ui-extensions' \
 Many APIs do not accept a long-lived token. They expose a token endpoint, and expect you to exchange client credentials for a short-lived access token before every call. The OAuth2 credential type lets the PIM perform that exchange server-side, so your extension code never fetches, stores or refreshes a token itself.
 
 ::: warning
-OAuth2 credentials are only used by `PIM.api.external.call()` in a Custom Component extension. An OAuth2 credential configured on an **Action** or a **Data Component** extension is ignored, and the request is sent without an authentication header.
+OAuth2 is only available on Custom Component extensions, where the token is used by `PIM.api.external.call()`. The other extension types, **Action**, **Link**, **Iframe** and **Data Component**, do not support it: the PIM does not offer the OAuth2 method when you configure their credentials, and a request sending one through the API is rejected with a validation error. Use Bearer Token, Basic Authentication or a Custom Header for those.
 :::
 
 ### Grant Types
@@ -72,7 +72,7 @@ Two grant types are available, selected with the **Grant Type** field:
 | `client_secret` | Yes      | The client secret |
 | `scope`         | No       | The requested scope, if your provider expects one |
 | `audience`      | No       | The requested audience, expected by some providers such as Auth0 |
-| `header_name`   | No       | The header used to send the access token, see [Sending the Access Token Under a Custom Header](#sending-the-access-token-under-a-custom-header) |
+| `header_name`   | No       | The header used to send the access token. Defaults to `Authorization`, with the token sent as `Bearer {access_token}`. Under any other header name, for example `X-PIM-TOKEN`, the raw token is sent without the `Bearer` prefix |
 
 [![oauth2-credential-client-credentials.png](../../img/extensions/ui-extensions/oauth2-credential-client-credentials.png)](../../img/extensions/ui-extensions/oauth2-credential-client-credentials.png)
 
@@ -106,7 +106,7 @@ Unlike the other credential types, whose `value` is a single string, an OAuth2 `
 | `username`      | Yes      | The username of the account used to authenticate |
 | `password`      | Yes      | The password of that account |
 | `scope`         | No       | The requested scope, if the token endpoint expects one |
-| `header_name`   | No       | The header used to send the access token, see [Sending the Access Token Under a Custom Header](#sending-the-access-token-under-a-custom-header) |
+| `header_name`   | No       | The header used to send the access token. Defaults to `Authorization`, with the token sent as `Bearer {access_token}`. Under any other header name, for example `X-PIM-TOKEN`, the raw token is sent without the `Bearer` prefix |
 
 [![oauth2-credential-password-grant.png](../../img/extensions/ui-extensions/oauth2-credential-password-grant.png)](../../img/extensions/ui-extensions/oauth2-credential-password-grant.png)
 
@@ -115,14 +115,6 @@ The PIM sends `grant_type=password` to the token endpoint, with the username and
 ::: warning
 Use a dedicated API user for this connection rather than a personal account, since its username and password are stored to authenticate the connection. If the account is disabled or its password is rotated, every external call using this credential starts failing.
 :::
-
-### Sending the Access Token Under a Custom Header
-
-By default, the access token is sent as `Authorization: Bearer {access_token}`. Some APIs expect it under a different header instead. Set the optional `header_name` field to that header name, for example `X-PIM-TOKEN`, and the raw access token is sent under it, without the `Bearer` prefix:
-
-```
-X-PIM-TOKEN: {access_token}
-```
 
 ### Token Lifecycle
 
