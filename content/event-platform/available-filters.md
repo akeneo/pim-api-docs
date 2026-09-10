@@ -112,6 +112,40 @@ For practical reasons, this filter also matches when the modified attribute(s) a
 Useful for filtering updates specific to a particular language or region.
 :::
 
+---
+
+### Product Readiness
+
+Filters product and product-model events based on their readiness on one or more channels.
+A product is considered **ready** on a channel when its readiness score reaches 100.
+If a product has no readiness information for a channel, it is considered **not ready** on that channel.
+
+**Type:** Field Match  
+**Syntax:** `ready_on_scopes="<channel_code>"`  
+**Parameter:** String identifier of the channel  
+**Example:** `ready_on_scopes="ecommerce"`  
+**Supported Events:**
+
+- `com.akeneo.pim.v1.product.created`
+- `com.akeneo.pim.v1.product.updated`
+- `com.akeneo.pim.v1.product.updated.delta`
+- `com.akeneo.pim.v1.product-model.created`
+- `com.akeneo.pim.v1.product-model.updated`
+- `com.akeneo.pim.v1.product-model.updated.delta`
+
+This filter composes with the usual operators:
+
+| Filter Expression                                          | Meaning                                    |
+|------------------------------------------------------------|--------------------------------------------|
+| `ready_on_scopes="ecommerce"`                              | Ready on the ecommerce channel              |
+| `ready_on_scopes in ["ecommerce", "mobile"]`               | Ready on ecommerce **or** mobile            |
+| `ready_on_scopes="ecommerce" and ready_on_scopes="mobile"` | Ready on ecommerce **and** mobile           |
+| `not ready_on_scopes="ecommerce"`                          | Not ready on the ecommerce channel          |
+
+::: info
+Readiness scores are only used for filtering: they are not included in the event payload delivered to your destination.
+:::
+
 ::: warning
 If a filter field is not in the event payload, the filter may silently skip the event.
 :::
@@ -153,6 +187,7 @@ For example, the following filter: `locale in ["en_US", "fr_FR"]` will also matc
 | Exclude System Updates      | `not user="system"`                                           | Focus on human-made changes only                                        |
 | Exclude Specific Attributes | `not (attribute in ["price", "internal_notes"])`              | Focus on content changes while ignoring logistical or internal updates. |
 | Complex Filtering           | `(attribute="name" and locale="fr_FR") and not user="system"` | Monitor French content updates while excluding automated changes        |
+| Product Readiness           | `ready_on_scopes in ["ecommerce", "mobile"]`                  | Trigger your export flows when products are ready on your sales channels |
 
 ::: tips
 Remember to use parentheses to group conditions when combining multiple operators. This ensures correct evaluation order
