@@ -2118,6 +2118,68 @@ In the answer, you'll find in the `reference_data_name` property, the code of th
 `created` and `updated` properties are only available since 6.0 versions. 
 :::
 
+### Asset usage
+::: availability versions=SaaS editions=EE
+:::
+
+Before deleting an asset, you may want to know whether it is still used somewhere in your catalog.  
+By adding the `with_usage=true` query parameter to the [asset GET endpoint](/api-reference.html#get_asset_by_code), the response contains an extra `usage` property, holding the number of entities referencing this asset.
+
+**Example**
+```json
+{
+  "code": "sku_54628_picture1",
+  "asset_family_code": "frontview",
+  "values": {
+    "media_preview": [
+      {
+        "locale": null,
+        "channel": null,
+        "data": "sku_54628_picture1.jpg",
+        "attribute_type": "media_file"
+      }
+    ]
+  },
+  "created": "2021-05-31T09:23:34+00:00",
+  "updated": "2021-05-31T09:23:34+00:00",
+  "usage": {
+    "products": {
+      "total": 12
+    },
+    "product_models": {
+      "total": 3
+    },
+    "reference_entity_records": {
+      "total": 0
+    },
+    "categories": {
+      "total": 1
+    }
+  }
+}
+```
+
+Here is what each property counts.
+
+| Property | What it counts |
+| ----------------- | -------------- |
+| `products` | Products holding this asset in one of their [asset collection attributes](/concepts/catalog-structure.html#attribute) |
+| `product_models` | Product models holding this asset in one of their asset collection attributes |
+| `reference_entity_records` | [Reference entity records](/concepts/reference-entities.html#reference-entity-record) holding this asset in one of their asset attributes |
+| `categories` | Categories holding this asset in one of their enriched category values |
+
+::: info
+A variant product inheriting an asset from its product model is counted in `products`, and the product model itself is counted in `product_models`. Linking an asset to a product model with 6 variants therefore results in `products.total` being 6 and `product_models.total` being 1.
+:::
+
+::: warning
+The `usage` counts are **not** filtered by the permissions of the user making the call. They always reflect every entity referencing the asset, including those in categories the user is not allowed to view. This is intentional: the purpose of `with_usage` is to tell you whether an asset is safe to delete, and an asset referenced by an invisible product is still not safe to delete.
+:::
+
+::: info
+The `usage` property is only returned when `with_usage` is strictly equal to `true`. Any other value, including `1`, is ignored and the property is omitted from the response. It is available on the single asset endpoint only, not on the [asset list endpoint](/api-reference.html#get_assets).
+:::
+
 
 ::: panel-link Want more details about the asset resource? [Check its endpoints here!](/api-reference.html#Asset)
 :::
