@@ -2180,6 +2180,10 @@ The `usage` counts are **not** filtered by the permissions of the user making th
 The `usage` property is only returned when `with_usage` is strictly equal to `true`. Any other value, including `1`, is ignored and the property is omitted from the response. It is available on the single asset endpoint only, not on the [asset list endpoint](/api-reference.html#get_assets).
 :::
 
+::: warning
+Enabling `with_usage` makes the call significantly slower. Each request runs several additional queries on top of fetching the asset itself: one per entity type, plus one more per reference entity attribute linked to the asset family. The counts are aggregates, so this cost does not grow with the number of entities referencing the asset, but it is paid on **every** call. Only ask for it when you actually need the counts, and avoid looping over a whole asset family with `with_usage=true`.
+:::
+
 
 ::: panel-link Want more details about the asset resource? [Check its endpoints here!](/api-reference.html#Asset)
 :::
