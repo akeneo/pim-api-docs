@@ -2181,7 +2181,7 @@ The `usage` property is only returned when `with_usage` is strictly equal to `tr
 :::
 
 ::: warning
-Enabling `with_usage` makes the call significantly slower. Each request runs several additional queries on top of fetching the asset itself: one per entity type, plus one more per reference entity attribute linked to the asset family. The counts are aggregates, so this cost does not grow with the number of entities referencing the asset, but it is paid on **every** call. Only ask for it when you actually need the counts, and avoid looping over a whole asset family with `with_usage=true`.
+Enabling `with_usage` makes the call significantly slower, and that cost is paid on **every** request. Only ask for it when you actually need the counts, and avoid requesting it for every asset of a family.
 :::
 
 
