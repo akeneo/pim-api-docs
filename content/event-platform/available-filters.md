@@ -118,12 +118,11 @@ Useful for filtering updates specific to a particular language or region.
 
 Filters product and product-model events based on their readiness on one or more channels.
 A product is considered **ready** on a channel when its readiness score reaches 100 for every locale and
-readiness configuration that involves it. A channel with no readiness information is not included in either
-readiness list.
+readiness configuration that involves it. A channel with no readiness information is not included in the
+`ready_on_scopes` list.
 
 The filter reads the `ready_on_scopes` list of the event payload. Became-not-ready events carry a
-`not_ready_on_scopes` list instead: on these events, the same keyword matches channels having at least
-one readiness score below 100.
+`not_ready_on_scopes` list instead and are excluded whenever a subscription filter uses this keyword.
 
 **Type:** Field Match  
 **Syntax:** `ready_on_scopes="<channel_code>"`  
@@ -135,27 +134,25 @@ one readiness score below 100.
 - `com.akeneo.pim.v1.product.updated`
 - `com.akeneo.pim.v1.product.updated.delta`
 - `com.akeneo.pim.v1.product.became-ready`
-- `com.akeneo.pim.v1.product.became-not-ready`
 - `com.akeneo.pim.v1.product-model.created`
 - `com.akeneo.pim.v1.product-model.updated`
 - `com.akeneo.pim.v1.product-model.updated.delta`
 - `com.akeneo.pim.v1.product-model.became-ready`
-- `com.akeneo.pim.v1.product-model.became-not-ready`
 
 This filter composes with the usual operators:
 
-| Filter Expression                                          | Meaning on created, updated and became-ready events | Meaning on became-not-ready events               |
-|------------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------|
-| `ready_on_scopes="ecommerce"`                              | Ecommerce is listed as ready                        | Ecommerce is listed as not ready                 |
-| `ready_on_scopes in ["ecommerce", "mobile"]`               | Ecommerce **or** mobile is listed as ready          | Ecommerce **or** mobile is listed as not ready   |
-| `ready_on_scopes="ecommerce" and ready_on_scopes="mobile"` | Ecommerce **and** mobile are listed as ready        | Ecommerce **and** mobile are listed as not ready |
-| `not ready_on_scopes="ecommerce"`                          | Ecommerce is absent from `ready_on_scopes`          | Ecommerce is absent from `not_ready_on_scopes`   |
+| Filter Expression                                          | Meaning                                     |
+|------------------------------------------------------------|---------------------------------------------|
+| `ready_on_scopes="ecommerce"`                              | Ecommerce is listed as ready                |
+| `ready_on_scopes in ["ecommerce", "mobile"]`               | Ecommerce **or** mobile is listed as ready  |
+| `ready_on_scopes="ecommerce" and ready_on_scopes="mobile"` | Ecommerce **and** mobile are listed as ready |
+| `not ready_on_scopes="ecommerce"`                          | Ecommerce is absent from `ready_on_scopes`  |
 
 ::: info
-Became-ready events list every channel on which all available readiness scores are 100. Became-not-ready
-events list every channel having at least one available readiness score below 100. These lists describe the
-current state, not only the channels that just changed. A filter on `ecommerce` therefore also matches a
-became-ready event triggered by the `mobile` channel when the product was already ready on `ecommerce`.
+The `ready_on_scopes` list describes the current state, not only the channels that just changed.
+Became-ready events list every channel on which all available readiness scores are 100. A filter on `ecommerce`
+therefore also matches a became-ready event triggered by the `mobile` channel when the product was already ready
+on `ecommerce`.
 :::
 
 ::: info
@@ -205,7 +202,6 @@ For example, the following filter: `locale in ["en_US", "fr_FR"]` will also matc
 | Exclude Specific Attributes | `not (attribute in ["price", "internal_notes"])`              | Focus on content changes while ignoring logistical or internal updates. |
 | Complex Filtering           | `(attribute="name" and locale="fr_FR") and not user="system"` | Monitor French content updates while excluding automated changes        |
 | Product Readiness           | `ready_on_scopes in ["ecommerce", "mobile"]`                  | Trigger your export flows when products are ready on your sales channels |
-| Readiness Lost              | `ready_on_scopes="ecommerce"`                                 | On a became-not-ready subscription, unpublish products that stop being ready on your ecommerce channel |
 
 ::: tips
 Remember to use parentheses to group conditions when combining multiple operators. This ensures correct evaluation order
