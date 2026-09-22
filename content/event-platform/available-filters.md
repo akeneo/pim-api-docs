@@ -144,12 +144,12 @@ is **not ready** on.
 
 This filter composes with the usual operators:
 
-| Filter Expression                                          | Meaning on created, updated and became-ready events | Meaning on became-not-ready events    |
-|------------------------------------------------------------|-----------------------------------------------------|---------------------------------------|
-| `ready_on_scopes="ecommerce"`                              | Ready on the ecommerce channel                      | Not ready on the ecommerce channel    |
-| `ready_on_scopes in ["ecommerce", "mobile"]`               | Ready on ecommerce **or** mobile                    | Not ready on ecommerce **or** mobile  |
-| `ready_on_scopes="ecommerce" and ready_on_scopes="mobile"` | Ready on ecommerce **and** mobile                   | Not ready on ecommerce **and** mobile |
-| `not ready_on_scopes="ecommerce"`                          | Not ready on the ecommerce channel                  | Still ready on the ecommerce channel  |
+| Filter Expression                                          | Meaning on created, updated and became-ready events | Meaning on became-not-ready events                 |
+|------------------------------------------------------------|-----------------------------------------------------|----------------------------------------------------|
+| `ready_on_scopes="ecommerce"`                              | Ready on the ecommerce channel                      | Not ready on the ecommerce channel                 |
+| `ready_on_scopes in ["ecommerce", "mobile"]`               | Ready on ecommerce **or** mobile                    | Not ready on ecommerce **or** mobile               |
+| `ready_on_scopes="ecommerce" and ready_on_scopes="mobile"` | Ready on ecommerce **and** mobile                   | Not ready on ecommerce **and** mobile              |
+| `not ready_on_scopes="ecommerce"`                          | Not ready on the ecommerce channel                  | Ecommerce is not in the `not_ready_on_scopes` list |
 
 ::: info
 Became-ready and became-not-ready events list **every** channel the product is currently ready (or not ready) on,
