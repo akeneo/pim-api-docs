@@ -121,8 +121,7 @@ A product is considered **ready** on a channel when its readiness score reaches 
 readiness configuration that involves it. A channel with no readiness information is not included in the
 `ready_on_scopes` list.
 
-The filter reads the `ready_on_scopes` list of the event payload. Became-not-ready events carry a
-`not_ready_on_scopes` list instead and are excluded whenever a subscription filter uses this keyword.
+The filter reads the `ready_on_scopes` list of the event payload.
 
 **Type:** Field Match  
 **Syntax:** `ready_on_scopes="<channel_code>"`  
