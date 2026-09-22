@@ -155,8 +155,8 @@ on `ecommerce`.
 :::
 
 ::: info
-The `ready_on_scopes` and `not_ready_on_scopes` lists are delivered in the event payload. Readiness scores are
-only used on the PIM side to compute them and are never delivered to your destination.
+The `ready_on_scopes` list is delivered in the event payload. Readiness scores are only used on the PIM side
+to compute it and are never delivered to your destination.
 :::
 
 ::: warning
