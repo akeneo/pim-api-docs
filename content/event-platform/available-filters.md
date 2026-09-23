@@ -117,8 +117,16 @@ Useful for filtering updates specific to a particular language or region.
 ### Product Readiness
 
 Filters product and product-model events based on their readiness on one or more channels.
-A product is considered **ready** on a channel when its readiness score reaches 100.
-If a product has no readiness information for a channel, it is considered **not ready** on that channel.
+A product is considered **ready** on a channel when its readiness score reaches 100 for every locale and
+readiness configuration that involves it. A channel with no readiness information is not included in the
+`ready_on_scopes` list.
+
+The filter reads the `ready_on_scopes` list of the event payload.
+
+::: warning
+Became-not-ready events are never delivered to a subscription whose filter uses `ready_on_scopes`, even when
+another part of the filter matches. Subscribe to them separately, without this filter, if you need them.
+:::
 
 **Type:** Field Match  
 **Syntax:** `ready_on_scopes="<channel_code>"`  
@@ -129,21 +137,31 @@ If a product has no readiness information for a channel, it is considered **not 
 - `com.akeneo.pim.v1.product.created`
 - `com.akeneo.pim.v1.product.updated`
 - `com.akeneo.pim.v1.product.updated.delta`
+- `com.akeneo.pim.v1.product.became-ready`
 - `com.akeneo.pim.v1.product-model.created`
 - `com.akeneo.pim.v1.product-model.updated`
 - `com.akeneo.pim.v1.product-model.updated.delta`
+- `com.akeneo.pim.v1.product-model.became-ready`
 
 This filter composes with the usual operators:
 
-| Filter Expression                                          | Meaning                                    |
-|------------------------------------------------------------|--------------------------------------------|
-| `ready_on_scopes="ecommerce"`                              | Ready on the ecommerce channel              |
-| `ready_on_scopes in ["ecommerce", "mobile"]`               | Ready on ecommerce **or** mobile            |
-| `ready_on_scopes="ecommerce" and ready_on_scopes="mobile"` | Ready on ecommerce **and** mobile           |
-| `not ready_on_scopes="ecommerce"`                          | Not ready on the ecommerce channel          |
+| Filter Expression                                          | Meaning                                     |
+|------------------------------------------------------------|---------------------------------------------|
+| `ready_on_scopes="ecommerce"`                              | Ecommerce is listed as ready                |
+| `ready_on_scopes in ["ecommerce", "mobile"]`               | Ecommerce **or** mobile is listed as ready  |
+| `ready_on_scopes="ecommerce" and ready_on_scopes="mobile"` | Ecommerce **and** mobile are listed as ready |
+| `not ready_on_scopes="ecommerce"`                          | Ecommerce is absent from `ready_on_scopes`  |
 
 ::: info
-Readiness scores are only used for filtering: they are not included in the event payload delivered to your destination.
+The `ready_on_scopes` list describes the current state, not only the channels that just changed.
+Became-ready events list every channel on which all available readiness scores are 100. A filter on `ecommerce`
+therefore also matches a became-ready event triggered by the `mobile` channel when the product was already ready
+on `ecommerce`.
+:::
+
+::: info
+The `ready_on_scopes` list is delivered in the event payload. Readiness scores are only used on the PIM side
+to compute it and are never delivered to your destination.
 :::
 
 ::: warning
