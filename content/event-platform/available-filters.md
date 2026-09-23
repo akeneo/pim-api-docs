@@ -123,6 +123,11 @@ readiness configuration that involves it. A channel with no readiness informatio
 
 The filter reads the `ready_on_scopes` list of the event payload.
 
+::: warning
+Became-not-ready events are never delivered to a subscription whose filter uses `ready_on_scopes`, even when
+another part of the filter matches. Subscribe to them separately, without this filter, if you need them.
+:::
+
 **Type:** Field Match  
 **Syntax:** `ready_on_scopes="<channel_code>"`  
 **Parameter:** String identifier of the channel  
