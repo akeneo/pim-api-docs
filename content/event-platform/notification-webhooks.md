@@ -50,7 +50,7 @@ The request body is JSON with `Content-Type: application/json`:
 | `timestamp`       | string (RFC3339)    | UTC timestamp set when the platform built the payload.                                                                                             |
 | `subscription_id` | string (UUID)       | The Subscription whose status changed.                                                                                                           |
 | `subscriber_id`   | string (UUID)       | The Subscriber owning the Subscription.                                                                                                           |
-| `destination`     | string              | The Subscription destination (HTTPS URL or Pub/Sub topic identifier).                                                                            |
+| `destination`     | string              | The Subscription destination: the URL for HTTPS, `project_id/topic_id` for Pub/Sub, `broker/topic` for Kafka, `url/address` for AMQP 1.0.         |
 | `events`          | array of strings    | The event types this Subscription is configured to receive.                                                                                       |
 | `reason`          | string (optional)   | Human-readable reason for the status change. Present when applicable.                                                                            |
 | `subject`         | string (URI)        | The PIM URL associated with the Subscriber.                                                                                                       |
