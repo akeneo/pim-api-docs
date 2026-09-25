@@ -6,7 +6,7 @@ The old Event API has significant scalability, reliability, and functionality li
 |----------------------------------|-------------------------------------------------------|------------------------------------------------------|
 | **Event Coverage**               | Limited to product and product models                 | [Wide range of events](/event-platform/available-events.html) beyond just product and product models |
 | **Capacity**                     | 4,000 events per hour with a maximum of 3 subscribers | Unlimited events subject to quotas only, handles larger volumes |
-| **Payload**                      | Full product imprint without details on changes                                         | Lightweight payload, providing only the identifier of the updated entity (delta payload is a part of the roadmap) |
+| **Payload**                      | Full product imprint without details on changes                                         | Lightweight payload with the identifier of the updated entity, or a [delta payload](/event-platform/available-events.html) listing the changed values for `*.updated.delta` events |
 | **Performance**                  | Limited by low capacity and full payloads             | Optimized for high volume of events and fastest throughput  |
 | **Interface & Dashboard**        | Includes a usage dashboard                            | API-first product with no interface or dashboard |
 | **Reliability & Scalability**    | Limited reliability, prone to bottlenecks             | Designed for high reliability and scalability with attached retry mechanism in place       |
@@ -31,8 +31,12 @@ When you create or update a subscription, there is a synchronization delay of se
 
 Subscription destinations:
 
-- HTTPS - generic, can be considered as a Webhook feature
-- Google Cloud Pub Sub
+- HTTPS: generic, can be considered as a Webhook feature
+- Google Cloud Pub/Sub
+- Apache Kafka
+- AMQP 1.0
+
+See [Subscription types](/event-platform/concepts.html#subscription-types) for the configuration of each destination.
 
 We will consider adding other subscription destinations based on feedback. Please [fill-in this form](https://forms.gle/XsZ7rovRnqfAn4xF9) to propose & upvote new destination types.
 
@@ -45,7 +49,7 @@ Your subscriber and all linked subscriptions are instantaneously revoked resulti
 
 ### Can we pause the event reception when our target destination is under maintenance or unavailable?
 
-Yes, you can call the management API to suspend your subscription and stop receiving messages. [More details](/event-platform/best-practices.html#suspending-and-resuming-subscriptions-during-migration)
+Yes, you can call the management API to suspend your subscription and stop receiving messages. [More details](/event-platform/best-practices.html#suspending-and-resuming-subscriptions)
 
 ### Does Event Platform come with an user interface or dashboards?
 
@@ -60,9 +64,9 @@ According to our cloud provider, latency from EU to US through public internet i
 
 ### Can I retrieve past events ?
 
-The platform streams and distribute events, and offer a retry mecanism in case of temporary failures.
+The platform streams and distributes events, and offers a retry mechanism in case of temporary failures.
 
-The platform do not offer a way to query past events, we do not store any event data.
+The platform does not offer a way to query past events, as we do not store any event data.
 
 ### Should I expect a throttle on the number of events sent by the platform like in the existing Akeneo Event API ?
 
@@ -72,10 +76,10 @@ Event Platform is a new platform with distinct functionalities and should not be
 
 The new platform offers more granular event handling compared to the Event API, every events will be tried to be delivered and retried in case of failure.
 
-### My subscription is repeatedly suspended, I resume it all the time and I loose events, why ?
+### My subscription is repeatedly suspended, I resume it all the time and I lose events, why ?
 
 According to our delivery timeout strict policy, we want your subscribing service to acknowledge the reception of the event as fast as it can in order for our platform to deliver events continuously.
 
-Resuming suspended subscription several times indicates than you might change the way you deals with event consumption.
+Resuming a suspended subscription several times indicates that you might need to change the way you deal with event consumption.
 
 If at some point we see that you resumed a suspended subscription too frequently, we reserve the right to revoke or delete it.
