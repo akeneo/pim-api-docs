@@ -33,7 +33,7 @@ Consider using another [subscription type](/event-platform/concepts.html#subscri
 
 ## Delivery timeout
 
-Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to handle requests within **`5 seconds`**.  If processing exceeds this duration, the event will enter the retry process ([see bellow](/event-platform/concepts.html#retry-policy-for-transient-failures)).
+Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to handle requests within **`5 seconds`**.  If processing exceeds this duration, the event will enter the retry process ([see below](/event-platform/key-platform-behaviors.html#retry-policy-for-transient-failures)).
 
 Under normal circumstances, your HTTPS endpoint must handle the event as fast as possible.
 **Our recommendation** is to put the message in a `queuing system` or in a `database` for asynchronous processing.
@@ -48,7 +48,7 @@ If your destination is unable to ingest an event, we will retry deliver as follo
  - Third retry: 20 minutes after the previous attempt.
 
 These retries are on a best-effort basis and apply only to transient errors or timeouts. After **three retry attempts**, the message is dropped.
-This type of failure may trigger the suspension policy ([see bellow](/event-platform/key-platform-behaviors.html#suspension-policy)).
+This type of failure may trigger the suspension policy ([see below](/event-platform/key-platform-behaviors.html#suspension-policy)).
 
 ## Suspension policy
 
@@ -73,7 +73,7 @@ Here are the errors type that decrease the success rate:
 - `4xx Client Error Response` HTTP status
 - Delivery timeout
 
-When the platform suspends your subscription, a notification will be sent to the technical email address you provided, along with contextual information about the suspension.
+When the platform suspends, revokes, or resumes your subscription, a notification is sent on the channels configured on your subscriber. By default an email is sent to the `technical_email` you provided; you can also opt into a webhook notification on a URL of your choice. See the [Notification webhooks](/event-platform/notification-webhooks.html) page for the contract.
 
-::: panel-link Let's see the API reference! [Next](/event-platform/api-reference.html)
+::: panel-link Let's see how notification webhooks work! [Next](/event-platform/notification-webhooks.html)
 :::

@@ -8,6 +8,8 @@ Extensions run within the Akeneo PIM application itself, executed in a secure sa
 2. **Security**: The SDK code operates in a secure sandbox environment using the [SES (Secure ECMAScript)](https://github.com/endojs/endo) library, which restricts access to potentially harmful JavaScript capabilities.
 3. **Controlled API Access**: All API calls are automatically authenticated using the current user's session.
 
+Your extension is protected by two independent layers. SES restricts the JavaScript capabilities available to your code, while the browser sandbox of the iframe hosting your extension restricts what the page itself is allowed to do, such as opening windows, or reading cookies and local storage. Both shape what you can build, so read the constraints below before you start.
+
 ## Important Constraints
 
 When developing with the SDK, keep these constraints in mind:
@@ -17,6 +19,8 @@ When developing with the SDK, keep these constraints in mind:
 - **DOM Access**: Limited access to the DOM is provided, with restrictions on what elements can be modified.
 - **Global State**: The sandbox isolates your code from affecting the global state of the PIM application.
 - **Resources**: Your script should be efficient as it runs within the PIM application context. Also note that the uploaded file must not exceed 10MB.
+- **Opening Windows and Tabs**: `window.open()` and `target="_blank"` links are blocked by the browser sandbox. Use [`PIM.navigate.external()`](#navigation-to-external-domains) to open an external URL in a new tab, or [`PIM.navigate.internal()`](#navigation-within-the-pim) for a PIM page.
+- **Embedded Frames**: Your extension can embed an `<iframe>` pointing to an external host, and a static page will display correctly. However, the embedded page inherits the browser sandbox of your extension, so it runs with an opaque origin and has no access to cookies or local storage. Any external application that relies on an existing session, on cookies, or on an interactive sign-in will therefore load and then stall, usually without a clear error. The same applies to third-party libraries that inject their own iframe to display an external UI. To embed such an application as-is, use an [iframe extension](/extensions/iframe.html) instead, which is not sandboxed.
 
 [![indepth_custom_extension.png](../img/extensions/ui-extensions/indepth_custom_extension.png)](../img/extensions/ui-extensions/indepth_custom_extension.png)
 
@@ -158,7 +162,7 @@ console.log(`Current user: ${currentUser.first_name} ${currentUser.last_name}`);
 
 ## Context Data by Extension Position
 
-The SDK  access to the contextual information through `PIM.context`:
+The SDK provides access to the contextual information through `PIM.context`:
 
 ### Product Page Positions
 - `product.uuid`: The product's UUID for simple product
@@ -194,9 +198,56 @@ if ('product' in PIM.context) {
 }
 ```
 
+## PIM context changes
+
+`PIM.context` and `PIM.user` are a snapshot taken when your component loads. To keep track of the **locale** or **channel** currently selected by the user, listen for [PostMessage](https://developer.mozilla.org/docs/Web/API/Window/postMessage) events — the same mechanism used by iframe extensions.
+
+The PIM sends this message when your component loads, and again whenever the user changes locale or channel:
+
+```json
+{
+  "context": {
+    "locale": "en_US",
+    "channel": "ecommerce"
+  },
+  "user": {
+    "uuid": "c71228d3-695c-4ded-8f3d-b3ed881a1f59",
+    "username": "admin",
+    "groups": [
+      {"id": 8, "name": "IT support"},
+      {"id": 11, "name": "All"}
+    ]
+  }
+}
+```
+
+Listen for it with:
+
+```js
+window.addEventListener('message', event => {
+  if (event.data?.context) {
+    const {locale, channel} = event.data.context;
+    // React to the new locale/channel
+  }
+});
+```
+
+### Requesting context on demand
+
+In modern JavaScript frameworks like React, components may initialize after the initial context message was already sent, causing them to miss it. In that case, request it explicitly:
+
+```js
+window.parent.postMessage(
+  {
+    type: 'request_context'
+  },
+  '*'
+);
+```
+
 ## Navigation within the PIM
 
-The SDK  navigation method that allows you to open new tabs. This is useful for directing users to different sections of the PIM from your extension:
+The SDK provides a navigation method that allows you to open new tabs. This is useful for directing users to different sections of the PIM from your extension:
 
 ```js
 // Navigate to a product edit page
@@ -219,7 +270,7 @@ Use this feature to create helpful shortcuts or workflows that connect your exte
 
 ## Navigation to External Domains
 
-The SDK also  a method to navigate to external websites outside the PIM application using `PIM.navigate.external()`:
+The SDK also provides a method to navigate to external websites outside the PIM application using `PIM.navigate.external()`. This is the supported replacement for `window.open()`, which the browser sandbox blocks:
 
 ```js
 // Navigate to an external website
@@ -228,6 +279,7 @@ PIM.navigate.external('https://example.com/page');
 
 Important limitations to keep in mind:
 - **HTTPS Only**: Only HTTPS URLs are allowed for security reasons
+- **Maximum Length**: The URL must not exceed 2048 characters
 - Navigation will open in a new tab, preserving the current extension context
 
 ## Refresh current page
@@ -251,7 +303,8 @@ const response = await PIM.api.external.call({
   method: 'GET',
   url: 'https://api.example.com/data',
   headers: {
-    'Content-Type': 'application/json'
+    'Accept': 'application/json',
+    'X-Custom-Header': 'my-value'
   }
 });
 
@@ -259,15 +312,43 @@ const response = await PIM.api.external.call({
 const createResponse = await PIM.api.external.call({
   method: 'POST',
   url: 'https://api.example.com/items',
-  headers: {
-    'Content-Type': 'application/json'
-  },
   body: JSON.stringify({
     name: 'New Item',
     description: 'Item description'
   })
 });
 ```
+
+::: warning
+For security reasons, sensitive and hop-by-hop headers such as `Host`, `Authorization`, `Cookie`, `Content-Length` and `X-Forwarded-*` are stripped before the request is forwarded, and cannot be overridden. For authentication, use the `credentials_code` parameter instead of setting an `Authorization` header.
+:::
+
+### Request Content Type
+
+The request body is sent with `Content-Type: application/json` by default. To send something else, set the `Content-Type` header on the call. Three content types are accepted:
+
+- `application/json`
+- `application/x-www-form-urlencoded`
+- `text/plain`
+
+Any other value is discarded and the default `application/json` applies. Parameters are preserved, so `application/json; charset=utf-8` is forwarded as you wrote it.
+
+```js
+// Send a form-encoded body
+const response = await PIM.api.external.call({
+  method: 'POST',
+  url: 'https://api.example.com/token',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
+  body: {
+    grant_type: 'client_credentials',
+    scope: 'products:read'
+  }
+});
+```
+
+When `body` is an object and the content type is `application/x-www-form-urlencoded`, the PIM URL-encodes it for you. When `body` is a string, it is forwarded as-is under the declared content type, which is what you need for `text/plain` or for a payload you have already serialized yourself.
 
 ### Authenticated Calls
 
@@ -282,6 +363,8 @@ const secureResponse = await PIM.api.external.call({
 });
 ```
 
+The referenced credential can be a Bearer token, Basic authentication, a custom header, or an OAuth2 credential. With OAuth2, the PIM requests a short-lived access token from the configured token endpoint before forwarding your call, so your extension never fetches, stores or refreshes a token itself.
+
 ::: info
 **Never hardcode credentials** in your extension code. Always use the `credentials_code` parameter to reference credentials that are securely stored in the PIM. For detailed information on configuring and using credentials, see the [Credentials guide](/advanced-extensions/sdk-credentials.html).
 :::
@@ -290,6 +373,7 @@ const secureResponse = await PIM.api.external.call({
 
 - This is the **only method** allowed for accessing external resources from your extension
 - For security reasons, requests are proxied through the PIM server
+- For security reasons, sensitive and hop-by-hop headers are stripped and cannot be overridden; the body is sent with a default `Content-Type: application/json`, which you can override with one of the accepted content types
 - The method supports standard HTTP methods (GET, POST, PUT, DELETE, etc.)
 - Responses are returned as promises that can be handled with async/await
 

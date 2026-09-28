@@ -719,6 +719,7 @@ gulp.task('build-event-platform', ['clean-dist','less', 'fetch-remote-events'], 
           'concepts.md': "Concepts",
           'authentication-and-authorization.md': "Authentication and authorization",
           'key-platform-behaviors.md': "Key platform behaviors",
+          'notification-webhooks.md': "Notification webhooks",
           'api-reference.md': "API Reference",
           'available-events.md': "Available events",
           'available-filters.md': 'Available filters',
@@ -1548,6 +1549,42 @@ gulp.task('build-mcp', ['clean-dist','less'], function () {
                     .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
                     .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                     .pipe(gulp.dest('./dist/mcp'));
+              })
+        }));
+  }
+);
+
+gulp.task('build-extension-platform', ['clean-dist','less'], function () {
+    var pages = {
+        'overview.md': "Overview",
+        'getting-started.md': "Getting started",
+        'concepts.md': "Concepts",
+        'monitoring-and-troubleshooting.md': "Monitoring and troubleshooting",
+        'faq.md': "FAQ",
+    };
+
+    var isOnePage = false;
+
+    return gulp.src('content/extension-platform/*.md')
+        .pipe(flatmap(function(stream, file){
+            return gulp.src('content/extension-platform/*.md')
+              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
+              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/extension-platform') + "\n"))
+              .pipe(gulpMarkdownIt(mdGt))
+              .pipe(gulp.dest('tmp/extension-platform/'))
+              .on('end', function () {
+                  return gulp.src('src/partials/extension-platform.handlebars')
+                    .pipe(gulpHandlebars({
+                        active_apps: true,
+                        title: getPageTitle(file.path, 'Extension Platform'),
+                        description: getPageDescription(file.path, "Extension Platform"),
+                        mainContent: fs.readFileSync('tmp/extension-platform/' + path.basename(file.path).replace(/\.md/, '.html'))
+                    }, {
+                        partialsDirectory: ['./src/partials']
+                    }))
+                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
+                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
+                    .pipe(gulp.dest('./dist/extension-platform'));
               })
         }));
   }
