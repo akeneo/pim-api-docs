@@ -18,9 +18,9 @@ When developing with the SDK, keep these constraints in mind:
 - **External Access**: Direct network requests (fetch, XMLHttpRequest) to external services are not allowed. All API interactions must go through the SDK methods. There is a specific method available to allow access to external resources.
 - **DOM Access**: Limited access to the DOM is provided, with restrictions on what elements can be modified.
 - **Global State**: The sandbox isolates your code from affecting the global state of the PIM application.
-- **Resources**: Your script should be efficient as it runs within the PIM application context. Also note that the uploaded file must not exceed 10MB.
 - **Opening Windows and Tabs**: `window.open()` and `target="_blank"` links are blocked by the browser sandbox. Use [`PIM.navigate.external()`](#navigation-to-external-domains) to open an external URL in a new tab, or [`PIM.navigate.internal()`](#navigation-within-the-pim) for a PIM page.
 - **Embedded Frames**: Your extension can embed an `<iframe>` pointing to an external host, and a static page will display correctly. However, the embedded page inherits the browser sandbox of your extension, so it runs with an opaque origin and has no access to cookies or local storage. Any external application that relies on an existing session, on cookies, or on an interactive sign-in will therefore load and then stall, usually without a clear error. The same applies to third-party libraries that inject their own iframe to display an external UI. To embed such an application as-is, use an [iframe extension](/extensions/iframe.html) instead, which is not sandboxed.
+- **Resources**: Your script should be efficient as it runs within the PIM application context. Also note that the uploaded file must not exceed 10MB.
 
 [![indepth_custom_extension.png](../img/extensions/ui-extensions/indepth_custom_extension.png)](../img/extensions/ui-extensions/indepth_custom_extension.png)
 
