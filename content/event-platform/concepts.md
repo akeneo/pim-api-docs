@@ -95,8 +95,6 @@ For the `pubsub` subscription type, the `config` property needed when creating t
 }
 ```
 
-You can also configure [custom HTTP headers](#custom-http-headers) to be sent with each delivery request.
-
 #### Allow the Event Platform to publish in your Pub/Sub topic
 
 To use a Pub/Sub subscription, you need to complete a few additional steps to ensure we have permission to publish into your Pub/Sub topic:
@@ -322,8 +320,6 @@ For secure connections, you can optionally configure TLS settings in the `config
 | `password` | Password for authentication | Yes | String |
 | `scram_variant` | SCRAM hash variant. Required when `mechanism` is `scram` | Conditional | `sha-256`, `sha-512` |
 
-You can also configure [custom HTTP headers](#custom-http-headers) to be sent with each delivery request.
-
 ### AMQP 1.0 subscription
 
 This option delivers events to any message broker that speaks the **AMQP 1.0** protocol, such as PubSub+, Azure Service Bus, Apache ActiveMQ, Solace, Apache Qpid, IBM MQ, or RabbitMQ 4.0 and above (RabbitMQ 3.x only speaks AMQP 0-9-1 and is not supported).
@@ -440,7 +436,7 @@ A broker that does not accept the message within that delay is treated as a tran
 
 ## Custom HTTP Headers
 
-You can optionally configure custom HTTP headers that will be sent with each event delivery request. This feature is available for all subscription types (`https`, `pubsub`, `kafka`). It is useful for pre-authentication (e.g., an API key) or for routing event traffic on the receiving end.
+You can optionally configure custom HTTP headers that will be sent with each event delivery request. This feature is only available for the `https` subscription type. It is useful for pre-authentication (e.g., an API key) or for routing event traffic on the receiving end.
 
 Add a `headers` field to the `config` object of your subscription:
 
@@ -499,8 +495,8 @@ You can configure your subscription with the following filter:
   "type": "https",
   "send_product_identifier": false,
   "config": {
-    "url": "https://your_webhook_url",
-  }
+    "url": "https://your_webhook_url"
+  },
   "filter": "user=\"ea0fe94f-417e-4078-a40b-38645ba90ebe\""
 }
 ```
@@ -529,7 +525,7 @@ Example of an event payload for a productDeleted event
     "product": {
       "uuid": "3444ec1b-058e-4208-9b6c-284f47a7aa17",
       "identifier": "my-product-identifier"
-    }
+    },
     "author": {
       "identifier": "b238e9f7-fcec-45bd-9431-d43cd624b244",
       "type": "api"
