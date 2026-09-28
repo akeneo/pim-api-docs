@@ -48,7 +48,13 @@ Examples :
 
 ## Signature
 
-It's possible to configure a `secret` to sign the body of the POST request sent to the destination (<a href='https://wikipedia.org/wiki/SHA-2'>SHA-512</a> protocol).
+You can configure a `secret` on the action to authenticate requests. The PIM then signs the raw request body with **HMAC-SHA512** and sends the result as a hex string in a `signature` header, prefixed with `sha512=` (for example `sha512=9f86d081884c...`).
+
+To verify it, compute the HMAC-SHA512 of the raw body (before JSON parsing) with your secret, and compare it to the header value with a timing-safe function.
+
+::: tips
+The payload includes a `timestamp` (Unix seconds). Rejecting requests older than a few minutes protects you against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
+:::
 
 ## Available Positions
 
