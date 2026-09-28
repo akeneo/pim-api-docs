@@ -1,7 +1,7 @@
 # Deprecation FAQ
 
-::: info 
-The Event API will be retired on **December 31, 2026**.
+::: warning
+**Looking for our current event capabilities?** The Events API has been replaced by the [Event Platform](../event-platform/overview.html), our event integration for all new implementations. Existing Events API integrations remain supported until **December 31, 2026**. See the [Migration Guide](./migrate-to-event-platform.html) to move to the Event Platform.
 :::
 
 ## Why Event API will be retired?
