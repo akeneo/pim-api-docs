@@ -43,6 +43,7 @@ The following properties represent a subscription:
 | `status` | Automatically populated | The subscription status                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `config` | Populated by the user at creation | The subscription configuration is based on the subscription type. See below for further details.                                                                                                                                                                                                                                                                                                                                      |
 | `send_product_identifier` | Optional, default: `false` | If set to `true`, includes the product identifier in product events when available. <br/>This field only applies to the following events : <br/> - `com.akeneo.pim.v1.product.created`<br/> - `com.akeneo.pim.v1.product.updated`<br/> - `com.akeneo.pim.v1.product.updated.delta`<br/> - `com.akeneo.pim.v1.product.deleted`<br/> - `com.akeneo.pim.v1.product.became-complete`<br/> - `com.akeneo.pim.v1.product.became-incomplete` |
+| `options` | Optional | An object holding the optional settings of the subscription. See [Subscription options](#subscription-options) below. |
 
 ::: info
 **Subscription Activation Delay:** When you create or update a subscription, there may be a delay of several minutes before it becomes fully active and ready to receive events. This delay occurs due to internal synchronization between the subscription management service and the event delivery service.
@@ -56,6 +57,18 @@ The statuses for a subscription are:
 | `deleted` | The subscription is inactive and cannot be reactivated                                                                                                                                                                                                                                 |
 | `suspended` | The subscription can be suspended by the platform due to excessive errors, or manually by the user. However, you can resume it. Suspending a subscription stops all events from being sent to it. Events are not saved and are lost until the subscription is resumed |
 | `revoked` | The subscription has been automatically revoked because the connection or the app linked to the subscriber was removed from the PIM                                                                                                                                                    |
+
+### Subscription options
+
+The `options` object supports the following properties:
+
+| Property | Default | Description |
+| --- | --- | --- |
+| `send_product_identifier_in_changes` | `false` | If true, includes the product identifier alongside each product UUID in the changes of delta events |
+
+::: info
+`send_product_identifier` is not part of the `options` object: it stays at the root of the subscription.
+:::
 
 ## Subscription types
 
@@ -88,6 +101,9 @@ For the `pubsub` subscription type, the `config` property needed when creating t
     ],
     "type": "pubsub",
     "send_product_identifier": false,
+    "options": {
+        "send_product_identifier_in_changes": false
+    },
     "config": {
         "project_id": "your_google_project_id",
         "topic_id": "your_google_pubsub_topic_id"
@@ -150,6 +166,9 @@ Additionally, it requires at least a primary secret (with an optional secondary 
   ],
   "type": "https",
   "send_product_identifier": false,
+  "options": {
+    "send_product_identifier_in_changes": false
+  },
   "config": {
     "url": "https://your_webhook_url",
     "secret": {
@@ -236,6 +255,9 @@ For the `kafka` subscription type, the `config` property requires the Kafka clus
     ],
     "type": "kafka",
     "send_product_identifier": false,
+    "options": {
+        "send_product_identifier_in_changes": false
+    },
     "config": {
         "broker": "kafka-cluster.example.com:9092",
         "topic": "pim-events",
@@ -339,6 +361,9 @@ Credentials and TLS settings are optional.
     ],
     "type": "amqp10",
     "send_product_identifier": false,
+    "options": {
+        "send_product_identifier_in_changes": false
+    },
     "config": {
         "url": "amqps://broker.example.com:5671",
         "address": "pim-events",
@@ -494,6 +519,9 @@ You can configure your subscription with the following filter:
   ],
   "type": "https",
   "send_product_identifier": false,
+  "options": {
+    "send_product_identifier_in_changes": false
+  },
   "config": {
     "url": "https://your_webhook_url"
   },
