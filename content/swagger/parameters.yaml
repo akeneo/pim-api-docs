@@ -105,6 +105,13 @@ with_attribute_options:
   type: boolean
   required: false
   x-from-version: "5.0"
+update_parent_values:
+  name: update_parent_values
+  in: query
+  description: When set to `true`, allows updating attribute values on the parent product models when patching a variant product. By default, only values owned by the variant product level can be updated.
+  default: false
+  type: boolean
+  required: false
 with_table_select_options:
   name: with_table_select_options
   in: query
