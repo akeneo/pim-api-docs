@@ -9,7 +9,7 @@ Data sent within the POST body, formatted in JSON, contain:
   - the configured `locale`,
   - the configured `channel`,
   - the configured `categories` (only available for product grid actions).
-- A `user` object containing the `uuid`, `username` and `groups` of the connected user.
+- A `user` object containing the `uuid`, `username`, `email` and `groups` of the connected user.
 - A `timestamp` that can be used with a [secret](#secret) to help you to protect your server against [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 - A `data` object with different fields depending on the position:
 
@@ -37,6 +37,7 @@ Examples :
   "user": {
     "uuid": "e05cc457-b8ac-43b1-baa7-c4c112091ad8",
     "username": "julia",
+    "email": "julia@example.com",
     "groups": [
       {"id": 7, "name": "Manager"},
       {"id": 11, "name": "All"}
