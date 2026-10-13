@@ -1978,6 +1978,54 @@ Filter by an option (simple or collection):
 ```
 ::::
 
+### Asset values by attributes
+
+::: availability versions=SaaS editions=EE
+
+If you want to receive assets with only the asset values of specific attributes, you can specify it thanks to the `attributes` query parameter, as a comma-separated list of attribute codes.
+It reduces the size of the response when you only need a few attributes.
+
+:::info
+This parameter does not change which assets are returned, only which of their values are. To select the assets themselves on their attribute values, use the `search` query parameter described in the "By attribute values" section above.
+:::
+
+#### Example 1
+
+To get assets with only the asset values regarding the `warning_mention` attribute, you can use the following URL.
+
+```
+/api/rest/v1/asset-families/model_pictures/assets?attributes=warning_mention
+```
+
+You can filter asset values on several attributes at the same time.
+
+```
+/api/rest/v1/asset-families/model_pictures/assets?attributes=warning_mention,model_is_wearing_size
+```
+
+The `attributes` query parameter is kept in the pagination links of the response.
+
+#### Example 2
+
+The `attributes` query parameter is also available when you [request a single asset](/api-reference.html#get_asset_by_code).
+
+```
+/api/rest/v1/asset-families/model_pictures/assets/allie_jean_model_picture?attributes=warning_mention
+```
+
+#### Example 3
+
+When you request a list of assets, you can combine it with the `locales` query parameter described below, to get only the values of these attributes in these locales.
+
+```
+/api/rest/v1/asset-families/model_pictures/assets?attributes=warning_mention&locales=en_US
+```
+
+:::warning
+Attribute codes are case sensitive. The request fails with a `422` error when one of the requested attribute codes is empty, malformed, or does not exist in the asset family.
+When a code does not exist in the asset family, the error names it, for instance `Attribute "colour" does not exist in the asset family "model_pictures".` On a list of assets, this message is in the `errors` array of the response, under the `attributes` property, and the main `message` is `Invalid query parameters`. On a single asset, it is the main `message`.
+:::
+
 ### Asset values by locale
 
 ::: availability versions=3.2,4.0,5.0,6.0,7.0,SaaS editions=EE
