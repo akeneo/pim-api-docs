@@ -151,6 +151,7 @@ The SDK provides access to the current user information through `PIM.user`:
 - `uuid`: The user's UUID
 - `first_name`: The user's first name
 - `last_name`: The user's last name
+- `email`: The user's email
 - `groups`: Array of user groups, each containing:
   - `id`: The group ID
   - `name`: The group name
