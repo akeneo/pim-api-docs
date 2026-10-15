@@ -426,10 +426,10 @@
                                                                                             {{#each properties}}
                                                                                                 <p class="def-key">&nbsp; &nbsp; &nbsp; &nbsp;<code>{{{@key}}}</code>
                                                                                                 <em>({{{type}}}{{#if items}} [{{{items.type}}}]{{/if}})</em>
-                                                                                                {{#if properties}}: { <br>
+                                                                                                {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}}: { <br>
                                                                                                     {{#each properties}}
                                                                                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em>
-                                                                                                        {{#if properties}}
+                                                                                                        {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}}
                                                                                                             : { <br>
                                                                                                             {{#each properties}}
                                                                                                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<code>{{{@key}}}</code> <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em>
@@ -443,11 +443,11 @@
                                                                                                                         {{#each allOf}}
                                                                                                                             {{#each properties}}
                                                                                                                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<code>{{{@key}}}</code> <em>({{{type}}})</em>
-                                                                                                                                {{#if properties}}
+                                                                                                                                {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}}
                                                                                                                                     : { <br>
                                                                                                                                         {{#each properties}}
                                                                                                                                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<code>{{{@key}}}</code> <em>({{{type}}})</em>
-                                                                                                                                            {{#if properties}}
+                                                                                                                                            {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}}
                                                                                                                                                 : { <br>
                                                                                                                                                 {{#each properties}}
                                                                                                                                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<code>{{{@key}}}</code> <em>({{{type}}})</em>
@@ -507,12 +507,12 @@
                                                                                     {{#each properties}}
                                                                                         <p class="def-key"><code>{{{@key}}}</code>
                                                                                         <em>({{{type}}}{{#if items}} [{{{items.type}}}]{{/if}})</em>
-                                                                                        {{#if properties}}: { <br>
+                                                                                        {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}}: { <br>
                                                                                             {{#each properties}}
                                                                                                 &nbsp; &nbsp;
                                                                                                 <code>{{{@key}}}</code>
                                                                                                 <em>({{{type}}}{{#if items}}[{{{items.type}}}]{{/if}})</em>
-                                                                                                {{#if properties}}
+                                                                                                {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}}
                                                                                                     : { <br>
                                                                                                     {{#each properties}}
                                                                                                         &nbsp; &nbsp; &nbsp; &nbsp;
@@ -530,13 +530,13 @@
                                                                                                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                         <code>{{{@key}}}</code>
                                                                                                                         <em>({{{type}}})</em>
-                                                                                                                        {{#if properties}}
+                                                                                                                        {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}}
                                                                                                                             : { <br>
                                                                                                                                 {{#each properties}}
                                                                                                                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                                     <code>{{{@key}}}</code>
                                                                                                                                     <em>({{{type}}})</em>
-                                                                                                                                    {{#if properties}}
+                                                                                                                                    {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}}
                                                                                                                                         : { <br>
                                                                                                                                         {{#each properties}}
                                                                                                                                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -601,10 +601,10 @@
                                                                                             <p class="def-key">
                                                                                                 <code>{{{@key}}}</code>
                                                                                                 <em>({{{type}}}{{#if items}} [{{{items.type}}}]{{/if}})</em>
-                                                                                                {{#if properties}}: { <br>
+                                                                                                {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}}: { <br>
                                                                                                     {{#each properties}}
                                                                                                         &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}})</em>
-                                                                                                        {{#if properties}}: { <br>
+                                                                                                        {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}}: { <br>
                                                                                                             {{#each properties}}
                                                                                                                 &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}})</em> &bull; {{{description}}}{{#unless @last}} <br> {{/unless}}
                                                                                                             {{/each}}
@@ -613,10 +613,10 @@
                                                                                                             {{#with items}} : [ <br> &nbsp; &nbsp; &nbsp; &nbsp; { <br>
                                                                                                                     {{#each properties}}
                                                                                                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}} [{{{items.type}}}]{{/if}})</em>
-                                                                                                                        {{#if properties}} : { <br>
+                                                                                                                        {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}} : { <br>
                                                                                                                             {{#each properties}}
                                                                                                                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}} [{{{items.type}}}]{{/if}})</em>
-                                                                                                                                {{#if properties}} : { <br>
+                                                                                                                                {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}} : { <br>
                                                                                                                                     {{#each properties}}
                                                                                                                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                                         <code>{{{@key}}}</code>
@@ -657,10 +657,10 @@
                                                                                                                                 &bull; {{{../description}}}
                                                                                                                             {{/if}}
                                                                                                                         {{/with}}
-                                                                                                                            {{#if properties}} : { <br>
+                                                                                                                            {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}} : { <br>
                                                                                                                                 {{#each properties}}
                                                                                                                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code>{{{@key}}}</code> <em>({{{type}}}{{#if items}} [{{{items.type}}}]{{/if}})</em>
-                                                                                                                                    {{#if properties}} : { <br>
+                                                                                                                                    {{#if properties}}{{#if description}} &bull; {{{description}}} {{/if}} : { <br>
                                                                                                                                     {{#each properties}}
                                                                                                                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                                                                                                         <code>{{{@key}}}</code>
