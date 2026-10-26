@@ -68,13 +68,11 @@ The platform streams and distributes events, and offers a retry mechanism in cas
 
 The platform does not offer a way to query past events, as we do not store any event data.
 
-### Should I expect a throttle on the number of events sent by the platform like in the existing Akeneo Event API ?
+### Should I expect a throttle on the number of events sent by the platform like in the former Akeneo Event API ?
 
-Akeneo's Event API have some core limitations such as a `4.000 event/hour` limit.
+The former Akeneo Event API, now decommissioned, had some core limitations such as a `4.000 event/hour` limit.
 
-Event Platform is a new platform with distinct functionalities and should not be considered as the next version of [Akeneo's Event API](https://api.akeneo.com/events-documentation/overview.html). 
-
-The new platform offers more granular event handling compared to the Event API, every events will be tried to be delivered and retried in case of failure.
+The Event Platform offers more granular event handling: every event is tried to be delivered and retried in case of failure.
 
 ### My subscription is repeatedly suspended, I resume it all the time and I lose events, why ?
 

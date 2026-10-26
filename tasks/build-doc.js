@@ -397,38 +397,6 @@ gulp.task('build-getting-started', ['clean-dist','less'], function () {
                 old: "old"
             }
         },
-        'quick-start-my-first-webhook-5x': {
-            gettingStartedName: 'quick-start-my-first-webhook',
-            pimVersion: 'v5 / v6 / v7/ SaaS',
-            deprecated: true,
-            title: 'Quick start my first webhook',
-            files: {
-                'welcome.md': 'Welcome',
-                'step-1.md': 'Step 1 | Receive my first set of data',
-                'step-2.md': 'Step 2 | Create your own Symfony app to display event subscriptions data'
-            },
-            availability: {
-                serenity: "5x",
-                v7: "5x",
-                v6: "5x",
-                v5: "5x"
-            }
-        },
-        'events-api-best-practices-5x': {
-            gettingStartedName: 'events-api-best-practices',
-            pimVersion: 'v5 / v6 / v7 / SaaS',
-            deprecated: true,
-            title: 'Events API best practices',
-            files: {
-                'welcome.md': 'Best practices',
-            },
-            availability: {
-                serenity: "5x",
-                v7: "5x",
-                v6: "5x",
-                v5: "5x"
-            }
-        },
         'synchronize-pim-products-6x': {
             gettingStartedName: synchronizePimProductsName,
             pimVersion: 'v6 / v7 / SaaS',
@@ -727,7 +695,6 @@ gulp.task('build-event-platform', ['clean-dist','less', 'fetch-remote-events'], 
           'integration-examples.md': "Integration examples",
           'compatibility.md': "Compatibility",
           'limitations.md': "Quota & Limits",
-          // 'migrate-from-deprecated-event-api.md': "Migrate from deprecated event API",
           'logs.md': "Logs",
           'faq.md': "FAQ",
       };
@@ -919,45 +886,6 @@ gulp.task('build-px-insights', ['clean-dist','less'], function () {
                     .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
                     .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
                     .pipe(gulp.dest('./dist/px-insights'));
-              })
-        }));
-  }
-);
-
-gulp.task('build-events-api', ['clean-dist','less'], function () {
-
-    var pages = {
-        'overview.md': 'Overview',
-        'subscription.md': 'Subscribe and receive events',
-        'security.md': 'Security',
-        'limits-and-scalability.md': 'Limits and scalibility',
-        'more-about-events.md': 'More about events',
-        'migrate-to-event-platform.md': 'Migrate to Event Platform',
-        'deprecation-faq.md': 'Deprecation FAQ'
-    };
-
-    var isOnePage = false;
-
-    return gulp.src('content/events-api/*.md')
-        .pipe(flatmap(function(stream, file){
-            return gulp.src('content/events-api/*.md')
-              .pipe(insert.wrap("::::: mainContent\n", "\n:::::"))
-              .pipe(insert.prepend(getTocMarkdown(isOnePage, pages, path.basename(file.path), '/events-documentation') + "\n"))
-              .pipe(gulpMarkdownIt(md))
-              .pipe(gulp.dest('tmp/events-documentation/'))
-              .on('end', function () {
-                  return gulp.src('src/partials/events-documentation.handlebars')
-                    .pipe(gulpHandlebars({
-                        active_api_resources: true,
-                        title: 'The Events API basics',
-                        description: getPageDescription(file.path),
-                        mainContent: fs.readFileSync('tmp/events-documentation/' + path.basename(file.path).replace(/\.md/, '.html'))
-                    }, {
-                        partialsDirectory: ['./src/partials']
-                    }))
-                    .pipe(rename(path.basename(file.path).replace(/\.md/, '.html')))
-                    .pipe(revReplace({manifest: gulp.src("./tmp/rev/rev-manifest.json")}))
-                    .pipe(gulp.dest('./dist/events-documentation'));
               })
         }));
   }
@@ -1167,6 +1095,7 @@ gulp.task('build-redirections', [
     'to-get-your-app-token-redirection',
     'to-apps-homepage',
     'to-app-concepts-and-use-cases',
+    'to-event-platform',
 ]);
 
 gulp.task('to-get-your-app-token-redirection', ['clean-dist','less'], function () {
@@ -1185,6 +1114,12 @@ gulp.task('to-app-concepts-and-use-cases', ['clean-dist', 'less'], function () {
     return gulp.src('content/redirections/to-app-concepts-and-use-cases.html')
         .pipe(rename('guides-index.html'))
         .pipe(gulp.dest('./dist'))
+});
+
+gulp.task('to-event-platform', ['clean-dist', 'less'], function () {
+    return gulp.src('content/redirections/to-event-platform.html')
+        .pipe(rename('overview.html'))
+        .pipe(gulp.dest('./dist/events-documentation'))
 });
 
 gulp.task('build-concepts', ['clean-dist','less'], function () {
