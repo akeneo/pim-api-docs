@@ -180,10 +180,6 @@ To create a subscription, you will need a destination URL.
     export DESTINATION_URL="https://my-destination-url.com"  # Replace with your destination URL
 ```
 
-::: warning
-If you have already configured the Events API, do not use the same URL for your destination URL; otherwise, you will not receive events from the event platform.
-:::
-
 ::: info
 💡 You don’t have to worry about the secret part of the configuration for now, they are used to sign the payload (more information below in the API presentation section)
 :::

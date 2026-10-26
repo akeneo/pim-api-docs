@@ -1,20 +1,4 @@
 # FAQ
-### What is the difference between the old Event API and the new Event Platform? 
-The old Event API has significant scalability, reliability, and functionality limitations, making it unsuitable for modern, large-scale integrations. On the other hand, the new Event Platform is designed with a technical-first approach, offering broader event coverage, higher capacity, and the flexibility needed for seamless integrations. This comparison table illustrates the major differences between the two, demonstrating how the new Event Platform is a better choice for developers and businesses alike.
-
-| **Feature**                      | **Old Event API**                                     | **New Event Platform**                               |
-|----------------------------------|-------------------------------------------------------|------------------------------------------------------|
-| **Event Coverage**               | Limited to product and product models                 | [Wide range of events](/event-platform/available-events.html) beyond just product and product models |
-| **Capacity**                     | 4,000 events per hour with a maximum of 3 subscribers | Unlimited events subject to quotas only, handles larger volumes |
-| **Payload**                      | Full product imprint without details on changes                                         | Lightweight payload with the identifier of the updated entity, or a [delta payload](/event-platform/available-events.html) listing the changed values for `*.updated.delta` events |
-| **Performance**                  | Limited by low capacity and full payloads             | Optimized for high volume of events and fastest throughput  |
-| **Interface & Dashboard**        | Includes a usage dashboard                            | API-first product with no interface or dashboard |
-| **Reliability & Scalability**    | Limited reliability, prone to bottlenecks             | Designed for high reliability and scalability with attached retry mechanism in place       |
-| **Usage Context**                | Suitable for small-scale integrations                 | Ideal for large-scale, real-time integrations        |
-| **Integration Approach**         | Standalone notifications                              | Intended for use with GraphQL outbound for seamless integration |
-
-
-
 ### Are the events sent in order ?
 
 Yes and no. From a sequence perspective, yes, an event emitted by the PIM is likely to be sent to your destination in the same order but nothing is done internally to guarantee it. 
@@ -67,14 +51,6 @@ According to our cloud provider, latency from EU to US through public internet i
 The platform streams and distributes events, and offers a retry mechanism in case of temporary failures.
 
 The platform does not offer a way to query past events, as we do not store any event data.
-
-### Should I expect a throttle on the number of events sent by the platform like in the existing Akeneo Event API ?
-
-Akeneo's Event API have some core limitations such as a `4.000 event/hour` limit.
-
-Event Platform is a new platform with distinct functionalities and should not be considered as the next version of [Akeneo's Event API](https://api.akeneo.com/events-documentation/overview.html). 
-
-The new platform offers more granular event handling compared to the Event API, every events will be tried to be delivered and retried in case of failure.
 
 ### My subscription is repeatedly suspended, I resume it all the time and I lose events, why ?
 
