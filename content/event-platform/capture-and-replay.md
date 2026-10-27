@@ -22,12 +22,7 @@ Capture is automatic. There is nothing to enable on your subscription.
 
 ## How long captured events are kept
 
-Captured events are kept for **10 days**, then deleted. In practice:
-
-- After a suspension of a few hours or days, a replay sends back everything you missed.
-- After a suspension longer than 10 days, the oldest events are gone: a replay only reaches back 10 days from today.
-
-Replay as soon as your destination is ready to receive events again.
+Capture stops **10 days** after the suspension started, and each captured event is kept **10 days**. To get everything back, resume the subscription and start the replay within 10 days of the suspension.
 
 ## Supported subscription types
 
