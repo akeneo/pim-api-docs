@@ -164,5 +164,5 @@ Poll every few minutes at most: a replay runs at a bounded pace, so its counters
 - One successfully completed replay per subscription per UTC day. A replay that ends `partial`, `aborted` or `failed` frees the daily slot, so you can request another one the same day.
 - The replay endpoints are rate limited. When you call them too often, they answer `429 Too Many Requests`: wait before calling again.
 
-::: panel-link Consult now our FAQ [Next](/event-platform/faq.html)
+::: panel-link Let's see how to read the logs! [Next](/event-platform/logs.html)
 :::
