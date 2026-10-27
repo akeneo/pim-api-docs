@@ -12,8 +12,6 @@ The platform captures an event when all these conditions are met:
 - The event is one of the event types the subscription tracks, and it matches the subscription filter, if any. You never get back an event you would not have received while active.
 - The subscription was suspended **less than 10 days ago**.
 
-The platform also captures the events a subscription misses right after it is created or resumed, during the [activation delay](/event-platform/concepts.html#subscription), until it receives events again.
-
 The platform does not capture events for `revoked` or `deleted` subscriptions, nor events dropped after the [retry policy](/event-platform/key-platform-behaviors.html#retry-policy-for-transient-failures).
 
 ::: info
