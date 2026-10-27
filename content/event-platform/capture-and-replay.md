@@ -142,15 +142,19 @@ Poll every few minutes at most: a replay runs at a bounded pace, so its counters
 | `running` | Events are being sent |
 | `completed` | Every event covered by the replay was delivered |
 | `partial` | The replay ended, but some events expired or could not be delivered |
-| `aborted` | The subscription was suspended, revoked or deleted while the replay ran. `terminal_reason` says which |
+| `aborted` | The subscription was suspended while the replay ran |
 | `failed` | The replay stopped because of a platform failure |
 
-`completed`, `partial`, `aborted` and `failed` are final. After an `aborted` replay, the events not sent yet stay available until the end of their retention: resume the subscription and request a new replay.
+`completed`, `partial`, `aborted` and `failed` are final. Once the subscription is deleted or revoked, its replays can no longer be read: the status endpoint answers `404 Not Found`.
+
+After an `aborted` replay, the events not sent yet stay available until the end of their retention: resume the subscription and request a new replay.
 
 ## How events are replayed
 
 - **Oldest first, at a bounded pace.** Replayed events are sent in the order they were captured, at a pace slower than live delivery. A large backlog can take several hours, or more than a day.
-- **Same events.** A replayed event is the same CloudEvent you would have received, with the same `id` and `time`.
+- **Same events, flagged as replayed.** A replayed event is the CloudEvent you would have received, with the same `id` and `time`. It carries two extra CloudEvent extension attributes, so you can tell it from a live event:
+  - `replay`: always `true`.
+  - `replayedat`: the time the event was replayed, in UTC (for example `2026-09-22T12:05:00.123456789Z`).
 - **At least once.** As with live delivery, an event can reach you twice. Deduplicate on the CloudEvent `id`, and do not rely on the order between replayed and live events. See [At least once](/event-platform/key-platform-behaviors.html#at-least-once).
 - **Retries until delivered or expired.** If your destination fails or answers `429 Too Many Requests`, the event is retried later, with a growing delay. Unlike live delivery, it is not dropped after three attempts: it is retried until it is delivered or reaches the end of its retention.
 - **Suspension stops the replay.** If your destination answers in a way that suspends the subscription (for example a `404 Not Found`), the replay ends as `aborted`. Fix the destination, resume, and request a new replay.
