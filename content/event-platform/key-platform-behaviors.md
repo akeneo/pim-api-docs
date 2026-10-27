@@ -77,5 +77,5 @@ When the platform suspends, revokes, or resumes your subscription, a notificatio
 
 Events your subscription misses while it is suspended are captured for 10 days, and you can replay them once it is resumed. See [Capture and replay](/event-platform/capture-and-replay.html).
 
-::: panel-link Let's see how to replay missed events! [Next](/event-platform/capture-and-replay.html)
+::: panel-link Let's see how notification webhooks work! [Next](/event-platform/notification-webhooks.html)
 :::
