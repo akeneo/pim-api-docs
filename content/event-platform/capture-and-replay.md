@@ -1,6 +1,6 @@
 # Capture and replay
 
-A subscription can be suspended by the platform when your destination fails, or by you, for example during a maintenance of your system. While it is suspended, the Event Platform no longer delivers its events. Instead, it **captures** them: every event the subscription would have received is kept for a limited time. Once the subscription is resumed, you can ask the platform to **replay** these missed events to your destination.
+A subscription can be suspended by the platform when your destination fails, or by you, for example during a maintenance of your system. While it is suspended, the Event Platform no longer delivers its events. Instead, it automatically **captures** them, with nothing to enable: every event the subscription would have received is kept for a limited time. Once the subscription is resumed, you can ask the platform to **replay** these missed events to your destination.
 
 This page explains what is captured, how long it is kept, and how to replay it.
 
@@ -12,10 +12,8 @@ The platform captures an event when all these conditions are met:
 - The event is one of the event types the subscription tracks, and it matches the subscription filter, if any. You never get back an event you would not have received while active.
 - The subscription was suspended **less than 10 days ago**.
 
+::: warning
 The platform does not capture events for `revoked` or `deleted` subscriptions, nor events dropped after the [retry policy](/event-platform/key-platform-behaviors.html#retry-policy-for-transient-failures).
-
-::: info
-Capture is automatic. There is nothing to enable on your subscription.
 :::
 
 ## How long captured events are kept
