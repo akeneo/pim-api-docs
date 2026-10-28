@@ -251,3 +251,6 @@ If your filter is rejected, try:
 - Simplifying the logic
 - Reducing nesting levels
   :::
+
+::: panel-link Let's see our best practices! [Next](/event-platform/best-practices.html)
+:::

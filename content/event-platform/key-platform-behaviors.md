@@ -75,5 +75,7 @@ Here are the errors type that decrease the success rate:
 
 When the platform suspends, revokes, or resumes your subscription, a notification is sent on the channels configured on your subscriber. By default an email is sent to the `technical_email` you provided; you can also opt into a webhook notification on a URL of your choice. See the [Notification webhooks](/event-platform/notification-webhooks.html) page for the contract.
 
+Events your subscription misses while it is suspended are captured for 10 days, and you can replay them once it is resumed. See [Capture and replay](/event-platform/capture-and-replay.html).
+
 ::: panel-link Let's see how notification webhooks work! [Next](/event-platform/notification-webhooks.html)
 :::
