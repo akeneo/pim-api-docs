@@ -139,9 +139,8 @@ Poll every few minutes at most: a replay runs at a bounded pace, so its counters
 | `completed` | Every event covered by the replay was delivered |
 | `partial` | The replay ended, but some events expired or could not be delivered |
 | `aborted` | The subscription was suspended while the replay ran |
-| `failed` | The replay stopped because of a platform failure |
 
-`completed`, `partial`, `aborted` and `failed` are final. Once the subscription is deleted or revoked, its replays can no longer be read: the status endpoint answers `404 Not Found`.
+`completed`, `partial` and `aborted` are final. Once the subscription is deleted or revoked, its replays can no longer be read: the status endpoint answers `404 Not Found`.
 
 After an `aborted` replay, the events not sent yet stay available until the end of their retention: resume the subscription and request a new replay.
 
@@ -158,7 +157,7 @@ After an `aborted` replay, the events not sent yet stay available until the end 
 ## Quotas
 
 - One pending or running replay per subscription at a time.
-- One successfully completed replay per subscription per UTC day. A replay that ends `partial`, `aborted` or `failed` frees the daily slot, so you can request another one the same day.
+- One successfully completed replay per subscription per UTC day. A replay that ends `partial` or `aborted` frees the daily slot, so you can request another one the same day.
 
 ::: panel-link Let's see how to read the logs! [Next](/event-platform/logs.html)
 :::
