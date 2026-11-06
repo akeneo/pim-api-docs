@@ -1871,6 +1871,15 @@ For complex queries combining multiple conditions, you can use **logical operato
 See [Filter assets with logical operators](/documentation/assets-filter-logical-operators.html) for detailed examples and usage.
 :::
 
+When you put several filters at the root of the `search` query parameter, the API only returns the assets that match all of them.
+At the root, the `code` and `updated` filters take an array of conditions, while the `created`, `complete` and attribute value filters take a single object.
+
+```
+/api/rest/v1/asset-families/model_pictures/assets?search={"code":[{"operator":"IN","value":["code1","code2"]}],"created":{"operator":">","value":"2024-01-01T00:00:00Z"}}
+```
+
+An operator that a filter doesn't support returns a `422` error that names the filter.
+
 ### By asset codes
 
 ::: availability versions=7.0,SaaS editions=EE
@@ -1889,11 +1898,15 @@ Below is the operator to filter on this property, as well as the corresponding t
 /api/rest/v1/asset-families/model_pictures/assets?search={"code":[{"operator":"IN","value":["code1","code2"]}]}
 ```
 
+::: info
+Inside the [logical operators](/documentation/assets-filter-logical-operators.html), the `code` filter is an object and also accepts the `=` operator with a single asset code.
+:::
+
 ### By update date
 
 You can filter the assets by their update date.
 
-Below is the operator to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
+Below are the operators to filter on this property, as well as the corresponding type of value expected in the `search` query parameter.
 
 ::: info
 Please note that you have to write dates in either of these format _2021-05-17T15:19:32Z_, or _2021-05-17T15:19:32+00:00_ according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
@@ -1916,6 +1929,15 @@ Moreover dates are interpreted in the time zone of the server that runs Akeneo (
 | `NOT BETWEEN`       | array of datetimes <br> _Format: ISO 8601_ | Only returns assets that were <br> not updated between the two given dates                 |
 | `SINCE LAST N DAYS` | integer                                    | Only returns assets that were <br> updated during the last n days, n being the given value |
 
+::: availability versions=SaaS editions=EE
+
+| Operator            | Allowed value type                         | Filter description                                                                         |
+| ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `=`                 | date or datetime <br> _Format: ISO 8601_   | Only returns assets that were <br> updated on the given day, or at the given datetime, to the second  |
+| `!=`                | date or datetime <br> _Format: ISO 8601_   | Only returns assets that were <br> not updated on the given day, or at the given datetime, to the second |
+
+In the SaaS version, every operator except `SINCE LAST N DAYS` also accepts a date without time (e.g. _2021-05-17_) in place of a datetime, and covers the whole day: `=` and `!=` compare the day, `<` returns the assets updated before it, `>` the assets updated after it, and `BETWEEN` / `NOT BETWEEN` include both days. Dates must be on or after 1970-01-01.
+
 #### Example
 
 To get the assets that were updated since the 4th of July 2018 at 10am (UTC), you can use the following URL.
@@ -1936,32 +1958,89 @@ To get the assets that were updated over a period of time, you can use the `BETW
 /api/rest/v1/asset-families/model_pictures/assets?search={"updated":[{"operator":"NOT BETWEEN","value":["2018-07-04T10:00:00Z","2018-08-04T10:00:00Z"]}]}
 ```
 
-Finally, if you want to get the assets updated in the last 4 days, you can use the `SINCE LAST N DAYS` operator.
+If you want to get the assets updated in the last 4 days, you can use the `SINCE LAST N DAYS` operator.
 
 ```
 /api/rest/v1/asset-families/model_pictures/assets?search={"updated":[{"operator":"SINCE LAST N DAYS","value":4}]}
+```
+
+Finally, to get the assets updated on the 4th of July 2018, you can use the `=` operator with a date.
+
+```
+/api/rest/v1/asset-families/model_pictures/assets?search={"updated":[{"operator":"=","value":"2018-07-04"}]}
+```
+
+### By creation date
+
+::: availability versions=SaaS editions=EE
+
+You can filter the assets by their creation date.
+
+The `created` filter accepts the same operators and values as the [update date filter](#by-update-date), but it takes a single object instead of an array.
+
+#### Example
+
+To get the assets that were created in 2024, you can use the following URL.
+
+```
+/api/rest/v1/asset-families/model_pictures/assets?search={"created":{"operator":"BETWEEN","value":["2024-01-01","2024-12-31"]}}
+```
+
+### By completeness
+
+::: availability versions=SaaS editions=EE
+
+You can filter the assets by their completeness on a channel and one or several locales.
+An asset is complete when it has a value for every required attribute of its asset family on the given channel and on each given locale.
+
+| Operator | Allowed value type | Filter description |
+|----------|--------------------|--------------------|
+| `=`      | boolean            | `true` only returns the complete assets, `false` only returns the incomplete ones |
+
+The `channel` and `locales` properties are required.
+If the asset family has no required attribute, every asset is complete.
+
+#### Example
+
+To get the assets that are complete on the `ecommerce` channel for both the `en_US` and `fr_FR` locales, you can use the following URL.
+
+```
+/api/rest/v1/asset-families/model_pictures/assets?search={"complete":{"operator":"=","value":true,"channel":"ecommerce","locales":["en_US","fr_FR"]}}
 ```
 
 ### By attribute values
 
 ::: availability versions=SaaS editions=EE
 
-You can filter assets on their attribute values using the `search` query parameter.
-For scopable/localizable attributes, you can optionally specify a `channel` and/or `locale` in the filter.
-If omitted, the API will try to use the `channel`/`locales` provided in the request.
+You can filter assets on their attribute values using the `search` query parameter, with the attribute code as the key.
+For a localizable attribute, give the `locale` in the filter. For a scopable attribute, give the `channel` in the filter.
+Without them, the filter doesn't look at the localizable or scopable values: the `channel` and `locales` query parameters only select the returned values, they are not used by the filters.
 
-Supported types and operators:
-- text: `=`, `CONTAINS`, `DOES NOT CONTAIN`, `STARTS WITH`, `ENDS WITH`, `EMPTY`, `NOT EMPTY`
-- number: `=`, `EMPTY`, `NOT EMPTY`
-- boolean: `=`, `EMPTY`, `NOT EMPTY`
-- date: `=`, `<`, `>`, `BETWEEN`, `NOT BETWEEN`, `EMPTY`, `NOT EMPTY`
-- option/option_collection: `IN`, `EMPTY`, `NOT EMPTY`
-- record: `IN`, `EMPTY`, `NOT EMPTY`
+Below are the operators allowed for each attribute type, as well as the corresponding type of value expected in the `search` query parameter.
+
+| Attribute type | Operators | Allowed value type |
+|----------------|-----------|--------------------|
+| Text | `=`, `!=`, `CONTAINS`, `DOES NOT CONTAIN`, `STARTS WITH`, `ENDS WITH` | string |
+| | `IN` | array of strings |
+| | `EMPTY`, `NOT EMPTY` | no value |
+| Number | `=`, `!=` | number |
+| | `EMPTY`, `NOT EMPTY` | no value |
+| Boolean | `=`, `!=` | boolean |
+| | `EMPTY`, `NOT EMPTY` | no value |
+| Date | `=`, `!=`, `<`, `>` | date <br> _Format: YYYY-MM-DD_ |
+| | `BETWEEN`, `NOT BETWEEN` | array of two dates <br> _Format: YYYY-MM-DD_ |
+| | `EMPTY`, `NOT EMPTY` | no value |
+| Single option, multiple options, auto-tagging | `IN`, `NOT IN` | array of option codes |
+| | `EMPTY`, `NOT EMPTY` | no value |
+| Record | `IN` | array of reference entity record codes |
+| | `EMPTY`, `NOT EMPTY` | no value |
 
 Notes:
+- `!=` only returns the assets that have a value for the attribute: an asset without a value is left out. `NOT IN` and `DOES NOT CONTAIN` also return the assets without a value.
+- On a multiple options or auto-tagging attribute, `IN` returns the assets that have at least one of the given options, and `NOT IN` the assets that have none of them.
 - Filtering on attribute types `media_file` and `media_link` is not supported. The API will return a 422 error.
-- Attribute identifiers must match the regex `^[a-zA-Z0-9_]+$`.
-- For `record` attributes, the value used in the filter is the code of the linked reference entity record.
+- Number attributes don't support the `<`, `<=`, `>` and `>=` operators.
+- Attribute codes must match the regex `^[a-zA-Z0-9_]+$`.
 
 #### Examples
 
@@ -1976,7 +2055,18 @@ Filter by an option (simple or collection):
 ```
 /api/rest/v1/asset-families/{asset_family_code}/assets?search={"usage":{"operator":"IN","value":["web","print"]}}
 ```
-::::
+
+Exclude assets that have some options:
+
+```
+/api/rest/v1/asset-families/{asset_family_code}/assets?search={"usage":{"operator":"NOT IN","value":["print"]}}
+```
+
+Filter by a boolean attribute value different from `true`:
+
+```
+/api/rest/v1/asset-families/{asset_family_code}/assets?search={"is_public":{"operator":"!=","value":true}}
+```
 
 ### Asset values by locale
 
