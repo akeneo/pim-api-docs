@@ -1933,8 +1933,8 @@ Moreover dates are interpreted in the time zone of the server that runs Akeneo (
 
 | Operator            | Allowed value type                         | Filter description                                                                         |
 | ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `=`                 | date or datetime <br> _Format: ISO 8601_   | Only returns assets that were <br> updated on the given day, or at the given day and hour  |
-| `!=`                | date or datetime <br> _Format: ISO 8601_   | Only returns assets that were <br> not updated on the given day, or at the given day and hour |
+| `=`                 | date or datetime <br> _Format: ISO 8601_   | Only returns assets that were <br> updated on the given day, or at the given datetime, to the second  |
+| `!=`                | date or datetime <br> _Format: ISO 8601_   | Only returns assets that were <br> not updated on the given day, or at the given datetime, to the second |
 
 In the SaaS version, every operator except `SINCE LAST N DAYS` also accepts a date without time (e.g. _2021-05-17_) in place of a datetime, and covers the whole day: `=` and `!=` compare the day, `<` returns the assets updated before it, `>` the assets updated after it, and `BETWEEN` / `NOT BETWEEN` include both days. Dates must be on or after 1970-01-01.
 
