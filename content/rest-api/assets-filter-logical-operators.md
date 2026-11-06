@@ -18,14 +18,14 @@ When using logical operators, follow these rules:
 
 ### Rule 1: Single root operator
 
-Only use one logical operator (`and` OR `or`) at the root level of your query.
+Only use one logical operator (`and` OR `or`) at the root level of your query, without any other filter next to it.
 
 **Valid:**
 ```json
 {
     "and": [
-        {"code": {"operator": "=", "value": "asset1"}},
-        {"code": {"operator": "!=", "value": "asset2"}}
+        {"code": {"operator": "IN", "value": ["asset1", "asset2"]}},
+        {"title": {"operator": "!=", "value": "Draft", "locale": "en_US"}}
     ]
 }
 ```
@@ -35,6 +35,14 @@ Only use one logical operator (`and` OR `or`) at the root level of your query.
 {
     "and": [...],
     "or": [...]
+}
+```
+
+**Invalid:**
+```json
+{
+    "and": [...],
+    "code": [{"operator": "IN", "value": ["asset1"]}]
 }
 ```
 
@@ -56,6 +64,24 @@ Within a logical operator's array, you can freely nest additional operators and 
 }
 ```
 
+### Rule 3: One object per filter
+
+Inside a logical operator, every filter is a single object, including `code` and `updated`, which take an array of conditions at the root of the query:
+
+**Valid:**
+```json
+{"and": [{"updated": {"operator": ">", "value": "2024-01-01T00:00:00Z"}}]}
+```
+
+**Invalid:**
+```json
+{"and": [{"updated": [{"operator": ">", "value": "2024-01-01T00:00:00Z"}]}]}
+```
+
+### Rule 4: At most 100 items per operator
+
+Each `and` and `or` array holds between 1 and 100 items.
+
 ## Using the `AND` operator
 
 The `and` operator returns assets that match **all** of the specified conditions.
@@ -65,7 +91,7 @@ The `and` operator returns assets that match **all** of the specified conditions
 Find assets with specific codes that were updated after January 1st, 2024:
 
 ```
-/api/rest/v1/asset-manager/assets?search={
+/api/rest/v1/asset-families/model_pictures/assets?search={
     "and": [
         {"code": {"operator": "IN", "value": ["product_image_001", "product_image_002"]}},
         {"updated": {"operator": ">", "value": "2024-01-01T00:00:00Z"}}
@@ -73,15 +99,14 @@ Find assets with specific codes that were updated after January 1st, 2024:
 }
 ```
 
-### Example: Filter by code and attributes
+### Example: Filter by completeness and attributes
 
-Find specific assets that are complete with a specific color in the US market:
+Find assets that are complete on the `ecommerce` channel in US English, with a red or blue main color:
 
 ```
-/api/rest/v1/asset-manager/assets?search={
+/api/rest/v1/asset-families/model_pictures/assets?search={
     "and": [
-        {"code": {"operator": "STARTS_WITH", "value": "product_"}},
-        {"complete": {"operator": "=", "value": true, "context": {"channel": "ecommerce", "locales": ["en_US"]}}},
+        {"complete": {"operator": "=", "value": true, "channel": "ecommerce", "locales": ["en_US"]}},
         {
             "main_color": {
                 "operator": "IN",
@@ -102,7 +127,7 @@ The `or` operator returns assets that match **any** of the specified conditions.
 Find assets with code "hero_image" OR "thumbnail":
 
 ```
-/api/rest/v1/asset-manager/assets?search={
+/api/rest/v1/asset-families/model_pictures/assets?search={
     "or": [
         {"code": {"operator": "=", "value": "hero_image"}},
         {"code": {"operator": "=", "value": "thumbnail"}}
@@ -113,7 +138,7 @@ Find assets with code "hero_image" OR "thumbnail":
 ::: info
 For this simple case, using the `IN` operator is more efficient:
 ```json
-{"code": {"operator": "IN", "value": ["hero_image", "thumbnail"]}}
+{"code": [{"operator": "IN", "value": ["hero_image", "thumbnail"]}]}
 ```
 :::
 
@@ -122,7 +147,7 @@ For this simple case, using the `IN` operator is more efficient:
 Find assets with "summer" in the English title OR "été" in the French title:
 
 ```
-/api/rest/v1/asset-manager/assets?search={
+/api/rest/v1/asset-families/model_pictures/assets?search={
     "or": [
         {
             "title": {
@@ -148,12 +173,12 @@ You can nest operators to create complex queries.
 
 ### Example: Search with alternatives
 
-Find assets where the alt text contains "shoes" OR the category is "footwear" or "accessories":
+Find assets whose title starts with "img_", where the alt text contains "shoes" OR the category is "footwear" or "accessories":
 
 ```
-/api/rest/v1/asset-manager/assets?search={
+/api/rest/v1/asset-families/model_pictures/assets?search={
     "and": [
-        {"code": {"operator": "STARTS_WITH", "value": "img_"}},
+        {"title": {"operator": "STARTS WITH", "value": "img_", "locale": "en_US"}},
         {
             "or": [
                 {
@@ -176,21 +201,20 @@ Find assets where the alt text contains "shoes" OR the category is "footwear" or
 }
 ```
 
-### Example: Date range with multiple code patterns
+### Example: Date range with multiple title patterns
 
-Find assets with codes starting with "img_" OR "vid_" that were updated in 2024:
+Find assets whose title starts with "img_" OR "vid_" that were updated in 2024:
 
 ```
-/api/rest/v1/asset-manager/assets?search={
+/api/rest/v1/asset-families/model_pictures/assets?search={
     "and": [
         {
             "or": [
-                {"code": {"operator": "STARTS_WITH", "value": "img_"}},
-                {"code": {"operator": "STARTS_WITH", "value": "vid_"}}
+                {"title": {"operator": "STARTS WITH", "value": "img_", "locale": "en_US"}},
+                {"title": {"operator": "STARTS WITH", "value": "vid_", "locale": "en_US"}}
             ]
         },
-        {"updated": {"operator": ">=", "value": "2024-01-01T00:00:00Z"}},
-        {"updated": {"operator": "<=", "value": "2024-12-31T23:59:59Z"}}
+        {"updated": {"operator": "BETWEEN", "value": ["2024-01-01T00:00:00Z", "2024-12-31T23:59:59Z"]}}
     ]
 }
 ```
@@ -201,21 +225,26 @@ Find assets with codes starting with "img_" OR "vid_" that were updated in 2024:
 
 You can filter on these asset properties:
 
-- `code` - Asset code (string)
-- `updated` - Last update date (ISO 8601 date string)
-- `complete` - Completeness status (boolean with optional context)
+| Property  | Operators | Allowed value type |
+|-----------|-----------|--------------------|
+| `code`    | `=` | asset code |
+|           | `IN` | array of asset codes |
+| `updated`, `created` | `=`, `!=`, `<`, `>` | date or datetime <br> _Format: ISO 8601_ |
+|           | `BETWEEN`, `NOT BETWEEN` | array of two dates or datetimes <br> _Format: ISO 8601_ |
+|           | `SINCE LAST N DAYS` | integer |
+| `complete` | `=` | boolean, with the required `channel` and `locales` properties |
 
-#### Example with completeness context
+See [Filter assets](/documentation/filter.html#filter-assets) for the details of each property.
+
+#### Example with completeness
 
 ```json
 {
     "complete": {
         "operator": "=",
         "value": true,
-        "context": {
-            "channel": "ecommerce",
-            "locales": ["en_US", "fr_FR"]
-        }
+        "channel": "ecommerce",
+        "locales": ["en_US", "fr_FR"]
     }
 }
 ```
@@ -235,7 +264,9 @@ You can filter on asset attribute values using the attribute code as a key:
 }
 ```
 
-The `locale` and `channel` parameters are optional and depend on your attribute configuration (localizable/scopable).
+Give the `locale` for a localizable attribute, and the `channel` for a scopable attribute.
+
+Each attribute type accepts its own operators: see [Filter assets by attribute values](/documentation/filter.html#by-attribute-values) for the list. Any other operator returns a `422` error that names the filter.
 
 ## Performance best practices
 
@@ -248,7 +279,7 @@ Place the most selective filters first to reduce the dataset early:
 {
     "and": [
         {"code": {"operator": "IN", "value": ["specific_asset"]}},
-        {"complete": {"operator": "=", "value": true}},
+        {"complete": {"operator": "=", "value": true, "channel": "ecommerce", "locales": ["en_US"]}},
         {"updated": {"operator": ">", "value": "2024-01-01"}}
     ]
 }
@@ -259,7 +290,7 @@ Place the most selective filters first to reduce the dataset early:
 {
     "and": [
         {"updated": {"operator": ">", "value": "2024-01-01"}},
-        {"complete": {"operator": "=", "value": true}},
+        {"complete": {"operator": "=", "value": true, "channel": "ecommerce", "locales": ["en_US"]}},
         {"code": {"operator": "IN", "value": ["specific_asset"]}}
     ]
 }
@@ -269,8 +300,8 @@ Place the most selective filters first to reduce the dataset early:
 
 Prefer exact matches over text searches when possible:
 
-**Better:** `{"operator": "=", "value": "exact_code"}`
-**Less efficient:** `{"operator": "CONTAINS", "value": "exact_code"}`
+**Better:** `{"operator": "=", "value": "exact_title"}`
+**Less efficient:** `{"operator": "CONTAINS", "value": "exact_title"}`
 
 ### 3. Optimize OR operations
 
@@ -281,7 +312,7 @@ OR operations can be expensive on large datasets. Consider:
 
 **Better:**
 ```json
-{"code": {"operator": "IN", "value": ["asset1", "asset2", "asset3"]}}
+{"code": [{"operator": "IN", "value": ["asset1", "asset2", "asset3"]}]}
 ```
 
 **Less efficient:**
@@ -297,16 +328,15 @@ OR operations can be expensive on large datasets. Consider:
 
 ### 4. Minimize context combinations
 
-Only include `locale` and `channel` context when necessary:
+Only include the `locale` and `channel` properties of an attribute filter when the attribute is localizable or scopable, and only ask for the completeness on the locales you need:
 
 ```json
 {
     "complete": {
         "operator": "=",
         "value": true,
-        "context": {
-            "channel": "ecommerce"
-        }
+        "channel": "ecommerce",
+        "locales": ["en_US"]
     }
 }
 ```
