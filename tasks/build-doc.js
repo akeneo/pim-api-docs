@@ -1486,6 +1486,7 @@ gulp.task('build-tutorials', ['clean-dist', 'less'], function () {
 
 gulp.task('build-news', ['clean-dist','less'], function () {
     var pages = {
+        '2026.md': '2026',
         '2025.md': '2025',
         '2024.md': '2024',
         '2023.md': '2023',
