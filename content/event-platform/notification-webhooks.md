@@ -1,6 +1,6 @@
 # Notification webhooks
 
-When a Subscription transitions to `suspended`, `revoked`, or `resumed`, the Event Platform notifies you on the channels configured on your Subscriber. The available channels are `email` (default) and `webhook`. This page describes the webhook channel: when it fires, how to configure it, the payload format, how to verify signatures, and the delivery contract.
+When a Subscription transitions to `suspended`, `revoked`, or `resumed`, the Event Platform notifies you on the channels configured on your Subscriber. The available channels are `email` (default) and `webhook`. This page describes the webhook channel: when it fires, how to configure it, the payload format, how to verify signatures, which IP address it comes from, and the delivery contract.
 
 When `webhook` is in your subscriber's `notification_channels`, the Event Platform sends a `POST` request to your `notification_webhook_url` whenever any of your subscriptions transitions to `suspended`, `revoked`, or `resumed`. The exact event is conveyed in the `notification_type` field of the payload, which is one of `subscription.suspended.system`, `subscription.suspended.user`, `subscription.revoked`, or `subscription.resumed`.
 
@@ -101,6 +101,14 @@ Always verify against the **raw request body bytes**, not a re-serialized JSON o
 
 ::: info
 Use a constant-time string comparison (`crypto.timingSafeEqual` in Node.js, `hash_equals` in PHP, `hmac.compare_digest` in Python) to avoid leaking signature bytes via timing side channels.
+:::
+
+## IP allowlisting
+
+Notification webhooks are sent from the static IP address `35.195.141.217`. If your endpoint only accepts requests from known source IP addresses, add this one to your allowlist.
+
+::: info
+This address is not the one used to deliver events to your [HTTPS subscriptions](/event-platform/concepts.html#webhooks-ip-range). If your endpoint receives both, allowlist both addresses.
 :::
 
 ## Delivery and fallback
