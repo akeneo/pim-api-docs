@@ -230,11 +230,11 @@ if (computedSignature !== receivedSignature) {
 
 ##### Webhooks IP Range
 
-If you want to add an additional layer of security, you can whitelist our service’s IP range.
+If you want to add an additional layer of security, you can allowlist our service's IP address.
 
-We currently use a static IP address provided by Google Cloud: `34.140.80.128`
+We deliver events from the static IP address `34.140.80.128`.
 
-**However, we cannot guarantee that this IP address will remain unchanged indefinitely.** Therefore, we strongly recommend whitelisting the `europe-west1` IP ranges from [Google Cloud's IP ranges list](https://www.gstatic.com/ipranges/cloud.json) to ensure continuous access.
+Notification webhooks come from a different IP address. See [IP allowlisting](/event-platform/notification-webhooks.html#ip-allowlisting).
 
 ### Kafka subscription
 
