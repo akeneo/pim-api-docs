@@ -4,7 +4,5 @@
 <div style="display:none" class="to-remove">
 
 ## API tools
-
-## Diving into an App
 </div>
 

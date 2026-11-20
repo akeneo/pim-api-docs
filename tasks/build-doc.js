@@ -1038,24 +1038,6 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
         },
     ];
 
-    const app = {
-        'title': 'Demo App',
-        'content': 'Our official and already-in-production ' +
-            'Demo App will help you to understand ' +
-            'how to use Akeneo App features.',
-        'image': 'apps/dev-tools-php.svg',
-        'rows': [
-            {
-                'image': 'icons/icon--github.png',
-                'content': 'Github repository:',
-                'breakline': true,
-                'link': 'https://github.com/akeneo/demo-app',
-                'link_content': 'akeneo/demo-app',
-            }
-        ],
-        'author': 'By Akeneo'
-    };
-
     var isOnePage = false;
 
     return gulp.src(['content/apps/app-developer-tools.md'])
@@ -1071,7 +1053,6 @@ gulp.task('build-app-developer-tools', ['clean-dist','less'], function () {
                             active_apps:  true,
                             startApp : startApp,
                             apiTools : apiTools,
-                            app : app,
                             mainContent: fs.readFileSync('tmp/apps/' + path.basename(file.path).replace(/\.md/, '.html')),
                             title: getPageTitle(file.path),
                             description: getPageDescription(file.path),
