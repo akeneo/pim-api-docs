@@ -476,10 +476,10 @@ Here are the allowed operators you can use to filter by completeness as well as 
 
 | Operator              | Allowed value type | Filter description                                                                                                                    |
 | --------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `AT LEAST COMPLETE`   | no value           | Only returns product models that have `at least one variant product` fully complete on the given channel for the given set of locales |
-| `AT LEAST INCOMPLETE` | no value           | Only returns product models that have `at least one variant product` incomplete on the given channel for the given set of locales     |
-| `ALL COMPLETE`        | no value           | Only returns product models that have all his variant products fully complete on the given channel for the given set of locales       |
-| `ALL INCOMPLETE`      | no value           | Only returns product models that have all his variant products incomplete on the given channel for the given set of locales           |
+| `AT LEAST COMPLETE`   | no value           | Only returns product models that have `at least one variant product` fully complete on the given channel for any of the given set of locales |
+| `AT LEAST INCOMPLETE` | no value           | Only returns product models that have `at least one variant product` incomplete on the given channel for any of the given set of locales |
+| `ALL COMPLETE`        | no value           | Only returns product models that have all his variant products fully complete on the given channel for each of the given locales      |
+| `ALL INCOMPLETE`      | no value           | Only returns product models that have all his variant products incomplete on the given channel for each of the given locales          |
 
 #### Examples
 
@@ -489,7 +489,7 @@ To get the product models that are 100% complete for the `ecommerce` channel on 
 /api/rest/v1/product-models?search={"completeness":[{"operator":"ALL COMPLETE","locale":"fr_FR","scope":"ecommerce"}]}
 ```
 
-To get the product models that have at least one variant product 100% complete on both the `en_US` and `fr_FR` locales for the `ecommerce` channel, you can use the following URL.
+To get the product models that have at least one variant product 100% complete on either the `en_US` or `fr_FR` locales (or both) for the `ecommerce` channel, you can use the following URL.
 
 ```
 /api/rest/v1/product-models?search={"completeness":[{"operator":"AT LEAST COMPLETE","locales":["en_US","fr_FR"],"scope":"ecommerce"}]}
