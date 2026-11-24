@@ -21,7 +21,7 @@ If your subscription has an HTTPS destination, our delivery engine adapts the ev
 
 
 The throughput automatically adjusts between these limits based on your endpoint's responses:
-- `200 OK`: The delivery rate gradually increases up to the maximum rate
+- `2xx` (e.g. `200 OK` or `202 Accepted`): The delivery rate gradually increases up to the maximum rate
 - `429 Too Many Requests`: The delivery rate decreases to prevent system overload
 
 ::: warning
@@ -33,7 +33,7 @@ Consider using another [subscription type](/event-platform/concepts.html#subscri
 
 ## Delivery timeout
 
-Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to handle requests within **`5 seconds`**.  If processing exceeds this duration, the event will enter the retry process ([see below](/event-platform/key-platform-behaviors.html#retry-policy-for-transient-failures)).
+Specifically for the HTTPS destination type, the delivery timeout ensures that messages are processed within a specified  time frame. Your endpoint is expected to acknowledge each event with a `2xx` status (e.g. `200 OK` or `202 Accepted`) within **`5 seconds`**. If processing exceeds this duration, the event will enter the retry process ([see below](/event-platform/key-platform-behaviors.html#retry-policy-for-transient-failures)).
 
 Under normal circumstances, your HTTPS endpoint must handle the event as fast as possible.
 **Our recommendation** is to put the message in a `queuing system` or in a `database` for asynchronous processing.
