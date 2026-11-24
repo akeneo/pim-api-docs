@@ -78,7 +78,7 @@ The new platform offers more granular event handling compared to the Event API, 
 
 ### My subscription is repeatedly suspended, I resume it all the time and I lose events, why ?
 
-According to our delivery timeout strict policy, we want your subscribing service to acknowledge the reception of the event as fast as it can in order for our platform to deliver events continuously.
+According to our delivery timeout strict policy, we want your subscribing service to acknowledge the reception of the event (with a `2xx` status, e.g. `200 OK` or `202 Accepted`) as fast as it can in order for our platform to deliver events continuously.
 
 Resuming a suspended subscription several times indicates that you might need to change the way you deal with event consumption.
 

@@ -142,7 +142,7 @@ This option pushes events directly to a HTTP endpoint. It offers flexibility but
 Endpoints without proper HTTP 429 handling are at high risk of being overwhelmed, leading to event loss and subscription suspension.
 :::
 
-- **Fast Acknowledgement:** Endpoints must respond with an `HTTP 200 OK` within **5 seconds**. Delays trigger retries and can lead to suspension. [ref](https://api.akeneo.com/event-platform/key-platform-behaviors.html#delivery-timeout)
+- **Fast Acknowledgement:** Endpoints must respond with a `2xx` status (e.g. `200 OK` or `202 Accepted`) within **5 seconds**. Delays trigger retries and can lead to suspension. [ref](https://api.akeneo.com/event-platform/key-platform-behaviors.html#delivery-timeout)
     - **Recommendation:** Implement an asynchronous processing model (e.g., using an internal queue) to acknowledge events quickly and process them separately.
 - **Suspension Policy:** Subscriptions may be suspended due to repeated errors (e.g., `4xx`/`5xx` status codes, timeouts, misconfigured SSL). [ref](https://api.akeneo.com/event-platform/key-platform-behaviors.html#suspension-policy)
 
