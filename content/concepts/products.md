@@ -1054,7 +1054,7 @@ When you create or update a product model, only the values of attributes that be
 - values of attributes of a lower level, which belong to a sub product model or to the variant products;
 - values of attributes that are not in the family.
 
-The response is still a `201` or a `204`. To set such a value, update the product model or the variant product at the level the attribute belongs to.
+When the request has no other error, the response is still a `201` or a `204`. To set such a value, update the product model or the variant product at the level the attribute belongs to.
 :::
 
 ::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodel)
