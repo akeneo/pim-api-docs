@@ -1048,6 +1048,15 @@ Note that the `family` field is only available since the 3.2 version.
 Note that the `quality_scores` field is **only available since the 7.0 version** and when the `with_quality_scores` query parameter is set to `true`.
 :::
 
+::: warning
+When you create or update a product model, only the values of attributes that belong to its own level of the family variant are saved. The other values of the request body are ignored, without any error:
+- values of attributes of a parent level. This lets you send back the body returned by a GET, which also contains the values the product model inherits from its parent;
+- values of attributes of a lower level, which belong to a sub product model or to the variant products;
+- values of attributes that are not in the family.
+
+When the request has no other error, the response is still a `201` or a `204`. To set such a value, update the product model or the variant product at the level the attribute belongs to.
+:::
+
 ::: panel-link Want more details about the product model resource? [Check its endpoints here!](/api-reference.html#Productmodel)
 :::
 
